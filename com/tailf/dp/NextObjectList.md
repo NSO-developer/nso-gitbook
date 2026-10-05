@@ -1,4 +1,4 @@
-# NextObjectList <a href="#cls-NextObjectList" id="cls-NextObjectList"></a>
+# NextObjectList <a href="#nextobjectlist-86d6d5d5f508" id="nextobjectlist-86d6d5d5f508"></a>
 
 ```java
 public interface com.tailf.dp.NextObjectList<E>
@@ -7,20 +7,20 @@ public interface com.tailf.dp.NextObjectList<E>
 
 Instances of classes implementing this interface can be used as
  return value for the
- [`DpDataCallback#getIteratorObjectList`](DpDataCallback.md#m-getIteratorObjectList-17a0707464f1)
+ [`DpDataCallback#getIteratorObjectList`](DpDataCallback.md#getiteratorobjectlist-17a0707464f1)
  method.
 
-**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerAnnotatedCallbacks-ffaebadbfc42)
+**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
 
 **Methods**:
 
-- [getTimeout()](#m-getTimeout-c6606d7f7c00)
+- [getTimeout()](#gettimeout-c6606d7f7c00)
 
 ## Methods
 
-### getTimeout() <a href="#m-getTimeout-c6606d7f7c00" id="m-getTimeout-c6606d7f7c00"></a>
+### getTimeout() <a href="#gettimeout-c6606d7f7c00" id="gettimeout-c6606d7f7c00"></a>
 
 ```java
 public abstract int getTimeout()

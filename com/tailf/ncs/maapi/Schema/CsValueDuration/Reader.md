@@ -1,4 +1,4 @@
-# Reader <a href="#cls-Reader" id="cls-Reader"></a>
+# Reader <a href="#reader-b2467a96ddff" id="reader-b2467a96ddff"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsValueDuration.Reader
@@ -9,21 +9,21 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDuration.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getDays()](#m-getDays-046356f0d5f0)
-- [getHours()](#m-getHours-3fa193b38793)
-- [getMicros()](#m-getMicros-062944cf4511)
-- [getMins()](#m-getMins-c1eeffb194a4)
-- [getMonths()](#m-getMonths-980c2a29d103)
-- [getSecs()](#m-getSecs-460472c1be09)
-- [getYears()](#m-getYears-04cc2ca752eb)
+- [getDays()](#getdays-046356f0d5f0)
+- [getHours()](#gethours-3fa193b38793)
+- [getMicros()](#getmicros-062944cf4511)
+- [getMins()](#getmins-c1eeffb194a4)
+- [getMonths()](#getmonths-980c2a29d103)
+- [getSecs()](#getsecs-460472c1be09)
+- [getYears()](#getyears-04cc2ca752eb)
 
 ## Constructors
 
-### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
+### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -50,43 +50,43 @@ Reader(
 
 ## Methods
 
-### getDays() <a href="#m-getDays-046356f0d5f0" id="m-getDays-046356f0d5f0"></a>
+### getDays() <a href="#getdays-046356f0d5f0" id="getdays-046356f0d5f0"></a>
 
 ```java
 public final int getDays()
 ```
 
-### getHours() <a href="#m-getHours-3fa193b38793" id="m-getHours-3fa193b38793"></a>
+### getHours() <a href="#gethours-3fa193b38793" id="gethours-3fa193b38793"></a>
 
 ```java
 public final int getHours()
 ```
 
-### getMicros() <a href="#m-getMicros-062944cf4511" id="m-getMicros-062944cf4511"></a>
+### getMicros() <a href="#getmicros-062944cf4511" id="getmicros-062944cf4511"></a>
 
 ```java
 public final int getMicros()
 ```
 
-### getMins() <a href="#m-getMins-c1eeffb194a4" id="m-getMins-c1eeffb194a4"></a>
+### getMins() <a href="#getmins-c1eeffb194a4" id="getmins-c1eeffb194a4"></a>
 
 ```java
 public final int getMins()
 ```
 
-### getMonths() <a href="#m-getMonths-980c2a29d103" id="m-getMonths-980c2a29d103"></a>
+### getMonths() <a href="#getmonths-980c2a29d103" id="getmonths-980c2a29d103"></a>
 
 ```java
 public final int getMonths()
 ```
 
-### getSecs() <a href="#m-getSecs-460472c1be09" id="m-getSecs-460472c1be09"></a>
+### getSecs() <a href="#getsecs-460472c1be09" id="getsecs-460472c1be09"></a>
 
 ```java
 public final int getSecs()
 ```
 
-### getYears() <a href="#m-getYears-04cc2ca752eb" id="m-getYears-04cc2ca752eb"></a>
+### getYears() <a href="#getyears-04cc2ca752eb" id="getyears-04cc2ca752eb"></a>
 
 ```java
 public final int getYears()

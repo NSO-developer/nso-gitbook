@@ -1,11 +1,11 @@
-# DpMuxManager <a href="#cls-DpMuxManager" id="cls-DpMuxManager"></a>
+# DpMuxManager <a href="#dpmuxmanager-a830918ce722" id="dpmuxmanager-a830918ce722"></a>
 
 ```java
 public class com.tailf.ncs.ctrl.DpMuxManager
     extends com.tailf.ncs.ctrl.MuxManager
 ```
 
-Types: [MuxManager](MuxManager.md#cls-MuxManager)
+Types: [MuxManager](MuxManager.md#muxmanager-aab4b7a029ee)
 
 Manager for callback components
 
@@ -13,28 +13,28 @@ Manager for callback components
 
 **Constructors**:
 
-- [DpMuxManager(NcsMain)](#m-DpMuxManager-b39489c68b51)
+- [DpMuxManager(NcsMain)](#dpmuxmanager-b39489c68b51)
 
 **Methods**:
 
-- [addToDeployException(NcsCtrlException, String, Throwable)](MuxManager.md#m-addToDeployException-90e2cb8f32b2) from MuxManager
-- [doneLoadingEvent()](#m-doneLoadingEvent-b85c1c01738a)
-- [finish()](#m-finish-8c785ae2e6bb)
-- [getPDEntry(String)](#m-getPDEntry-342c37e0891e)
-- [instantiateComponentAction(String, String, Object)](#m-instantiateComponentAction-9e067ecafe91)
-- [instantiateComponentEvent(NcsComponentData)](#m-instantiateComponentEvent-9050503646b9)
-- [loadPackageEvent(NcsComponentData)](#m-loadPackageEvent-4650a75a851a)
-- [unloadPackageEvent(NcsComponentData)](#m-unloadPackageEvent-f14422e73a47)
+- [addToDeployException(NcsCtrlException, String, Throwable)](MuxManager.md#addtodeployexception-90e2cb8f32b2) from MuxManager
+- [doneLoadingEvent()](#doneloadingevent-b85c1c01738a)
+- [finish()](#finish-8c785ae2e6bb)
+- [getPDEntry(String)](#getpdentry-342c37e0891e)
+- [instantiateComponentAction(String, String, Object)](#instantiatecomponentaction-9e067ecafe91)
+- [instantiateComponentEvent(NcsComponentData)](#instantiatecomponentevent-9050503646b9)
+- [loadPackageEvent(NcsComponentData)](#loadpackageevent-4650a75a851a)
+- [unloadPackageEvent(NcsComponentData)](#unloadpackageevent-f14422e73a47)
 
 ## Constructors
 
-### DpMuxManager(NcsMain) <a href="#m-DpMuxManager-b39489c68b51" id="m-DpMuxManager-b39489c68b51"></a>
+### DpMuxManager(NcsMain) <a href="#dpmuxmanager-b39489c68b51" id="dpmuxmanager-b39489c68b51"></a>
 
 ```java
 public DpMuxManager(com.tailf.ncs.NcsMain main)
 ```
 
-Types: [NcsMain](../NcsMain.md#cls-NcsMain)
+Types: [NcsMain](../NcsMain.md#ncsmain-eb814813aed4)
 
 **Parameters**
 
@@ -43,7 +43,7 @@ Types: [NcsMain](../NcsMain.md#cls-NcsMain)
 
 ## Methods
 
-### doneLoadingEvent() <a href="#m-doneLoadingEvent-b85c1c01738a" id="m-doneLoadingEvent-b85c1c01738a"></a>
+### doneLoadingEvent() <a href="#doneloadingevent-b85c1c01738a" id="doneloadingevent-b85c1c01738a"></a>
 
 ```java
 public void doneLoadingEvent() throws Exception
@@ -51,7 +51,7 @@ public void doneLoadingEvent() throws Exception
 
 Handling doneLoading events received by the NcsMain FSM
 
-### finish() <a href="#m-finish-8c785ae2e6bb" id="m-finish-8c785ae2e6bb"></a>
+### finish() <a href="#finish-8c785ae2e6bb" id="finish-8c785ae2e6bb"></a>
 
 ```java
 public void finish()
@@ -59,13 +59,13 @@ public void finish()
 
 Stop and cleanup all components of this type
 
-### getPDEntry(String) <a href="#m-getPDEntry-342c37e0891e" id="m-getPDEntry-342c37e0891e"></a>
+### getPDEntry(String) <a href="#getpdentry-342c37e0891e" id="getpdentry-342c37e0891e"></a>
 
 ```java
 public com.tailf.ncs.ctrl.DpPDEntry getPDEntry(String uniqueName)
 ```
 
-Types: [DpPDEntry](DpPDEntry.md#cls-DpPDEntry)
+Types: [DpPDEntry](DpPDEntry.md#dppdentry-3d7fc55c80fc)
 
 Get component for name "package_name:component_name"
 
@@ -75,7 +75,7 @@ Get component for name "package_name:component_name"
 
 **Returns:** DpPDEntry metadata for this component
 
-### instantiateComponentAction(String, String, Object) <a href="#m-instantiateComponentAction-9e067ecafe91" id="m-instantiateComponentAction-9e067ecafe91"></a>
+### instantiateComponentAction(String, String, Object) <a href="#instantiatecomponentaction-9e067ecafe91" id="instantiatecomponentaction-9e067ecafe91"></a>
 
 ```java
 public void instantiateComponentAction(
@@ -99,13 +99,13 @@ Handles instantiateComponent events received by the
 
 - `Exception`
 
-### instantiateComponentEvent(NcsComponentData) <a href="#m-instantiateComponentEvent-9050503646b9" id="m-instantiateComponentEvent-9050503646b9"></a>
+### instantiateComponentEvent(NcsComponentData) <a href="#instantiatecomponentevent-9050503646b9" id="instantiatecomponentevent-9050503646b9"></a>
 
 ```java
 public void instantiateComponentEvent(com.tailf.ncs.ctrl.NcsComponentData data) throws Exception
 ```
 
-Types: [NcsComponentData](NcsComponentData.md#cls-NcsComponentData)
+Types: [NcsComponentData](NcsComponentData.md#ncscomponentdata-b345f6915023)
 
 Handling instantiateComponent events received by the NcsMain FSM and
  relays to the relevant component FSMs
@@ -114,13 +114,13 @@ Handling instantiateComponent events received by the NcsMain FSM and
 
 - `com.tailf.ncs.ctrl.NcsComponentData data`
 
-### loadPackageEvent(NcsComponentData) <a href="#m-loadPackageEvent-4650a75a851a" id="m-loadPackageEvent-4650a75a851a"></a>
+### loadPackageEvent(NcsComponentData) <a href="#loadpackageevent-4650a75a851a" id="loadpackageevent-4650a75a851a"></a>
 
 ```java
 public void loadPackageEvent(com.tailf.ncs.ctrl.NcsComponentData data) throws Exception
 ```
 
-Types: [NcsComponentData](NcsComponentData.md#cls-NcsComponentData)
+Types: [NcsComponentData](NcsComponentData.md#ncscomponentdata-b345f6915023)
 
 Handling loadPackage events received by the NcsMain FSM and relays to
  the relevant component FSMs
@@ -129,13 +129,13 @@ Handling loadPackage events received by the NcsMain FSM and relays to
 
 - `com.tailf.ncs.ctrl.NcsComponentData data`
 
-### unloadPackageEvent(NcsComponentData) <a href="#m-unloadPackageEvent-f14422e73a47" id="m-unloadPackageEvent-f14422e73a47"></a>
+### unloadPackageEvent(NcsComponentData) <a href="#unloadpackageevent-f14422e73a47" id="unloadpackageevent-f14422e73a47"></a>
 
 ```java
 public void unloadPackageEvent(com.tailf.ncs.ctrl.NcsComponentData data) throws Exception
 ```
 
-Types: [NcsComponentData](NcsComponentData.md#cls-NcsComponentData)
+Types: [NcsComponentData](NcsComponentData.md#ncscomponentdata-b345f6915023)
 
 Handling unloadPackage events received by the NcsMain FSM and relays to
  the relevant component FSMs

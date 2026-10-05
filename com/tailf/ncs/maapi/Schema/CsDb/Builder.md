@@ -1,4 +1,4 @@
-# Builder <a href="#cls-Builder" id="cls-Builder"></a>
+# Builder <a href="#builder-21f09e83781d" id="builder-21f09e83781d"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsDb.Builder
@@ -9,19 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.CsDb.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asReader-b5c0f2a8d115)
-- [getEntries()](#m-getEntries-f554b7f62e3d)
-- [hasEntries()](#m-hasEntries-ccf5edf194a9)
-- [initEntries(int)](#m-initEntries-f2a53bc0911b)
-- [setEntries(Reader<Reader>)](#m-setEntries-e68a86853612)
+- [asReader()](#asreader-b5c0f2a8d115)
+- [getEntries()](#getentries-f554b7f62e3d)
+- [hasEntries()](#hasentries-ccf5edf194a9)
+- [initEntries(int)](#initentries-f2a53bc0911b)
+- [setEntries(Reader<Reader>)](#setentries-e68a86853612)
 
 ## Constructors
 
-### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
+### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -46,29 +46,29 @@ Builder(
 
 ## Methods
 
-### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
+### asReader() <a href="#asreader-b5c0f2a8d115" id="asreader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsDb.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#cls-Reader)
+Types: [Reader](Reader.md#reader-b2467a96ddff)
 
-### getEntries() <a href="#m-getEntries-f554b7f62e3d" id="m-getEntries-f554b7f62e3d"></a>
+### getEntries() <a href="#getentries-f554b7f62e3d" id="getentries-f554b7f62e3d"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.Cs.Builder> getEntries()
 ```
 
-Types: [Builder](../Cs/Builder.md#cls-Builder)
+Types: [Builder](../Cs/Builder.md#builder-21f09e83781d)
 
-### hasEntries() <a href="#m-hasEntries-ccf5edf194a9" id="m-hasEntries-ccf5edf194a9"></a>
+### hasEntries() <a href="#hasentries-ccf5edf194a9" id="hasentries-ccf5edf194a9"></a>
 
 ```java
 public final boolean hasEntries()
 ```
 
-### initEntries(int) <a href="#m-initEntries-f2a53bc0911b" id="m-initEntries-f2a53bc0911b"></a>
+### initEntries(int) <a href="#initentries-f2a53bc0911b" id="initentries-f2a53bc0911b"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.Cs.Builder> initEntries(
@@ -76,13 +76,13 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.Cs.Buil
 )
 ```
 
-Types: [Builder](../Cs/Builder.md#cls-Builder)
+Types: [Builder](../Cs/Builder.md#builder-21f09e83781d)
 
 **Parameters**
 
 - `int size`
 
-### setEntries(Reader<Reader>) <a href="#m-setEntries-e68a86853612" id="m-setEntries-e68a86853612"></a>
+### setEntries(Reader&lt;Reader&gt;) <a href="#setentries-e68a86853612" id="setentries-e68a86853612"></a>
 
 ```java
 public final void setEntries(
@@ -90,7 +90,7 @@ public final void setEntries(
 )
 ```
 
-Types: [Reader](../Cs/Reader.md#cls-Reader)
+Types: [Reader](../Cs/Reader.md#reader-b2467a96ddff)
 
 **Parameters**
 

@@ -1,11 +1,11 @@
-# SyslogNotification <a href="#cls-SyslogNotification" id="cls-SyslogNotification"></a>
+# SyslogNotification <a href="#syslognotification-5d0087332348" id="syslognotification-5d0087332348"></a>
 
 ```java
 public class com.tailf.notif.SyslogNotification
     extends com.tailf.notif.Notification
 ```
 
-Types: [Notification](Notification.md#cls-Notification)
+Types: [Notification](Notification.md#notification-b2e7d82d4215)
 
 Data structure for syslog notifications.
 
@@ -13,23 +13,23 @@ Data structure for syslog notifications.
 
 **Constructors**:
 
-- [SyslogNotification(NotificationType, int, int, String)](#m-SyslogNotification-b7a94aea9504)
+- [SyslogNotification(NotificationType, int, int, String)](#syslognotification-b7a94aea9504)
 
 **Fields**:
 
-- [type](Notification.md#m-type) from Notification
+- [type](Notification.md#type-6ebb3673fbb6) from Notification
 
 **Methods**:
 
-- [getLogNo()](#m-getLogNo-0a53380cc549)
-- [getMessage()](#m-getMessage-77b7dae8469e)
-- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
-- [getPrio()](#m-getPrio-c1baed14ad8b)
-- [toString()](#m-toString-e9d48c5503ef)
+- [getLogNo()](#getlogno-0a53380cc549)
+- [getMessage()](#getmessage-77b7dae8469e)
+- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getPrio()](#getprio-c1baed14ad8b)
+- [toString()](#tostring-e9d48c5503ef)
 
 ## Constructors
 
-### SyslogNotification(NotificationType, int, int, String) <a href="#m-SyslogNotification-b7a94aea9504" id="m-SyslogNotification-b7a94aea9504"></a>
+### SyslogNotification(NotificationType, int, int, String) <a href="#syslognotification-b7a94aea9504" id="syslognotification-b7a94aea9504"></a>
 
 **Package-private**
 
@@ -37,7 +37,7 @@ Data structure for syslog notifications.
 SyslogNotification(com.tailf.notif.NotificationType type, int logno, int prio, String msg)
 ```
 
-Types: [NotificationType](NotificationType.md#cls-NotificationType)
+Types: [NotificationType](NotificationType.md#notificationtype-1f10f57e184d)
 
 **Parameters**
 
@@ -49,7 +49,7 @@ Types: [NotificationType](NotificationType.md#cls-NotificationType)
 
 ## Methods
 
-### getLogNo() <a href="#m-getLogNo-0a53380cc549" id="m-getLogNo-0a53380cc549"></a>
+### getLogNo() <a href="#getlogno-0a53380cc549" id="getlogno-0a53380cc549"></a>
 
 ```java
 public int getLogNo()
@@ -57,7 +57,7 @@ public int getLogNo()
 
 Log number (from confd_logsyms.h)
 
-### getMessage() <a href="#m-getMessage-77b7dae8469e" id="m-getMessage-77b7dae8469e"></a>
+### getMessage() <a href="#getmessage-77b7dae8469e" id="getmessage-77b7dae8469e"></a>
 
 ```java
 public String getMessage()
@@ -65,7 +65,7 @@ public String getMessage()
 
 Syslog Message
 
-### getPrio() <a href="#m-getPrio-c1baed14ad8b" id="m-getPrio-c1baed14ad8b"></a>
+### getPrio() <a href="#getprio-c1baed14ad8b" id="getprio-c1baed14ad8b"></a>
 
 ```java
 public int getPrio()
@@ -73,7 +73,7 @@ public int getPrio()
 
 Priority (from syslog.h)
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()

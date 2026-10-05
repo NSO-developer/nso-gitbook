@@ -1,31 +1,31 @@
-# XPathNodeIterateResultFlag <a href="#cls-XPathNodeIterateResultFlag" id="cls-XPathNodeIterateResultFlag"></a>
+# XPathNodeIterateResultFlag <a href="#xpathnodeiterateresultflag-a264e20c01cd" id="xpathnodeiterateresultflag-a264e20c01cd"></a>
 
 ```java
 public enum com.tailf.maapi.XPathNodeIterateResultFlag
 ```
 
-Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#cls-XPathNodeIterateResultFlag)
+Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd)
 
-The [result(ConfObject[],ConfValue,Object)](MaapiXPathEvalResult.md#cls-MaapiXPathEvalResult) method
+The [result(ConfObject[],ConfValue,Object)](MaapiXPathEvalResult.md#maapixpathevalresult-e5a539712098) method
  should return any of the following two constants
 
 ## Members
 
 **Enum Constants**:
 
-- [ITER_CONTINUE](#m-ITER_CONTINUE)
-- [ITER_STOP](#m-ITER_STOP)
+- [ITER_CONTINUE](#iter_continue-987b3f3577df)
+- [ITER_STOP](#iter_stop-1b807e9343da)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(int)](#m-valueOf-c0d46d25fc67)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(int)](#valueof-c0d46d25fc67)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### ITER_CONTINUE <a href="#m-ITER_CONTINUE" id="m-ITER_CONTINUE"></a>
+### ITER_CONTINUE <a href="#iter_continue-987b3f3577df" id="iter_continue-987b3f3577df"></a>
 
 ```java
 public static final com.tailf.maapi.XPathNodeIterateResultFlag ITER_CONTINUE;
@@ -35,7 +35,7 @@ The `result` method should return
  `ITER_CONTINUE` when iteration should
  continue with the next resulting node (if any).
 
-### ITER_STOP <a href="#m-ITER_STOP" id="m-ITER_STOP"></a>
+### ITER_STOP <a href="#iter_stop-1b807e9343da" id="iter_stop-1b807e9343da"></a>
 
 ```java
 public static final com.tailf.maapi.XPathNodeIterateResultFlag ITER_STOP;
@@ -47,40 +47,40 @@ The `result` method should return `ITER_STOP`
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
+### valueOf(int) <a href="#valueof-c0d46d25fc67" id="valueof-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.maapi.XPathNodeIterateResultFlag valueOf(int i)
 ```
 
-Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#cls-XPathNodeIterateResultFlag)
+Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd)
 
 **Parameters**
 
 - `int i`
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.XPathNodeIterateResultFlag valueOf(String name)
 ```
 
-Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#cls-XPathNodeIterateResultFlag)
+Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.XPathNodeIterateResultFlag[] values()
 ```
 
-Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#cls-XPathNodeIterateResultFlag)
+Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd)

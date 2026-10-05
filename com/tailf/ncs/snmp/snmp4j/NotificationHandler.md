@@ -1,4 +1,4 @@
-# NotificationHandler <a href="#cls-NotificationHandler" id="cls-NotificationHandler"></a>
+# NotificationHandler <a href="#notificationhandler-49960afdd747" id="notificationhandler-49960afdd747"></a>
 
 ```java
 public interface com.tailf.ncs.snmp.snmp4j.NotificationHandler
@@ -11,11 +11,11 @@ Interface that all Handlers must implement
 
 **Methods**:
 
-- [processPdu(EventContext, CommandResponderEvent, Object)](#m-processPdu-6c9b32673c38)
+- [processPdu(EventContext, CommandResponderEvent, Object)](#processpdu-6c9b32673c38)
 
 ## Methods
 
-### processPdu(EventContext, CommandResponderEvent, Object) <a href="#m-processPdu-6c9b32673c38" id="m-processPdu-6c9b32673c38"></a>
+### processPdu(EventContext, CommandResponderEvent, Object) <a href="#processpdu-6c9b32673c38" id="processpdu-6c9b32673c38"></a>
 
 ```java
 public abstract com.tailf.ncs.snmp.snmp4j.HandlerResponse processPdu(
@@ -26,7 +26,7 @@ public abstract com.tailf.ncs.snmp.snmp4j.HandlerResponse processPdu(
     throws Exception
 ```
 
-Types: [HandlerResponse](HandlerResponse.md#cls-HandlerResponse), [EventContext](EventContext.md#cls-EventContext)
+Types: [HandlerResponse](HandlerResponse.md#handlerresponse-651c4aa97197), [EventContext](EventContext.md#eventcontext-9f1cd876683b)
 
 Filter method
 

@@ -1,34 +1,34 @@
-# ConfirmNetworkStateScope <a href="#cls-ConfirmNetworkStateScope" id="cls-ConfirmNetworkStateScope"></a>
+# ConfirmNetworkStateScope <a href="#confirmnetworkstatescope-758c42054a3e" id="confirmnetworkstatescope-758c42054a3e"></a>
 
 ```java
 public static enum com.tailf.maapi.CommitParams.ConfirmNetworkStateScope
 ```
 
-Types: [ConfirmNetworkStateScope](ConfirmNetworkStateScope.md#cls-ConfirmNetworkStateScope)
+Types: [ConfirmNetworkStateScope](ConfirmNetworkStateScope.md#confirmnetworkstatescope-758c42054a3e)
 
 ## Members
 
 **Enum Constants**:
 
-- [WRITE_AND_FULL_READ_SET](#m-WRITE_AND_FULL_READ_SET)
-- [WRITE_AND_SERVICE_READ_SET](#m-WRITE_AND_SERVICE_READ_SET)
+- [WRITE_AND_FULL_READ_SET](#write_and_full_read_set-4e55e1aabb9e)
+- [WRITE_AND_SERVICE_READ_SET](#write_and_service_read_set-ada5614bc022)
 
 **Methods**:
 
-- [fromValue(int)](#m-fromValue-f24ff0b9d5bf)
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [fromValue(int)](#fromvalue-f24ff0b9d5bf)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### WRITE_AND_FULL_READ_SET <a href="#m-WRITE_AND_FULL_READ_SET" id="m-WRITE_AND_FULL_READ_SET"></a>
+### WRITE_AND_FULL_READ_SET <a href="#write_and_full_read_set-4e55e1aabb9e" id="write_and_full_read_set-4e55e1aabb9e"></a>
 
 ```java
 public static final com.tailf.maapi.CommitParams.ConfirmNetworkStateScope WRITE_AND_FULL_READ_SET;
 ```
 
-### WRITE_AND_SERVICE_READ_SET <a href="#m-WRITE_AND_SERVICE_READ_SET" id="m-WRITE_AND_SERVICE_READ_SET"></a>
+### WRITE_AND_SERVICE_READ_SET <a href="#write_and_service_read_set-ada5614bc022" id="write_and_service_read_set-ada5614bc022"></a>
 
 ```java
 public static final com.tailf.maapi.CommitParams.ConfirmNetworkStateScope WRITE_AND_SERVICE_READ_SET;
@@ -37,40 +37,40 @@ public static final com.tailf.maapi.CommitParams.ConfirmNetworkStateScope WRITE_
 
 ## Methods
 
-### fromValue(int) <a href="#m-fromValue-f24ff0b9d5bf" id="m-fromValue-f24ff0b9d5bf"></a>
+### fromValue(int) <a href="#fromvalue-f24ff0b9d5bf" id="fromvalue-f24ff0b9d5bf"></a>
 
 ```java
 public static com.tailf.maapi.CommitParams.ConfirmNetworkStateScope fromValue(int value)
 ```
 
-Types: [ConfirmNetworkStateScope](ConfirmNetworkStateScope.md#cls-ConfirmNetworkStateScope)
+Types: [ConfirmNetworkStateScope](ConfirmNetworkStateScope.md#confirmnetworkstatescope-758c42054a3e)
 
 **Parameters**
 
 - `int value`
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.CommitParams.ConfirmNetworkStateScope valueOf(String name)
 ```
 
-Types: [ConfirmNetworkStateScope](ConfirmNetworkStateScope.md#cls-ConfirmNetworkStateScope)
+Types: [ConfirmNetworkStateScope](ConfirmNetworkStateScope.md#confirmnetworkstatescope-758c42054a3e)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.CommitParams.ConfirmNetworkStateScope[] values()
 ```
 
-Types: [ConfirmNetworkStateScope](ConfirmNetworkStateScope.md#cls-ConfirmNetworkStateScope)
+Types: [ConfirmNetworkStateScope](ConfirmNetworkStateScope.md#confirmnetworkstatescope-758c42054a3e)

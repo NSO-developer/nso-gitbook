@@ -1,4 +1,4 @@
-# CsDb <a href="#cls-CsDb" id="cls-CsDb"></a>
+# CsDb <a href="#csdb-70bb36cecf3d" id="csdb-70bb36cecf3d"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsDb
@@ -8,23 +8,23 @@ public static class com.tailf.ncs.maapi.Schema.CsDb
 
 **Constructors**:
 
-- [CsDb()](#m-CsDb-27ede3a9409c)
+- [CsDb()](#csdb-27ede3a9409c)
 
 **Fields**:
 
-- [factory](#m-factory)
-- [listFactory](#m-listFactory)
-- [STRUCT_SIZE](#m-STRUCT_SIZE)
+- [factory](#factory-1649195a6f6e)
+- [listFactory](#listfactory-b96025f1568b)
+- [STRUCT_SIZE](#struct_size-06830f6b9d3b)
 
 **Nested Types**:
 
-- [Builder](CsDb/Builder.md#cls-Builder)
-- [Factory](CsDb/Factory.md#cls-Factory)
-- [Reader](CsDb/Reader.md#cls-Reader)
+- [Builder](CsDb/Builder.md#builder-21f09e83781d)
+- [Factory](CsDb/Factory.md#factory-1787784624e8)
+- [Reader](CsDb/Reader.md#reader-b2467a96ddff)
 
 ## Constructors
 
-### CsDb() <a href="#m-CsDb-27ede3a9409c" id="m-CsDb-27ede3a9409c"></a>
+### CsDb() <a href="#csdb-27ede3a9409c" id="csdb-27ede3a9409c"></a>
 
 ```java
 public CsDb()
@@ -33,23 +33,23 @@ public CsDb()
 
 ## Fields
 
-### factory <a href="#m-factory" id="m-factory"></a>
+### factory <a href="#factory-1649195a6f6e" id="factory-1649195a6f6e"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsDb.Factory factory = null;
 ```
 
-Types: [Factory](CsDb/Factory.md#cls-Factory)
+Types: [Factory](CsDb/Factory.md#factory-1787784624e8)
 
-### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
+### listFactory <a href="#listfactory-b96025f1568b" id="listfactory-b96025f1568b"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsDb.Builder,com.tailf.ncs.maapi.Schema.CsDb.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsDb/Builder.md#cls-Builder), [Reader](CsDb/Reader.md#cls-Reader)
+Types: [Builder](CsDb/Builder.md#builder-21f09e83781d), [Reader](CsDb/Reader.md#reader-b2467a96ddff)
 
-### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
+### STRUCT_SIZE <a href="#struct_size-06830f6b9d3b" id="struct_size-06830f6b9d3b"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;
@@ -58,6 +58,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsDb/Builder.md#cls-Builder)
-- [Factory](CsDb/Factory.md#cls-Factory)
-- [Reader](CsDb/Reader.md#cls-Reader)
+- [Builder](CsDb/Builder.md#builder-21f09e83781d)
+- [Factory](CsDb/Factory.md#factory-1787784624e8)
+- [Reader](CsDb/Reader.md#reader-b2467a96ddff)

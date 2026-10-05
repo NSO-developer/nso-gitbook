@@ -10,8 +10,8 @@ Annotations and proxy helper classes for callbacks.
 
 ## Types
 
-- [EventCallback](EventCallback.md#cls-EventCallback)
-- [EventCallbackProxy](EventCallbackProxy.md#cls-EventCallbackProxy)
-- [Resource](Resource.md#cls-Resource)
-- [ResourceType](ResourceType.md#cls-ResourceType)
-- [Scope](Scope.md#cls-Scope)
+- [EventCallback](EventCallback.md#eventcallback-db4e4246d0c8)
+- [EventCallbackProxy](EventCallbackProxy.md#eventcallbackproxy-638c43961f07)
+- [Resource](Resource.md#resource-c987d7d7f060)
+- [ResourceType](ResourceType.md#resourcetype-7c885fa4653a)
+- [Scope](Scope.md#scope-5971086e8af0)

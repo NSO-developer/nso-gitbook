@@ -1,10 +1,10 @@
-# ProgressEventType <a href="#cls-ProgressEventType" id="cls-ProgressEventType"></a>
+# ProgressEventType <a href="#progresseventtype-502fa6a49262" id="progresseventtype-502fa6a49262"></a>
 
 ```java
 public static enum com.tailf.notif.ProgressNotification.ProgressEventType
 ```
 
-Types: [ProgressEventType](ProgressEventType.md#cls-ProgressEventType)
+Types: [ProgressEventType](ProgressEventType.md#progresseventtype-502fa6a49262)
 
 Progress event type.
 
@@ -12,31 +12,31 @@ Progress event type.
 
 **Enum Constants**:
 
-- [INFO](#m-INFO)
-- [START](#m-START)
-- [STOP](#m-STOP)
+- [INFO](#info-accb88f562cb)
+- [START](#start-759667c28821)
+- [STOP](#stop-0113fde09d86)
 
 **Methods**:
 
-- [fromInt(int)](#m-fromInt-df0c5649c91b)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [fromInt(int)](#fromint-df0c5649c91b)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### INFO <a href="#m-INFO" id="m-INFO"></a>
+### INFO <a href="#info-accb88f562cb" id="info-accb88f562cb"></a>
 
 ```java
 public static final com.tailf.notif.ProgressNotification.ProgressEventType INFO;
 ```
 
-### START <a href="#m-START" id="m-START"></a>
+### START <a href="#start-759667c28821" id="start-759667c28821"></a>
 
 ```java
 public static final com.tailf.notif.ProgressNotification.ProgressEventType START;
 ```
 
-### STOP <a href="#m-STOP" id="m-STOP"></a>
+### STOP <a href="#stop-0113fde09d86" id="stop-0113fde09d86"></a>
 
 ```java
 public static final com.tailf.notif.ProgressNotification.ProgressEventType STOP;
@@ -45,34 +45,34 @@ public static final com.tailf.notif.ProgressNotification.ProgressEventType STOP;
 
 ## Methods
 
-### fromInt(int) <a href="#m-fromInt-df0c5649c91b" id="m-fromInt-df0c5649c91b"></a>
+### fromInt(int) <a href="#fromint-df0c5649c91b" id="fromint-df0c5649c91b"></a>
 
 ```java
 public static com.tailf.notif.ProgressNotification.ProgressEventType fromInt(int x)
 ```
 
-Types: [ProgressEventType](ProgressEventType.md#cls-ProgressEventType)
+Types: [ProgressEventType](ProgressEventType.md#progresseventtype-502fa6a49262)
 
 **Parameters**
 
 - `int x`
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.notif.ProgressNotification.ProgressEventType valueOf(String name)
 ```
 
-Types: [ProgressEventType](ProgressEventType.md#cls-ProgressEventType)
+Types: [ProgressEventType](ProgressEventType.md#progresseventtype-502fa6a49262)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.notif.ProgressNotification.ProgressEventType[] values()
 ```
 
-Types: [ProgressEventType](ProgressEventType.md#cls-ProgressEventType)
+Types: [ProgressEventType](ProgressEventType.md#progresseventtype-502fa6a49262)

@@ -1,10 +1,10 @@
-# CdbDbfileType <a href="#cls-CdbDbfileType" id="cls-CdbDbfileType"></a>
+# CdbDbfileType <a href="#cdbdbfiletype-a0872754369c" id="cdbdbfiletype-a0872754369c"></a>
 
 ```java
 public enum com.tailf.cdb.CdbDbfileType
 ```
 
-Types: [CdbDbfileType](CdbDbfileType.md#cls-CdbDbfileType)
+Types: [CdbDbfileType](CdbDbfileType.md#cdbdbfiletype-a0872754369c)
 
 Database file types specified when initiating compaction
  or retrieving compaction info
@@ -13,19 +13,19 @@ Database file types specified when initiating compaction
 
 **Enum Constants**:
 
-- [CDB_A_CDB](#m-CDB_A_CDB)
-- [CDB_O_CDB](#m-CDB_O_CDB)
-- [CDB_S_CDB](#m-CDB_S_CDB)
+- [CDB_A_CDB](#cdb_a_cdb-b16407b4afb8)
+- [CDB_O_CDB](#cdb_o_cdb-7744e7292c9e)
+- [CDB_S_CDB](#cdb_s_cdb-1139e1b3fa0a)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### CDB_A_CDB <a href="#m-CDB_A_CDB" id="m-CDB_A_CDB"></a>
+### CDB_A_CDB <a href="#cdb_a_cdb-b16407b4afb8" id="cdb_a_cdb-b16407b4afb8"></a>
 
 ```java
 public static final com.tailf.cdb.CdbDbfileType CDB_A_CDB;
@@ -33,7 +33,7 @@ public static final com.tailf.cdb.CdbDbfileType CDB_A_CDB;
 
 cdb file for configuration DB
 
-### CDB_O_CDB <a href="#m-CDB_O_CDB" id="m-CDB_O_CDB"></a>
+### CDB_O_CDB <a href="#cdb_o_cdb-7744e7292c9e" id="cdb_o_cdb-7744e7292c9e"></a>
 
 ```java
 public static final com.tailf.cdb.CdbDbfileType CDB_O_CDB;
@@ -41,7 +41,7 @@ public static final com.tailf.cdb.CdbDbfileType CDB_O_CDB;
 
 cdb file for operational DB
 
-### CDB_S_CDB <a href="#m-CDB_S_CDB" id="m-CDB_S_CDB"></a>
+### CDB_S_CDB <a href="#cdb_s_cdb-1139e1b3fa0a" id="cdb_s_cdb-1139e1b3fa0a"></a>
 
 ```java
 public static final com.tailf.cdb.CdbDbfileType CDB_S_CDB;
@@ -52,28 +52,28 @@ cdb file for snapshot DB
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.cdb.CdbDbfileType valueOf(String name)
 ```
 
-Types: [CdbDbfileType](CdbDbfileType.md#cls-CdbDbfileType)
+Types: [CdbDbfileType](CdbDbfileType.md#cdbdbfiletype-a0872754369c)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.cdb.CdbDbfileType[] values()
 ```
 
-Types: [CdbDbfileType](CdbDbfileType.md#cls-CdbDbfileType)
+Types: [CdbDbfileType](CdbDbfileType.md#cdbdbfiletype-a0872754369c)

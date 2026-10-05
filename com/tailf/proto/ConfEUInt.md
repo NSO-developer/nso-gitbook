@@ -1,11 +1,11 @@
-# ConfEUInt <a href="#cls-ConfEUInt" id="cls-ConfEUInt"></a>
+# ConfEUInt <a href="#confeuint-121a73198dd9" id="confeuint-121a73198dd9"></a>
 
 ```java
 public class com.tailf.proto.ConfEUInt
     extends com.tailf.proto.ConfELong
 ```
 
-Types: [ConfELong](ConfELong.md#cls-ConfELong)
+Types: [ConfELong](ConfELong.md#confelong-926979f5365d)
 
 Provides a Java representation of E integral types.
 
@@ -13,32 +13,32 @@ Provides a Java representation of E integral types.
 
 **Constructors**:
 
-- [ConfEUInt(ConfInputStream)](#m-ConfEUInt-86aaed2f3759)
-- [ConfEUInt(int)](#m-ConfEUInt-7cdbd36018de)
+- [ConfEUInt(ConfInputStream)](#confeuint-86aaed2f3759)
+- [ConfEUInt(int)](#confeuint-7cdbd36018de)
 
 **Fields**:
 
-- [serialVersionUID](#m-serialVersionUID)
+- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
 
 **Methods**:
 
-- [byteValue()](ConfELong.md#m-byteValue-a56aac956c5c) from ConfELong
-- [charValue()](ConfELong.md#m-charValue-4b3a6b868fe4) from ConfELong
-- [clone()](ConfEObject.md#m-clone-164c86c45e9b) from ConfEObject
-- [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
-- [encode(ConfOutputStream)](ConfELong.md#m-encode-cb1ad9eb7771) from ConfELong
-- [equals(Object)](ConfELong.md#m-equals-fcd6492e0d6c) from ConfELong
-- [hashCode()](ConfELong.md#m-hashCode-ef797a217903) from ConfELong
-- [intValue()](ConfELong.md#m-intValue-2f745d025d8e) from ConfELong
-- [longValue()](ConfELong.md#m-longValue-636bfe2d6862) from ConfELong
-- [shortValue()](ConfELong.md#m-shortValue-438ff2f827fb) from ConfELong
-- [toString()](ConfELong.md#m-toString-e9d48c5503ef) from ConfELong
-- [uIntValue()](ConfELong.md#m-uIntValue-11d9c2202272) from ConfELong
-- [uShortValue()](ConfELong.md#m-uShortValue-5c27a3934662) from ConfELong
+- [byteValue()](ConfELong.md#bytevalue-a56aac956c5c) from ConfELong
+- [charValue()](ConfELong.md#charvalue-4b3a6b868fe4) from ConfELong
+- [clone()](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
+- [decode(ConfInputStream)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
+- [encode(ConfOutputStream)](ConfELong.md#encode-cb1ad9eb7771) from ConfELong
+- [equals(Object)](ConfELong.md#equals-fcd6492e0d6c) from ConfELong
+- [hashCode()](ConfELong.md#hashcode-ef797a217903) from ConfELong
+- [intValue()](ConfELong.md#intvalue-2f745d025d8e) from ConfELong
+- [longValue()](ConfELong.md#longvalue-636bfe2d6862) from ConfELong
+- [shortValue()](ConfELong.md#shortvalue-438ff2f827fb) from ConfELong
+- [toString()](ConfELong.md#tostring-e9d48c5503ef) from ConfELong
+- [uIntValue()](ConfELong.md#uintvalue-11d9c2202272) from ConfELong
+- [uShortValue()](ConfELong.md#ushortvalue-5c27a3934662) from ConfELong
 
 ## Constructors
 
-### ConfEUInt(ConfInputStream) <a href="#m-ConfEUInt-86aaed2f3759" id="m-ConfEUInt-86aaed2f3759"></a>
+### ConfEUInt(ConfInputStream) <a href="#confeuint-86aaed2f3759" id="confeuint-86aaed2f3759"></a>
 
 ```java
 public ConfEUInt(
@@ -47,7 +47,7 @@ public ConfEUInt(
     throws com.tailf.proto.ConfERangeException, com.tailf.proto.ConfEDecodeException
 ```
 
-Types: [ConfInputStream](ConfInputStream.md#cls-ConfInputStream), [ConfERangeException](ConfERangeException.md#cls-ConfERangeException), [ConfEDecodeException](ConfEDecodeException.md#cls-ConfEDecodeException)
+Types: [ConfInputStream](ConfInputStream.md#confinputstream-c4a961d10b62), [ConfERangeException](ConfERangeException.md#conferangeexception-3f566066d5e7), [ConfEDecodeException](ConfEDecodeException.md#confedecodeexception-3e50145f8aae)
 
 Create an E integer from a stream containing an integer encoded in E
  external format.
@@ -63,13 +63,13 @@ Create an E integer from a stream containing an integer encoded in E
 - `ConfERangeException` - if the value is too large to be represented as an int, or
                 the value is negative.
 
-### ConfEUInt(int) <a href="#m-ConfEUInt-7cdbd36018de" id="m-ConfEUInt-7cdbd36018de"></a>
+### ConfEUInt(int) <a href="#confeuint-7cdbd36018de" id="confeuint-7cdbd36018de"></a>
 
 ```java
 public ConfEUInt(int i) throws com.tailf.proto.ConfERangeException
 ```
 
-Types: [ConfERangeException](ConfERangeException.md#cls-ConfERangeException)
+Types: [ConfERangeException](ConfERangeException.md#conferangeexception-3f566066d5e7)
 
 Create an E integer from the given value.
 
@@ -84,7 +84,7 @@ Create an E integer from the given value.
 
 ## Fields
 
-### serialVersionUID <a href="#m-serialVersionUID" id="m-serialVersionUID"></a>
+### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
 
 **Package-private**
 

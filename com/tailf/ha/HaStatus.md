@@ -1,4 +1,4 @@
-# HaStatus <a href="#cls-HaStatus" id="cls-HaStatus"></a>
+# HaStatus <a href="#hastatus-b26e458a9864" id="hastatus-b26e458a9864"></a>
 
 ```java
 public class com.tailf.ha.HaStatus
@@ -14,22 +14,22 @@ This class represents a status for an HA node in an HA cluster. First, the
 
 **Constructors**:
 
-- [HaStatus(HaStateType, ConfHaNode[])](#m-HaStatus-e22b8611269d)
+- [HaStatus(HaStateType, ConfHaNode[])](#hastatus-e22b8611269d)
 
 **Methods**:
 
-- [getHaState()](#m-getHaState-2f8260e75c6b)
-- [getNodes()](#m-getNodes-0d0e9b3adfd1)
+- [getHaState()](#gethastate-2f8260e75c6b)
+- [getNodes()](#getnodes-0d0e9b3adfd1)
 
 ## Constructors
 
-### HaStatus(HaStateType, ConfHaNode[]) <a href="#m-HaStatus-e22b8611269d" id="m-HaStatus-e22b8611269d"></a>
+### HaStatus(HaStateType, ConfHaNode[]) <a href="#hastatus-e22b8611269d" id="hastatus-e22b8611269d"></a>
 
 ```java
 public HaStatus(com.tailf.ha.HaStateType state, com.tailf.conf.ConfHaNode[] nodes)
 ```
 
-Types: [HaStateType](HaStateType.md#cls-HaStateType), [ConfHaNode](../conf/ConfHaNode.md#cls-ConfHaNode)
+Types: [HaStateType](HaStateType.md#hastatetype-8f5797940a11), [ConfHaNode](../conf/ConfHaNode.md#confhanode-6a79a4c8e218)
 
 **Parameters**
 
@@ -39,25 +39,25 @@ Types: [HaStateType](HaStateType.md#cls-HaStateType), [ConfHaNode](../conf/ConfH
 
 ## Methods
 
-### getHaState() <a href="#m-getHaState-2f8260e75c6b" id="m-getHaState-2f8260e75c6b"></a>
+### getHaState() <a href="#gethastate-2f8260e75c6b" id="gethastate-2f8260e75c6b"></a>
 
 ```java
 public com.tailf.ha.HaStateType getHaState()
 ```
 
-Types: [HaStateType](HaStateType.md#cls-HaStateType)
+Types: [HaStateType](HaStateType.md#hastatetype-8f5797940a11)
 
 Get the HA node state - PRIMARY/SECONDARY/SECONDARY_RELAY/NONE
 
 **Returns:** HaStateType
 
-### getNodes() <a href="#m-getNodes-0d0e9b3adfd1" id="m-getNodes-0d0e9b3adfd1"></a>
+### getNodes() <a href="#getnodes-0d0e9b3adfd1" id="getnodes-0d0e9b3adfd1"></a>
 
 ```java
 public com.tailf.conf.ConfHaNode[] getNodes()
 ```
 
-Types: [ConfHaNode](../conf/ConfHaNode.md#cls-ConfHaNode)
+Types: [ConfHaNode](../conf/ConfHaNode.md#confhanode-6a79a4c8e218)
 
 Get the array of secondaries for a PRIMARY HA node, the PRIMARY node
  for a SECONDARY HA node, or the PRIMARY and the "sub-secondaries" for

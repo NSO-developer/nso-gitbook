@@ -1,4 +1,4 @@
-# ResultTypeStringImpl <a href="#cls-ResultTypeStringImpl" id="cls-ResultTypeStringImpl"></a>
+# ResultTypeStringImpl <a href="#resulttypestringimpl-df6f97277332" id="resulttypestringimpl-df6f97277332"></a>
 
 **Package-private**
 
@@ -7,21 +7,21 @@ class com.tailf.maapi.ResultTypeStringImpl
     implements com.tailf.maapi.ResultTypeString
 ```
 
-Types: [ResultTypeString](ResultTypeString.md#cls-ResultTypeString)
+Types: [ResultTypeString](ResultTypeString.md#resulttypestring-6e023ffcb7ea)
 
 ## Members
 
 **Constructors**:
 
-- [ResultTypeStringImpl(String)](#m-ResultTypeStringImpl-76604566947b)
+- [ResultTypeStringImpl(String)](#resulttypestringimpl-76604566947b)
 
 **Methods**:
 
-- [stringValue()](#m-stringValue-a6efca13ec08)
+- [stringValue()](#stringvalue-a6efca13ec08)
 
 ## Constructors
 
-### ResultTypeStringImpl(String) <a href="#m-ResultTypeStringImpl-76604566947b" id="m-ResultTypeStringImpl-76604566947b"></a>
+### ResultTypeStringImpl(String) <a href="#resulttypestringimpl-76604566947b" id="resulttypestringimpl-76604566947b"></a>
 
 **Package-private**
 
@@ -36,7 +36,7 @@ ResultTypeStringImpl(String val)
 
 ## Methods
 
-### stringValue() <a href="#m-stringValue-a6efca13ec08" id="m-stringValue-a6efca13ec08"></a>
+### stringValue() <a href="#stringvalue-a6efca13ec08" id="stringvalue-a6efca13ec08"></a>
 
 ```java
 public String stringValue()

@@ -1,4 +1,4 @@
-# XPathAbrev1Constants <a href="#cls-XPathAbrev1Constants" id="cls-XPathAbrev1Constants"></a>
+# XPathAbrev1Constants <a href="#xpathabrev1constants-bdd3adcbaea7" id="xpathabrev1constants-bdd3adcbaea7"></a>
 
 **Package-private**
 
@@ -13,39 +13,39 @@ Token literal values and constants.
 
 **Fields**:
 
-- [AXIS_ANCESTOR](#m-AXIS_ANCESTOR)
-- [AXIS_ANCESTOR_OR_SELF](#m-AXIS_ANCESTOR_OR_SELF)
-- [AXIS_ATTRIBUTE](#m-AXIS_ATTRIBUTE)
-- [AXIS_CHILD](#m-AXIS_CHILD)
-- [AXIS_DESCENDANT](#m-AXIS_DESCENDANT)
-- [AXIS_DESCENDANT_OR_SELF](#m-AXIS_DESCENDANT_OR_SELF)
-- [AXIS_FOLLOWING](#m-AXIS_FOLLOWING)
-- [AXIS_FOLLOWING_SIBLING](#m-AXIS_FOLLOWING_SIBLING)
-- [AXIS_NAMESPACE](#m-AXIS_NAMESPACE)
-- [AXIS_PARENT](#m-AXIS_PARENT)
-- [AXIS_PRECEDING](#m-AXIS_PRECEDING)
-- [AXIS_PRECEDING_SIBLING](#m-AXIS_PRECEDING_SIBLING)
-- [AXIS_SELF](#m-AXIS_SELF)
-- [BaseChar](#m-BaseChar)
-- [CombiningChar](#m-CombiningChar)
-- [DEFAULT](#m-DEFAULT)
-- [Digit](#m-Digit)
-- [EOF](#m-EOF)
-- [EQ](#m-EQ)
-- [Extender](#m-Extender)
-- [FUNCTION_CURRENT](#m-FUNCTION_CURRENT)
-- [Ideographic](#m-Ideographic)
-- [Letter](#m-Letter)
-- [Literal](#m-Literal)
-- [NCName](#m-NCName)
-- [Number](#m-Number)
-- [SLASH](#m-SLASH)
-- [tokenImage](#m-tokenImage)
-- [UnicodeDigit](#m-UnicodeDigit)
+- [AXIS_ANCESTOR](#axis_ancestor-62c59dd9b2e3)
+- [AXIS_ANCESTOR_OR_SELF](#axis_ancestor_or_self-8a86e8f77b65)
+- [AXIS_ATTRIBUTE](#axis_attribute-a05946445c05)
+- [AXIS_CHILD](#axis_child-b30db2353719)
+- [AXIS_DESCENDANT](#axis_descendant-15e7b43dd049)
+- [AXIS_DESCENDANT_OR_SELF](#axis_descendant_or_self-9f6c29a66ab9)
+- [AXIS_FOLLOWING](#axis_following-a1c4549e0b7e)
+- [AXIS_FOLLOWING_SIBLING](#axis_following_sibling-15c026a27921)
+- [AXIS_NAMESPACE](#axis_namespace-fca116cb0837)
+- [AXIS_PARENT](#axis_parent-a46c866285ba)
+- [AXIS_PRECEDING](#axis_preceding-928fdaa9975d)
+- [AXIS_PRECEDING_SIBLING](#axis_preceding_sibling-d98b9bd3ec33)
+- [AXIS_SELF](#axis_self-e8df13365b56)
+- [BaseChar](#basechar-40e1261471a6)
+- [CombiningChar](#combiningchar-04353df29e46)
+- [DEFAULT](#default-5965fc85722b)
+- [Digit](#digit-d562fa9fa27a)
+- [EOF](#eof-e4ab74e8c3eb)
+- [EQ](#eq-27379a35bac0)
+- [Extender](#extender-16833fdff759)
+- [FUNCTION_CURRENT](#function_current-756d70c6837c)
+- [Ideographic](#ideographic-9e9a508c5c4b)
+- [Letter](#letter-b7da983a0a77)
+- [Literal](#literal-d5804337bb25)
+- [NCName](#ncname-61cf3f5186ac)
+- [Number](#number-d1bd19560532)
+- [SLASH](#slash-3c7d823f3e28)
+- [tokenImage](#tokenimage-c13f534d4471)
+- [UnicodeDigit](#unicodedigit-85441abdb275)
 
 ## Fields
 
-### AXIS_ANCESTOR <a href="#m-AXIS_ANCESTOR" id="m-AXIS_ANCESTOR"></a>
+### AXIS_ANCESTOR <a href="#axis_ancestor-62c59dd9b2e3" id="axis_ancestor-62c59dd9b2e3"></a>
 
 ```java
 public static final int AXIS_ANCESTOR = 20;
@@ -53,7 +53,7 @@ public static final int AXIS_ANCESTOR = 20;
 
 RegularExpression Id.
 
-### AXIS_ANCESTOR_OR_SELF <a href="#m-AXIS_ANCESTOR_OR_SELF" id="m-AXIS_ANCESTOR_OR_SELF"></a>
+### AXIS_ANCESTOR_OR_SELF <a href="#axis_ancestor_or_self-8a86e8f77b65" id="axis_ancestor_or_self-8a86e8f77b65"></a>
 
 ```java
 public static final int AXIS_ANCESTOR_OR_SELF = 26;
@@ -61,7 +61,7 @@ public static final int AXIS_ANCESTOR_OR_SELF = 26;
 
 RegularExpression Id.
 
-### AXIS_ATTRIBUTE <a href="#m-AXIS_ATTRIBUTE" id="m-AXIS_ATTRIBUTE"></a>
+### AXIS_ATTRIBUTE <a href="#axis_attribute-a05946445c05" id="axis_attribute-a05946445c05"></a>
 
 ```java
 public static final int AXIS_ATTRIBUTE = 21;
@@ -69,7 +69,7 @@ public static final int AXIS_ATTRIBUTE = 21;
 
 RegularExpression Id.
 
-### AXIS_CHILD <a href="#m-AXIS_CHILD" id="m-AXIS_CHILD"></a>
+### AXIS_CHILD <a href="#axis_child-b30db2353719" id="axis_child-b30db2353719"></a>
 
 ```java
 public static final int AXIS_CHILD = 18;
@@ -77,7 +77,7 @@ public static final int AXIS_CHILD = 18;
 
 RegularExpression Id.
 
-### AXIS_DESCENDANT <a href="#m-AXIS_DESCENDANT" id="m-AXIS_DESCENDANT"></a>
+### AXIS_DESCENDANT <a href="#axis_descendant-15e7b43dd049" id="axis_descendant-15e7b43dd049"></a>
 
 ```java
 public static final int AXIS_DESCENDANT = 25;
@@ -85,7 +85,7 @@ public static final int AXIS_DESCENDANT = 25;
 
 RegularExpression Id.
 
-### AXIS_DESCENDANT_OR_SELF <a href="#m-AXIS_DESCENDANT_OR_SELF" id="m-AXIS_DESCENDANT_OR_SELF"></a>
+### AXIS_DESCENDANT_OR_SELF <a href="#axis_descendant_or_self-9f6c29a66ab9" id="axis_descendant_or_self-9f6c29a66ab9"></a>
 
 ```java
 public static final int AXIS_DESCENDANT_OR_SELF = 29;
@@ -93,7 +93,7 @@ public static final int AXIS_DESCENDANT_OR_SELF = 29;
 
 RegularExpression Id.
 
-### AXIS_FOLLOWING <a href="#m-AXIS_FOLLOWING" id="m-AXIS_FOLLOWING"></a>
+### AXIS_FOLLOWING <a href="#axis_following-a1c4549e0b7e" id="axis_following-a1c4549e0b7e"></a>
 
 ```java
 public static final int AXIS_FOLLOWING = 24;
@@ -101,7 +101,7 @@ public static final int AXIS_FOLLOWING = 24;
 
 RegularExpression Id.
 
-### AXIS_FOLLOWING_SIBLING <a href="#m-AXIS_FOLLOWING_SIBLING" id="m-AXIS_FOLLOWING_SIBLING"></a>
+### AXIS_FOLLOWING_SIBLING <a href="#axis_following_sibling-15c026a27921" id="axis_following_sibling-15c026a27921"></a>
 
 ```java
 public static final int AXIS_FOLLOWING_SIBLING = 27;
@@ -109,7 +109,7 @@ public static final int AXIS_FOLLOWING_SIBLING = 27;
 
 RegularExpression Id.
 
-### AXIS_NAMESPACE <a href="#m-AXIS_NAMESPACE" id="m-AXIS_NAMESPACE"></a>
+### AXIS_NAMESPACE <a href="#axis_namespace-fca116cb0837" id="axis_namespace-fca116cb0837"></a>
 
 ```java
 public static final int AXIS_NAMESPACE = 22;
@@ -117,7 +117,7 @@ public static final int AXIS_NAMESPACE = 22;
 
 RegularExpression Id.
 
-### AXIS_PARENT <a href="#m-AXIS_PARENT" id="m-AXIS_PARENT"></a>
+### AXIS_PARENT <a href="#axis_parent-a46c866285ba" id="axis_parent-a46c866285ba"></a>
 
 ```java
 public static final int AXIS_PARENT = 19;
@@ -125,7 +125,7 @@ public static final int AXIS_PARENT = 19;
 
 RegularExpression Id.
 
-### AXIS_PRECEDING <a href="#m-AXIS_PRECEDING" id="m-AXIS_PRECEDING"></a>
+### AXIS_PRECEDING <a href="#axis_preceding-928fdaa9975d" id="axis_preceding-928fdaa9975d"></a>
 
 ```java
 public static final int AXIS_PRECEDING = 23;
@@ -133,7 +133,7 @@ public static final int AXIS_PRECEDING = 23;
 
 RegularExpression Id.
 
-### AXIS_PRECEDING_SIBLING <a href="#m-AXIS_PRECEDING_SIBLING" id="m-AXIS_PRECEDING_SIBLING"></a>
+### AXIS_PRECEDING_SIBLING <a href="#axis_preceding_sibling-d98b9bd3ec33" id="axis_preceding_sibling-d98b9bd3ec33"></a>
 
 ```java
 public static final int AXIS_PRECEDING_SIBLING = 28;
@@ -141,7 +141,7 @@ public static final int AXIS_PRECEDING_SIBLING = 28;
 
 RegularExpression Id.
 
-### AXIS_SELF <a href="#m-AXIS_SELF" id="m-AXIS_SELF"></a>
+### AXIS_SELF <a href="#axis_self-e8df13365b56" id="axis_self-e8df13365b56"></a>
 
 ```java
 public static final int AXIS_SELF = 17;
@@ -149,7 +149,7 @@ public static final int AXIS_SELF = 17;
 
 RegularExpression Id.
 
-### BaseChar <a href="#m-BaseChar" id="m-BaseChar"></a>
+### BaseChar <a href="#basechar-40e1261471a6" id="basechar-40e1261471a6"></a>
 
 ```java
 public static final int BaseChar = 12;
@@ -157,7 +157,7 @@ public static final int BaseChar = 12;
 
 RegularExpression Id.
 
-### CombiningChar <a href="#m-CombiningChar" id="m-CombiningChar"></a>
+### CombiningChar <a href="#combiningchar-04353df29e46" id="combiningchar-04353df29e46"></a>
 
 ```java
 public static final int CombiningChar = 14;
@@ -165,7 +165,7 @@ public static final int CombiningChar = 14;
 
 RegularExpression Id.
 
-### DEFAULT <a href="#m-DEFAULT" id="m-DEFAULT"></a>
+### DEFAULT <a href="#default-5965fc85722b" id="default-5965fc85722b"></a>
 
 ```java
 public static final int DEFAULT = 0;
@@ -173,7 +173,7 @@ public static final int DEFAULT = 0;
 
 Lexical state.
 
-### Digit <a href="#m-Digit" id="m-Digit"></a>
+### Digit <a href="#digit-d562fa9fa27a" id="digit-d562fa9fa27a"></a>
 
 ```java
 public static final int Digit = 9;
@@ -181,7 +181,7 @@ public static final int Digit = 9;
 
 RegularExpression Id.
 
-### EOF <a href="#m-EOF" id="m-EOF"></a>
+### EOF <a href="#eof-e4ab74e8c3eb" id="eof-e4ab74e8c3eb"></a>
 
 ```java
 public static final int EOF = 0;
@@ -189,7 +189,7 @@ public static final int EOF = 0;
 
 End of File.
 
-### EQ <a href="#m-EQ" id="m-EQ"></a>
+### EQ <a href="#eq-27379a35bac0" id="eq-27379a35bac0"></a>
 
 ```java
 public static final int EQ = 7;
@@ -197,7 +197,7 @@ public static final int EQ = 7;
 
 RegularExpression Id.
 
-### Extender <a href="#m-Extender" id="m-Extender"></a>
+### Extender <a href="#extender-16833fdff759" id="extender-16833fdff759"></a>
 
 ```java
 public static final int Extender = 16;
@@ -205,7 +205,7 @@ public static final int Extender = 16;
 
 RegularExpression Id.
 
-### FUNCTION_CURRENT <a href="#m-FUNCTION_CURRENT" id="m-FUNCTION_CURRENT"></a>
+### FUNCTION_CURRENT <a href="#function_current-756d70c6837c" id="function_current-756d70c6837c"></a>
 
 ```java
 public static final int FUNCTION_CURRENT = 30;
@@ -213,7 +213,7 @@ public static final int FUNCTION_CURRENT = 30;
 
 RegularExpression Id.
 
-### Ideographic <a href="#m-Ideographic" id="m-Ideographic"></a>
+### Ideographic <a href="#ideographic-9e9a508c5c4b" id="ideographic-9e9a508c5c4b"></a>
 
 ```java
 public static final int Ideographic = 13;
@@ -221,7 +221,7 @@ public static final int Ideographic = 13;
 
 RegularExpression Id.
 
-### Letter <a href="#m-Letter" id="m-Letter"></a>
+### Letter <a href="#letter-b7da983a0a77" id="letter-b7da983a0a77"></a>
 
 ```java
 public static final int Letter = 11;
@@ -229,7 +229,7 @@ public static final int Letter = 11;
 
 RegularExpression Id.
 
-### Literal <a href="#m-Literal" id="m-Literal"></a>
+### Literal <a href="#literal-d5804337bb25" id="literal-d5804337bb25"></a>
 
 ```java
 public static final int Literal = 8;
@@ -237,7 +237,7 @@ public static final int Literal = 8;
 
 RegularExpression Id.
 
-### NCName <a href="#m-NCName" id="m-NCName"></a>
+### NCName <a href="#ncname-61cf3f5186ac" id="ncname-61cf3f5186ac"></a>
 
 ```java
 public static final int NCName = 31;
@@ -245,7 +245,7 @@ public static final int NCName = 31;
 
 RegularExpression Id.
 
-### Number <a href="#m-Number" id="m-Number"></a>
+### Number <a href="#number-d1bd19560532" id="number-d1bd19560532"></a>
 
 ```java
 public static final int Number = 10;
@@ -253,7 +253,7 @@ public static final int Number = 10;
 
 RegularExpression Id.
 
-### SLASH <a href="#m-SLASH" id="m-SLASH"></a>
+### SLASH <a href="#slash-3c7d823f3e28" id="slash-3c7d823f3e28"></a>
 
 ```java
 public static final int SLASH = 6;
@@ -261,7 +261,7 @@ public static final int SLASH = 6;
 
 RegularExpression Id.
 
-### tokenImage <a href="#m-tokenImage" id="m-tokenImage"></a>
+### tokenImage <a href="#tokenimage-c13f534d4471" id="tokenimage-c13f534d4471"></a>
 
 ```java
 public static final String[] tokenImage = null;
@@ -269,7 +269,7 @@ public static final String[] tokenImage = null;
 
 Literal token values.
 
-### UnicodeDigit <a href="#m-UnicodeDigit" id="m-UnicodeDigit"></a>
+### UnicodeDigit <a href="#unicodedigit-85441abdb275" id="unicodedigit-85441abdb275"></a>
 
 ```java
 public static final int UnicodeDigit = 15;

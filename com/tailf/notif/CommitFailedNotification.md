@@ -1,11 +1,11 @@
-# CommitFailedNotification <a href="#cls-CommitFailedNotification" id="cls-CommitFailedNotification"></a>
+# CommitFailedNotification <a href="#commitfailednotification-bef571382961" id="commitfailednotification-bef571382961"></a>
 
 ```java
 public class com.tailf.notif.CommitFailedNotification
     extends com.tailf.notif.Notification
 ```
 
-Types: [Notification](Notification.md#cls-Notification)
+Types: [Notification](Notification.md#notification-b2e7d82d4215)
 
 Data structure for failing commit notifications.
 
@@ -13,36 +13,36 @@ Data structure for failing commit notifications.
 
 **Constructors**:
 
-- [CommitFailedNotification(int, int, DpUserInfo, String, InetAddress, ConfObject, int)](#m-CommitFailedNotification-83e5ff60e780)
+- [CommitFailedNotification(int, int, DpUserInfo, String, InetAddress, ConfObject, int)](#commitfailednotification-83e5ff60e780)
 
 **Fields**:
 
-- [DATABASE_CANDIDATE](#m-DATABASE_CANDIDATE)
-- [DATABASE_NO_DB](#m-DATABASE_NO_DB)
-- [DATABASE_RUNNING](#m-DATABASE_RUNNING)
-- [DATABASE_STARTUP](#m-DATABASE_STARTUP)
-- [DP_CDB](#m-DP_CDB)
-- [DP_EXTERNAL](#m-DP_EXTERNAL)
-- [DP_JAVASCRIPT](#m-DP_JAVASCRIPT)
-- [DP_NETCONF](#m-DP_NETCONF)
-- [DP_SNMPGW](#m-DP_SNMPGW)
-- [type](Notification.md#m-type) from Notification
+- [DATABASE_CANDIDATE](#database_candidate-ee8195cef3f3)
+- [DATABASE_NO_DB](#database_no_db-1cc64ed340de)
+- [DATABASE_RUNNING](#database_running-0d20bbf469d7)
+- [DATABASE_STARTUP](#database_startup-8fb31f1f04a2)
+- [DP_CDB](#dp_cdb-c81c7c7903c3)
+- [DP_EXTERNAL](#dp_external-8c510f8bd5c3)
+- [DP_JAVASCRIPT](#dp_javascript-0603146d46a2)
+- [DP_NETCONF](#dp_netconf-cbf8cf2a3cba)
+- [DP_SNMPGW](#dp_snmpgw-d58125586f4c)
+- [type](Notification.md#type-6ebb3673fbb6) from Notification
 
 **Methods**:
 
-- [getDaemonName()](#m-getDaemonName-ad12d8093443)
-- [getDataProvider()](#m-getDataProvider-9e4cec2ec805)
-- [getDBName()](#m-getDBName-65ff0bdb2339)
-- [getIP()](#m-getIP-c2f1d3db411f)
-- [getIPValue()](#m-getIPValue-7154021b2d96)
-- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
-- [getPort()](#m-getPort-a2225f868a2b)
-- [getUserInfo()](#m-getUserInfo-3ecef1f24d3d)
-- [toString()](#m-toString-e9d48c5503ef)
+- [getDaemonName()](#getdaemonname-ad12d8093443)
+- [getDataProvider()](#getdataprovider-9e4cec2ec805)
+- [getDBName()](#getdbname-65ff0bdb2339)
+- [getIP()](#getip-c2f1d3db411f)
+- [getIPValue()](#getipvalue-7154021b2d96)
+- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getPort()](#getport-a2225f868a2b)
+- [getUserInfo()](#getuserinfo-3ecef1f24d3d)
+- [toString()](#tostring-e9d48c5503ef)
 
 ## Constructors
 
-### CommitFailedNotification(int, int, DpUserInfo, String, InetAddress, ConfObject, int) <a href="#m-CommitFailedNotification-83e5ff60e780" id="m-CommitFailedNotification-83e5ff60e780"></a>
+### CommitFailedNotification(int, int, DpUserInfo, String, InetAddress, ConfObject, int) <a href="#commitfailednotification-83e5ff60e780" id="commitfailednotification-83e5ff60e780"></a>
 
 ```java
 public CommitFailedNotification(
@@ -56,7 +56,7 @@ public CommitFailedNotification(
 )
 ```
 
-Types: [DpUserInfo](../dp/DpUserInfo.md#cls-DpUserInfo), [ConfObject](../conf/ConfObject.md#cls-ConfObject)
+Types: [DpUserInfo](../dp/DpUserInfo.md#dpuserinfo-c59746285a6e), [ConfObject](../conf/ConfObject.md#confobject-5433616953b2)
 
 **Parameters**
 
@@ -71,55 +71,55 @@ Types: [DpUserInfo](../dp/DpUserInfo.md#cls-DpUserInfo), [ConfObject](../conf/Co
 
 ## Fields
 
-### DATABASE_CANDIDATE <a href="#m-DATABASE_CANDIDATE" id="m-DATABASE_CANDIDATE"></a>
+### DATABASE_CANDIDATE <a href="#database_candidate-ee8195cef3f3" id="database_candidate-ee8195cef3f3"></a>
 
 ```java
 public static final int DATABASE_CANDIDATE = 1;
 ```
 
-### DATABASE_NO_DB <a href="#m-DATABASE_NO_DB" id="m-DATABASE_NO_DB"></a>
+### DATABASE_NO_DB <a href="#database_no_db-1cc64ed340de" id="database_no_db-1cc64ed340de"></a>
 
 ```java
 public static final int DATABASE_NO_DB = 0;
 ```
 
-### DATABASE_RUNNING <a href="#m-DATABASE_RUNNING" id="m-DATABASE_RUNNING"></a>
+### DATABASE_RUNNING <a href="#database_running-0d20bbf469d7" id="database_running-0d20bbf469d7"></a>
 
 ```java
 public static final int DATABASE_RUNNING = 2;
 ```
 
-### DATABASE_STARTUP <a href="#m-DATABASE_STARTUP" id="m-DATABASE_STARTUP"></a>
+### DATABASE_STARTUP <a href="#database_startup-8fb31f1f04a2" id="database_startup-8fb31f1f04a2"></a>
 
 ```java
 public static final int DATABASE_STARTUP = 3;
 ```
 
-### DP_CDB <a href="#m-DP_CDB" id="m-DP_CDB"></a>
+### DP_CDB <a href="#dp_cdb-c81c7c7903c3" id="dp_cdb-c81c7c7903c3"></a>
 
 ```java
 public static final int DP_CDB = 1;
 ```
 
-### DP_EXTERNAL <a href="#m-DP_EXTERNAL" id="m-DP_EXTERNAL"></a>
+### DP_EXTERNAL <a href="#dp_external-8c510f8bd5c3" id="dp_external-8c510f8bd5c3"></a>
 
 ```java
 public static final int DP_EXTERNAL = 3;
 ```
 
-### DP_JAVASCRIPT <a href="#m-DP_JAVASCRIPT" id="m-DP_JAVASCRIPT"></a>
+### DP_JAVASCRIPT <a href="#dp_javascript-0603146d46a2" id="dp_javascript-0603146d46a2"></a>
 
 ```java
 public static final int DP_JAVASCRIPT = 5;
 ```
 
-### DP_NETCONF <a href="#m-DP_NETCONF" id="m-DP_NETCONF"></a>
+### DP_NETCONF <a href="#dp_netconf-cbf8cf2a3cba" id="dp_netconf-cbf8cf2a3cba"></a>
 
 ```java
 public static final int DP_NETCONF = 2;
 ```
 
-### DP_SNMPGW <a href="#m-DP_SNMPGW" id="m-DP_SNMPGW"></a>
+### DP_SNMPGW <a href="#dp_snmpgw-d58125586f4c" id="dp_snmpgw-d58125586f4c"></a>
 
 ```java
 public static final int DP_SNMPGW = 4;
@@ -128,13 +128,13 @@ public static final int DP_SNMPGW = 4;
 
 ## Methods
 
-### getDaemonName() <a href="#m-getDaemonName-ad12d8093443" id="m-getDaemonName-ad12d8093443"></a>
+### getDaemonName() <a href="#getdaemonname-ad12d8093443" id="getdaemonname-ad12d8093443"></a>
 
 ```java
 public String getDaemonName()
 ```
 
-### getDataProvider() <a href="#m-getDataProvider-9e4cec2ec805" id="m-getDataProvider-9e4cec2ec805"></a>
+### getDataProvider() <a href="#getdataprovider-9e4cec2ec805" id="getdataprovider-9e4cec2ec805"></a>
 
 ```java
 public int getDataProvider()
@@ -143,13 +143,13 @@ public int getDataProvider()
 forward event type:
 
 
-- [`DP_CDB`](CommitFailedNotification.md#m-DP_CDB)
-   - [`DP_NETCONF`](CommitFailedNotification.md#m-DP_NETCONF)
-     - [`DP_EXTERNAL`](CommitFailedNotification.md#m-DP_EXTERNAL)
-       - [`DP_SNMPGW`](CommitFailedNotification.md#m-DP_SNMPGW)
-         - [`DP_JAVASCRIPT`](CommitFailedNotification.md#m-DP_JAVASCRIPT)
+- [`DP_CDB`](CommitFailedNotification.md#dp_cdb-c81c7c7903c3)
+   - [`DP_NETCONF`](CommitFailedNotification.md#dp_netconf-cbf8cf2a3cba)
+     - [`DP_EXTERNAL`](CommitFailedNotification.md#dp_external-8c510f8bd5c3)
+       - [`DP_SNMPGW`](CommitFailedNotification.md#dp_snmpgw-d58125586f4c)
+         - [`DP_JAVASCRIPT`](CommitFailedNotification.md#dp_javascript-0603146d46a2)
 
-### getDBName() <a href="#m-getDBName-65ff0bdb2339" id="m-getDBName-65ff0bdb2339"></a>
+### getDBName() <a href="#getdbname-65ff0bdb2339" id="getdbname-65ff0bdb2339"></a>
 
 ```java
 public int getDBName()
@@ -157,37 +157,37 @@ public int getDBName()
 
 target name in confd.conf
 
-### getIP() <a href="#m-getIP-c2f1d3db411f" id="m-getIP-c2f1d3db411f"></a>
+### getIP() <a href="#getip-c2f1d3db411f" id="getip-c2f1d3db411f"></a>
 
 ```java
 public java.net.InetAddress getIP()
 ```
 
-### getIPValue() <a href="#m-getIPValue-7154021b2d96" id="m-getIPValue-7154021b2d96"></a>
+### getIPValue() <a href="#getipvalue-7154021b2d96" id="getipvalue-7154021b2d96"></a>
 
 ```java
 public com.tailf.conf.ConfObject getIPValue()
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject)
+Types: [ConfObject](../conf/ConfObject.md#confobject-5433616953b2)
 
-### getPort() <a href="#m-getPort-a2225f868a2b" id="m-getPort-a2225f868a2b"></a>
+### getPort() <a href="#getport-a2225f868a2b" id="getport-a2225f868a2b"></a>
 
 ```java
 public int getPort()
 ```
 
-### getUserInfo() <a href="#m-getUserInfo-3ecef1f24d3d" id="m-getUserInfo-3ecef1f24d3d"></a>
+### getUserInfo() <a href="#getuserinfo-3ecef1f24d3d" id="getuserinfo-3ecef1f24d3d"></a>
 
 ```java
 public com.tailf.dp.DpUserInfo getUserInfo()
 ```
 
-Types: [DpUserInfo](../dp/DpUserInfo.md#cls-DpUserInfo)
+Types: [DpUserInfo](../dp/DpUserInfo.md#dpuserinfo-c59746285a6e)
 
 User information
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()

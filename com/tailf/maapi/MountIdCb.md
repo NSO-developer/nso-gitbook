@@ -1,32 +1,32 @@
-# MountIdCb <a href="#cls-MountIdCb" id="cls-MountIdCb"></a>
+# MountIdCb <a href="#mountidcb-b2c40ac53111" id="mountidcb-b2c40ac53111"></a>
 
 ```java
 public class com.tailf.maapi.MountIdCb
     implements com.tailf.conf.MountIdInterface
 ```
 
-Types: [MountIdInterface](../conf/MountIdInterface.md#cls-MountIdInterface)
+Types: [MountIdInterface](../conf/MountIdInterface.md#mountidinterface-113d1b54dae0)
 
 ## Members
 
 **Constructors**:
 
-- [MountIdCb(Maapi, int)](#m-MountIdCb-b291d44025b0)
+- [MountIdCb(Maapi, int)](#mountidcb-b291d44025b0)
 
 **Methods**:
 
-- [acceptTagPath()](#m-acceptTagPath-3efa26ad697b)
-- [getMountId(ConfPath)](#m-getMountId-83243c09b7c3)
+- [acceptTagPath()](#accepttagpath-3efa26ad697b)
+- [getMountId(ConfPath)](#getmountid-83243c09b7c3)
 
 ## Constructors
 
-### MountIdCb(Maapi, int) <a href="#m-MountIdCb-b291d44025b0" id="m-MountIdCb-b291d44025b0"></a>
+### MountIdCb(Maapi, int) <a href="#mountidcb-b291d44025b0" id="mountidcb-b291d44025b0"></a>
 
 ```java
 public MountIdCb(com.tailf.maapi.Maapi maapi, int tid)
 ```
 
-Types: [Maapi](Maapi.md#cls-Maapi)
+Types: [Maapi](Maapi.md#maapi-67bcbe89c42e)
 
 **Parameters**
 
@@ -36,13 +36,13 @@ Types: [Maapi](Maapi.md#cls-Maapi)
 
 ## Methods
 
-### acceptTagPath() <a href="#m-acceptTagPath-3efa26ad697b" id="m-acceptTagPath-3efa26ad697b"></a>
+### acceptTagPath() <a href="#accepttagpath-3efa26ad697b" id="accepttagpath-3efa26ad697b"></a>
 
 ```java
 public boolean acceptTagPath()
 ```
 
-### getMountId(ConfPath) <a href="#m-getMountId-83243c09b7c3" id="m-getMountId-83243c09b7c3"></a>
+### getMountId(ConfPath) <a href="#getmountid-83243c09b7c3" id="getmountid-83243c09b7c3"></a>
 
 ```java
 public java.util.List<String> getMountId(
@@ -51,7 +51,7 @@ public java.util.List<String> getMountId(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [ConfPath](../conf/ConfPath.md#confpath-327831c6fc7d), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 

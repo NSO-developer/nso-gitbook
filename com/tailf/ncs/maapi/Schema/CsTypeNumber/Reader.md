@@ -1,4 +1,4 @@
-# Reader <a href="#cls-Reader" id="cls-Reader"></a>
+# Reader <a href="#reader-b2467a96ddff" id="reader-b2467a96ddff"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsTypeNumber.Reader
@@ -9,16 +9,16 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeNumber.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getRanges()](#m-getRanges-c1cd383e54a0)
-- [hasRanges()](#m-hasRanges-77bc63fe4ea8)
+- [getRanges()](#getranges-c1cd383e54a0)
+- [hasRanges()](#hasranges-77bc63fe4ea8)
 
 ## Constructors
 
-### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
+### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -45,15 +45,15 @@ Reader(
 
 ## Methods
 
-### getRanges() <a href="#m-getRanges-c1cd383e54a0" id="m-getRanges-c1cd383e54a0"></a>
+### getRanges() <a href="#getranges-c1cd383e54a0" id="getranges-c1cd383e54a0"></a>
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.Range.Reader> getRanges()
 ```
 
-Types: [Reader](../Range/Reader.md#cls-Reader)
+Types: [Reader](../Range/Reader.md#reader-b2467a96ddff)
 
-### hasRanges() <a href="#m-hasRanges-77bc63fe4ea8" id="m-hasRanges-77bc63fe4ea8"></a>
+### hasRanges() <a href="#hasranges-77bc63fe4ea8" id="hasranges-77bc63fe4ea8"></a>
 
 ```java
 public final boolean hasRanges()

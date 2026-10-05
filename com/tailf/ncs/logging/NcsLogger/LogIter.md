@@ -1,4 +1,4 @@
-# LogIter <a href="#cls-LogIter" id="cls-LogIter"></a>
+# LogIter <a href="#logiter-ecede56df6fd" id="logiter-ecede56df6fd"></a>
 
 **Package-private**
 
@@ -7,7 +7,7 @@ static class com.tailf.ncs.logging.NcsLogger.LogIter
     implements com.tailf.cdb.CdbDiffIterate
 ```
 
-Types: [CdbDiffIterate](../../../cdb/CdbDiffIterate.md#cls-CdbDiffIterate)
+Types: [CdbDiffIterate](../../../cdb/CdbDiffIterate.md#cdbdiffiterate-ab6fafeeb31e)
 
 Class make the diffIterate and trigger the Log Level changes to all
  affected Loggers. The iterate() method accumulate all changes and
@@ -18,17 +18,17 @@ Class make the diffIterate and trigger the Log Level changes to all
 
 **Constructors**:
 
-- [LogIter()](#m-LogIter-2449327a7e19)
+- [LogIter()](#logiter-2449327a7e19)
 
 **Methods**:
 
-- [applyChanges()](#m-applyChanges-7bfabdfb7bc4)
-- [clearChanges()](#m-clearChanges-dfce305f5de6)
-- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#m-iterate-d80a566b7e0a)
+- [applyChanges()](#applychanges-7bfabdfb7bc4)
+- [clearChanges()](#clearchanges-dfce305f5de6)
+- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#iterate-d80a566b7e0a)
 
 ## Constructors
 
-### LogIter() <a href="#m-LogIter-2449327a7e19" id="m-LogIter-2449327a7e19"></a>
+### LogIter() <a href="#logiter-2449327a7e19" id="logiter-2449327a7e19"></a>
 
 **Package-private**
 
@@ -39,19 +39,19 @@ LogIter()
 
 ## Methods
 
-### applyChanges() <a href="#m-applyChanges-7bfabdfb7bc4" id="m-applyChanges-7bfabdfb7bc4"></a>
+### applyChanges() <a href="#applychanges-7bfabdfb7bc4" id="applychanges-7bfabdfb7bc4"></a>
 
 ```java
 public void applyChanges()
 ```
 
-### clearChanges() <a href="#m-clearChanges-dfce305f5de6" id="m-clearChanges-dfce305f5de6"></a>
+### clearChanges() <a href="#clearchanges-dfce305f5de6" id="clearchanges-dfce305f5de6"></a>
 
 ```java
 public void clearChanges()
 ```
 
-### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object) <a href="#m-iterate-d80a566b7e0a" id="m-iterate-d80a566b7e0a"></a>
+### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object) <a href="#iterate-d80a566b7e0a" id="iterate-d80a566b7e0a"></a>
 
 ```java
 public com.tailf.conf.DiffIterateResultFlag iterate(
@@ -63,7 +63,7 @@ public com.tailf.conf.DiffIterateResultFlag iterate(
 )
 ```
 
-Types: [DiffIterateResultFlag](../../../conf/DiffIterateResultFlag.md#cls-DiffIterateResultFlag), [ConfObject](../../../conf/ConfObject.md#cls-ConfObject), [DiffIterateOperFlag](../../../conf/DiffIterateOperFlag.md#cls-DiffIterateOperFlag)
+Types: [DiffIterateResultFlag](../../../conf/DiffIterateResultFlag.md#diffiterateresultflag-3bcd05ed3269), [ConfObject](../../../conf/ConfObject.md#confobject-5433616953b2), [DiffIterateOperFlag](../../../conf/DiffIterateOperFlag.md#diffiterateoperflag-d1cd8560c2ec)
 
 **Parameters**
 

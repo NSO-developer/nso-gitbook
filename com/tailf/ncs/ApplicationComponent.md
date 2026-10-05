@@ -1,4 +1,4 @@
-# ApplicationComponent <a href="#cls-ApplicationComponent" id="cls-ApplicationComponent"></a>
+# ApplicationComponent <a href="#applicationcomponent-05ae0996aaa3" id="applicationcomponent-05ae0996aaa3"></a>
 
 ```java
 public interface com.tailf.ncs.ApplicationComponent
@@ -19,12 +19,12 @@ User defined Applications should implement this interface that
 
 **Methods**:
 
-- [finish()](#m-finish-8c785ae2e6bb)
-- [init()](#m-init-e3919b885d98)
+- [finish()](#finish-8c785ae2e6bb)
+- [init()](#init-e3919b885d98)
 
 ## Methods
 
-### finish() <a href="#m-finish-8c785ae2e6bb" id="m-finish-8c785ae2e6bb"></a>
+### finish() <a href="#finish-8c785ae2e6bb" id="finish-8c785ae2e6bb"></a>
 
 ```java
 public abstract void finish() throws Exception
@@ -38,7 +38,7 @@ This method is called by the Ncs Java vm when the thread
 
 - `Exception` - if the finish operation fails
 
-### init() <a href="#m-init-e3919b885d98" id="m-init-e3919b885d98"></a>
+### init() <a href="#init-e3919b885d98" id="init-e3919b885d98"></a>
 
 ```java
 public abstract void init() throws Exception

@@ -1,4 +1,4 @@
-# MountPoint <a href="#cls-MountPoint" id="cls-MountPoint"></a>
+# MountPoint <a href="#mountpoint-1067c30495b2" id="mountpoint-1067c30495b2"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.MountPoint
@@ -8,23 +8,23 @@ public static class com.tailf.ncs.maapi.Schema.MountPoint
 
 **Constructors**:
 
-- [MountPoint()](#m-MountPoint-af430c6766ae)
+- [MountPoint()](#mountpoint-af430c6766ae)
 
 **Fields**:
 
-- [factory](#m-factory)
-- [listFactory](#m-listFactory)
-- [STRUCT_SIZE](#m-STRUCT_SIZE)
+- [factory](#factory-1649195a6f6e)
+- [listFactory](#listfactory-b96025f1568b)
+- [STRUCT_SIZE](#struct_size-06830f6b9d3b)
 
 **Nested Types**:
 
-- [Builder](MountPoint/Builder.md#cls-Builder)
-- [Factory](MountPoint/Factory.md#cls-Factory)
-- [Reader](MountPoint/Reader.md#cls-Reader)
+- [Builder](MountPoint/Builder.md#builder-21f09e83781d)
+- [Factory](MountPoint/Factory.md#factory-1787784624e8)
+- [Reader](MountPoint/Reader.md#reader-b2467a96ddff)
 
 ## Constructors
 
-### MountPoint() <a href="#m-MountPoint-af430c6766ae" id="m-MountPoint-af430c6766ae"></a>
+### MountPoint() <a href="#mountpoint-af430c6766ae" id="mountpoint-af430c6766ae"></a>
 
 ```java
 public MountPoint()
@@ -33,23 +33,23 @@ public MountPoint()
 
 ## Fields
 
-### factory <a href="#m-factory" id="m-factory"></a>
+### factory <a href="#factory-1649195a6f6e" id="factory-1649195a6f6e"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.MountPoint.Factory factory = null;
 ```
 
-Types: [Factory](MountPoint/Factory.md#cls-Factory)
+Types: [Factory](MountPoint/Factory.md#factory-1787784624e8)
 
-### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
+### listFactory <a href="#listfactory-b96025f1568b" id="listfactory-b96025f1568b"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.MountPoint.Builder,com.tailf.ncs.maapi.Schema.MountPoint.Reader> listFactory = null;
 ```
 
-Types: [Builder](MountPoint/Builder.md#cls-Builder), [Reader](MountPoint/Reader.md#cls-Reader)
+Types: [Builder](MountPoint/Builder.md#builder-21f09e83781d), [Reader](MountPoint/Reader.md#reader-b2467a96ddff)
 
-### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
+### STRUCT_SIZE <a href="#struct_size-06830f6b9d3b" id="struct_size-06830f6b9d3b"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;
@@ -58,6 +58,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](MountPoint/Builder.md#cls-Builder)
-- [Factory](MountPoint/Factory.md#cls-Factory)
-- [Reader](MountPoint/Reader.md#cls-Reader)
+- [Builder](MountPoint/Builder.md#builder-21f09e83781d)
+- [Factory](MountPoint/Factory.md#factory-1787784624e8)
+- [Reader](MountPoint/Reader.md#reader-b2467a96ddff)

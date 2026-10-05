@@ -1,47 +1,47 @@
-# ConfEAtom <a href="#cls-ConfEAtom" id="cls-ConfEAtom"></a>
+# ConfEAtom <a href="#confeatom-9f9d21cb88dd" id="confeatom-9f9d21cb88dd"></a>
 
 ```java
 public class com.tailf.proto.ConfEAtom
     extends com.tailf.proto.ConfEObject
 ```
 
-Types: [ConfEObject](ConfEObject.md#cls-ConfEObject)
+Types: [ConfEObject](ConfEObject.md#confeobject-2a9c0d03e350)
 
 Provides a Java representation of E atoms. Atoms can be created from strings
- whose length is not more than [MAX_ATOM_LENGTH](ConfEAtom.md#m-MAX_ATOM_LENGTH)
+ whose length is not more than [MAX_ATOM_LENGTH](ConfEAtom.md#max_atom_length-b3ed4a748361)
  characters.
 
 **Related classes**
 
-- [ConfEBoolean](ConfEBoolean.md#cls-ConfEBoolean)
+- [ConfEBoolean](ConfEBoolean.md#confeboolean-dd291104280a)
 
 ## Members
 
 **Constructors**:
 
-- [ConfEAtom(boolean)](#m-ConfEAtom-ff3304319572)
-- [ConfEAtom(ConfInputStream)](#m-ConfEAtom-3aa5fefd12c5)
-- [ConfEAtom(String)](#m-ConfEAtom-4bbef374d858)
+- [ConfEAtom(boolean)](#confeatom-ff3304319572)
+- [ConfEAtom(ConfInputStream)](#confeatom-3aa5fefd12c5)
+- [ConfEAtom(String)](#confeatom-4bbef374d858)
 
 **Fields**:
 
-- [MAX_ATOM_LENGTH](#m-MAX_ATOM_LENGTH)
-- [serialVersionUID](#m-serialVersionUID)
+- [MAX_ATOM_LENGTH](#max_atom_length-b3ed4a748361)
+- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
 
 **Methods**:
 
-- [atomValue()](#m-atomValue-e1510c85d5fa)
-- [booleanValue()](#m-booleanValue-8b1662434d74)
-- [clone()](ConfEObject.md#m-clone-164c86c45e9b) from ConfEObject
-- [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
-- [encode(ConfOutputStream)](#m-encode-cb1ad9eb7771)
-- [equals(Object)](#m-equals-fcd6492e0d6c)
-- [hashCode()](#m-hashCode-ef797a217903)
-- [toString()](#m-toString-e9d48c5503ef)
+- [atomValue()](#atomvalue-e1510c85d5fa)
+- [booleanValue()](#booleanvalue-8b1662434d74)
+- [clone()](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
+- [decode(ConfInputStream)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
+- [encode(ConfOutputStream)](#encode-cb1ad9eb7771)
+- [equals(Object)](#equals-fcd6492e0d6c)
+- [hashCode()](#hashcode-ef797a217903)
+- [toString()](#tostring-e9d48c5503ef)
 
 ## Constructors
 
-### ConfEAtom(boolean) <a href="#m-ConfEAtom-ff3304319572" id="m-ConfEAtom-ff3304319572"></a>
+### ConfEAtom(boolean) <a href="#confeatom-ff3304319572" id="confeatom-ff3304319572"></a>
 
 ```java
 public ConfEAtom(boolean t)
@@ -53,13 +53,13 @@ Create an atom whose value is "true" or "false".
 
 - `boolean t` - boolean value true/false
 
-### ConfEAtom(ConfInputStream) <a href="#m-ConfEAtom-3aa5fefd12c5" id="m-ConfEAtom-3aa5fefd12c5"></a>
+### ConfEAtom(ConfInputStream) <a href="#confeatom-3aa5fefd12c5" id="confeatom-3aa5fefd12c5"></a>
 
 ```java
 public ConfEAtom(com.tailf.proto.ConfInputStream buf) throws com.tailf.proto.ConfEDecodeException
 ```
 
-Types: [ConfInputStream](ConfInputStream.md#cls-ConfInputStream), [ConfEDecodeException](ConfEDecodeException.md#cls-ConfEDecodeException)
+Types: [ConfInputStream](ConfInputStream.md#confinputstream-c4a961d10b62), [ConfEDecodeException](ConfEDecodeException.md#confedecodeexception-3e50145f8aae)
 
 Create an atom from a stream containing an atom encoded in E external
  format.
@@ -73,7 +73,7 @@ Create an atom from a stream containing an atom encoded in E external
 - `ConfEDecodeException` - if the buffer does not contain a valid external
                 representation of an E atom.
 
-### ConfEAtom(String) <a href="#m-ConfEAtom-4bbef374d858" id="m-ConfEAtom-4bbef374d858"></a>
+### ConfEAtom(String) <a href="#confeatom-4bbef374d858" id="confeatom-4bbef374d858"></a>
 
 ```java
 public ConfEAtom(String atom)
@@ -88,12 +88,12 @@ Create an atom from the given string.
 **Throws**
 
 - `IllegalArgumentException` - if the string contains more than
-                [MAX_ATOM_LENGTH](ConfEAtom.md#m-MAX_ATOM_LENGTH) characters.
+                [MAX_ATOM_LENGTH](ConfEAtom.md#max_atom_length-b3ed4a748361) characters.
 
 
 ## Fields
 
-### MAX_ATOM_LENGTH <a href="#m-MAX_ATOM_LENGTH" id="m-MAX_ATOM_LENGTH"></a>
+### MAX_ATOM_LENGTH <a href="#max_atom_length-b3ed4a748361" id="max_atom_length-b3ed4a748361"></a>
 
 ```java
 public static final int MAX_ATOM_LENGTH = 255;
@@ -101,7 +101,7 @@ public static final int MAX_ATOM_LENGTH = 255;
 
 The maximum allowed length of an atom, in characters
 
-### serialVersionUID <a href="#m-serialVersionUID" id="m-serialVersionUID"></a>
+### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
 
 **Package-private**
 
@@ -112,7 +112,7 @@ static final long serialVersionUID = -3204386396807876641;
 
 ## Methods
 
-### atomValue() <a href="#m-atomValue-e1510c85d5fa" id="m-atomValue-e1510c85d5fa"></a>
+### atomValue() <a href="#atomvalue-e1510c85d5fa" id="atomvalue-e1510c85d5fa"></a>
 
 ```java
 public String atomValue()
@@ -123,9 +123,9 @@ Get the actual string contained in this object.
 **Returns:** the raw string contained in this object, without regard to E
          quoting rules.
 
-**See also:** [`toString`](ConfEAtom.md#m-toString-e9d48c5503ef)
+**See also:** [`toString`](ConfEAtom.md#tostring-e9d48c5503ef)
 
-### booleanValue() <a href="#m-booleanValue-8b1662434d74" id="m-booleanValue-8b1662434d74"></a>
+### booleanValue() <a href="#booleanvalue-8b1662434d74" id="booleanvalue-8b1662434d74"></a>
 
 ```java
 public boolean booleanValue()
@@ -137,13 +137,13 @@ The boolean value of this atom.
          consists of the characters "true" (independent of case) the value
          will be true. For any other values, the value will be false.
 
-### encode(ConfOutputStream) <a href="#m-encode-cb1ad9eb7771" id="m-encode-cb1ad9eb7771"></a>
+### encode(ConfOutputStream) <a href="#encode-cb1ad9eb7771" id="encode-cb1ad9eb7771"></a>
 
 ```java
 public void encode(com.tailf.proto.ConfOutputStream buf)
 ```
 
-Types: [ConfOutputStream](ConfOutputStream.md#cls-ConfOutputStream)
+Types: [ConfOutputStream](ConfOutputStream.md#confoutputstream-e8ef47aca327)
 
 Convert this atom to the equivalent E external representation.
 
@@ -151,7 +151,7 @@ Convert this atom to the equivalent E external representation.
 
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded atom should be written.
 
-### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
+### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -165,13 +165,13 @@ Determine if two atoms are equal.
 
 **Returns:** true if the atoms are equal, false otherwise.
 
-### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
+### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()
@@ -184,4 +184,4 @@ Get the printname of the atom represented by this object. The difference
 
 **Returns:** the printname representation of this atom object.
 
-**See also:** [`atomValue`](ConfEAtom.md#m-atomValue-e1510c85d5fa)
+**See also:** [`atomValue`](ConfEAtom.md#atomvalue-e1510c85d5fa)

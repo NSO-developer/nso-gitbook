@@ -1,4 +1,4 @@
-# Record <a href="#cls-Record" id="cls-Record"></a>
+# Record <a href="#record-699adf6da380" id="record-699adf6da380"></a>
 
 **Package-private**
 
@@ -12,18 +12,18 @@ Pointer to a unique schema record.
 
 **Constructors**:
 
-- [Record(Source, int)](#m-Record-b0cdb48ebc6b)
+- [Record(Source, int)](#record-b0cdb48ebc6b)
 
 **Methods**:
 
-- [getCsIdx()](#m-getCsIdx-c6cc07a1d6c3)
-- [getFlags()](#m-getFlags-3c1ca90fd29c)
-- [getOff()](#m-getOff-578b9943fd00)
-- [read(Source, int)](#m-read-c048381a08bd)
+- [getCsIdx()](#getcsidx-c6cc07a1d6c3)
+- [getFlags()](#getflags-3c1ca90fd29c)
+- [getOff()](#getoff-578b9943fd00)
+- [read(Source, int)](#read-c048381a08bd)
 
 ## Constructors
 
-### Record(Source, int) <a href="#m-Record-b0cdb48ebc6b" id="m-Record-b0cdb48ebc6b"></a>
+### Record(Source, int) <a href="#record-b0cdb48ebc6b" id="record-b0cdb48ebc6b"></a>
 
 **Package-private**
 
@@ -31,7 +31,7 @@ Pointer to a unique schema record.
 Record(com.tailf.ncs.maapi.MmapSchema.Source src, int pos)
 ```
 
-Types: [Source](Source.md#cls-Source)
+Types: [Source](Source.md#source-12fbee2b6a88)
 
 **Parameters**
 
@@ -41,25 +41,25 @@ Types: [Source](Source.md#cls-Source)
 
 ## Methods
 
-### getCsIdx() <a href="#m-getCsIdx-c6cc07a1d6c3" id="m-getCsIdx-c6cc07a1d6c3"></a>
+### getCsIdx() <a href="#getcsidx-c6cc07a1d6c3" id="getcsidx-c6cc07a1d6c3"></a>
 
 ```java
 public int getCsIdx()
 ```
 
-### getFlags() <a href="#m-getFlags-3c1ca90fd29c" id="m-getFlags-3c1ca90fd29c"></a>
+### getFlags() <a href="#getflags-3c1ca90fd29c" id="getflags-3c1ca90fd29c"></a>
 
 ```java
 public short getFlags()
 ```
 
-### getOff() <a href="#m-getOff-578b9943fd00" id="m-getOff-578b9943fd00"></a>
+### getOff() <a href="#getoff-578b9943fd00" id="getoff-578b9943fd00"></a>
 
 ```java
 public int getOff()
 ```
 
-### read(Source, int) <a href="#m-read-c048381a08bd" id="m-read-c048381a08bd"></a>
+### read(Source, int) <a href="#read-c048381a08bd" id="read-c048381a08bd"></a>
 
 **Package-private**
 
@@ -67,7 +67,7 @@ public int getOff()
 final void read(com.tailf.ncs.maapi.MmapSchema.Source src, int pos)
 ```
 
-Types: [Source](Source.md#cls-Source)
+Types: [Source](Source.md#source-12fbee2b6a88)
 
 **Parameters**
 

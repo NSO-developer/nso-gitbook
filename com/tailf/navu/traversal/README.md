@@ -15,12 +15,12 @@ Utility package for traversing the NAVU tree (or a subset thereof)
 
 
 - *Passive traversal*: The user implements the method
- [`TraversalFilter#currentNode(com.tailf.navu.NavuNode)`](TraversalFilter.md#m-currentNode-6c186cdcfd7e)
+ [`TraversalFilter#currentNode(com.tailf.navu.NavuNode)`](TraversalFilter.md#currentnode-6c186cdcfd7e)
  and registers it in
  [`NavuTreeTraversal#addFilter(
-com.tailf.navu.traversal.TraversalFilter)`](NavuTreeTraversal.md#m-addFilter-8eb81a3c72a2).
+com.tailf.navu.traversal.TraversalFilter)`](NavuTreeTraversal.md#addfilter-8eb81a3c72a2).
  When all filters have been registered, the traversal process can be started
- through [`NavuTreeTraversal#traverse()`](NavuTreeTraversal.md#m-traverse-4f872e3540cb). The
+ through [`NavuTreeTraversal#traverse()`](NavuTreeTraversal.md#traverse-4f872e3540cb). The
  filters are invoked for each node the traversal process encounters.
 - *Active traversal*:
  The user retrieves the nodes through an iterator and has full control over
@@ -80,9 +80,9 @@ com.tailf.navu.traversal.TraversalFilter)`](NavuTreeTraversal.md#m-addFilter-8eb
 
 ## Types
 
-- [NavuTraversalBfsMean](NavuTraversalBfsMean.md#cls-NavuTraversalBfsMean)
-- [NavuTraversalDfsMean](NavuTraversalDfsMean.md#cls-NavuTraversalDfsMean)
-- [NavuTraversalMean](NavuTraversalMean.md#cls-NavuTraversalMean)
-- [NavuTreeTraversal](NavuTreeTraversal.md#cls-NavuTreeTraversal)
-- [TraversalFilter](TraversalFilter.md#cls-TraversalFilter)
-- [TreeIterator](TreeIterator.md#cls-TreeIterator)
+- [NavuTraversalBfsMean](NavuTraversalBfsMean.md#navutraversalbfsmean-ea7481a5cc40)
+- [NavuTraversalDfsMean](NavuTraversalDfsMean.md#navutraversaldfsmean-0966a625a51d)
+- [NavuTraversalMean](NavuTraversalMean.md#navutraversalmean-65fcdcfa38d1)
+- [NavuTreeTraversal](NavuTreeTraversal.md#navutreetraversal-7a92763e1540)
+- [TraversalFilter](TraversalFilter.md#traversalfilter-4e27b24c67a1)
+- [TreeIterator](TreeIterator.md#treeiterator-a055e0e0311d)

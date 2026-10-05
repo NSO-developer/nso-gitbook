@@ -1,4 +1,4 @@
-# NavuTraversalMean <a href="#cls-NavuTraversalMean" id="cls-NavuTraversalMean"></a>
+# NavuTraversalMean <a href="#navutraversalmean-65fcdcfa38d1" id="navutraversalmean-65fcdcfa38d1"></a>
 
 ```java
 public interface com.tailf.navu.traversal.NavuTraversalMean
@@ -8,11 +8,11 @@ public interface com.tailf.navu.traversal.NavuTraversalMean
 
 **Methods**:
 
-- [traverse(NavuNode, List<TraversalFilter>)](#m-traverse-e72c3ea2612b)
+- [traverse(NavuNode, List<TraversalFilter>)](#traverse-e72c3ea2612b)
 
 ## Methods
 
-### traverse(NavuNode, List<TraversalFilter>) <a href="#m-traverse-e72c3ea2612b" id="m-traverse-e72c3ea2612b"></a>
+### traverse(NavuNode, List&lt;TraversalFilter&gt;) <a href="#traverse-e72c3ea2612b" id="traverse-e72c3ea2612b"></a>
 
 ```java
 public abstract java.util.Set<String> traverse(
@@ -22,7 +22,7 @@ public abstract java.util.Set<String> traverse(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](../NavuNode.md#cls-NavuNode), [TraversalFilter](TraversalFilter.md#cls-TraversalFilter), [NavuException](../NavuException.md#cls-NavuException)
+Types: [NavuNode](../NavuNode.md#navunode-73944820c8db), [TraversalFilter](TraversalFilter.md#traversalfilter-4e27b24c67a1), [NavuException](../NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 

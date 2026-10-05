@@ -1,10 +1,10 @@
-# ValidateCBType <a href="#cls-ValidateCBType" id="cls-ValidateCBType"></a>
+# ValidateCBType <a href="#validatecbtype-5b50c87e5fe9" id="validatecbtype-5b50c87e5fe9"></a>
 
 ```java
 public enum com.tailf.dp.proto.ValidateCBType
 ```
 
-Types: [ValidateCBType](ValidateCBType.md#cls-ValidateCBType)
+Types: [ValidateCBType](ValidateCBType.md#validatecbtype-5b50c87e5fe9)
 
 Enumeration of Validate callback methods
 
@@ -14,17 +14,17 @@ Enumeration of Validate callback methods
 
 **Enum Constants**:
 
-- [VALIDATE](#m-VALIDATE)
+- [VALIDATE](#validate-7a9462d1222c)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### VALIDATE <a href="#m-VALIDATE" id="m-VALIDATE"></a>
+### VALIDATE <a href="#validate-7a9462d1222c" id="validate-7a9462d1222c"></a>
 
 ```java
 public static final com.tailf.dp.proto.ValidateCBType VALIDATE;
@@ -33,7 +33,7 @@ public static final com.tailf.dp.proto.ValidateCBType VALIDATE;
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -43,22 +43,22 @@ get integer value for enum
 
 **Returns:** int value
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.dp.proto.ValidateCBType valueOf(String name)
 ```
 
-Types: [ValidateCBType](ValidateCBType.md#cls-ValidateCBType)
+Types: [ValidateCBType](ValidateCBType.md#validatecbtype-5b50c87e5fe9)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.dp.proto.ValidateCBType[] values()
 ```
 
-Types: [ValidateCBType](ValidateCBType.md#cls-ValidateCBType)
+Types: [ValidateCBType](ValidateCBType.md#validatecbtype-5b50c87e5fe9)

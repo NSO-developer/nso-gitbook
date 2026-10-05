@@ -1,4 +1,4 @@
-# Builder <a href="#cls-Builder" id="cls-Builder"></a>
+# Builder <a href="#builder-21f09e83781d" id="builder-21f09e83781d"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsTypeString.Builder
@@ -9,26 +9,26 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeString.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asReader-b5c0f2a8d115)
-- [getInvertMatch()](#m-getInvertMatch-323126ccbf2f)
-- [getPattern()](#m-getPattern-b471c55bbd3b)
-- [getRanges()](#m-getRanges-c1cd383e54a0)
-- [hasPattern()](#m-hasPattern-e3fe48944019)
-- [hasRanges()](#m-hasRanges-77bc63fe4ea8)
-- [initPattern(int)](#m-initPattern-6928d503a051)
-- [initRanges(int)](#m-initRanges-d04c09762bd6)
-- [setInvertMatch(boolean)](#m-setInvertMatch-e00cbbce7115)
-- [setPattern(Reader)](#m-setPattern-e1a344734fbf)
-- [setPattern(String)](#m-setPattern-15104080a7b1)
-- [setRanges(Reader<Reader>)](#m-setRanges-69bbcdb47f71)
+- [asReader()](#asreader-b5c0f2a8d115)
+- [getInvertMatch()](#getinvertmatch-323126ccbf2f)
+- [getPattern()](#getpattern-b471c55bbd3b)
+- [getRanges()](#getranges-c1cd383e54a0)
+- [hasPattern()](#haspattern-e3fe48944019)
+- [hasRanges()](#hasranges-77bc63fe4ea8)
+- [initPattern(int)](#initpattern-6928d503a051)
+- [initRanges(int)](#initranges-d04c09762bd6)
+- [setInvertMatch(boolean)](#setinvertmatch-e00cbbce7115)
+- [setPattern(Reader)](#setpattern-e1a344734fbf)
+- [setPattern(String)](#setpattern-15104080a7b1)
+- [setRanges(Reader<Reader>)](#setranges-69bbcdb47f71)
 
 ## Constructors
 
-### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
+### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -53,47 +53,47 @@ Builder(
 
 ## Methods
 
-### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
+### asReader() <a href="#asreader-b5c0f2a8d115" id="asreader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeString.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#cls-Reader)
+Types: [Reader](Reader.md#reader-b2467a96ddff)
 
-### getInvertMatch() <a href="#m-getInvertMatch-323126ccbf2f" id="m-getInvertMatch-323126ccbf2f"></a>
+### getInvertMatch() <a href="#getinvertmatch-323126ccbf2f" id="getinvertmatch-323126ccbf2f"></a>
 
 ```java
 public final boolean getInvertMatch()
 ```
 
-### getPattern() <a href="#m-getPattern-b471c55bbd3b" id="m-getPattern-b471c55bbd3b"></a>
+### getPattern() <a href="#getpattern-b471c55bbd3b" id="getpattern-b471c55bbd3b"></a>
 
 ```java
 public final org.capnproto.Text.Builder getPattern()
 ```
 
-### getRanges() <a href="#m-getRanges-c1cd383e54a0" id="m-getRanges-c1cd383e54a0"></a>
+### getRanges() <a href="#getranges-c1cd383e54a0" id="getranges-c1cd383e54a0"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.Range.Builder> getRanges()
 ```
 
-Types: [Builder](../Range/Builder.md#cls-Builder)
+Types: [Builder](../Range/Builder.md#builder-21f09e83781d)
 
-### hasPattern() <a href="#m-hasPattern-e3fe48944019" id="m-hasPattern-e3fe48944019"></a>
+### hasPattern() <a href="#haspattern-e3fe48944019" id="haspattern-e3fe48944019"></a>
 
 ```java
 public final boolean hasPattern()
 ```
 
-### hasRanges() <a href="#m-hasRanges-77bc63fe4ea8" id="m-hasRanges-77bc63fe4ea8"></a>
+### hasRanges() <a href="#hasranges-77bc63fe4ea8" id="hasranges-77bc63fe4ea8"></a>
 
 ```java
 public final boolean hasRanges()
 ```
 
-### initPattern(int) <a href="#m-initPattern-6928d503a051" id="m-initPattern-6928d503a051"></a>
+### initPattern(int) <a href="#initpattern-6928d503a051" id="initpattern-6928d503a051"></a>
 
 ```java
 public final org.capnproto.Text.Builder initPattern(int size)
@@ -103,7 +103,7 @@ public final org.capnproto.Text.Builder initPattern(int size)
 
 - `int size`
 
-### initRanges(int) <a href="#m-initRanges-d04c09762bd6" id="m-initRanges-d04c09762bd6"></a>
+### initRanges(int) <a href="#initranges-d04c09762bd6" id="initranges-d04c09762bd6"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.Range.Builder> initRanges(
@@ -111,13 +111,13 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.Range.B
 )
 ```
 
-Types: [Builder](../Range/Builder.md#cls-Builder)
+Types: [Builder](../Range/Builder.md#builder-21f09e83781d)
 
 **Parameters**
 
 - `int size`
 
-### setInvertMatch(boolean) <a href="#m-setInvertMatch-e00cbbce7115" id="m-setInvertMatch-e00cbbce7115"></a>
+### setInvertMatch(boolean) <a href="#setinvertmatch-e00cbbce7115" id="setinvertmatch-e00cbbce7115"></a>
 
 ```java
 public final void setInvertMatch(boolean value)
@@ -127,7 +127,7 @@ public final void setInvertMatch(boolean value)
 
 - `boolean value`
 
-### setPattern(Reader) <a href="#m-setPattern-e1a344734fbf" id="m-setPattern-e1a344734fbf"></a>
+### setPattern(Reader) <a href="#setpattern-e1a344734fbf" id="setpattern-e1a344734fbf"></a>
 
 ```java
 public final void setPattern(org.capnproto.Text.Reader value)
@@ -137,7 +137,7 @@ public final void setPattern(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-### setPattern(String) <a href="#m-setPattern-15104080a7b1" id="m-setPattern-15104080a7b1"></a>
+### setPattern(String) <a href="#setpattern-15104080a7b1" id="setpattern-15104080a7b1"></a>
 
 ```java
 public final void setPattern(String value)
@@ -147,7 +147,7 @@ public final void setPattern(String value)
 
 - `String value`
 
-### setRanges(Reader<Reader>) <a href="#m-setRanges-69bbcdb47f71" id="m-setRanges-69bbcdb47f71"></a>
+### setRanges(Reader&lt;Reader&gt;) <a href="#setranges-69bbcdb47f71" id="setranges-69bbcdb47f71"></a>
 
 ```java
 public final void setRanges(
@@ -155,7 +155,7 @@ public final void setRanges(
 )
 ```
 
-Types: [Reader](../Range/Reader.md#cls-Reader)
+Types: [Reader](../Range/Reader.md#reader-b2467a96ddff)
 
 **Parameters**
 

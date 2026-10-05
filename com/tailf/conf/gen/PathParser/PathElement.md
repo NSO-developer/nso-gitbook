@@ -1,4 +1,4 @@
-# PathElement <a href="#cls-PathElement" id="cls-PathElement"></a>
+# PathElement <a href="#pathelement-30082145995b" id="pathelement-30082145995b"></a>
 
 ```java
 public static class com.tailf.conf.gen.PathParser.PathElement
@@ -8,25 +8,25 @@ public static class com.tailf.conf.gen.PathParser.PathElement
 
 **Constructors**:
 
-- [PathElement()](#m-PathElement-f49964060be9)
+- [PathElement()](#pathelement-f49964060be9)
 
 **Fields**:
 
-- [isDummy](#m-isDummy)
-- [isRelative](#m-isRelative)
-- [keys](#m-keys)
-- [namespace](#m-namespace)
-- [ordinal](#m-ordinal)
-- [term](#m-term)
+- [isDummy](#isdummy-073c64dd7cce)
+- [isRelative](#isrelative-dffcfd7a3563)
+- [keys](#keys-b408c92f97e4)
+- [namespace](#namespace-9b66d2318bf6)
+- [ordinal](#ordinal-f51afe442d63)
+- [term](#term-06e3a07b3287)
 
 **Methods**:
 
-- [equals(Object)](#m-equals-fcd6492e0d6c)
-- [hashCode()](#m-hashCode-ef797a217903)
+- [equals(Object)](#equals-fcd6492e0d6c)
+- [hashCode()](#hashcode-ef797a217903)
 
 ## Constructors
 
-### PathElement() <a href="#m-PathElement-f49964060be9" id="m-PathElement-f49964060be9"></a>
+### PathElement() <a href="#pathelement-f49964060be9" id="pathelement-f49964060be9"></a>
 
 ```java
 public PathElement()
@@ -35,50 +35,50 @@ public PathElement()
 
 ## Fields
 
-### isDummy <a href="#m-isDummy" id="m-isDummy"></a>
+### isDummy <a href="#isdummy-073c64dd7cce" id="isdummy-073c64dd7cce"></a>
 
 ```java
 public boolean isDummy = null;
 ```
 
-### isRelative <a href="#m-isRelative" id="m-isRelative"></a>
+### isRelative <a href="#isrelative-dffcfd7a3563" id="isrelative-dffcfd7a3563"></a>
 
 ```java
 public boolean isRelative = null;
 ```
 
-### keys <a href="#m-keys" id="m-keys"></a>
+### keys <a href="#keys-b408c92f97e4" id="keys-b408c92f97e4"></a>
 
 ```java
 public java.util.ArrayList<com.tailf.conf.gen.PathParser.PathKey> keys = null;
 ```
 
-Types: [PathKey](PathKey.md#cls-PathKey)
+Types: [PathKey](PathKey.md#pathkey-a9b70d1850aa)
 
-### namespace <a href="#m-namespace" id="m-namespace"></a>
+### namespace <a href="#namespace-9b66d2318bf6" id="namespace-9b66d2318bf6"></a>
 
 ```java
 public Object namespace = null;
 ```
 
-### ordinal <a href="#m-ordinal" id="m-ordinal"></a>
+### ordinal <a href="#ordinal-f51afe442d63" id="ordinal-f51afe442d63"></a>
 
 ```java
 public Integer ordinal = null;
 ```
 
-### term <a href="#m-term" id="m-term"></a>
+### term <a href="#term-06e3a07b3287" id="term-06e3a07b3287"></a>
 
 ```java
 public com.tailf.conf.ConfObject term = null;
 ```
 
-Types: [ConfObject](../../ConfObject.md#cls-ConfObject)
+Types: [ConfObject](../../ConfObject.md#confobject-5433616953b2)
 
 
 ## Methods
 
-### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
+### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object rhs)
@@ -88,7 +88,7 @@ public boolean equals(Object rhs)
 
 - `Object rhs`
 
-### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
+### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
 ```java
 public int hashCode()

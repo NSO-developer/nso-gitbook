@@ -1,4 +1,4 @@
-# CSSchema <a href="#cls-CSSchema" id="cls-CSSchema"></a>
+# CSSchema <a href="#csschema-f51a58180f67" id="csschema-f51a58180f67"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.CSSchema
@@ -9,36 +9,36 @@ The Schema Container class. Contains the first root node, if available,
  types.
 
  It is instances of this class that is retrieved using method findSchema
- see [`MaapiSchemas#findCSSchema(int)`](../MaapiSchemas.md#m-findCSSchema-880b1533ffd2) and
- [`MaapiSchemas#findCSSchema(String)`](../MaapiSchemas.md#m-findCSSchema-6023156b0628)
+ see [`MaapiSchemas#findCSSchema(int)`](../MaapiSchemas.md#findcsschema-880b1533ffd2) and
+ [`MaapiSchemas#findCSSchema(String)`](../MaapiSchemas.md#findcsschema-6023156b0628)
 
 ## Members
 
 **Constructors**:
 
-- [CSSchema(int, String)](#m-CSSchema-f9e5989e119d)
-- [CSSchema(int, String, String, String, String, String)](#m-CSSchema-1d155be5067d)
+- [CSSchema(int, String)](#csschema-f9e5989e119d)
+- [CSSchema(int, String, String, String, String, String)](#csschema-1d155be5067d)
 
 **Methods**:
 
-- [addType(CSNamedType)](#m-addType-f27eb8b6623c)
-- [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getModule()](#m-getModule-68694513ccce)
-- [getNamedTypes()](#m-getNamedTypes-ac976f4fda73)
-- [getNS()](#m-getNS-3613c99d8888)
-- [getNSHash()](#m-getNSHash-2129fb8b3cfe)
-- [getPrefix()](#m-getPrefix-9268091e0223)
-- [getRevision()](#m-getRevision-b0088aa9f0bf)
-- [getRootNode()](#m-getRootNode-eed9b3c70129)
-- [getURI()](#m-getURI-7ec1ffd8cd93)
-- [hashCode()](#m-hashCode-ef797a217903)
-- [isDynamic()](#m-isDynamic-6b453d4ad739)
-- [setRoot(CSNode)](#m-setRoot-4ba56f7c3847)
-- [toString()](#m-toString-e9d48c5503ef)
+- [addType(CSNamedType)](#addtype-f27eb8b6623c)
+- [equals(Object)](#equals-fcd6492e0d6c)
+- [getModule()](#getmodule-68694513ccce)
+- [getNamedTypes()](#getnamedtypes-ac976f4fda73)
+- [getNS()](#getns-3613c99d8888)
+- [getNSHash()](#getnshash-2129fb8b3cfe)
+- [getPrefix()](#getprefix-9268091e0223)
+- [getRevision()](#getrevision-b0088aa9f0bf)
+- [getRootNode()](#getrootnode-eed9b3c70129)
+- [getURI()](#geturi-7ec1ffd8cd93)
+- [hashCode()](#hashcode-ef797a217903)
+- [isDynamic()](#isdynamic-6b453d4ad739)
+- [setRoot(CSNode)](#setroot-4ba56f7c3847)
+- [toString()](#tostring-e9d48c5503ef)
 
 ## Constructors
 
-### CSSchema(int, String) <a href="#m-CSSchema-f9e5989e119d" id="m-CSSchema-f9e5989e119d"></a>
+### CSSchema(int, String) <a href="#csschema-f9e5989e119d" id="csschema-f9e5989e119d"></a>
 
 ```java
 public CSSchema(int nshash, String namespace)
@@ -49,7 +49,7 @@ public CSSchema(int nshash, String namespace)
 - `int nshash`
 - `String namespace`
 
-### CSSchema(int, String, String, String, String, String) <a href="#m-CSSchema-1d155be5067d" id="m-CSSchema-1d155be5067d"></a>
+### CSSchema(int, String, String, String, String, String) <a href="#csschema-1d155be5067d" id="csschema-1d155be5067d"></a>
 
 ```java
 public CSSchema(
@@ -74,19 +74,19 @@ public CSSchema(
 
 ## Methods
 
-### addType(CSNamedType) <a href="#m-addType-f27eb8b6623c" id="m-addType-f27eb8b6623c"></a>
+### addType(CSNamedType) <a href="#addtype-f27eb8b6623c" id="addtype-f27eb8b6623c"></a>
 
 ```java
 public void addType(com.tailf.maapi.MaapiSchemas.CSNamedType type)
 ```
 
-Types: [CSNamedType](CSNamedType.md#cls-CSNamedType)
+Types: [CSNamedType](CSNamedType.md#csnamedtype-6305f923b0f3)
 
 **Parameters**
 
 - `com.tailf.maapi.MaapiSchemas.CSNamedType type`
 
-### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
+### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -96,7 +96,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-### getModule() <a href="#m-getModule-68694513ccce" id="m-getModule-68694513ccce"></a>
+### getModule() <a href="#getmodule-68694513ccce" id="getmodule-68694513ccce"></a>
 
 ```java
 public String getModule()
@@ -106,13 +106,13 @@ Get module name
 
 **Returns:** String module
 
-### getNamedTypes() <a href="#m-getNamedTypes-ac976f4fda73" id="m-getNamedTypes-ac976f4fda73"></a>
+### getNamedTypes() <a href="#getnamedtypes-ac976f4fda73" id="getnamedtypes-ac976f4fda73"></a>
 
 ```java
 public java.util.Hashtable<String,com.tailf.maapi.MaapiSchemas.CSNamedType> getNamedTypes()
 ```
 
-Types: [CSNamedType](CSNamedType.md#cls-CSNamedType)
+Types: [CSNamedType](CSNamedType.md#csnamedtype-6305f923b0f3)
 
 Get a Hashtable of all named types, the Hashtable has the type names
  as keys represented as strings and the types as values represented as
@@ -120,7 +120,7 @@ Get a Hashtable of all named types, the Hashtable has the type names
 
 **Returns:** Hashtable of named types
 
-### getNS() <a href="#m-getNS-3613c99d8888" id="m-getNS-3613c99d8888"></a>
+### getNS() <a href="#getns-3613c99d8888" id="getns-3613c99d8888"></a>
 
 ```java
 public String getNS()
@@ -132,7 +132,7 @@ Get Namespace string. Usually it is unique string that
 
 **Returns:** String Namespace string
 
-### getNSHash() <a href="#m-getNSHash-2129fb8b3cfe" id="m-getNSHash-2129fb8b3cfe"></a>
+### getNSHash() <a href="#getnshash-2129fb8b3cfe" id="getnshash-2129fb8b3cfe"></a>
 
 ```java
 public int getNSHash()
@@ -142,7 +142,7 @@ Get Namespace hashvalue
 
 **Returns:** int hashvalue
 
-### getPrefix() <a href="#m-getPrefix-9268091e0223" id="m-getPrefix-9268091e0223"></a>
+### getPrefix() <a href="#getprefix-9268091e0223" id="getprefix-9268091e0223"></a>
 
 ```java
 public String getPrefix()
@@ -152,7 +152,7 @@ Get Namespace prefix string
 
 **Returns:** String Namespace prefix string
 
-### getRevision() <a href="#m-getRevision-b0088aa9f0bf" id="m-getRevision-b0088aa9f0bf"></a>
+### getRevision() <a href="#getrevision-b0088aa9f0bf" id="getrevision-b0088aa9f0bf"></a>
 
 ```java
 public String getRevision()
@@ -162,13 +162,13 @@ Get schema revision
 
 **Returns:** String revision
 
-### getRootNode() <a href="#m-getRootNode-eed9b3c70129" id="m-getRootNode-eed9b3c70129"></a>
+### getRootNode() <a href="#getrootnode-eed9b3c70129" id="getrootnode-eed9b3c70129"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode getRootNode()
 ```
 
-Types: [CSNode](CSNode.md#cls-CSNode)
+Types: [CSNode](CSNode.md#csnode-f12d9ad69c28)
 
 Get first Schema root node. Note, that a Schema can have several
  nodes on root level in parallel, this method retrieves the first root
@@ -177,7 +177,7 @@ Get first Schema root node. Note, that a Schema can have several
 
 **Returns:** CSNode the first root node or null if no root node exists
 
-### getURI() <a href="#m-getURI-7ec1ffd8cd93" id="m-getURI-7ec1ffd8cd93"></a>
+### getURI() <a href="#geturi-7ec1ffd8cd93" id="geturi-7ec1ffd8cd93"></a>
 
 ```java
 public String getURI()
@@ -187,13 +187,13 @@ Get Schema uri string
 
 **Returns:** String Schema uri string
 
-### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
+### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-### isDynamic() <a href="#m-isDynamic-6b453d4ad739" id="m-isDynamic-6b453d4ad739"></a>
+### isDynamic() <a href="#isdynamic-6b453d4ad739" id="isdynamic-6b453d4ad739"></a>
 
 ```java
 public boolean isDynamic()
@@ -203,19 +203,19 @@ Check if Schema is dynamically lalala
 
 **Returns:** boolean true if dynamically lalala
 
-### setRoot(CSNode) <a href="#m-setRoot-4ba56f7c3847" id="m-setRoot-4ba56f7c3847"></a>
+### setRoot(CSNode) <a href="#setroot-4ba56f7c3847" id="setroot-4ba56f7c3847"></a>
 
 ```java
 public void setRoot(com.tailf.maapi.MaapiSchemas.CSNode root)
 ```
 
-Types: [CSNode](CSNode.md#cls-CSNode)
+Types: [CSNode](CSNode.md#csnode-f12d9ad69c28)
 
 **Parameters**
 
 - `com.tailf.maapi.MaapiSchemas.CSNode root`
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()

@@ -1,4 +1,4 @@
-# NcsMainPackageRestarter <a href="#cls-NcsMainPackageRestarter" id="cls-NcsMainPackageRestarter"></a>
+# NcsMainPackageRestarter <a href="#ncsmainpackagerestarter-41a8f297c8c2" id="ncsmainpackagerestarter-41a8f297c8c2"></a>
 
 ```java
 public class com.tailf.ncs.ctrl.NcsMainPackageRestarter
@@ -11,24 +11,24 @@ Package restarter helper.
 
 **Constructors**:
 
-- [NcsMainPackageRestarter(NcsMain, int)](#m-NcsMainPackageRestarter-74d9915593e3)
+- [NcsMainPackageRestarter(NcsMain, int)](#ncsmainpackagerestarter-74d9915593e3)
 
 **Methods**:
 
-- [addPackage(String)](#m-addPackage-73f3ce22ecee)
-- [run()](#m-run-b6dbda048863)
-- [start()](#m-start-79e12dafe9f8)
-- [stop()](#m-stop-a62ecc446f97)
+- [addPackage(String)](#addpackage-73f3ce22ecee)
+- [run()](#run-b6dbda048863)
+- [start()](#start-79e12dafe9f8)
+- [stop()](#stop-a62ecc446f97)
 
 ## Constructors
 
-### NcsMainPackageRestarter(NcsMain, int) <a href="#m-NcsMainPackageRestarter-74d9915593e3" id="m-NcsMainPackageRestarter-74d9915593e3"></a>
+### NcsMainPackageRestarter(NcsMain, int) <a href="#ncsmainpackagerestarter-74d9915593e3" id="ncsmainpackagerestarter-74d9915593e3"></a>
 
 ```java
 public NcsMainPackageRestarter(com.tailf.ncs.NcsMain main, int coolingTime)
 ```
 
-Types: [NcsMain](../NcsMain.md#cls-NcsMain)
+Types: [NcsMain](../NcsMain.md#ncsmain-eb814813aed4)
 
 **Parameters**
 
@@ -38,7 +38,7 @@ Types: [NcsMain](../NcsMain.md#cls-NcsMain)
 
 ## Methods
 
-### addPackage(String) <a href="#m-addPackage-73f3ce22ecee" id="m-addPackage-73f3ce22ecee"></a>
+### addPackage(String) <a href="#addpackage-73f3ce22ecee" id="addpackage-73f3ce22ecee"></a>
 
 ```java
 public void addPackage(String packageName)
@@ -50,13 +50,13 @@ Add a package that should be restarted.
 
 - `String packageName` - Name of the package to restart
 
-### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
+### run() <a href="#run-b6dbda048863" id="run-b6dbda048863"></a>
 
 ```java
 public void run()
 ```
 
-### start() <a href="#m-start-79e12dafe9f8" id="m-start-79e12dafe9f8"></a>
+### start() <a href="#start-79e12dafe9f8" id="start-79e12dafe9f8"></a>
 
 ```java
 public synchronized void start()
@@ -64,7 +64,7 @@ public synchronized void start()
 
 Start the package restarter.
 
-### stop() <a href="#m-stop-a62ecc446f97" id="m-stop-a62ecc446f97"></a>
+### stop() <a href="#stop-a62ecc446f97" id="stop-a62ecc446f97"></a>
 
 ```java
 public synchronized void stop()

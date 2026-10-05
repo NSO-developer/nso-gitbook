@@ -1,11 +1,11 @@
-# MaapiWarningException <a href="#cls-MaapiWarningException" id="cls-MaapiWarningException"></a>
+# MaapiWarningException <a href="#maapiwarningexception-52f654d7ae54" id="maapiwarningexception-52f654d7ae54"></a>
 
 ```java
 public class com.tailf.maapi.MaapiWarningException
     extends com.tailf.maapi.MaapiException
 ```
 
-Types: [MaapiException](MaapiException.md#cls-MaapiException)
+Types: [MaapiException](MaapiException.md#maapiexception-af58eb4e109e)
 
 Warnings raised from the maapi package
 
@@ -13,21 +13,21 @@ Warnings raised from the maapi package
 
 **Constructors**:
 
-- [MaapiWarningException(String)](#m-MaapiWarningException-8930de4ffd0a)
-- [MaapiWarningException(String, ErrorCode, ConfWarning[])](#m-MaapiWarningException-6a1a58c2de36)
-- [MaapiWarningException(String, int, ConfWarning[])](#m-MaapiWarningException-e976024f5184)
+- [MaapiWarningException(String)](#maapiwarningexception-8930de4ffd0a)
+- [MaapiWarningException(String, ErrorCode, ConfWarning[])](#maapiwarningexception-6a1a58c2de36)
+- [MaapiWarningException(String, int, ConfWarning[])](#maapiwarningexception-e976024f5184)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#m-getErrorCode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#m-getOpaque-92e4945ec92d) from ConfException
-- [getWarnings()](#m-getWarnings-875cbe661ca7)
-- [mk(ConfResponse)](MaapiException.md#m-mk-de1cedfc6ea8) from MaapiException
-- [mk(ConfResponse, ConfPath)](MaapiException.md#m-mk-79e69ffbc022) from MaapiException
+- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [getWarnings()](#getwarnings-875cbe661ca7)
+- [mk(ConfResponse)](MaapiException.md#mk-de1cedfc6ea8) from MaapiException
+- [mk(ConfResponse, ConfPath)](MaapiException.md#mk-79e69ffbc022) from MaapiException
 
 ## Constructors
 
-### MaapiWarningException(String) <a href="#m-MaapiWarningException-8930de4ffd0a" id="m-MaapiWarningException-8930de4ffd0a"></a>
+### MaapiWarningException(String) <a href="#maapiwarningexception-8930de4ffd0a" id="maapiwarningexception-8930de4ffd0a"></a>
 
 ```java
 public MaapiWarningException(String msg)
@@ -37,7 +37,7 @@ public MaapiWarningException(String msg)
 
 - `String msg`
 
-### MaapiWarningException(String, ErrorCode, ConfWarning[]) <a href="#m-MaapiWarningException-6a1a58c2de36" id="m-MaapiWarningException-6a1a58c2de36"></a>
+### MaapiWarningException(String, ErrorCode, ConfWarning[]) <a href="#maapiwarningexception-6a1a58c2de36" id="maapiwarningexception-6a1a58c2de36"></a>
 
 ```java
 public MaapiWarningException(
@@ -47,7 +47,7 @@ public MaapiWarningException(
 )
 ```
 
-Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode), [ConfWarning](../conf/ConfWarning.md#cls-ConfWarning)
+Types: [ErrorCode](../conf/ErrorCode.md#errorcode-65263de08890), [ConfWarning](../conf/ConfWarning.md#confwarning-732794cbb596)
 
 **Parameters**
 
@@ -55,13 +55,13 @@ Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode), [ConfWarning](../conf/Co
 - `com.tailf.conf.ErrorCode code`
 - `com.tailf.conf.ConfWarning[] ws`
 
-### MaapiWarningException(String, int, ConfWarning[]) <a href="#m-MaapiWarningException-e976024f5184" id="m-MaapiWarningException-e976024f5184"></a>
+### MaapiWarningException(String, int, ConfWarning[]) <a href="#maapiwarningexception-e976024f5184" id="maapiwarningexception-e976024f5184"></a>
 
 ```java
 public MaapiWarningException(String msg, int codeInteger, com.tailf.conf.ConfWarning[] ws)
 ```
 
-Types: [ConfWarning](../conf/ConfWarning.md#cls-ConfWarning)
+Types: [ConfWarning](../conf/ConfWarning.md#confwarning-732794cbb596)
 
 **Parameters**
 
@@ -72,10 +72,10 @@ Types: [ConfWarning](../conf/ConfWarning.md#cls-ConfWarning)
 
 ## Methods
 
-### getWarnings() <a href="#m-getWarnings-875cbe661ca7" id="m-getWarnings-875cbe661ca7"></a>
+### getWarnings() <a href="#getwarnings-875cbe661ca7" id="getwarnings-875cbe661ca7"></a>
 
 ```java
 public com.tailf.conf.ConfWarning[] getWarnings()
 ```
 
-Types: [ConfWarning](../conf/ConfWarning.md#cls-ConfWarning)
+Types: [ConfWarning](../conf/ConfWarning.md#confwarning-732794cbb596)

@@ -1,11 +1,11 @@
-# ConfXPath <a href="#cls-ConfXPath" id="cls-ConfXPath"></a>
+# ConfXPath <a href="#confxpath-0180bbe0b500" id="confxpath-0180bbe0b500"></a>
 
 ```java
 public class com.tailf.conf.ConfXPath
     extends com.tailf.conf.InstancePath
 ```
 
-Types: [InstancePath](InstancePath.md#cls-InstancePath)
+Types: [InstancePath](InstancePath.md#instancepath-7694a1545db3)
 
 DATA_CONTAINER - Corresponds to the YANG instance-identifier type.
 
@@ -17,62 +17,62 @@ DATA_CONTAINER - Corresponds to the YANG instance-identifier type.
 
 **Constructors**:
 
-- [ConfXPath(String)](#m-ConfXPath-3168fe5c5a30)
-- [ConfXPath(String, MountIdInterface)](#m-ConfXPath-c4fe4eab63ea)
+- [ConfXPath(String)](#confxpath-3168fe5c5a30)
+- [ConfXPath(String, MountIdInterface)](#confxpath-c4fe4eab63ea)
 
 **Fields**:
 
-- [arguments](InstancePath.md#m-arguments) from InstancePath
-- [deferred](InstancePath.md#m-deferred) from InstancePath
-- [fmt](InstancePath.md#m-fmt) from InstancePath
-- [hasSchema](InstancePath.md#m-hasSchema) from InstancePath
-- [isRel](InstancePath.md#m-isRel) from InstancePath
-- [latestMountId](InstancePath.md#m-latestMountId) from InstancePath
-- [mountGetter](InstancePath.md#m-mountGetter) from InstancePath
-- [pl](InstancePath.md#m-pl) from InstancePath
+- [arguments](InstancePath.md#arguments-28ffa3c54d2c) from InstancePath
+- [deferred](InstancePath.md#deferred-c2f16a111685) from InstancePath
+- [fmt](InstancePath.md#fmt-94d3250bd2b9) from InstancePath
+- [hasSchema](InstancePath.md#hasschema-a8c91f825ecf) from InstancePath
+- [isRel](InstancePath.md#isrel-6f5c045b2036) from InstancePath
+- [latestMountId](InstancePath.md#latestmountid-7642d01fb3f1) from InstancePath
+- [mountGetter](InstancePath.md#mountgetter-a3d01f18a1ec) from InstancePath
+- [pl](InstancePath.md#pl-952ffda3e648) from InstancePath
 
 **Methods**:
 
-- [chkDeferred()](#m-chkDeferred-f66dc2317846)
-- [convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, ArrayList<PathKey>, boolean)](InstancePath.md#m-convertToConfKey-709808909e1b) from InstancePath
-- [convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, List<PathKey>, boolean, boolean)](InstancePath.md#m-convertToConfKey-3964b2d32ca6) from InstancePath
-- [encode()](InstancePath.md#m-encode-fbae522bba37) from InstancePath
-- [encodeIKP()](InstancePath.md#m-encodeIKP-b160b87f6433) from InstancePath
-- [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getCSNode()](InstancePath.md#m-getCSNode-cf7a085aa7f5) from InstancePath
-- [getKP()](#m-getKP-45b2f95adae4)
-- [getKP(List<PathElement>, boolean, boolean, MountIdInterface)](InstancePath.md#m-getKP-a23f67046fb4) from InstancePath
-- [getLatestMountId()](InstancePath.md#m-getLatestMountId-30c9c1f692c7) from InstancePath
-- [getMountIdGetter()](InstancePath.md#m-getMountIdGetter-64fcfdb6be8c) from InstancePath
-- [hashCode()](#m-hashCode-ef797a217903)
-- [isKey()](InstancePath.md#m-isKey-7bdf17ac8255) from InstancePath
-- [isParsingDeferred()](InstancePath.md#m-isParsingDeferred-b3b266536326) from InstancePath
-- [isRel()](InstancePath.md#m-isRel-dca98ac4de7a) from InstancePath
-- [makeKP(ConfObject[])](InstancePath.md#m-makeKP-32258da68c76) from InstancePath
-- [parseAppend(String, Object[])](InstancePath.md#m-parseAppend-54d8f4d7c8da) from InstancePath
-- [parseAppend(String, Object[], List<CSNode>)](InstancePath.md#m-parseAppend-6e40353c0959) from InstancePath
-- [quoteByteArray(byte[])](InstancePath.md#m-quoteByteArray-1889d341fdce) from InstancePath
-- [quoteString(String, boolean)](InstancePath.md#m-quoteString-2ccae847ff76) from InstancePath
-- [setMountIdGetter(MountIdInterface)](InstancePath.md#m-setMountIdGetter-900228f8453c) from InstancePath
-- [toKeyPathString()](#m-toKeyPathString-bcccb457e808)
-- [toString()](#m-toString-e9d48c5503ef)
-- [toXPathString()](InstancePath.md#m-toXPathString-81906e391643) from InstancePath
+- [chkDeferred()](#chkdeferred-f66dc2317846)
+- [convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, ArrayList<PathKey>, boolean)](InstancePath.md#converttoconfkey-709808909e1b) from InstancePath
+- [convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, List<PathKey>, boolean, boolean)](InstancePath.md#converttoconfkey-3964b2d32ca6) from InstancePath
+- [encode()](InstancePath.md#encode-fbae522bba37) from InstancePath
+- [encodeIKP()](InstancePath.md#encodeikp-b160b87f6433) from InstancePath
+- [equals(Object)](#equals-fcd6492e0d6c)
+- [getCSNode()](InstancePath.md#getcsnode-cf7a085aa7f5) from InstancePath
+- [getKP()](#getkp-45b2f95adae4)
+- [getKP(List<PathElement>, boolean, boolean, MountIdInterface)](InstancePath.md#getkp-a23f67046fb4) from InstancePath
+- [getLatestMountId()](InstancePath.md#getlatestmountid-30c9c1f692c7) from InstancePath
+- [getMountIdGetter()](InstancePath.md#getmountidgetter-64fcfdb6be8c) from InstancePath
+- [hashCode()](#hashcode-ef797a217903)
+- [isKey()](InstancePath.md#iskey-7bdf17ac8255) from InstancePath
+- [isParsingDeferred()](InstancePath.md#isparsingdeferred-b3b266536326) from InstancePath
+- [isRel()](InstancePath.md#isrel-dca98ac4de7a) from InstancePath
+- [makeKP(ConfObject[])](InstancePath.md#makekp-32258da68c76) from InstancePath
+- [parseAppend(String, Object[])](InstancePath.md#parseappend-54d8f4d7c8da) from InstancePath
+- [parseAppend(String, Object[], List<CSNode>)](InstancePath.md#parseappend-6e40353c0959) from InstancePath
+- [quoteByteArray(byte[])](InstancePath.md#quotebytearray-1889d341fdce) from InstancePath
+- [quoteString(String, boolean)](InstancePath.md#quotestring-2ccae847ff76) from InstancePath
+- [setMountIdGetter(MountIdInterface)](InstancePath.md#setmountidgetter-900228f8453c) from InstancePath
+- [toKeyPathString()](#tokeypathstring-bcccb457e808)
+- [toString()](#tostring-e9d48c5503ef)
+- [toXPathString()](InstancePath.md#toxpathstring-81906e391643) from InstancePath
 
 ## Constructors
 
-### ConfXPath(String) <a href="#m-ConfXPath-3168fe5c5a30" id="m-ConfXPath-3168fe5c5a30"></a>
+### ConfXPath(String) <a href="#confxpath-3168fe5c5a30" id="confxpath-3168fe5c5a30"></a>
 
 ```java
 public ConfXPath(String xpath) throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](ConfException.md#cls-ConfException)
+Types: [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
 - `String xpath`
 
-### ConfXPath(String, MountIdInterface) <a href="#m-ConfXPath-c4fe4eab63ea" id="m-ConfXPath-c4fe4eab63ea"></a>
+### ConfXPath(String, MountIdInterface) <a href="#confxpath-c4fe4eab63ea" id="confxpath-c4fe4eab63ea"></a>
 
 ```java
 public ConfXPath(
@@ -82,7 +82,7 @@ public ConfXPath(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [MountIdInterface](MountIdInterface.md#cls-MountIdInterface), [ConfException](ConfException.md#cls-ConfException)
+Types: [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0), [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
@@ -92,13 +92,13 @@ Types: [MountIdInterface](MountIdInterface.md#cls-MountIdInterface), [ConfExcept
 
 ## Methods
 
-### chkDeferred() <a href="#m-chkDeferred-f66dc2317846" id="m-chkDeferred-f66dc2317846"></a>
+### chkDeferred() <a href="#chkdeferred-f66dc2317846" id="chkdeferred-f66dc2317846"></a>
 
 ```java
 protected void chkDeferred()
 ```
 
-### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
+### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -108,13 +108,13 @@ public boolean equals(Object o)
 
 - `Object o`
 
-### getKP() <a href="#m-getKP-45b2f95adae4" id="m-getKP-45b2f95adae4"></a>
+### getKP() <a href="#getkp-45b2f95adae4" id="getkp-45b2f95adae4"></a>
 
 ```java
 public com.tailf.conf.ConfObject[] getKP()
 ```
 
-Types: [ConfObject](ConfObject.md#cls-ConfObject)
+Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
 
 Returns an array of `ConfTag` and `ConfKey`
  objects which represents the path in reverted order.
@@ -133,13 +133,13 @@ Returns an array of `ConfTag` and `ConfKey`
 
 **Returns:** reverted array representation of this `ConfPath`
 
-### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
+### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-### toKeyPathString() <a href="#m-toKeyPathString-bcccb457e808" id="m-toKeyPathString-bcccb457e808"></a>
+### toKeyPathString() <a href="#tokeypathstring-bcccb457e808" id="tokeypathstring-bcccb457e808"></a>
 
 ```java
 public String toKeyPathString()
@@ -149,7 +149,7 @@ return this path as a keypath string.
 
 **Returns:** keypath string representation
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()

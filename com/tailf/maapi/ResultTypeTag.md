@@ -1,11 +1,11 @@
-# ResultTypeTag <a href="#cls-ResultTypeTag" id="cls-ResultTypeTag"></a>
+# ResultTypeTag <a href="#resulttypetag-91d1aeee8818" id="resulttypetag-91d1aeee8818"></a>
 
 ```java
 public interface com.tailf.maapi.ResultTypeTag
     extends com.tailf.maapi.ResultType
 ```
 
-Types: [ResultType](ResultType.md#cls-ResultType)
+Types: [ResultType](ResultType.md#resulttype-1a8a08651698)
 
 XPath Result in ConfXMLParam format. This
  is specified trough `ReslutType.class` as a parameter
@@ -36,17 +36,17 @@ XPath Result in ConfXMLParam format. This
 
 **Methods**:
 
-- [tag()](#m-tag-7b2271ab156c)
+- [tag()](#tag-7b2271ab156c)
 
 ## Methods
 
-### tag() <a href="#m-tag-7b2271ab156c" id="m-tag-7b2271ab156c"></a>
+### tag() <a href="#tag-7b2271ab156c" id="tag-7b2271ab156c"></a>
 
 ```java
 public abstract com.tailf.conf.ConfXMLParam tag()
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7)
 
 Retrieves the result tag from a query
 

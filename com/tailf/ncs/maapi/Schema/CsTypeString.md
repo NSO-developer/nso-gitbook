@@ -1,4 +1,4 @@
-# CsTypeString <a href="#cls-CsTypeString" id="cls-CsTypeString"></a>
+# CsTypeString <a href="#cstypestring-9b9d426350a8" id="cstypestring-9b9d426350a8"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsTypeString
@@ -8,23 +8,23 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeString
 
 **Constructors**:
 
-- [CsTypeString()](#m-CsTypeString-22e5621be6b9)
+- [CsTypeString()](#cstypestring-22e5621be6b9)
 
 **Fields**:
 
-- [factory](#m-factory)
-- [listFactory](#m-listFactory)
-- [STRUCT_SIZE](#m-STRUCT_SIZE)
+- [factory](#factory-1649195a6f6e)
+- [listFactory](#listfactory-b96025f1568b)
+- [STRUCT_SIZE](#struct_size-06830f6b9d3b)
 
 **Nested Types**:
 
-- [Builder](CsTypeString/Builder.md#cls-Builder)
-- [Factory](CsTypeString/Factory.md#cls-Factory)
-- [Reader](CsTypeString/Reader.md#cls-Reader)
+- [Builder](CsTypeString/Builder.md#builder-21f09e83781d)
+- [Factory](CsTypeString/Factory.md#factory-1787784624e8)
+- [Reader](CsTypeString/Reader.md#reader-b2467a96ddff)
 
 ## Constructors
 
-### CsTypeString() <a href="#m-CsTypeString-22e5621be6b9" id="m-CsTypeString-22e5621be6b9"></a>
+### CsTypeString() <a href="#cstypestring-22e5621be6b9" id="cstypestring-22e5621be6b9"></a>
 
 ```java
 public CsTypeString()
@@ -33,23 +33,23 @@ public CsTypeString()
 
 ## Fields
 
-### factory <a href="#m-factory" id="m-factory"></a>
+### factory <a href="#factory-1649195a6f6e" id="factory-1649195a6f6e"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsTypeString.Factory factory = null;
 ```
 
-Types: [Factory](CsTypeString/Factory.md#cls-Factory)
+Types: [Factory](CsTypeString/Factory.md#factory-1787784624e8)
 
-### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
+### listFactory <a href="#listfactory-b96025f1568b" id="listfactory-b96025f1568b"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsTypeString.Builder,com.tailf.ncs.maapi.Schema.CsTypeString.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsTypeString/Builder.md#cls-Builder), [Reader](CsTypeString/Reader.md#cls-Reader)
+Types: [Builder](CsTypeString/Builder.md#builder-21f09e83781d), [Reader](CsTypeString/Reader.md#reader-b2467a96ddff)
 
-### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
+### STRUCT_SIZE <a href="#struct_size-06830f6b9d3b" id="struct_size-06830f6b9d3b"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;
@@ -58,6 +58,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsTypeString/Builder.md#cls-Builder)
-- [Factory](CsTypeString/Factory.md#cls-Factory)
-- [Reader](CsTypeString/Reader.md#cls-Reader)
+- [Builder](CsTypeString/Builder.md#builder-21f09e83781d)
+- [Factory](CsTypeString/Factory.md#factory-1787784624e8)
+- [Reader](CsTypeString/Reader.md#reader-b2467a96ddff)

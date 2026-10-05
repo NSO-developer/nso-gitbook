@@ -1,4 +1,4 @@
-# Builder <a href="#cls-Builder" id="cls-Builder"></a>
+# Builder <a href="#builder-21f09e83781d" id="builder-21f09e83781d"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsTypeIdref.Builder
@@ -9,19 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeIdref.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asReader-b5c0f2a8d115)
-- [getRefs()](#m-getRefs-b06b91bf4474)
-- [hasRefs()](#m-hasRefs-1092d9d8bb51)
-- [initRefs(int)](#m-initRefs-ba28b74a20d7)
-- [setRefs(Reader<Reader>)](#m-setRefs-be4e2cc42754)
+- [asReader()](#asreader-b5c0f2a8d115)
+- [getRefs()](#getrefs-b06b91bf4474)
+- [hasRefs()](#hasrefs-1092d9d8bb51)
+- [initRefs(int)](#initrefs-ba28b74a20d7)
+- [setRefs(Reader<Reader>)](#setrefs-be4e2cc42754)
 
 ## Constructors
 
-### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
+### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -46,29 +46,29 @@ Builder(
 
 ## Methods
 
-### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
+### asReader() <a href="#asreader-b5c0f2a8d115" id="asreader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeIdref.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#cls-Reader)
+Types: [Reader](Reader.md#reader-b2467a96ddff)
 
-### getRefs() <a href="#m-getRefs-b06b91bf4474" id="m-getRefs-b06b91bf4474"></a>
+### getRefs() <a href="#getrefs-b06b91bf4474" id="getrefs-b06b91bf4474"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Builder> getRefs()
 ```
 
-Types: [Builder](Ref/Builder.md#cls-Builder)
+Types: [Builder](Ref/Builder.md#builder-21f09e83781d)
 
-### hasRefs() <a href="#m-hasRefs-1092d9d8bb51" id="m-hasRefs-1092d9d8bb51"></a>
+### hasRefs() <a href="#hasrefs-1092d9d8bb51" id="hasrefs-1092d9d8bb51"></a>
 
 ```java
 public final boolean hasRefs()
 ```
 
-### initRefs(int) <a href="#m-initRefs-ba28b74a20d7" id="m-initRefs-ba28b74a20d7"></a>
+### initRefs(int) <a href="#initrefs-ba28b74a20d7" id="initrefs-ba28b74a20d7"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Builder> initRefs(
@@ -76,13 +76,13 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsTypeI
 )
 ```
 
-Types: [Builder](Ref/Builder.md#cls-Builder)
+Types: [Builder](Ref/Builder.md#builder-21f09e83781d)
 
 **Parameters**
 
 - `int size`
 
-### setRefs(Reader<Reader>) <a href="#m-setRefs-be4e2cc42754" id="m-setRefs-be4e2cc42754"></a>
+### setRefs(Reader&lt;Reader&gt;) <a href="#setrefs-be4e2cc42754" id="setrefs-be4e2cc42754"></a>
 
 ```java
 public final void setRefs(
@@ -90,7 +90,7 @@ public final void setRefs(
 )
 ```
 
-Types: [Reader](Ref/Reader.md#cls-Reader)
+Types: [Reader](Ref/Reader.md#reader-b2467a96ddff)
 
 **Parameters**
 

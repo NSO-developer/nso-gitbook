@@ -1,4 +1,4 @@
-# Reader <a href="#cls-Reader" id="cls-Reader"></a>
+# Reader <a href="#reader-b2467a96ddff" id="reader-b2467a96ddff"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsValueTime.Reader
@@ -9,20 +9,20 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueTime.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getHour()](#m-getHour-32c719f425c9)
-- [getMicro()](#m-getMicro-37aa6b436572)
-- [getMin()](#m-getMin-8654ceab94db)
-- [getSec()](#m-getSec-c0fe657f6906)
-- [getTimezone()](#m-getTimezone-9573790f24e6)
-- [getTimezoneMinutes()](#m-getTimezoneMinutes-b20d3de8d152)
+- [getHour()](#gethour-32c719f425c9)
+- [getMicro()](#getmicro-37aa6b436572)
+- [getMin()](#getmin-8654ceab94db)
+- [getSec()](#getsec-c0fe657f6906)
+- [getTimezone()](#gettimezone-9573790f24e6)
+- [getTimezoneMinutes()](#gettimezoneminutes-b20d3de8d152)
 
 ## Constructors
 
-### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
+### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -49,37 +49,37 @@ Reader(
 
 ## Methods
 
-### getHour() <a href="#m-getHour-32c719f425c9" id="m-getHour-32c719f425c9"></a>
+### getHour() <a href="#gethour-32c719f425c9" id="gethour-32c719f425c9"></a>
 
 ```java
 public final byte getHour()
 ```
 
-### getMicro() <a href="#m-getMicro-37aa6b436572" id="m-getMicro-37aa6b436572"></a>
+### getMicro() <a href="#getmicro-37aa6b436572" id="getmicro-37aa6b436572"></a>
 
 ```java
 public final int getMicro()
 ```
 
-### getMin() <a href="#m-getMin-8654ceab94db" id="m-getMin-8654ceab94db"></a>
+### getMin() <a href="#getmin-8654ceab94db" id="getmin-8654ceab94db"></a>
 
 ```java
 public final byte getMin()
 ```
 
-### getSec() <a href="#m-getSec-c0fe657f6906" id="m-getSec-c0fe657f6906"></a>
+### getSec() <a href="#getsec-c0fe657f6906" id="getsec-c0fe657f6906"></a>
 
 ```java
 public final byte getSec()
 ```
 
-### getTimezone() <a href="#m-getTimezone-9573790f24e6" id="m-getTimezone-9573790f24e6"></a>
+### getTimezone() <a href="#gettimezone-9573790f24e6" id="gettimezone-9573790f24e6"></a>
 
 ```java
 public final byte getTimezone()
 ```
 
-### getTimezoneMinutes() <a href="#m-getTimezoneMinutes-b20d3de8d152" id="m-getTimezoneMinutes-b20d3de8d152"></a>
+### getTimezoneMinutes() <a href="#gettimezoneminutes-b20d3de8d152" id="gettimezoneminutes-b20d3de8d152"></a>
 
 ```java
 public final byte getTimezoneMinutes()

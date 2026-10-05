@@ -1,32 +1,32 @@
-# ConfirmNetworkStateMode <a href="#cls-ConfirmNetworkStateMode" id="cls-ConfirmNetworkStateMode"></a>
+# ConfirmNetworkStateMode <a href="#confirmnetworkstatemode-f61ccbe3a7e4" id="confirmnetworkstatemode-f61ccbe3a7e4"></a>
 
 ```java
 public static enum com.tailf.maapi.CommitParams.ConfirmNetworkStateMode
 ```
 
-Types: [ConfirmNetworkStateMode](ConfirmNetworkStateMode.md#cls-ConfirmNetworkStateMode)
+Types: [ConfirmNetworkStateMode](ConfirmNetworkStateMode.md#confirmnetworkstatemode-f61ccbe3a7e4)
 
 ## Members
 
 **Enum Constants**:
 
-- [NORMAL](#m-NORMAL)
-- [RE_EVALUATE_POLICIES](#m-RE_EVALUATE_POLICIES)
+- [NORMAL](#normal-b34e6bc0c9ca)
+- [RE_EVALUATE_POLICIES](#re_evaluate_policies-1866fe2fdda0)
 
 **Methods**:
 
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### NORMAL <a href="#m-NORMAL" id="m-NORMAL"></a>
+### NORMAL <a href="#normal-b34e6bc0c9ca" id="normal-b34e6bc0c9ca"></a>
 
 ```java
 public static final com.tailf.maapi.CommitParams.ConfirmNetworkStateMode NORMAL;
 ```
 
-### RE_EVALUATE_POLICIES <a href="#m-RE_EVALUATE_POLICIES" id="m-RE_EVALUATE_POLICIES"></a>
+### RE_EVALUATE_POLICIES <a href="#re_evaluate_policies-1866fe2fdda0" id="re_evaluate_policies-1866fe2fdda0"></a>
 
 ```java
 public static final com.tailf.maapi.CommitParams.ConfirmNetworkStateMode RE_EVALUATE_POLICIES;
@@ -35,22 +35,22 @@ public static final com.tailf.maapi.CommitParams.ConfirmNetworkStateMode RE_EVAL
 
 ## Methods
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.CommitParams.ConfirmNetworkStateMode valueOf(String name)
 ```
 
-Types: [ConfirmNetworkStateMode](ConfirmNetworkStateMode.md#cls-ConfirmNetworkStateMode)
+Types: [ConfirmNetworkStateMode](ConfirmNetworkStateMode.md#confirmnetworkstatemode-f61ccbe3a7e4)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.CommitParams.ConfirmNetworkStateMode[] values()
 ```
 
-Types: [ConfirmNetworkStateMode](ConfirmNetworkStateMode.md#cls-ConfirmNetworkStateMode)
+Types: [ConfirmNetworkStateMode](ConfirmNetworkStateMode.md#confirmnetworkstatemode-f61ccbe3a7e4)

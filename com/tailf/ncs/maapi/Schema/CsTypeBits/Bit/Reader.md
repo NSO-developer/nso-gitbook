@@ -1,4 +1,4 @@
-# Reader <a href="#cls-Reader" id="cls-Reader"></a>
+# Reader <a href="#reader-b2467a96ddff" id="reader-b2467a96ddff"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsTypeBits.Bit.Reader
@@ -9,17 +9,17 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeBits.Bit.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getName()](#m-getName-2634b18b4a25)
-- [getPos()](#m-getPos-ad2d7b30807f)
-- [hasName()](#m-hasName-bfe6c334e0d1)
+- [getName()](#getname-2634b18b4a25)
+- [getPos()](#getpos-ad2d7b30807f)
+- [hasName()](#hasname-bfe6c334e0d1)
 
 ## Constructors
 
-### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
+### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -46,19 +46,19 @@ Reader(
 
 ## Methods
 
-### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
+### getName() <a href="#getname-2634b18b4a25" id="getname-2634b18b4a25"></a>
 
 ```java
 public org.capnproto.Text.Reader getName()
 ```
 
-### getPos() <a href="#m-getPos-ad2d7b30807f" id="m-getPos-ad2d7b30807f"></a>
+### getPos() <a href="#getpos-ad2d7b30807f" id="getpos-ad2d7b30807f"></a>
 
 ```java
 public final int getPos()
 ```
 
-### hasName() <a href="#m-hasName-bfe6c334e0d1" id="m-hasName-bfe6c334e0d1"></a>
+### hasName() <a href="#hasname-bfe6c334e0d1" id="hasname-bfe6c334e0d1"></a>
 
 ```java
 public boolean hasName()

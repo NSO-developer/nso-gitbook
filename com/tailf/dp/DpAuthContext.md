@@ -1,4 +1,4 @@
-# DpAuthContext <a href="#cls-DpAuthContext" id="cls-DpAuthContext"></a>
+# DpAuthContext <a href="#dpauthcontext-74214c38995b" id="dpauthcontext-74214c38995b"></a>
 
 ```java
 public class com.tailf.dp.DpAuthContext
@@ -12,23 +12,23 @@ Authentication context class. The DpAuthCallback.auth() callback method is
 
 **Constructors**:
 
-- [DpAuthContext(DpUserInfo, String, boolean, int, String[], int, String, String)](#m-DpAuthContext-fe04319e1322)
+- [DpAuthContext(DpUserInfo, String, boolean, int, String[], int, String, String)](#dpauthcontext-fe04319e1322)
 
 **Methods**:
 
-- [getErrorString()](#m-getErrorString-3b4eba00496b)
-- [getGroups()](#m-getGroups-42a63746c815)
-- [getLogNo()](#m-getLogNo-0a53380cc549)
-- [getMethod()](#m-getMethod-50f16c317ece)
-- [getNumGroups()](#m-getNumGroups-08bbbf8f5900)
-- [getReason()](#m-getReason-5eb89e7b2733)
-- [getUserInfo()](#m-getUserInfo-3ecef1f24d3d)
-- [isSuccess()](#m-isSuccess-92b05032c7ec)
-- [setError(String, Object[])](#m-setError-3f96aececb3d)
+- [getErrorString()](#geterrorstring-3b4eba00496b)
+- [getGroups()](#getgroups-42a63746c815)
+- [getLogNo()](#getlogno-0a53380cc549)
+- [getMethod()](#getmethod-50f16c317ece)
+- [getNumGroups()](#getnumgroups-08bbbf8f5900)
+- [getReason()](#getreason-5eb89e7b2733)
+- [getUserInfo()](#getuserinfo-3ecef1f24d3d)
+- [isSuccess()](#issuccess-92b05032c7ec)
+- [setError(String, Object[])](#seterror-3f96aececb3d)
 
 ## Constructors
 
-### DpAuthContext(DpUserInfo, String, boolean, int, String[], int, String, String) <a href="#m-DpAuthContext-fe04319e1322" id="m-DpAuthContext-fe04319e1322"></a>
+### DpAuthContext(DpUserInfo, String, boolean, int, String[], int, String, String) <a href="#dpauthcontext-fe04319e1322" id="dpauthcontext-fe04319e1322"></a>
 
 ```java
 public DpAuthContext(
@@ -43,7 +43,7 @@ public DpAuthContext(
 )
 ```
 
-Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
+Types: [DpUserInfo](DpUserInfo.md#dpuserinfo-c59746285a6e)
 
 **Parameters**
 
@@ -59,7 +59,7 @@ Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
 
 ## Methods
 
-### getErrorString() <a href="#m-getErrorString-3b4eba00496b" id="m-getErrorString-3b4eba00496b"></a>
+### getErrorString() <a href="#geterrorstring-3b4eba00496b" id="geterrorstring-3b4eba00496b"></a>
 
 ```java
 public String getErrorString()
@@ -71,7 +71,7 @@ errstr is an extended error information that can be set using method
 
 **Returns:** String error string
 
-### getGroups() <a href="#m-getGroups-42a63746c815" id="m-getGroups-42a63746c815"></a>
+### getGroups() <a href="#getgroups-42a63746c815" id="getgroups-42a63746c815"></a>
 
 ```java
 public String[] getGroups()
@@ -85,7 +85,7 @@ If success is true, the AAA authentication succeeded, and groups is an
 
 **Returns:** String[] groups
 
-### getLogNo() <a href="#m-getLogNo-0a53380cc549" id="m-getLogNo-0a53380cc549"></a>
+### getLogNo() <a href="#getlogno-0a53380cc549" id="getlogno-0a53380cc549"></a>
 
 ```java
 public int getLogNo()
@@ -98,7 +98,7 @@ If success is false, the AAA authentication failed (with logno set
 
 **Returns:** int logno
 
-### getMethod() <a href="#m-getMethod-50f16c317ece" id="m-getMethod-50f16c317ece"></a>
+### getMethod() <a href="#getmethod-50f16c317ece" id="getmethod-50f16c317ece"></a>
 
 ```java
 public String getMethod()
@@ -128,7 +128,7 @@ The method string gives the authentication method used, as follows:
 
 **Returns:** String method
 
-### getNumGroups() <a href="#m-getNumGroups-08bbbf8f5900" id="m-getNumGroups-08bbbf8f5900"></a>
+### getNumGroups() <a href="#getnumgroups-08bbbf8f5900" id="getnumgroups-08bbbf8f5900"></a>
 
 ```java
 public int getNumGroups()
@@ -139,7 +139,7 @@ If success is true, the AAA authentication succeeded, ngroups is the
 
 **Returns:** int number of groups
 
-### getReason() <a href="#m-getReason-5eb89e7b2733" id="m-getReason-5eb89e7b2733"></a>
+### getReason() <a href="#getreason-5eb89e7b2733" id="getreason-5eb89e7b2733"></a>
 
 ```java
 public String getReason()
@@ -152,13 +152,13 @@ If success is false, the AAA authentication failed, reason is a
 
 **Returns:** String reason
 
-### getUserInfo() <a href="#m-getUserInfo-3ecef1f24d3d" id="m-getUserInfo-3ecef1f24d3d"></a>
+### getUserInfo() <a href="#getuserinfo-3ecef1f24d3d" id="getuserinfo-3ecef1f24d3d"></a>
 
 ```java
 public com.tailf.dp.DpUserInfo getUserInfo()
 ```
 
-Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
+Types: [DpUserInfo](DpUserInfo.md#dpuserinfo-c59746285a6e)
 
 The uinfo contains an instance of DpUserInfo with details about the user
  logging in, specifically user name, password (if used), source IP
@@ -169,7 +169,7 @@ The uinfo contains an instance of DpUserInfo with details about the user
 
 **Returns:** DpUserInfo userinfo
 
-### isSuccess() <a href="#m-isSuccess-92b05032c7ec" id="m-isSuccess-92b05032c7ec"></a>
+### isSuccess() <a href="#issuccess-92b05032c7ec" id="issuccess-92b05032c7ec"></a>
 
 ```java
 public boolean isSuccess()
@@ -180,7 +180,7 @@ success is true if the user is accepted so far (before call of auth()
 
  return boolean true if success
 
-### setError(String, Object[]) <a href="#m-setError-3f96aececb3d" id="m-setError-3f96aececb3d"></a>
+### setError(String, Object[]) <a href="#seterror-3f96aececb3d" id="seterror-3f96aececb3d"></a>
 
 ```java
 public void setError(String fmt, Object[] arguments)

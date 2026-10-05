@@ -1,4 +1,4 @@
-# Builder <a href="#cls-Builder" id="cls-Builder"></a>
+# Builder <a href="#builder-21f09e83781d" id="builder-21f09e83781d"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsValueBitBig.Builder
@@ -9,20 +9,20 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueBitBig.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asReader-b5c0f2a8d115)
-- [getValue()](#m-getValue-d93864668c40)
-- [hasValue()](#m-hasValue-dad92e423e7a)
-- [initValue(int)](#m-initValue-a117f5eca48d)
-- [setValue(byte[])](#m-setValue-da5fdcdbf2b9)
-- [setValue(Reader)](#m-setValue-f6f6b43d91d8)
+- [asReader()](#asreader-b5c0f2a8d115)
+- [getValue()](#getvalue-d93864668c40)
+- [hasValue()](#hasvalue-dad92e423e7a)
+- [initValue(int)](#initvalue-a117f5eca48d)
+- [setValue(byte[])](#setvalue-da5fdcdbf2b9)
+- [setValue(Reader)](#setvalue-f6f6b43d91d8)
 
 ## Constructors
 
-### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
+### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -47,27 +47,27 @@ Builder(
 
 ## Methods
 
-### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
+### asReader() <a href="#asreader-b5c0f2a8d115" id="asreader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueBitBig.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#cls-Reader)
+Types: [Reader](Reader.md#reader-b2467a96ddff)
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public final org.capnproto.Data.Builder getValue()
 ```
 
-### hasValue() <a href="#m-hasValue-dad92e423e7a" id="m-hasValue-dad92e423e7a"></a>
+### hasValue() <a href="#hasvalue-dad92e423e7a" id="hasvalue-dad92e423e7a"></a>
 
 ```java
 public final boolean hasValue()
 ```
 
-### initValue(int) <a href="#m-initValue-a117f5eca48d" id="m-initValue-a117f5eca48d"></a>
+### initValue(int) <a href="#initvalue-a117f5eca48d" id="initvalue-a117f5eca48d"></a>
 
 ```java
 public final org.capnproto.Data.Builder initValue(int size)
@@ -77,7 +77,7 @@ public final org.capnproto.Data.Builder initValue(int size)
 
 - `int size`
 
-### setValue(byte[]) <a href="#m-setValue-da5fdcdbf2b9" id="m-setValue-da5fdcdbf2b9"></a>
+### setValue(byte[]) <a href="#setvalue-da5fdcdbf2b9" id="setvalue-da5fdcdbf2b9"></a>
 
 ```java
 public final void setValue(byte[] value)
@@ -87,7 +87,7 @@ public final void setValue(byte[] value)
 
 - `byte[] value`
 
-### setValue(Reader) <a href="#m-setValue-f6f6b43d91d8" id="m-setValue-f6f6b43d91d8"></a>
+### setValue(Reader) <a href="#setvalue-f6f6b43d91d8" id="setvalue-f6f6b43d91d8"></a>
 
 ```java
 public final void setValue(org.capnproto.Data.Reader value)

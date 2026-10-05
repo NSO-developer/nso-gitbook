@@ -1,10 +1,10 @@
-# CLIInteractionFlag <a href="#cls-CLIInteractionFlag" id="cls-CLIInteractionFlag"></a>
+# CLIInteractionFlag <a href="#cliinteractionflag-e5edaaf18139" id="cliinteractionflag-e5edaaf18139"></a>
 
 ```java
 public enum com.tailf.maapi.CLIInteractionFlag
 ```
 
-Types: [CLIInteractionFlag](CLIInteractionFlag.md#cls-CLIInteractionFlag)
+Types: [CLIInteractionFlag](CLIInteractionFlag.md#cliinteractionflag-e5edaaf18139)
 
 flags for controlling cmd to CLI via CLIInteraction class
 
@@ -12,19 +12,19 @@ flags for controlling cmd to CLI via CLIInteraction class
 
 **Enum Constants**:
 
-- [NO_FULLPATH](#m-NO_FULLPATH)
-- [NO_HIDDEN](#m-NO_HIDDEN)
+- [NO_FULLPATH](#no_fullpath-9780bdb87de8)
+- [NO_HIDDEN](#no_hidden-2e1d61add5d6)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(int)](#m-valueOf-c0d46d25fc67)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(int)](#valueof-c0d46d25fc67)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### NO_FULLPATH <a href="#m-NO_FULLPATH" id="m-NO_FULLPATH"></a>
+### NO_FULLPATH <a href="#no_fullpath-9780bdb87de8" id="no_fullpath-9780bdb87de8"></a>
 
 ```java
 public static final com.tailf.maapi.CLIInteractionFlag NO_FULLPATH;
@@ -32,7 +32,7 @@ public static final com.tailf.maapi.CLIInteractionFlag NO_FULLPATH;
 
 Do not perform the full path check on show commands.
 
-### NO_HIDDEN <a href="#m-NO_HIDDEN" id="m-NO_HIDDEN"></a>
+### NO_HIDDEN <a href="#no_hidden-2e1d61add5d6" id="no_hidden-2e1d61add5d6"></a>
 
 ```java
 public static final com.tailf.maapi.CLIInteractionFlag NO_HIDDEN;
@@ -43,40 +43,40 @@ Allows execution of hidden CLI commands.
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
+### valueOf(int) <a href="#valueof-c0d46d25fc67" id="valueof-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.maapi.CLIInteractionFlag valueOf(int i)
 ```
 
-Types: [CLIInteractionFlag](CLIInteractionFlag.md#cls-CLIInteractionFlag)
+Types: [CLIInteractionFlag](CLIInteractionFlag.md#cliinteractionflag-e5edaaf18139)
 
 **Parameters**
 
 - `int i`
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.CLIInteractionFlag valueOf(String name)
 ```
 
-Types: [CLIInteractionFlag](CLIInteractionFlag.md#cls-CLIInteractionFlag)
+Types: [CLIInteractionFlag](CLIInteractionFlag.md#cliinteractionflag-e5edaaf18139)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.CLIInteractionFlag[] values()
 ```
 
-Types: [CLIInteractionFlag](CLIInteractionFlag.md#cls-CLIInteractionFlag)
+Types: [CLIInteractionFlag](CLIInteractionFlag.md#cliinteractionflag-e5edaaf18139)

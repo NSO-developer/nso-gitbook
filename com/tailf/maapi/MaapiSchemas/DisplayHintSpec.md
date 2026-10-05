@@ -1,4 +1,4 @@
-# DisplayHintSpec <a href="#cls-DisplayHintSpec" id="cls-DisplayHintSpec"></a>
+# DisplayHintSpec <a href="#displayhintspec-2ef2e6b2ec31" id="displayhintspec-2ef2e6b2ec31"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.DisplayHintSpec
@@ -8,19 +8,19 @@ public static class com.tailf.maapi.MaapiSchemas.DisplayHintSpec
 
 **Constructors**:
 
-- [DisplayHintSpec(byte, int, byte, byte, byte)](#m-DisplayHintSpec-8a54d55c515d)
+- [DisplayHintSpec(byte, int, byte, byte, byte)](#displayhintspec-8a54d55c515d)
 
 **Fields**:
 
-- [format](#m-format)
-- [length](#m-length)
-- [repeat](#m-repeat)
-- [seperator](#m-seperator)
-- [terminator](#m-terminator)
+- [format](#format-d089b20f34fb)
+- [length](#length-2195c2c888cc)
+- [repeat](#repeat-bc6d3f8a5c03)
+- [seperator](#seperator-62c2e3d10341)
+- [terminator](#terminator-ebeeb56c9e82)
 
 ## Constructors
 
-### DisplayHintSpec(byte, int, byte, byte, byte) <a href="#m-DisplayHintSpec-8a54d55c515d" id="m-DisplayHintSpec-8a54d55c515d"></a>
+### DisplayHintSpec(byte, int, byte, byte, byte) <a href="#displayhintspec-8a54d55c515d" id="displayhintspec-8a54d55c515d"></a>
 
 ```java
 protected DisplayHintSpec(byte repeat, int length, byte format, byte seperator, byte terminator)
@@ -37,31 +37,31 @@ protected DisplayHintSpec(byte repeat, int length, byte format, byte seperator, 
 
 ## Fields
 
-### format <a href="#m-format" id="m-format"></a>
+### format <a href="#format-d089b20f34fb" id="format-d089b20f34fb"></a>
 
 ```java
 protected char format = null;
 ```
 
-### length <a href="#m-length" id="m-length"></a>
+### length <a href="#length-2195c2c888cc" id="length-2195c2c888cc"></a>
 
 ```java
 protected int length = null;
 ```
 
-### repeat <a href="#m-repeat" id="m-repeat"></a>
+### repeat <a href="#repeat-bc6d3f8a5c03" id="repeat-bc6d3f8a5c03"></a>
 
 ```java
 protected byte repeat = null;
 ```
 
-### seperator <a href="#m-seperator" id="m-seperator"></a>
+### seperator <a href="#seperator-62c2e3d10341" id="seperator-62c2e3d10341"></a>
 
 ```java
 protected char seperator = null;
 ```
 
-### terminator <a href="#m-terminator" id="m-terminator"></a>
+### terminator <a href="#terminator-ebeeb56c9e82" id="terminator-ebeeb56c9e82"></a>
 
 ```java
 protected char terminator = null;

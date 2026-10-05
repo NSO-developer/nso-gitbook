@@ -1,4 +1,4 @@
-# DBCallback <a href="#cls-DBCallback" id="cls-DBCallback"></a>
+# DBCallback <a href="#dbcallback-491430761ac8" id="dbcallback-491430761ac8"></a>
 
 ```java
 @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
@@ -14,14 +14,14 @@ Annotation class for DB Callbacks Attribute are callType
 
 **Methods**:
 
-- [callType()](#m-callType-0d0f9b61a036)
+- [callType()](#calltype-0d0f9b61a036)
 
 ## Methods
 
-### callType() <a href="#m-callType-0d0f9b61a036" id="m-callType-0d0f9b61a036"></a>
+### callType() <a href="#calltype-0d0f9b61a036" id="calltype-0d0f9b61a036"></a>
 
 ```java
 public abstract com.tailf.dp.proto.DBCBType[] callType()
 ```
 
-Types: [DBCBType](../proto/DBCBType.md#cls-DBCBType)
+Types: [DBCBType](../proto/DBCBType.md#dbcbtype-b9ff294018bf)

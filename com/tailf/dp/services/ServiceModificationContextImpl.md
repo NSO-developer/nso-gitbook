@@ -1,4 +1,4 @@
-# ServiceModificationContextImpl <a href="#cls-ServiceModificationContextImpl" id="cls-ServiceModificationContextImpl"></a>
+# ServiceModificationContextImpl <a href="#servicemodificationcontextimpl-1935e8396cc3" id="servicemodificationcontextimpl-1935e8396cc3"></a>
 
 ```java
 public class com.tailf.dp.services.ServiceModificationContextImpl
@@ -14,14 +14,14 @@ Internal class implementing the service context for PRE/POST MODIFICATION
 
 **Constructors**:
 
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject)](#m-ServiceModificationContextImpl-d0eddddd16f2)
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject, ServiceOperationType)](#m-ServiceModificationContextImpl-be8c23b53fc7)
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEList)](#m-ServiceModificationContextImpl-90b24dd80819)
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEObject)](#m-ServiceModificationContextImpl-767900bccb2e)
+- [ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject)](#servicemodificationcontextimpl-d0eddddd16f2)
+- [ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject, ServiceOperationType)](#servicemodificationcontextimpl-be8c23b53fc7)
+- [ServiceModificationContextImpl(DpTrans, Dp, ConfEList)](#servicemodificationcontextimpl-90b24dd80819)
+- [ServiceModificationContextImpl(DpTrans, Dp, ConfEObject)](#servicemodificationcontextimpl-767900bccb2e)
 
 ## Constructors
 
-### ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject) <a href="#m-ServiceModificationContextImpl-d0eddddd16f2" id="m-ServiceModificationContextImpl-d0eddddd16f2"></a>
+### ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject) <a href="#servicemodificationcontextimpl-d0eddddd16f2" id="servicemodificationcontextimpl-d0eddddd16f2"></a>
 
 ```java
 protected ServiceModificationContextImpl(
@@ -34,7 +34,7 @@ protected ServiceModificationContextImpl(
     throws com.tailf.conf.ConfException, com.tailf.proto.ConfERangeException
 ```
 
-Types: [DpTrans](../DpTrans.md#cls-DpTrans), [Dp](../Dp.md#cls-Dp), [ConfEAtom](../../proto/ConfEAtom.md#cls-ConfEAtom), [ConfEList](../../proto/ConfEList.md#cls-ConfEList), [ConfEObject](../../proto/ConfEObject.md#cls-ConfEObject), [ConfException](../../conf/ConfException.md#cls-ConfException), [ConfERangeException](../../proto/ConfERangeException.md#cls-ConfERangeException)
+Types: [DpTrans](../DpTrans.md#dptrans-bf19458d92ec), [Dp](../Dp.md#dp-64c27347820e), [ConfEAtom](../../proto/ConfEAtom.md#confeatom-9f9d21cb88dd), [ConfEList](../../proto/ConfEList.md#confelist-78fa4ba3b3a8), [ConfEObject](../../proto/ConfEObject.md#confeobject-2a9c0d03e350), [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9), [ConfERangeException](../../proto/ConfERangeException.md#conferangeexception-3f566066d5e7)
 
 **Parameters**
 
@@ -44,7 +44,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [Dp](../Dp.md#cls-Dp), [ConfEAtom](
 - `com.tailf.proto.ConfEList ePath`
 - `com.tailf.proto.ConfEObject eOpaque`
 
-### ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject, ServiceOperationType) <a href="#m-ServiceModificationContextImpl-be8c23b53fc7" id="m-ServiceModificationContextImpl-be8c23b53fc7"></a>
+### ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject, ServiceOperationType) <a href="#servicemodificationcontextimpl-be8c23b53fc7" id="servicemodificationcontextimpl-be8c23b53fc7"></a>
 
 ```java
 protected ServiceModificationContextImpl(
@@ -58,7 +58,7 @@ protected ServiceModificationContextImpl(
     throws com.tailf.conf.ConfException, com.tailf.proto.ConfERangeException
 ```
 
-Types: [DpTrans](../DpTrans.md#cls-DpTrans), [Dp](../Dp.md#cls-Dp), [ConfEAtom](../../proto/ConfEAtom.md#cls-ConfEAtom), [ConfEList](../../proto/ConfEList.md#cls-ConfEList), [ConfEObject](../../proto/ConfEObject.md#cls-ConfEObject), [ServiceOperationType](ServiceOperationType.md#cls-ServiceOperationType), [ConfException](../../conf/ConfException.md#cls-ConfException), [ConfERangeException](../../proto/ConfERangeException.md#cls-ConfERangeException)
+Types: [DpTrans](../DpTrans.md#dptrans-bf19458d92ec), [Dp](../Dp.md#dp-64c27347820e), [ConfEAtom](../../proto/ConfEAtom.md#confeatom-9f9d21cb88dd), [ConfEList](../../proto/ConfEList.md#confelist-78fa4ba3b3a8), [ConfEObject](../../proto/ConfEObject.md#confeobject-2a9c0d03e350), [ServiceOperationType](ServiceOperationType.md#serviceoperationtype-76755b5b3de9), [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9), [ConfERangeException](../../proto/ConfERangeException.md#conferangeexception-3f566066d5e7)
 
 **Parameters**
 
@@ -69,7 +69,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [Dp](../Dp.md#cls-Dp), [ConfEAtom](
 - `com.tailf.proto.ConfEObject eOpaque`
 - `com.tailf.dp.services.ServiceOperationType operation`
 
-### ServiceModificationContextImpl(DpTrans, Dp, ConfEList) <a href="#m-ServiceModificationContextImpl-90b24dd80819" id="m-ServiceModificationContextImpl-90b24dd80819"></a>
+### ServiceModificationContextImpl(DpTrans, Dp, ConfEList) <a href="#servicemodificationcontextimpl-90b24dd80819" id="servicemodificationcontextimpl-90b24dd80819"></a>
 
 ```java
 protected ServiceModificationContextImpl(
@@ -80,7 +80,7 @@ protected ServiceModificationContextImpl(
     throws com.tailf.conf.ConfException, com.tailf.proto.ConfERangeException
 ```
 
-Types: [DpTrans](../DpTrans.md#cls-DpTrans), [Dp](../Dp.md#cls-Dp), [ConfEList](../../proto/ConfEList.md#cls-ConfEList), [ConfException](../../conf/ConfException.md#cls-ConfException), [ConfERangeException](../../proto/ConfERangeException.md#cls-ConfERangeException)
+Types: [DpTrans](../DpTrans.md#dptrans-bf19458d92ec), [Dp](../Dp.md#dp-64c27347820e), [ConfEList](../../proto/ConfEList.md#confelist-78fa4ba3b3a8), [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9), [ConfERangeException](../../proto/ConfERangeException.md#conferangeexception-3f566066d5e7)
 
 **Parameters**
 
@@ -88,7 +88,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [Dp](../Dp.md#cls-Dp), [ConfEList](
 - `com.tailf.dp.Dp dp`
 - `com.tailf.proto.ConfEList eTransTup`
 
-### ServiceModificationContextImpl(DpTrans, Dp, ConfEObject) <a href="#m-ServiceModificationContextImpl-767900bccb2e" id="m-ServiceModificationContextImpl-767900bccb2e"></a>
+### ServiceModificationContextImpl(DpTrans, Dp, ConfEObject) <a href="#servicemodificationcontextimpl-767900bccb2e" id="servicemodificationcontextimpl-767900bccb2e"></a>
 
 ```java
 public ServiceModificationContextImpl(
@@ -99,7 +99,7 @@ public ServiceModificationContextImpl(
     throws com.tailf.conf.ConfException, com.tailf.proto.ConfERangeException
 ```
 
-Types: [DpTrans](../DpTrans.md#cls-DpTrans), [Dp](../Dp.md#cls-Dp), [ConfEObject](../../proto/ConfEObject.md#cls-ConfEObject), [ConfException](../../conf/ConfException.md#cls-ConfException), [ConfERangeException](../../proto/ConfERangeException.md#cls-ConfERangeException)
+Types: [DpTrans](../DpTrans.md#dptrans-bf19458d92ec), [Dp](../Dp.md#dp-64c27347820e), [ConfEObject](../../proto/ConfEObject.md#confeobject-2a9c0d03e350), [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9), [ConfERangeException](../../proto/ConfERangeException.md#conferangeexception-3f566066d5e7)
 
 Internally used constructor
 

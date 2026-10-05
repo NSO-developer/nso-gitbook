@@ -1,4 +1,4 @@
-# SSHSessionException <a href="#cls-SSHSessionException" id="cls-SSHSessionException"></a>
+# SSHSessionException <a href="#sshsessionexception-971db2359ab1" id="sshsessionexception-971db2359ab1"></a>
 
 ```java
 public class com.tailf.ned.SSHSessionException
@@ -11,20 +11,20 @@ Exception raised from the SSH Session
 
 **Constructors**:
 
-- [SSHSessionException(int, String)](#m-SSHSessionException-f6a2f2c7feea)
+- [SSHSessionException(int, String)](#sshsessionexception-f6a2f2c7feea)
 
 **Fields**:
 
-- [READ_EOF](#m-READ_EOF)
-- [READ_TIMEOUT](#m-READ_TIMEOUT)
+- [READ_EOF](#read_eof-8c3114d59520)
+- [READ_TIMEOUT](#read_timeout-bf92ad0bc4d2)
 
 **Methods**:
 
-- [getErrorCode()](#m-getErrorCode-812152fc083a)
+- [getErrorCode()](#geterrorcode-812152fc083a)
 
 ## Constructors
 
-### SSHSessionException(int, String) <a href="#m-SSHSessionException-f6a2f2c7feea" id="m-SSHSessionException-f6a2f2c7feea"></a>
+### SSHSessionException(int, String) <a href="#sshsessionexception-f6a2f2c7feea" id="sshsessionexception-f6a2f2c7feea"></a>
 
 ```java
 public SSHSessionException(int id, String msg)
@@ -38,13 +38,13 @@ public SSHSessionException(int id, String msg)
 
 ## Fields
 
-### READ_EOF <a href="#m-READ_EOF" id="m-READ_EOF"></a>
+### READ_EOF <a href="#read_eof-8c3114d59520" id="read_eof-8c3114d59520"></a>
 
 ```java
 public static final int READ_EOF = 1;
 ```
 
-### READ_TIMEOUT <a href="#m-READ_TIMEOUT" id="m-READ_TIMEOUT"></a>
+### READ_TIMEOUT <a href="#read_timeout-bf92ad0bc4d2" id="read_timeout-bf92ad0bc4d2"></a>
 
 ```java
 public static final int READ_TIMEOUT = 0;
@@ -53,7 +53,7 @@ public static final int READ_TIMEOUT = 0;
 
 ## Methods
 
-### getErrorCode() <a href="#m-getErrorCode-812152fc083a" id="m-getErrorCode-812152fc083a"></a>
+### getErrorCode() <a href="#geterrorcode-812152fc083a" id="geterrorcode-812152fc083a"></a>
 
 ```java
 public int getErrorCode()

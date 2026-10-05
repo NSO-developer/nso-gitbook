@@ -1,4 +1,4 @@
-# TemplateVariables <a href="#cls-TemplateVariables" id="cls-TemplateVariables"></a>
+# TemplateVariables <a href="#templatevariables-712ebc3b9438" id="templatevariables-712ebc3b9438"></a>
 
 ```java
 public class com.tailf.ncs.template.TemplateVariables
@@ -11,15 +11,15 @@ public class com.tailf.ncs.template.TemplateVariables
 
 **Constructors**:
 
-- [TemplateVariables()](#m-TemplateVariables-3563335fc6a2)
+- [TemplateVariables()](#templatevariables-3563335fc6a2)
 
 **Methods**:
 
-- [putQuoted(String, String)](#m-putQuoted-6dd8179b4b5e)
+- [putQuoted(String, String)](#putquoted-6dd8179b4b5e)
 
 ## Constructors
 
-### TemplateVariables() <a href="#m-TemplateVariables-3563335fc6a2" id="m-TemplateVariables-3563335fc6a2"></a>
+### TemplateVariables() <a href="#templatevariables-3563335fc6a2" id="templatevariables-3563335fc6a2"></a>
 
 ```java
 public TemplateVariables()
@@ -28,7 +28,7 @@ public TemplateVariables()
 
 ## Methods
 
-### putQuoted(String, String) <a href="#m-putQuoted-6dd8179b4b5e" id="m-putQuoted-6dd8179b4b5e"></a>
+### putQuoted(String, String) <a href="#putquoted-6dd8179b4b5e" id="putquoted-6dd8179b4b5e"></a>
 
 ```java
 public Object putQuoted(String key, String value)

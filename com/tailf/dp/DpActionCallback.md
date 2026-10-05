@@ -1,4 +1,4 @@
-# DpActionCallback <a href="#cls-DpActionCallback" id="cls-DpActionCallback"></a>
+# DpActionCallback <a href="#dpactioncallback-62c4973947ec" id="dpactioncallback-62c4973947ec"></a>
 
 ```java
 public interface com.tailf.dp.DpActionCallback
@@ -16,55 +16,55 @@ This interface is used for the user actions callbacks.
  invoked from a given user session. Hence the associated DpUserInfo is passed
  to the callbacks.
 
-**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerAnnotatedCallbacks-ffaebadbfc42)
+**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
 
 **Fields**:
 
-- [M_ABORT](#m-M_ABORT)
-- [M_ACTION](#m-M_ACTION)
-- [M_COMMAND](#m-M_COMMAND)
-- [M_COMPLETION](#m-M_COMPLETION)
-- [M_INIT](#m-M_INIT)
+- [M_ABORT](#m_abort-7b4607723e90)
+- [M_ACTION](#m_action-7085cebe5b02)
+- [M_COMMAND](#m_command-7b1086f0f7fa)
+- [M_COMPLETION](#m_completion-25ac3cbe9876)
+- [M_INIT](#m_init-13cacf7e79fd)
 
 **Methods**:
 
-- [abort(DpActionTrans)](#m-abort-cd35d6a916f4)
-- [action(DpActionTrans, ConfTag, ConfObject[], ConfXMLParam[])](#m-action-80bbec157786)
-- [actionpoint()](#m-actionpoint-0569c173260f)
-- [command(DpActionTrans, String, String, String[])](#m-command-cea87613b5a2)
-- [completion(DpActionTrans, char, String, char, ConfObject[], String, String, ConfQname, String)](#m-completion-2f4ed4ef651b)
-- [init(DpActionTrans)](#m-init-ea24b0ff3f23)
-- [mask()](#m-mask-24c2fa29c6af)
+- [abort(DpActionTrans)](#abort-cd35d6a916f4)
+- [action(DpActionTrans, ConfTag, ConfObject[], ConfXMLParam[])](#action-80bbec157786)
+- [actionpoint()](#actionpoint-0569c173260f)
+- [command(DpActionTrans, String, String, String[])](#command-cea87613b5a2)
+- [completion(DpActionTrans, char, String, char, ConfObject[], String, String, ConfQname, String)](#completion-2f4ed4ef651b)
+- [init(DpActionTrans)](#init-ea24b0ff3f23)
+- [mask()](#mask-24c2fa29c6af)
 
 ## Fields
 
-### M_ABORT <a href="#m-M_ABORT" id="m-M_ABORT"></a>
+### M_ABORT <a href="#m_abort-7b4607723e90" id="m_abort-7b4607723e90"></a>
 
 ```java
 public static final int M_ABORT = 2;
 ```
 
-### M_ACTION <a href="#m-M_ACTION" id="m-M_ACTION"></a>
+### M_ACTION <a href="#m_action-7085cebe5b02" id="m_action-7085cebe5b02"></a>
 
 ```java
 public static final int M_ACTION = 4;
 ```
 
-### M_COMMAND <a href="#m-M_COMMAND" id="m-M_COMMAND"></a>
+### M_COMMAND <a href="#m_command-7b1086f0f7fa" id="m_command-7b1086f0f7fa"></a>
 
 ```java
 public static final int M_COMMAND = 8;
 ```
 
-### M_COMPLETION <a href="#m-M_COMPLETION" id="m-M_COMPLETION"></a>
+### M_COMPLETION <a href="#m_completion-25ac3cbe9876" id="m_completion-25ac3cbe9876"></a>
 
 ```java
 public static final int M_COMPLETION = 16;
 ```
 
-### M_INIT <a href="#m-M_INIT" id="m-M_INIT"></a>
+### M_INIT <a href="#m_init-13cacf7e79fd" id="m_init-13cacf7e79fd"></a>
 
 ```java
 public static final int M_INIT = 1;
@@ -73,13 +73,13 @@ public static final int M_INIT = 1;
 
 ## Methods
 
-### abort(DpActionTrans) <a href="#m-abort-cd35d6a916f4" id="m-abort-cd35d6a916f4"></a>
+### abort(DpActionTrans) <a href="#abort-cd35d6a916f4" id="abort-cd35d6a916f4"></a>
 
 ```java
 public abstract void abort(com.tailf.dp.DpActionTrans actx) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpActionTrans](DpActionTrans.md#cls-DpActionTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpActionTrans](DpActionTrans.md#dpactiontrans-b975ce2c2d93), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 The abort() callback will be called for user initiated abort of an
   action. The abort() callback will be called in a separate thread from
@@ -90,9 +90,9 @@ The abort() callback will be called for user initiated abort of an
   There are two ways that the action() execution could be terminated.
   The simple solution is that the action() implementation itself checks
   the action transaction state by a call to
-  [`DpActionTrans#getActionState()`](DpActionTrans.md#m-getActionState-f64b645d471e). In this case the abort() can
+  [`DpActionTrans#getActionState()`](DpActionTrans.md#getactionstate-f64b645d471e). In this case the abort() can
   have an empty implementation since the state will implicitly be set to
-  [`DpActionTrans#STATE_ABORTED`](DpActionTrans.md#m-STATE_ABORTED).
+  [`DpActionTrans#STATE_ABORTED`](DpActionTrans.md#state_aborted-f267bf6c0021).
 
   However the above scenario is often not sufficient because the action()
   execution thread is busy and not able to check the state. In this case,
@@ -119,7 +119,7 @@ The abort() callback will be called for user initiated abort of an
 
 - `DpCallbackException`
 
-### action(DpActionTrans, ConfTag, ConfObject[], ConfXMLParam[]) <a href="#m-action-80bbec157786" id="m-action-80bbec157786"></a>
+### action(DpActionTrans, ConfTag, ConfObject[], ConfXMLParam[]) <a href="#action-80bbec157786" id="action-80bbec157786"></a>
 
 ```java
 public abstract com.tailf.conf.ConfXMLParam[] action(
@@ -131,7 +131,7 @@ public abstract com.tailf.conf.ConfXMLParam[] action(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [DpActionTrans](DpActionTrans.md#cls-DpActionTrans), [ConfTag](../conf/ConfTag.md#cls-ConfTag), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [DpActionTrans](DpActionTrans.md#dpactiontrans-b975ce2c2d93), [ConfTag](../conf/ConfTag.md#conftag-73757b87bc93), [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 The action() callback receives all the parameters pertaining to the
  action: The name argument is a pointer to the action name as defined in
@@ -150,7 +150,7 @@ The action() callback receives all the parameters pertaining to the
 
 - `DpCallbackException` - Callback method failed.
 
-### actionpoint() <a href="#m-actionpoint-0569c173260f" id="m-actionpoint-0569c173260f"></a>
+### actionpoint() <a href="#actionpoint-0569c173260f" id="actionpoint-0569c173260f"></a>
 
 ```java
 public abstract String actionpoint()
@@ -158,7 +158,7 @@ public abstract String actionpoint()
 
 Return the name of the action point.
 
-### command(DpActionTrans, String, String, String[]) <a href="#m-command-cea87613b5a2" id="m-command-cea87613b5a2"></a>
+### command(DpActionTrans, String, String, String[]) <a href="#command-cea87613b5a2" id="command-cea87613b5a2"></a>
 
 ```java
 public abstract String[] command(
@@ -170,7 +170,7 @@ public abstract String[] command(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpActionTrans](DpActionTrans.md#cls-DpActionTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpActionTrans](DpActionTrans.md#dpactiontrans-b975ce2c2d93), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 The command() callback is invoked for CLI callback commands. As the
  parameters in this case are all in string form, they are passed as an
@@ -187,7 +187,7 @@ The command() callback is invoked for CLI callback commands. As the
 
 - `DpCallbackException` - Callback method failed
 
-### completion(DpActionTrans, char, String, char, ConfObject[], String, String, ConfQname, String) <a href="#m-completion-2f4ed4ef651b" id="m-completion-2f4ed4ef651b"></a>
+### completion(DpActionTrans, char, String, char, ConfObject[], String, String, ConfQname, String) <a href="#completion-2f4ed4ef651b" id="completion-2f4ed4ef651b"></a>
 
 ```java
 public abstract com.tailf.dp.Completion completion(
@@ -204,10 +204,10 @@ public abstract com.tailf.dp.Completion completion(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [Completion](Completion.md#cls-Completion), [DpActionTrans](DpActionTrans.md#cls-DpActionTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfQname](../conf/ConfQname.md#cls-ConfQname), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [Completion](Completion.md#completion-86b0b2e96c7f), [DpActionTrans](DpActionTrans.md#dpactiontrans-b975ce2c2d93), [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [ConfQname](../conf/ConfQname.md#confqname-32a7566f68b5), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 The completion() callback is invoked for CLI completion
- and information. It must result in a [`Completion`](Completion.md#cls-Completion) class instance.
+ and information. It must result in a [`Completion`](Completion.md#completion-86b0b2e96c7f) class instance.
  It is invoked for yang model elements with the directive
  tailf:cli-completion-actionpoint as well as model list elements with
  directives tailf:cli-custom-range-actionpoint or
@@ -236,13 +236,13 @@ The completion() callback is invoked for CLI completion
 
 - `DpCallbackException`
 
-### init(DpActionTrans) <a href="#m-init-ea24b0ff3f23" id="m-init-ea24b0ff3f23"></a>
+### init(DpActionTrans) <a href="#init-ea24b0ff3f23" id="init-ea24b0ff3f23"></a>
 
 ```java
 public abstract void init(com.tailf.dp.DpActionTrans actx) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpActionTrans](DpActionTrans.md#cls-DpActionTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpActionTrans](DpActionTrans.md#dpactiontrans-b975ce2c2d93), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 Similar to the init() callback for external data bases. This socket will
  be used for the invocation of the action() callback, which implements the
@@ -260,7 +260,7 @@ Similar to the init() callback for external data bases. This socket will
 
 - `DpCallbackException` - Callback method failed.
 
-### mask() <a href="#m-mask-24c2fa29c6af" id="m-mask-24c2fa29c6af"></a>
+### mask() <a href="#mask-24c2fa29c6af" id="mask-24c2fa29c6af"></a>
 
 ```java
 public abstract int mask()

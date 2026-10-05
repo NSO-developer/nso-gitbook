@@ -1,10 +1,10 @@
-# TransCBType <a href="#cls-TransCBType" id="cls-TransCBType"></a>
+# TransCBType <a href="#transcbtype-23d0df519739" id="transcbtype-23d0df519739"></a>
 
 ```java
 public enum com.tailf.dp.proto.TransCBType
 ```
 
-Types: [TransCBType](TransCBType.md#cls-TransCBType)
+Types: [TransCBType](TransCBType.md#transcbtype-23d0df519739)
 
 Enumeration of Trans callback methods
 
@@ -97,99 +97,99 @@ Enumeration of Trans callback methods
 
 **Enum Constants**:
 
-- [ABORT](#m-ABORT)
-- [COMMIT](#m-COMMIT)
-- [FINISH](#m-FINISH)
-- [INIT](#m-INIT)
-- [PREPARE](#m-PREPARE)
-- [TRANS_LOCK](#m-TRANS_LOCK)
-- [TRANS_UNLOCK](#m-TRANS_UNLOCK)
-- [WRITE_START](#m-WRITE_START)
+- [ABORT](#abort-7ca9e5aa43c8)
+- [COMMIT](#commit-14b001a1be17)
+- [FINISH](#finish-d07f8d2510ea)
+- [INIT](#init-5407b9c86a37)
+- [PREPARE](#prepare-751688bc2f01)
+- [TRANS_LOCK](#trans_lock-ca813c8ef589)
+- [TRANS_UNLOCK](#trans_unlock-33c04d445eb8)
+- [WRITE_START](#write_start-c5f19ac27692)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### ABORT <a href="#m-ABORT" id="m-ABORT"></a>
+### ABORT <a href="#abort-7ca9e5aa43c8" id="abort-7ca9e5aa43c8"></a>
 
 ```java
 public static final com.tailf.dp.proto.TransCBType ABORT;
 ```
 
-Bit flag for the [`DpTransCallback#abort(DpTrans)`](../DpTransCallback.md#m-abort-be36f552f23c)
+Bit flag for the [`DpTransCallback#abort(DpTrans)`](../DpTransCallback.md#abort-be36f552f23c)
  method.
 
-### COMMIT <a href="#m-COMMIT" id="m-COMMIT"></a>
+### COMMIT <a href="#commit-14b001a1be17" id="commit-14b001a1be17"></a>
 
 ```java
 public static final com.tailf.dp.proto.TransCBType COMMIT;
 ```
 
-Bit flag for the [`DpTransCallback#commit(DpTrans)`](../DpTransCallback.md#m-commit-5e7631b9a7e8)
+Bit flag for the [`DpTransCallback#commit(DpTrans)`](../DpTransCallback.md#commit-5e7631b9a7e8)
  method.
 
-### FINISH <a href="#m-FINISH" id="m-FINISH"></a>
+### FINISH <a href="#finish-d07f8d2510ea" id="finish-d07f8d2510ea"></a>
 
 ```java
 public static final com.tailf.dp.proto.TransCBType FINISH;
 ```
 
-Bit flag for the [`DpTransCallback#finish(DpTrans)`](../DpTransCallback.md#m-finish-1001d416be96)
+Bit flag for the [`DpTransCallback#finish(DpTrans)`](../DpTransCallback.md#finish-1001d416be96)
  method.
 
-### INIT <a href="#m-INIT" id="m-INIT"></a>
+### INIT <a href="#init-5407b9c86a37" id="init-5407b9c86a37"></a>
 
 ```java
 public static final com.tailf.dp.proto.TransCBType INIT;
 ```
 
-Bit flag for the [`DpTransCallback#init(DpTrans)`](../DpTransCallback.md#m-init-16fe8657859c)
+Bit flag for the [`DpTransCallback#init(DpTrans)`](../DpTransCallback.md#init-16fe8657859c)
  method.
 
-### PREPARE <a href="#m-PREPARE" id="m-PREPARE"></a>
+### PREPARE <a href="#prepare-751688bc2f01" id="prepare-751688bc2f01"></a>
 
 ```java
 public static final com.tailf.dp.proto.TransCBType PREPARE;
 ```
 
-Bit flag for the [`DpTransCallback#prepare(DpTrans)`](../DpTransCallback.md#m-prepare-ab366f6ce7ea)
+Bit flag for the [`DpTransCallback#prepare(DpTrans)`](../DpTransCallback.md#prepare-ab366f6ce7ea)
  method.
 
-### TRANS_LOCK <a href="#m-TRANS_LOCK" id="m-TRANS_LOCK"></a>
+### TRANS_LOCK <a href="#trans_lock-ca813c8ef589" id="trans_lock-ca813c8ef589"></a>
 
 ```java
 public static final com.tailf.dp.proto.TransCBType TRANS_LOCK;
 ```
 
-Bit flag for the [`DpTransCallback#transLock(DpTrans)`](../DpTransCallback.md#m-transLock-dc59c2c0e5f8)
+Bit flag for the [`DpTransCallback#transLock(DpTrans)`](../DpTransCallback.md#translock-dc59c2c0e5f8)
  method.
 
-### TRANS_UNLOCK <a href="#m-TRANS_UNLOCK" id="m-TRANS_UNLOCK"></a>
+### TRANS_UNLOCK <a href="#trans_unlock-33c04d445eb8" id="trans_unlock-33c04d445eb8"></a>
 
 ```java
 public static final com.tailf.dp.proto.TransCBType TRANS_UNLOCK;
 ```
 
 Bit flag for the
- [`DpTransCallback#transUnlock(DpTrans)`](../DpTransCallback.md#m-transUnlock-d0b9be30b219) method.
+ [`DpTransCallback#transUnlock(DpTrans)`](../DpTransCallback.md#transunlock-d0b9be30b219) method.
 
-### WRITE_START <a href="#m-WRITE_START" id="m-WRITE_START"></a>
+### WRITE_START <a href="#write_start-c5f19ac27692" id="write_start-c5f19ac27692"></a>
 
 ```java
 public static final com.tailf.dp.proto.TransCBType WRITE_START;
 ```
 
-Bit flag for the [`DpTransCallback#writeStart(DpTrans)`](../DpTransCallback.md#m-writeStart-5fee67274be5)
+Bit flag for the [`DpTransCallback#writeStart(DpTrans)`](../DpTransCallback.md#writestart-5fee67274be5)
  method.
 
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -199,22 +199,22 @@ get integer value for enum
 
 **Returns:** int value
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.dp.proto.TransCBType valueOf(String name)
 ```
 
-Types: [TransCBType](TransCBType.md#cls-TransCBType)
+Types: [TransCBType](TransCBType.md#transcbtype-23d0df519739)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.dp.proto.TransCBType[] values()
 ```
 
-Types: [TransCBType](TransCBType.md#cls-TransCBType)
+Types: [TransCBType](TransCBType.md#transcbtype-23d0df519739)

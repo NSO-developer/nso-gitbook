@@ -1,10 +1,10 @@
-# CSNodeType <a href="#cls-CSNodeType" id="cls-CSNodeType"></a>
+# CSNodeType <a href="#csnodetype-c43320d71626" id="csnodetype-c43320d71626"></a>
 
 ```java
 public static enum com.tailf.maapi.MaapiSchemas.CSNodeType
 ```
 
-Types: [CSNodeType](CSNodeType.md#cls-CSNodeType)
+Types: [CSNodeType](CSNodeType.md#csnodetype-c43320d71626)
 
 Enum containing all possible node values for a node type.
 
@@ -12,192 +12,192 @@ Enum containing all possible node values for a node type.
 
 **Enum Constants**:
 
-- [CS_NODE_HAS_CHILD_ACTION](#m-CS_NODE_HAS_CHILD_ACTION)
-- [CS_NODE_HAS_CHILD_CONF_ACTION](#m-CS_NODE_HAS_CHILD_CONF_ACTION)
-- [CS_NODE_HAS_CHILD_OPER_ACTION](#m-CS_NODE_HAS_CHILD_OPER_ACTION)
-- [CS_NODE_HAS_CHILD_READ_ONLY](#m-CS_NODE_HAS_CHILD_READ_ONLY)
-- [CS_NODE_HAS_CHILD_READ_WRITE](#m-CS_NODE_HAS_CHILD_READ_WRITE)
-- [CS_NODE_HAS_DISPLAY_WHEN](#m-CS_NODE_HAS_DISPLAY_WHEN)
-- [CS_NODE_HAS_DOC_DESCRIPTION](#m-CS_NODE_HAS_DOC_DESCRIPTION)
-- [CS_NODE_HAS_MOUNT_POINT](#m-CS_NODE_HAS_MOUNT_POINT)
-- [CS_NODE_HAS_PROMPT](#m-CS_NODE_HAS_PROMPT)
-- [CS_NODE_HAS_SERVICEPOINT](#m-CS_NODE_HAS_SERVICEPOINT)
-- [CS_NODE_HAS_WHEN](#m-CS_NODE_HAS_WHEN)
-- [CS_NODE_IS_ACTION](#m-CS_NODE_IS_ACTION)
-- [CS_NODE_IS_CASE](#m-CS_NODE_IS_CASE)
-- [CS_NODE_IS_CDB](#m-CS_NODE_IS_CDB)
-- [CS_NODE_IS_CONTAINER](#m-CS_NODE_IS_CONTAINER)
-- [CS_NODE_IS_HIDDEN](#m-CS_NODE_IS_HIDDEN)
-- [CS_NODE_IS_LEAF_LIST](#m-CS_NODE_IS_LEAF_LIST)
-- [CS_NODE_IS_LEAFREF](#m-CS_NODE_IS_LEAFREF)
-- [CS_NODE_IS_LIST](#m-CS_NODE_IS_LIST)
-- [CS_NODE_IS_NOTIF](#m-CS_NODE_IS_NOTIF)
-- [CS_NODE_IS_PARAM](#m-CS_NODE_IS_PARAM)
-- [CS_NODE_IS_RESULT](#m-CS_NODE_IS_RESULT)
-- [CS_NODE_IS_STRING_AS_BINARY](#m-CS_NODE_IS_STRING_AS_BINARY)
-- [CS_NODE_IS_WRITE](#m-CS_NODE_IS_WRITE)
-- [CS_NODE_IS_WRITE_ALL](#m-CS_NODE_IS_WRITE_ALL)
-- [CS_NODE_META_DATA](#m-CS_NODE_META_DATA)
+- [CS_NODE_HAS_CHILD_ACTION](#cs_node_has_child_action-63dbfbbbb2fc)
+- [CS_NODE_HAS_CHILD_CONF_ACTION](#cs_node_has_child_conf_action-bc3a13549d63)
+- [CS_NODE_HAS_CHILD_OPER_ACTION](#cs_node_has_child_oper_action-518dab7d4f63)
+- [CS_NODE_HAS_CHILD_READ_ONLY](#cs_node_has_child_read_only-8927ffcad439)
+- [CS_NODE_HAS_CHILD_READ_WRITE](#cs_node_has_child_read_write-bda6eff6151d)
+- [CS_NODE_HAS_DISPLAY_WHEN](#cs_node_has_display_when-532d67f81e8b)
+- [CS_NODE_HAS_DOC_DESCRIPTION](#cs_node_has_doc_description-aa7115236368)
+- [CS_NODE_HAS_MOUNT_POINT](#cs_node_has_mount_point-7c3dd3145ddc)
+- [CS_NODE_HAS_PROMPT](#cs_node_has_prompt-2bc5c97ba8c3)
+- [CS_NODE_HAS_SERVICEPOINT](#cs_node_has_servicepoint-60f6607f463a)
+- [CS_NODE_HAS_WHEN](#cs_node_has_when-da57b1be9941)
+- [CS_NODE_IS_ACTION](#cs_node_is_action-3107f62fdc87)
+- [CS_NODE_IS_CASE](#cs_node_is_case-6e5ef2b25aa6)
+- [CS_NODE_IS_CDB](#cs_node_is_cdb-f0d0e75e76fd)
+- [CS_NODE_IS_CONTAINER](#cs_node_is_container-40402b656490)
+- [CS_NODE_IS_HIDDEN](#cs_node_is_hidden-51e00aa0e27e)
+- [CS_NODE_IS_LEAF_LIST](#cs_node_is_leaf_list-4a264088c1d6)
+- [CS_NODE_IS_LEAFREF](#cs_node_is_leafref-8b56d811a0fc)
+- [CS_NODE_IS_LIST](#cs_node_is_list-1cd0e7e67223)
+- [CS_NODE_IS_NOTIF](#cs_node_is_notif-7d1c1ba1de3c)
+- [CS_NODE_IS_PARAM](#cs_node_is_param-b51a4d7d5766)
+- [CS_NODE_IS_RESULT](#cs_node_is_result-d1516b1dc1b1)
+- [CS_NODE_IS_STRING_AS_BINARY](#cs_node_is_string_as_binary-50862206a4f9)
+- [CS_NODE_IS_WRITE](#cs_node_is_write-1cbe36076711)
+- [CS_NODE_IS_WRITE_ALL](#cs_node_is_write_all-8b0efda2263d)
+- [CS_NODE_META_DATA](#cs_node_meta_data-3f64454ef187)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### CS_NODE_HAS_CHILD_ACTION <a href="#m-CS_NODE_HAS_CHILD_ACTION" id="m-CS_NODE_HAS_CHILD_ACTION"></a>
+### CS_NODE_HAS_CHILD_ACTION <a href="#cs_node_has_child_action-63dbfbbbb2fc" id="cs_node_has_child_action-63dbfbbbb2fc"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_CHILD_ACTION;
 ```
 
-### CS_NODE_HAS_CHILD_CONF_ACTION <a href="#m-CS_NODE_HAS_CHILD_CONF_ACTION" id="m-CS_NODE_HAS_CHILD_CONF_ACTION"></a>
+### CS_NODE_HAS_CHILD_CONF_ACTION <a href="#cs_node_has_child_conf_action-bc3a13549d63" id="cs_node_has_child_conf_action-bc3a13549d63"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_CHILD_CONF_ACTION;
 ```
 
-### CS_NODE_HAS_CHILD_OPER_ACTION <a href="#m-CS_NODE_HAS_CHILD_OPER_ACTION" id="m-CS_NODE_HAS_CHILD_OPER_ACTION"></a>
+### CS_NODE_HAS_CHILD_OPER_ACTION <a href="#cs_node_has_child_oper_action-518dab7d4f63" id="cs_node_has_child_oper_action-518dab7d4f63"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_CHILD_OPER_ACTION;
 ```
 
-### CS_NODE_HAS_CHILD_READ_ONLY <a href="#m-CS_NODE_HAS_CHILD_READ_ONLY" id="m-CS_NODE_HAS_CHILD_READ_ONLY"></a>
+### CS_NODE_HAS_CHILD_READ_ONLY <a href="#cs_node_has_child_read_only-8927ffcad439" id="cs_node_has_child_read_only-8927ffcad439"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_CHILD_READ_ONLY;
 ```
 
-### CS_NODE_HAS_CHILD_READ_WRITE <a href="#m-CS_NODE_HAS_CHILD_READ_WRITE" id="m-CS_NODE_HAS_CHILD_READ_WRITE"></a>
+### CS_NODE_HAS_CHILD_READ_WRITE <a href="#cs_node_has_child_read_write-bda6eff6151d" id="cs_node_has_child_read_write-bda6eff6151d"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_CHILD_READ_WRITE;
 ```
 
-### CS_NODE_HAS_DISPLAY_WHEN <a href="#m-CS_NODE_HAS_DISPLAY_WHEN" id="m-CS_NODE_HAS_DISPLAY_WHEN"></a>
+### CS_NODE_HAS_DISPLAY_WHEN <a href="#cs_node_has_display_when-532d67f81e8b" id="cs_node_has_display_when-532d67f81e8b"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_DISPLAY_WHEN;
 ```
 
-### CS_NODE_HAS_DOC_DESCRIPTION <a href="#m-CS_NODE_HAS_DOC_DESCRIPTION" id="m-CS_NODE_HAS_DOC_DESCRIPTION"></a>
+### CS_NODE_HAS_DOC_DESCRIPTION <a href="#cs_node_has_doc_description-aa7115236368" id="cs_node_has_doc_description-aa7115236368"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_DOC_DESCRIPTION;
 ```
 
-### CS_NODE_HAS_MOUNT_POINT <a href="#m-CS_NODE_HAS_MOUNT_POINT" id="m-CS_NODE_HAS_MOUNT_POINT"></a>
+### CS_NODE_HAS_MOUNT_POINT <a href="#cs_node_has_mount_point-7c3dd3145ddc" id="cs_node_has_mount_point-7c3dd3145ddc"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_MOUNT_POINT;
 ```
 
-### CS_NODE_HAS_PROMPT <a href="#m-CS_NODE_HAS_PROMPT" id="m-CS_NODE_HAS_PROMPT"></a>
+### CS_NODE_HAS_PROMPT <a href="#cs_node_has_prompt-2bc5c97ba8c3" id="cs_node_has_prompt-2bc5c97ba8c3"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_PROMPT;
 ```
 
-### CS_NODE_HAS_SERVICEPOINT <a href="#m-CS_NODE_HAS_SERVICEPOINT" id="m-CS_NODE_HAS_SERVICEPOINT"></a>
+### CS_NODE_HAS_SERVICEPOINT <a href="#cs_node_has_servicepoint-60f6607f463a" id="cs_node_has_servicepoint-60f6607f463a"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_SERVICEPOINT;
 ```
 
-### CS_NODE_HAS_WHEN <a href="#m-CS_NODE_HAS_WHEN" id="m-CS_NODE_HAS_WHEN"></a>
+### CS_NODE_HAS_WHEN <a href="#cs_node_has_when-da57b1be9941" id="cs_node_has_when-da57b1be9941"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_WHEN;
 ```
 
-### CS_NODE_IS_ACTION <a href="#m-CS_NODE_IS_ACTION" id="m-CS_NODE_IS_ACTION"></a>
+### CS_NODE_IS_ACTION <a href="#cs_node_is_action-3107f62fdc87" id="cs_node_is_action-3107f62fdc87"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_ACTION;
 ```
 
-### CS_NODE_IS_CASE <a href="#m-CS_NODE_IS_CASE" id="m-CS_NODE_IS_CASE"></a>
+### CS_NODE_IS_CASE <a href="#cs_node_is_case-6e5ef2b25aa6" id="cs_node_is_case-6e5ef2b25aa6"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_CASE;
 ```
 
-### CS_NODE_IS_CDB <a href="#m-CS_NODE_IS_CDB" id="m-CS_NODE_IS_CDB"></a>
+### CS_NODE_IS_CDB <a href="#cs_node_is_cdb-f0d0e75e76fd" id="cs_node_is_cdb-f0d0e75e76fd"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_CDB;
 ```
 
-### CS_NODE_IS_CONTAINER <a href="#m-CS_NODE_IS_CONTAINER" id="m-CS_NODE_IS_CONTAINER"></a>
+### CS_NODE_IS_CONTAINER <a href="#cs_node_is_container-40402b656490" id="cs_node_is_container-40402b656490"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_CONTAINER;
 ```
 
-### CS_NODE_IS_HIDDEN <a href="#m-CS_NODE_IS_HIDDEN" id="m-CS_NODE_IS_HIDDEN"></a>
+### CS_NODE_IS_HIDDEN <a href="#cs_node_is_hidden-51e00aa0e27e" id="cs_node_is_hidden-51e00aa0e27e"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_HIDDEN;
 ```
 
-### CS_NODE_IS_LEAF_LIST <a href="#m-CS_NODE_IS_LEAF_LIST" id="m-CS_NODE_IS_LEAF_LIST"></a>
+### CS_NODE_IS_LEAF_LIST <a href="#cs_node_is_leaf_list-4a264088c1d6" id="cs_node_is_leaf_list-4a264088c1d6"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_LEAF_LIST;
 ```
 
-### CS_NODE_IS_LEAFREF <a href="#m-CS_NODE_IS_LEAFREF" id="m-CS_NODE_IS_LEAFREF"></a>
+### CS_NODE_IS_LEAFREF <a href="#cs_node_is_leafref-8b56d811a0fc" id="cs_node_is_leafref-8b56d811a0fc"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_LEAFREF;
 ```
 
-### CS_NODE_IS_LIST <a href="#m-CS_NODE_IS_LIST" id="m-CS_NODE_IS_LIST"></a>
+### CS_NODE_IS_LIST <a href="#cs_node_is_list-1cd0e7e67223" id="cs_node_is_list-1cd0e7e67223"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_LIST;
 ```
 
-### CS_NODE_IS_NOTIF <a href="#m-CS_NODE_IS_NOTIF" id="m-CS_NODE_IS_NOTIF"></a>
+### CS_NODE_IS_NOTIF <a href="#cs_node_is_notif-7d1c1ba1de3c" id="cs_node_is_notif-7d1c1ba1de3c"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_NOTIF;
 ```
 
-### CS_NODE_IS_PARAM <a href="#m-CS_NODE_IS_PARAM" id="m-CS_NODE_IS_PARAM"></a>
+### CS_NODE_IS_PARAM <a href="#cs_node_is_param-b51a4d7d5766" id="cs_node_is_param-b51a4d7d5766"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_PARAM;
 ```
 
-### CS_NODE_IS_RESULT <a href="#m-CS_NODE_IS_RESULT" id="m-CS_NODE_IS_RESULT"></a>
+### CS_NODE_IS_RESULT <a href="#cs_node_is_result-d1516b1dc1b1" id="cs_node_is_result-d1516b1dc1b1"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_RESULT;
 ```
 
-### CS_NODE_IS_STRING_AS_BINARY <a href="#m-CS_NODE_IS_STRING_AS_BINARY" id="m-CS_NODE_IS_STRING_AS_BINARY"></a>
+### CS_NODE_IS_STRING_AS_BINARY <a href="#cs_node_is_string_as_binary-50862206a4f9" id="cs_node_is_string_as_binary-50862206a4f9"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_STRING_AS_BINARY;
 ```
 
-### CS_NODE_IS_WRITE <a href="#m-CS_NODE_IS_WRITE" id="m-CS_NODE_IS_WRITE"></a>
+### CS_NODE_IS_WRITE <a href="#cs_node_is_write-1cbe36076711" id="cs_node_is_write-1cbe36076711"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_WRITE;
 ```
 
-### CS_NODE_IS_WRITE_ALL <a href="#m-CS_NODE_IS_WRITE_ALL" id="m-CS_NODE_IS_WRITE_ALL"></a>
+### CS_NODE_IS_WRITE_ALL <a href="#cs_node_is_write_all-8b0efda2263d" id="cs_node_is_write_all-8b0efda2263d"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_WRITE_ALL;
 ```
 
-### CS_NODE_META_DATA <a href="#m-CS_NODE_META_DATA" id="m-CS_NODE_META_DATA"></a>
+### CS_NODE_META_DATA <a href="#cs_node_meta_data-3f64454ef187" id="cs_node_meta_data-3f64454ef187"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_META_DATA;
@@ -206,7 +206,7 @@ public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_META_DATA;
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -214,22 +214,22 @@ public int getValue()
 
 **Returns:** the integer value of the enum.
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.MaapiSchemas.CSNodeType valueOf(String name)
 ```
 
-Types: [CSNodeType](CSNodeType.md#cls-CSNodeType)
+Types: [CSNodeType](CSNodeType.md#csnodetype-c43320d71626)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.MaapiSchemas.CSNodeType[] values()
 ```
 
-Types: [CSNodeType](CSNodeType.md#cls-CSNodeType)
+Types: [CSNodeType](CSNodeType.md#csnodetype-c43320d71626)

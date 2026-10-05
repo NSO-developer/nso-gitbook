@@ -1,28 +1,28 @@
-# KeyPath2NavuNode <a href="#cls-KeyPath2NavuNode" id="cls-KeyPath2NavuNode"></a>
+# KeyPath2NavuNode <a href="#keypath2navunode-6efe0ae690fd" id="keypath2navunode-6efe0ae690fd"></a>
 
 ```java
 public class com.tailf.navu.KeyPath2NavuNode
 ```
 
-Utility class for creating [`NavuNode`](NavuNode.md#cls-NavuNode) from [`ConfObject`](../conf/ConfObject.md#cls-ConfObject) array.
+Utility class for creating [`NavuNode`](NavuNode.md#navunode-73944820c8db) from [`ConfObject`](../conf/ConfObject.md#confobject-5433616953b2) array.
 
 ## Members
 
 **Methods**:
 
-- [getList(CSNode, ConfObject[])](#m-getList-059f57e4e042)
-- [getListOrListEntry(CSNode, ConfObject[])](#m-getListOrListEntry-2d3a88ed873b)
-- [getNode(ConfObject[], NavuContext)](#m-getNode-0dbf03f5ea6c)
-- [getNode(ConfPath, NavuContext)](#m-getNode-440eaae488b9)
-- [getParent(CSNode, ConfObject[])](#m-getParent-c4f035d88579)
+- [getList(CSNode, ConfObject[])](#getlist-059f57e4e042)
+- [getListOrListEntry(CSNode, ConfObject[])](#getlistorlistentry-2d3a88ed873b)
+- [getNode(ConfObject[], NavuContext)](#getnode-0dbf03f5ea6c)
+- [getNode(ConfPath, NavuContext)](#getnode-440eaae488b9)
+- [getParent(CSNode, ConfObject[])](#getparent-c4f035d88579)
 
 **Nested Types**:
 
-- [Formats](KeyPath2NavuNode/Formats.md#cls-Formats)
+- [Formats](KeyPath2NavuNode/Formats.md#formats-699695f9b70f)
 
 ## Methods
 
-### getList(CSNode, ConfObject[]) <a href="#m-getList-059f57e4e042" id="m-getList-059f57e4e042"></a>
+### getList(CSNode, ConfObject[]) <a href="#getlist-059f57e4e042" id="getlist-059f57e4e042"></a>
 
 ```java
 protected com.tailf.navu.NavuList getList(
@@ -32,14 +32,14 @@ protected com.tailf.navu.NavuList getList(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuList](NavuList.md#cls-NavuList), [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuList](NavuList.md#navulist-472e8d6d3745), [CSNode](../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28), [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
 - `com.tailf.maapi.MaapiSchemas.CSNode node`
 - `com.tailf.conf.ConfObject[] kpx`
 
-### getListOrListEntry(CSNode, ConfObject[]) <a href="#m-getListOrListEntry-2d3a88ed873b" id="m-getListOrListEntry-2d3a88ed873b"></a>
+### getListOrListEntry(CSNode, ConfObject[]) <a href="#getlistorlistentry-2d3a88ed873b" id="getlistorlistentry-2d3a88ed873b"></a>
 
 ```java
 protected com.tailf.navu.NavuNode getListOrListEntry(
@@ -49,14 +49,14 @@ protected com.tailf.navu.NavuNode getListOrListEntry(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode), [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [CSNode](../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28), [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
 - `com.tailf.maapi.MaapiSchemas.CSNode node`
 - `com.tailf.conf.ConfObject[] kpx`
 
-### getNode(ConfObject[], NavuContext) <a href="#m-getNode-0dbf03f5ea6c" id="m-getNode-0dbf03f5ea6c"></a>
+### getNode(ConfObject[], NavuContext) <a href="#getnode-0dbf03f5ea6c" id="getnode-0dbf03f5ea6c"></a>
 
 ```java
 public static com.tailf.navu.NavuNode getNode(
@@ -66,14 +66,14 @@ public static com.tailf.navu.NavuNode getNode(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [NavuContext](NavuContext.md#cls-NavuContext), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [NavuContext](NavuContext.md#navucontext-2974e9f92a9e), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
 - `com.tailf.conf.ConfObject[] kp`
 - `com.tailf.navu.NavuContext ctx`
 
-### getNode(ConfPath, NavuContext) <a href="#m-getNode-440eaae488b9" id="m-getNode-440eaae488b9"></a>
+### getNode(ConfPath, NavuContext) <a href="#getnode-440eaae488b9" id="getnode-440eaae488b9"></a>
 
 ```java
 public static com.tailf.navu.NavuNode getNode(
@@ -83,14 +83,14 @@ public static com.tailf.navu.NavuNode getNode(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [NavuContext](NavuContext.md#cls-NavuContext), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [ConfPath](../conf/ConfPath.md#confpath-327831c6fc7d), [NavuContext](NavuContext.md#navucontext-2974e9f92a9e), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
 - `com.tailf.conf.ConfPath path`
 - `com.tailf.navu.NavuContext ctx`
 
-### getParent(CSNode, ConfObject[]) <a href="#m-getParent-c4f035d88579" id="m-getParent-c4f035d88579"></a>
+### getParent(CSNode, ConfObject[]) <a href="#getparent-c4f035d88579" id="getparent-c4f035d88579"></a>
 
 ```java
 protected com.tailf.navu.NavuNode getParent(
@@ -100,7 +100,7 @@ protected com.tailf.navu.NavuNode getParent(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode), [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [CSNode](../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28), [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 Create a NavuNode from the parameter `child`
    and corresponding `kp`
@@ -115,4 +115,4 @@ Create a NavuNode from the parameter `child`
 
 ## Nested Types
 
-- [Formats](KeyPath2NavuNode/Formats.md#cls-Formats)
+- [Formats](KeyPath2NavuNode/Formats.md#formats-699695f9b70f)

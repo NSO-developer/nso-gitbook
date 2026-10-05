@@ -1,37 +1,37 @@
-# Factory <a href="#cls-Factory" id="cls-Factory"></a>
+# Factory <a href="#factory-1787784624e8" id="factory-1787784624e8"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.MNsMap.Factory
     extends org.capnproto.StructFactory<com.tailf.ncs.maapi.Schema.MNsMap.Builder,com.tailf.ncs.maapi.Schema.MNsMap.Reader>
 ```
 
-Types: [Builder](Builder.md#cls-Builder), [Reader](Reader.md#cls-Reader)
+Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b2467a96ddff)
 
 ## Members
 
 **Constructors**:
 
-- [Factory()](#m-Factory-0e9f9d7f4e84)
+- [Factory()](#factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#m-asReader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#m-asReader-755d936b71fb)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#m-constructBuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#m-constructReader-fbce6f4f912a)
-- [getEntries()](Builder.md#m-getEntries-f554b7f62e3d) from Builder
-- [getNsHash()](Builder.md#m-getNsHash-f6f3e3ae1e6b) from Builder
-- [getTagHash()](Builder.md#m-getTagHash-8f057919039c) from Builder
-- [hasEntries()](Builder.md#m-hasEntries-ccf5edf194a9) from Builder
-- [initEntries(int)](Builder.md#m-initEntries-f2a53bc0911b) from Builder
-- [setEntries(Reader<Reader>)](Builder.md#m-setEntries-edf21be99f7c) from Builder
-- [setNsHash(int)](Builder.md#m-setNsHash-856e3c88b24a) from Builder
-- [setTagHash(int)](Builder.md#m-setTagHash-0e9cfe2575f5) from Builder
-- [structSize()](#m-structSize-1fa68dcadd21)
+- [asReader()](Builder.md#asreader-b5c0f2a8d115) from Builder
+- [asReader(Builder)](#asreader-755d936b71fb)
+- [constructBuilder(SegmentBuilder, int, int, int, short)](#constructbuilder-5a2abf3209f9)
+- [constructReader(SegmentReader, int, int, int, short, int)](#constructreader-fbce6f4f912a)
+- [getEntries()](Builder.md#getentries-f554b7f62e3d) from Builder
+- [getNsHash()](Builder.md#getnshash-f6f3e3ae1e6b) from Builder
+- [getTagHash()](Builder.md#gettaghash-8f057919039c) from Builder
+- [hasEntries()](Builder.md#hasentries-ccf5edf194a9) from Builder
+- [initEntries(int)](Builder.md#initentries-f2a53bc0911b) from Builder
+- [setEntries(Reader<Reader>)](Builder.md#setentries-edf21be99f7c) from Builder
+- [setNsHash(int)](Builder.md#setnshash-856e3c88b24a) from Builder
+- [setTagHash(int)](Builder.md#settaghash-0e9cfe2575f5) from Builder
+- [structSize()](#structsize-1fa68dcadd21)
 
 ## Constructors
 
-### Factory() <a href="#m-Factory-0e9f9d7f4e84" id="m-Factory-0e9f9d7f4e84"></a>
+### Factory() <a href="#factory-0e9f9d7f4e84" id="factory-0e9f9d7f4e84"></a>
 
 ```java
 public Factory()
@@ -40,7 +40,7 @@ public Factory()
 
 ## Methods
 
-### asReader(Builder) <a href="#m-asReader-755d936b71fb" id="m-asReader-755d936b71fb"></a>
+### asReader(Builder) <a href="#asreader-755d936b71fb" id="asreader-755d936b71fb"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.MNsMap.Reader asReader(
@@ -48,13 +48,13 @@ public final com.tailf.ncs.maapi.Schema.MNsMap.Reader asReader(
 )
 ```
 
-Types: [Reader](Reader.md#cls-Reader), [Builder](Builder.md#cls-Builder)
+Types: [Reader](Reader.md#reader-b2467a96ddff), [Builder](Builder.md#builder-21f09e83781d)
 
 **Parameters**
 
 - `com.tailf.ncs.maapi.Schema.MNsMap.Builder builder`
 
-### constructBuilder(SegmentBuilder, int, int, int, short) <a href="#m-constructBuilder-5a2abf3209f9" id="m-constructBuilder-5a2abf3209f9"></a>
+### constructBuilder(SegmentBuilder, int, int, int, short) <a href="#constructbuilder-5a2abf3209f9" id="constructbuilder-5a2abf3209f9"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.MNsMap.Builder constructBuilder(
@@ -66,7 +66,7 @@ public final com.tailf.ncs.maapi.Schema.MNsMap.Builder constructBuilder(
 )
 ```
 
-Types: [Builder](Builder.md#cls-Builder)
+Types: [Builder](Builder.md#builder-21f09e83781d)
 
 **Parameters**
 
@@ -76,7 +76,7 @@ Types: [Builder](Builder.md#cls-Builder)
 - `int dataSize`
 - `short pointerCount`
 
-### constructReader(SegmentReader, int, int, int, short, int) <a href="#m-constructReader-fbce6f4f912a" id="m-constructReader-fbce6f4f912a"></a>
+### constructReader(SegmentReader, int, int, int, short, int) <a href="#constructreader-fbce6f4f912a" id="constructreader-fbce6f4f912a"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.MNsMap.Reader constructReader(
@@ -89,7 +89,7 @@ public final com.tailf.ncs.maapi.Schema.MNsMap.Reader constructReader(
 )
 ```
 
-Types: [Reader](Reader.md#cls-Reader)
+Types: [Reader](Reader.md#reader-b2467a96ddff)
 
 **Parameters**
 
@@ -100,7 +100,7 @@ Types: [Reader](Reader.md#cls-Reader)
 - `short pointerCount`
 - `int nestingLimit`
 
-### structSize() <a href="#m-structSize-1fa68dcadd21" id="m-structSize-1fa68dcadd21"></a>
+### structSize() <a href="#structsize-1fa68dcadd21" id="structsize-1fa68dcadd21"></a>
 
 ```java
 public final org.capnproto.StructSize structSize()

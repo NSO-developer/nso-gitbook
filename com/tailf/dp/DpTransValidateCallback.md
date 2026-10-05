@@ -1,4 +1,4 @@
-# DpTransValidateCallback <a href="#cls-DpTransValidateCallback" id="cls-DpTransValidateCallback"></a>
+# DpTransValidateCallback <a href="#dptransvalidatecallback-377cc1867a16" id="dptransvalidatecallback-377cc1867a16"></a>
 
 ```java
 public interface com.tailf.dp.DpTransValidateCallback
@@ -44,36 +44,36 @@ This interface is used for the user validation callbacks.
  We must also install an actual validation function for each validation point
  which is defined in the YANG model.
 
-**See also:** [`DpValpointCallback`](DpValpointCallback.md#cls-DpValpointCallback), [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerAnnotatedCallbacks-ffaebadbfc42)
+**See also:** [`DpValpointCallback`](DpValpointCallback.md#dpvalpointcallback-ee36356695e1), [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
 
 **Methods**:
 
-- [init(DpTrans)](#m-init-16fe8657859c)
-- [stop(DpTrans)](#m-stop-1dfe2eb96fb9)
+- [init(DpTrans)](#init-16fe8657859c)
+- [stop(DpTrans)](#stop-1dfe2eb96fb9)
 
 ## Methods
 
-### init(DpTrans) <a href="#m-init-16fe8657859c" id="m-init-16fe8657859c"></a>
+### init(DpTrans) <a href="#init-16fe8657859c" id="init-16fe8657859c"></a>
 
 ```java
 public abstract void init(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpTrans](DpTrans.md#dptrans-bf19458d92ec), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
 - `com.tailf.dp.DpTrans trans`
 
-### stop(DpTrans) <a href="#m-stop-1dfe2eb96fb9" id="m-stop-1dfe2eb96fb9"></a>
+### stop(DpTrans) <a href="#stop-1dfe2eb96fb9" id="stop-1dfe2eb96fb9"></a>
 
 ```java
 public abstract void stop(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpTrans](DpTrans.md#dptrans-bf19458d92ec), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 

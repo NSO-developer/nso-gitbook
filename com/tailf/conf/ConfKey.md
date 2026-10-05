@@ -1,145 +1,145 @@
-# ConfKey <a href="#cls-ConfKey" id="cls-ConfKey"></a>
+# ConfKey <a href="#confkey-e4e1ca98e867" id="confkey-e4e1ca98e867"></a>
 
 ```java
 public class com.tailf.conf.ConfKey
     extends com.tailf.conf.ConfObject
 ```
 
-Types: [ConfObject](ConfObject.md#cls-ConfObject)
+Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
 
 This class represents a list key or a leaf-list element.
  A list key can consist of one or more values.
 
 **Related classes**
 
-- [ConfXKey](ConfXKey.md#cls-ConfXKey)
-- [OrdinalKey](InstancePath/OrdinalKey.md#cls-OrdinalKey)
+- [ConfXKey](ConfXKey.md#confxkey-ea6808e1c745)
+- [OrdinalKey](InstancePath/OrdinalKey.md#ordinalkey-366c6ce27fe2)
 
 ## Members
 
 **Constructors**:
 
-- [ConfKey(ConfEObject)](#m-ConfKey-31b01a854469)
-- [ConfKey(ConfEObject, String[])](#m-ConfKey-7e685c765cdb)
-- [ConfKey(ConfObject)](#m-ConfKey-3fd8f1232248)
-- [ConfKey(ConfObject[])](#m-ConfKey-b3ccb143be2d)
+- [ConfKey(ConfEObject)](#confkey-31b01a854469)
+- [ConfKey(ConfEObject, String[])](#confkey-7e685c765cdb)
+- [ConfKey(ConfObject)](#confkey-3fd8f1232248)
+- [ConfKey(ConfObject[])](#confkey-b3ccb143be2d)
 
 **Fields**:
 
-- [J_BINARY](ConfObject.md#m-J_BINARY) from ConfObject
-- [J_BIT32](ConfObject.md#m-J_BIT32) from ConfObject
-- [J_BIT64](ConfObject.md#m-J_BIT64) from ConfObject
-- [J_BITBIG](ConfObject.md#m-J_BITBIG) from ConfObject
-- [J_BOOL](ConfObject.md#m-J_BOOL) from ConfObject
-- [J_BUF](ConfObject.md#m-J_BUF) from ConfObject
-- [J_CDBBEGIN](ConfObject.md#m-J_CDBBEGIN) from ConfObject
-- [J_DATE](ConfObject.md#m-J_DATE) from ConfObject
-- [J_DATETIME](ConfObject.md#m-J_DATETIME) from ConfObject
-- [J_DECIMAL64](ConfObject.md#m-J_DECIMAL64) from ConfObject
-- [J_DEFAULT](ConfObject.md#m-J_DEFAULT) from ConfObject
-- [J_DOUBLE](ConfObject.md#m-J_DOUBLE) from ConfObject
-- [J_DQUAD](ConfObject.md#m-J_DQUAD) from ConfObject
-- [J_DURATION](ConfObject.md#m-J_DURATION) from ConfObject
-- [J_EMPTY](ConfObject.md#m-J_EMPTY) from ConfObject
-- [J_ENUMERATION](ConfObject.md#m-J_ENUMERATION) from ConfObject
-- [J_HEXSTR](ConfObject.md#m-J_HEXSTR) from ConfObject
-- [J_IDENTITYREF](ConfObject.md#m-J_IDENTITYREF) from ConfObject
-- [J_INSTANCE_IDENTIFIER](ConfObject.md#m-J_INSTANCE_IDENTIFIER) from ConfObject
-- [J_INT16](ConfObject.md#m-J_INT16) from ConfObject
-- [J_INT32](ConfObject.md#m-J_INT32) from ConfObject
-- [J_INT64](ConfObject.md#m-J_INT64) from ConfObject
-- [J_INT8](ConfObject.md#m-J_INT8) from ConfObject
-- [J_IPV4](ConfObject.md#m-J_IPV4) from ConfObject
-- [J_IPV4_AND_PLEN](ConfObject.md#m-J_IPV4_AND_PLEN) from ConfObject
-- [J_IPV4PREFIX](ConfObject.md#m-J_IPV4PREFIX) from ConfObject
-- [J_IPV6](ConfObject.md#m-J_IPV6) from ConfObject
-- [J_IPV6_AND_PLEN](ConfObject.md#m-J_IPV6_AND_PLEN) from ConfObject
-- [J_IPV6PREFIX](ConfObject.md#m-J_IPV6PREFIX) from ConfObject
-- [J_LIST](ConfObject.md#m-J_LIST) from ConfObject
-- [J_NOEXISTS](ConfObject.md#m-J_NOEXISTS) from ConfObject
-- [J_OBJECTREF](ConfObject.md#m-J_OBJECTREF) from ConfObject
-- [J_OID](ConfObject.md#m-J_OID) from ConfObject
-- [J_PTR](ConfObject.md#m-J_PTR) from ConfObject
-- [J_QNAME](ConfObject.md#m-J_QNAME) from ConfObject
-- [J_STR](ConfObject.md#m-J_STR) from ConfObject
-- [J_SYMBOL](ConfObject.md#m-J_SYMBOL) from ConfObject
-- [J_TIME](ConfObject.md#m-J_TIME) from ConfObject
-- [J_UINT16](ConfObject.md#m-J_UINT16) from ConfObject
-- [J_UINT32](ConfObject.md#m-J_UINT32) from ConfObject
-- [J_UINT64](ConfObject.md#m-J_UINT64) from ConfObject
-- [J_UINT8](ConfObject.md#m-J_UINT8) from ConfObject
-- [J_UNION](ConfObject.md#m-J_UNION) from ConfObject
-- [J_XMLBEGIN](ConfObject.md#m-J_XMLBEGIN) from ConfObject
-- [J_XMLBEGINDEL](ConfObject.md#m-J_XMLBEGINDEL) from ConfObject
-- [J_XMLEND](ConfObject.md#m-J_XMLEND) from ConfObject
-- [J_XMLMOVEAFTER](ConfObject.md#m-J_XMLMOVEAFTER) from ConfObject
-- [J_XMLMOVEFIRST](ConfObject.md#m-J_XMLMOVEFIRST) from ConfObject
-- [J_XMLTAG](ConfObject.md#m-J_XMLTAG) from ConfObject
+- [J_BINARY](ConfObject.md#j_binary-f4395337afc2) from ConfObject
+- [J_BIT32](ConfObject.md#j_bit32-40251205e2bd) from ConfObject
+- [J_BIT64](ConfObject.md#j_bit64-15d68e666b90) from ConfObject
+- [J_BITBIG](ConfObject.md#j_bitbig-835affd18d2b) from ConfObject
+- [J_BOOL](ConfObject.md#j_bool-fa62aa9e1544) from ConfObject
+- [J_BUF](ConfObject.md#j_buf-d1b0b08b798f) from ConfObject
+- [J_CDBBEGIN](ConfObject.md#j_cdbbegin-07a4f9eca5c4) from ConfObject
+- [J_DATE](ConfObject.md#j_date-00cc8f6e70e6) from ConfObject
+- [J_DATETIME](ConfObject.md#j_datetime-573fe6a9a577) from ConfObject
+- [J_DECIMAL64](ConfObject.md#j_decimal64-ff02afe47ff7) from ConfObject
+- [J_DEFAULT](ConfObject.md#j_default-54b54b027809) from ConfObject
+- [J_DOUBLE](ConfObject.md#j_double-ade902bbb1aa) from ConfObject
+- [J_DQUAD](ConfObject.md#j_dquad-852ab4ec2848) from ConfObject
+- [J_DURATION](ConfObject.md#j_duration-98ef58bed1c0) from ConfObject
+- [J_EMPTY](ConfObject.md#j_empty-cca63c6cd2c7) from ConfObject
+- [J_ENUMERATION](ConfObject.md#j_enumeration-47c69754d29b) from ConfObject
+- [J_HEXSTR](ConfObject.md#j_hexstr-90b6b86efe7b) from ConfObject
+- [J_IDENTITYREF](ConfObject.md#j_identityref-977d471383c5) from ConfObject
+- [J_INSTANCE_IDENTIFIER](ConfObject.md#j_instance_identifier-bbb4b8e5e954) from ConfObject
+- [J_INT16](ConfObject.md#j_int16-4f9df234cba7) from ConfObject
+- [J_INT32](ConfObject.md#j_int32-db4c66331284) from ConfObject
+- [J_INT64](ConfObject.md#j_int64-c290a7cb2e11) from ConfObject
+- [J_INT8](ConfObject.md#j_int8-8f73ffef0f12) from ConfObject
+- [J_IPV4](ConfObject.md#j_ipv4-54fdc3efb49b) from ConfObject
+- [J_IPV4_AND_PLEN](ConfObject.md#j_ipv4_and_plen-69b1e630ab12) from ConfObject
+- [J_IPV4PREFIX](ConfObject.md#j_ipv4prefix-d36121ba89ca) from ConfObject
+- [J_IPV6](ConfObject.md#j_ipv6-03903b354701) from ConfObject
+- [J_IPV6_AND_PLEN](ConfObject.md#j_ipv6_and_plen-ac1054abbf31) from ConfObject
+- [J_IPV6PREFIX](ConfObject.md#j_ipv6prefix-5e95c6e896d2) from ConfObject
+- [J_LIST](ConfObject.md#j_list-d74b9f073fdc) from ConfObject
+- [J_NOEXISTS](ConfObject.md#j_noexists-1f0f9b7a9591) from ConfObject
+- [J_OBJECTREF](ConfObject.md#j_objectref-577d14956cc8) from ConfObject
+- [J_OID](ConfObject.md#j_oid-2d504f7432b3) from ConfObject
+- [J_PTR](ConfObject.md#j_ptr-ef54b9484cab) from ConfObject
+- [J_QNAME](ConfObject.md#j_qname-0d2839adff4c) from ConfObject
+- [J_STR](ConfObject.md#j_str-ae3bb3034983) from ConfObject
+- [J_SYMBOL](ConfObject.md#j_symbol-25fd3742c374) from ConfObject
+- [J_TIME](ConfObject.md#j_time-3ecdebfb0af5) from ConfObject
+- [J_UINT16](ConfObject.md#j_uint16-1f95eafb4126) from ConfObject
+- [J_UINT32](ConfObject.md#j_uint32-200f00c0ee05) from ConfObject
+- [J_UINT64](ConfObject.md#j_uint64-6960c783d61f) from ConfObject
+- [J_UINT8](ConfObject.md#j_uint8-ab0567c53d7f) from ConfObject
+- [J_UNION](ConfObject.md#j_union-7c548945cda0) from ConfObject
+- [J_XMLBEGIN](ConfObject.md#j_xmlbegin-6b887ec4c61b) from ConfObject
+- [J_XMLBEGINDEL](ConfObject.md#j_xmlbegindel-6c4d37088d90) from ConfObject
+- [J_XMLEND](ConfObject.md#j_xmlend-e2b443858058) from ConfObject
+- [J_XMLMOVEAFTER](ConfObject.md#j_xmlmoveafter-e7f2fed6d94d) from ConfObject
+- [J_XMLMOVEFIRST](ConfObject.md#j_xmlmovefirst-776c36719f23) from ConfObject
+- [J_XMLTAG](ConfObject.md#j_xmltag-0a12f537271e) from ConfObject
 
 **Methods**:
 
-- [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
-- [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
-- [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
-- [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
-- [elementAt(int)](#m-elementAt-7ff98e6e0268)
-- [elements()](#m-elements-1ac1cabc0e96)
-- [encode()](#m-encode-fbae522bba37)
-- [equals(Object)](#m-equals-fcd6492e0d6c)
-- [hashCode()](#m-hashCode-ef797a217903)
-- [length()](#m-length-89e7822f25ca)
-- [setPath(InstancePath)](#m-setPath-ad9962db3cab)
-- [toStrictlyQuotedString()](#m-toStrictlyQuotedString-c10aef71d8ba)
-- [toString()](#m-toString-e9d48c5503ef)
-- [toString(boolean)](#m-toString-b87d88746a2e)
+- [clone()](ConfObject.md#clone-164c86c45e9b) from ConfObject
+- [compare(ConfObject, ConfObject)](ConfObject.md#compare-e78552baa2bf) from ConfObject
+- [decode(ConfEObject)](ConfObject.md#decode-609792d36602) from ConfObject
+- [decode(ConfEObject, ConfPath)](ConfObject.md#decode-a814ebf64edc) from ConfObject
+- [decode(ConfEObject, String)](ConfObject.md#decode-9b92f1de40d8) from ConfObject
+- [elementAt(int)](#elementat-7ff98e6e0268)
+- [elements()](#elements-1ac1cabc0e96)
+- [encode()](#encode-fbae522bba37)
+- [equals(Object)](#equals-fcd6492e0d6c)
+- [hashCode()](#hashcode-ef797a217903)
+- [length()](#length-89e7822f25ca)
+- [setPath(InstancePath)](#setpath-ad9962db3cab)
+- [toStrictlyQuotedString()](#tostrictlyquotedstring-c10aef71d8ba)
+- [toString()](#tostring-e9d48c5503ef)
+- [toString(boolean)](#tostring-b87d88746a2e)
 
 ## Constructors
 
-### ConfKey(ConfEObject) <a href="#m-ConfKey-31b01a854469" id="m-ConfKey-31b01a854469"></a>
+### ConfKey(ConfEObject) <a href="#confkey-31b01a854469" id="confkey-31b01a854469"></a>
 
 ```java
 public ConfKey(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](ConfException.md#cls-ConfException)
+Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350), [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
 - `com.tailf.proto.ConfEObject o`
 
-### ConfKey(ConfEObject, String[]) <a href="#m-ConfKey-7e685c765cdb" id="m-ConfKey-7e685c765cdb"></a>
+### ConfKey(ConfEObject, String[]) <a href="#confkey-7e685c765cdb" id="confkey-7e685c765cdb"></a>
 
 ```java
 public ConfKey(com.tailf.proto.ConfEObject o, String[] tags) throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](ConfException.md#cls-ConfException)
+Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350), [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
 - `com.tailf.proto.ConfEObject o`
 - `String[] tags`
 
-### ConfKey(ConfObject) <a href="#m-ConfKey-3fd8f1232248" id="m-ConfKey-3fd8f1232248"></a>
+### ConfKey(ConfObject) <a href="#confkey-3fd8f1232248" id="confkey-3fd8f1232248"></a>
 
 ```java
 public ConfKey(com.tailf.conf.ConfObject o)
 ```
 
-Types: [ConfObject](ConfObject.md#cls-ConfObject)
+Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
 
 **Parameters**
 
 - `com.tailf.conf.ConfObject o`
 
-### ConfKey(ConfObject[]) <a href="#m-ConfKey-b3ccb143be2d" id="m-ConfKey-b3ccb143be2d"></a>
+### ConfKey(ConfObject[]) <a href="#confkey-b3ccb143be2d" id="confkey-b3ccb143be2d"></a>
 
 ```java
 public ConfKey(com.tailf.conf.ConfObject[] l)
 ```
 
-Types: [ConfObject](ConfObject.md#cls-ConfObject)
+Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
 
 **Parameters**
 
@@ -148,35 +148,35 @@ Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
 ## Methods
 
-### elementAt(int) <a href="#m-elementAt-7ff98e6e0268" id="m-elementAt-7ff98e6e0268"></a>
+### elementAt(int) <a href="#elementat-7ff98e6e0268" id="elementat-7ff98e6e0268"></a>
 
 ```java
 public com.tailf.conf.ConfObject elementAt(int i)
 ```
 
-Types: [ConfObject](ConfObject.md#cls-ConfObject)
+Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
 
 **Parameters**
 
 - `int i`
 
-### elements() <a href="#m-elements-1ac1cabc0e96" id="m-elements-1ac1cabc0e96"></a>
+### elements() <a href="#elements-1ac1cabc0e96" id="elements-1ac1cabc0e96"></a>
 
 ```java
 public com.tailf.conf.ConfObject[] elements()
 ```
 
-Types: [ConfObject](ConfObject.md#cls-ConfObject)
+Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
 
-### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
+### encode() <a href="#encode-fbae522bba37" id="encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
 
-### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
+### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -194,25 +194,25 @@ Indicates whether a `ConfKey` is "equal to" this.
 **Returns:** `true` if this `ConfKey` is the same as
  the o argument; `false` otherwise.
 
-### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
+### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-### length() <a href="#m-length-89e7822f25ca" id="m-length-89e7822f25ca"></a>
+### length() <a href="#length-89e7822f25ca" id="length-89e7822f25ca"></a>
 
 ```java
 public int length()
 ```
 
-### setPath(InstancePath) <a href="#m-setPath-ad9962db3cab" id="m-setPath-ad9962db3cab"></a>
+### setPath(InstancePath) <a href="#setpath-ad9962db3cab" id="setpath-ad9962db3cab"></a>
 
 ```java
 public void setPath(com.tailf.conf.InstancePath path)
 ```
 
-Types: [InstancePath](InstancePath.md#cls-InstancePath)
+Types: [InstancePath](InstancePath.md#instancepath-7694a1545db3)
 
 This method is only useful if at least one of the key elements is an
  enumeration.
@@ -225,7 +225,7 @@ This method is only useful if at least one of the key elements is an
 
 - `com.tailf.conf.InstancePath path`
 
-### toStrictlyQuotedString() <a href="#m-toStrictlyQuotedString-c10aef71d8ba" id="m-toStrictlyQuotedString-c10aef71d8ba"></a>
+### toStrictlyQuotedString() <a href="#tostrictlyquotedstring-c10aef71d8ba" id="tostrictlyquotedstring-c10aef71d8ba"></a>
 
 ```java
 public String toStrictlyQuotedString()
@@ -236,7 +236,7 @@ Returns a string representation of the ConfKey. The key elements will
 
 **Returns:** String representation of the key
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()
@@ -245,11 +245,11 @@ public String toString()
 Returns a string representation of the ConfKey. The key elements will
  be quoted if necessary. Note however that this string representation is
  available for backward compatibility and is unsuitable for use in
- keypaths. Instead use [`toStrictlyQuotedString()`](ConfKey.md#m-toStrictlyQuotedString-c10aef71d8ba).
+ keypaths. Instead use [`toStrictlyQuotedString()`](ConfKey.md#tostrictlyquotedstring-c10aef71d8ba).
 
 **Returns:** String representation of the key
 
-### toString(boolean) <a href="#m-toString-b87d88746a2e" id="m-toString-b87d88746a2e"></a>
+### toString(boolean) <a href="#tostring-b87d88746a2e" id="tostring-b87d88746a2e"></a>
 
 ```java
 protected String toString(boolean strictQuotation)

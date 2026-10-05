@@ -1,4 +1,4 @@
-# ResultTypeTagImpl <a href="#cls-ResultTypeTagImpl" id="cls-ResultTypeTagImpl"></a>
+# ResultTypeTagImpl <a href="#resulttypetagimpl-c9f0a89be0ae" id="resulttypetagimpl-c9f0a89be0ae"></a>
 
 **Package-private**
 
@@ -7,21 +7,21 @@ class com.tailf.maapi.ResultTypeTagImpl
     implements com.tailf.maapi.ResultTypeTag
 ```
 
-Types: [ResultTypeTag](ResultTypeTag.md#cls-ResultTypeTag)
+Types: [ResultTypeTag](ResultTypeTag.md#resulttypetag-91d1aeee8818)
 
 ## Members
 
 **Constructors**:
 
-- [ResultTypeTagImpl(ConfXMLParam)](#m-ResultTypeTagImpl-588cebf1bfba)
+- [ResultTypeTagImpl(ConfXMLParam)](#resulttypetagimpl-588cebf1bfba)
 
 **Methods**:
 
-- [tag()](#m-tag-7b2271ab156c)
+- [tag()](#tag-7b2271ab156c)
 
 ## Constructors
 
-### ResultTypeTagImpl(ConfXMLParam) <a href="#m-ResultTypeTagImpl-588cebf1bfba" id="m-ResultTypeTagImpl-588cebf1bfba"></a>
+### ResultTypeTagImpl(ConfXMLParam) <a href="#resulttypetagimpl-588cebf1bfba" id="resulttypetagimpl-588cebf1bfba"></a>
 
 **Package-private**
 
@@ -29,7 +29,7 @@ Types: [ResultTypeTag](ResultTypeTag.md#cls-ResultTypeTag)
 ResultTypeTagImpl(com.tailf.conf.ConfXMLParam param)
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7)
 
 **Parameters**
 
@@ -38,10 +38,10 @@ Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam)
 
 ## Methods
 
-### tag() <a href="#m-tag-7b2271ab156c" id="m-tag-7b2271ab156c"></a>
+### tag() <a href="#tag-7b2271ab156c" id="tag-7b2271ab156c"></a>
 
 ```java
 public com.tailf.conf.ConfXMLParam tag()
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7)

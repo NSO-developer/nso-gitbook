@@ -1,4 +1,4 @@
-# Notif <a href="#cls-Notif" id="cls-Notif"></a>
+# Notif <a href="#notif-09a310797640" id="notif-09a310797640"></a>
 
 ```java
 public class com.tailf.notif.Notif
@@ -13,20 +13,20 @@ This class implements the Notifications API in Java.
  several types of events that can be subscribed to:
 
 
-- [`NotificationType#NOTIF_AUDIT`](NotificationType.md#m-NOTIF_AUDIT) - all audit log events are sent from
+- [`NotificationType#NOTIF_AUDIT`](NotificationType.md#notif_audit-6f0218ecc8bf) - all audit log events are sent from
  ConfD/NCS on the event notification socket.
 
-   - [`NotificationType#NOTIF_COMMIT_DIFF`](NotificationType.md#m-NOTIF_COMMIT_DIFF) - an event indicating that a
+   - [`NotificationType#NOTIF_COMMIT_DIFF`](NotificationType.md#notif_commit_diff-6c2f08680904) - an event indicating that a
  user has somehow modified the configuration. The main difference between this
  event and the above mentioned NOTIF_COMMIT_SIMPLE is that this event is
  synchronous, i.e. the entire transaction hangs until we have explicitly
- called [`diffNotificationDone(int)`](Notif.md#m-diffNotificationDone-0053d5ba7865). The purpose of this event is to
+ called [`diffNotificationDone(int)`](Notif.md#diffnotificationdone-0053d5ba7865). The purpose of this event is to
  give the applications a chance to read the configuration diffs from the
  transaction before it commits. A user subscribing to this event can use the
  MAAPI api to attach (Maapi.attach())to the running transaction and use
  Maapi.diffIterate() to iterate through the diff.
 
-     - [`NotificationType#NOTIF_COMMIT_FAILED`](NotificationType.md#m-NOTIF_COMMIT_FAILED) - This event is generated
+     - [`NotificationType#NOTIF_COMMIT_FAILED`](NotificationType.md#notif_commit_failed-912625bd5699) - This event is generated
  when a data provider fails in its commit callback. ConfD executes a two-phase
  commit procedure towards all data providers when committing transactions.
  When a provider fails in commit, the system is an unknown state. If the
@@ -34,19 +34,19 @@ This class implements the Notifications API in Java.
  provider is another NETCONF agent, the IP address and port of that agent
  is provided.
 
-       - [`NotificationType#NOTIF_COMMIT_SIMPLE`](NotificationType.md#m-NOTIF_COMMIT_SIMPLE) - an event indicating that a
+       - [`NotificationType#NOTIF_COMMIT_SIMPLE`](NotificationType.md#notif_commit_simple-77385244eeaf) - an event indicating that a
  user has somehow modified the configuration.
 
-         - [`NotificationType#NOTIF_COMMIT_PROGRESS`](NotificationType.md#m-NOTIF_COMMIT_PROGRESS) - This event provides
+         - [`NotificationType#NOTIF_COMMIT_PROGRESS`](NotificationType.md#notif_commit_progress-333a6e755b44) - This event provides
  progress information about the commit of a transaction.
 
-           - [`NotificationType#NOTIF_PROGRESS`](NotificationType.md#m-NOTIF_PROGRESS) - This event provides
+           - [`NotificationType#NOTIF_PROGRESS`](NotificationType.md#notif_progress-824025559a0d) - This event provides
  progress information about the commit of a transaction or an action
  being applied. Subscribing to this notification type means that all
- notifications of the type [`NotificationType#NOTIF_COMMIT_PROGRESS`](NotificationType.md#m-NOTIF_COMMIT_PROGRESS)
+ notifications of the type [`NotificationType#NOTIF_COMMIT_PROGRESS`](NotificationType.md#notif_commit_progress-333a6e755b44)
  are subscribed to as well.
 
-             - [`NotificationType#NOTIF_CONFIRMED_COMMIT`](NotificationType.md#m-NOTIF_CONFIRMED_COMMIT) - This event is generated
+             - [`NotificationType#NOTIF_CONFIRMED_COMMIT`](NotificationType.md#notif_confirmed_commit-160051a03cfb) - This event is generated
  when a user has started a confirmed commit, when a confirming commit is
  issued, or when a confirmed commit is aborted; represented by
  ConfirmNotification.confirm_type.
@@ -54,13 +54,13 @@ This class implements the Notifications API in Java.
  For a confirmed commit, the timeout value is also present in the
  notification.
 
-               - [`NotificationType#NOTIF_FORWARD_INFO`](NotificationType.md#m-NOTIF_FORWARD_INFO) - This event is generated
+               - [`NotificationType#NOTIF_FORWARD_INFO`](NotificationType.md#notif_forward_info-a10cdcdae573) - This event is generated
  whenever whenever the server forwards (proxies) a northbound agent.
 
-                 - [`NotificationType#NOTIF_HA_INFO`](NotificationType.md#m-NOTIF_HA_INFO) - an event related to ConfDs
+                 - [`NotificationType#NOTIF_HA_INFO`](NotificationType.md#notif_ha_info-9b20b0deabc8) - an event related to ConfDs
  perception of the current cluster configuration.
 
-                   - [`NotificationType#NOTIF_HEARTBEAT`](NotificationType.md#m-NOTIF_HEARTBEAT) - This event can be be used by
+                   - [`NotificationType#NOTIF_HEARTBEAT`](NotificationType.md#notif_heartbeat-a901d424d5e9) - This event can be be used by
  applications that wish to monitor the health and liveness of the server
  itself. It needs to be requested through a Notif instance which has been
  constructed with a heartbeat_interval. The server will continuously generate
@@ -69,35 +69,35 @@ This class implements the Notifications API in Java.
  Recommended value is 10000 milliseconds to cater for truly high load
  situations. Values less than 1000 are changed to 1000.
 
-                     - [`NotificationType#NOTIF_SNMPA`](NotificationType.md#m-NOTIF_SNMPA) - This event is generated whenever
+                     - [`NotificationType#NOTIF_SNMPA`](NotificationType.md#notif_snmpa-064b11a46034) - This event is generated whenever
  an SNMP pdu is processed by the server. The application receives an
  SnmpaNotification with a list of all varbinds in the pdu. Each varbind
  contains subclasses that are internal to the SnmpaNotification.
 
-                       - [`NotificationType#NOTIF_SUBAGENT_INFO`](NotificationType.md#m-NOTIF_SUBAGENT_INFO) - only sent if ConfD runs as
+                       - [`NotificationType#NOTIF_SUBAGENT_INFO`](NotificationType.md#notif_subagent_info-17dacb38b7c2) - only sent if ConfD runs as
  a primary agent with subagents enabled. This event is sent when the subagent
  connection is lost or reestablished. There are two event types, defined in
- [`SubagentNotification`](SubagentNotification.md#cls-SubagentNotification): subagent up and subagent down.
+ [`SubagentNotification`](SubagentNotification.md#subagentnotification-d8adb6073ef3): subagent up and subagent down.
 
-                         - [`NotificationType#NOTIF_DAEMON`](NotificationType.md#m-NOTIF_DAEMON) - all log events that also goes to
+                         - [`NotificationType#NOTIF_DAEMON`](NotificationType.md#notif_daemon-303df64b33ae) - all log events that also goes to
  the /confdConf/logs/confdLog log are sent from ConfD on the event
  notification socket.
-                           - [`NotificationType#NOTIF_NETCONF`](NotificationType.md#m-NOTIF_NETCONF) - all log events that also goes to
+                           - [`NotificationType#NOTIF_NETCONF`](NotificationType.md#notif_netconf-81b47b039ce6) - all log events that also goes to
  the /confdConf/logs/netconfLog log are sent from ConfD on the event
  notification socket.
-                             - [`NotificationType#NOTIF_DEVEL`](NotificationType.md#m-NOTIF_DEVEL) - all log events that also goes to
+                             - [`NotificationType#NOTIF_DEVEL`](NotificationType.md#notif_devel-a219d7049a8d) - all log events that also goes to
  the /confdConf/logs/develLog log are sent from ConfD on the event
  notification socket.
-                               - [`NotificationType#NOTIF_JSONRPC`](NotificationType.md#m-NOTIF_JSONRPC) - all log events that also goes to
+                               - [`NotificationType#NOTIF_JSONRPC`](NotificationType.md#notif_jsonrpc-4be7873f995c) - all log events that also goes to
  the /confdConf/logs/jsonrpcLog log are sent from ConfD on the event
  notification socket.
-                                 - [`NotificationType#NOTIF_WEBUI`](NotificationType.md#m-NOTIF_WEBUI) - all log events that also goes to
+                                 - [`NotificationType#NOTIF_WEBUI`](NotificationType.md#notif_webui-ad3e3f6d8a19) - all log events that also goes to
  the /confdConf/logs/webuiAccessLog log are sent from ConfD on the event
  notification socket.
-                                   - [`NotificationType#NOTIF_RESTCONF`](NotificationType.md#m-NOTIF_RESTCONF) - all log events that also goes
+                                   - [`NotificationType#NOTIF_RESTCONF`](NotificationType.md#notif_restconf-acb8462af7cf) - all log events that also goes
  to the /confdConf/logs/restconfLog log are sent from ConfD on the event
  notification socket.
-                                     - [`NotificationType#NOTIF_TAKEOVER_SYSLOG`](NotificationType.md#m-NOTIF_TAKEOVER_SYSLOG) - If this flag is present,
+                                     - [`NotificationType#NOTIF_TAKEOVER_SYSLOG`](NotificationType.md#notif_takeover_syslog-02a246c5f2ea) - If this flag is present,
  ConfD will stop syslogging. The idea behind the flag is that we want to
  configure syslogging for ConfD in order to let ConfD log its startup
  sequence. Once ConfD is started we wish to subsume the syslogging done by
@@ -106,37 +106,37 @@ This class implements the Notifications API in Java.
 
  Once all subscriber sockets with this flag set are closed, ConfD will resume
  to syslog.
-                                       - [`NotificationType#NOTIF_UPGRADE_EVENT`](NotificationType.md#m-NOTIF_UPGRADE_EVENT) - This event is generated
+                                       - [`NotificationType#NOTIF_UPGRADE_EVENT`](NotificationType.md#notif_upgrade_event-1aad3a285721) - This event is generated
  for the different phases of an in-service upgrade, i.e. when the data model
  is upgraded while the server is running. The application receives an
  UpgradeNotification where the UpgradeNotification.event_type gives the
  specific upgrade event. The events correspond to the invocation of the Maapi
  functions that drive the upgrade.
 
-                                         - [`NotificationType#NOTIF_COMPACTION`](NotificationType.md#m-NOTIF_COMPACTION) - This event is generated when
+                                         - [`NotificationType#NOTIF_COMPACTION`](NotificationType.md#notif_compaction-3c759579b08c) - This event is generated when
  a CDB compaction has completed.
 
-                                           - [`NotificationType#NOTIF_SYSTEM_GOING_DOWN`](NotificationType.md#m-NOTIF_SYSTEM_GOING_DOWN) - This event is
+                                           - [`NotificationType#NOTIF_SYSTEM_GOING_DOWN`](NotificationType.md#notif_system_going_down-6a8f118871f8) - This event is
  generated when the system is shutting down.
 
-                                             - [`NotificationType#NOTIF_USER_SESSION`](NotificationType.md#m-NOTIF_USER_SESSION) - an event related to user
+                                             - [`NotificationType#NOTIF_USER_SESSION`](NotificationType.md#notif_user_session-425b13eae42a) - an event related to user
  sessions. There are 6 different user session related event types, defined in
- [`UserSessNotification`](UserSessNotification.md#cls-UserSessNotification): session starts/stops, session
+ [`UserSessNotification`](UserSessNotification.md#usersessnotification-da9415293f94): session starts/stops, session
  locks/unlocks database, session starts/stop database transaction.
 
-                                               - [`NotificationType#NOTIF_PACKAGE_RELOAD`](NotificationType.md#m-NOTIF_PACKAGE_RELOAD) - an event indicating
+                                               - [`NotificationType#NOTIF_PACKAGE_RELOAD`](NotificationType.md#notif_package_reload-4fb5bbfdf8b6) - an event indicating
  that NCS has completed a package reload.
 
-                                                 - [`NotificationType#NOTIF_CQ_PROGRESS`](NotificationType.md#m-NOTIF_CQ_PROGRESS) - an event reporting
+                                                 - [`NotificationType#NOTIF_CQ_PROGRESS`](NotificationType.md#notif_cq_progress-426acfb71dd0) - an event reporting
  the progress of commit queue entries.
 
-                                                   - [`NotificationType#NOTIF_REOPEN_LOGS`](NotificationType.md#m-NOTIF_REOPEN_LOGS) - an event indicating
+                                                   - [`NotificationType#NOTIF_REOPEN_LOGS`](NotificationType.md#notif_reopen_logs-95839edbabbb) - an event indicating
  that ConfD/NCS will close and reopen its log files.
 
-                                                     - [`NotificationType#NOTIF_CALL_HOME_INFO`](NotificationType.md#m-NOTIF_CALL_HOME_INFO) - an event reporting
+                                                     - [`NotificationType#NOTIF_CALL_HOME_INFO`](NotificationType.md#notif_call_home_info-23574ca1ae62) - an event reporting
  call home connections.
 
-                                                       - [`NotificationType#NOTIF_AUDIT_NETWORK`](NotificationType.md#m-NOTIF_AUDIT_NETWORK) - an event reporting
+                                                       - [`NotificationType#NOTIF_AUDIT_NETWORK`](NotificationType.md#notif_audit_network-ca4c25b853f0) - an event reporting
  config changes sent southbound towards devices.
 
 
@@ -169,33 +169,33 @@ This class implements the Notifications API in Java.
       notifThread.start();
 ```
 
-**See also:** [`AuditNotification`](AuditNotification.md#cls-AuditNotification), [`CommitDiffNotification`](CommitDiffNotification.md#cls-CommitDiffNotification), [`CommitFailedNotification`](CommitFailedNotification.md#cls-CommitFailedNotification), [`CommitNotification`](CommitNotification.md#cls-CommitNotification), [`CommitProgressNotification`](CommitProgressNotification.md#cls-CommitProgressNotification), [`ProgressNotification`](ProgressNotification.md#cls-ProgressNotification), [`ConfirmNotification`](ConfirmNotification.md#cls-ConfirmNotification), [`ForwardNotification`](ForwardNotification.md#cls-ForwardNotification), [`HaNotification`](HaNotification.md#cls-HaNotification), [`HeartbeatNotification`](HeartbeatNotification.md#cls-HeartbeatNotification), [`SnmpaNotification`](SnmpaNotification.md#cls-SnmpaNotification), [`SubagentNotification`](SubagentNotification.md#cls-SubagentNotification), [`SyslogNotification`](SyslogNotification.md#cls-SyslogNotification), [`UpgradeNotification`](UpgradeNotification.md#cls-UpgradeNotification), [`UserSessNotification`](UserSessNotification.md#cls-UserSessNotification), [`HealtCheckNotification`](HealtCheckNotification.md#cls-HealtCheckNotification), [`PackageReloadNotification`](PackageReloadNotification.md#cls-PackageReloadNotification), [`CommitQueueProgressNotification`](CommitQueueProgressNotification.md#cls-CommitQueueProgressNotification), [`ReopenLogsNotification`](ReopenLogsNotification.md#cls-ReopenLogsNotification), [`CallHomeInfoNotification`](CallHomeInfoNotification.md#cls-CallHomeInfoNotification)
+**See also:** [`AuditNotification`](AuditNotification.md#auditnotification-7a35f4700e9c), [`CommitDiffNotification`](CommitDiffNotification.md#commitdiffnotification-c6f5ad668010), [`CommitFailedNotification`](CommitFailedNotification.md#commitfailednotification-bef571382961), [`CommitNotification`](CommitNotification.md#commitnotification-30ba63db10de), [`CommitProgressNotification`](CommitProgressNotification.md#commitprogressnotification-700cb70f0b31), [`ProgressNotification`](ProgressNotification.md#progressnotification-97286de4fe31), [`ConfirmNotification`](ConfirmNotification.md#confirmnotification-10447869c375), [`ForwardNotification`](ForwardNotification.md#forwardnotification-1c104ab318e3), [`HaNotification`](HaNotification.md#hanotification-18807803b5fa), [`HeartbeatNotification`](HeartbeatNotification.md#heartbeatnotification-0af557025d11), [`SnmpaNotification`](SnmpaNotification.md#snmpanotification-1dc17468977a), [`SubagentNotification`](SubagentNotification.md#subagentnotification-d8adb6073ef3), [`SyslogNotification`](SyslogNotification.md#syslognotification-5d0087332348), [`UpgradeNotification`](UpgradeNotification.md#upgradenotification-8f9e3ffbdab5), [`UserSessNotification`](UserSessNotification.md#usersessnotification-da9415293f94), [`HealtCheckNotification`](HealtCheckNotification.md#healtchecknotification-ed82ebc35dd0), [`PackageReloadNotification`](PackageReloadNotification.md#packagereloadnotification-d077e4cc2049), [`CommitQueueProgressNotification`](CommitQueueProgressNotification.md#commitqueueprogressnotification-a2a32afaa4c3), [`ReopenLogsNotification`](ReopenLogsNotification.md#reopenlogsnotification-1b749f5f2295), [`CallHomeInfoNotification`](CallHomeInfoNotification.md#callhomeinfonotification-d29c7e74561c)
 
 ## Members
 
 **Constructors**:
 
-- [Notif(Socket, EnumSet<NotificationType>)](#m-Notif-ac04d6bc7836)
-- [Notif(Socket, EnumSet<NotificationType>, int)](#m-Notif-fb6a151efdc4)
-- [Notif(Socket, EnumSet<NotificationType>, int, int)](#m-Notif-844954eeba89)
-- [Notif(Socket, EnumSet<NotificationType>, NotificationCfg)](#m-Notif-dae959e25ea9)
-- [Notif(SocketAddress, EnumSet<NotificationType>)](#m-Notif-8cfa65ea4683)
-- [Notif(SocketAddress, EnumSet<NotificationType>, int)](#m-Notif-0d4f132420ca)
-- [Notif(SocketAddress, EnumSet<NotificationType>, int, int)](#m-Notif-5aede5d32ed9)
-- [Notif(SocketAddress, EnumSet<NotificationType>, NotificationCfg)](#m-Notif-9b7386bb0975)
+- [Notif(Socket, EnumSet<NotificationType>)](#notif-ac04d6bc7836)
+- [Notif(Socket, EnumSet<NotificationType>, int)](#notif-fb6a151efdc4)
+- [Notif(Socket, EnumSet<NotificationType>, int, int)](#notif-844954eeba89)
+- [Notif(Socket, EnumSet<NotificationType>, NotificationCfg)](#notif-dae959e25ea9)
+- [Notif(SocketAddress, EnumSet<NotificationType>)](#notif-8cfa65ea4683)
+- [Notif(SocketAddress, EnumSet<NotificationType>, int)](#notif-0d4f132420ca)
+- [Notif(SocketAddress, EnumSet<NotificationType>, int, int)](#notif-5aede5d32ed9)
+- [Notif(SocketAddress, EnumSet<NotificationType>, NotificationCfg)](#notif-9b7386bb0975)
 
 **Methods**:
 
-- [close()](#m-close-8107c6dc012b)
-- [diffNotificationDone(int)](#m-diffNotificationDone-0053d5ba7865)
-- [read()](#m-read-b28b830b98d6)
-- [syncAuditNetworkNotification(int)](#m-syncAuditNetworkNotification-86a6d4e5bafc)
-- [syncAuditNotification(int)](#m-syncAuditNotification-0078171f2fe7)
-- [syncHaNotification()](#m-syncHaNotification-3e08f3cf3c62)
+- [close()](#close-8107c6dc012b)
+- [diffNotificationDone(int)](#diffnotificationdone-0053d5ba7865)
+- [read()](#read-b28b830b98d6)
+- [syncAuditNetworkNotification(int)](#syncauditnetworknotification-86a6d4e5bafc)
+- [syncAuditNotification(int)](#syncauditnotification-0078171f2fe7)
+- [syncHaNotification()](#synchanotification-3e08f3cf3c62)
 
 ## Constructors
 
-### Notif(Socket, EnumSet<NotificationType>) <a href="#m-Notif-ac04d6bc7836" id="m-Notif-ac04d6bc7836"></a>
+### Notif(Socket, EnumSet&lt;NotificationType&gt;) <a href="#notif-ac04d6bc7836" id="notif-ac04d6bc7836"></a>
 
 ```java
 public Notif(
@@ -205,7 +205,7 @@ public Notif(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [NotificationType](NotificationType.md#cls-NotificationType), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [NotificationType](NotificationType.md#notificationtype-1f10f57e184d), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Same functionality as for
  `Notif(Socket, EnumSet, NotificationCfg)`
@@ -234,7 +234,7 @@ Same functionality as for
 - `ConfException`
 - `IOException`
 
-### Notif(Socket, EnumSet<NotificationType>, int) <a href="#m-Notif-fb6a151efdc4" id="m-Notif-fb6a151efdc4"></a>
+### Notif(Socket, EnumSet&lt;NotificationType&gt;, int) <a href="#notif-fb6a151efdc4" id="notif-fb6a151efdc4"></a>
 
 ```java
 public Notif(
@@ -245,7 +245,7 @@ public Notif(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [NotificationType](NotificationType.md#cls-NotificationType), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [NotificationType](NotificationType.md#notificationtype-1f10f57e184d), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Same functionality as for
  `Notif(Socket, EnumSet, NotificationCfg)`
@@ -276,7 +276,7 @@ Same functionality as for
 - `ConfException`
 - `IOException`
 
-### Notif(Socket, EnumSet<NotificationType>, int, int) <a href="#m-Notif-844954eeba89" id="m-Notif-844954eeba89"></a>
+### Notif(Socket, EnumSet&lt;NotificationType&gt;, int, int) <a href="#notif-844954eeba89" id="notif-844954eeba89"></a>
 
 ```java
 public Notif(
@@ -288,7 +288,7 @@ public Notif(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [NotificationType](NotificationType.md#cls-NotificationType), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [NotificationType](NotificationType.md#notificationtype-1f10f57e184d), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Same functionality as for
  `Notif(Socket, EnumSet, NotificationCfg)`
@@ -320,9 +320,9 @@ Same functionality as for
 - `NotifException` - Failed to initialize notification instance.
 - `IOException` - Failed to read from notifications socket
 
-**See also:** [`read`](Notif.md#m-read-b28b830b98d6)
+**See also:** [`read`](Notif.md#read-b28b830b98d6)
 
-### Notif(Socket, EnumSet<NotificationType>, NotificationCfg) <a href="#m-Notif-dae959e25ea9" id="m-Notif-dae959e25ea9"></a>
+### Notif(Socket, EnumSet&lt;NotificationType&gt;, NotificationCfg) <a href="#notif-dae959e25ea9" id="notif-dae959e25ea9"></a>
 
 ```java
 public Notif(
@@ -333,20 +333,20 @@ public Notif(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [NotificationType](NotificationType.md#cls-NotificationType), [NotificationCfg](NotificationCfg.md#cls-NotificationCfg), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [NotificationType](NotificationType.md#notificationtype-1f10f57e184d), [NotificationCfg](NotificationCfg.md#notificationcfg-9d212d006400), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Creates a notification instance. The events will be read from the
  provided socket. The the configurated notifications are passed as an
  `EnumSet<NotificationType>` This constructor expects a
- [`NotificationCfg`](NotificationCfg.md#cls-NotificationCfg) argument which is used to set extra configuration
+ [`NotificationCfg`](NotificationCfg.md#notificationcfg-9d212d006400) argument which is used to set extra configuration
  data necessary for notifications of type
 
 
-- [`NotificationType#NOTIF_HEALTH_CHECK`](NotificationType.md#m-NOTIF_HEALTH_CHECK)
-- [`NotificationType#NOTIF_HEARTBEAT`](NotificationType.md#m-NOTIF_HEARTBEAT)
-- [`NotificationType#NOTIF_STREAM_EVENT`](NotificationType.md#m-NOTIF_STREAM_EVENT)
-- [`NotificationType#NOTIF_COMMIT_PROGRESS`](NotificationType.md#m-NOTIF_COMMIT_PROGRESS)
-- [`NotificationType#NOTIF_PROGRESS`](NotificationType.md#m-NOTIF_PROGRESS)
+- [`NotificationType#NOTIF_HEALTH_CHECK`](NotificationType.md#notif_health_check-16b040e322ff)
+- [`NotificationType#NOTIF_HEARTBEAT`](NotificationType.md#notif_heartbeat-a901d424d5e9)
+- [`NotificationType#NOTIF_STREAM_EVENT`](NotificationType.md#notif_stream_event-32431368050e)
+- [`NotificationType#NOTIF_COMMIT_PROGRESS`](NotificationType.md#notif_commit_progress-333a6e755b44)
+- [`NotificationType#NOTIF_PROGRESS`](NotificationType.md#notif_progress-824025559a0d)
 
 
 
@@ -374,9 +374,9 @@ Creates a notification instance. The events will be read from the
 - `NotifException` - Failed to initialize notification instance.
 - `IOException` - Failed to read from notifications socket
 
-**See also:** [`read`](Notif.md#m-read-b28b830b98d6)
+**See also:** [`read`](Notif.md#read-b28b830b98d6)
 
-### Notif(SocketAddress, EnumSet<NotificationType>) <a href="#m-Notif-8cfa65ea4683" id="m-Notif-8cfa65ea4683"></a>
+### Notif(SocketAddress, EnumSet&lt;NotificationType&gt;) <a href="#notif-8cfa65ea4683" id="notif-8cfa65ea4683"></a>
 
 ```java
 public Notif(
@@ -386,7 +386,7 @@ public Notif(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [NotificationType](NotificationType.md#cls-NotificationType), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [NotificationType](NotificationType.md#notificationtype-1f10f57e184d), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Same as `Notif(Socket, EnumSet)` but taking a
  `SocketAddress` instead with the address to connect to instead
@@ -397,7 +397,7 @@ Same as `Notif(Socket, EnumSet)` but taking a
 - `java.net.SocketAddress address`
 - `java.util.EnumSet<com.tailf.notif.NotificationType> eventTypes`
 
-### Notif(SocketAddress, EnumSet<NotificationType>, int) <a href="#m-Notif-0d4f132420ca" id="m-Notif-0d4f132420ca"></a>
+### Notif(SocketAddress, EnumSet&lt;NotificationType&gt;, int) <a href="#notif-0d4f132420ca" id="notif-0d4f132420ca"></a>
 
 ```java
 public Notif(
@@ -408,7 +408,7 @@ public Notif(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [NotificationType](NotificationType.md#cls-NotificationType), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [NotificationType](NotificationType.md#notificationtype-1f10f57e184d), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Same as `Notif(Socket, EnumSet, int)` but taking a
  `SocketAddress` instead with the address to connect to instead
@@ -420,7 +420,7 @@ Same as `Notif(Socket, EnumSet, int)` but taking a
 - `java.util.EnumSet<com.tailf.notif.NotificationType> eventTypes`
 - `int heartbeatInterval`
 
-### Notif(SocketAddress, EnumSet<NotificationType>, int, int) <a href="#m-Notif-5aede5d32ed9" id="m-Notif-5aede5d32ed9"></a>
+### Notif(SocketAddress, EnumSet&lt;NotificationType&gt;, int, int) <a href="#notif-5aede5d32ed9" id="notif-5aede5d32ed9"></a>
 
 ```java
 public Notif(
@@ -432,7 +432,7 @@ public Notif(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [NotificationType](NotificationType.md#cls-NotificationType), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [NotificationType](NotificationType.md#notificationtype-1f10f57e184d), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Same as `Notif(Socket, EnumSet, int, int)` but taking a
  `SocketAddress` instead with the address to connect to instead
@@ -445,7 +445,7 @@ Same as `Notif(Socket, EnumSet, int, int)` but taking a
 - `int heartbeatInterval`
 - `int healthCheckInterval`
 
-### Notif(SocketAddress, EnumSet<NotificationType>, NotificationCfg) <a href="#m-Notif-9b7386bb0975" id="m-Notif-9b7386bb0975"></a>
+### Notif(SocketAddress, EnumSet&lt;NotificationType&gt;, NotificationCfg) <a href="#notif-9b7386bb0975" id="notif-9b7386bb0975"></a>
 
 ```java
 public Notif(
@@ -456,7 +456,7 @@ public Notif(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [NotificationType](NotificationType.md#cls-NotificationType), [NotificationCfg](NotificationCfg.md#cls-NotificationCfg), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [NotificationType](NotificationType.md#notificationtype-1f10f57e184d), [NotificationCfg](NotificationCfg.md#notificationcfg-9d212d006400), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Same as `Notif(Socket, EnumSet, NotificationCfg)` but taking a
  `SocketAddress` instead with the address to connect to instead
@@ -471,20 +471,20 @@ Same as `Notif(Socket, EnumSet, NotificationCfg)` but taking a
 
 ## Methods
 
-### close() <a href="#m-close-8107c6dc012b" id="m-close-8107c6dc012b"></a>
+### close() <a href="#close-8107c6dc012b" id="close-8107c6dc012b"></a>
 
 ```java
 public void close() throws java.io.IOException
 ```
 
-### diffNotificationDone(int) <a href="#m-diffNotificationDone-0053d5ba7865" id="m-diffNotificationDone-0053d5ba7865"></a>
+### diffNotificationDone(int) <a href="#diffnotificationdone-0053d5ba7865" id="diffnotificationdone-0053d5ba7865"></a>
 
 ```java
 public synchronized void diffNotificationDone(int thandle) throws java.io.IOException
 ```
 
-If the received event from [`read()`](Notif.md#m-read-b28b830b98d6) was a
- [`CommitDiffNotification`](CommitDiffNotification.md#cls-CommitDiffNotification) it is important that we call this function
+If the received event from [`read()`](Notif.md#read-b28b830b98d6) was a
+ [`CommitDiffNotification`](CommitDiffNotification.md#commitdiffnotification-c6f5ad668010) it is important that we call this function
  when we are done reading the transaction diffs over MAAPI. The
  transaction is hanging until this function gets called.
 
@@ -496,56 +496,56 @@ If the received event from [`read()`](Notif.md#m-read-b28b830b98d6) was a
 
 - `IOException` - Failed to write to the notification socket.
 
-### read() <a href="#m-read-b28b830b98d6" id="m-read-b28b830b98d6"></a>
+### read() <a href="#read-b28b830b98d6" id="read-b28b830b98d6"></a>
 
 ```java
 public synchronized com.tailf.notif.Notification read() throws com.tailf.conf.ConfException, java.io.IOException
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [Notification](Notification.md#cls-Notification), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [Notification](Notification.md#notification-b2e7d82d4215), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Read in the data. The application is responsible for reading the
- notification socket. The method read() will return a [`Notification`](Notification.md#cls-Notification)
+ notification socket. The method read() will return a [`Notification`](Notification.md#notification-b2e7d82d4215)
  of the following types:
 
 
-- [`AuditNotification`](AuditNotification.md#cls-AuditNotification)
-   - [`CommitDiffNotification`](CommitDiffNotification.md#cls-CommitDiffNotification)
-     - [`CommitFailedNotification`](CommitFailedNotification.md#cls-CommitFailedNotification)
-       - [`CommitNotification`](CommitNotification.md#cls-CommitNotification)
-         - [`CommitProgressNotification`](CommitProgressNotification.md#cls-CommitProgressNotification)
-           - [`ProgressNotification`](ProgressNotification.md#cls-ProgressNotification)
-             - [`ConfirmNotification`](ConfirmNotification.md#cls-ConfirmNotification)
-               - [`ForwardNotification`](ForwardNotification.md#cls-ForwardNotification)
-                 - [`HaNotification`](HaNotification.md#cls-HaNotification)
-                   - [`HeartbeatNotification`](HeartbeatNotification.md#cls-HeartbeatNotification)
-                     - [`SnmpaNotification`](SnmpaNotification.md#cls-SnmpaNotification)
-                       - [`SubagentNotification`](SubagentNotification.md#cls-SubagentNotification)
-                         - [`SyslogNotification`](SyslogNotification.md#cls-SyslogNotification)
-                           - [`UpgradeNotification`](UpgradeNotification.md#cls-UpgradeNotification)
-                             - [`UserSessNotification`](UserSessNotification.md#cls-UserSessNotification)
-                               - [`HealtCheckNotification`](HealtCheckNotification.md#cls-HealtCheckNotification)
-                                 - [`PackageReloadNotification`](PackageReloadNotification.md#cls-PackageReloadNotification)
-                                   - [`CommitQueueProgressNotification`](CommitQueueProgressNotification.md#cls-CommitQueueProgressNotification)
-                                     - [`ReopenLogsNotification`](ReopenLogsNotification.md#cls-ReopenLogsNotification)
-                                       - [`CallHomeInfoNotification`](CallHomeInfoNotification.md#cls-CallHomeInfoNotification)
+- [`AuditNotification`](AuditNotification.md#auditnotification-7a35f4700e9c)
+   - [`CommitDiffNotification`](CommitDiffNotification.md#commitdiffnotification-c6f5ad668010)
+     - [`CommitFailedNotification`](CommitFailedNotification.md#commitfailednotification-bef571382961)
+       - [`CommitNotification`](CommitNotification.md#commitnotification-30ba63db10de)
+         - [`CommitProgressNotification`](CommitProgressNotification.md#commitprogressnotification-700cb70f0b31)
+           - [`ProgressNotification`](ProgressNotification.md#progressnotification-97286de4fe31)
+             - [`ConfirmNotification`](ConfirmNotification.md#confirmnotification-10447869c375)
+               - [`ForwardNotification`](ForwardNotification.md#forwardnotification-1c104ab318e3)
+                 - [`HaNotification`](HaNotification.md#hanotification-18807803b5fa)
+                   - [`HeartbeatNotification`](HeartbeatNotification.md#heartbeatnotification-0af557025d11)
+                     - [`SnmpaNotification`](SnmpaNotification.md#snmpanotification-1dc17468977a)
+                       - [`SubagentNotification`](SubagentNotification.md#subagentnotification-d8adb6073ef3)
+                         - [`SyslogNotification`](SyslogNotification.md#syslognotification-5d0087332348)
+                           - [`UpgradeNotification`](UpgradeNotification.md#upgradenotification-8f9e3ffbdab5)
+                             - [`UserSessNotification`](UserSessNotification.md#usersessnotification-da9415293f94)
+                               - [`HealtCheckNotification`](HealtCheckNotification.md#healtchecknotification-ed82ebc35dd0)
+                                 - [`PackageReloadNotification`](PackageReloadNotification.md#packagereloadnotification-d077e4cc2049)
+                                   - [`CommitQueueProgressNotification`](CommitQueueProgressNotification.md#commitqueueprogressnotification-a2a32afaa4c3)
+                                     - [`ReopenLogsNotification`](ReopenLogsNotification.md#reopenlogsnotification-1b749f5f2295)
+                                       - [`CallHomeInfoNotification`](CallHomeInfoNotification.md#callhomeinfonotification-d29c7e74561c)
 
 **Throws**
 
 - `NotifException` - Failed to read notification.
 - `IOException` - Failed to read from notification socket
 
-### syncAuditNetworkNotification(int) <a href="#m-syncAuditNetworkNotification-86a6d4e5bafc" id="m-syncAuditNetworkNotification-86a6d4e5bafc"></a>
+### syncAuditNetworkNotification(int) <a href="#syncauditnetworknotification-86a6d4e5bafc" id="syncauditnetworknotification-86a6d4e5bafc"></a>
 
 ```java
 public synchronized void syncAuditNetworkNotification(int usid) throws java.io.IOException
 ```
 
-If the received event from [`read()`](Notif.md#m-read-b28b830b98d6) was a
- [`AuditNetworkNotification`](AuditNetworkNotification.md#cls-AuditNetworkNotification) which was subscribed using the
- notification type [`NotificationType#NOTIF_AUDIT_NETWORK`](NotificationType.md#m-NOTIF_AUDIT_NETWORK)
- in combination with [`NotificationType#NOTIF_AUDIT_NETWORK_SYNC`](NotificationType.md#m-NOTIF_AUDIT_NETWORK_SYNC)
+If the received event from [`read()`](Notif.md#read-b28b830b98d6) was a
+ [`AuditNetworkNotification`](AuditNetworkNotification.md#auditnetworknotification-8c937b78f433) which was subscribed using the
+ notification type [`NotificationType#NOTIF_AUDIT_NETWORK`](NotificationType.md#notif_audit_network-ca4c25b853f0)
+ in combination with [`NotificationType#NOTIF_AUDIT_NETWORK_SYNC`](NotificationType.md#notif_audit_network_sync-0ea10c1c0b1b)
  it is important that we call this function or else the
  user session will hang indefinitely.
 
@@ -557,16 +557,16 @@ If the received event from [`read()`](Notif.md#m-read-b28b830b98d6) was a
 
 - `IOException` - Failed to write to the notification socket.
 
-### syncAuditNotification(int) <a href="#m-syncAuditNotification-0078171f2fe7" id="m-syncAuditNotification-0078171f2fe7"></a>
+### syncAuditNotification(int) <a href="#syncauditnotification-0078171f2fe7" id="syncauditnotification-0078171f2fe7"></a>
 
 ```java
 public synchronized void syncAuditNotification(int usid) throws java.io.IOException
 ```
 
-If the received event from [`read()`](Notif.md#m-read-b28b830b98d6) was a
- [`AuditNotification`](AuditNotification.md#cls-AuditNotification) which was subscribed using the
- notification type [`NotificationType#NOTIF_AUDIT`](NotificationType.md#m-NOTIF_AUDIT)
- in combination with [`NotificationType#NOTIF_AUDIT_SYNC`](NotificationType.md#m-NOTIF_AUDIT_SYNC)
+If the received event from [`read()`](Notif.md#read-b28b830b98d6) was a
+ [`AuditNotification`](AuditNotification.md#auditnotification-7a35f4700e9c) which was subscribed using the
+ notification type [`NotificationType#NOTIF_AUDIT`](NotificationType.md#notif_audit-6f0218ecc8bf)
+ in combination with [`NotificationType#NOTIF_AUDIT_SYNC`](NotificationType.md#notif_audit_sync-17bfefc0883b)
  it is important that we call this function or else the
  user session will hang indefinitely.
 
@@ -578,16 +578,16 @@ If the received event from [`read()`](Notif.md#m-read-b28b830b98d6) was a
 
 - `IOException` - Failed to write to the notification socket.
 
-### syncHaNotification() <a href="#m-syncHaNotification-3e08f3cf3c62" id="m-syncHaNotification-3e08f3cf3c62"></a>
+### syncHaNotification() <a href="#synchanotification-3e08f3cf3c62" id="synchanotification-3e08f3cf3c62"></a>
 
 ```java
 public synchronized void syncHaNotification() throws java.io.IOException
 ```
 
-If the received event from [`read()`](Notif.md#m-read-b28b830b98d6) was a
- [`HaNotification`](HaNotification.md#cls-HaNotification) which was subscribed using the
- notification type [`NotificationType#NOTIF_HA_INFO`](NotificationType.md#m-NOTIF_HA_INFO)
- in combination with [`NotificationType#NOTIF_HA_INFO_SYNC`](NotificationType.md#m-NOTIF_HA_INFO_SYNC)
+If the received event from [`read()`](Notif.md#read-b28b830b98d6) was a
+ [`HaNotification`](HaNotification.md#hanotification-18807803b5fa) which was subscribed using the
+ notification type [`NotificationType#NOTIF_HA_INFO`](NotificationType.md#notif_ha_info-9b20b0deabc8)
+ in combination with [`NotificationType#NOTIF_HA_INFO_SYNC`](NotificationType.md#notif_ha_info_sync-11c7d32ea4f1)
  it is important that we call this function or else the
  user session will hang indefinitely.
 

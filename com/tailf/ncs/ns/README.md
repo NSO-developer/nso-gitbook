@@ -11,12 +11,12 @@ This package comprises name-space classes generated from the NCS YANG models.
 
 ## Types
 
-- [Inet](Inet.md#cls-Inet)
-- [Ncs](Ncs.md#cls-Ncs)
-- [NcsAlarms](NcsAlarms.md#cls-NcsAlarms)
-- [NcsCommitParams](NcsCommitParams.md#cls-NcsCommitParams)
-- [NcsNed](NcsNed.md#cls-NcsNed)
-- [NcsSnmp](NcsSnmp.md#cls-NcsSnmp)
-- [NcsState](NcsState.md#cls-NcsState)
-- [NetconfNcs](NetconfNcs.md#cls-NetconfNcs)
-- [Yang](Yang.md#cls-Yang)
+- [Inet](Inet.md#inet-272d260c8963)
+- [Ncs](Ncs.md#ncs-2fda95425fc1)
+- [NcsAlarms](NcsAlarms.md#ncsalarms-77df46497b22)
+- [NcsCommitParams](NcsCommitParams.md#ncscommitparams-0284bbf888f7)
+- [NcsNed](NcsNed.md#ncsned-8ec2e0a91ff5)
+- [NcsSnmp](NcsSnmp.md#ncssnmp-efed1d5f1dcf)
+- [NcsState](NcsState.md#ncsstate-f08eb7c6bdbb)
+- [NetconfNcs](NetconfNcs.md#netconfncs-b87e44448f4d)
+- [Yang](Yang.md#yang-eb4255bb3177)

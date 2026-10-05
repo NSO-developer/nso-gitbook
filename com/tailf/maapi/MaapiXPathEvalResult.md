@@ -1,4 +1,4 @@
-# MaapiXPathEvalResult <a href="#cls-MaapiXPathEvalResult" id="cls-MaapiXPathEvalResult"></a>
+# MaapiXPathEvalResult <a href="#maapixpathevalresult-e5a539712098" id="maapixpathevalresult-e5a539712098"></a>
 
 ```java
 public interface com.tailf.maapi.MaapiXPathEvalResult
@@ -8,17 +8,17 @@ This interface is used with `xpathEval`
  method in `Maapi`. It allows a way
  to iterate through a set of resulting nodes from evaluating xpath expression.
 
-**See also:** [`Maapi#xpathEval`](Maapi.md#m-xpathEval-8e8640817c0b)
+**See also:** [`Maapi#xpathEval`](Maapi.md#xpatheval-8e8640817c0b)
 
 ## Members
 
 **Methods**:
 
-- [result(ConfObject[], ConfValue, Object)](#m-result-94a00942459a)
+- [result(ConfObject[], ConfValue, Object)](#result-94a00942459a)
 
 ## Methods
 
-### result(ConfObject[], ConfValue, Object) <a href="#m-result-94a00942459a" id="m-result-94a00942459a"></a>
+### result(ConfObject[], ConfValue, Object) <a href="#result-94a00942459a" id="result-94a00942459a"></a>
 
 ```java
 public abstract com.tailf.maapi.XPathNodeIterateResultFlag result(
@@ -28,7 +28,7 @@ public abstract com.tailf.maapi.XPathNodeIterateResultFlag result(
 )
 ```
 
-Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#cls-XPathNodeIterateResultFlag), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfValue](../conf/ConfValue.md#cls-ConfValue)
+Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd), [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d)
 
 For each node in the resulting node set evaluated by the xpath
  this method will be called.
@@ -42,11 +42,11 @@ For each node in the resulting node set evaluated by the xpath
 
 
  After each invocation this method (done
- by [xpathEval](Maapi.md#m-xpathEval-8e8640817c0b) )
+ by [xpathEval](Maapi.md#xpatheval-8e8640817c0b) )
  this method should return either
- [ITER_CONTINUE](XPathNodeIterateResultFlag.md#cls-XPathNodeIterateResultFlag) to
+ [ITER_CONTINUE](XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd) to
  tell the xpath evaluator to continue with the
- next resulting node or stop [ITER_STOP](XPathNodeIterateResultFlag.md#cls-XPathNodeIterateResultFlag)
+ next resulting node or stop [ITER_STOP](XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd)
  to stop the iteration.
 
 **Parameters**

@@ -1,11 +1,11 @@
-# NavuListEntry <a href="#cls-NavuListEntry" id="cls-NavuListEntry"></a>
+# NavuListEntry <a href="#navulistentry-6c6e1431f291" id="navulistentry-6c6e1431f291"></a>
 
 ```java
 public class com.tailf.navu.NavuListEntry
     extends com.tailf.navu.NavuContainer
 ```
 
-Types: [NavuContainer](NavuContainer.md#cls-NavuContainer)
+Types: [NavuContainer](NavuContainer.md#navucontainer-8e321756755f)
 
 A `NavuList` holds this representation of a entry as its
  children or entry set.
@@ -14,120 +14,120 @@ A `NavuList` holds this representation of a entry as its
 
 **Constructors**:
 
-- [NavuListEntry(NavuContext, CSNode, NavuNode, ConfKey, String, Object[])](#m-NavuListEntry-6558a2da572b)
+- [NavuListEntry(NavuContext, CSNode, NavuNode, ConfKey, String, Object[])](#navulistentry-6558a2da572b)
 
 **Fields**:
 
-- [arguments](NavuNode.md#m-arguments) from NavuNode
-- [change](NavuNode.md#m-change) from NavuNode
-- [changeMap](NavuContainer.md#m-changeMap) from NavuContainer
-- [context](NavuNode.md#m-context) from NavuNode
-- [criteria](NavuContainer.md#m-criteria) from NavuContainer
-- [duplicateSet](NavuContainer.md#m-duplicateSet) from NavuContainer
-- [fmt](NavuNode.md#m-fmt) from NavuNode
-- [isCreated](NavuContainer.md#m-isCreated) from NavuContainer
-- [isRefreshed](NavuContainer.md#m-isRefreshed) from NavuContainer
-- [isRootModulesPopulated](NavuContainer.md#m-isRootModulesPopulated) from NavuContainer
-- [key](NavuContainer.md#m-key) from NavuContainer
-- [map](NavuContainer.md#m-map) from NavuContainer
-- [mountId](NavuNode.md#m-mountId) from NavuNode
-- [myConfPath](NavuNode.md#m-myConfPath) from NavuNode
-- [name2Choice](NavuContainer.md#m-name2Choice) from NavuContainer
-- [node](NavuNode.md#m-node) from NavuNode
-- [node2Choice](NavuContainer.md#m-node2Choice) from NavuContainer
-- [parent](NavuNode.md#m-parent) from NavuNode
-- [rootHash](NavuContainer.md#m-rootHash) from NavuContainer
-- [sch](NavuContainer.md#m-sch) from NavuContainer
+- [arguments](NavuNode.md#arguments-28ffa3c54d2c) from NavuNode
+- [change](NavuNode.md#change-470927160c2a) from NavuNode
+- [changeMap](NavuContainer.md#changemap-b5a294491f5a) from NavuContainer
+- [context](NavuNode.md#context-b9bed500f8c9) from NavuNode
+- [criteria](NavuContainer.md#criteria-2aeaea96dbdb) from NavuContainer
+- [duplicateSet](NavuContainer.md#duplicateset-c134c96c9fc5) from NavuContainer
+- [fmt](NavuNode.md#fmt-94d3250bd2b9) from NavuNode
+- [isCreated](NavuContainer.md#iscreated-783ec1e767bb) from NavuContainer
+- [isRefreshed](NavuContainer.md#isrefreshed-17594a091fc4) from NavuContainer
+- [isRootModulesPopulated](NavuContainer.md#isrootmodulespopulated-1578b44f189f) from NavuContainer
+- [key](NavuContainer.md#key-41a461f20bc2) from NavuContainer
+- [map](NavuContainer.md#map-7fec112b12da) from NavuContainer
+- [mountId](NavuNode.md#mountid-a6b63dedba52) from NavuNode
+- [myConfPath](NavuNode.md#myconfpath-cec7a88dfaf3) from NavuNode
+- [name2Choice](NavuContainer.md#name2choice-b90229c2e807) from NavuContainer
+- [node](NavuNode.md#node-ff68e6a3ebc6) from NavuNode
+- [node2Choice](NavuContainer.md#node2choice-8cbcd28d51b5) from NavuContainer
+- [parent](NavuNode.md#parent-26ad1434956a) from NavuNode
+- [rootHash](NavuContainer.md#roothash-a5a53d6abd62) from NavuContainer
+- [sch](NavuContainer.md#sch-fd99b9646745) from NavuContainer
 
 **Methods**:
 
-- [action(Integer)](NavuContainer.md#m-action-31e90b24df5f) from NavuContainer
-- [action(String)](NavuContainer.md#m-action-ac3b339033ab) from NavuContainer
-- [addModule(NavuContainer)](NavuContainer.md#m-addModule-379e17a46072) from NavuContainer
-- [children()](NavuContainer.md#m-children-7d31300d62c3) from NavuContainer
-- [choice(String)](NavuContainer.md#m-choice-45a67115903b) from NavuContainer
-- [container(ConfNamespace, String)](NavuContainer.md#m-container-31c604ba30e3) from NavuContainer
-- [container(Integer)](NavuContainer.md#m-container-abb10ecdc3f6) from NavuContainer
-- [container(String)](NavuContainer.md#m-container-76f5d191b16d) from NavuContainer
-- [containsNode(NavuNode)](NavuContainer.md#m-containsNode-f554fdc5bf96) from NavuContainer
-- [containsNode(String)](NavuContainer.md#m-containsNode-445990dba920) from NavuContainer
-- [context()](NavuNode.md#m-context-0990f1a0bb68) from NavuNode
-- [create()](NavuContainer.md#m-create-06e0ee4a42c2) from NavuContainer
-- [delete()](#m-delete-a9e76d49da61)
-- [encodeValues()](NavuContainer.md#m-encodeValues-7bd911383b1a) from NavuContainer
-- [encodeXML()](NavuContainer.md#m-encodeXML-bdbcd52c2505) from NavuContainer
-- [entrySet()](NavuContainer.md#m-entrySet-20b678143b7e) from NavuContainer
-- [equals(Object)](#m-equals-fcd6492e0d6c)
-- [exists()](NavuContainer.md#m-exists-56968a4c7bda) from NavuContainer
-- [filterChildren(CSNode)](NavuNode.md#m-filterChildren-e72b7b1ab25d) from NavuNode
-- [findChanges(NavuContext, Integer[])](NavuContainer.md#m-findChanges-e1e823411f98) from NavuContainer
-- [get(String)](NavuContainer.md#m-get-e86cd4d90bf3) from NavuContainer
-- [getChangeFlag()](NavuNode.md#m-getChangeFlag-33cadf5a32ba) from NavuNode
-- [getChanges(NavuContext)](NavuNode.md#m-getChanges-c106383f174d) from NavuNode
-- [getChanges(NavuContext, boolean)](NavuNode.md#m-getChanges-bcf5b6dbccf2) from NavuNode
-- [getChanges(NavuContext, boolean, DiffIterateOperFlag[])](NavuNode.md#m-getChanges-9f13a683b086) from NavuNode
-- [getConfPath()](NavuNode.md#m-getConfPath-c7ca3cb63c17) from NavuNode
-- [getInfo()](NavuNode.md#m-getInfo-259a72b5d74c) from NavuNode
-- [getKey()](#m-getKey-9a8856159458)
-- [getKeyPath()](NavuNode.md#m-getKeyPath-4c9200912948) from NavuNode
-- [getName()](NavuNode.md#m-getName-2634b18b4a25) from NavuNode
-- [getNavuNode(ConfPath)](NavuNode.md#m-getNavuNode-d19ad1dd90fc) from NavuNode
-- [getParent()](NavuNode.md#m-getParent-45c1b196ed70) from NavuNode
-- [getRootNS()](NavuContainer.md#m-getRootNS-3f1d054cecd6) from NavuContainer
-- [getSchema(int)](NavuContainer.md#m-getSchema-d43ad42eba79) from NavuContainer
-- [getSelectCaseAsNavuChoice(String)](NavuContainer.md#m-getSelectCaseAsNavuChoice-f6626477e806) from NavuContainer
-- [getSelectCaseAsNavuNode(String)](NavuContainer.md#m-getSelectCaseAsNavuNode-46fa4e27d61f) from NavuContainer
-- [getSelectedCase(String)](NavuContainer.md#m-getSelectedCase-3b005e9181ed) from NavuContainer
-- [getUserSession()](NavuContainer.md#m-getUserSession-7a9eeeb92f85) from NavuContainer
-- [getValues(ConfXMLParam[])](NavuNode.md#m-getValues-1eb02439a757) from NavuNode
-- [getValues(String)](NavuNode.md#m-getValues-c03de090764d) from NavuNode
-- [h2str(Integer)](NavuContainer.md#m-h2str-3096e9ba352b) from NavuContainer
-- [handleDuplicateChildren(List<CSNode>)](NavuContainer.md#m-handleDuplicateChildren-e69c1564b6e7) from NavuContainer
-- [hashCode()](#m-hashCode-ef797a217903)
-- [isCreated()](NavuContainer.md#m-isCreated-bc9b3cb40910) from NavuContainer
-- [isEmpty()](NavuContainer.md#m-isEmpty-4dde48126244) from NavuContainer
-- [isListInstance()](NavuContainer.md#m-isListInstance-16ea9625f0d2) from NavuContainer
-- [isNodeNavuLocal()](NavuContainer.md#m-isNodeNavuLocal-3af8ba5398d1) from NavuContainer
-- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](NavuContainer.md#m-iterate-d80a566b7e0a) from NavuContainer
-- [keySet()](NavuContainer.md#m-keySet-66de8917ecb8) from NavuContainer
-- [leaf(ConfNamespace, String)](NavuContainer.md#m-leaf-da3758f37f21) from NavuContainer
-- [leaf(Integer)](NavuContainer.md#m-leaf-47fda8402c20) from NavuContainer
-- [leaf(String)](NavuContainer.md#m-leaf-ac189787d67d) from NavuContainer
-- [leafList(ConfNamespace, String)](NavuContainer.md#m-leafList-a2d5ad836b3e) from NavuContainer
-- [leafList(Integer)](NavuContainer.md#m-leafList-552c8007ecb4) from NavuContainer
-- [leafList(String)](NavuContainer.md#m-leafList-5811cbb534ec) from NavuContainer
-- [list(ConfNamespace, String)](NavuContainer.md#m-list-6b15381fd14a) from NavuContainer
-- [list(Integer)](NavuContainer.md#m-list-7dc96bdbb69a) from NavuContainer
-- [list(String)](NavuContainer.md#m-list-2c1a74a3cf07) from NavuContainer
-- [namespace(String)](NavuContainer.md#m-namespace-e29ad62ed095) from NavuContainer
-- [populateChildren(List<CSNode>)](NavuContainer.md#m-populateChildren-40519dc6bd8c) from NavuContainer
-- [populateChoices()](NavuContainer.md#m-populateChoices-de48df56d517) from NavuContainer
-- [prefix(String)](NavuContainer.md#m-prefix-fdd71b8275bb) from NavuContainer
-- [prepareXMLCall(String)](NavuNode.md#m-prepareXMLCall-c22e250f2cac) from NavuNode
-- [refresh()](NavuContainer.md#m-refresh-3852c3f76c8e) from NavuContainer
-- [reset()](NavuContainer.md#m-reset-6927918ac70a) from NavuContainer
-- [safeCreate()](NavuContainer.md#m-safeCreate-8125e14d387f) from NavuContainer
-- [select(ConfObject[])](NavuContainer.md#m-select-336dd76cd112) from NavuContainer
-- [select(List<String>)](NavuContainer.md#m-select-e81f36150174) from NavuContainer
-- [select(String)](NavuContainer.md#m-select-5031325154b9) from NavuContainer
-- [setChange(List<ConfObject>, DiffIterateOperFlag, ConfValue, NavuContext)](NavuContainer.md#m-setChange-0bbeb54ebc15) from NavuContainer
-- [setKey(ConfKey)](NavuContainer.md#m-setKey-b8489388971b) from NavuContainer
-- [setOperFlag(DiffIterateOperFlag)](NavuContainer.md#m-setOperFlag-b50e9a2a8d38) from NavuContainer
-- [setValues(ConfXMLParam[])](NavuNode.md#m-setValues-50d8edffa795) from NavuNode
-- [setValues(String)](NavuNode.md#m-setValues-3ec9581ce266) from NavuNode
-- [sharedCreate()](NavuContainer.md#m-sharedCreate-7aef2e24f04b) from NavuContainer
-- [sharedSetValues(ConfXMLParam[])](NavuNode.md#m-sharedSetValues-705549be9df0) from NavuNode
-- [sharedSetValues(String)](NavuNode.md#m-sharedSetValues-ad93c38b671f) from NavuNode
-- [size()](NavuContainer.md#m-size-c6d8505255fd) from NavuContainer
-- [stopCdbSession()](NavuNode.md#m-stopCdbSession-17418252a986) from NavuNode
-- [toString()](NavuContainer.md#m-toString-e9d48c5503ef) from NavuContainer
-- [valueUpdateInd(NavuNode)](NavuContainer.md#m-valueUpdateInd-e7cd65f79d78) from NavuContainer
-- [xPathSelect(String)](NavuNode.md#m-xPathSelect-0fb26b9f41e0) from NavuNode
-- [xPathSelectIterate(String, NavuNodeSetIterate)](NavuNode.md#m-xPathSelectIterate-12547f34f47c) from NavuNode
+- [action(Integer)](NavuContainer.md#action-31e90b24df5f) from NavuContainer
+- [action(String)](NavuContainer.md#action-ac3b339033ab) from NavuContainer
+- [addModule(NavuContainer)](NavuContainer.md#addmodule-379e17a46072) from NavuContainer
+- [children()](NavuContainer.md#children-7d31300d62c3) from NavuContainer
+- [choice(String)](NavuContainer.md#choice-45a67115903b) from NavuContainer
+- [container(ConfNamespace, String)](NavuContainer.md#container-31c604ba30e3) from NavuContainer
+- [container(Integer)](NavuContainer.md#container-abb10ecdc3f6) from NavuContainer
+- [container(String)](NavuContainer.md#container-76f5d191b16d) from NavuContainer
+- [containsNode(NavuNode)](NavuContainer.md#containsnode-f554fdc5bf96) from NavuContainer
+- [containsNode(String)](NavuContainer.md#containsnode-445990dba920) from NavuContainer
+- [context()](NavuNode.md#context-0990f1a0bb68) from NavuNode
+- [create()](NavuContainer.md#create-06e0ee4a42c2) from NavuContainer
+- [delete()](#delete-a9e76d49da61)
+- [encodeValues()](NavuContainer.md#encodevalues-7bd911383b1a) from NavuContainer
+- [encodeXML()](NavuContainer.md#encodexml-bdbcd52c2505) from NavuContainer
+- [entrySet()](NavuContainer.md#entryset-20b678143b7e) from NavuContainer
+- [equals(Object)](#equals-fcd6492e0d6c)
+- [exists()](NavuContainer.md#exists-56968a4c7bda) from NavuContainer
+- [filterChildren(CSNode)](NavuNode.md#filterchildren-e72b7b1ab25d) from NavuNode
+- [findChanges(NavuContext, Integer[])](NavuContainer.md#findchanges-e1e823411f98) from NavuContainer
+- [get(String)](NavuContainer.md#get-e86cd4d90bf3) from NavuContainer
+- [getChangeFlag()](NavuNode.md#getchangeflag-33cadf5a32ba) from NavuNode
+- [getChanges(NavuContext)](NavuNode.md#getchanges-c106383f174d) from NavuNode
+- [getChanges(NavuContext, boolean)](NavuNode.md#getchanges-bcf5b6dbccf2) from NavuNode
+- [getChanges(NavuContext, boolean, DiffIterateOperFlag[])](NavuNode.md#getchanges-9f13a683b086) from NavuNode
+- [getConfPath()](NavuNode.md#getconfpath-c7ca3cb63c17) from NavuNode
+- [getInfo()](NavuNode.md#getinfo-259a72b5d74c) from NavuNode
+- [getKey()](#getkey-9a8856159458)
+- [getKeyPath()](NavuNode.md#getkeypath-4c9200912948) from NavuNode
+- [getName()](NavuNode.md#getname-2634b18b4a25) from NavuNode
+- [getNavuNode(ConfPath)](NavuNode.md#getnavunode-d19ad1dd90fc) from NavuNode
+- [getParent()](NavuNode.md#getparent-45c1b196ed70) from NavuNode
+- [getRootNS()](NavuContainer.md#getrootns-3f1d054cecd6) from NavuContainer
+- [getSchema(int)](NavuContainer.md#getschema-d43ad42eba79) from NavuContainer
+- [getSelectCaseAsNavuChoice(String)](NavuContainer.md#getselectcaseasnavuchoice-f6626477e806) from NavuContainer
+- [getSelectCaseAsNavuNode(String)](NavuContainer.md#getselectcaseasnavunode-46fa4e27d61f) from NavuContainer
+- [getSelectedCase(String)](NavuContainer.md#getselectedcase-3b005e9181ed) from NavuContainer
+- [getUserSession()](NavuContainer.md#getusersession-7a9eeeb92f85) from NavuContainer
+- [getValues(ConfXMLParam[])](NavuNode.md#getvalues-1eb02439a757) from NavuNode
+- [getValues(String)](NavuNode.md#getvalues-c03de090764d) from NavuNode
+- [h2str(Integer)](NavuContainer.md#h2str-3096e9ba352b) from NavuContainer
+- [handleDuplicateChildren(List<CSNode>)](NavuContainer.md#handleduplicatechildren-e69c1564b6e7) from NavuContainer
+- [hashCode()](#hashcode-ef797a217903)
+- [isCreated()](NavuContainer.md#iscreated-bc9b3cb40910) from NavuContainer
+- [isEmpty()](NavuContainer.md#isempty-4dde48126244) from NavuContainer
+- [isListInstance()](NavuContainer.md#islistinstance-16ea9625f0d2) from NavuContainer
+- [isNodeNavuLocal()](NavuContainer.md#isnodenavulocal-3af8ba5398d1) from NavuContainer
+- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](NavuContainer.md#iterate-d80a566b7e0a) from NavuContainer
+- [keySet()](NavuContainer.md#keyset-66de8917ecb8) from NavuContainer
+- [leaf(ConfNamespace, String)](NavuContainer.md#leaf-da3758f37f21) from NavuContainer
+- [leaf(Integer)](NavuContainer.md#leaf-47fda8402c20) from NavuContainer
+- [leaf(String)](NavuContainer.md#leaf-ac189787d67d) from NavuContainer
+- [leafList(ConfNamespace, String)](NavuContainer.md#leaflist-a2d5ad836b3e) from NavuContainer
+- [leafList(Integer)](NavuContainer.md#leaflist-552c8007ecb4) from NavuContainer
+- [leafList(String)](NavuContainer.md#leaflist-5811cbb534ec) from NavuContainer
+- [list(ConfNamespace, String)](NavuContainer.md#list-6b15381fd14a) from NavuContainer
+- [list(Integer)](NavuContainer.md#list-7dc96bdbb69a) from NavuContainer
+- [list(String)](NavuContainer.md#list-2c1a74a3cf07) from NavuContainer
+- [namespace(String)](NavuContainer.md#namespace-e29ad62ed095) from NavuContainer
+- [populateChildren(List<CSNode>)](NavuContainer.md#populatechildren-40519dc6bd8c) from NavuContainer
+- [populateChoices()](NavuContainer.md#populatechoices-de48df56d517) from NavuContainer
+- [prefix(String)](NavuContainer.md#prefix-fdd71b8275bb) from NavuContainer
+- [prepareXMLCall(String)](NavuNode.md#preparexmlcall-c22e250f2cac) from NavuNode
+- [refresh()](NavuContainer.md#refresh-3852c3f76c8e) from NavuContainer
+- [reset()](NavuContainer.md#reset-6927918ac70a) from NavuContainer
+- [safeCreate()](NavuContainer.md#safecreate-8125e14d387f) from NavuContainer
+- [select(ConfObject[])](NavuContainer.md#select-336dd76cd112) from NavuContainer
+- [select(List<String>)](NavuContainer.md#select-e81f36150174) from NavuContainer
+- [select(String)](NavuContainer.md#select-5031325154b9) from NavuContainer
+- [setChange(List<ConfObject>, DiffIterateOperFlag, ConfValue, NavuContext)](NavuContainer.md#setchange-0bbeb54ebc15) from NavuContainer
+- [setKey(ConfKey)](NavuContainer.md#setkey-b8489388971b) from NavuContainer
+- [setOperFlag(DiffIterateOperFlag)](NavuContainer.md#setoperflag-b50e9a2a8d38) from NavuContainer
+- [setValues(ConfXMLParam[])](NavuNode.md#setvalues-50d8edffa795) from NavuNode
+- [setValues(String)](NavuNode.md#setvalues-3ec9581ce266) from NavuNode
+- [sharedCreate()](NavuContainer.md#sharedcreate-7aef2e24f04b) from NavuContainer
+- [sharedSetValues(ConfXMLParam[])](NavuNode.md#sharedsetvalues-705549be9df0) from NavuNode
+- [sharedSetValues(String)](NavuNode.md#sharedsetvalues-ad93c38b671f) from NavuNode
+- [size()](NavuContainer.md#size-c6d8505255fd) from NavuContainer
+- [stopCdbSession()](NavuNode.md#stopcdbsession-17418252a986) from NavuNode
+- [toString()](NavuContainer.md#tostring-e9d48c5503ef) from NavuContainer
+- [valueUpdateInd(NavuNode)](NavuContainer.md#valueupdateind-e7cd65f79d78) from NavuContainer
+- [xPathSelect(String)](NavuNode.md#xpathselect-0fb26b9f41e0) from NavuNode
+- [xPathSelectIterate(String, NavuNodeSetIterate)](NavuNode.md#xpathselectiterate-12547f34f47c) from NavuNode
 
 ## Constructors
 
-### NavuListEntry(NavuContext, CSNode, NavuNode, ConfKey, String, Object[]) <a href="#m-NavuListEntry-6558a2da572b" id="m-NavuListEntry-6558a2da572b"></a>
+### NavuListEntry(NavuContext, CSNode, NavuNode, ConfKey, String, Object[]) <a href="#navulistentry-6558a2da572b" id="navulistentry-6558a2da572b"></a>
 
 **Package-private**
 
@@ -142,7 +142,7 @@ NavuListEntry(
 )
 ```
 
-Types: [NavuContext](NavuContext.md#cls-NavuContext), [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode), [NavuNode](NavuNode.md#cls-NavuNode), [ConfKey](../conf/ConfKey.md#cls-ConfKey)
+Types: [NavuContext](NavuContext.md#navucontext-2974e9f92a9e), [CSNode](../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28), [NavuNode](NavuNode.md#navunode-73944820c8db), [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867)
 
 Constructor for child container.
 
@@ -158,25 +158,25 @@ Constructor for child container.
 
 ## Methods
 
-### delete() <a href="#m-delete-a9e76d49da61" id="m-delete-a9e76d49da61"></a>
+### delete() <a href="#delete-a9e76d49da61" id="delete-a9e76d49da61"></a>
 
 ```java
 public com.tailf.navu.NavuContainer delete() throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuContainer](NavuContainer.md#cls-NavuContainer), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuContainer](NavuContainer.md#navucontainer-8e321756755f), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 Deletes this entry from the NavuList it contains
  returns this NavuListEntry as NavuContainer.
 
- Sets the [`NavuNode#getChangeFlag()`](NavuNode.md#m-getChangeFlag-33cadf5a32ba) flag to
+ Sets the [`NavuNode#getChangeFlag()`](NavuNode.md#getchangeflag-33cadf5a32ba) flag to
  `MOP_DELETED`
 
 **Returns:** The NavuContainer removed by this operation
  `getChange` on the return `NavuContainer`
  returns `MOP_DELETED`
 
-### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
+### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -186,7 +186,7 @@ Compares the specified object with this `NavuListEntry`
  for equality.
  Returns `true` if the given object is also a
  `NavuListEntry` and it has the same
- [ConfPath](../conf/ConfPath.md#cls-ConfPath) as this
+ [ConfPath](../conf/ConfPath.md#confpath-327831c6fc7d) as this
  `NavuListEntry`.
 
 **Parameters**
@@ -197,20 +197,20 @@ Compares the specified object with this `NavuListEntry`
 **Returns:** `true` if the specified object is equal to this
          `NavuListEntry`
 
-### getKey() <a href="#m-getKey-9a8856159458" id="m-getKey-9a8856159458"></a>
+### getKey() <a href="#getkey-9a8856159458" id="getkey-9a8856159458"></a>
 
 ```java
 public com.tailf.conf.ConfKey getKey()
 ```
 
-Types: [ConfKey](../conf/ConfKey.md#cls-ConfKey)
+Types: [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867)
 
 Return the associate key that this NavuList
   is mapped to.
 
 **Returns:** the corresponding key
 
-### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
+### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
 ```java
 public int hashCode()

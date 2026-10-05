@@ -1,4 +1,4 @@
-# Reader <a href="#cls-Reader" id="cls-Reader"></a>
+# Reader <a href="#reader-b2467a96ddff" id="reader-b2467a96ddff"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.Range.Reader
@@ -9,19 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.Range.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getFlags()](#m-getFlags-3c1ca90fd29c)
-- [getHi()](#m-getHi-f8fa4dcfe431)
-- [getLo()](#m-getLo-bfe1c987d87a)
-- [hasHi()](#m-hasHi-5d9a1cd214ca)
-- [hasLo()](#m-hasLo-5c413cde5b09)
+- [getFlags()](#getflags-3c1ca90fd29c)
+- [getHi()](#gethi-f8fa4dcfe431)
+- [getLo()](#getlo-bfe1c987d87a)
+- [hasHi()](#hashi-5d9a1cd214ca)
+- [hasLo()](#haslo-5c413cde5b09)
 
 ## Constructors
 
-### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
+### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -48,35 +48,35 @@ Reader(
 
 ## Methods
 
-### getFlags() <a href="#m-getFlags-3c1ca90fd29c" id="m-getFlags-3c1ca90fd29c"></a>
+### getFlags() <a href="#getflags-3c1ca90fd29c" id="getflags-3c1ca90fd29c"></a>
 
 ```java
 public final byte getFlags()
 ```
 
-### getHi() <a href="#m-getHi-f8fa4dcfe431" id="m-getHi-f8fa4dcfe431"></a>
+### getHi() <a href="#gethi-f8fa4dcfe431" id="gethi-f8fa4dcfe431"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsValue.Reader getHi()
 ```
 
-Types: [Reader](../CsValue/Reader.md#cls-Reader)
+Types: [Reader](../CsValue/Reader.md#reader-b2467a96ddff)
 
-### getLo() <a href="#m-getLo-bfe1c987d87a" id="m-getLo-bfe1c987d87a"></a>
+### getLo() <a href="#getlo-bfe1c987d87a" id="getlo-bfe1c987d87a"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsValue.Reader getLo()
 ```
 
-Types: [Reader](../CsValue/Reader.md#cls-Reader)
+Types: [Reader](../CsValue/Reader.md#reader-b2467a96ddff)
 
-### hasHi() <a href="#m-hasHi-5d9a1cd214ca" id="m-hasHi-5d9a1cd214ca"></a>
+### hasHi() <a href="#hashi-5d9a1cd214ca" id="hashi-5d9a1cd214ca"></a>
 
 ```java
 public boolean hasHi()
 ```
 
-### hasLo() <a href="#m-hasLo-5c413cde5b09" id="m-hasLo-5c413cde5b09"></a>
+### hasLo() <a href="#haslo-5c413cde5b09" id="haslo-5c413cde5b09"></a>
 
 ```java
 public boolean hasLo()

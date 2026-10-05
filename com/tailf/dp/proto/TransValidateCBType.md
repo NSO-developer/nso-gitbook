@@ -1,10 +1,10 @@
-# TransValidateCBType <a href="#cls-TransValidateCBType" id="cls-TransValidateCBType"></a>
+# TransValidateCBType <a href="#transvalidatecbtype-351144dc4150" id="transvalidatecbtype-351144dc4150"></a>
 
 ```java
 public enum com.tailf.dp.proto.TransValidateCBType
 ```
 
-Types: [TransValidateCBType](TransValidateCBType.md#cls-TransValidateCBType)
+Types: [TransValidateCBType](TransValidateCBType.md#transvalidatecbtype-351144dc4150)
 
 Enumeration of TransValidate callback methods
 
@@ -14,24 +14,24 @@ Enumeration of TransValidate callback methods
 
 **Enum Constants**:
 
-- [INIT](#m-INIT)
-- [STOP](#m-STOP)
+- [INIT](#init-5407b9c86a37)
+- [STOP](#stop-0113fde09d86)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### INIT <a href="#m-INIT" id="m-INIT"></a>
+### INIT <a href="#init-5407b9c86a37" id="init-5407b9c86a37"></a>
 
 ```java
 public static final com.tailf.dp.proto.TransValidateCBType INIT;
 ```
 
-### STOP <a href="#m-STOP" id="m-STOP"></a>
+### STOP <a href="#stop-0113fde09d86" id="stop-0113fde09d86"></a>
 
 ```java
 public static final com.tailf.dp.proto.TransValidateCBType STOP;
@@ -40,7 +40,7 @@ public static final com.tailf.dp.proto.TransValidateCBType STOP;
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -50,22 +50,22 @@ get integer value for enum
 
 **Returns:** int value
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.dp.proto.TransValidateCBType valueOf(String name)
 ```
 
-Types: [TransValidateCBType](TransValidateCBType.md#cls-TransValidateCBType)
+Types: [TransValidateCBType](TransValidateCBType.md#transvalidatecbtype-351144dc4150)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.dp.proto.TransValidateCBType[] values()
 ```
 
-Types: [TransValidateCBType](TransValidateCBType.md#cls-TransValidateCBType)
+Types: [TransValidateCBType](TransValidateCBType.md#transvalidatecbtype-351144dc4150)

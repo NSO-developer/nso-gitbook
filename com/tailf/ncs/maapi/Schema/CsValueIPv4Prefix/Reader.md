@@ -1,4 +1,4 @@
-# Reader <a href="#cls-Reader" id="cls-Reader"></a>
+# Reader <a href="#reader-b2467a96ddff" id="reader-b2467a96ddff"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Reader
@@ -9,19 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getA1()](#m-getA1-f8b8009a6bc7)
-- [getA2()](#m-getA2-a28d45466763)
-- [getA3()](#m-getA3-330abd611894)
-- [getA4()](#m-getA4-fce3220b7c51)
-- [getPrefix()](#m-getPrefix-9268091e0223)
+- [getA1()](#geta1-f8b8009a6bc7)
+- [getA2()](#geta2-a28d45466763)
+- [getA3()](#geta3-330abd611894)
+- [getA4()](#geta4-fce3220b7c51)
+- [getPrefix()](#getprefix-9268091e0223)
 
 ## Constructors
 
-### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
+### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -48,31 +48,31 @@ Reader(
 
 ## Methods
 
-### getA1() <a href="#m-getA1-f8b8009a6bc7" id="m-getA1-f8b8009a6bc7"></a>
+### getA1() <a href="#geta1-f8b8009a6bc7" id="geta1-f8b8009a6bc7"></a>
 
 ```java
 public final byte getA1()
 ```
 
-### getA2() <a href="#m-getA2-a28d45466763" id="m-getA2-a28d45466763"></a>
+### getA2() <a href="#geta2-a28d45466763" id="geta2-a28d45466763"></a>
 
 ```java
 public final byte getA2()
 ```
 
-### getA3() <a href="#m-getA3-330abd611894" id="m-getA3-330abd611894"></a>
+### getA3() <a href="#geta3-330abd611894" id="geta3-330abd611894"></a>
 
 ```java
 public final byte getA3()
 ```
 
-### getA4() <a href="#m-getA4-fce3220b7c51" id="m-getA4-fce3220b7c51"></a>
+### getA4() <a href="#geta4-fce3220b7c51" id="geta4-fce3220b7c51"></a>
 
 ```java
 public final byte getA4()
 ```
 
-### getPrefix() <a href="#m-getPrefix-9268091e0223" id="m-getPrefix-9268091e0223"></a>
+### getPrefix() <a href="#getprefix-9268091e0223" id="getprefix-9268091e0223"></a>
 
 ```java
 public final byte getPrefix()

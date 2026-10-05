@@ -1,4 +1,4 @@
-# ParseException <a href="#cls-ParseException" id="cls-ParseException"></a>
+# ParseException <a href="#parseexception-451af1d737ad" id="parseexception-451af1d737ad"></a>
 
 ```java
 public class com.tailf.conf.gen.ParseException
@@ -17,24 +17,24 @@ This exception is thrown when parse errors are encountered.
 
 **Constructors**:
 
-- [ParseException()](#m-ParseException-7765e2a79d08)
-- [ParseException(String)](#m-ParseException-0700cc800bd9)
-- [ParseException(Token, int[][], String[])](#m-ParseException-5bfc9760afc4)
+- [ParseException()](#parseexception-7765e2a79d08)
+- [ParseException(String)](#parseexception-0700cc800bd9)
+- [ParseException(Token, int[][], String[])](#parseexception-5bfc9760afc4)
 
 **Fields**:
 
-- [currentToken](#m-currentToken)
-- [EOL](#m-EOL)
-- [expectedTokenSequences](#m-expectedTokenSequences)
-- [tokenImage](#m-tokenImage)
+- [currentToken](#currenttoken-4ec0f6257b86)
+- [EOL](#eol-4031ee2a7b21)
+- [expectedTokenSequences](#expectedtokensequences-869b21f3e4e1)
+- [tokenImage](#tokenimage-c13f534d4471)
 
 **Methods**:
 
-- [add_escapes(String)](#m-add_escapes-6d7387de134e)
+- [add_escapes(String)](#add_escapes-6d7387de134e)
 
 ## Constructors
 
-### ParseException() <a href="#m-ParseException-7765e2a79d08" id="m-ParseException-7765e2a79d08"></a>
+### ParseException() <a href="#parseexception-7765e2a79d08" id="parseexception-7765e2a79d08"></a>
 
 ```java
 public ParseException()
@@ -48,7 +48,7 @@ The following constructors are for use by you for whatever
  relevant information.  The JavaCC generated code does not use
  these constructors.
 
-### ParseException(String) <a href="#m-ParseException-0700cc800bd9" id="m-ParseException-0700cc800bd9"></a>
+### ParseException(String) <a href="#parseexception-0700cc800bd9" id="parseexception-0700cc800bd9"></a>
 
 ```java
 public ParseException(String message)
@@ -60,7 +60,7 @@ Constructor with message.
 
 - `String message`
 
-### ParseException(Token, int[][], String[]) <a href="#m-ParseException-5bfc9760afc4" id="m-ParseException-5bfc9760afc4"></a>
+### ParseException(Token, int[][], String[]) <a href="#parseexception-5bfc9760afc4" id="parseexception-5bfc9760afc4"></a>
 
 ```java
 public ParseException(
@@ -70,7 +70,7 @@ public ParseException(
 )
 ```
 
-Types: [Token](Token.md#cls-Token)
+Types: [Token](Token.md#token-b7a155cc1a5e)
 
 This constructor is used by the method "generateParseException"
  in the generated parser.  Calling this constructor generates
@@ -86,19 +86,19 @@ This constructor is used by the method "generateParseException"
 
 ## Fields
 
-### currentToken <a href="#m-currentToken" id="m-currentToken"></a>
+### currentToken <a href="#currenttoken-4ec0f6257b86" id="currenttoken-4ec0f6257b86"></a>
 
 ```java
 public com.tailf.conf.gen.Token currentToken = null;
 ```
 
-Types: [Token](Token.md#cls-Token)
+Types: [Token](Token.md#token-b7a155cc1a5e)
 
 This is the last token that has been consumed successfully.  If
  this object has been created due to a parse error, the token
  following this token will (therefore) be the first error token.
 
-### EOL <a href="#m-EOL" id="m-EOL"></a>
+### EOL <a href="#eol-4031ee2a7b21" id="eol-4031ee2a7b21"></a>
 
 ```java
 protected static String EOL = null;
@@ -106,7 +106,7 @@ protected static String EOL = null;
 
 The end of line string for this machine.
 
-### expectedTokenSequences <a href="#m-expectedTokenSequences" id="m-expectedTokenSequences"></a>
+### expectedTokenSequences <a href="#expectedtokensequences-869b21f3e4e1" id="expectedtokensequences-869b21f3e4e1"></a>
 
 ```java
 public int[][] expectedTokenSequences = null;
@@ -116,7 +116,7 @@ Each entry in this array is an array of integers.  Each array
  of integers represents a sequence of tokens (by their ordinal
  values) that is expected at this point of the parse.
 
-### tokenImage <a href="#m-tokenImage" id="m-tokenImage"></a>
+### tokenImage <a href="#tokenimage-c13f534d4471" id="tokenimage-c13f534d4471"></a>
 
 ```java
 public String[] tokenImage = null;
@@ -129,7 +129,7 @@ This is a reference to the "tokenImage" array of the generated
 
 ## Methods
 
-### add_escapes(String) <a href="#m-add_escapes-6d7387de134e" id="m-add_escapes-6d7387de134e"></a>
+### add_escapes(String) <a href="#add_escapes-6d7387de134e" id="add_escapes-6d7387de134e"></a>
 
 **Package-private**
 

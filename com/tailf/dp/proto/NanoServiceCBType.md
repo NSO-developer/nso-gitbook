@@ -1,10 +1,10 @@
-# NanoServiceCBType <a href="#cls-NanoServiceCBType" id="cls-NanoServiceCBType"></a>
+# NanoServiceCBType <a href="#nanoservicecbtype-16a84eed865a" id="nanoservicecbtype-16a84eed865a"></a>
 
 ```java
 public enum com.tailf.dp.proto.NanoServiceCBType
 ```
 
-Types: [NanoServiceCBType](NanoServiceCBType.md#cls-NanoServiceCBType)
+Types: [NanoServiceCBType](NanoServiceCBType.md#nanoservicecbtype-16a84eed865a)
 
 Enumeration of Nano Service callback methods
 
@@ -12,18 +12,18 @@ Enumeration of Nano Service callback methods
 
 **Enum Constants**:
 
-- [CREATE](#m-CREATE)
-- [DELETE](#m-DELETE)
+- [CREATE](#create-146c3c7e4f65)
+- [DELETE](#delete-17bb47048092)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### CREATE <a href="#m-CREATE" id="m-CREATE"></a>
+### CREATE <a href="#create-146c3c7e4f65" id="create-146c3c7e4f65"></a>
 
 ```java
 public static final com.tailf.dp.proto.NanoServiceCBType CREATE;
@@ -32,9 +32,9 @@ public static final com.tailf.dp.proto.NanoServiceCBType CREATE;
 Indicates nano service create callback.
 
  See [`DpNanoServiceCallback#create(NanoServiceContext, NavuNode,
- NavuNode, Properties, Properties)`](../DpNanoServiceCallback.md#m-create-45a9e9003e1d)
+ NavuNode, Properties, Properties)`](../DpNanoServiceCallback.md#create-45a9e9003e1d)
 
-### DELETE <a href="#m-DELETE" id="m-DELETE"></a>
+### DELETE <a href="#delete-17bb47048092" id="delete-17bb47048092"></a>
 
 ```java
 public static final com.tailf.dp.proto.NanoServiceCBType DELETE;
@@ -43,12 +43,12 @@ public static final com.tailf.dp.proto.NanoServiceCBType DELETE;
 Indicates nano service delete callback.
 
  See [`DpNanoServiceCallback#delete(NanoServiceContext, NavuNode,
- NavuNode, Properties, Properties)`](../DpNanoServiceCallback.md#m-delete-4ba929210861)
+ NavuNode, Properties, Properties)`](../DpNanoServiceCallback.md#delete-4ba929210861)
 
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -58,22 +58,22 @@ get integer value for enum
 
 **Returns:** int value
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.dp.proto.NanoServiceCBType valueOf(String name)
 ```
 
-Types: [NanoServiceCBType](NanoServiceCBType.md#cls-NanoServiceCBType)
+Types: [NanoServiceCBType](NanoServiceCBType.md#nanoservicecbtype-16a84eed865a)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.dp.proto.NanoServiceCBType[] values()
 ```
 
-Types: [NanoServiceCBType](NanoServiceCBType.md#cls-NanoServiceCBType)
+Types: [NanoServiceCBType](NanoServiceCBType.md#nanoservicecbtype-16a84eed865a)

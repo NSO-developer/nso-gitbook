@@ -1,37 +1,37 @@
-# Factory <a href="#cls-Factory" id="cls-Factory"></a>
+# Factory <a href="#factory-1787784624e8" id="factory-1787784624e8"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.Cs.Defval.Factory
     extends org.capnproto.StructFactory<com.tailf.ncs.maapi.Schema.Cs.Defval.Builder,com.tailf.ncs.maapi.Schema.Cs.Defval.Reader>
 ```
 
-Types: [Builder](Builder.md#cls-Builder), [Reader](Reader.md#cls-Reader)
+Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b2467a96ddff)
 
 ## Members
 
 **Constructors**:
 
-- [Factory()](#m-Factory-0e9f9d7f4e84)
+- [Factory()](#factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#m-asReader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#m-asReader-fb803d5b28ea)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#m-constructBuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#m-constructReader-fbce6f4f912a)
-- [getNone()](Builder.md#m-getNone-e31bfdbffa7f) from Builder
-- [getValue()](Builder.md#m-getValue-d93864668c40) from Builder
-- [initValue()](Builder.md#m-initValue-a7755fffc529) from Builder
-- [isNone()](Builder.md#m-isNone-e8a993ad0453) from Builder
-- [isValue()](Builder.md#m-isValue-7280ea8211f4) from Builder
-- [setNone(Void)](Builder.md#m-setNone-46764db867d5) from Builder
-- [setValue(Reader)](Builder.md#m-setValue-1558adba6de5) from Builder
-- [structSize()](#m-structSize-1fa68dcadd21)
-- [which()](Builder.md#m-which-0b2d23db5ed0) from Builder
+- [asReader()](Builder.md#asreader-b5c0f2a8d115) from Builder
+- [asReader(Builder)](#asreader-fb803d5b28ea)
+- [constructBuilder(SegmentBuilder, int, int, int, short)](#constructbuilder-5a2abf3209f9)
+- [constructReader(SegmentReader, int, int, int, short, int)](#constructreader-fbce6f4f912a)
+- [getNone()](Builder.md#getnone-e31bfdbffa7f) from Builder
+- [getValue()](Builder.md#getvalue-d93864668c40) from Builder
+- [initValue()](Builder.md#initvalue-a7755fffc529) from Builder
+- [isNone()](Builder.md#isnone-e8a993ad0453) from Builder
+- [isValue()](Builder.md#isvalue-7280ea8211f4) from Builder
+- [setNone(Void)](Builder.md#setnone-46764db867d5) from Builder
+- [setValue(Reader)](Builder.md#setvalue-1558adba6de5) from Builder
+- [structSize()](#structsize-1fa68dcadd21)
+- [which()](Builder.md#which-0b2d23db5ed0) from Builder
 
 ## Constructors
 
-### Factory() <a href="#m-Factory-0e9f9d7f4e84" id="m-Factory-0e9f9d7f4e84"></a>
+### Factory() <a href="#factory-0e9f9d7f4e84" id="factory-0e9f9d7f4e84"></a>
 
 ```java
 public Factory()
@@ -40,7 +40,7 @@ public Factory()
 
 ## Methods
 
-### asReader(Builder) <a href="#m-asReader-fb803d5b28ea" id="m-asReader-fb803d5b28ea"></a>
+### asReader(Builder) <a href="#asreader-fb803d5b28ea" id="asreader-fb803d5b28ea"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.Defval.Reader asReader(
@@ -48,13 +48,13 @@ public final com.tailf.ncs.maapi.Schema.Cs.Defval.Reader asReader(
 )
 ```
 
-Types: [Reader](Reader.md#cls-Reader), [Builder](Builder.md#cls-Builder)
+Types: [Reader](Reader.md#reader-b2467a96ddff), [Builder](Builder.md#builder-21f09e83781d)
 
 **Parameters**
 
 - `com.tailf.ncs.maapi.Schema.Cs.Defval.Builder builder`
 
-### constructBuilder(SegmentBuilder, int, int, int, short) <a href="#m-constructBuilder-5a2abf3209f9" id="m-constructBuilder-5a2abf3209f9"></a>
+### constructBuilder(SegmentBuilder, int, int, int, short) <a href="#constructbuilder-5a2abf3209f9" id="constructbuilder-5a2abf3209f9"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.Defval.Builder constructBuilder(
@@ -66,7 +66,7 @@ public final com.tailf.ncs.maapi.Schema.Cs.Defval.Builder constructBuilder(
 )
 ```
 
-Types: [Builder](Builder.md#cls-Builder)
+Types: [Builder](Builder.md#builder-21f09e83781d)
 
 **Parameters**
 
@@ -76,7 +76,7 @@ Types: [Builder](Builder.md#cls-Builder)
 - `int dataSize`
 - `short pointerCount`
 
-### constructReader(SegmentReader, int, int, int, short, int) <a href="#m-constructReader-fbce6f4f912a" id="m-constructReader-fbce6f4f912a"></a>
+### constructReader(SegmentReader, int, int, int, short, int) <a href="#constructreader-fbce6f4f912a" id="constructreader-fbce6f4f912a"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.Defval.Reader constructReader(
@@ -89,7 +89,7 @@ public final com.tailf.ncs.maapi.Schema.Cs.Defval.Reader constructReader(
 )
 ```
 
-Types: [Reader](Reader.md#cls-Reader)
+Types: [Reader](Reader.md#reader-b2467a96ddff)
 
 **Parameters**
 
@@ -100,7 +100,7 @@ Types: [Reader](Reader.md#cls-Reader)
 - `short pointerCount`
 - `int nestingLimit`
 
-### structSize() <a href="#m-structSize-1fa68dcadd21" id="m-structSize-1fa68dcadd21"></a>
+### structSize() <a href="#structsize-1fa68dcadd21" id="structsize-1fa68dcadd21"></a>
 
 ```java
 public final org.capnproto.StructSize structSize()

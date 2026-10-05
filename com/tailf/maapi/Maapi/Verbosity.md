@@ -1,10 +1,10 @@
-# Verbosity <a href="#cls-Verbosity" id="cls-Verbosity"></a>
+# Verbosity <a href="#verbosity-a9c618ec424f" id="verbosity-a9c618ec424f"></a>
 
 ```java
 public static enum com.tailf.maapi.Maapi.Verbosity
 ```
 
-Types: [Verbosity](Verbosity.md#cls-Verbosity)
+Types: [Verbosity](Verbosity.md#verbosity-a9c618ec424f)
 
 To be used in:
  `reportProgress(int,Verbosity,String)`
@@ -14,19 +14,19 @@ To be used in:
 
 **Enum Constants**:
 
-- [DEBUG](#m-DEBUG)
-- [NORMAL](#m-NORMAL)
-- [VERBOSE](#m-VERBOSE)
-- [VERY_VERBOSE](#m-VERY_VERBOSE)
+- [DEBUG](#debug-51c942f8d798)
+- [NORMAL](#normal-b34e6bc0c9ca)
+- [VERBOSE](#verbose-cb0b793dd2e1)
+- [VERY_VERBOSE](#very_verbose-cb7e3570f916)
 
 **Methods**:
 
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### DEBUG <a href="#m-DEBUG" id="m-DEBUG"></a>
+### DEBUG <a href="#debug-51c942f8d798" id="debug-51c942f8d798"></a>
 
 ```java
 public static final com.tailf.maapi.Maapi.Verbosity DEBUG;
@@ -36,7 +36,7 @@ The highest verbosity level. Designates fine-grained informational
  messages usable for debugging the application and its internal
  operations.
 
-### NORMAL <a href="#m-NORMAL" id="m-NORMAL"></a>
+### NORMAL <a href="#normal-b34e6bc0c9ca" id="normal-b34e6bc0c9ca"></a>
 
 ```java
 public static final com.tailf.maapi.Maapi.Verbosity NORMAL;
@@ -47,7 +47,7 @@ Designates informational messages that highlight the progress
  give a high level overview. This is the default and the lowest
  verbosity level.
 
-### VERBOSE <a href="#m-VERBOSE" id="m-VERBOSE"></a>
+### VERBOSE <a href="#verbose-cb0b793dd2e1" id="verbose-cb0b793dd2e1"></a>
 
 ```java
 public static final com.tailf.maapi.Maapi.Verbosity VERBOSE;
@@ -55,7 +55,7 @@ public static final com.tailf.maapi.Maapi.Verbosity VERBOSE;
 
 Designates detailed informational messages from the application.
 
-### VERY_VERBOSE <a href="#m-VERY_VERBOSE" id="m-VERY_VERBOSE"></a>
+### VERY_VERBOSE <a href="#very_verbose-cb7e3570f916" id="very_verbose-cb7e3570f916"></a>
 
 ```java
 public static final com.tailf.maapi.Maapi.Verbosity VERY_VERBOSE;
@@ -67,22 +67,22 @@ Designates very detailed informational messages from the application
 
 ## Methods
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.Maapi.Verbosity valueOf(String name)
 ```
 
-Types: [Verbosity](Verbosity.md#cls-Verbosity)
+Types: [Verbosity](Verbosity.md#verbosity-a9c618ec424f)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.Maapi.Verbosity[] values()
 ```
 
-Types: [Verbosity](Verbosity.md#cls-Verbosity)
+Types: [Verbosity](Verbosity.md#verbosity-a9c618ec424f)

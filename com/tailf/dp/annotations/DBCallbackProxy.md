@@ -1,13 +1,13 @@
-# DBCallbackProxy <a href="#cls-DBCallbackProxy" id="cls-DBCallbackProxy"></a>
+# DBCallbackProxy <a href="#dbcallbackproxy-f1a20c8a904b" id="dbcallbackproxy-f1a20c8a904b"></a>
 
 ```java
 public class com.tailf.dp.annotations.DBCallbackProxy
     implements com.tailf.dp.DpDbCallback
 ```
 
-Types: [DpDbCallback](../DpDbCallback.md#cls-DpDbCallback)
+Types: [DpDbCallback](../DpDbCallback.md#dpdbcallback-7fcc01bd0281)
 
-Callback proxy for DB Callbacks. Implements the [`DpDbCallback`](../DpDbCallback.md#cls-DpDbCallback)
+Callback proxy for DB Callbacks. Implements the [`DpDbCallback`](../DpDbCallback.md#dpdbcallback-7fcc01bd0281)
  interface and delegates calls to the registered callback POJO with annotated
  methods
 
@@ -17,55 +17,55 @@ Callback proxy for DB Callbacks. Implements the [`DpDbCallback`](../DpDbCallback
 
 **Constructors**:
 
-- [DBCallbackProxy(Object)](#m-DBCallbackProxy-2ee018145cda)
+- [DBCallbackProxy(Object)](#dbcallbackproxy-2ee018145cda)
 
 **Fields**:
 
-- [M_ACTIVATE_CHECKPOINT_RUNNING](../DpDbCallback.md#m-M_ACTIVATE_CHECKPOINT_RUNNING) from DpDbCallback
-- [M_ADD_CHECKPOINT_RUNNING](../DpDbCallback.md#m-M_ADD_CHECKPOINT_RUNNING) from DpDbCallback
-- [M_ALL](../DpDbCallback.md#m-M_ALL) from DpDbCallback
-- [M_CANDIDATE_CHK_NOT_MODIFIED](../DpDbCallback.md#m-M_CANDIDATE_CHK_NOT_MODIFIED) from DpDbCallback
-- [M_CANDIDATE_COMMIT](../DpDbCallback.md#m-M_CANDIDATE_COMMIT) from DpDbCallback
-- [M_CANDIDATE_CONFIRMING_COMMIT](../DpDbCallback.md#m-M_CANDIDATE_CONFIRMING_COMMIT) from DpDbCallback
-- [M_CANDIDATE_RESET](../DpDbCallback.md#m-M_CANDIDATE_RESET) from DpDbCallback
-- [M_CANDIDATE_ROLLBACK_RUNNING](../DpDbCallback.md#m-M_CANDIDATE_ROLLBACK_RUNNING) from DpDbCallback
-- [M_CANDIDATE_VALIDATE](../DpDbCallback.md#m-M_CANDIDATE_VALIDATE) from DpDbCallback
-- [M_COPY_RUNNING_TO_STARTUP](../DpDbCallback.md#m-M_COPY_RUNNING_TO_STARTUP) from DpDbCallback
-- [M_DEL_CHECKPOINT_RUNNING](../DpDbCallback.md#m-M_DEL_CHECKPOINT_RUNNING) from DpDbCallback
-- [M_DELETE_CONFIG](../DpDbCallback.md#m-M_DELETE_CONFIG) from DpDbCallback
-- [M_LOCK](../DpDbCallback.md#m-M_LOCK) from DpDbCallback
-- [M_LOCK_PARTIAL](../DpDbCallback.md#m-M_LOCK_PARTIAL) from DpDbCallback
-- [M_RUNNING_CHK_NOT_MODIFIED](../DpDbCallback.md#m-M_RUNNING_CHK_NOT_MODIFIED) from DpDbCallback
-- [M_UNLOCK](../DpDbCallback.md#m-M_UNLOCK) from DpDbCallback
-- [M_UNLOCK_PARTIAL](../DpDbCallback.md#m-M_UNLOCK_PARTIAL) from DpDbCallback
+- [M_ACTIVATE_CHECKPOINT_RUNNING](../DpDbCallback.md#m_activate_checkpoint_running-0ebd33a643c3) from DpDbCallback
+- [M_ADD_CHECKPOINT_RUNNING](../DpDbCallback.md#m_add_checkpoint_running-43b65718bdd6) from DpDbCallback
+- [M_ALL](../DpDbCallback.md#m_all-e3844e41e8ee) from DpDbCallback
+- [M_CANDIDATE_CHK_NOT_MODIFIED](../DpDbCallback.md#m_candidate_chk_not_modified-f172de5cec21) from DpDbCallback
+- [M_CANDIDATE_COMMIT](../DpDbCallback.md#m_candidate_commit-484bd03f581b) from DpDbCallback
+- [M_CANDIDATE_CONFIRMING_COMMIT](../DpDbCallback.md#m_candidate_confirming_commit-6299d1509720) from DpDbCallback
+- [M_CANDIDATE_RESET](../DpDbCallback.md#m_candidate_reset-f3acd855e47f) from DpDbCallback
+- [M_CANDIDATE_ROLLBACK_RUNNING](../DpDbCallback.md#m_candidate_rollback_running-a7202b20d951) from DpDbCallback
+- [M_CANDIDATE_VALIDATE](../DpDbCallback.md#m_candidate_validate-87728731434d) from DpDbCallback
+- [M_COPY_RUNNING_TO_STARTUP](../DpDbCallback.md#m_copy_running_to_startup-02d63903fcec) from DpDbCallback
+- [M_DEL_CHECKPOINT_RUNNING](../DpDbCallback.md#m_del_checkpoint_running-3c2efd2f93fb) from DpDbCallback
+- [M_DELETE_CONFIG](../DpDbCallback.md#m_delete_config-61b73fae3b26) from DpDbCallback
+- [M_LOCK](../DpDbCallback.md#m_lock-f8a733783845) from DpDbCallback
+- [M_LOCK_PARTIAL](../DpDbCallback.md#m_lock_partial-aa26abd80f7d) from DpDbCallback
+- [M_RUNNING_CHK_NOT_MODIFIED](../DpDbCallback.md#m_running_chk_not_modified-fea5508dd165) from DpDbCallback
+- [M_UNLOCK](../DpDbCallback.md#m_unlock-58690e51e70c) from DpDbCallback
+- [M_UNLOCK_PARTIAL](../DpDbCallback.md#m_unlock_partial-a67ada980c0d) from DpDbCallback
 
 **Methods**:
 
-- [activateCheckpointRunning(DpDbContext)](#m-activateCheckpointRunning-6d290282dc64)
-- [addActionCapability(DBCBType)](#m-addActionCapability-3e432bb771dc)
-- [addActionMethod(String, Method)](#m-addActionMethod-cf3e43a67fd9)
-- [addCheckpointRunning(DpDbContext)](#m-addCheckpointRunning-e8ef0fad176a)
-- [candidateChkNotModified(DpDbContext)](#m-candidateChkNotModified-73d415936fab)
-- [candidateCommit(DpDbContext, int)](#m-candidateCommit-c7c8900fd15e)
-- [candidateConfirmingCommit(DpDbContext)](#m-candidateConfirmingCommit-e1728f2c501d)
-- [candidateReset(DpDbContext)](#m-candidateReset-20893cda7340)
-- [candidateRollbackRunning(DpDbContext)](#m-candidateRollbackRunning-101fc2327941)
-- [candidateValidate(DpDbContext)](#m-candidateValidate-c71b01c4e9e6)
-- [copyRunningToStartup(DpDbContext)](#m-copyRunningToStartup-963b6506a3d3)
-- [delCheckpointRunning(DpDbContext)](#m-delCheckpointRunning-b03068abbaef)
-- [deleteConfig(DpDbContext, int)](#m-deleteConfig-bac554ff2a00)
-- [getBackupObject()](#m-getBackupObject-a6fb23c24524)
-- [getDBCallbackProxys(Object)](#m-getDBCallbackProxys-f00028fe21f3)
-- [lock(DpDbContext, int)](#m-lock-ed56d39d3ff0)
-- [lockPartial(DpDbContext, int, int, ConfObject[][])](#m-lockPartial-cb09f4152af4)
-- [mask()](#m-mask-24c2fa29c6af)
-- [runningChkNotModified(DpDbContext)](#m-runningChkNotModified-0cfa3cd55796)
-- [unlock(DpDbContext, int)](#m-unlock-f30f2fcf978a)
-- [unlockPartial(DpDbContext, int, int)](#m-unlockPartial-3d1988a4cb5d)
+- [activateCheckpointRunning(DpDbContext)](#activatecheckpointrunning-6d290282dc64)
+- [addActionCapability(DBCBType)](#addactioncapability-3e432bb771dc)
+- [addActionMethod(String, Method)](#addactionmethod-cf3e43a67fd9)
+- [addCheckpointRunning(DpDbContext)](#addcheckpointrunning-e8ef0fad176a)
+- [candidateChkNotModified(DpDbContext)](#candidatechknotmodified-73d415936fab)
+- [candidateCommit(DpDbContext, int)](#candidatecommit-c7c8900fd15e)
+- [candidateConfirmingCommit(DpDbContext)](#candidateconfirmingcommit-e1728f2c501d)
+- [candidateReset(DpDbContext)](#candidatereset-20893cda7340)
+- [candidateRollbackRunning(DpDbContext)](#candidaterollbackrunning-101fc2327941)
+- [candidateValidate(DpDbContext)](#candidatevalidate-c71b01c4e9e6)
+- [copyRunningToStartup(DpDbContext)](#copyrunningtostartup-963b6506a3d3)
+- [delCheckpointRunning(DpDbContext)](#delcheckpointrunning-b03068abbaef)
+- [deleteConfig(DpDbContext, int)](#deleteconfig-bac554ff2a00)
+- [getBackupObject()](#getbackupobject-a6fb23c24524)
+- [getDBCallbackProxys(Object)](#getdbcallbackproxys-f00028fe21f3)
+- [lock(DpDbContext, int)](#lock-ed56d39d3ff0)
+- [lockPartial(DpDbContext, int, int, ConfObject[][])](#lockpartial-cb09f4152af4)
+- [mask()](#mask-24c2fa29c6af)
+- [runningChkNotModified(DpDbContext)](#runningchknotmodified-0cfa3cd55796)
+- [unlock(DpDbContext, int)](#unlock-f30f2fcf978a)
+- [unlockPartial(DpDbContext, int, int)](#unlockpartial-3d1988a4cb5d)
 
 ## Constructors
 
-### DBCallbackProxy(Object) <a href="#m-DBCallbackProxy-2ee018145cda" id="m-DBCallbackProxy-2ee018145cda"></a>
+### DBCallbackProxy(Object) <a href="#dbcallbackproxy-2ee018145cda" id="dbcallbackproxy-2ee018145cda"></a>
 
 ```java
 public DBCallbackProxy(Object backupObject)
@@ -80,7 +80,7 @@ Constructor for Callback proxys. Used internally.
 
 ## Methods
 
-### activateCheckpointRunning(DpDbContext) <a href="#m-activateCheckpointRunning-6d290282dc64" id="m-activateCheckpointRunning-6d290282dc64"></a>
+### activateCheckpointRunning(DpDbContext) <a href="#activatecheckpointrunning-6d290282dc64" id="activatecheckpointrunning-6d290282dc64"></a>
 
 ```java
 public void activateCheckpointRunning(
@@ -89,19 +89,19 @@ public void activateCheckpointRunning(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
 - `com.tailf.dp.DpDbContext dbx`
 
-### addActionCapability(DBCBType) <a href="#m-addActionCapability-3e432bb771dc" id="m-addActionCapability-3e432bb771dc"></a>
+### addActionCapability(DBCBType) <a href="#addactioncapability-3e432bb771dc" id="addactioncapability-3e432bb771dc"></a>
 
 ```java
 public void addActionCapability(com.tailf.dp.proto.DBCBType dbCBType)
 ```
 
-Types: [DBCBType](../proto/DBCBType.md#cls-DBCBType)
+Types: [DBCBType](../proto/DBCBType.md#dbcbtype-b9ff294018bf)
 
 Add action capability from annotated callType used to register
  capabilities on the server
@@ -110,7 +110,7 @@ Add action capability from annotated callType used to register
 
 - `com.tailf.dp.proto.DBCBType dbCBType` - action type
 
-### addActionMethod(String, Method) <a href="#m-addActionMethod-cf3e43a67fd9" id="m-addActionMethod-cf3e43a67fd9"></a>
+### addActionMethod(String, Method) <a href="#addactionmethod-cf3e43a67fd9" id="addactionmethod-cf3e43a67fd9"></a>
 
 ```java
 public void addActionMethod(String name, java.lang.reflect.Method method)
@@ -123,7 +123,7 @@ Add callback action method to proxy
 - `String name` - canonical action name
 - `java.lang.reflect.Method method` - registered callback method
 
-### addCheckpointRunning(DpDbContext) <a href="#m-addCheckpointRunning-e8ef0fad176a" id="m-addCheckpointRunning-e8ef0fad176a"></a>
+### addCheckpointRunning(DpDbContext) <a href="#addcheckpointrunning-e8ef0fad176a" id="addcheckpointrunning-e8ef0fad176a"></a>
 
 ```java
 public void addCheckpointRunning(
@@ -132,13 +132,13 @@ public void addCheckpointRunning(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
 - `com.tailf.dp.DpDbContext dbx`
 
-### candidateChkNotModified(DpDbContext) <a href="#m-candidateChkNotModified-73d415936fab" id="m-candidateChkNotModified-73d415936fab"></a>
+### candidateChkNotModified(DpDbContext) <a href="#candidatechknotmodified-73d415936fab" id="candidatechknotmodified-73d415936fab"></a>
 
 ```java
 public void candidateChkNotModified(
@@ -147,13 +147,13 @@ public void candidateChkNotModified(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
 - `com.tailf.dp.DpDbContext dbx`
 
-### candidateCommit(DpDbContext, int) <a href="#m-candidateCommit-c7c8900fd15e" id="m-candidateCommit-c7c8900fd15e"></a>
+### candidateCommit(DpDbContext, int) <a href="#candidatecommit-c7c8900fd15e" id="candidatecommit-c7c8900fd15e"></a>
 
 ```java
 public void candidateCommit(
@@ -163,14 +163,14 @@ public void candidateCommit(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
 - `com.tailf.dp.DpDbContext dbx`
 - `int timeout`
 
-### candidateConfirmingCommit(DpDbContext) <a href="#m-candidateConfirmingCommit-e1728f2c501d" id="m-candidateConfirmingCommit-e1728f2c501d"></a>
+### candidateConfirmingCommit(DpDbContext) <a href="#candidateconfirmingcommit-e1728f2c501d" id="candidateconfirmingcommit-e1728f2c501d"></a>
 
 ```java
 public void candidateConfirmingCommit(
@@ -179,25 +179,25 @@ public void candidateConfirmingCommit(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
 - `com.tailf.dp.DpDbContext dbx`
 
-### candidateReset(DpDbContext) <a href="#m-candidateReset-20893cda7340" id="m-candidateReset-20893cda7340"></a>
+### candidateReset(DpDbContext) <a href="#candidatereset-20893cda7340" id="candidatereset-20893cda7340"></a>
 
 ```java
 public void candidateReset(com.tailf.dp.DpDbContext dbx) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
 - `com.tailf.dp.DpDbContext dbx`
 
-### candidateRollbackRunning(DpDbContext) <a href="#m-candidateRollbackRunning-101fc2327941" id="m-candidateRollbackRunning-101fc2327941"></a>
+### candidateRollbackRunning(DpDbContext) <a href="#candidaterollbackrunning-101fc2327941" id="candidaterollbackrunning-101fc2327941"></a>
 
 ```java
 public void candidateRollbackRunning(
@@ -206,25 +206,25 @@ public void candidateRollbackRunning(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
 - `com.tailf.dp.DpDbContext dbx`
 
-### candidateValidate(DpDbContext) <a href="#m-candidateValidate-c71b01c4e9e6" id="m-candidateValidate-c71b01c4e9e6"></a>
+### candidateValidate(DpDbContext) <a href="#candidatevalidate-c71b01c4e9e6" id="candidatevalidate-c71b01c4e9e6"></a>
 
 ```java
 public void candidateValidate(com.tailf.dp.DpDbContext dbx) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
 - `com.tailf.dp.DpDbContext dbx`
 
-### copyRunningToStartup(DpDbContext) <a href="#m-copyRunningToStartup-963b6506a3d3" id="m-copyRunningToStartup-963b6506a3d3"></a>
+### copyRunningToStartup(DpDbContext) <a href="#copyrunningtostartup-963b6506a3d3" id="copyrunningtostartup-963b6506a3d3"></a>
 
 ```java
 public void copyRunningToStartup(
@@ -233,13 +233,13 @@ public void copyRunningToStartup(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
 - `com.tailf.dp.DpDbContext dbx`
 
-### delCheckpointRunning(DpDbContext) <a href="#m-delCheckpointRunning-b03068abbaef" id="m-delCheckpointRunning-b03068abbaef"></a>
+### delCheckpointRunning(DpDbContext) <a href="#delcheckpointrunning-b03068abbaef" id="delcheckpointrunning-b03068abbaef"></a>
 
 ```java
 public void delCheckpointRunning(
@@ -248,13 +248,13 @@ public void delCheckpointRunning(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
 - `com.tailf.dp.DpDbContext dbx`
 
-### deleteConfig(DpDbContext, int) <a href="#m-deleteConfig-bac554ff2a00" id="m-deleteConfig-bac554ff2a00"></a>
+### deleteConfig(DpDbContext, int) <a href="#deleteconfig-bac554ff2a00" id="deleteconfig-bac554ff2a00"></a>
 
 ```java
 public void deleteConfig(
@@ -264,14 +264,14 @@ public void deleteConfig(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
 - `com.tailf.dp.DpDbContext dbx`
 - `int dbname`
 
-### getBackupObject() <a href="#m-getBackupObject-a6fb23c24524" id="m-getBackupObject-a6fb23c24524"></a>
+### getBackupObject() <a href="#getbackupobject-a6fb23c24524" id="getbackupobject-a6fb23c24524"></a>
 
 ```java
 public Object getBackupObject()
@@ -281,7 +281,7 @@ Retrieve the callback POJO
 
 **Returns:** Object registered callback object
 
-### getDBCallbackProxys(Object) <a href="#m-getDBCallbackProxys-f00028fe21f3" id="m-getDBCallbackProxys-f00028fe21f3"></a>
+### getDBCallbackProxys(Object) <a href="#getdbcallbackproxys-f00028fe21f3" id="getdbcallbackproxys-f00028fe21f3"></a>
 
 ```java
 public static com.tailf.dp.annotations.DBCallbackProxy[] getDBCallbackProxys(
@@ -290,7 +290,7 @@ public static com.tailf.dp.annotations.DBCallbackProxy[] getDBCallbackProxys(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DBCallbackProxy](DBCallbackProxy.md#cls-DBCallbackProxy), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DBCallbackProxy](DBCallbackProxy.md#dbcallbackproxy-f1a20c8a904b), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 Get array of proxy objects from registered POJO callback. Used internally
  at callback registration
@@ -305,20 +305,20 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 - `DpCallbackException`
 
-### lock(DpDbContext, int) <a href="#m-lock-ed56d39d3ff0" id="m-lock-ed56d39d3ff0"></a>
+### lock(DpDbContext, int) <a href="#lock-ed56d39d3ff0" id="lock-ed56d39d3ff0"></a>
 
 ```java
 public void lock(com.tailf.dp.DpDbContext dbx, int dbname) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
 - `com.tailf.dp.DpDbContext dbx`
 - `int dbname`
 
-### lockPartial(DpDbContext, int, int, ConfObject[][]) <a href="#m-lockPartial-cb09f4152af4" id="m-lockPartial-cb09f4152af4"></a>
+### lockPartial(DpDbContext, int, int, ConfObject[][]) <a href="#lockpartial-cb09f4152af4" id="lockpartial-cb09f4152af4"></a>
 
 ```java
 public void lockPartial(
@@ -330,7 +330,7 @@ public void lockPartial(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [ConfObject](../../conf/ConfObject.md#cls-ConfObject), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [ConfObject](../../conf/ConfObject.md#confobject-5433616953b2), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
@@ -339,13 +339,13 @@ Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [ConfObject](../../conf
 - `int lockid`
 - `com.tailf.conf.ConfObject[][] paths`
 
-### mask() <a href="#m-mask-24c2fa29c6af" id="m-mask-24c2fa29c6af"></a>
+### mask() <a href="#mask-24c2fa29c6af" id="mask-24c2fa29c6af"></a>
 
 ```java
 public int mask()
 ```
 
-### runningChkNotModified(DpDbContext) <a href="#m-runningChkNotModified-0cfa3cd55796" id="m-runningChkNotModified-0cfa3cd55796"></a>
+### runningChkNotModified(DpDbContext) <a href="#runningchknotmodified-0cfa3cd55796" id="runningchknotmodified-0cfa3cd55796"></a>
 
 ```java
 public void runningChkNotModified(
@@ -354,26 +354,26 @@ public void runningChkNotModified(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
 - `com.tailf.dp.DpDbContext dbx`
 
-### unlock(DpDbContext, int) <a href="#m-unlock-f30f2fcf978a" id="m-unlock-f30f2fcf978a"></a>
+### unlock(DpDbContext, int) <a href="#unlock-f30f2fcf978a" id="unlock-f30f2fcf978a"></a>
 
 ```java
 public void unlock(com.tailf.dp.DpDbContext dbx, int dbname) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
 - `com.tailf.dp.DpDbContext dbx`
 - `int dbname`
 
-### unlockPartial(DpDbContext, int, int) <a href="#m-unlockPartial-3d1988a4cb5d" id="m-unlockPartial-3d1988a4cb5d"></a>
+### unlockPartial(DpDbContext, int, int) <a href="#unlockpartial-3d1988a4cb5d" id="unlockpartial-3d1988a4cb5d"></a>
 
 ```java
 public void unlockPartial(
@@ -384,7 +384,7 @@ public void unlockPartial(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](../DpDbContext.md#cls-DpDbContext), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](../DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 

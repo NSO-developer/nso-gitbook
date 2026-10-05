@@ -1,4 +1,4 @@
-# MNsMapDb <a href="#cls-MNsMapDb" id="cls-MNsMapDb"></a>
+# MNsMapDb <a href="#mnsmapdb-61387d7f0594" id="mnsmapdb-61387d7f0594"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.MNsMapDb
@@ -8,23 +8,23 @@ public static class com.tailf.ncs.maapi.Schema.MNsMapDb
 
 **Constructors**:
 
-- [MNsMapDb()](#m-MNsMapDb-53955b164b15)
+- [MNsMapDb()](#mnsmapdb-53955b164b15)
 
 **Fields**:
 
-- [factory](#m-factory)
-- [listFactory](#m-listFactory)
-- [STRUCT_SIZE](#m-STRUCT_SIZE)
+- [factory](#factory-1649195a6f6e)
+- [listFactory](#listfactory-b96025f1568b)
+- [STRUCT_SIZE](#struct_size-06830f6b9d3b)
 
 **Nested Types**:
 
-- [Builder](MNsMapDb/Builder.md#cls-Builder)
-- [Factory](MNsMapDb/Factory.md#cls-Factory)
-- [Reader](MNsMapDb/Reader.md#cls-Reader)
+- [Builder](MNsMapDb/Builder.md#builder-21f09e83781d)
+- [Factory](MNsMapDb/Factory.md#factory-1787784624e8)
+- [Reader](MNsMapDb/Reader.md#reader-b2467a96ddff)
 
 ## Constructors
 
-### MNsMapDb() <a href="#m-MNsMapDb-53955b164b15" id="m-MNsMapDb-53955b164b15"></a>
+### MNsMapDb() <a href="#mnsmapdb-53955b164b15" id="mnsmapdb-53955b164b15"></a>
 
 ```java
 public MNsMapDb()
@@ -33,23 +33,23 @@ public MNsMapDb()
 
 ## Fields
 
-### factory <a href="#m-factory" id="m-factory"></a>
+### factory <a href="#factory-1649195a6f6e" id="factory-1649195a6f6e"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.MNsMapDb.Factory factory = null;
 ```
 
-Types: [Factory](MNsMapDb/Factory.md#cls-Factory)
+Types: [Factory](MNsMapDb/Factory.md#factory-1787784624e8)
 
-### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
+### listFactory <a href="#listfactory-b96025f1568b" id="listfactory-b96025f1568b"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.MNsMapDb.Builder,com.tailf.ncs.maapi.Schema.MNsMapDb.Reader> listFactory = null;
 ```
 
-Types: [Builder](MNsMapDb/Builder.md#cls-Builder), [Reader](MNsMapDb/Reader.md#cls-Reader)
+Types: [Builder](MNsMapDb/Builder.md#builder-21f09e83781d), [Reader](MNsMapDb/Reader.md#reader-b2467a96ddff)
 
-### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
+### STRUCT_SIZE <a href="#struct_size-06830f6b9d3b" id="struct_size-06830f6b9d3b"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;
@@ -58,6 +58,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](MNsMapDb/Builder.md#cls-Builder)
-- [Factory](MNsMapDb/Factory.md#cls-Factory)
-- [Reader](MNsMapDb/Reader.md#cls-Reader)
+- [Builder](MNsMapDb/Builder.md#builder-21f09e83781d)
+- [Factory](MNsMapDb/Factory.md#factory-1787784624e8)
+- [Reader](MNsMapDb/Reader.md#reader-b2467a96ddff)

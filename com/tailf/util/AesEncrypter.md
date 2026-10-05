@@ -1,11 +1,11 @@
-# AesEncrypter <a href="#cls-AesEncrypter" id="cls-AesEncrypter"></a>
+# AesEncrypter <a href="#aesencrypter-f89e8185b3eb" id="aesencrypter-f89e8185b3eb"></a>
 
 ```java
 public class com.tailf.util.AesEncrypter
     extends com.tailf.util.Encrypter
 ```
 
-Types: [Encrypter](Encrypter.md#cls-Encrypter)
+Types: [Encrypter](Encrypter.md#encrypter-bd2ad218de94)
 
 AES algorithm encryption/decryption utility class
 
@@ -13,21 +13,21 @@ AES algorithm encryption/decryption utility class
 
 **Constructors**:
 
-- [AesEncrypter(byte[], byte[])](#m-AesEncrypter-067df4aa23b0)
+- [AesEncrypter(byte[], byte[])](#aesencrypter-067df4aa23b0)
 
 **Fields**:
 
-- [dcipher](Encrypter.md#m-dcipher) from Encrypter
-- [ecipher](Encrypter.md#m-ecipher) from Encrypter
+- [dcipher](Encrypter.md#dcipher-32e73ef98111) from Encrypter
+- [ecipher](Encrypter.md#ecipher-7b70b741edb8) from Encrypter
 
 **Methods**:
 
-- [decrypt(byte[])](Encrypter.md#m-decrypt-a219da65e4d1) from Encrypter
-- [encrypt(String)](Encrypter.md#m-encrypt-c3e82593a386) from Encrypter
+- [decrypt(byte[])](Encrypter.md#decrypt-a219da65e4d1) from Encrypter
+- [encrypt(String)](Encrypter.md#encrypt-c3e82593a386) from Encrypter
 
 ## Constructors
 
-### AesEncrypter(byte[], byte[]) <a href="#m-AesEncrypter-067df4aa23b0" id="m-AesEncrypter-067df4aa23b0"></a>
+### AesEncrypter(byte[], byte[]) <a href="#aesencrypter-067df4aa23b0" id="aesencrypter-067df4aa23b0"></a>
 
 ```java
 public AesEncrypter(

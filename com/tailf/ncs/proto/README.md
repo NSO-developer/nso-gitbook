@@ -9,4 +9,4 @@ Callback method types for respective callback type.
 
 ## Types
 
-- [EventCBType](EventCBType.md#cls-EventCBType)
+- [EventCBType](EventCBType.md#eventcbtype-2b91d6aed05c)

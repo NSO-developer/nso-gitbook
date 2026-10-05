@@ -1,4 +1,4 @@
-# DpExceptionReporter <a href="#cls-DpExceptionReporter" id="cls-DpExceptionReporter"></a>
+# DpExceptionReporter <a href="#dpexceptionreporter-09e497589a12" id="dpexceptionreporter-09e497589a12"></a>
 
 ```java
 public interface com.tailf.dp.DpExceptionReporter
@@ -11,11 +11,11 @@ Interface for the user of the Dp deamon to handle catched exceptions
 
 **Methods**:
 
-- [reportException(Throwable)](#m-reportException-f2030dd5aa98)
+- [reportException(Throwable)](#reportexception-f2030dd5aa98)
 
 ## Methods
 
-### reportException(Throwable) <a href="#m-reportException-f2030dd5aa98" id="m-reportException-f2030dd5aa98"></a>
+### reportException(Throwable) <a href="#reportexception-f2030dd5aa98" id="reportexception-f2030dd5aa98"></a>
 
 ```java
 public abstract boolean reportException(Throwable e)

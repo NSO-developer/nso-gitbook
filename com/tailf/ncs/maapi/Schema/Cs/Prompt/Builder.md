@@ -1,4 +1,4 @@
-# Builder <a href="#cls-Builder" id="cls-Builder"></a>
+# Builder <a href="#builder-21f09e83781d" id="builder-21f09e83781d"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.Cs.Prompt.Builder
@@ -9,25 +9,25 @@ public static final class com.tailf.ncs.maapi.Schema.Cs.Prompt.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asReader-b5c0f2a8d115)
-- [getNone()](#m-getNone-e31bfdbffa7f)
-- [getValue()](#m-getValue-d93864668c40)
-- [hasValue()](#m-hasValue-dad92e423e7a)
-- [initValue(int)](#m-initValue-a117f5eca48d)
-- [isNone()](#m-isNone-e8a993ad0453)
-- [isValue()](#m-isValue-7280ea8211f4)
-- [setNone(Void)](#m-setNone-46764db867d5)
-- [setValue(Reader)](#m-setValue-6784c0d559f7)
-- [setValue(String)](#m-setValue-90771990f0a6)
-- [which()](#m-which-0b2d23db5ed0)
+- [asReader()](#asreader-b5c0f2a8d115)
+- [getNone()](#getnone-e31bfdbffa7f)
+- [getValue()](#getvalue-d93864668c40)
+- [hasValue()](#hasvalue-dad92e423e7a)
+- [initValue(int)](#initvalue-a117f5eca48d)
+- [isNone()](#isnone-e8a993ad0453)
+- [isValue()](#isvalue-7280ea8211f4)
+- [setNone(Void)](#setnone-46764db867d5)
+- [setValue(Reader)](#setvalue-6784c0d559f7)
+- [setValue(String)](#setvalue-90771990f0a6)
+- [which()](#which-0b2d23db5ed0)
 
 ## Constructors
 
-### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
+### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -52,33 +52,33 @@ Builder(
 
 ## Methods
 
-### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
+### asReader() <a href="#asreader-b5c0f2a8d115" id="asreader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.Prompt.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#cls-Reader)
+Types: [Reader](Reader.md#reader-b2467a96ddff)
 
-### getNone() <a href="#m-getNone-e31bfdbffa7f" id="m-getNone-e31bfdbffa7f"></a>
+### getNone() <a href="#getnone-e31bfdbffa7f" id="getnone-e31bfdbffa7f"></a>
 
 ```java
 public final org.capnproto.Void getNone()
 ```
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public final org.capnproto.Text.Builder getValue()
 ```
 
-### hasValue() <a href="#m-hasValue-dad92e423e7a" id="m-hasValue-dad92e423e7a"></a>
+### hasValue() <a href="#hasvalue-dad92e423e7a" id="hasvalue-dad92e423e7a"></a>
 
 ```java
 public final boolean hasValue()
 ```
 
-### initValue(int) <a href="#m-initValue-a117f5eca48d" id="m-initValue-a117f5eca48d"></a>
+### initValue(int) <a href="#initvalue-a117f5eca48d" id="initvalue-a117f5eca48d"></a>
 
 ```java
 public final org.capnproto.Text.Builder initValue(int size)
@@ -88,19 +88,19 @@ public final org.capnproto.Text.Builder initValue(int size)
 
 - `int size`
 
-### isNone() <a href="#m-isNone-e8a993ad0453" id="m-isNone-e8a993ad0453"></a>
+### isNone() <a href="#isnone-e8a993ad0453" id="isnone-e8a993ad0453"></a>
 
 ```java
 public final boolean isNone()
 ```
 
-### isValue() <a href="#m-isValue-7280ea8211f4" id="m-isValue-7280ea8211f4"></a>
+### isValue() <a href="#isvalue-7280ea8211f4" id="isvalue-7280ea8211f4"></a>
 
 ```java
 public final boolean isValue()
 ```
 
-### setNone(Void) <a href="#m-setNone-46764db867d5" id="m-setNone-46764db867d5"></a>
+### setNone(Void) <a href="#setnone-46764db867d5" id="setnone-46764db867d5"></a>
 
 ```java
 public final void setNone(org.capnproto.Void value)
@@ -110,7 +110,7 @@ public final void setNone(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-### setValue(Reader) <a href="#m-setValue-6784c0d559f7" id="m-setValue-6784c0d559f7"></a>
+### setValue(Reader) <a href="#setvalue-6784c0d559f7" id="setvalue-6784c0d559f7"></a>
 
 ```java
 public final void setValue(org.capnproto.Text.Reader value)
@@ -120,7 +120,7 @@ public final void setValue(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-### setValue(String) <a href="#m-setValue-90771990f0a6" id="m-setValue-90771990f0a6"></a>
+### setValue(String) <a href="#setvalue-90771990f0a6" id="setvalue-90771990f0a6"></a>
 
 ```java
 public final void setValue(String value)
@@ -130,10 +130,10 @@ public final void setValue(String value)
 
 - `String value`
 
-### which() <a href="#m-which-0b2d23db5ed0" id="m-which-0b2d23db5ed0"></a>
+### which() <a href="#which-0b2d23db5ed0" id="which-0b2d23db5ed0"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.Cs.Prompt.Which which()
 ```
 
-Types: [Which](Which.md#cls-Which)
+Types: [Which](Which.md#which-92b652653aa7)

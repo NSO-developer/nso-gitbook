@@ -1,42 +1,42 @@
-# AuthorizationCallbackProxy <a href="#cls-AuthorizationCallbackProxy" id="cls-AuthorizationCallbackProxy"></a>
+# AuthorizationCallbackProxy <a href="#authorizationcallbackproxy-8824c10c8e1e" id="authorizationcallbackproxy-8824c10c8e1e"></a>
 
 ```java
 public class com.tailf.dp.annotations.AuthorizationCallbackProxy
     implements com.tailf.dp.DpAuthorizationCallback
 ```
 
-Types: [DpAuthorizationCallback](../DpAuthorizationCallback.md#cls-DpAuthorizationCallback)
+Types: [DpAuthorizationCallback](../DpAuthorizationCallback.md#dpauthorizationcallback-44fc33b19351)
 
 Callback proxy for Authorization Callbacks.
- Implements the [`DpAuthorizationCallback`](../DpAuthorizationCallback.md#cls-DpAuthorizationCallback) interface and delegates calls
+ Implements the [`DpAuthorizationCallback`](../DpAuthorizationCallback.md#dpauthorizationcallback-44fc33b19351) interface and delegates calls
  to the registered callback POJO with annotated methods
 
 ## Members
 
 **Constructors**:
 
-- [AuthorizationCallbackProxy(Object)](#m-AuthorizationCallbackProxy-7ede8d1c2000)
+- [AuthorizationCallbackProxy(Object)](#authorizationcallbackproxy-7ede8d1c2000)
 
 **Fields**:
 
-- [M_CHECK_CMD_ACCESS](../DpAuthorizationCallback.md#m-M_CHECK_CMD_ACCESS) from DpAuthorizationCallback
-- [M_CHECK_DATA_ACCESS](../DpAuthorizationCallback.md#m-M_CHECK_DATA_ACCESS) from DpAuthorizationCallback
+- [M_CHECK_CMD_ACCESS](../DpAuthorizationCallback.md#m_check_cmd_access-e47eddd0f9b4) from DpAuthorizationCallback
+- [M_CHECK_DATA_ACCESS](../DpAuthorizationCallback.md#m_check_data_access-62fe3a480427) from DpAuthorizationCallback
 
 **Methods**:
 
-- [addActionCapability(AuthorizationCBType)](#m-addActionCapability-e39732677c1f)
-- [addActionMethod(String, Method)](#m-addActionMethod-cf3e43a67fd9)
-- [checkCommandAccess(DpAuthorizationContext, String[], AuthorizationOperCheck)](#m-checkCommandAccess-db6891a729e3)
-- [checkDataAccess(DpAuthorizationContext, ConfObject[], AuthorizationOperCheck, AuthorizationOperCheck)](#m-checkDataAccess-e7c6a7d5a565)
-- [commandFilter()](#m-commandFilter-75902bf3c954)
-- [dataFilter()](#m-dataFilter-5e19142fe25a)
-- [getAuthorizationCallbackProxys(Object)](#m-getAuthorizationCallbackProxys-e3cad5454283)
-- [getBackupObject()](#m-getBackupObject-a6fb23c24524)
-- [mask()](#m-mask-24c2fa29c6af)
+- [addActionCapability(AuthorizationCBType)](#addactioncapability-e39732677c1f)
+- [addActionMethod(String, Method)](#addactionmethod-cf3e43a67fd9)
+- [checkCommandAccess(DpAuthorizationContext, String[], AuthorizationOperCheck)](#checkcommandaccess-db6891a729e3)
+- [checkDataAccess(DpAuthorizationContext, ConfObject[], AuthorizationOperCheck, AuthorizationOperCheck)](#checkdataaccess-e7c6a7d5a565)
+- [commandFilter()](#commandfilter-75902bf3c954)
+- [dataFilter()](#datafilter-5e19142fe25a)
+- [getAuthorizationCallbackProxys(Object)](#getauthorizationcallbackproxys-e3cad5454283)
+- [getBackupObject()](#getbackupobject-a6fb23c24524)
+- [mask()](#mask-24c2fa29c6af)
 
 ## Constructors
 
-### AuthorizationCallbackProxy(Object) <a href="#m-AuthorizationCallbackProxy-7ede8d1c2000" id="m-AuthorizationCallbackProxy-7ede8d1c2000"></a>
+### AuthorizationCallbackProxy(Object) <a href="#authorizationcallbackproxy-7ede8d1c2000" id="authorizationcallbackproxy-7ede8d1c2000"></a>
 
 ```java
 public AuthorizationCallbackProxy(Object backupObject)
@@ -51,13 +51,13 @@ Constructor for Callback proxys. Used internally.
 
 ## Methods
 
-### addActionCapability(AuthorizationCBType) <a href="#m-addActionCapability-e39732677c1f" id="m-addActionCapability-e39732677c1f"></a>
+### addActionCapability(AuthorizationCBType) <a href="#addactioncapability-e39732677c1f" id="addactioncapability-e39732677c1f"></a>
 
 ```java
 public void addActionCapability(com.tailf.dp.proto.AuthorizationCBType authorizationCBType)
 ```
 
-Types: [AuthorizationCBType](../proto/AuthorizationCBType.md#cls-AuthorizationCBType)
+Types: [AuthorizationCBType](../proto/AuthorizationCBType.md#authorizationcbtype-53c148cac4cd)
 
 Add action capability from annotated callType used to register
  capabilities on the server
@@ -66,7 +66,7 @@ Add action capability from annotated callType used to register
 
 - `com.tailf.dp.proto.AuthorizationCBType authorizationCBType` - action type
 
-### addActionMethod(String, Method) <a href="#m-addActionMethod-cf3e43a67fd9" id="m-addActionMethod-cf3e43a67fd9"></a>
+### addActionMethod(String, Method) <a href="#addactionmethod-cf3e43a67fd9" id="addactionmethod-cf3e43a67fd9"></a>
 
 ```java
 public void addActionMethod(String name, java.lang.reflect.Method method)
@@ -79,7 +79,7 @@ Add callback action method to proxy
 - `String name` - canonical action name
 - `java.lang.reflect.Method method` - registered callback method
 
-### checkCommandAccess(DpAuthorizationContext, String[], AuthorizationOperCheck) <a href="#m-checkCommandAccess-db6891a729e3" id="m-checkCommandAccess-db6891a729e3"></a>
+### checkCommandAccess(DpAuthorizationContext, String[], AuthorizationOperCheck) <a href="#checkcommandaccess-db6891a729e3" id="checkcommandaccess-db6891a729e3"></a>
 
 ```java
 public com.tailf.dp.AuthorizationResult checkCommandAccess(
@@ -90,7 +90,7 @@ public com.tailf.dp.AuthorizationResult checkCommandAccess(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [AuthorizationResult](../AuthorizationResult.md#cls-AuthorizationResult), [DpAuthorizationContext](../DpAuthorizationContext.md#cls-DpAuthorizationContext), [AuthorizationOperCheck](../AuthorizationOperCheck.md#cls-AuthorizationOperCheck), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [AuthorizationResult](../AuthorizationResult.md#authorizationresult-118ce0a72969), [DpAuthorizationContext](../DpAuthorizationContext.md#dpauthorizationcontext-e368a48474b6), [AuthorizationOperCheck](../AuthorizationOperCheck.md#authorizationopercheck-7342d1a011a5), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
@@ -98,7 +98,7 @@ Types: [AuthorizationResult](../AuthorizationResult.md#cls-AuthorizationResult),
 - `String[] commandTokens`
 - `com.tailf.dp.AuthorizationOperCheck operation`
 
-### checkDataAccess(DpAuthorizationContext, ConfObject[], AuthorizationOperCheck, AuthorizationOperCheck) <a href="#m-checkDataAccess-e7c6a7d5a565" id="m-checkDataAccess-e7c6a7d5a565"></a>
+### checkDataAccess(DpAuthorizationContext, ConfObject[], AuthorizationOperCheck, AuthorizationOperCheck) <a href="#checkdataaccess-e7c6a7d5a565" id="checkdataaccess-e7c6a7d5a565"></a>
 
 ```java
 public com.tailf.dp.AuthorizationResult checkDataAccess(
@@ -110,7 +110,7 @@ public com.tailf.dp.AuthorizationResult checkDataAccess(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [AuthorizationResult](../AuthorizationResult.md#cls-AuthorizationResult), [DpAuthorizationContext](../DpAuthorizationContext.md#cls-DpAuthorizationContext), [ConfObject](../../conf/ConfObject.md#cls-ConfObject), [AuthorizationOperCheck](../AuthorizationOperCheck.md#cls-AuthorizationOperCheck), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [AuthorizationResult](../AuthorizationResult.md#authorizationresult-118ce0a72969), [DpAuthorizationContext](../DpAuthorizationContext.md#dpauthorizationcontext-e368a48474b6), [ConfObject](../../conf/ConfObject.md#confobject-5433616953b2), [AuthorizationOperCheck](../AuthorizationOperCheck.md#authorizationopercheck-7342d1a011a5), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 
@@ -119,23 +119,23 @@ Types: [AuthorizationResult](../AuthorizationResult.md#cls-AuthorizationResult),
 - `com.tailf.dp.AuthorizationOperCheck operation`
 - `com.tailf.dp.AuthorizationOperCheck how`
 
-### commandFilter() <a href="#m-commandFilter-75902bf3c954" id="m-commandFilter-75902bf3c954"></a>
+### commandFilter() <a href="#commandfilter-75902bf3c954" id="commandfilter-75902bf3c954"></a>
 
 ```java
 public java.util.EnumSet<com.tailf.dp.AuthorizationOperCheck> commandFilter()
 ```
 
-Types: [AuthorizationOperCheck](../AuthorizationOperCheck.md#cls-AuthorizationOperCheck)
+Types: [AuthorizationOperCheck](../AuthorizationOperCheck.md#authorizationopercheck-7342d1a011a5)
 
-### dataFilter() <a href="#m-dataFilter-5e19142fe25a" id="m-dataFilter-5e19142fe25a"></a>
+### dataFilter() <a href="#datafilter-5e19142fe25a" id="datafilter-5e19142fe25a"></a>
 
 ```java
 public java.util.EnumSet<com.tailf.dp.AuthorizationOperCheck> dataFilter()
 ```
 
-Types: [AuthorizationOperCheck](../AuthorizationOperCheck.md#cls-AuthorizationOperCheck)
+Types: [AuthorizationOperCheck](../AuthorizationOperCheck.md#authorizationopercheck-7342d1a011a5)
 
-### getAuthorizationCallbackProxys(Object) <a href="#m-getAuthorizationCallbackProxys-e3cad5454283" id="m-getAuthorizationCallbackProxys-e3cad5454283"></a>
+### getAuthorizationCallbackProxys(Object) <a href="#getauthorizationcallbackproxys-e3cad5454283" id="getauthorizationcallbackproxys-e3cad5454283"></a>
 
 ```java
 public static com.tailf.dp.annotations.AuthorizationCallbackProxy[] getAuthorizationCallbackProxys(
@@ -144,7 +144,7 @@ public static com.tailf.dp.annotations.AuthorizationCallbackProxy[] getAuthoriza
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [AuthorizationCallbackProxy](AuthorizationCallbackProxy.md#cls-AuthorizationCallbackProxy), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [AuthorizationCallbackProxy](AuthorizationCallbackProxy.md#authorizationcallbackproxy-8824c10c8e1e), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 Get array of proxy objects from registered POJO callback. Used internally
  at callback registration
@@ -159,7 +159,7 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 - `DpCallbackException`
 
-### getBackupObject() <a href="#m-getBackupObject-a6fb23c24524" id="m-getBackupObject-a6fb23c24524"></a>
+### getBackupObject() <a href="#getbackupobject-a6fb23c24524" id="getbackupobject-a6fb23c24524"></a>
 
 ```java
 public Object getBackupObject()
@@ -169,7 +169,7 @@ Retrieve the callback POJO
 
 **Returns:** Object registered callback object
 
-### mask() <a href="#m-mask-24c2fa29c6af" id="m-mask-24c2fa29c6af"></a>
+### mask() <a href="#mask-24c2fa29c6af" id="mask-24c2fa29c6af"></a>
 
 ```java
 public int mask()

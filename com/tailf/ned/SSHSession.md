@@ -1,11 +1,11 @@
-# SSHSession <a href="#cls-SSHSession" id="cls-SSHSession"></a>
+# SSHSession <a href="#sshsession-2d9642a66770" id="sshsession-2d9642a66770"></a>
 
 ```java
 public class com.tailf.ned.SSHSession
     implements com.tailf.ned.CliSession
 ```
 
-Types: [CliSession](CliSession.md#cls-CliSession)
+Types: [CliSession](CliSession.md#clisession-1e55c4457237)
 
 A SSH  transport.
  This class uses the Ganymed SSH implementation.
@@ -25,65 +25,65 @@ A SSH  transport.
 
 **Constructors**:
 
-- [SSHSession(SSHConnection)](#m-SSHSession-8292ed2fa199)
-- [SSHSession(SSHConnection, int, NedTracer, NedConnectionBase)](#m-SSHSession-5bfc258db6fa)
-- [SSHSession(SSHConnection, int, NedTracer, NedConnectionBase, int, int)](#m-SSHSession-5bbe10e388cd)
-- [SSHSession(SSHConnection, NedTracer, NedConnectionBase)](#m-SSHSession-fa053fc79631)
+- [SSHSession(SSHConnection)](#sshsession-8292ed2fa199)
+- [SSHSession(SSHConnection, int, NedTracer, NedConnectionBase)](#sshsession-5bfc258db6fa)
+- [SSHSession(SSHConnection, int, NedTracer, NedConnectionBase, int, int)](#sshsession-5bbe10e388cd)
+- [SSHSession(SSHConnection, NedTracer, NedConnectionBase)](#sshsession-fa053fc79631)
 
 **Fields**:
 
-- [readTimeout](#m-readTimeout)
+- [readTimeout](#readtimeout-0c3689315cf4)
 
 **Methods**:
 
-- [close()](#m-close-8107c6dc012b)
-- [expect(Pattern)](#m-expect-98936155685a)
-- [expect(Pattern, boolean, int)](#m-expect-ae0bda32ace3)
-- [expect(Pattern, boolean, int, NedWorker)](#m-expect-7eb828b58e63)
-- [expect(Pattern, NedWorker)](#m-expect-a363c018c396)
-- [expect(Pattern[])](#m-expect-8149faa90d9d)
-- [expect(Pattern[], boolean, int)](#m-expect-5cc2e4122c7b)
-- [expect(Pattern[], boolean, int, boolean)](#m-expect-7b0546ada421)
-- [expect(Pattern[], boolean, int, boolean, NedWorker)](#m-expect-8367e41003a6)
-- [expect(Pattern[], boolean, int, NedWorker)](#m-expect-6c58bada9cc6)
-- [expect(Pattern[], NedWorker)](#m-expect-b0896c6a7b2a)
-- [expect(String)](#m-expect-5f5d11ad490b)
-- [expect(String, boolean, boolean, int)](#m-expect-b7ee8aa21949)
-- [expect(String, boolean, boolean, int, NedWorker)](#m-expect-a44ee9613d91)
-- [expect(String, boolean, int)](#m-expect-16cd2f682137)
-- [expect(String, boolean, int, NedWorker)](#m-expect-6e2d86346550)
-- [expect(String, int)](#m-expect-37295e1967db)
-- [expect(String, int, NedWorker)](#m-expect-4ba232d952f7)
-- [expect(String, NedWorker)](#m-expect-6426c41e07e7)
-- [expect(String[])](#m-expect-740d81a74e4b)
-- [expect(String[], boolean, int)](#m-expect-f6cb6c02c198)
-- [expect(String[], boolean, int, NedWorker)](#m-expect-90d4e3ee7ac2)
-- [expect(String[], NedWorker)](#m-expect-4485477b99db)
-- [expectStr(String, boolean, int)](#m-expectStr-a0568beb746e)
-- [flush()](#m-flush-a4d76f158943)
-- [getReadTimeout()](#m-getReadTimeout-640fc089c1de)
-- [getSession()](#m-getSession-d2df47d6a1b6)
-- [getSSHConnection()](#m-getSSHConnection-d215c3958a3d)
-- [print(int)](#m-print-41f2f1534264)
-- [print(String)](#m-print-b202251f9230)
-- [println(int)](#m-println-4c26ee676efb)
-- [println(String)](#m-println-15aea44318e6)
-- [readUntilWouldBlock()](#m-readUntilWouldBlock-a932110e11be)
-- [ready()](#m-ready-92162bd485a2)
-- [ready(int)](#m-ready-c585210c0993)
-- [serverSideClosed()](#m-serverSideClosed-0dfe26b0733e)
-- [setReadTimeout(int)](#m-setReadTimeout-4f6742da7687)
-- [setTracer(NedTracer)](#m-setTracer-6943f9aadf68)
+- [close()](#close-8107c6dc012b)
+- [expect(Pattern)](#expect-98936155685a)
+- [expect(Pattern, boolean, int)](#expect-ae0bda32ace3)
+- [expect(Pattern, boolean, int, NedWorker)](#expect-7eb828b58e63)
+- [expect(Pattern, NedWorker)](#expect-a363c018c396)
+- [expect(Pattern[])](#expect-8149faa90d9d)
+- [expect(Pattern[], boolean, int)](#expect-5cc2e4122c7b)
+- [expect(Pattern[], boolean, int, boolean)](#expect-7b0546ada421)
+- [expect(Pattern[], boolean, int, boolean, NedWorker)](#expect-8367e41003a6)
+- [expect(Pattern[], boolean, int, NedWorker)](#expect-6c58bada9cc6)
+- [expect(Pattern[], NedWorker)](#expect-b0896c6a7b2a)
+- [expect(String)](#expect-5f5d11ad490b)
+- [expect(String, boolean, boolean, int)](#expect-b7ee8aa21949)
+- [expect(String, boolean, boolean, int, NedWorker)](#expect-a44ee9613d91)
+- [expect(String, boolean, int)](#expect-16cd2f682137)
+- [expect(String, boolean, int, NedWorker)](#expect-6e2d86346550)
+- [expect(String, int)](#expect-37295e1967db)
+- [expect(String, int, NedWorker)](#expect-4ba232d952f7)
+- [expect(String, NedWorker)](#expect-6426c41e07e7)
+- [expect(String[])](#expect-740d81a74e4b)
+- [expect(String[], boolean, int)](#expect-f6cb6c02c198)
+- [expect(String[], boolean, int, NedWorker)](#expect-90d4e3ee7ac2)
+- [expect(String[], NedWorker)](#expect-4485477b99db)
+- [expectStr(String, boolean, int)](#expectstr-a0568beb746e)
+- [flush()](#flush-a4d76f158943)
+- [getReadTimeout()](#getreadtimeout-640fc089c1de)
+- [getSession()](#getsession-d2df47d6a1b6)
+- [getSSHConnection()](#getsshconnection-d215c3958a3d)
+- [print(int)](#print-41f2f1534264)
+- [print(String)](#print-b202251f9230)
+- [println(int)](#println-4c26ee676efb)
+- [println(String)](#println-15aea44318e6)
+- [readUntilWouldBlock()](#readuntilwouldblock-a932110e11be)
+- [ready()](#ready-92162bd485a2)
+- [ready(int)](#ready-c585210c0993)
+- [serverSideClosed()](#serversideclosed-0dfe26b0733e)
+- [setReadTimeout(int)](#setreadtimeout-4f6742da7687)
+- [setTracer(NedTracer)](#settracer-6943f9aadf68)
 
 ## Constructors
 
-### SSHSession(SSHConnection) <a href="#m-SSHSession-8292ed2fa199" id="m-SSHSession-8292ed2fa199"></a>
+### SSHSession(SSHConnection) <a href="#sshsession-8292ed2fa199" id="sshsession-8292ed2fa199"></a>
 
 ```java
 public SSHSession(com.tailf.ned.SSHConnection con) throws java.io.IOException
 ```
 
-Types: [SSHConnection](SSHConnection.md#cls-SSHConnection)
+Types: [SSHConnection](SSHConnection.md#sshconnection-b3d3a2094429)
 
 Constructor for SSH session object. This method creates a
  a new SSh channel on top of an existing connection.
@@ -98,7 +98,7 @@ Constructor for SSH session object. This method creates a
 
 - `IOException`
 
-### SSHSession(SSHConnection, int, NedTracer, NedConnectionBase) <a href="#m-SSHSession-5bfc258db6fa" id="m-SSHSession-5bfc258db6fa"></a>
+### SSHSession(SSHConnection, int, NedTracer, NedConnectionBase) <a href="#sshsession-5bfc258db6fa" id="sshsession-5bfc258db6fa"></a>
 
 ```java
 public SSHSession(
@@ -110,7 +110,7 @@ public SSHSession(
     throws java.io.IOException
 ```
 
-Types: [SSHConnection](SSHConnection.md#cls-SSHConnection), [NedTracer](NedTracer.md#cls-NedTracer), [NedConnectionBase](NedConnectionBase.md#cls-NedConnectionBase)
+Types: [SSHConnection](SSHConnection.md#sshconnection-b3d3a2094429), [NedTracer](NedTracer.md#nedtracer-f8730263f5f2), [NedConnectionBase](NedConnectionBase.md#nedconnectionbase-3139efb66faf)
 
 Constructor with an extra argument for a readTimeout timer.
 
@@ -125,7 +125,7 @@ Constructor with an extra argument for a readTimeout timer.
 
 - `IOException`
 
-### SSHSession(SSHConnection, int, NedTracer, NedConnectionBase, int, int) <a href="#m-SSHSession-5bbe10e388cd" id="m-SSHSession-5bbe10e388cd"></a>
+### SSHSession(SSHConnection, int, NedTracer, NedConnectionBase, int, int) <a href="#sshsession-5bbe10e388cd" id="sshsession-5bbe10e388cd"></a>
 
 ```java
 public SSHSession(
@@ -139,7 +139,7 @@ public SSHSession(
     throws java.io.IOException
 ```
 
-Types: [SSHConnection](SSHConnection.md#cls-SSHConnection), [NedTracer](NedTracer.md#cls-NedTracer), [NedConnectionBase](NedConnectionBase.md#cls-NedConnectionBase)
+Types: [SSHConnection](SSHConnection.md#sshconnection-b3d3a2094429), [NedTracer](NedTracer.md#nedtracer-f8730263f5f2), [NedConnectionBase](NedConnectionBase.md#nedconnectionbase-3139efb66faf)
 
 Constructor with extra terminal width and height arguments
 
@@ -156,7 +156,7 @@ Constructor with extra terminal width and height arguments
 
 - `IOException`
 
-### SSHSession(SSHConnection, NedTracer, NedConnectionBase) <a href="#m-SSHSession-fa053fc79631" id="m-SSHSession-fa053fc79631"></a>
+### SSHSession(SSHConnection, NedTracer, NedConnectionBase) <a href="#sshsession-fa053fc79631" id="sshsession-fa053fc79631"></a>
 
 ```java
 public SSHSession(
@@ -167,7 +167,7 @@ public SSHSession(
     throws java.io.IOException
 ```
 
-Types: [SSHConnection](SSHConnection.md#cls-SSHConnection), [NedTracer](NedTracer.md#cls-NedTracer), [NedConnectionBase](NedConnectionBase.md#cls-NedConnectionBase)
+Types: [SSHConnection](SSHConnection.md#sshconnection-b3d3a2094429), [NedTracer](NedTracer.md#nedtracer-f8730263f5f2), [NedConnectionBase](NedConnectionBase.md#nedconnectionbase-3139efb66faf)
 
 Constructor for SSH session object. This method creates a
  a new SSH channel on top of an existing connection.
@@ -187,7 +187,7 @@ Constructor for SSH session object. This method creates a
 
 ## Fields
 
-### readTimeout <a href="#m-readTimeout" id="m-readTimeout"></a>
+### readTimeout <a href="#readtimeout-0c3689315cf4" id="readtimeout-0c3689315cf4"></a>
 
 ```java
 protected int readTimeout = null;
@@ -196,7 +196,7 @@ protected int readTimeout = null;
 
 ## Methods
 
-### close() <a href="#m-close-8107c6dc012b" id="m-close-8107c6dc012b"></a>
+### close() <a href="#close-8107c6dc012b" id="close-8107c6dc012b"></a>
 
 ```java
 public void close()
@@ -205,7 +205,7 @@ public void close()
 Closes the SSH connection, including all sessions (only one in
  this case, compared to many in Netconf)
 
-### expect(Pattern) <a href="#m-expect-98936155685a" id="m-expect-98936155685a"></a>
+### expect(Pattern) <a href="#expect-98936155685a" id="expect-98936155685a"></a>
 
 ```java
 public String expect(
@@ -214,13 +214,13 @@ public String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
 - `java.util.regex.Pattern p`
 
-### expect(Pattern, boolean, int) <a href="#m-expect-ae0bda32ace3" id="m-expect-ae0bda32ace3"></a>
+### expect(Pattern, boolean, int) <a href="#expect-ae0bda32ace3" id="expect-ae0bda32ace3"></a>
 
 ```java
 public String expect(
@@ -231,7 +231,7 @@ public String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
@@ -239,7 +239,7 @@ Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
 - `boolean include`
 - `int timeout`
 
-### expect(Pattern, boolean, int, NedWorker) <a href="#m-expect-7eb828b58e63" id="m-expect-7eb828b58e63"></a>
+### expect(Pattern, boolean, int, NedWorker) <a href="#expect-7eb828b58e63" id="expect-7eb828b58e63"></a>
 
 ```java
 public String expect(
@@ -251,7 +251,7 @@ public String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
@@ -260,7 +260,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSession
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-### expect(Pattern, NedWorker) <a href="#m-expect-a363c018c396" id="m-expect-a363c018c396"></a>
+### expect(Pattern, NedWorker) <a href="#expect-a363c018c396" id="expect-a363c018c396"></a>
 
 ```java
 public String expect(
@@ -270,14 +270,14 @@ public String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
 - `java.util.regex.Pattern p`
 - `com.tailf.ned.NedWorker worker`
 
-### expect(Pattern[]) <a href="#m-expect-8149faa90d9d" id="m-expect-8149faa90d9d"></a>
+### expect(Pattern[]) <a href="#expect-8149faa90d9d" id="expect-8149faa90d9d"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -286,13 +286,13 @@ public com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
 - `java.util.regex.Pattern[] p`
 
-### expect(Pattern[], boolean, int) <a href="#m-expect-5cc2e4122c7b" id="m-expect-5cc2e4122c7b"></a>
+### expect(Pattern[], boolean, int) <a href="#expect-5cc2e4122c7b" id="expect-5cc2e4122c7b"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -303,7 +303,7 @@ public com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
@@ -311,7 +311,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionExc
 - `boolean include`
 - `int timeout`
 
-### expect(Pattern[], boolean, int, boolean) <a href="#m-expect-7b0546ada421" id="m-expect-7b0546ada421"></a>
+### expect(Pattern[], boolean, int, boolean) <a href="#expect-7b0546ada421" id="expect-7b0546ada421"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -323,7 +323,7 @@ public com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
@@ -332,7 +332,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionExc
 - `int timeout`
 - `boolean full`
 
-### expect(Pattern[], boolean, int, boolean, NedWorker) <a href="#m-expect-8367e41003a6" id="m-expect-8367e41003a6"></a>
+### expect(Pattern[], boolean, int, boolean, NedWorker) <a href="#expect-8367e41003a6" id="expect-8367e41003a6"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -345,7 +345,7 @@ public com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [NedWorker](NedWorker.md#nedworker-b063de7c0998), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
@@ -355,7 +355,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](Ne
 - `boolean full`
 - `com.tailf.ned.NedWorker worker`
 
-### expect(Pattern[], boolean, int, NedWorker) <a href="#m-expect-6c58bada9cc6" id="m-expect-6c58bada9cc6"></a>
+### expect(Pattern[], boolean, int, NedWorker) <a href="#expect-6c58bada9cc6" id="expect-6c58bada9cc6"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -367,7 +367,7 @@ public com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [NedWorker](NedWorker.md#nedworker-b063de7c0998), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
@@ -376,7 +376,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](Ne
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-### expect(Pattern[], NedWorker) <a href="#m-expect-b0896c6a7b2a" id="m-expect-b0896c6a7b2a"></a>
+### expect(Pattern[], NedWorker) <a href="#expect-b0896c6a7b2a" id="expect-b0896c6a7b2a"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -386,20 +386,20 @@ public com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [NedWorker](NedWorker.md#nedworker-b063de7c0998), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
 - `java.util.regex.Pattern[] p`
 - `com.tailf.ned.NedWorker worker`
 
-### expect(String) <a href="#m-expect-5f5d11ad490b" id="m-expect-5f5d11ad490b"></a>
+### expect(String) <a href="#expect-5f5d11ad490b" id="expect-5f5d11ad490b"></a>
 
 ```java
 public String expect(String str) throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 Read from socket until Pattern is encountered.
 
@@ -410,7 +410,7 @@ Read from socket until Pattern is encountered.
 
 **Returns:** the characters read.
 
-### expect(String, boolean, boolean, int) <a href="#m-expect-b7ee8aa21949" id="m-expect-b7ee8aa21949"></a>
+### expect(String, boolean, boolean, int) <a href="#expect-b7ee8aa21949" id="expect-b7ee8aa21949"></a>
 
 ```java
 public String expect(
@@ -422,7 +422,7 @@ public String expect(
     throws java.io.IOException, com.tailf.ned.SSHSessionException
 ```
 
-Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 Read from socket until Pattern is encountered.
 
@@ -439,7 +439,7 @@ Read from socket until Pattern is encountered.
 
 **Returns:** the characters read.
 
-### expect(String, boolean, boolean, int, NedWorker) <a href="#m-expect-a44ee9613d91" id="m-expect-a44ee9613d91"></a>
+### expect(String, boolean, boolean, int, NedWorker) <a href="#expect-a44ee9613d91" id="expect-a44ee9613d91"></a>
 
 ```java
 public String expect(
@@ -452,7 +452,7 @@ public String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
@@ -462,7 +462,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSession
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-### expect(String, boolean, int) <a href="#m-expect-16cd2f682137" id="m-expect-16cd2f682137"></a>
+### expect(String, boolean, int) <a href="#expect-16cd2f682137" id="expect-16cd2f682137"></a>
 
 ```java
 public String expect(
@@ -473,7 +473,7 @@ public String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 Read from socket until Pattern is encountered.
 
@@ -487,7 +487,7 @@ Read from socket until Pattern is encountered.
 
 **Returns:** the characters read.
 
-### expect(String, boolean, int, NedWorker) <a href="#m-expect-6e2d86346550" id="m-expect-6e2d86346550"></a>
+### expect(String, boolean, int, NedWorker) <a href="#expect-6e2d86346550" id="expect-6e2d86346550"></a>
 
 ```java
 public String expect(
@@ -499,7 +499,7 @@ public String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
@@ -508,7 +508,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSession
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-### expect(String, int) <a href="#m-expect-37295e1967db" id="m-expect-37295e1967db"></a>
+### expect(String, int) <a href="#expect-37295e1967db" id="expect-37295e1967db"></a>
 
 ```java
 public String expect(
@@ -518,7 +518,7 @@ public String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 Read from socket until Pattern is encountered.
 
@@ -530,7 +530,7 @@ Read from socket until Pattern is encountered.
 
 **Returns:** the characters read.
 
-### expect(String, int, NedWorker) <a href="#m-expect-4ba232d952f7" id="m-expect-4ba232d952f7"></a>
+### expect(String, int, NedWorker) <a href="#expect-4ba232d952f7" id="expect-4ba232d952f7"></a>
 
 ```java
 public String expect(
@@ -541,7 +541,7 @@ public String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
@@ -549,7 +549,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSession
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-### expect(String, NedWorker) <a href="#m-expect-6426c41e07e7" id="m-expect-6426c41e07e7"></a>
+### expect(String, NedWorker) <a href="#expect-6426c41e07e7" id="expect-6426c41e07e7"></a>
 
 ```java
 public String expect(
@@ -559,14 +559,14 @@ public String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
 - `String str`
 - `com.tailf.ned.NedWorker worker`
 
-### expect(String[]) <a href="#m-expect-740d81a74e4b" id="m-expect-740d81a74e4b"></a>
+### expect(String[]) <a href="#expect-740d81a74e4b" id="expect-740d81a74e4b"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -575,13 +575,13 @@ public com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
 - `String[] str`
 
-### expect(String[], boolean, int) <a href="#m-expect-f6cb6c02c198" id="m-expect-f6cb6c02c198"></a>
+### expect(String[], boolean, int) <a href="#expect-f6cb6c02c198" id="expect-f6cb6c02c198"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -592,7 +592,7 @@ public com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
@@ -600,7 +600,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionExc
 - `boolean include`
 - `int timeout`
 
-### expect(String[], boolean, int, NedWorker) <a href="#m-expect-90d4e3ee7ac2" id="m-expect-90d4e3ee7ac2"></a>
+### expect(String[], boolean, int, NedWorker) <a href="#expect-90d4e3ee7ac2" id="expect-90d4e3ee7ac2"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -612,7 +612,7 @@ public com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [NedWorker](NedWorker.md#nedworker-b063de7c0998), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
@@ -621,7 +621,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](Ne
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-### expect(String[], NedWorker) <a href="#m-expect-4485477b99db" id="m-expect-4485477b99db"></a>
+### expect(String[], NedWorker) <a href="#expect-4485477b99db" id="expect-4485477b99db"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -631,14 +631,14 @@ public com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [NedWorker](NedWorker.md#nedworker-b063de7c0998), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 **Parameters**
 
 - `String[] str`
 - `com.tailf.ned.NedWorker worker`
 
-### expectStr(String, boolean, int) <a href="#m-expectStr-a0568beb746e" id="m-expectStr-a0568beb746e"></a>
+### expectStr(String, boolean, int) <a href="#expectstr-a0568beb746e" id="expectstr-a0568beb746e"></a>
 
 ```java
 public String expectStr(
@@ -649,7 +649,7 @@ public String expectStr(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
+Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
 
 Read from socket until Pattern is encountered.
 
@@ -662,7 +662,7 @@ Read from socket until Pattern is encountered.
 
 **Returns:** the characters read.
 
-### flush() <a href="#m-flush-a4d76f158943" id="m-flush-a4d76f158943"></a>
+### flush() <a href="#flush-a4d76f158943" id="flush-a4d76f158943"></a>
 
 ```java
 public void flush()
@@ -672,7 +672,7 @@ Signals that the final chunk of data has be printed to the output
  transport stream. This method furthermore flushes the transport
  output stream buffer.
 
-### getReadTimeout() <a href="#m-getReadTimeout-640fc089c1de" id="m-getReadTimeout-640fc089c1de"></a>
+### getReadTimeout() <a href="#getreadtimeout-640fc089c1de" id="getreadtimeout-640fc089c1de"></a>
 
 ```java
 public int getReadTimeout()
@@ -682,7 +682,7 @@ Return the readTimeout value that is used to read data from
  the ssh socket. If a read doesn't complete within the stipulated
  timeout an INMException is thrown *
 
-### getSession() <a href="#m-getSession-d2df47d6a1b6" id="m-getSession-d2df47d6a1b6"></a>
+### getSession() <a href="#getsession-d2df47d6a1b6" id="getsession-d2df47d6a1b6"></a>
 
 ```java
 public ch.ethz.ssh2.Session getSession()
@@ -707,7 +707,7 @@ Needed by users that need to monitor a session for EOF .
       // socket
 ```
 
-### getSSHConnection() <a href="#m-getSSHConnection-d215c3958a3d" id="m-getSSHConnection-d215c3958a3d"></a>
+### getSSHConnection() <a href="#getsshconnection-d215c3958a3d" id="getsshconnection-d215c3958a3d"></a>
 
 ```java
 public ch.ethz.ssh2.Connection getSSHConnection()
@@ -715,7 +715,7 @@ public ch.ethz.ssh2.Connection getSSHConnection()
 
 Return the underlying ssh connection object
 
-### print(int) <a href="#m-print-41f2f1534264" id="m-print-41f2f1534264"></a>
+### print(int) <a href="#print-41f2f1534264" id="print-41f2f1534264"></a>
 
 ```java
 public void print(int iVal)
@@ -727,7 +727,7 @@ Prints an integer (as text) to the output stream.
 
 - `int iVal` - Text to send to the stream.
 
-### print(String) <a href="#m-print-b202251f9230" id="m-print-b202251f9230"></a>
+### print(String) <a href="#print-b202251f9230" id="print-b202251f9230"></a>
 
 ```java
 public void print(String s)
@@ -739,7 +739,7 @@ Prints text to the output stream.
 
 - `String s` - Text to send to the stream.
 
-### println(int) <a href="#m-println-4c26ee676efb" id="m-println-4c26ee676efb"></a>
+### println(int) <a href="#println-4c26ee676efb" id="println-4c26ee676efb"></a>
 
 ```java
 public void println(int iVal)
@@ -752,7 +752,7 @@ Prints an integer (as text) to the output stream.
 
 - `int iVal` - Text to send to the stream.
 
-### println(String) <a href="#m-println-15aea44318e6" id="m-println-15aea44318e6"></a>
+### println(String) <a href="#println-15aea44318e6" id="println-15aea44318e6"></a>
 
 ```java
 public void println(String s)
@@ -765,7 +765,7 @@ Print text to the output stream.
 
 - `String s` - Text to send to the stream.
 
-### readUntilWouldBlock() <a href="#m-readUntilWouldBlock-a932110e11be" id="m-readUntilWouldBlock-a932110e11be"></a>
+### readUntilWouldBlock() <a href="#readuntilwouldblock-a932110e11be" id="readuntilwouldblock-a932110e11be"></a>
 
 ```java
 public int readUntilWouldBlock()
@@ -776,7 +776,7 @@ If we have readTimeout set, and an outstanding operation was
 
 **Returns:** number of discarded characters
 
-### ready() <a href="#m-ready-92162bd485a2" id="m-ready-92162bd485a2"></a>
+### ready() <a href="#ready-92162bd485a2" id="ready-92162bd485a2"></a>
 
 ```java
 public boolean ready() throws java.io.IOException
@@ -791,7 +791,7 @@ Tell whether this transport is ready to be read.
  To explicitly just check for that, use the serverSideClosed()
  method.
 
-### ready(int) <a href="#m-ready-c585210c0993" id="m-ready-c585210c0993"></a>
+### ready(int) <a href="#ready-c585210c0993" id="ready-c585210c0993"></a>
 
 ```java
 public boolean ready(int timeout) throws java.io.IOException
@@ -801,7 +801,7 @@ public boolean ready(int timeout) throws java.io.IOException
 
 - `int timeout`
 
-### serverSideClosed() <a href="#m-serverSideClosed-0dfe26b0733e" id="m-serverSideClosed-0dfe26b0733e"></a>
+### serverSideClosed() <a href="#serversideclosed-0dfe26b0733e" id="serversideclosed-0dfe26b0733e"></a>
 
 ```java
 public boolean serverSideClosed()
@@ -810,7 +810,7 @@ public boolean serverSideClosed()
 given a live SSHSession, check if the server side has
  closed it's end of the ssh socket
 
-### setReadTimeout(int) <a href="#m-setReadTimeout-4f6742da7687" id="m-setReadTimeout-4f6742da7687"></a>
+### setReadTimeout(int) <a href="#setreadtimeout-4f6742da7687" id="setreadtimeout-4f6742da7687"></a>
 
 ```java
 public void setReadTimeout(int readTimeout)
@@ -824,13 +824,13 @@ Set the read timeout
  The readTimeout parameter affects all read operations. If a timeout
  is reached, an INMException is thrown. The socket is not closed.
 
-### setTracer(NedTracer) <a href="#m-setTracer-6943f9aadf68" id="m-setTracer-6943f9aadf68"></a>
+### setTracer(NedTracer) <a href="#settracer-6943f9aadf68" id="settracer-6943f9aadf68"></a>
 
 ```java
 public void setTracer(com.tailf.ned.NedTracer tracer)
 ```
 
-Types: [NedTracer](NedTracer.md#cls-NedTracer)
+Types: [NedTracer](NedTracer.md#nedtracer-f8730263f5f2)
 
 **Parameters**
 

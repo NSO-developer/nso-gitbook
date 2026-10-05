@@ -1,27 +1,27 @@
-# ConfERangeException <a href="#cls-ConfERangeException" id="cls-ConfERangeException"></a>
+# ConfERangeException <a href="#conferangeexception-3f566066d5e7" id="conferangeexception-3f566066d5e7"></a>
 
 ```java
 public class com.tailf.proto.ConfERangeException
     extends com.tailf.proto.ConfEException
 ```
 
-Types: [ConfEException](ConfEException.md#cls-ConfEException)
+Types: [ConfEException](ConfEException.md#confeexception-b29dcf955149)
 
 Exception raised when an attempt is made to create an E term with data that
  is out of range for the term in question.
 
-**See also:** [`ConfEByte`](ConfEByte.md#cls-ConfEByte), [`ConfEChar`](ConfEChar.md#cls-ConfEChar), [`ConfEInt`](ConfEInt.md#cls-ConfEInt), [`ConfEUInt`](ConfEUInt.md#cls-ConfEUInt), [`ConfEShort`](ConfEShort.md#cls-ConfEShort), [`ConfEUShort`](ConfEUShort.md#cls-ConfEUShort), [`ConfELong`](ConfELong.md#cls-ConfELong)
+**See also:** [`ConfEByte`](ConfEByte.md#confebyte-983739ca0c0b), [`ConfEChar`](ConfEChar.md#confechar-5508552b6df0), [`ConfEInt`](ConfEInt.md#confeint-71ffd8a18157), [`ConfEUInt`](ConfEUInt.md#confeuint-121a73198dd9), [`ConfEShort`](ConfEShort.md#confeshort-f731373fcabf), [`ConfEUShort`](ConfEUShort.md#confeushort-5795f0387e29), [`ConfELong`](ConfELong.md#confelong-926979f5365d)
 
 ## Members
 
 **Constructors**:
 
-- [ConfERangeException(String)](#m-ConfERangeException-de782d935745)
-- [ConfERangeException(String, Throwable)](#m-ConfERangeException-3e21becd1deb)
+- [ConfERangeException(String)](#conferangeexception-de782d935745)
+- [ConfERangeException(String, Throwable)](#conferangeexception-3e21becd1deb)
 
 ## Constructors
 
-### ConfERangeException(String) <a href="#m-ConfERangeException-de782d935745" id="m-ConfERangeException-de782d935745"></a>
+### ConfERangeException(String) <a href="#conferangeexception-de782d935745" id="conferangeexception-de782d935745"></a>
 
 ```java
 public ConfERangeException(String msg)
@@ -31,7 +31,7 @@ public ConfERangeException(String msg)
 
 - `String msg`
 
-### ConfERangeException(String, Throwable) <a href="#m-ConfERangeException-3e21becd1deb" id="m-ConfERangeException-3e21becd1deb"></a>
+### ConfERangeException(String, Throwable) <a href="#conferangeexception-3e21becd1deb" id="conferangeexception-3e21becd1deb"></a>
 
 ```java
 public ConfERangeException(String msg, Throwable cause)

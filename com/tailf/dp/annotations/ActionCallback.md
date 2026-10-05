@@ -1,4 +1,4 @@
-# ActionCallback <a href="#cls-ActionCallback" id="cls-ActionCallback"></a>
+# ActionCallback <a href="#actioncallback-87db2e3174d7" id="actioncallback-87db2e3174d7"></a>
 
 ```java
 @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
@@ -14,12 +14,12 @@ Annotation class for Action Callbacks Attributes are callPoint and callType
 
 **Methods**:
 
-- [callPoint()](#m-callPoint-c21f52042879)
-- [callType()](#m-callType-0d0f9b61a036)
+- [callPoint()](#callpoint-c21f52042879)
+- [callType()](#calltype-0d0f9b61a036)
 
 ## Methods
 
-### callPoint() <a href="#m-callPoint-c21f52042879" id="m-callPoint-c21f52042879"></a>
+### callPoint() <a href="#callpoint-c21f52042879" id="callpoint-c21f52042879"></a>
 
 ```java
 public abstract String callPoint()
@@ -27,12 +27,12 @@ public abstract String callPoint()
 
 The name of the callpoint implementing the action
 
-### callType() <a href="#m-callType-0d0f9b61a036" id="m-callType-0d0f9b61a036"></a>
+### callType() <a href="#calltype-0d0f9b61a036" id="calltype-0d0f9b61a036"></a>
 
 ```java
 public abstract com.tailf.dp.proto.ActionCBType[] callType()
 ```
 
-Types: [ActionCBType](../proto/ActionCBType.md#cls-ActionCBType)
+Types: [ActionCBType](../proto/ActionCBType.md#actioncbtype-10d0222e8e66)
 
 The type of the callback (INIT, ACTION, ABORT etc)

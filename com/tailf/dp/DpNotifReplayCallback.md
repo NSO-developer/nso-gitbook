@@ -1,4 +1,4 @@
-# DpNotifReplayCallback <a href="#cls-DpNotifReplayCallback" id="cls-DpNotifReplayCallback"></a>
+# DpNotifReplayCallback <a href="#dpnotifreplaycallback-8fa565df0e52" id="dpnotifreplaycallback-8fa565df0e52"></a>
 
 ```java
 public interface com.tailf.dp.DpNotifReplayCallback
@@ -44,19 +44,19 @@ This interface is used for the notifications replay callback.
  the start and stop arguments to determine start and stop positions in the
  log.
 
-**See also:** [`DpNotifStream`](DpNotifStream.md#cls-DpNotifStream)
+**See also:** [`DpNotifStream`](DpNotifStream.md#dpnotifstream-35a75c06ae81)
 
 ## Members
 
 **Methods**:
 
-- [getLogAgedTime(DpNotifStream)](#m-getLogAgedTime-52a6ca6114ae)
-- [getLogStartTime(DpNotifStream)](#m-getLogStartTime-19cd5e71b8f6)
-- [replay(DpNotifStream, ConfDatetime, ConfDatetime)](#m-replay-9189095b66c6)
+- [getLogAgedTime(DpNotifStream)](#getlogagedtime-52a6ca6114ae)
+- [getLogStartTime(DpNotifStream)](#getlogstarttime-19cd5e71b8f6)
+- [replay(DpNotifStream, ConfDatetime, ConfDatetime)](#replay-9189095b66c6)
 
 ## Methods
 
-### getLogAgedTime(DpNotifStream) <a href="#m-getLogAgedTime-52a6ca6114ae" id="m-getLogAgedTime-52a6ca6114ae"></a>
+### getLogAgedTime(DpNotifStream) <a href="#getlogagedtime-52a6ca6114ae" id="getlogagedtime-52a6ca6114ae"></a>
 
 ```java
 public abstract com.tailf.conf.ConfDatetime getLogAgedTime(
@@ -65,7 +65,7 @@ public abstract com.tailf.conf.ConfDatetime getLogAgedTime(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime), [DpNotifStream](DpNotifStream.md#cls-DpNotifStream), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [ConfDatetime](../conf/ConfDatetime.md#confdatetime-8f67d7ff6ae8), [DpNotifStream](DpNotifStream.md#dpnotifstream-35a75c06ae81), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 The callback is called by ConfD/NCS to find out the event time of the
  last notification aged out of the log, if any.
@@ -80,7 +80,7 @@ The callback is called by ConfD/NCS to find out the event time of the
 
 - `DpCallbackException` - Callback method failed.
 
-### getLogStartTime(DpNotifStream) <a href="#m-getLogStartTime-19cd5e71b8f6" id="m-getLogStartTime-19cd5e71b8f6"></a>
+### getLogStartTime(DpNotifStream) <a href="#getlogstarttime-19cd5e71b8f6" id="getlogstarttime-19cd5e71b8f6"></a>
 
 ```java
 public abstract com.tailf.conf.ConfDatetime getLogStartTime(
@@ -89,7 +89,7 @@ public abstract com.tailf.conf.ConfDatetime getLogStartTime(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime), [DpNotifStream](DpNotifStream.md#cls-DpNotifStream), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [ConfDatetime](../conf/ConfDatetime.md#confdatetime-8f67d7ff6ae8), [DpNotifStream](DpNotifStream.md#dpnotifstream-35a75c06ae81), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 The callback is called by ConfD/NCS to find out the log's current start
  time, relevant for replay requests.
@@ -104,7 +104,7 @@ The callback is called by ConfD/NCS to find out the log's current start
 
 - `DpCallbackException` - Callback method failed.
 
-### replay(DpNotifStream, ConfDatetime, ConfDatetime) <a href="#m-replay-9189095b66c6" id="m-replay-9189095b66c6"></a>
+### replay(DpNotifStream, ConfDatetime, ConfDatetime) <a href="#replay-9189095b66c6" id="replay-9189095b66c6"></a>
 
 ```java
 public abstract void replay(
@@ -115,7 +115,7 @@ public abstract void replay(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpNotifStream](DpNotifStream.md#cls-DpNotifStream), [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpNotifStream](DpNotifStream.md#dpnotifstream-35a75c06ae81), [ConfDatetime](../conf/ConfDatetime.md#confdatetime-8f67d7ff6ae8), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 The replay() callback is called by ConfD/NCS to request replay. The
  stream argument must be saved by the application and used when sending

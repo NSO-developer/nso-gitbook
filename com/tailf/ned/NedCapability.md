@@ -1,4 +1,4 @@
-# NedCapability <a href="#cls-NedCapability" id="cls-NedCapability"></a>
+# NedCapability <a href="#nedcapability-26ca5e07f364" id="nedcapability-26ca5e07f364"></a>
 
 ```java
 public class com.tailf.ned.NedCapability
@@ -12,24 +12,24 @@ NedCapability is used to communicate the capabilities (supported
 
 **Constructors**:
 
-- [NedCapability(String, String)](#m-NedCapability-cbee6d94f26b)
-- [NedCapability(String, String, List<String>, String, List<String>)](#m-NedCapability-0618acf74952)
-- [NedCapability(String, String, String, List<String>, String, List<String>)](#m-NedCapability-a0ce331f8ac0)
+- [NedCapability(String, String)](#nedcapability-cbee6d94f26b)
+- [NedCapability(String, String, List<String>, String, List<String>)](#nedcapability-0618acf74952)
+- [NedCapability(String, String, String, List<String>, String, List<String>)](#nedcapability-a0ce331f8ac0)
 
 **Methods**:
 
-- [encode()](#m-encode-fbae522bba37)
-- [getDeviations()](#m-getDeviations-635611da0c3c)
-- [getFeatures()](#m-getFeatures-2b82b997b3cb)
-- [getModule()](#m-getModule-68694513ccce)
-- [getName()](#m-getName-2634b18b4a25)
-- [getRevision()](#m-getRevision-b0088aa9f0bf)
-- [getURI()](#m-getURI-7ec1ffd8cd93)
-- [toString()](#m-toString-e9d48c5503ef)
+- [encode()](#encode-fbae522bba37)
+- [getDeviations()](#getdeviations-635611da0c3c)
+- [getFeatures()](#getfeatures-2b82b997b3cb)
+- [getModule()](#getmodule-68694513ccce)
+- [getName()](#getname-2634b18b4a25)
+- [getRevision()](#getrevision-b0088aa9f0bf)
+- [getURI()](#geturi-7ec1ffd8cd93)
+- [toString()](#tostring-e9d48c5503ef)
 
 ## Constructors
 
-### NedCapability(String, String) <a href="#m-NedCapability-cbee6d94f26b" id="m-NedCapability-cbee6d94f26b"></a>
+### NedCapability(String, String) <a href="#nedcapability-cbee6d94f26b" id="nedcapability-cbee6d94f26b"></a>
 
 ```java
 public NedCapability(String uri, String module)
@@ -40,7 +40,7 @@ public NedCapability(String uri, String module)
 - `String uri`
 - `String module`
 
-### NedCapability(String, String, List<String>, String, List<String>) <a href="#m-NedCapability-0618acf74952" id="m-NedCapability-0618acf74952"></a>
+### NedCapability(String, String, List&lt;String&gt;, String, List&lt;String&gt;) <a href="#nedcapability-0618acf74952" id="nedcapability-0618acf74952"></a>
 
 ```java
 public NedCapability(
@@ -60,7 +60,7 @@ public NedCapability(
 - `String revision`
 - `java.util.List<String> deviations`
 
-### NedCapability(String, String, String, List<String>, String, List<String>) <a href="#m-NedCapability-a0ce331f8ac0" id="m-NedCapability-a0ce331f8ac0"></a>
+### NedCapability(String, String, String, List&lt;String&gt;, String, List&lt;String&gt;) <a href="#nedcapability-a0ce331f8ac0" id="nedcapability-a0ce331f8ac0"></a>
 
 ```java
 public NedCapability(
@@ -100,51 +100,51 @@ This class mimics a capability as returned by a NETCONF agent
 
 ## Methods
 
-### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
+### encode() <a href="#encode-fbae522bba37" id="encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
 
-### getDeviations() <a href="#m-getDeviations-635611da0c3c" id="m-getDeviations-635611da0c3c"></a>
+### getDeviations() <a href="#getdeviations-635611da0c3c" id="getdeviations-635611da0c3c"></a>
 
 ```java
 public java.util.List<String> getDeviations()
 ```
 
-### getFeatures() <a href="#m-getFeatures-2b82b997b3cb" id="m-getFeatures-2b82b997b3cb"></a>
+### getFeatures() <a href="#getfeatures-2b82b997b3cb" id="getfeatures-2b82b997b3cb"></a>
 
 ```java
 public java.util.List<String> getFeatures()
 ```
 
-### getModule() <a href="#m-getModule-68694513ccce" id="m-getModule-68694513ccce"></a>
+### getModule() <a href="#getmodule-68694513ccce" id="getmodule-68694513ccce"></a>
 
 ```java
 public String getModule()
 ```
 
-### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
+### getName() <a href="#getname-2634b18b4a25" id="getname-2634b18b4a25"></a>
 
 ```java
 public String getName()
 ```
 
-### getRevision() <a href="#m-getRevision-b0088aa9f0bf" id="m-getRevision-b0088aa9f0bf"></a>
+### getRevision() <a href="#getrevision-b0088aa9f0bf" id="getrevision-b0088aa9f0bf"></a>
 
 ```java
 public String getRevision()
 ```
 
-### getURI() <a href="#m-getURI-7ec1ffd8cd93" id="m-getURI-7ec1ffd8cd93"></a>
+### getURI() <a href="#geturi-7ec1ffd8cd93" id="geturi-7ec1ffd8cd93"></a>
 
 ```java
 public String getURI()
 ```
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()

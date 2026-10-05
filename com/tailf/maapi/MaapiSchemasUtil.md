@@ -1,4 +1,4 @@
-# MaapiSchemasUtil <a href="#cls-MaapiSchemasUtil" id="cls-MaapiSchemasUtil"></a>
+# MaapiSchemasUtil <a href="#maapischemasutil-bc1b43597fd6" id="maapischemasutil-bc1b43597fd6"></a>
 
 ```java
 public class com.tailf.maapi.MaapiSchemasUtil
@@ -12,18 +12,18 @@ Utility class for MaapiSchemas This class contains tools for making recursive
 
 **Constructors**:
 
-- [MaapiSchemasUtil()](#m-MaapiSchemasUtil-96c7fe9b10ed)
+- [MaapiSchemasUtil()](#maapischemasutil-96c7fe9b10ed)
 
 **Methods**:
 
-- [main(String[])](#m-main-1503518a8568)
-- [printChildren(int, CSNode)](#m-printChildren-569289dd47f3)
-- [printNodeFlags(int)](#m-printNodeFlags-82155e1196a9)
-- [printNodeInfo(int, CSNode)](#m-printNodeInfo-c2705fa59a11)
+- [main(String[])](#main-1503518a8568)
+- [printChildren(int, CSNode)](#printchildren-569289dd47f3)
+- [printNodeFlags(int)](#printnodeflags-82155e1196a9)
+- [printNodeInfo(int, CSNode)](#printnodeinfo-c2705fa59a11)
 
 ## Constructors
 
-### MaapiSchemasUtil() <a href="#m-MaapiSchemasUtil-96c7fe9b10ed" id="m-MaapiSchemasUtil-96c7fe9b10ed"></a>
+### MaapiSchemasUtil() <a href="#maapischemasutil-96c7fe9b10ed" id="maapischemasutil-96c7fe9b10ed"></a>
 
 ```java
 public MaapiSchemasUtil()
@@ -32,7 +32,7 @@ public MaapiSchemasUtil()
 
 ## Methods
 
-### main(String[]) <a href="#m-main-1503518a8568" id="m-main-1503518a8568"></a>
+### main(String[]) <a href="#main-1503518a8568" id="main-1503518a8568"></a>
 
 ```java
 public static void main(String[] args)
@@ -62,13 +62,13 @@ Main method, downloads all schemas from the server using
 - `String[] args` - String array optionally containing the hostname and the
              port of the server
 
-### printChildren(int, CSNode) <a href="#m-printChildren-569289dd47f3" id="m-printChildren-569289dd47f3"></a>
+### printChildren(int, CSNode) <a href="#printchildren-569289dd47f3" id="printchildren-569289dd47f3"></a>
 
 ```java
 public static void printChildren(int offset, com.tailf.maapi.MaapiSchemas.CSNode n)
 ```
 
-Types: [CSNode](MaapiSchemas/CSNode.md#cls-CSNode)
+Types: [CSNode](MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 
 Recursive printout of a schema tree from and including given node
 
@@ -77,7 +77,7 @@ Recursive printout of a schema tree from and including given node
 - `int offset` - indentation offset for printout, 0 at start.
 - `com.tailf.maapi.MaapiSchemas.CSNode n` - start node for printout
 
-### printNodeFlags(int) <a href="#m-printNodeFlags-82155e1196a9" id="m-printNodeFlags-82155e1196a9"></a>
+### printNodeFlags(int) <a href="#printnodeflags-82155e1196a9" id="printnodeflags-82155e1196a9"></a>
 
 ```java
 public static void printNodeFlags(int flags)
@@ -87,13 +87,13 @@ public static void printNodeFlags(int flags)
 
 - `int flags`
 
-### printNodeInfo(int, CSNode) <a href="#m-printNodeInfo-c2705fa59a11" id="m-printNodeInfo-c2705fa59a11"></a>
+### printNodeInfo(int, CSNode) <a href="#printnodeinfo-c2705fa59a11" id="printnodeinfo-c2705fa59a11"></a>
 
 ```java
 public static void printNodeInfo(int offset, com.tailf.maapi.MaapiSchemas.CSNode n)
 ```
 
-Types: [CSNode](MaapiSchemas/CSNode.md#cls-CSNode)
+Types: [CSNode](MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 
 Node info printout for a given node
 

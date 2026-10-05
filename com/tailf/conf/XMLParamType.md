@@ -1,56 +1,56 @@
-# XMLParamType <a href="#cls-XMLParamType" id="cls-XMLParamType"></a>
+# XMLParamType <a href="#xmlparamtype-3881bed6e84d" id="xmlparamtype-3881bed6e84d"></a>
 
 ```java
 public enum com.tailf.conf.XMLParamType
 ```
 
-Types: [XMLParamType](XMLParamType.md#cls-XMLParamType)
+Types: [XMLParamType](XMLParamType.md#xmlparamtype-3881bed6e84d)
 
 Enum identifying type of ConfXMLParam subclass.
- see [`ConfXMLParam`](ConfXMLParam.md#cls-ConfXMLParam)
+ see [`ConfXMLParam`](ConfXMLParam.md#confxmlparam-f5f4394b46a7)
 
 ## Members
 
 **Enum Constants**:
 
-- [DELETE](#m-DELETE)
-- [LEAF](#m-LEAF)
-- [START](#m-START)
-- [STOP](#m-STOP)
-- [VALUE](#m-VALUE)
+- [DELETE](#delete-17bb47048092)
+- [LEAF](#leaf-b4c2430c1450)
+- [START](#start-759667c28821)
+- [STOP](#stop-0113fde09d86)
+- [VALUE](#value-9372855f0c07)
 
 **Methods**:
 
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### DELETE <a href="#m-DELETE" id="m-DELETE"></a>
+### DELETE <a href="#delete-17bb47048092" id="delete-17bb47048092"></a>
 
 ```java
 public static final com.tailf.conf.XMLParamType DELETE;
 ```
 
-### LEAF <a href="#m-LEAF" id="m-LEAF"></a>
+### LEAF <a href="#leaf-b4c2430c1450" id="leaf-b4c2430c1450"></a>
 
 ```java
 public static final com.tailf.conf.XMLParamType LEAF;
 ```
 
-### START <a href="#m-START" id="m-START"></a>
+### START <a href="#start-759667c28821" id="start-759667c28821"></a>
 
 ```java
 public static final com.tailf.conf.XMLParamType START;
 ```
 
-### STOP <a href="#m-STOP" id="m-STOP"></a>
+### STOP <a href="#stop-0113fde09d86" id="stop-0113fde09d86"></a>
 
 ```java
 public static final com.tailf.conf.XMLParamType STOP;
 ```
 
-### VALUE <a href="#m-VALUE" id="m-VALUE"></a>
+### VALUE <a href="#value-9372855f0c07" id="value-9372855f0c07"></a>
 
 ```java
 public static final com.tailf.conf.XMLParamType VALUE;
@@ -59,22 +59,22 @@ public static final com.tailf.conf.XMLParamType VALUE;
 
 ## Methods
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.conf.XMLParamType valueOf(String name)
 ```
 
-Types: [XMLParamType](XMLParamType.md#cls-XMLParamType)
+Types: [XMLParamType](XMLParamType.md#xmlparamtype-3881bed6e84d)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.conf.XMLParamType[] values()
 ```
 
-Types: [XMLParamType](XMLParamType.md#cls-XMLParamType)
+Types: [XMLParamType](XMLParamType.md#xmlparamtype-3881bed6e84d)

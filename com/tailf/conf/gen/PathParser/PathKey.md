@@ -1,4 +1,4 @@
-# PathKey <a href="#cls-PathKey" id="cls-PathKey"></a>
+# PathKey <a href="#pathkey-a9b70d1850aa" id="pathkey-a9b70d1850aa"></a>
 
 ```java
 public static class com.tailf.conf.gen.PathParser.PathKey
@@ -8,20 +8,20 @@ public static class com.tailf.conf.gen.PathParser.PathKey
 
 **Constructors**:
 
-- [PathKey()](#m-PathKey-af468f026aa6)
+- [PathKey()](#pathkey-af468f026aa6)
 
 **Fields**:
 
-- [value](#m-value)
+- [value](#value-4bdfc955fc93)
 
 **Methods**:
 
-- [equals(Object)](#m-equals-fcd6492e0d6c)
-- [hashCode()](#m-hashCode-ef797a217903)
+- [equals(Object)](#equals-fcd6492e0d6c)
+- [hashCode()](#hashcode-ef797a217903)
 
 ## Constructors
 
-### PathKey() <a href="#m-PathKey-af468f026aa6" id="m-PathKey-af468f026aa6"></a>
+### PathKey() <a href="#pathkey-af468f026aa6" id="pathkey-af468f026aa6"></a>
 
 ```java
 public PathKey()
@@ -30,18 +30,18 @@ public PathKey()
 
 ## Fields
 
-### value <a href="#m-value" id="m-value"></a>
+### value <a href="#value-4bdfc955fc93" id="value-4bdfc955fc93"></a>
 
 ```java
 public com.tailf.conf.ConfObject value = null;
 ```
 
-Types: [ConfObject](../../ConfObject.md#cls-ConfObject)
+Types: [ConfObject](../../ConfObject.md#confobject-5433616953b2)
 
 
 ## Methods
 
-### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
+### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -51,7 +51,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
+### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
 ```java
 public int hashCode()

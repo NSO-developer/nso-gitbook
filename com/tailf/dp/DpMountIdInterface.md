@@ -1,4 +1,4 @@
-# DpMountIdInterface <a href="#cls-DpMountIdInterface" id="cls-DpMountIdInterface"></a>
+# DpMountIdInterface <a href="#dpmountidinterface-265f1e5d05e4" id="dpmountidinterface-265f1e5d05e4"></a>
 
 ```java
 public interface com.tailf.dp.DpMountIdInterface
@@ -8,17 +8,17 @@ public interface com.tailf.dp.DpMountIdInterface
 
 **Methods**:
 
-- [retrieveMountId(Object)](#m-retrieveMountId-c38b7bcdc149)
+- [retrieveMountId(Object)](#retrievemountid-c38b7bcdc149)
 
 ## Methods
 
-### retrieveMountId(Object) <a href="#m-retrieveMountId-c38b7bcdc149" id="m-retrieveMountId-c38b7bcdc149"></a>
+### retrieveMountId(Object) <a href="#retrievemountid-c38b7bcdc149" id="retrievemountid-c38b7bcdc149"></a>
 
 ```java
 public abstract String retrieveMountId(Object obj) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 

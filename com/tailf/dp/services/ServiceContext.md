@@ -1,4 +1,4 @@
-# ServiceContext <a href="#cls-ServiceContext" id="cls-ServiceContext"></a>
+# ServiceContext <a href="#servicecontext-f7734df4f22b" id="servicecontext-f7734df4f22b"></a>
 
 ```java
 public interface com.tailf.dp.services.ServiceContext
@@ -12,32 +12,32 @@ The service context object.
 
 **Methods**:
 
-- [getNedIdByDeviceName(String)](#m-getNedIdByDeviceName-11861342f251)
-- [getRootNode()](#m-getRootNode-eed9b3c70129)
-- [getServiceNode()](#m-getServiceNode-ffc6dd44e182)
-- [setTimeout(int)](#m-setTimeout-cbe758ecb5d8)
+- [getNedIdByDeviceName(String)](#getnedidbydevicename-11861342f251)
+- [getRootNode()](#getrootnode-eed9b3c70129)
+- [getServiceNode()](#getservicenode-ffc6dd44e182)
+- [setTimeout(int)](#settimeout-cbe758ecb5d8)
 
 ## Methods
 
-### getNedIdByDeviceName(String) <a href="#m-getNedIdByDeviceName-11861342f251" id="m-getNedIdByDeviceName-11861342f251"></a>
+### getNedIdByDeviceName(String) <a href="#getnedidbydevicename-11861342f251" id="getnedidbydevicename-11861342f251"></a>
 
 ```java
 public abstract String getNedIdByDeviceName(String name) throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../../conf/ConfException.md#cls-ConfException)
+Types: [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
 - `String name`
 
-### getRootNode() <a href="#m-getRootNode-eed9b3c70129" id="m-getRootNode-eed9b3c70129"></a>
+### getRootNode() <a href="#getrootnode-eed9b3c70129" id="getrootnode-eed9b3c70129"></a>
 
 ```java
 public abstract com.tailf.navu.NavuNode getRootNode() throws com.tailf.conf.ConfException
 ```
 
-Types: [NavuNode](../../navu/NavuNode.md#cls-NavuNode), [ConfException](../../conf/ConfException.md#cls-ConfException)
+Types: [NavuNode](../../navu/NavuNode.md#navunode-73944820c8db), [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Returns the path root as a NavuNode with the
  NavuContext attached to the ongoing Maapi transaction.
@@ -48,13 +48,13 @@ Returns the path root as a NavuNode with the
 
 - `ConfException`
 
-### getServiceNode() <a href="#m-getServiceNode-ffc6dd44e182" id="m-getServiceNode-ffc6dd44e182"></a>
+### getServiceNode() <a href="#getservicenode-ffc6dd44e182" id="getservicenode-ffc6dd44e182"></a>
 
 ```java
 public abstract com.tailf.navu.NavuNode getServiceNode() throws com.tailf.conf.ConfException
 ```
 
-Types: [NavuNode](../../navu/NavuNode.md#cls-NavuNode), [ConfException](../../conf/ConfException.md#cls-ConfException)
+Types: [NavuNode](../../navu/NavuNode.md#navunode-73944820c8db), [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Returns the current service path as a NavuNode with the
  NavuContext attached to the ongoing Maapi transaction.
@@ -65,7 +65,7 @@ Returns the current service path as a NavuNode with the
 
 - `ConfException`
 
-### setTimeout(int) <a href="#m-setTimeout-cbe758ecb5d8" id="m-setTimeout-cbe758ecb5d8"></a>
+### setTimeout(int) <a href="#settimeout-cbe758ecb5d8" id="settimeout-cbe758ecb5d8"></a>
 
 ```java
 public abstract void setTimeout(
@@ -74,7 +74,7 @@ public abstract void setTimeout(
     throws java.io.IOException, com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 The timeout for service calls (pre-modification/create/post-modification)
  can be controlled by /services/global-settings/service-callback-timeout.

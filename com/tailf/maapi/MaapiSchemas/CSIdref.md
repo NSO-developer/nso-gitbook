@@ -1,4 +1,4 @@
-# CSIdref <a href="#cls-CSIdref" id="cls-CSIdref"></a>
+# CSIdref <a href="#csidref-ad9cd0da8b26" id="csidref-ad9cd0da8b26"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.CSIdref
@@ -8,27 +8,27 @@ public static class com.tailf.maapi.MaapiSchemas.CSIdref
 
 **Constructors**:
 
-- [CSIdref(String, String, int, int)](#m-CSIdref-6752ec689cfb)
+- [CSIdref(String, String, int, int)](#csidref-6752ec689cfb)
 
 **Fields**:
 
-- [id](#m-id)
-- [name](#m-name)
-- [ns](#m-ns)
-- [qName](#m-qName)
+- [id](#id-048276095f61)
+- [name](#name-c64f5553ba82)
+- [ns](#ns-8a46ea397979)
+- [qName](#qname-ea64db1f80ab)
 
 **Methods**:
 
-- [getId()](#m-getId-199a349c70ef)
-- [getName()](#m-getName-2634b18b4a25)
-- [getNS()](#m-getNS-3613c99d8888)
-- [getQName()](#m-getQName-9e09580fbf90)
-- [setName(String)](#m-setName-c76ccfcb9f18)
-- [setQName(String)](#m-setQName-62d2dd2eb710)
+- [getId()](#getid-199a349c70ef)
+- [getName()](#getname-2634b18b4a25)
+- [getNS()](#getns-3613c99d8888)
+- [getQName()](#getqname-9e09580fbf90)
+- [setName(String)](#setname-c76ccfcb9f18)
+- [setQName(String)](#setqname-62d2dd2eb710)
 
 ## Constructors
 
-### CSIdref(String, String, int, int) <a href="#m-CSIdref-6752ec689cfb" id="m-CSIdref-6752ec689cfb"></a>
+### CSIdref(String, String, int, int) <a href="#csidref-6752ec689cfb" id="csidref-6752ec689cfb"></a>
 
 ```java
 public CSIdref(String qname, String name, int ns, int id)
@@ -44,7 +44,7 @@ public CSIdref(String qname, String name, int ns, int id)
 
 ## Fields
 
-### id <a href="#m-id" id="m-id"></a>
+### id <a href="#id-048276095f61" id="id-048276095f61"></a>
 
 **Package-private**
 
@@ -52,7 +52,7 @@ public CSIdref(String qname, String name, int ns, int id)
 int id = null;
 ```
 
-### name <a href="#m-name" id="m-name"></a>
+### name <a href="#name-c64f5553ba82" id="name-c64f5553ba82"></a>
 
 **Package-private**
 
@@ -60,7 +60,7 @@ int id = null;
 String name = null;
 ```
 
-### ns <a href="#m-ns" id="m-ns"></a>
+### ns <a href="#ns-8a46ea397979" id="ns-8a46ea397979"></a>
 
 **Package-private**
 
@@ -68,7 +68,7 @@ String name = null;
 int ns = null;
 ```
 
-### qName <a href="#m-qName" id="m-qName"></a>
+### qName <a href="#qname-ea64db1f80ab" id="qname-ea64db1f80ab"></a>
 
 **Package-private**
 
@@ -79,25 +79,25 @@ String qName = null;
 
 ## Methods
 
-### getId() <a href="#m-getId-199a349c70ef" id="m-getId-199a349c70ef"></a>
+### getId() <a href="#getid-199a349c70ef" id="getid-199a349c70ef"></a>
 
 ```java
 public int getId()
 ```
 
-### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
+### getName() <a href="#getname-2634b18b4a25" id="getname-2634b18b4a25"></a>
 
 ```java
 public String getName()
 ```
 
-### getNS() <a href="#m-getNS-3613c99d8888" id="m-getNS-3613c99d8888"></a>
+### getNS() <a href="#getns-3613c99d8888" id="getns-3613c99d8888"></a>
 
 ```java
 public int getNS()
 ```
 
-### getQName() <a href="#m-getQName-9e09580fbf90" id="m-getQName-9e09580fbf90"></a>
+### getQName() <a href="#getqname-9e09580fbf90" id="getqname-9e09580fbf90"></a>
 
 ```java
 public String getQName()
@@ -106,7 +106,7 @@ public String getQName()
 Return the string "prefix:name"
  of a identity
 
-### setName(String) <a href="#m-setName-c76ccfcb9f18" id="m-setName-c76ccfcb9f18"></a>
+### setName(String) <a href="#setname-c76ccfcb9f18" id="setname-c76ccfcb9f18"></a>
 
 ```java
 public void setName(String name)
@@ -116,7 +116,7 @@ public void setName(String name)
 
 - `String name`
 
-### setQName(String) <a href="#m-setQName-62d2dd2eb710" id="m-setQName-62d2dd2eb710"></a>
+### setQName(String) <a href="#setqname-62d2dd2eb710" id="setqname-62d2dd2eb710"></a>
 
 **Package-private**
 

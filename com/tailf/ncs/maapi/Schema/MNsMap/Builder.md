@@ -1,4 +1,4 @@
-# Builder <a href="#cls-Builder" id="cls-Builder"></a>
+# Builder <a href="#builder-21f09e83781d" id="builder-21f09e83781d"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.MNsMap.Builder
@@ -9,23 +9,23 @@ public static final class com.tailf.ncs.maapi.Schema.MNsMap.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asReader-b5c0f2a8d115)
-- [getEntries()](#m-getEntries-f554b7f62e3d)
-- [getNsHash()](#m-getNsHash-f6f3e3ae1e6b)
-- [getTagHash()](#m-getTagHash-8f057919039c)
-- [hasEntries()](#m-hasEntries-ccf5edf194a9)
-- [initEntries(int)](#m-initEntries-f2a53bc0911b)
-- [setEntries(Reader<Reader>)](#m-setEntries-edf21be99f7c)
-- [setNsHash(int)](#m-setNsHash-856e3c88b24a)
-- [setTagHash(int)](#m-setTagHash-0e9cfe2575f5)
+- [asReader()](#asreader-b5c0f2a8d115)
+- [getEntries()](#getentries-f554b7f62e3d)
+- [getNsHash()](#getnshash-f6f3e3ae1e6b)
+- [getTagHash()](#gettaghash-8f057919039c)
+- [hasEntries()](#hasentries-ccf5edf194a9)
+- [initEntries(int)](#initentries-f2a53bc0911b)
+- [setEntries(Reader<Reader>)](#setentries-edf21be99f7c)
+- [setNsHash(int)](#setnshash-856e3c88b24a)
+- [setTagHash(int)](#settaghash-0e9cfe2575f5)
 
 ## Constructors
 
-### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
+### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -50,41 +50,41 @@ Builder(
 
 ## Methods
 
-### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
+### asReader() <a href="#asreader-b5c0f2a8d115" id="asreader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.MNsMap.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#cls-Reader)
+Types: [Reader](Reader.md#reader-b2467a96ddff)
 
-### getEntries() <a href="#m-getEntries-f554b7f62e3d" id="m-getEntries-f554b7f62e3d"></a>
+### getEntries() <a href="#getentries-f554b7f62e3d" id="getentries-f554b7f62e3d"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.MNsMapEntry.Builder> getEntries()
 ```
 
-Types: [Builder](../MNsMapEntry/Builder.md#cls-Builder)
+Types: [Builder](../MNsMapEntry/Builder.md#builder-21f09e83781d)
 
-### getNsHash() <a href="#m-getNsHash-f6f3e3ae1e6b" id="m-getNsHash-f6f3e3ae1e6b"></a>
+### getNsHash() <a href="#getnshash-f6f3e3ae1e6b" id="getnshash-f6f3e3ae1e6b"></a>
 
 ```java
 public final int getNsHash()
 ```
 
-### getTagHash() <a href="#m-getTagHash-8f057919039c" id="m-getTagHash-8f057919039c"></a>
+### getTagHash() <a href="#gettaghash-8f057919039c" id="gettaghash-8f057919039c"></a>
 
 ```java
 public final int getTagHash()
 ```
 
-### hasEntries() <a href="#m-hasEntries-ccf5edf194a9" id="m-hasEntries-ccf5edf194a9"></a>
+### hasEntries() <a href="#hasentries-ccf5edf194a9" id="hasentries-ccf5edf194a9"></a>
 
 ```java
 public final boolean hasEntries()
 ```
 
-### initEntries(int) <a href="#m-initEntries-f2a53bc0911b" id="m-initEntries-f2a53bc0911b"></a>
+### initEntries(int) <a href="#initentries-f2a53bc0911b" id="initentries-f2a53bc0911b"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.MNsMapEntry.Builder> initEntries(
@@ -92,13 +92,13 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.MNsMapE
 )
 ```
 
-Types: [Builder](../MNsMapEntry/Builder.md#cls-Builder)
+Types: [Builder](../MNsMapEntry/Builder.md#builder-21f09e83781d)
 
 **Parameters**
 
 - `int size`
 
-### setEntries(Reader<Reader>) <a href="#m-setEntries-edf21be99f7c" id="m-setEntries-edf21be99f7c"></a>
+### setEntries(Reader&lt;Reader&gt;) <a href="#setentries-edf21be99f7c" id="setentries-edf21be99f7c"></a>
 
 ```java
 public final void setEntries(
@@ -106,13 +106,13 @@ public final void setEntries(
 )
 ```
 
-Types: [Reader](../MNsMapEntry/Reader.md#cls-Reader)
+Types: [Reader](../MNsMapEntry/Reader.md#reader-b2467a96ddff)
 
 **Parameters**
 
 - `org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.MNsMapEntry.Reader> value`
 
-### setNsHash(int) <a href="#m-setNsHash-856e3c88b24a" id="m-setNsHash-856e3c88b24a"></a>
+### setNsHash(int) <a href="#setnshash-856e3c88b24a" id="setnshash-856e3c88b24a"></a>
 
 ```java
 public final void setNsHash(int value)
@@ -122,7 +122,7 @@ public final void setNsHash(int value)
 
 - `int value`
 
-### setTagHash(int) <a href="#m-setTagHash-0e9cfe2575f5" id="m-setTagHash-0e9cfe2575f5"></a>
+### setTagHash(int) <a href="#settaghash-0e9cfe2575f5" id="settaghash-0e9cfe2575f5"></a>
 
 ```java
 public final void setTagHash(int value)

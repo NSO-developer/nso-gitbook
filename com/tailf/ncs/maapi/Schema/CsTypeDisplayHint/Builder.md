@@ -1,4 +1,4 @@
-# Builder <a href="#cls-Builder" id="cls-Builder"></a>
+# Builder <a href="#builder-21f09e83781d" id="builder-21f09e83781d"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Builder
@@ -9,20 +9,20 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asReader-b5c0f2a8d115)
-- [getDisplayHint()](#m-getDisplayHint-f9cb8b7f487f)
-- [hasDisplayHint()](#m-hasDisplayHint-a0d050b8aab0)
-- [initDisplayHint(int)](#m-initDisplayHint-c16e1e013565)
-- [setDisplayHint(byte[])](#m-setDisplayHint-a6a8c5e2aab1)
-- [setDisplayHint(Reader)](#m-setDisplayHint-29d7604e3fc3)
+- [asReader()](#asreader-b5c0f2a8d115)
+- [getDisplayHint()](#getdisplayhint-f9cb8b7f487f)
+- [hasDisplayHint()](#hasdisplayhint-a0d050b8aab0)
+- [initDisplayHint(int)](#initdisplayhint-c16e1e013565)
+- [setDisplayHint(byte[])](#setdisplayhint-a6a8c5e2aab1)
+- [setDisplayHint(Reader)](#setdisplayhint-29d7604e3fc3)
 
 ## Constructors
 
-### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
+### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -47,27 +47,27 @@ Builder(
 
 ## Methods
 
-### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
+### asReader() <a href="#asreader-b5c0f2a8d115" id="asreader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#cls-Reader)
+Types: [Reader](Reader.md#reader-b2467a96ddff)
 
-### getDisplayHint() <a href="#m-getDisplayHint-f9cb8b7f487f" id="m-getDisplayHint-f9cb8b7f487f"></a>
+### getDisplayHint() <a href="#getdisplayhint-f9cb8b7f487f" id="getdisplayhint-f9cb8b7f487f"></a>
 
 ```java
 public final org.capnproto.Data.Builder getDisplayHint()
 ```
 
-### hasDisplayHint() <a href="#m-hasDisplayHint-a0d050b8aab0" id="m-hasDisplayHint-a0d050b8aab0"></a>
+### hasDisplayHint() <a href="#hasdisplayhint-a0d050b8aab0" id="hasdisplayhint-a0d050b8aab0"></a>
 
 ```java
 public final boolean hasDisplayHint()
 ```
 
-### initDisplayHint(int) <a href="#m-initDisplayHint-c16e1e013565" id="m-initDisplayHint-c16e1e013565"></a>
+### initDisplayHint(int) <a href="#initdisplayhint-c16e1e013565" id="initdisplayhint-c16e1e013565"></a>
 
 ```java
 public final org.capnproto.Data.Builder initDisplayHint(int size)
@@ -77,7 +77,7 @@ public final org.capnproto.Data.Builder initDisplayHint(int size)
 
 - `int size`
 
-### setDisplayHint(byte[]) <a href="#m-setDisplayHint-a6a8c5e2aab1" id="m-setDisplayHint-a6a8c5e2aab1"></a>
+### setDisplayHint(byte[]) <a href="#setdisplayhint-a6a8c5e2aab1" id="setdisplayhint-a6a8c5e2aab1"></a>
 
 ```java
 public final void setDisplayHint(byte[] value)
@@ -87,7 +87,7 @@ public final void setDisplayHint(byte[] value)
 
 - `byte[] value`
 
-### setDisplayHint(Reader) <a href="#m-setDisplayHint-29d7604e3fc3" id="m-setDisplayHint-29d7604e3fc3"></a>
+### setDisplayHint(Reader) <a href="#setdisplayhint-29d7604e3fc3" id="setdisplayhint-29d7604e3fc3"></a>
 
 ```java
 public final void setDisplayHint(org.capnproto.Data.Reader value)

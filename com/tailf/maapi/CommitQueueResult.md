@@ -1,14 +1,14 @@
-# CommitQueueResult <a href="#cls-CommitQueueResult" id="cls-CommitQueueResult"></a>
+# CommitQueueResult <a href="#commitqueueresult-0daa10abf91a" id="commitqueueresult-0daa10abf91a"></a>
 
 ```java
 public class com.tailf.maapi.CommitQueueResult
     extends com.tailf.maapi.ApplyResult
 ```
 
-Types: [ApplyResult](ApplyResult.md#cls-ApplyResult)
+Types: [ApplyResult](ApplyResult.md#applyresult-77b049ed4f17)
 
 Represents a successful invocation of the
- [`Maapi#applyTransParams(int, boolean, CommitParams)`](Maapi.md#m-applyTransParams-6c20b7896663) method.
+ [`Maapi#applyTransParams(int, boolean, CommitParams)`](Maapi.md#applytransparams-6c20b7896663) method.
 
  The purpose of this class is to represent the result of a transaction where
  the configuration change for the participating devices has been placed
@@ -18,22 +18,22 @@ Represents a successful invocation of the
 
 **Constructors**:
 
-- [CommitQueueResult(ConfResponse)](#m-CommitQueueResult-e7caa08c3f55)
+- [CommitQueueResult(ConfResponse)](#commitqueueresult-e7caa08c3f55)
 
 **Methods**:
 
-- [getFailedDevices()](#m-getFailedDevices-70e71b879fad)
-- [getId()](#m-getId-199a349c70ef)
-- [getStatus()](#m-getStatus-5037266e52a9)
-- [getStatusAsString()](#m-getStatusAsString-6ccae2b57156)
+- [getFailedDevices()](#getfaileddevices-70e71b879fad)
+- [getId()](#getid-199a349c70ef)
+- [getStatus()](#getstatus-5037266e52a9)
+- [getStatusAsString()](#getstatusasstring-6ccae2b57156)
 
 **Nested Types**:
 
-- [Status](CommitQueueResult/Status.md#cls-Status)
+- [Status](CommitQueueResult/Status.md#status-84eaa40b9dbc)
 
 ## Constructors
 
-### CommitQueueResult(ConfResponse) <a href="#m-CommitQueueResult-e7caa08c3f55" id="m-CommitQueueResult-e7caa08c3f55"></a>
+### CommitQueueResult(ConfResponse) <a href="#commitqueueresult-e7caa08c3f55" id="commitqueueresult-e7caa08c3f55"></a>
 
 ```java
 public CommitQueueResult(
@@ -42,7 +42,7 @@ public CommitQueueResult(
     throws com.tailf.maapi.MaapiException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfResponse](../conf/ConfResponse.md#cls-ConfResponse), [MaapiException](MaapiException.md#cls-MaapiException), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [ConfResponse](../conf/ConfResponse.md#confresponse-fd02dad17b49), [MaapiException](MaapiException.md#maapiexception-af58eb4e109e), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
@@ -51,7 +51,7 @@ Types: [ConfResponse](../conf/ConfResponse.md#cls-ConfResponse), [MaapiException
 
 ## Methods
 
-### getFailedDevices() <a href="#m-getFailedDevices-70e71b879fad" id="m-getFailedDevices-70e71b879fad"></a>
+### getFailedDevices() <a href="#getfaileddevices-70e71b879fad" id="getfaileddevices-70e71b879fad"></a>
 
 ```java
 public java.util.Map<String,String> getFailedDevices()
@@ -59,48 +59,48 @@ public java.util.Map<String,String> getFailedDevices()
 
 Return the error reason for each failed device.
 
-### getId() <a href="#m-getId-199a349c70ef" id="m-getId-199a349c70ef"></a>
+### getId() <a href="#getid-199a349c70ef" id="getid-199a349c70ef"></a>
 
 ```java
 public long getId()
 ```
 
 Return the commit queue id. If the status is
- [`Status#NONE`](CommitQueueResult/Status.md#m-NONE) this method will return 0.
+ [`Status#NONE`](CommitQueueResult/Status.md#none-f29411358a7b) this method will return 0.
 
-### getStatus() <a href="#m-getStatus-5037266e52a9" id="m-getStatus-5037266e52a9"></a>
+### getStatus() <a href="#getstatus-5037266e52a9" id="getstatus-5037266e52a9"></a>
 
 ```java
 public com.tailf.maapi.CommitQueueResult.Status getStatus()
 ```
 
-Types: [Status](CommitQueueResult/Status.md#cls-Status)
+Types: [Status](CommitQueueResult/Status.md#status-84eaa40b9dbc)
 
 Return the status of the commit queue item.
 
  The status could be any of the following:
 
- [`Status#NONE`](CommitQueueResult/Status.md#m-NONE) means that no device was
+ [`Status#NONE`](CommitQueueResult/Status.md#none-f29411358a7b) means that no device was
  involved in the transaction.
 
- [`Status#ASYNC`](CommitQueueResult/Status.md#m-ASYNC) means that the transaction has
+ [`Status#ASYNC`](CommitQueueResult/Status.md#async-84416e99cf56) means that the transaction has
  successfully placed the configuration change for the participating
  devices in the commit queue.
 
- [`Status#COMPLETED`](CommitQueueResult/Status.md#m-COMPLETED) means that the queue item
+ [`Status#COMPLETED`](CommitQueueResult/Status.md#completed-a27eb844ceac) means that the queue item
  was successfully completed.
 
- [`Status#TIMEOUT`](CommitQueueResult/Status.md#m-TIMEOUT) means that the timer expired
+ [`Status#TIMEOUT`](CommitQueueResult/Status.md#timeout-7555a653de51) means that the timer expired
  before the queue item was completed.
 
- [`Status#DELETED`](CommitQueueResult/Status.md#m-DELETED) means that queue item was deleted
+ [`Status#DELETED`](CommitQueueResult/Status.md#deleted-dafb9dab21f9) means that queue item was deleted
  from the queue.
 
- [`Status#FAILED`](CommitQueueResult/Status.md#m-FAILED) means that the queue item failed.
- The [`CommitQueueResult#getFailedDevices()`](CommitQueueResult.md#m-getFailedDevices-70e71b879fad) method will provide
+ [`Status#FAILED`](CommitQueueResult/Status.md#failed-d300719affb0) means that the queue item failed.
+ The [`CommitQueueResult#getFailedDevices()`](CommitQueueResult.md#getfaileddevices-70e71b879fad) method will provide
  the error reason for each failed device.
 
-### getStatusAsString() <a href="#m-getStatusAsString-6ccae2b57156" id="m-getStatusAsString-6ccae2b57156"></a>
+### getStatusAsString() <a href="#getstatusasstring-6ccae2b57156" id="getstatusasstring-6ccae2b57156"></a>
 
 ```java
 public String getStatusAsString()
@@ -111,4 +111,4 @@ Return the status as a string.
 
 ## Nested Types
 
-- [Status](CommitQueueResult/Status.md#cls-Status)
+- [Status](CommitQueueResult/Status.md#status-84eaa40b9dbc)

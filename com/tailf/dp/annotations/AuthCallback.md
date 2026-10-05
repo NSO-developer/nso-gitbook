@@ -1,4 +1,4 @@
-# AuthCallback <a href="#cls-AuthCallback" id="cls-AuthCallback"></a>
+# AuthCallback <a href="#authcallback-f833d2fcdff4" id="authcallback-f833d2fcdff4"></a>
 
 ```java
 @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
@@ -12,17 +12,17 @@ Annotation class for Auth Callbacks Attribute are callType
 
 **Methods**:
 
-- [callType()](#m-callType-0d0f9b61a036)
+- [callType()](#calltype-0d0f9b61a036)
 
 ## Methods
 
-### callType() <a href="#m-callType-0d0f9b61a036" id="m-callType-0d0f9b61a036"></a>
+### callType() <a href="#calltype-0d0f9b61a036" id="calltype-0d0f9b61a036"></a>
 
 ```java
 public abstract com.tailf.dp.proto.AuthCBType[] callType()
 ```
 
-Types: [AuthCBType](../proto/AuthCBType.md#cls-AuthCBType)
+Types: [AuthCBType](../proto/AuthCBType.md#authcbtype-5bd4ee208ec6)
 
 Specifies the types of authentication callbacks this method should
  handle.
@@ -32,5 +32,5 @@ Specifies the types of authentication callbacks this method should
  if the same method should handle different types of authentication
  events.
 
-**Returns:** an array of [`AuthCBType`](../proto/AuthCBType.md#cls-AuthCBType) values indicating the
+**Returns:** an array of [`AuthCBType`](../proto/AuthCBType.md#authcbtype-5bd4ee208ec6) values indicating the
          authentication callback types that this method should handle

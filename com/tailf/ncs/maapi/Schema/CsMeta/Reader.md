@@ -1,4 +1,4 @@
-# Reader <a href="#cls-Reader" id="cls-Reader"></a>
+# Reader <a href="#reader-b2467a96ddff" id="reader-b2467a96ddff"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsMeta.Reader
@@ -9,17 +9,17 @@ public static final class com.tailf.ncs.maapi.Schema.CsMeta.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getKey()](#m-getKey-9a8856159458)
-- [getValue()](#m-getValue-d93864668c40)
-- [hasKey()](#m-hasKey-feb6e0de2bc0)
+- [getKey()](#getkey-9a8856159458)
+- [getValue()](#getvalue-d93864668c40)
+- [hasKey()](#haskey-feb6e0de2bc0)
 
 ## Constructors
 
-### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
+### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -46,21 +46,21 @@ Reader(
 
 ## Methods
 
-### getKey() <a href="#m-getKey-9a8856159458" id="m-getKey-9a8856159458"></a>
+### getKey() <a href="#getkey-9a8856159458" id="getkey-9a8856159458"></a>
 
 ```java
 public org.capnproto.Text.Reader getKey()
 ```
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsMeta.Value.Reader getValue()
 ```
 
-Types: [Reader](Value/Reader.md#cls-Reader)
+Types: [Reader](Value/Reader.md#reader-b2467a96ddff)
 
-### hasKey() <a href="#m-hasKey-feb6e0de2bc0" id="m-hasKey-feb6e0de2bc0"></a>
+### hasKey() <a href="#haskey-feb6e0de2bc0" id="haskey-feb6e0de2bc0"></a>
 
 ```java
 public boolean hasKey()

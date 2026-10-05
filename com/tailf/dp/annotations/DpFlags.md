@@ -1,4 +1,4 @@
-# DpFlags <a href="#cls-DpFlags" id="cls-DpFlags"></a>
+# DpFlags <a href="#dpflags-b0cd531a59b5" id="dpflags-b0cd531a59b5"></a>
 
 ```java
 @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
@@ -17,11 +17,11 @@ Annotation class that allows to specify data provider flags to tweak
 
 **Methods**:
 
-- [noDefaults()](#m-noDefaults-fa4b3f614c22)
+- [noDefaults()](#nodefaults-fa4b3f614c22)
 
 ## Methods
 
-### noDefaults() <a href="#m-noDefaults-fa4b3f614c22" id="m-noDefaults-fa4b3f614c22"></a>
+### noDefaults() <a href="#nodefaults-fa4b3f614c22" id="nodefaults-fa4b3f614c22"></a>
 
 ```java
 public abstract boolean noDefaults()

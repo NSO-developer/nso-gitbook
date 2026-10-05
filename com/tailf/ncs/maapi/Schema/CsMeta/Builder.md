@@ -1,4 +1,4 @@
-# Builder <a href="#cls-Builder" id="cls-Builder"></a>
+# Builder <a href="#builder-21f09e83781d" id="builder-21f09e83781d"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsMeta.Builder
@@ -9,22 +9,22 @@ public static final class com.tailf.ncs.maapi.Schema.CsMeta.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asReader-b5c0f2a8d115)
-- [getKey()](#m-getKey-9a8856159458)
-- [getValue()](#m-getValue-d93864668c40)
-- [hasKey()](#m-hasKey-feb6e0de2bc0)
-- [initKey(int)](#m-initKey-c974a5aab6d7)
-- [initValue()](#m-initValue-a7755fffc529)
-- [setKey(Reader)](#m-setKey-aecf165a1c36)
-- [setKey(String)](#m-setKey-b33e905ae785)
+- [asReader()](#asreader-b5c0f2a8d115)
+- [getKey()](#getkey-9a8856159458)
+- [getValue()](#getvalue-d93864668c40)
+- [hasKey()](#haskey-feb6e0de2bc0)
+- [initKey(int)](#initkey-c974a5aab6d7)
+- [initValue()](#initvalue-a7755fffc529)
+- [setKey(Reader)](#setkey-aecf165a1c36)
+- [setKey(String)](#setkey-b33e905ae785)
 
 ## Constructors
 
-### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
+### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -49,35 +49,35 @@ Builder(
 
 ## Methods
 
-### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
+### asReader() <a href="#asreader-b5c0f2a8d115" id="asreader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsMeta.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#cls-Reader)
+Types: [Reader](Reader.md#reader-b2467a96ddff)
 
-### getKey() <a href="#m-getKey-9a8856159458" id="m-getKey-9a8856159458"></a>
+### getKey() <a href="#getkey-9a8856159458" id="getkey-9a8856159458"></a>
 
 ```java
 public final org.capnproto.Text.Builder getKey()
 ```
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsMeta.Value.Builder getValue()
 ```
 
-Types: [Builder](Value/Builder.md#cls-Builder)
+Types: [Builder](Value/Builder.md#builder-21f09e83781d)
 
-### hasKey() <a href="#m-hasKey-feb6e0de2bc0" id="m-hasKey-feb6e0de2bc0"></a>
+### hasKey() <a href="#haskey-feb6e0de2bc0" id="haskey-feb6e0de2bc0"></a>
 
 ```java
 public final boolean hasKey()
 ```
 
-### initKey(int) <a href="#m-initKey-c974a5aab6d7" id="m-initKey-c974a5aab6d7"></a>
+### initKey(int) <a href="#initkey-c974a5aab6d7" id="initkey-c974a5aab6d7"></a>
 
 ```java
 public final org.capnproto.Text.Builder initKey(int size)
@@ -87,15 +87,15 @@ public final org.capnproto.Text.Builder initKey(int size)
 
 - `int size`
 
-### initValue() <a href="#m-initValue-a7755fffc529" id="m-initValue-a7755fffc529"></a>
+### initValue() <a href="#initvalue-a7755fffc529" id="initvalue-a7755fffc529"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsMeta.Value.Builder initValue()
 ```
 
-Types: [Builder](Value/Builder.md#cls-Builder)
+Types: [Builder](Value/Builder.md#builder-21f09e83781d)
 
-### setKey(Reader) <a href="#m-setKey-aecf165a1c36" id="m-setKey-aecf165a1c36"></a>
+### setKey(Reader) <a href="#setkey-aecf165a1c36" id="setkey-aecf165a1c36"></a>
 
 ```java
 public final void setKey(org.capnproto.Text.Reader value)
@@ -105,7 +105,7 @@ public final void setKey(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-### setKey(String) <a href="#m-setKey-b33e905ae785" id="m-setKey-b33e905ae785"></a>
+### setKey(String) <a href="#setkey-b33e905ae785" id="setkey-b33e905ae785"></a>
 
 ```java
 public final void setKey(String value)

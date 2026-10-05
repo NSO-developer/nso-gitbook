@@ -1,4 +1,4 @@
-# CdbPhase <a href="#cls-CdbPhase" id="cls-CdbPhase"></a>
+# CdbPhase <a href="#cdbphase-a1a97094371f" id="cdbphase-a1a97094371f"></a>
 
 ```java
 public class com.tailf.cdb.CdbPhase
@@ -17,22 +17,22 @@ Represents the start-phase CDB is currently in.
 
 **Constructors**:
 
-- [CdbPhase(int, int)](#m-CdbPhase-5f54e2f87484)
+- [CdbPhase(int, int)](#cdbphase-5f54e2f87484)
 
 **Fields**:
 
-- [FLAG_INIT](#m-FLAG_INIT)
-- [FLAG_UPGRADE](#m-FLAG_UPGRADE)
+- [FLAG_INIT](#flag_init-fb43c5f6fc84)
+- [FLAG_UPGRADE](#flag_upgrade-4218f2511062)
 
 **Methods**:
 
-- [getCurrentPhase()](#m-getCurrentPhase-32ff5b066755)
-- [getFlag()](#m-getFlag-9cd662045dd4)
-- [toString()](#m-toString-e9d48c5503ef)
+- [getCurrentPhase()](#getcurrentphase-32ff5b066755)
+- [getFlag()](#getflag-9cd662045dd4)
+- [toString()](#tostring-e9d48c5503ef)
 
 ## Constructors
 
-### CdbPhase(int, int) <a href="#m-CdbPhase-5f54e2f87484" id="m-CdbPhase-5f54e2f87484"></a>
+### CdbPhase(int, int) <a href="#cdbphase-5f54e2f87484" id="cdbphase-5f54e2f87484"></a>
 
 **Package-private**
 
@@ -48,7 +48,7 @@ CdbPhase(int phase, int flag)
 
 ## Fields
 
-### FLAG_INIT <a href="#m-FLAG_INIT" id="m-FLAG_INIT"></a>
+### FLAG_INIT <a href="#flag_init-fb43c5f6fc84" id="flag_init-fb43c5f6fc84"></a>
 
 ```java
 public static final int FLAG_INIT = 1;
@@ -56,7 +56,7 @@ public static final int FLAG_INIT = 1;
 
 CDB has an init transaction , when phase 0
 
-### FLAG_UPGRADE <a href="#m-FLAG_UPGRADE" id="m-FLAG_UPGRADE"></a>
+### FLAG_UPGRADE <a href="#flag_upgrade-4218f2511062" id="flag_upgrade-4218f2511062"></a>
 
 ```java
 public static final int FLAG_UPGRADE = 2;
@@ -67,7 +67,7 @@ CDB has an upgrade transaction , when phase 0
 
 ## Methods
 
-### getCurrentPhase() <a href="#m-getCurrentPhase-32ff5b066755" id="m-getCurrentPhase-32ff5b066755"></a>
+### getCurrentPhase() <a href="#getcurrentphase-32ff5b066755" id="getcurrentphase-32ff5b066755"></a>
 
 ```java
 public int getCurrentPhase()
@@ -75,7 +75,7 @@ public int getCurrentPhase()
 
 The phase CDB is currently in.
 
-### getFlag() <a href="#m-getFlag-9cd662045dd4" id="m-getFlag-9cd662045dd4"></a>
+### getFlag() <a href="#getflag-9cd662045dd4" id="getflag-9cd662045dd4"></a>
 
 ```java
 public int getFlag()
@@ -84,10 +84,10 @@ public int getFlag()
 The flag is set if CDB is in phase 0 to any of the values:
 
 
-- [`FLAG_INIT`](CdbPhase.md#m-FLAG_INIT)
-   - [`FLAG_UPGRADE`](CdbPhase.md#m-FLAG_UPGRADE)
+- [`FLAG_INIT`](CdbPhase.md#flag_init-fb43c5f6fc84)
+   - [`FLAG_UPGRADE`](CdbPhase.md#flag_upgrade-4218f2511062)
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()

@@ -1,4 +1,4 @@
-# SnmpInformResponseCallback <a href="#cls-SnmpInformResponseCallback" id="cls-SnmpInformResponseCallback"></a>
+# SnmpInformResponseCallback <a href="#snmpinformresponsecallback-3028314100f9" id="snmpinformresponsecallback-3028314100f9"></a>
 
 ```java
 @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
@@ -15,21 +15,21 @@ Annotation class for SnmpInformResponse Callbacks Attributes are callPoint
 
 **Methods**:
 
-- [callPoint()](#m-callPoint-c21f52042879)
-- [callType()](#m-callType-0d0f9b61a036)
+- [callPoint()](#callpoint-c21f52042879)
+- [callType()](#calltype-0d0f9b61a036)
 
 ## Methods
 
-### callPoint() <a href="#m-callPoint-c21f52042879" id="m-callPoint-c21f52042879"></a>
+### callPoint() <a href="#callpoint-c21f52042879" id="callpoint-c21f52042879"></a>
 
 ```java
 public abstract String callPoint()
 ```
 
-### callType() <a href="#m-callType-0d0f9b61a036" id="m-callType-0d0f9b61a036"></a>
+### callType() <a href="#calltype-0d0f9b61a036" id="calltype-0d0f9b61a036"></a>
 
 ```java
 public abstract com.tailf.dp.proto.SnmpInformResponseCBType[] callType()
 ```
 
-Types: [SnmpInformResponseCBType](../proto/SnmpInformResponseCBType.md#cls-SnmpInformResponseCBType)
+Types: [SnmpInformResponseCBType](../proto/SnmpInformResponseCBType.md#snmpinformresponsecbtype-ff6f60964bb4)

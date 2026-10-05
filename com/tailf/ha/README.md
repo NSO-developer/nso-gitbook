@@ -39,8 +39,8 @@ Package for setup and control of High Availability cluster nodes.
 
 ## Types
 
-- [Ha](Ha.md#cls-Ha)
-- [HaException](HaException.md#cls-HaException)
-- [HaOrderType](HaOrderType.md#cls-HaOrderType)
-- [HaStateType](HaStateType.md#cls-HaStateType)
-- [HaStatus](HaStatus.md#cls-HaStatus)
+- [Ha](Ha.md#ha-2622fda394ad)
+- [HaException](HaException.md#haexception-050bb3853186)
+- [HaOrderType](HaOrderType.md#haordertype-0276888fecca)
+- [HaStateType](HaStateType.md#hastatetype-8f5797940a11)
+- [HaStatus](HaStatus.md#hastatus-b26e458a9864)

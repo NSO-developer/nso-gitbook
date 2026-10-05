@@ -1,4 +1,4 @@
-# NavuCursor <a href="#cls-NavuCursor" id="cls-NavuCursor"></a>
+# NavuCursor <a href="#navucursor-11e7b4ede514" id="navucursor-11e7b4ede514"></a>
 
 ```java
 public class com.tailf.navu.NavuCursor
@@ -11,20 +11,20 @@ The NavuCursor is a helper class used within NAVU to simplify the
 
 **Constructors**:
 
-- [NavuCursor(CdbSession, NavuNode, String, Object[])](#m-NavuCursor-a2344014c2ea)
-- [NavuCursor(NavuContext, NavuNode, String, Object[])](#m-NavuCursor-94fad5f61492)
+- [NavuCursor(CdbSession, NavuNode, String, Object[])](#navucursor-a2344014c2ea)
+- [NavuCursor(NavuContext, NavuNode, String, Object[])](#navucursor-94fad5f61492)
 
 **Fields**:
 
-- [keys](#m-keys)
+- [keys](#keys-b408c92f97e4)
 
 **Methods**:
 
-- [getKeys()](#m-getKeys-a24b9d377db7)
+- [getKeys()](#getkeys-a24b9d377db7)
 
 ## Constructors
 
-### NavuCursor(CdbSession, NavuNode, String, Object[]) <a href="#m-NavuCursor-a2344014c2ea" id="m-NavuCursor-a2344014c2ea"></a>
+### NavuCursor(CdbSession, NavuNode, String, Object[]) <a href="#navucursor-a2344014c2ea" id="navucursor-a2344014c2ea"></a>
 
 ```java
 public NavuCursor(
@@ -35,7 +35,7 @@ public NavuCursor(
 )
 ```
 
-Types: [CdbSession](../cdb/CdbSession.md#cls-CdbSession), [NavuNode](NavuNode.md#cls-NavuNode)
+Types: [CdbSession](../cdb/CdbSession.md#cdbsession-9ffa54666283), [NavuNode](NavuNode.md#navunode-73944820c8db)
 
 Constructor to be used when in CDB mode.
 
@@ -46,7 +46,7 @@ Constructor to be used when in CDB mode.
 - `String fmt` - a list node string keypath
 - `Object[] arguments` - zero or more Object arguments to be substituted in fmt
 
-### NavuCursor(NavuContext, NavuNode, String, Object[]) <a href="#m-NavuCursor-94fad5f61492" id="m-NavuCursor-94fad5f61492"></a>
+### NavuCursor(NavuContext, NavuNode, String, Object[]) <a href="#navucursor-94fad5f61492" id="navucursor-94fad5f61492"></a>
 
 ```java
 protected NavuCursor(
@@ -58,7 +58,7 @@ protected NavuCursor(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuContext](NavuContext.md#cls-NavuContext), [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuContext](NavuContext.md#navucontext-2974e9f92a9e), [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 Creates and reads all elements of a list node.
 
@@ -77,24 +77,24 @@ Creates and reads all elements of a list node.
 
 ## Fields
 
-### keys <a href="#m-keys" id="m-keys"></a>
+### keys <a href="#keys-b408c92f97e4" id="keys-b408c92f97e4"></a>
 
 ```java
 protected java.util.List<com.tailf.conf.ConfKey> keys = null;
 ```
 
-Types: [ConfKey](../conf/ConfKey.md#cls-ConfKey)
+Types: [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867)
 
 
 ## Methods
 
-### getKeys() <a href="#m-getKeys-a24b9d377db7" id="m-getKeys-a24b9d377db7"></a>
+### getKeys() <a href="#getkeys-a24b9d377db7" id="getkeys-a24b9d377db7"></a>
 
 ```java
 public Iterable<com.tailf.conf.ConfKey> getKeys()
 ```
 
-Types: [ConfKey](../conf/ConfKey.md#cls-ConfKey)
+Types: [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867)
 
 Returns an iterable item
 

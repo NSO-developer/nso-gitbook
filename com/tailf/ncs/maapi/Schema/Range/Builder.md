@@ -1,4 +1,4 @@
-# Builder <a href="#cls-Builder" id="cls-Builder"></a>
+# Builder <a href="#builder-21f09e83781d" id="builder-21f09e83781d"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.Range.Builder
@@ -9,23 +9,23 @@ public static final class com.tailf.ncs.maapi.Schema.Range.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asReader-b5c0f2a8d115)
-- [getFlags()](#m-getFlags-3c1ca90fd29c)
-- [getHi()](#m-getHi-f8fa4dcfe431)
-- [getLo()](#m-getLo-bfe1c987d87a)
-- [initHi()](#m-initHi-2c3dde583bd6)
-- [initLo()](#m-initLo-62ec30618451)
-- [setFlags(byte)](#m-setFlags-920848b8d655)
-- [setHi(Reader)](#m-setHi-550fb8729c56)
-- [setLo(Reader)](#m-setLo-584c3fb11cf5)
+- [asReader()](#asreader-b5c0f2a8d115)
+- [getFlags()](#getflags-3c1ca90fd29c)
+- [getHi()](#gethi-f8fa4dcfe431)
+- [getLo()](#getlo-bfe1c987d87a)
+- [initHi()](#inithi-2c3dde583bd6)
+- [initLo()](#initlo-62ec30618451)
+- [setFlags(byte)](#setflags-920848b8d655)
+- [setHi(Reader)](#sethi-550fb8729c56)
+- [setLo(Reader)](#setlo-584c3fb11cf5)
 
 ## Constructors
 
-### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
+### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -50,53 +50,53 @@ Builder(
 
 ## Methods
 
-### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
+### asReader() <a href="#asreader-b5c0f2a8d115" id="asreader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Range.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#cls-Reader)
+Types: [Reader](Reader.md#reader-b2467a96ddff)
 
-### getFlags() <a href="#m-getFlags-3c1ca90fd29c" id="m-getFlags-3c1ca90fd29c"></a>
+### getFlags() <a href="#getflags-3c1ca90fd29c" id="getflags-3c1ca90fd29c"></a>
 
 ```java
 public final byte getFlags()
 ```
 
-### getHi() <a href="#m-getHi-f8fa4dcfe431" id="m-getHi-f8fa4dcfe431"></a>
+### getHi() <a href="#gethi-f8fa4dcfe431" id="gethi-f8fa4dcfe431"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValue.Builder getHi()
 ```
 
-Types: [Builder](../CsValue/Builder.md#cls-Builder)
+Types: [Builder](../CsValue/Builder.md#builder-21f09e83781d)
 
-### getLo() <a href="#m-getLo-bfe1c987d87a" id="m-getLo-bfe1c987d87a"></a>
+### getLo() <a href="#getlo-bfe1c987d87a" id="getlo-bfe1c987d87a"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValue.Builder getLo()
 ```
 
-Types: [Builder](../CsValue/Builder.md#cls-Builder)
+Types: [Builder](../CsValue/Builder.md#builder-21f09e83781d)
 
-### initHi() <a href="#m-initHi-2c3dde583bd6" id="m-initHi-2c3dde583bd6"></a>
+### initHi() <a href="#inithi-2c3dde583bd6" id="inithi-2c3dde583bd6"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValue.Builder initHi()
 ```
 
-Types: [Builder](../CsValue/Builder.md#cls-Builder)
+Types: [Builder](../CsValue/Builder.md#builder-21f09e83781d)
 
-### initLo() <a href="#m-initLo-62ec30618451" id="m-initLo-62ec30618451"></a>
+### initLo() <a href="#initlo-62ec30618451" id="initlo-62ec30618451"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValue.Builder initLo()
 ```
 
-Types: [Builder](../CsValue/Builder.md#cls-Builder)
+Types: [Builder](../CsValue/Builder.md#builder-21f09e83781d)
 
-### setFlags(byte) <a href="#m-setFlags-920848b8d655" id="m-setFlags-920848b8d655"></a>
+### setFlags(byte) <a href="#setflags-920848b8d655" id="setflags-920848b8d655"></a>
 
 ```java
 public final void setFlags(byte value)
@@ -106,25 +106,25 @@ public final void setFlags(byte value)
 
 - `byte value`
 
-### setHi(Reader) <a href="#m-setHi-550fb8729c56" id="m-setHi-550fb8729c56"></a>
+### setHi(Reader) <a href="#sethi-550fb8729c56" id="sethi-550fb8729c56"></a>
 
 ```java
 public final void setHi(com.tailf.ncs.maapi.Schema.CsValue.Reader value)
 ```
 
-Types: [Reader](../CsValue/Reader.md#cls-Reader)
+Types: [Reader](../CsValue/Reader.md#reader-b2467a96ddff)
 
 **Parameters**
 
 - `com.tailf.ncs.maapi.Schema.CsValue.Reader value`
 
-### setLo(Reader) <a href="#m-setLo-584c3fb11cf5" id="m-setLo-584c3fb11cf5"></a>
+### setLo(Reader) <a href="#setlo-584c3fb11cf5" id="setlo-584c3fb11cf5"></a>
 
 ```java
 public final void setLo(com.tailf.ncs.maapi.Schema.CsValue.Reader value)
 ```
 
-Types: [Reader](../CsValue/Reader.md#cls-Reader)
+Types: [Reader](../CsValue/Reader.md#reader-b2467a96ddff)
 
 **Parameters**
 

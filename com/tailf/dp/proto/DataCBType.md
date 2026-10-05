@@ -1,10 +1,10 @@
-# DataCBType <a href="#cls-DataCBType" id="cls-DataCBType"></a>
+# DataCBType <a href="#datacbtype-1cb4e4ee7708" id="datacbtype-1cb4e4ee7708"></a>
 
 ```java
 public enum com.tailf.dp.proto.DataCBType
 ```
 
-Types: [DataCBType](DataCBType.md#cls-DataCBType)
+Types: [DataCBType](DataCBType.md#datacbtype-1cb4e4ee7708)
 
 Enumeration of Data callback methods
 
@@ -14,52 +14,52 @@ Enumeration of Data callback methods
 
 **Enum Constants**:
 
-- [CREATE](#m-CREATE)
-- [EXISTS_OPTIONAL](#m-EXISTS_OPTIONAL)
-- [GET_ATTRS](#m-GET_ATTRS)
-- [GET_CASE](#m-GET_CASE)
-- [GET_ELEM](#m-GET_ELEM)
-- [GET_NEXT](#m-GET_NEXT)
-- [GET_NEXT_OBJECT](#m-GET_NEXT_OBJECT)
-- [GET_NEXT_OBJECT_LIST](#m-GET_NEXT_OBJECT_LIST)
-- [GET_OBJECT](#m-GET_OBJECT)
-- [ITERATOR](#m-ITERATOR)
-- [MOVE_AFTER](#m-MOVE_AFTER)
-- [NUM_INSTANCES](#m-NUM_INSTANCES)
-- [REMOVE](#m-REMOVE)
-- [SET_ATTR](#m-SET_ATTR)
-- [SET_CASE](#m-SET_CASE)
-- [SET_ELEM](#m-SET_ELEM)
-- [WRITE_ALL](#m-WRITE_ALL)
+- [CREATE](#create-146c3c7e4f65)
+- [EXISTS_OPTIONAL](#exists_optional-f5be923624f4)
+- [GET_ATTRS](#get_attrs-e8030b5dd328)
+- [GET_CASE](#get_case-9ef2ae59c94b)
+- [GET_ELEM](#get_elem-c4bad67e639e)
+- [GET_NEXT](#get_next-6a271635d86e)
+- [GET_NEXT_OBJECT](#get_next_object-9f70b230e968)
+- [GET_NEXT_OBJECT_LIST](#get_next_object_list-b798e83d5f8e)
+- [GET_OBJECT](#get_object-839ff9de9cc4)
+- [ITERATOR](#iterator-4246715ba5f0)
+- [MOVE_AFTER](#move_after-582d0ddace39)
+- [NUM_INSTANCES](#num_instances-bc8f1909765f)
+- [REMOVE](#remove-954d8c0ae444)
+- [SET_ATTR](#set_attr-8d1502d32197)
+- [SET_CASE](#set_case-bba9ec167799)
+- [SET_ELEM](#set_elem-a932054018d7)
+- [WRITE_ALL](#write_all-16f02b0c53c5)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### CREATE <a href="#m-CREATE" id="m-CREATE"></a>
+### CREATE <a href="#create-146c3c7e4f65" id="create-146c3c7e4f65"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType CREATE;
 ```
 
 Bit flag for the
- [`DpDataCallback#create(DpTrans,ConfObject[])`](../DpDataCallback.md#m-create-b5264b1d26e2) method.
+ [`DpDataCallback#create(DpTrans,ConfObject[])`](../DpDataCallback.md#create-b5264b1d26e2) method.
 
-### EXISTS_OPTIONAL <a href="#m-EXISTS_OPTIONAL" id="m-EXISTS_OPTIONAL"></a>
+### EXISTS_OPTIONAL <a href="#exists_optional-f5be923624f4" id="exists_optional-f5be923624f4"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType EXISTS_OPTIONAL;
 ```
 
 Bit flag for the
- [`DpDataCallback#existsOptional(DpTrans,ConfObject[])`](../DpDataCallback.md#m-existsOptional-3a4437a2a54a)
+ [`DpDataCallback#existsOptional(DpTrans,ConfObject[])`](../DpDataCallback.md#existsoptional-3a4437a2a54a)
  method.
 
-### GET_ATTRS <a href="#m-GET_ATTRS" id="m-GET_ATTRS"></a>
+### GET_ATTRS <a href="#get_attrs-e8030b5dd328" id="get_attrs-e8030b5dd328"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType GET_ATTRS;
@@ -69,7 +69,7 @@ Bit flag for the
  `DpDataCallback#getAttrs(
  DpTrans, ConfObject[], java.util.List)` method.
 
-### GET_CASE <a href="#m-GET_CASE" id="m-GET_CASE"></a>
+### GET_CASE <a href="#get_case-9ef2ae59c94b" id="get_case-9ef2ae59c94b"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType GET_CASE;
@@ -77,18 +77,18 @@ public static final com.tailf.dp.proto.DataCBType GET_CASE;
 
 Bit flag for the
  [`DpDataCallback#getCase(
- DpTrans, ConfObject[], ConfObject[])`](../DpDataCallback.md#m-getCase-24568d257ce7) method.
+ DpTrans, ConfObject[], ConfObject[])`](../DpDataCallback.md#getcase-24568d257ce7) method.
 
-### GET_ELEM <a href="#m-GET_ELEM" id="m-GET_ELEM"></a>
+### GET_ELEM <a href="#get_elem-c4bad67e639e" id="get_elem-c4bad67e639e"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType GET_ELEM;
 ```
 
 Bit flag for the
- [`DpDataCallback#getElem(DpTrans,ConfObject[])`](../DpDataCallback.md#m-getElem-baf9006121df) method.
+ [`DpDataCallback#getElem(DpTrans,ConfObject[])`](../DpDataCallback.md#getelem-baf9006121df) method.
 
-### GET_NEXT <a href="#m-GET_NEXT" id="m-GET_NEXT"></a>
+### GET_NEXT <a href="#get_next-6a271635d86e" id="get_next-6a271635d86e"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType GET_NEXT;
@@ -96,64 +96,64 @@ public static final com.tailf.dp.proto.DataCBType GET_NEXT;
 
 Bit flag for getting the next key for a list entry using an iterator
  retrieved from the
- [`DpDataCallback#iterator(DpTrans,ConfObject[])`](../DpDataCallback.md#m-iterator-89c62926f3e8)
+ [`DpDataCallback#iterator(DpTrans,ConfObject[])`](../DpDataCallback.md#iterator-89c62926f3e8)
  method, and converting the Java object into a
  key with the [`DpDataCallback#getIteratorKey(
- DpTrans,ConfObject[],Object)`](../DpDataCallback.md#m-getIteratorKey-6df7c38f65f8) method.
+ DpTrans,ConfObject[],Object)`](../DpDataCallback.md#getiteratorkey-6df7c38f65f8) method.
 
-### GET_NEXT_OBJECT <a href="#m-GET_NEXT_OBJECT" id="m-GET_NEXT_OBJECT"></a>
+### GET_NEXT_OBJECT <a href="#get_next_object-9f70b230e968" id="get_next_object-9f70b230e968"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType GET_NEXT_OBJECT;
 ```
 
 Bit flag for getting the next object using an iterator retrieved from the
- [`DpDataCallback#iterator(DpTrans,ConfObject[])`](../DpDataCallback.md#m-iterator-89c62926f3e8)
+ [`DpDataCallback#iterator(DpTrans,ConfObject[])`](../DpDataCallback.md#iterator-89c62926f3e8)
  method, and converting the object into an array of
- [`ConfValue`](../../conf/ConfValue.md#cls-ConfValue) with the
+ [`ConfValue`](../../conf/ConfValue.md#confvalue-769292781c7d) with the
  [`DpDataCallback#getIteratorObject(
- DpTrans,ConfObject[],Object)`](../DpDataCallback.md#m-getIteratorObject-425632c26c31) method.
+ DpTrans,ConfObject[],Object)`](../DpDataCallback.md#getiteratorobject-425632c26c31) method.
 
-### GET_NEXT_OBJECT_LIST <a href="#m-GET_NEXT_OBJECT_LIST" id="m-GET_NEXT_OBJECT_LIST"></a>
+### GET_NEXT_OBJECT_LIST <a href="#get_next_object_list-b798e83d5f8e" id="get_next_object_list-b798e83d5f8e"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType GET_NEXT_OBJECT_LIST;
 ```
 
 Bit flag for getting a List of objects using an iterator retrieved from
- the [`DpDataCallback#iterator(DpTrans,ConfObject[])`](../DpDataCallback.md#m-iterator-89c62926f3e8)
+ the [`DpDataCallback#iterator(DpTrans,ConfObject[])`](../DpDataCallback.md#iterator-89c62926f3e8)
  method.
  Each object being an represented as an array of
- [`ConfValue`](../../conf/ConfValue.md#cls-ConfValue). This method is used for large lists
+ [`ConfValue`](../../conf/ConfValue.md#confvalue-769292781c7d). This method is used for large lists
  where sending data in bigger chunks is preferable.
 
-### GET_OBJECT <a href="#m-GET_OBJECT" id="m-GET_OBJECT"></a>
+### GET_OBJECT <a href="#get_object-839ff9de9cc4" id="get_object-839ff9de9cc4"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType GET_OBJECT;
 ```
 
 Bit flag for the
- [`DpDataCallback#getObject(DpTrans,ConfObject[])`](../DpDataCallback.md#m-getObject-b2d87f9b9270)
+ [`DpDataCallback#getObject(DpTrans,ConfObject[])`](../DpDataCallback.md#getobject-b2d87f9b9270)
  method.
 
-### ITERATOR <a href="#m-ITERATOR" id="m-ITERATOR"></a>
+### ITERATOR <a href="#iterator-4246715ba5f0" id="iterator-4246715ba5f0"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType ITERATOR;
 ```
 
 iterator to be used with
- [`DpDataCallback#iterator(DpTrans, ConfObject[])`](../DpDataCallback.md#m-iterator-89c62926f3e8)
+ [`DpDataCallback#iterator(DpTrans, ConfObject[])`](../DpDataCallback.md#iterator-89c62926f3e8)
  method.
  necessary when using either
  [`DpDataCallback#getIteratorKey(
- DpTrans, ConfObject[], Object)`](../DpDataCallback.md#m-getIteratorKey-6df7c38f65f8) or
+ DpTrans, ConfObject[], Object)`](../DpDataCallback.md#getiteratorkey-6df7c38f65f8) or
  [`DpDataCallback#getIteratorObject(
- DpTrans, ConfObject[], Object)`](../DpDataCallback.md#m-getIteratorObject-425632c26c31)
+ DpTrans, ConfObject[], Object)`](../DpDataCallback.md#getiteratorobject-425632c26c31)
  is used
 
-### MOVE_AFTER <a href="#m-MOVE_AFTER" id="m-MOVE_AFTER"></a>
+### MOVE_AFTER <a href="#move_after-582d0ddace39" id="move_after-582d0ddace39"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType MOVE_AFTER;
@@ -161,28 +161,28 @@ public static final com.tailf.dp.proto.DataCBType MOVE_AFTER;
 
 Bit flag for the
  [`DpDataCallback#moveAfter(
- DpTrans, ConfObject[], com.tailf.conf.ConfKey)`](../DpDataCallback.md#m-moveAfter-023d2bce078c) method.
+ DpTrans, ConfObject[], com.tailf.conf.ConfKey)`](../DpDataCallback.md#moveafter-023d2bce078c) method.
 
-### NUM_INSTANCES <a href="#m-NUM_INSTANCES" id="m-NUM_INSTANCES"></a>
+### NUM_INSTANCES <a href="#num_instances-bc8f1909765f" id="num_instances-bc8f1909765f"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType NUM_INSTANCES;
 ```
 
 Bit flag for the
- [`DpDataCallback#numInstances(DpTrans,ConfObject[])`](../DpDataCallback.md#m-numInstances-71fd723ecab5)
+ [`DpDataCallback#numInstances(DpTrans,ConfObject[])`](../DpDataCallback.md#numinstances-71fd723ecab5)
  method.
 
-### REMOVE <a href="#m-REMOVE" id="m-REMOVE"></a>
+### REMOVE <a href="#remove-954d8c0ae444" id="remove-954d8c0ae444"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType REMOVE;
 ```
 
 Bit flag for the
- [`DpDataCallback#remove(DpTrans,ConfObject[])`](../DpDataCallback.md#m-remove-93340909c9a0) method.
+ [`DpDataCallback#remove(DpTrans,ConfObject[])`](../DpDataCallback.md#remove-93340909c9a0) method.
 
-### SET_ATTR <a href="#m-SET_ATTR" id="m-SET_ATTR"></a>
+### SET_ATTR <a href="#set_attr-8d1502d32197" id="set_attr-8d1502d32197"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType SET_ATTR;
@@ -190,9 +190,9 @@ public static final com.tailf.dp.proto.DataCBType SET_ATTR;
 
 Bit flag for the
  [`DpDataCallback#setAttr(
- DpTrans, ConfObject[], com.tailf.conf.ConfAttributeValue)`](../DpDataCallback.md#m-setAttr-656af041deec) method.
+ DpTrans, ConfObject[], com.tailf.conf.ConfAttributeValue)`](../DpDataCallback.md#setattr-656af041deec) method.
 
-### SET_CASE <a href="#m-SET_CASE" id="m-SET_CASE"></a>
+### SET_CASE <a href="#set_case-bba9ec167799" id="set_case-bba9ec167799"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType SET_CASE;
@@ -200,9 +200,9 @@ public static final com.tailf.dp.proto.DataCBType SET_CASE;
 
 Bit flag for the
  [`DpDataCallback#setCase(
- DpTrans, ConfObject[], ConfObject[], com.tailf.conf.ConfTag)`](../DpDataCallback.md#m-setCase-430d4dbe7c83) method.
+ DpTrans, ConfObject[], ConfObject[], com.tailf.conf.ConfTag)`](../DpDataCallback.md#setcase-430d4dbe7c83) method.
 
-### SET_ELEM <a href="#m-SET_ELEM" id="m-SET_ELEM"></a>
+### SET_ELEM <a href="#set_elem-a932054018d7" id="set_elem-a932054018d7"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType SET_ELEM;
@@ -210,22 +210,22 @@ public static final com.tailf.dp.proto.DataCBType SET_ELEM;
 
 Bit flag for the
  [`DpDataCallback#setElem(
- DpTrans,ConfObject[],ConfValue)`](../DpDataCallback.md#m-setElem-8a5e46811f6e) method.
+ DpTrans,ConfObject[],ConfValue)`](../DpDataCallback.md#setelem-8a5e46811f6e) method.
 
-### WRITE_ALL <a href="#m-WRITE_ALL" id="m-WRITE_ALL"></a>
+### WRITE_ALL <a href="#write_all-16f02b0c53c5" id="write_all-16f02b0c53c5"></a>
 
 ```java
 public static final com.tailf.dp.proto.DataCBType WRITE_ALL;
 ```
 
 Bit flag for the
- [`DpDataCallback#writeAll(DpTrans, ConfObject[])`](../DpDataCallback.md#m-writeAll-a4604e96718c)
+ [`DpDataCallback#writeAll(DpTrans, ConfObject[])`](../DpDataCallback.md#writeall-a4604e96718c)
  method. Only used by write-all transaction hooks.
 
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -235,22 +235,22 @@ get integer value for enum
 
 **Returns:** int value
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.dp.proto.DataCBType valueOf(String name)
 ```
 
-Types: [DataCBType](DataCBType.md#cls-DataCBType)
+Types: [DataCBType](DataCBType.md#datacbtype-1cb4e4ee7708)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.dp.proto.DataCBType[] values()
 ```
 
-Types: [DataCBType](DataCBType.md#cls-DataCBType)
+Types: [DataCBType](DataCBType.md#datacbtype-1cb4e4ee7708)

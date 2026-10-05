@@ -1,11 +1,11 @@
-# NedCliBaseTemplate <a href="#cls-NedCliBaseTemplate" id="cls-NedCliBaseTemplate"></a>
+# NedCliBaseTemplate <a href="#nedclibasetemplate-f082ac37583c" id="nedclibasetemplate-f082ac37583c"></a>
 
 ```java
 public class com.tailf.ned.NedCliBaseTemplate
     extends com.tailf.ned.NedCliBase
 ```
 
-Types: [NedCliBase](NedCliBase.md#cls-NedCliBase)
+Types: [NedCliBase](NedCliBase.md#nedclibase-cb59203c2e29)
 
 This class implements NED CLI template
 
@@ -13,103 +13,103 @@ This class implements NED CLI template
 
 **Constructors**:
 
-- [NedCliBaseTemplate()](#m-NedCliBaseTemplate-e3cd7d53da2b)
-- [NedCliBaseTemplate(String, InetAddress, int, String, String, String, String, boolean, int, int, int, NedMux, NedWorker)](#m-NedCliBaseTemplate-c183924d4e06)
+- [NedCliBaseTemplate()](#nedclibasetemplate-e3cd7d53da2b)
+- [NedCliBaseTemplate(String, InetAddress, int, String, String, String, String, boolean, int, int, int, NedMux, NedWorker)](#nedclibasetemplate-c183924d4e06)
 
 **Fields**:
 
-- [connection](#m-connection)
-- [connectTimeout](#m-connectTimeout)
-- [device_id](#m-device_id)
-- [ip](#m-ip)
-- [mux](#m-mux)
-- [pass](#m-pass)
-- [port](#m-port)
-- [proto](#m-proto)
-- [readTimeout](#m-readTimeout)
-- [ruser](#m-ruser)
-- [secpass](#m-secpass)
-- [session](#m-session)
-- [sshClient](NedConnectionBase.md#m-sshClient) from NedConnectionBase
-- [trace](#m-trace)
-- [tracer](#m-tracer)
-- [writeTimeout](#m-writeTimeout)
+- [connection](#connection-10cb65e4a7bd)
+- [connectTimeout](#connecttimeout-da6f2bf6befb)
+- [device_id](#device_id-b23d313b9b98)
+- [ip](#ip-47c04d6ce4c0)
+- [mux](#mux-bdb6413b8b1f)
+- [pass](#pass-4fd8d65070e9)
+- [port](#port-93a59be61bfd)
+- [proto](#proto-c874ba0c5a00)
+- [readTimeout](#readtimeout-0c3689315cf4)
+- [ruser](#ruser-f88f1be99f7d)
+- [secpass](#secpass-eef0de0e9549)
+- [session](#session-19c952d171f3)
+- [sshClient](NedConnectionBase.md#sshclient-f55984dcf633) from NedConnectionBase
+- [trace](#trace-6a8edda0bb8c)
+- [tracer](#tracer-4049ab34cc3a)
+- [writeTimeout](#writetimeout-6a827dc49d49)
 
 **Methods**:
 
-- [abort(NedWorker, String)](#m-abort-e0e56f7ce202)
-- [applyConfig(NedWorker, int, String)](#m-applyConfig-7b024768cd7e)
-- [close()](#m-close-8107c6dc012b)
-- [close(NedWorker)](#m-close-30f80583fb17)
-- [command(NedWorker, String, ConfXMLParam[])](#m-command-e9b29b4222a3)
-- [commit(NedWorker, int)](#m-commit-7dc36c07ab47)
-- [createSubscription(NedWorker, String, String, String, int)](NedConnectionBase.md#m-createSubscription-79162376c959) from NedConnectionBase
-- [createTelemetrySubscription(NedWorker, Map<String,List<String>>)](NedConnectionBase.md#m-createTelemetrySubscription-c3b822b943ab) from NedConnectionBase
-- [device_id()](#m-device_id-f50bb7031536)
-- [getCapas()](NedConnectionBase.md#m-getCapas-7f9d1774e7a0) from NedConnectionBase
-- [getConnectionId()](NedConnectionBase.md#m-getConnectionId-600ebb3e7d7f) from NedConnectionBase
-- [getPlatformData()](NedConnectionBase.md#m-getPlatformData-aa820968b919) from NedConnectionBase
-- [getStatsCapas()](NedConnectionBase.md#m-getStatsCapas-aa8dc0859e62) from NedConnectionBase
-- [getTimeInPool()](NedConnectionBase.md#m-getTimeInPool-df6d5c843d53) from NedConnectionBase
-- [getTransactionIdMode()](NedConnectionBase.md#m-getTransactionIdMode-79b4efc0e31d) from NedConnectionBase
-- [getTransId(NedWorker)](#m-getTransId-01de732a93e8)
-- [getUseStoredCapas()](NedConnectionBase.md#m-getUseStoredCapas-77d5f5640e81) from NedConnectionBase
-- [getWantRevertDiff()](NedConnectionBase.md#m-getWantRevertDiff-ddea9ec7db21) from NedConnectionBase
-- [handshake(NedWorker)](#m-handshake-602ba649a458)
-- [identity()](#m-identity-16b9d59e26e7)
-- [initialize(NedWorker)](NedConnectionBase.md#m-initialize-b9daf0f9b461) from NedConnectionBase
-- [initNoConnect(String, NedMux, NedWorker)](NedCliBase.md#m-initNoConnect-d8b0c37173df) from NedCliBase
-- [isAlive(NedWorker)](#m-isAlive-6915ae01ec8a)
-- [isConnection(String, InetAddress, int, String, String, String, String, String, boolean, int, int, int)](#m-isConnection-83e14a2692f7)
-- [isSessionAlive(NedWorker)](NedConnectionBase.md#m-isSessionAlive-f0d233ff28c0) from NedConnectionBase
-- [keepAlive(NedWorker)](NedConnectionBase.md#m-keepAlive-92dcaaf81a7a) from NedConnectionBase
-- [keepSessionAlive(NedWorker)](NedConnectionBase.md#m-keepSessionAlive-f2332bacddd5) from NedConnectionBase
-- [modules()](#m-modules-15ef53dcaf36)
-- [newConnection(String, InetAddress, int, String, String, String, String, String, boolean, int, int, int, NedMux, NedWorker)](#m-newConnection-00bd117e5875)
-- [persist(NedWorker)](#m-persist-a67bc9247622)
-- [prepare(NedWorker, String)](#m-prepare-ed9e4d4b6a29)
-- [prepareDry(NedWorker, String)](#m-prepareDry-169e1f01784c)
-- [quote(String)](#m-quote-5785a7e30ac4)
-- [reconnect(NedWorker)](#m-reconnect-a7a5900d41d6)
-- [retrieveIdentity(NedConnectionBase)](NedConnectionBase.md#m-retrieveIdentity-910704c2eafa) from NedConnectionBase
-- [revert(NedWorker, String)](#m-revert-5ad837ca98a4)
-- [setCapabilities(NedCapability[])](NedConnectionBase.md#m-setCapabilities-67ad7861715a) from NedConnectionBase
-- [setConnectionData(NedCapability[], NedCapability[], boolean, TransactionIdMode)](NedConnectionBase.md#m-setConnectionData-3c1697dcc350) from NedConnectionBase
-- [setConnectionId(int)](NedConnectionBase.md#m-setConnectionId-7eea4fea28bf) from NedConnectionBase
-- [setPlatformData(ConfXMLParam[])](NedConnectionBase.md#m-setPlatformData-a069c83c8fde) from NedConnectionBase
-- [setPoolTimestamp(long)](NedConnectionBase.md#m-setPoolTimestamp-28239e3d2dc4) from NedConnectionBase
-- [setupSSH(NedWorker)](#m-setupSSH-e795823b6e87)
-- [setupTelnet(NedWorker)](#m-setupTelnet-0c5e791a6b66)
-- [show(NedWorker, String)](#m-show-5a497cd9b854)
-- [showOffline(NedWorker, String, String)](NedCliBase.md#m-showOffline-4a83874bc32c) from NedCliBase
-- [showPartial(NedWorker, ConfPath[])](NedCliBase.md#m-showPartial-aa998f554abd) from NedCliBase
-- [showPartial(NedWorker, ConfPath[], String[])](NedCliBase.md#m-showPartial-d37a025ae7ee) from NedCliBase
-- [showStatsFilter(NedWorker, int, ConfPath[])](NedConnectionBase.md#m-showStatsFilter-f3bd9d17b71c) from NedConnectionBase
-- [showStatsFilter(NedWorker, int, NedShowFilter[])](NedConnectionBase.md#m-showStatsFilter-1410355f6f46) from NedConnectionBase
-- [showStatsFilter(NedWorker, int, String[])](NedConnectionBase.md#m-showStatsFilter-38409a8f79a0) from NedConnectionBase
-- [showStatsPath(NedWorker, int, ConfPath)](NedConnectionBase.md#m-showStatsPath-1704122a5ac4) from NedConnectionBase
-- [string_dequote(String)](#m-string_dequote-74ef73b493ff)
-- [string_quote(String)](#m-string_quote-3abeed221bc3)
-- [toString()](#m-toString-e9d48c5503ef)
-- [trace(NedWorker, String, String)](#m-trace-a95f19736f87)
-- [type()](#m-type-7a4a5f26039a)
-- [uninitialize(NedWorker)](NedConnectionBase.md#m-uninitialize-bba07dcc2d37) from NedConnectionBase
-- [unquote(String)](#m-unquote-bdee91b3a426)
-- [useStoredCapabilities()](NedConnectionBase.md#m-useStoredCapabilities-06864caacb8f) from NedConnectionBase
+- [abort(NedWorker, String)](#abort-e0e56f7ce202)
+- [applyConfig(NedWorker, int, String)](#applyconfig-7b024768cd7e)
+- [close()](#close-8107c6dc012b)
+- [close(NedWorker)](#close-30f80583fb17)
+- [command(NedWorker, String, ConfXMLParam[])](#command-e9b29b4222a3)
+- [commit(NedWorker, int)](#commit-7dc36c07ab47)
+- [createSubscription(NedWorker, String, String, String, int)](NedConnectionBase.md#createsubscription-79162376c959) from NedConnectionBase
+- [createTelemetrySubscription(NedWorker, Map<String,List<String>>)](NedConnectionBase.md#createtelemetrysubscription-c3b822b943ab) from NedConnectionBase
+- [device_id()](#device_id-f50bb7031536)
+- [getCapas()](NedConnectionBase.md#getcapas-7f9d1774e7a0) from NedConnectionBase
+- [getConnectionId()](NedConnectionBase.md#getconnectionid-600ebb3e7d7f) from NedConnectionBase
+- [getPlatformData()](NedConnectionBase.md#getplatformdata-aa820968b919) from NedConnectionBase
+- [getStatsCapas()](NedConnectionBase.md#getstatscapas-aa8dc0859e62) from NedConnectionBase
+- [getTimeInPool()](NedConnectionBase.md#gettimeinpool-df6d5c843d53) from NedConnectionBase
+- [getTransactionIdMode()](NedConnectionBase.md#gettransactionidmode-79b4efc0e31d) from NedConnectionBase
+- [getTransId(NedWorker)](#gettransid-01de732a93e8)
+- [getUseStoredCapas()](NedConnectionBase.md#getusestoredcapas-77d5f5640e81) from NedConnectionBase
+- [getWantRevertDiff()](NedConnectionBase.md#getwantrevertdiff-ddea9ec7db21) from NedConnectionBase
+- [handshake(NedWorker)](#handshake-602ba649a458)
+- [identity()](#identity-16b9d59e26e7)
+- [initialize(NedWorker)](NedConnectionBase.md#initialize-b9daf0f9b461) from NedConnectionBase
+- [initNoConnect(String, NedMux, NedWorker)](NedCliBase.md#initnoconnect-d8b0c37173df) from NedCliBase
+- [isAlive(NedWorker)](#isalive-6915ae01ec8a)
+- [isConnection(String, InetAddress, int, String, String, String, String, String, boolean, int, int, int)](#isconnection-83e14a2692f7)
+- [isSessionAlive(NedWorker)](NedConnectionBase.md#issessionalive-f0d233ff28c0) from NedConnectionBase
+- [keepAlive(NedWorker)](NedConnectionBase.md#keepalive-92dcaaf81a7a) from NedConnectionBase
+- [keepSessionAlive(NedWorker)](NedConnectionBase.md#keepsessionalive-f2332bacddd5) from NedConnectionBase
+- [modules()](#modules-15ef53dcaf36)
+- [newConnection(String, InetAddress, int, String, String, String, String, String, boolean, int, int, int, NedMux, NedWorker)](#newconnection-00bd117e5875)
+- [persist(NedWorker)](#persist-a67bc9247622)
+- [prepare(NedWorker, String)](#prepare-ed9e4d4b6a29)
+- [prepareDry(NedWorker, String)](#preparedry-169e1f01784c)
+- [quote(String)](#quote-5785a7e30ac4)
+- [reconnect(NedWorker)](#reconnect-a7a5900d41d6)
+- [retrieveIdentity(NedConnectionBase)](NedConnectionBase.md#retrieveidentity-910704c2eafa) from NedConnectionBase
+- [revert(NedWorker, String)](#revert-5ad837ca98a4)
+- [setCapabilities(NedCapability[])](NedConnectionBase.md#setcapabilities-67ad7861715a) from NedConnectionBase
+- [setConnectionData(NedCapability[], NedCapability[], boolean, TransactionIdMode)](NedConnectionBase.md#setconnectiondata-3c1697dcc350) from NedConnectionBase
+- [setConnectionId(int)](NedConnectionBase.md#setconnectionid-7eea4fea28bf) from NedConnectionBase
+- [setPlatformData(ConfXMLParam[])](NedConnectionBase.md#setplatformdata-a069c83c8fde) from NedConnectionBase
+- [setPoolTimestamp(long)](NedConnectionBase.md#setpooltimestamp-28239e3d2dc4) from NedConnectionBase
+- [setupSSH(NedWorker)](#setupssh-e795823b6e87)
+- [setupTelnet(NedWorker)](#setuptelnet-0c5e791a6b66)
+- [show(NedWorker, String)](#show-5a497cd9b854)
+- [showOffline(NedWorker, String, String)](NedCliBase.md#showoffline-4a83874bc32c) from NedCliBase
+- [showPartial(NedWorker, ConfPath[])](NedCliBase.md#showpartial-aa998f554abd) from NedCliBase
+- [showPartial(NedWorker, ConfPath[], String[])](NedCliBase.md#showpartial-d37a025ae7ee) from NedCliBase
+- [showStatsFilter(NedWorker, int, ConfPath[])](NedConnectionBase.md#showstatsfilter-f3bd9d17b71c) from NedConnectionBase
+- [showStatsFilter(NedWorker, int, NedShowFilter[])](NedConnectionBase.md#showstatsfilter-1410355f6f46) from NedConnectionBase
+- [showStatsFilter(NedWorker, int, String[])](NedConnectionBase.md#showstatsfilter-38409a8f79a0) from NedConnectionBase
+- [showStatsPath(NedWorker, int, ConfPath)](NedConnectionBase.md#showstatspath-1704122a5ac4) from NedConnectionBase
+- [string_dequote(String)](#string_dequote-74ef73b493ff)
+- [string_quote(String)](#string_quote-3abeed221bc3)
+- [toString()](#tostring-e9d48c5503ef)
+- [trace(NedWorker, String, String)](#trace-a95f19736f87)
+- [type()](#type-7a4a5f26039a)
+- [uninitialize(NedWorker)](NedConnectionBase.md#uninitialize-bba07dcc2d37) from NedConnectionBase
+- [unquote(String)](#unquote-bdee91b3a426)
+- [useStoredCapabilities()](NedConnectionBase.md#usestoredcapabilities-06864caacb8f) from NedConnectionBase
 
 **Nested Types**:
 
-- [ApplyException](NedCliBaseTemplate/ApplyException.md#cls-ApplyException)
+- [ApplyException](NedCliBaseTemplate/ApplyException.md#applyexception-64694ca56419)
 
 ## Constructors
 
-### NedCliBaseTemplate() <a href="#m-NedCliBaseTemplate-e3cd7d53da2b" id="m-NedCliBaseTemplate-e3cd7d53da2b"></a>
+### NedCliBaseTemplate() <a href="#nedclibasetemplate-e3cd7d53da2b" id="nedclibasetemplate-e3cd7d53da2b"></a>
 
 ```java
 public NedCliBaseTemplate()
 ```
 
-### NedCliBaseTemplate(String, InetAddress, int, String, String, String, String, boolean, int, int, int, NedMux, NedWorker) <a href="#m-NedCliBaseTemplate-c183924d4e06" id="m-NedCliBaseTemplate-c183924d4e06"></a>
+### NedCliBaseTemplate(String, InetAddress, int, String, String, String, String, boolean, int, int, int, NedMux, NedWorker) <a href="#nedclibasetemplate-c183924d4e06" id="nedclibasetemplate-c183924d4e06"></a>
 
 ```java
 public NedCliBaseTemplate(
@@ -129,7 +129,7 @@ public NedCliBaseTemplate(
 )
 ```
 
-Types: [NedMux](NedMux.md#cls-NedMux), [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedMux](NedMux.md#nedmux-646886956a86), [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
@@ -150,99 +150,99 @@ Types: [NedMux](NedMux.md#cls-NedMux), [NedWorker](NedWorker.md#cls-NedWorker)
 
 ## Fields
 
-### connection <a href="#m-connection" id="m-connection"></a>
+### connection <a href="#connection-10cb65e4a7bd" id="connection-10cb65e4a7bd"></a>
 
 ```java
 public com.tailf.ned.SSHConnection connection = null;
 ```
 
-Types: [SSHConnection](SSHConnection.md#cls-SSHConnection)
+Types: [SSHConnection](SSHConnection.md#sshconnection-b3d3a2094429)
 
-### connectTimeout <a href="#m-connectTimeout" id="m-connectTimeout"></a>
+### connectTimeout <a href="#connecttimeout-da6f2bf6befb" id="connecttimeout-da6f2bf6befb"></a>
 
 ```java
 public int connectTimeout = null;
 ```
 
-### device_id <a href="#m-device_id" id="m-device_id"></a>
+### device_id <a href="#device_id-b23d313b9b98" id="device_id-b23d313b9b98"></a>
 
 ```java
 public String device_id = null;
 ```
 
-### ip <a href="#m-ip" id="m-ip"></a>
+### ip <a href="#ip-47c04d6ce4c0" id="ip-47c04d6ce4c0"></a>
 
 ```java
 public java.net.InetAddress ip = null;
 ```
 
-### mux <a href="#m-mux" id="m-mux"></a>
+### mux <a href="#mux-bdb6413b8b1f" id="mux-bdb6413b8b1f"></a>
 
 ```java
 public com.tailf.ned.NedMux mux = null;
 ```
 
-Types: [NedMux](NedMux.md#cls-NedMux)
+Types: [NedMux](NedMux.md#nedmux-646886956a86)
 
-### pass <a href="#m-pass" id="m-pass"></a>
+### pass <a href="#pass-4fd8d65070e9" id="pass-4fd8d65070e9"></a>
 
 ```java
 public String pass = null;
 ```
 
-### port <a href="#m-port" id="m-port"></a>
+### port <a href="#port-93a59be61bfd" id="port-93a59be61bfd"></a>
 
 ```java
 public int port = null;
 ```
 
-### proto <a href="#m-proto" id="m-proto"></a>
+### proto <a href="#proto-c874ba0c5a00" id="proto-c874ba0c5a00"></a>
 
 ```java
 public String proto = null;
 ```
 
-### readTimeout <a href="#m-readTimeout" id="m-readTimeout"></a>
+### readTimeout <a href="#readtimeout-0c3689315cf4" id="readtimeout-0c3689315cf4"></a>
 
 ```java
 public int readTimeout = null;
 ```
 
-### ruser <a href="#m-ruser" id="m-ruser"></a>
+### ruser <a href="#ruser-f88f1be99f7d" id="ruser-f88f1be99f7d"></a>
 
 ```java
 public String ruser = null;
 ```
 
-### secpass <a href="#m-secpass" id="m-secpass"></a>
+### secpass <a href="#secpass-eef0de0e9549" id="secpass-eef0de0e9549"></a>
 
 ```java
 public String secpass = null;
 ```
 
-### session <a href="#m-session" id="m-session"></a>
+### session <a href="#session-19c952d171f3" id="session-19c952d171f3"></a>
 
 ```java
 public com.tailf.ned.CliSession session = null;
 ```
 
-Types: [CliSession](CliSession.md#cls-CliSession)
+Types: [CliSession](CliSession.md#clisession-1e55c4457237)
 
-### trace <a href="#m-trace" id="m-trace"></a>
+### trace <a href="#trace-6a8edda0bb8c" id="trace-6a8edda0bb8c"></a>
 
 ```java
 public boolean trace = null;
 ```
 
-### tracer <a href="#m-tracer" id="m-tracer"></a>
+### tracer <a href="#tracer-4049ab34cc3a" id="tracer-4049ab34cc3a"></a>
 
 ```java
 public com.tailf.ned.NedTracer tracer = null;
 ```
 
-Types: [NedTracer](NedTracer.md#cls-NedTracer)
+Types: [NedTracer](NedTracer.md#nedtracer-f8730263f5f2)
 
-### writeTimeout <a href="#m-writeTimeout" id="m-writeTimeout"></a>
+### writeTimeout <a href="#writetimeout-6a827dc49d49" id="writetimeout-6a827dc49d49"></a>
 
 ```java
 public int writeTimeout = null;
@@ -251,20 +251,20 @@ public int writeTimeout = null;
 
 ## Methods
 
-### abort(NedWorker, String) <a href="#m-abort-e0e56f7ce202" id="m-abort-e0e56f7ce202"></a>
+### abort(NedWorker, String) <a href="#abort-e0e56f7ce202" id="abort-e0e56f7ce202"></a>
 
 ```java
 public void abort(com.tailf.ned.NedWorker worker, String data) throws Exception
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker worker`
 - `String data`
 
-### applyConfig(NedWorker, int, String) <a href="#m-applyConfig-7b024768cd7e" id="m-applyConfig-7b024768cd7e"></a>
+### applyConfig(NedWorker, int, String) <a href="#applyconfig-7b024768cd7e" id="applyconfig-7b024768cd7e"></a>
 
 ```java
 public void applyConfig(
@@ -275,7 +275,7 @@ public void applyConfig(
     throws com.tailf.ned.NedException, java.io.IOException, com.tailf.ned.SSHSessionException, com.tailf.ned.NedCliBaseTemplate.ApplyException
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker), [NedException](NedException.md#cls-NedException), [SSHSessionException](SSHSessionException.md#cls-SSHSessionException), [ApplyException](NedCliBaseTemplate/ApplyException.md#cls-ApplyException)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998), [NedException](NedException.md#nedexception-9d3a19f3640e), [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1), [ApplyException](NedCliBaseTemplate/ApplyException.md#applyexception-64694ca56419)
 
 **Parameters**
 
@@ -283,13 +283,13 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [NedException](NedException.md#c
 - `int cmd`
 - `String data`
 
-### close() <a href="#m-close-8107c6dc012b" id="m-close-8107c6dc012b"></a>
+### close() <a href="#close-8107c6dc012b" id="close-8107c6dc012b"></a>
 
 ```java
 public void close()
 ```
 
-### close(NedWorker) <a href="#m-close-30f80583fb17" id="m-close-30f80583fb17"></a>
+### close(NedWorker) <a href="#close-30f80583fb17" id="close-30f80583fb17"></a>
 
 ```java
 public void close(
@@ -298,13 +298,13 @@ public void close(
     throws com.tailf.ned.NedException, java.io.IOException
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker), [NedException](NedException.md#cls-NedException)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998), [NedException](NedException.md#nedexception-9d3a19f3640e)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker worker`
 
-### command(NedWorker, String, ConfXMLParam[]) <a href="#m-command-e9b29b4222a3" id="m-command-e9b29b4222a3"></a>
+### command(NedWorker, String, ConfXMLParam[]) <a href="#command-e9b29b4222a3" id="command-e9b29b4222a3"></a>
 
 ```java
 public void command(
@@ -315,7 +315,7 @@ public void command(
     throws Exception
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker), [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998), [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7)
 
 **Parameters**
 
@@ -323,68 +323,68 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [ConfXMLParam](../conf/ConfXMLPa
 - `String cmdname`
 - `com.tailf.conf.ConfXMLParam[] p`
 
-### commit(NedWorker, int) <a href="#m-commit-7dc36c07ab47" id="m-commit-7dc36c07ab47"></a>
+### commit(NedWorker, int) <a href="#commit-7dc36c07ab47" id="commit-7dc36c07ab47"></a>
 
 ```java
 public void commit(com.tailf.ned.NedWorker worker, int timeout) throws Exception
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker worker`
 - `int timeout`
 
-### device_id() <a href="#m-device_id-f50bb7031536" id="m-device_id-f50bb7031536"></a>
+### device_id() <a href="#device_id-f50bb7031536" id="device_id-f50bb7031536"></a>
 
 ```java
 public String device_id()
 ```
 
-### getTransId(NedWorker) <a href="#m-getTransId-01de732a93e8" id="m-getTransId-01de732a93e8"></a>
+### getTransId(NedWorker) <a href="#gettransid-01de732a93e8" id="gettransid-01de732a93e8"></a>
 
 ```java
 public void getTransId(com.tailf.ned.NedWorker worker) throws Exception
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker worker`
 
-### handshake(NedWorker) <a href="#m-handshake-602ba649a458" id="m-handshake-602ba649a458"></a>
+### handshake(NedWorker) <a href="#handshake-602ba649a458" id="handshake-602ba649a458"></a>
 
 ```java
 public void handshake(com.tailf.ned.NedWorker worker) throws Exception
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker worker`
 
-### identity() <a href="#m-identity-16b9d59e26e7" id="m-identity-16b9d59e26e7"></a>
+### identity() <a href="#identity-16b9d59e26e7" id="identity-16b9d59e26e7"></a>
 
 ```java
 public String identity()
 ```
 
-### isAlive(NedWorker) <a href="#m-isAlive-6915ae01ec8a" id="m-isAlive-6915ae01ec8a"></a>
+### isAlive(NedWorker) <a href="#isalive-6915ae01ec8a" id="isalive-6915ae01ec8a"></a>
 
 ```java
 public boolean isAlive(com.tailf.ned.NedWorker worker)
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker worker`
 
-### isConnection(String, InetAddress, int, String, String, String, String, String, boolean, int, int, int) <a href="#m-isConnection-83e14a2692f7" id="m-isConnection-83e14a2692f7"></a>
+### isConnection(String, InetAddress, int, String, String, String, String, String, boolean, int, int, int) <a href="#isconnection-83e14a2692f7" id="isconnection-83e14a2692f7"></a>
 
 ```java
 public boolean isConnection(
@@ -418,13 +418,13 @@ public boolean isConnection(
 - `int readTimeout`
 - `int writeTimeout`
 
-### modules() <a href="#m-modules-15ef53dcaf36" id="m-modules-15ef53dcaf36"></a>
+### modules() <a href="#modules-15ef53dcaf36" id="modules-15ef53dcaf36"></a>
 
 ```java
 public String[] modules()
 ```
 
-### newConnection(String, InetAddress, int, String, String, String, String, String, boolean, int, int, int, NedMux, NedWorker) <a href="#m-newConnection-00bd117e5875" id="m-newConnection-00bd117e5875"></a>
+### newConnection(String, InetAddress, int, String, String, String, String, String, boolean, int, int, int, NedMux, NedWorker) <a href="#newconnection-00bd117e5875" id="newconnection-00bd117e5875"></a>
 
 ```java
 public com.tailf.ned.NedCliBase newConnection(
@@ -445,7 +445,7 @@ public com.tailf.ned.NedCliBase newConnection(
 )
 ```
 
-Types: [NedCliBase](NedCliBase.md#cls-NedCliBase), [NedMux](NedMux.md#cls-NedMux), [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedCliBase](NedCliBase.md#nedclibase-cb59203c2e29), [NedMux](NedMux.md#nedmux-646886956a86), [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
@@ -464,45 +464,45 @@ Types: [NedCliBase](NedCliBase.md#cls-NedCliBase), [NedMux](NedMux.md#cls-NedMux
 - `com.tailf.ned.NedMux mux`
 - `com.tailf.ned.NedWorker worker`
 
-### persist(NedWorker) <a href="#m-persist-a67bc9247622" id="m-persist-a67bc9247622"></a>
+### persist(NedWorker) <a href="#persist-a67bc9247622" id="persist-a67bc9247622"></a>
 
 ```java
 public void persist(com.tailf.ned.NedWorker worker) throws Exception
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker worker`
 
-### prepare(NedWorker, String) <a href="#m-prepare-ed9e4d4b6a29" id="m-prepare-ed9e4d4b6a29"></a>
+### prepare(NedWorker, String) <a href="#prepare-ed9e4d4b6a29" id="prepare-ed9e4d4b6a29"></a>
 
 ```java
 public void prepare(com.tailf.ned.NedWorker worker, String data) throws Exception
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker worker`
 - `String data`
 
-### prepareDry(NedWorker, String) <a href="#m-prepareDry-169e1f01784c" id="m-prepareDry-169e1f01784c"></a>
+### prepareDry(NedWorker, String) <a href="#preparedry-169e1f01784c" id="preparedry-169e1f01784c"></a>
 
 ```java
 public void prepareDry(com.tailf.ned.NedWorker worker, String data) throws Exception
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker worker`
 - `String data`
 
-### quote(String) <a href="#m-quote-5785a7e30ac4" id="m-quote-5785a7e30ac4"></a>
+### quote(String) <a href="#quote-5785a7e30ac4" id="quote-5785a7e30ac4"></a>
 
 ```java
 public String quote(String aText)
@@ -512,69 +512,69 @@ public String quote(String aText)
 
 - `String aText`
 
-### reconnect(NedWorker) <a href="#m-reconnect-a7a5900d41d6" id="m-reconnect-a7a5900d41d6"></a>
+### reconnect(NedWorker) <a href="#reconnect-a7a5900d41d6" id="reconnect-a7a5900d41d6"></a>
 
 ```java
 public void reconnect(com.tailf.ned.NedWorker worker)
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker worker`
 
-### revert(NedWorker, String) <a href="#m-revert-5ad837ca98a4" id="m-revert-5ad837ca98a4"></a>
+### revert(NedWorker, String) <a href="#revert-5ad837ca98a4" id="revert-5ad837ca98a4"></a>
 
 ```java
 public void revert(com.tailf.ned.NedWorker worker, String data) throws Exception
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker worker`
 - `String data`
 
-### setupSSH(NedWorker) <a href="#m-setupSSH-e795823b6e87" id="m-setupSSH-e795823b6e87"></a>
+### setupSSH(NedWorker) <a href="#setupssh-e795823b6e87" id="setupssh-e795823b6e87"></a>
 
 ```java
 public void setupSSH(com.tailf.ned.NedWorker worker) throws Exception
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker worker`
 
-### setupTelnet(NedWorker) <a href="#m-setupTelnet-0c5e791a6b66" id="m-setupTelnet-0c5e791a6b66"></a>
+### setupTelnet(NedWorker) <a href="#setuptelnet-0c5e791a6b66" id="setuptelnet-0c5e791a6b66"></a>
 
 ```java
 public void setupTelnet(com.tailf.ned.NedWorker worker) throws Exception
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker worker`
 
-### show(NedWorker, String) <a href="#m-show-5a497cd9b854" id="m-show-5a497cd9b854"></a>
+### show(NedWorker, String) <a href="#show-5a497cd9b854" id="show-5a497cd9b854"></a>
 
 ```java
 public void show(com.tailf.ned.NedWorker worker, String toptag) throws Exception
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker worker`
 - `String toptag`
 
-### string_dequote(String) <a href="#m-string_dequote-74ef73b493ff" id="m-string_dequote-74ef73b493ff"></a>
+### string_dequote(String) <a href="#string_dequote-74ef73b493ff" id="string_dequote-74ef73b493ff"></a>
 
 ```java
 public String string_dequote(String aText)
@@ -584,9 +584,9 @@ public String string_dequote(String aText)
 
 - `String aText`
 
-**Deprecated:** Use [`unquote(String)`](NedCliBaseTemplate.md#m-unquote-bdee91b3a426) instead.
+**Deprecated:** Use [`unquote(String)`](NedCliBaseTemplate.md#unquote-bdee91b3a426) instead.
 
-### string_quote(String) <a href="#m-string_quote-3abeed221bc3" id="m-string_quote-3abeed221bc3"></a>
+### string_quote(String) <a href="#string_quote-3abeed221bc3" id="string_quote-3abeed221bc3"></a>
 
 ```java
 public String string_quote(String aText)
@@ -596,21 +596,21 @@ public String string_quote(String aText)
 
 - `String aText`
 
-**Deprecated:** Use [`quote(String)`](NedCliBaseTemplate.md#m-quote-5785a7e30ac4) instead.
+**Deprecated:** Use [`quote(String)`](NedCliBaseTemplate.md#quote-5785a7e30ac4) instead.
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()
 ```
 
-### trace(NedWorker, String, String) <a href="#m-trace-a95f19736f87" id="m-trace-a95f19736f87"></a>
+### trace(NedWorker, String, String) <a href="#trace-a95f19736f87" id="trace-a95f19736f87"></a>
 
 ```java
 public void trace(com.tailf.ned.NedWorker worker, String msg, String direction)
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 **Parameters**
 
@@ -618,13 +618,13 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker)
 - `String msg`
 - `String direction`
 
-### type() <a href="#m-type-7a4a5f26039a" id="m-type-7a4a5f26039a"></a>
+### type() <a href="#type-7a4a5f26039a" id="type-7a4a5f26039a"></a>
 
 ```java
 public String type()
 ```
 
-### unquote(String) <a href="#m-unquote-bdee91b3a426" id="m-unquote-bdee91b3a426"></a>
+### unquote(String) <a href="#unquote-bdee91b3a426" id="unquote-bdee91b3a426"></a>
 
 ```java
 public String unquote(String aText)
@@ -637,4 +637,4 @@ public String unquote(String aText)
 
 ## Nested Types
 
-- [ApplyException](NedCliBaseTemplate/ApplyException.md#cls-ApplyException)
+- [ApplyException](NedCliBaseTemplate/ApplyException.md#applyexception-64694ca56419)

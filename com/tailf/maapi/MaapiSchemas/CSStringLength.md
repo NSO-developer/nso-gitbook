@@ -1,4 +1,4 @@
-# CSStringLength <a href="#cls-CSStringLength" id="cls-CSStringLength"></a>
+# CSStringLength <a href="#csstringlength-f40944c587da" id="csstringlength-f40944c587da"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.CSStringLength
@@ -8,22 +8,22 @@ public static class com.tailf.maapi.MaapiSchemas.CSStringLength
 
 **Constructors**:
 
-- [CSStringLength(ConfObject, ConfObject)](#m-CSStringLength-6fba6f4d6638)
+- [CSStringLength(ConfObject, ConfObject)](#csstringlength-6fba6f4d6638)
 
 **Methods**:
 
-- [getHigh()](#m-getHigh-92e6b3d5438b)
-- [getLow()](#m-getLow-70f61b401781)
+- [getHigh()](#gethigh-92e6b3d5438b)
+- [getLow()](#getlow-70f61b401781)
 
 ## Constructors
 
-### CSStringLength(ConfObject, ConfObject) <a href="#m-CSStringLength-6fba6f4d6638" id="m-CSStringLength-6fba6f4d6638"></a>
+### CSStringLength(ConfObject, ConfObject) <a href="#csstringlength-6fba6f4d6638" id="csstringlength-6fba6f4d6638"></a>
 
 ```java
 public CSStringLength(com.tailf.conf.ConfObject lo, com.tailf.conf.ConfObject hi)
 ```
 
-Types: [ConfObject](../../conf/ConfObject.md#cls-ConfObject)
+Types: [ConfObject](../../conf/ConfObject.md#confobject-5433616953b2)
 
 **Parameters**
 
@@ -33,18 +33,18 @@ Types: [ConfObject](../../conf/ConfObject.md#cls-ConfObject)
 
 ## Methods
 
-### getHigh() <a href="#m-getHigh-92e6b3d5438b" id="m-getHigh-92e6b3d5438b"></a>
+### getHigh() <a href="#gethigh-92e6b3d5438b" id="gethigh-92e6b3d5438b"></a>
 
 ```java
 public com.tailf.conf.ConfObject getHigh()
 ```
 
-Types: [ConfObject](../../conf/ConfObject.md#cls-ConfObject)
+Types: [ConfObject](../../conf/ConfObject.md#confobject-5433616953b2)
 
-### getLow() <a href="#m-getLow-70f61b401781" id="m-getLow-70f61b401781"></a>
+### getLow() <a href="#getlow-70f61b401781" id="getlow-70f61b401781"></a>
 
 ```java
 public com.tailf.conf.ConfObject getLow()
 ```
 
-Types: [ConfObject](../../conf/ConfObject.md#cls-ConfObject)
+Types: [ConfObject](../../conf/ConfObject.md#confobject-5433616953b2)

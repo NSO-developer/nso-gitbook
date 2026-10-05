@@ -1,4 +1,4 @@
-# NavuChoice <a href="#cls-NavuChoice" id="cls-NavuChoice"></a>
+# NavuChoice <a href="#navuchoice-e8914a50eee5" id="navuchoice-e8914a50eee5"></a>
 
 ```java
 public class com.tailf.navu.NavuChoice
@@ -10,41 +10,41 @@ This class handles YANG presentation and setting of YANG choices.
 
 **Constructors**:
 
-- [NavuChoice(NavuContext, CSChoice, String, Object[])](#m-NavuChoice-f2ceb003f1e5)
+- [NavuChoice(NavuContext, CSChoice, String, Object[])](#navuchoice-f2ceb003f1e5)
 
 **Fields**:
 
-- [cases](#m-cases)
+- [cases](#cases-d2f5ba8c8b15)
 
 **Methods**:
 
-- [containsCase(CSCase)](#m-containsCase-d63d3edc467b)
-- [containsChoice(CSChoice)](#m-containsChoice-417c76bf331d)
-- [containsNode(CSNode)](#m-containsNode-28ef18f0cd45)
-- [getCase(CSChoice)](#m-getCase-714ec678c34c)
-- [getCase(CSNode)](#m-getCase-013bf2ed6869)
-- [getCaseChoices(String)](#m-getCaseChoices-8969ac2420ed)
-- [getCaseNodes(String)](#m-getCaseNodes-00683ec03a66)
-- [getCSCases()](#m-getCSCases-9dfaff709202)
-- [getName()](#m-getName-2634b18b4a25)
-- [getPreviousCase()](#m-getPreviousCase-6c933875f8e7)
-- [getSelectedCase()](#m-getSelectedCase-97c467f33244)
-- [isCurrentCase(CSCase)](#m-isCurrentCase-b34e8a895013)
-- [isEmpty()](#m-isEmpty-4dde48126244)
-- [isOper()](#m-isOper-578628dfb332)
-- [isWritable()](#m-isWritable-f813255e9b26)
-- [isWritableAll()](#m-isWritableAll-8587e2efc611)
-- [prefixify(int, int, String)](#m-prefixify-1a9e83400b1c)
-- [prefixify(int, int, String, boolean)](#m-prefixify-4d8da8937245)
-- [put(CSNode, CSCase)](#m-put-cb5804b15414)
-- [putAll(Map<? extends CSNode,? extends CSCase>)](#m-putAll-35e2d6a16b17)
-- [size()](#m-size-c6d8505255fd)
-- [update()](#m-update-401fc06ab5bd)
-- [values()](#m-values-406dfe3ca270)
+- [containsCase(CSCase)](#containscase-d63d3edc467b)
+- [containsChoice(CSChoice)](#containschoice-417c76bf331d)
+- [containsNode(CSNode)](#containsnode-28ef18f0cd45)
+- [getCase(CSChoice)](#getcase-714ec678c34c)
+- [getCase(CSNode)](#getcase-013bf2ed6869)
+- [getCaseChoices(String)](#getcasechoices-8969ac2420ed)
+- [getCaseNodes(String)](#getcasenodes-00683ec03a66)
+- [getCSCases()](#getcscases-9dfaff709202)
+- [getName()](#getname-2634b18b4a25)
+- [getPreviousCase()](#getpreviouscase-6c933875f8e7)
+- [getSelectedCase()](#getselectedcase-97c467f33244)
+- [isCurrentCase(CSCase)](#iscurrentcase-b34e8a895013)
+- [isEmpty()](#isempty-4dde48126244)
+- [isOper()](#isoper-578628dfb332)
+- [isWritable()](#iswritable-f813255e9b26)
+- [isWritableAll()](#iswritableall-8587e2efc611)
+- [prefixify(int, int, String)](#prefixify-1a9e83400b1c)
+- [prefixify(int, int, String, boolean)](#prefixify-4d8da8937245)
+- [put(CSNode, CSCase)](#put-cb5804b15414)
+- [putAll(Map<? extends CSNode,? extends CSCase>)](#putall-35e2d6a16b17)
+- [size()](#size-c6d8505255fd)
+- [update()](#update-401fc06ab5bd)
+- [values()](#values-406dfe3ca270)
 
 ## Constructors
 
-### NavuChoice(NavuContext, CSChoice, String, Object[]) <a href="#m-NavuChoice-f2ceb003f1e5" id="m-NavuChoice-f2ceb003f1e5"></a>
+### NavuChoice(NavuContext, CSChoice, String, Object[]) <a href="#navuchoice-f2ceb003f1e5" id="navuchoice-f2ceb003f1e5"></a>
 
 ```java
 protected NavuChoice(
@@ -56,7 +56,7 @@ protected NavuChoice(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [NavuContext](NavuContext.md#cls-NavuContext), [CSChoice](../maapi/MaapiSchemas/CSChoice.md#cls-CSChoice), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [NavuContext](NavuContext.md#navucontext-2974e9f92a9e), [CSChoice](../maapi/MaapiSchemas/CSChoice.md#cschoice-7d5d5dd71270), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Creates a Navu presentation of a schema choice node.
 
@@ -70,24 +70,24 @@ Creates a Navu presentation of a schema choice node.
 
 ## Fields
 
-### cases <a href="#m-cases" id="m-cases"></a>
+### cases <a href="#cases-d2f5ba8c8b15" id="cases-d2f5ba8c8b15"></a>
 
 ```java
 protected java.util.List<com.tailf.maapi.MaapiSchemas.CSCase> cases = null;
 ```
 
-Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cls-CSCase)
+Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cscase-26937f56b18d)
 
 
 ## Methods
 
-### containsCase(CSCase) <a href="#m-containsCase-d63d3edc467b" id="m-containsCase-d63d3edc467b"></a>
+### containsCase(CSCase) <a href="#containscase-d63d3edc467b" id="containscase-d63d3edc467b"></a>
 
 ```java
 public boolean containsCase(com.tailf.maapi.MaapiSchemas.CSCase cAse)
 ```
 
-Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cls-CSCase)
+Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cscase-26937f56b18d)
 
 Checks if a given case node is a case of this choice.
 
@@ -97,13 +97,13 @@ Checks if a given case node is a case of this choice.
 
 **Returns:** true if the case is contained.
 
-### containsChoice(CSChoice) <a href="#m-containsChoice-417c76bf331d" id="m-containsChoice-417c76bf331d"></a>
+### containsChoice(CSChoice) <a href="#containschoice-417c76bf331d" id="containschoice-417c76bf331d"></a>
 
 ```java
 public boolean containsChoice(com.tailf.maapi.MaapiSchemas.CSChoice choice)
 ```
 
-Types: [CSChoice](../maapi/MaapiSchemas/CSChoice.md#cls-CSChoice)
+Types: [CSChoice](../maapi/MaapiSchemas/CSChoice.md#cschoice-7d5d5dd71270)
 
 Checks if a choice is contained in a case of this choice.
 
@@ -113,13 +113,13 @@ Checks if a choice is contained in a case of this choice.
 
 **Returns:** true if is contained.
 
-### containsNode(CSNode) <a href="#m-containsNode-28ef18f0cd45" id="m-containsNode-28ef18f0cd45"></a>
+### containsNode(CSNode) <a href="#containsnode-28ef18f0cd45" id="containsnode-28ef18f0cd45"></a>
 
 ```java
 public boolean containsNode(com.tailf.maapi.MaapiSchemas.CSNode node)
 ```
 
-Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
+Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 
 Checks if a node is contained directly within this choice.
 
@@ -129,13 +129,13 @@ Checks if a node is contained directly within this choice.
 
 **Returns:** true if is contained.
 
-### getCase(CSChoice) <a href="#m-getCase-714ec678c34c" id="m-getCase-714ec678c34c"></a>
+### getCase(CSChoice) <a href="#getcase-714ec678c34c" id="getcase-714ec678c34c"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSCase getCase(com.tailf.maapi.MaapiSchemas.CSChoice choice)
 ```
 
-Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cls-CSCase), [CSChoice](../maapi/MaapiSchemas/CSChoice.md#cls-CSChoice)
+Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cscase-26937f56b18d), [CSChoice](../maapi/MaapiSchemas/CSChoice.md#cschoice-7d5d5dd71270)
 
 Returns the case in which a choice is contained within.
 
@@ -145,13 +145,13 @@ Returns the case in which a choice is contained within.
 
 **Returns:** a case matching the given node.
 
-### getCase(CSNode) <a href="#m-getCase-013bf2ed6869" id="m-getCase-013bf2ed6869"></a>
+### getCase(CSNode) <a href="#getcase-013bf2ed6869" id="getcase-013bf2ed6869"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSCase getCase(com.tailf.maapi.MaapiSchemas.CSNode node)
 ```
 
-Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cls-CSCase), [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
+Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cscase-26937f56b18d), [CSNode](../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 
 Returns the case in which a node is contained within.
 
@@ -161,13 +161,13 @@ Returns the case in which a node is contained within.
 
 **Returns:** a case matching the given node.
 
-### getCaseChoices(String) <a href="#m-getCaseChoices-8969ac2420ed" id="m-getCaseChoices-8969ac2420ed"></a>
+### getCaseChoices(String) <a href="#getcasechoices-8969ac2420ed" id="getcasechoices-8969ac2420ed"></a>
 
 ```java
 public java.util.List<com.tailf.maapi.MaapiSchemas.CSChoice> getCaseChoices(String casename)
 ```
 
-Types: [CSChoice](../maapi/MaapiSchemas/CSChoice.md#cls-CSChoice)
+Types: [CSChoice](../maapi/MaapiSchemas/CSChoice.md#cschoice-7d5d5dd71270)
 
 **Parameters**
 
@@ -175,13 +175,13 @@ Types: [CSChoice](../maapi/MaapiSchemas/CSChoice.md#cls-CSChoice)
 
 **Returns:** a set of CSNode for a give case name
 
-### getCaseNodes(String) <a href="#m-getCaseNodes-00683ec03a66" id="m-getCaseNodes-00683ec03a66"></a>
+### getCaseNodes(String) <a href="#getcasenodes-00683ec03a66" id="getcasenodes-00683ec03a66"></a>
 
 ```java
 public java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> getCaseNodes(String casename)
 ```
 
-Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
+Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 
 **Parameters**
 
@@ -189,15 +189,15 @@ Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
 
 **Returns:** a set of CSNode for a give case name
 
-### getCSCases() <a href="#m-getCSCases-9dfaff709202" id="m-getCSCases-9dfaff709202"></a>
+### getCSCases() <a href="#getcscases-9dfaff709202" id="getcscases-9dfaff709202"></a>
 
 ```java
 protected java.util.List<com.tailf.maapi.MaapiSchemas.CSCase> getCSCases()
 ```
 
-Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cls-CSCase)
+Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cscase-26937f56b18d)
 
-### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
+### getName() <a href="#getname-2634b18b4a25" id="getname-2634b18b4a25"></a>
 
 ```java
 public String getName()
@@ -207,37 +207,37 @@ Returns the choice name according to the YANG model.
 
 **Returns:** the name of the choice.
 
-### getPreviousCase() <a href="#m-getPreviousCase-6c933875f8e7" id="m-getPreviousCase-6c933875f8e7"></a>
+### getPreviousCase() <a href="#getpreviouscase-6c933875f8e7" id="getpreviouscase-6c933875f8e7"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSCase getPreviousCase()
 ```
 
-Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cls-CSCase)
+Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cscase-26937f56b18d)
 
 Returns the previous case of the choice.
 
 **Returns:** the previous case. null if the case has not been changed.
 
-### getSelectedCase() <a href="#m-getSelectedCase-97c467f33244" id="m-getSelectedCase-97c467f33244"></a>
+### getSelectedCase() <a href="#getselectedcase-97c467f33244" id="getselectedcase-97c467f33244"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSCase getSelectedCase()
 ```
 
-Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cls-CSCase)
+Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cscase-26937f56b18d)
 
 Returns the current case.
 
 **Returns:** the current case. null if no case has been selected yet.
 
-### isCurrentCase(CSCase) <a href="#m-isCurrentCase-b34e8a895013" id="m-isCurrentCase-b34e8a895013"></a>
+### isCurrentCase(CSCase) <a href="#iscurrentcase-b34e8a895013" id="iscurrentcase-b34e8a895013"></a>
 
 ```java
 public boolean isCurrentCase(com.tailf.maapi.MaapiSchemas.CSCase cAse)
 ```
 
-Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cls-CSCase)
+Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cscase-26937f56b18d)
 
 Checks if a given case is the currently selected case.
 
@@ -247,7 +247,7 @@ Checks if a given case is the currently selected case.
 
 **Returns:** true if it is a match.
 
-### isEmpty() <a href="#m-isEmpty-4dde48126244" id="m-isEmpty-4dde48126244"></a>
+### isEmpty() <a href="#isempty-4dde48126244" id="isempty-4dde48126244"></a>
 
 ```java
 public boolean isEmpty()
@@ -257,13 +257,13 @@ Checks if it is an empty choice. I.e. if no case nodes exist.
 
 **Returns:** true, if no nodes are contained in the choice.
 
-### isOper() <a href="#m-isOper-578628dfb332" id="m-isOper-578628dfb332"></a>
+### isOper() <a href="#isoper-578628dfb332" id="isoper-578628dfb332"></a>
 
 ```java
 public boolean isOper()
 ```
 
-### isWritable() <a href="#m-isWritable-f813255e9b26" id="m-isWritable-f813255e9b26"></a>
+### isWritable() <a href="#iswritable-f813255e9b26" id="iswritable-f813255e9b26"></a>
 
 ```java
 public boolean isWritable()
@@ -273,7 +273,7 @@ Checks if the node is writable.
 
 **Returns:** true if the node is writable.
 
-### isWritableAll() <a href="#m-isWritableAll-8587e2efc611" id="m-isWritableAll-8587e2efc611"></a>
+### isWritableAll() <a href="#iswritableall-8587e2efc611" id="iswritableall-8587e2efc611"></a>
 
 ```java
 public boolean isWritableAll()
@@ -283,7 +283,7 @@ Checks if the node is writable for all data.
 
 **Returns:** true if the node is writable for all data.
 
-### prefixify(int, int, String) <a href="#m-prefixify-1a9e83400b1c" id="m-prefixify-1a9e83400b1c"></a>
+### prefixify(int, int, String) <a href="#prefixify-1a9e83400b1c" id="prefixify-1a9e83400b1c"></a>
 
 ```java
 protected static String prefixify(int nsOther, int nsThis, String name)
@@ -295,7 +295,7 @@ protected static String prefixify(int nsOther, int nsThis, String name)
 - `int nsThis`
 - `String name`
 
-### prefixify(int, int, String, boolean) <a href="#m-prefixify-4d8da8937245" id="m-prefixify-4d8da8937245"></a>
+### prefixify(int, int, String, boolean) <a href="#prefixify-4d8da8937245" id="prefixify-4d8da8937245"></a>
 
 ```java
 protected static String prefixify(int nsOther, int nsThis, String name, boolean skipIfColon)
@@ -308,7 +308,7 @@ protected static String prefixify(int nsOther, int nsThis, String name, boolean 
 - `String name`
 - `boolean skipIfColon`
 
-### put(CSNode, CSCase) <a href="#m-put-cb5804b15414" id="m-put-cb5804b15414"></a>
+### put(CSNode, CSCase) <a href="#put-cb5804b15414" id="put-cb5804b15414"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSCase put(
@@ -317,7 +317,7 @@ public com.tailf.maapi.MaapiSchemas.CSCase put(
 )
 ```
 
-Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cls-CSCase), [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
+Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cscase-26937f56b18d), [CSNode](../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 
 Adds node-case relation to the choice.
 
@@ -328,7 +328,7 @@ Adds node-case relation to the choice.
 
 **Returns:** the inserted case.
 
-### putAll(Map<? extends CSNode,? extends CSCase>) <a href="#m-putAll-35e2d6a16b17" id="m-putAll-35e2d6a16b17"></a>
+### putAll(Map&lt;? extends CSNode,? extends CSCase&gt;) <a href="#putall-35e2d6a16b17" id="putall-35e2d6a16b17"></a>
 
 ```java
 public void putAll(
@@ -336,7 +336,7 @@ public void putAll(
 )
 ```
 
-Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode), [CSCase](../maapi/MaapiSchemas/CSCase.md#cls-CSCase)
+Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28), [CSCase](../maapi/MaapiSchemas/CSCase.md#cscase-26937f56b18d)
 
 Adds a node-case map to the choice.
 
@@ -344,7 +344,7 @@ Adds a node-case map to the choice.
 
 - `java.util.Map<? extends com.tailf.maapi.MaapiSchemas.CSNode,? extends com.tailf.maapi.MaapiSchemas.CSCase> m` - a node-case map.
 
-### size() <a href="#m-size-c6d8505255fd" id="m-size-c6d8505255fd"></a>
+### size() <a href="#size-c6d8505255fd" id="size-c6d8505255fd"></a>
 
 ```java
 public int size()
@@ -354,7 +354,7 @@ The number of cases contained in the choice.
 
 **Returns:** number of cases contained within the choice.
 
-### update() <a href="#m-update-401fc06ab5bd" id="m-update-401fc06ab5bd"></a>
+### update() <a href="#update-401fc06ab5bd" id="update-401fc06ab5bd"></a>
 
 ```java
 public boolean update()
@@ -362,13 +362,13 @@ public boolean update()
 
 **Returns:** true if the case was updated.
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public java.util.Collection<com.tailf.maapi.MaapiSchemas.CSCase> values()
 ```
 
-Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cls-CSCase)
+Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cscase-26937f56b18d)
 
 Return a list of cases contained within this choice.
 

@@ -1,10 +1,10 @@
-# CdbDBType <a href="#cls-CdbDBType" id="cls-CdbDBType"></a>
+# CdbDBType <a href="#cdbdbtype-5ae1aed3f97a" id="cdbdbtype-5ae1aed3f97a"></a>
 
 ```java
 public enum com.tailf.cdb.CdbDBType
 ```
 
-Types: [CdbDBType](CdbDBType.md#cls-CdbDBType)
+Types: [CdbDBType](CdbDBType.md#cdbdbtype-5ae1aed3f97a)
 
 Database types specified when setting up CDB sessions
 
@@ -12,20 +12,20 @@ Database types specified when setting up CDB sessions
 
 **Enum Constants**:
 
-- [CDB_OPERATIONAL](#m-CDB_OPERATIONAL)
-- [CDB_PRE_COMMIT_RUNNING](#m-CDB_PRE_COMMIT_RUNNING)
-- [CDB_RUNNING](#m-CDB_RUNNING)
-- [CDB_STARTUP](#m-CDB_STARTUP)
+- [CDB_OPERATIONAL](#cdb_operational-502b916801c6)
+- [CDB_PRE_COMMIT_RUNNING](#cdb_pre_commit_running-68ec740136a8)
+- [CDB_RUNNING](#cdb_running-a1f43295f116)
+- [CDB_STARTUP](#cdb_startup-4e1e423a32bb)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### CDB_OPERATIONAL <a href="#m-CDB_OPERATIONAL" id="m-CDB_OPERATIONAL"></a>
+### CDB_OPERATIONAL <a href="#cdb_operational-502b916801c6" id="cdb_operational-502b916801c6"></a>
 
 ```java
 public static final com.tailf.cdb.CdbDBType CDB_OPERATIONAL;
@@ -33,7 +33,7 @@ public static final com.tailf.cdb.CdbDBType CDB_OPERATIONAL;
 
 create a read/write session towards the operational db
 
-### CDB_PRE_COMMIT_RUNNING <a href="#m-CDB_PRE_COMMIT_RUNNING" id="m-CDB_PRE_COMMIT_RUNNING"></a>
+### CDB_PRE_COMMIT_RUNNING <a href="#cdb_pre_commit_running-68ec740136a8" id="cdb_pre_commit_running-68ec740136a8"></a>
 
 ```java
 public static final com.tailf.cdb.CdbDBType CDB_PRE_COMMIT_RUNNING;
@@ -44,7 +44,7 @@ create a read session toward the running database as it was before the
  notification read by CdbSubscription.read() and the final call of
  CdbSubscription.sync()
 
-### CDB_RUNNING <a href="#m-CDB_RUNNING" id="m-CDB_RUNNING"></a>
+### CDB_RUNNING <a href="#cdb_running-a1f43295f116" id="cdb_running-a1f43295f116"></a>
 
 ```java
 public static final com.tailf.cdb.CdbDBType CDB_RUNNING;
@@ -52,7 +52,7 @@ public static final com.tailf.cdb.CdbDBType CDB_RUNNING;
 
 create a session towards the running db
 
-### CDB_STARTUP <a href="#m-CDB_STARTUP" id="m-CDB_STARTUP"></a>
+### CDB_STARTUP <a href="#cdb_startup-4e1e423a32bb" id="cdb_startup-4e1e423a32bb"></a>
 
 ```java
 public static final com.tailf.cdb.CdbDBType CDB_STARTUP;
@@ -63,28 +63,28 @@ create a session towards the startup db
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.cdb.CdbDBType valueOf(String name)
 ```
 
-Types: [CdbDBType](CdbDBType.md#cls-CdbDBType)
+Types: [CdbDBType](CdbDBType.md#cdbdbtype-5ae1aed3f97a)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.cdb.CdbDBType[] values()
 ```
 
-Types: [CdbDBType](CdbDBType.md#cls-CdbDBType)
+Types: [CdbDBType](CdbDBType.md#cdbdbtype-5ae1aed3f97a)

@@ -1,11 +1,11 @@
-# CompletionReply <a href="#cls-CompletionReply" id="cls-CompletionReply"></a>
+# CompletionReply <a href="#completionreply-21386c591079" id="completionreply-21386c591079"></a>
 
 ```java
 public class com.tailf.dp.CompletionReply
     extends com.tailf.dp.Completion
 ```
 
-Types: [Completion](Completion.md#cls-Completion)
+Types: [Completion](Completion.md#completion-86b0b2e96c7f)
 
 Reply structure container for completion callbacks invoked by a
  tailf:cli-completion-actionpoint or a
@@ -15,22 +15,22 @@ Reply structure container for completion callbacks invoked by a
 
 **Constructors**:
 
-- [CompletionReply()](#m-CompletionReply-c343da72c278)
+- [CompletionReply()](#completionreply-c343da72c278)
 
 **Methods**:
 
-- [addCompletion(String, String)](#m-addCompletion-a74d991bf023)
-- [encode()](#m-encode-fbae522bba37)
-- [newDefaultReply()](Completion.md#m-newDefaultReply-5583906bcd7c) from Completion
-- [newRangeEnumReply(int)](Completion.md#m-newRangeEnumReply-5c101dba6437) from Completion
-- [newReply()](Completion.md#m-newReply-15892c4ebb44) from Completion
-- [setCompletionDesc(String)](#m-setCompletionDesc-e675fbf83e8d)
-- [setCompletionInfo(String)](#m-setCompletionInfo-e4b2cbdfc598)
-- [validate()](#m-validate-dc7ca5eb97ec)
+- [addCompletion(String, String)](#addcompletion-a74d991bf023)
+- [encode()](#encode-fbae522bba37)
+- [newDefaultReply()](Completion.md#newdefaultreply-5583906bcd7c) from Completion
+- [newRangeEnumReply(int)](Completion.md#newrangeenumreply-5c101dba6437) from Completion
+- [newReply()](Completion.md#newreply-15892c4ebb44) from Completion
+- [setCompletionDesc(String)](#setcompletiondesc-e675fbf83e8d)
+- [setCompletionInfo(String)](#setcompletioninfo-e4b2cbdfc598)
+- [validate()](#validate-dc7ca5eb97ec)
 
 ## Constructors
 
-### CompletionReply() <a href="#m-CompletionReply-c343da72c278" id="m-CompletionReply-c343da72c278"></a>
+### CompletionReply() <a href="#completionreply-c343da72c278" id="completionreply-c343da72c278"></a>
 
 ```java
 protected CompletionReply()
@@ -39,7 +39,7 @@ protected CompletionReply()
 
 ## Methods
 
-### addCompletion(String, String) <a href="#m-addCompletion-a74d991bf023" id="m-addCompletion-a74d991bf023"></a>
+### addCompletion(String, String) <a href="#addcompletion-a74d991bf023" id="addcompletion-a74d991bf023"></a>
 
 ```java
 public void addCompletion(String completion, String extra)
@@ -53,15 +53,15 @@ Adding one of possibly many completions as the reply for a
 - `String completion` - String representing a completion
 - `String extra` - currently not used
 
-### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
+### encode() <a href="#encode-fbae522bba37" id="encode-fbae522bba37"></a>
 
 ```java
 protected com.tailf.proto.ConfEList encode()
 ```
 
-Types: [ConfEList](../proto/ConfEList.md#cls-ConfEList)
+Types: [ConfEList](../proto/ConfEList.md#confelist-78fa4ba3b3a8)
 
-### setCompletionDesc(String) <a href="#m-setCompletionDesc-e675fbf83e8d" id="m-setCompletionDesc-e675fbf83e8d"></a>
+### setCompletionDesc(String) <a href="#setcompletiondesc-e675fbf83e8d" id="setcompletiondesc-e675fbf83e8d"></a>
 
 ```java
 public void setCompletionDesc(String desc)
@@ -73,7 +73,7 @@ Set the completion description field for this reply
 
 - `String desc` - String representing the description field
 
-### setCompletionInfo(String) <a href="#m-setCompletionInfo-e4b2cbdfc598" id="m-setCompletionInfo-e4b2cbdfc598"></a>
+### setCompletionInfo(String) <a href="#setcompletioninfo-e4b2cbdfc598" id="setcompletioninfo-e4b2cbdfc598"></a>
 
 ```java
 public void setCompletionInfo(String info)
@@ -85,7 +85,7 @@ Set the completion info field for this reply
 
 - `String info` - String representing the info field
 
-### validate() <a href="#m-validate-dc7ca5eb97ec" id="m-validate-dc7ca5eb97ec"></a>
+### validate() <a href="#validate-dc7ca5eb97ec" id="validate-dc7ca5eb97ec"></a>
 
 **Package-private**
 
@@ -93,4 +93,4 @@ Set the completion info field for this reply
 void validate() throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)

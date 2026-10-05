@@ -1,4 +1,4 @@
-# DpAuthorizationContext <a href="#cls-DpAuthorizationContext" id="cls-DpAuthorizationContext"></a>
+# DpAuthorizationContext <a href="#dpauthorizationcontext-e368a48474b6" id="dpauthorizationcontext-e368a48474b6"></a>
 
 ```java
 public class com.tailf.dp.DpAuthorizationContext
@@ -12,17 +12,17 @@ Authorization context class. The DpAuthorizationCallback callback methods
 
 **Constructors**:
 
-- [DpAuthorizationContext(DpUserInfo, String[], int, int, Dp)](#m-DpAuthorizationContext-06f65fd62f1d)
+- [DpAuthorizationContext(DpUserInfo, String[], int, int, Dp)](#dpauthorizationcontext-06f65fd62f1d)
 
 **Methods**:
 
-- [getGroups()](#m-getGroups-42a63746c815)
-- [getUserInfo()](#m-getUserInfo-3ecef1f24d3d)
-- [setAuthorizationTimeout(int)](#m-setAuthorizationTimeout-b4c17837fa6f)
+- [getGroups()](#getgroups-42a63746c815)
+- [getUserInfo()](#getuserinfo-3ecef1f24d3d)
+- [setAuthorizationTimeout(int)](#setauthorizationtimeout-b4c17837fa6f)
 
 ## Constructors
 
-### DpAuthorizationContext(DpUserInfo, String[], int, int, Dp) <a href="#m-DpAuthorizationContext-06f65fd62f1d" id="m-DpAuthorizationContext-06f65fd62f1d"></a>
+### DpAuthorizationContext(DpUserInfo, String[], int, int, Dp) <a href="#dpauthorizationcontext-06f65fd62f1d" id="dpauthorizationcontext-06f65fd62f1d"></a>
 
 ```java
 public DpAuthorizationContext(
@@ -34,7 +34,7 @@ public DpAuthorizationContext(
 )
 ```
 
-Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo), [Dp](Dp.md#cls-Dp)
+Types: [DpUserInfo](DpUserInfo.md#dpuserinfo-c59746285a6e), [Dp](Dp.md#dp-64c27347820e)
 
 **Parameters**
 
@@ -47,7 +47,7 @@ Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo), [Dp](Dp.md#cls-Dp)
 
 ## Methods
 
-### getGroups() <a href="#m-getGroups-42a63746c815" id="m-getGroups-42a63746c815"></a>
+### getGroups() <a href="#getgroups-42a63746c815" id="getgroups-42a63746c815"></a>
 
 ```java
 public String[] getGroups()
@@ -61,13 +61,13 @@ If success is true, the AAA authentication succeeded, and groups is an
 
 **Returns:** String[] groups
 
-### getUserInfo() <a href="#m-getUserInfo-3ecef1f24d3d" id="m-getUserInfo-3ecef1f24d3d"></a>
+### getUserInfo() <a href="#getuserinfo-3ecef1f24d3d" id="getuserinfo-3ecef1f24d3d"></a>
 
 ```java
 public com.tailf.dp.DpUserInfo getUserInfo()
 ```
 
-Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
+Types: [DpUserInfo](DpUserInfo.md#dpuserinfo-c59746285a6e)
 
 The uinfo contains an instance of DpUserInfo with details about the user
  logging in, specifically user name, password (if used), source IP
@@ -78,7 +78,7 @@ The uinfo contains an instance of DpUserInfo with details about the user
 
 **Returns:** DpUserInfo userinfo
 
-### setAuthorizationTimeout(int) <a href="#m-setAuthorizationTimeout-b4c17837fa6f" id="m-setAuthorizationTimeout-b4c17837fa6f"></a>
+### setAuthorizationTimeout(int) <a href="#setauthorizationtimeout-b4c17837fa6f" id="setauthorizationtimeout-b4c17837fa6f"></a>
 
 ```java
 public void setAuthorizationTimeout(int timeoutSecs) throws java.io.IOException

@@ -1,11 +1,11 @@
-# ResultTypeString <a href="#cls-ResultTypeString" id="cls-ResultTypeString"></a>
+# ResultTypeString <a href="#resulttypestring-6e023ffcb7ea" id="resulttypestring-6e023ffcb7ea"></a>
 
 ```java
 public interface com.tailf.maapi.ResultTypeString
     extends com.tailf.maapi.ResultType
 ```
 
-Types: [ResultType](ResultType.md#cls-ResultType)
+Types: [ResultType](ResultType.md#resulttype-1a8a08651698)
 
 XPath Result in string format. This format
  is specified trough `ReslutTypeString.class` as a parameter
@@ -48,11 +48,11 @@ XPath Result in string format. This format
 
 **Methods**:
 
-- [stringValue()](#m-stringValue-a6efca13ec08)
+- [stringValue()](#stringvalue-a6efca13ec08)
 
 ## Methods
 
-### stringValue() <a href="#m-stringValue-a6efca13ec08" id="m-stringValue-a6efca13ec08"></a>
+### stringValue() <a href="#stringvalue-a6efca13ec08" id="stringvalue-a6efca13ec08"></a>
 
 ```java
 public abstract String stringValue()

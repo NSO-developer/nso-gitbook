@@ -1,4 +1,4 @@
-# Reader <a href="#cls-Reader" id="cls-Reader"></a>
+# Reader <a href="#reader-b2467a96ddff" id="reader-b2467a96ddff"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsMeta.Value.Reader
@@ -9,20 +9,20 @@ public static final class com.tailf.ncs.maapi.Schema.CsMeta.Value.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getNone()](#m-getNone-e31bfdbffa7f)
-- [getText()](#m-getText-e63d55fcdcbd)
-- [hasText()](#m-hasText-9f49522a4f5a)
-- [isNone()](#m-isNone-e8a993ad0453)
-- [isText()](#m-isText-98869fdb86ee)
-- [which()](#m-which-0b2d23db5ed0)
+- [getNone()](#getnone-e31bfdbffa7f)
+- [getText()](#gettext-e63d55fcdcbd)
+- [hasText()](#hastext-9f49522a4f5a)
+- [isNone()](#isnone-e8a993ad0453)
+- [isText()](#istext-98869fdb86ee)
+- [which()](#which-0b2d23db5ed0)
 
 ## Constructors
 
-### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
+### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -49,40 +49,40 @@ Reader(
 
 ## Methods
 
-### getNone() <a href="#m-getNone-e31bfdbffa7f" id="m-getNone-e31bfdbffa7f"></a>
+### getNone() <a href="#getnone-e31bfdbffa7f" id="getnone-e31bfdbffa7f"></a>
 
 ```java
 public final org.capnproto.Void getNone()
 ```
 
-### getText() <a href="#m-getText-e63d55fcdcbd" id="m-getText-e63d55fcdcbd"></a>
+### getText() <a href="#gettext-e63d55fcdcbd" id="gettext-e63d55fcdcbd"></a>
 
 ```java
 public org.capnproto.Text.Reader getText()
 ```
 
-### hasText() <a href="#m-hasText-9f49522a4f5a" id="m-hasText-9f49522a4f5a"></a>
+### hasText() <a href="#hastext-9f49522a4f5a" id="hastext-9f49522a4f5a"></a>
 
 ```java
 public boolean hasText()
 ```
 
-### isNone() <a href="#m-isNone-e8a993ad0453" id="m-isNone-e8a993ad0453"></a>
+### isNone() <a href="#isnone-e8a993ad0453" id="isnone-e8a993ad0453"></a>
 
 ```java
 public final boolean isNone()
 ```
 
-### isText() <a href="#m-isText-98869fdb86ee" id="m-isText-98869fdb86ee"></a>
+### isText() <a href="#istext-98869fdb86ee" id="istext-98869fdb86ee"></a>
 
 ```java
 public final boolean isText()
 ```
 
-### which() <a href="#m-which-0b2d23db5ed0" id="m-which-0b2d23db5ed0"></a>
+### which() <a href="#which-0b2d23db5ed0" id="which-0b2d23db5ed0"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsMeta.Value.Which which()
 ```
 
-Types: [Which](Which.md#cls-Which)
+Types: [Which](Which.md#which-92b652653aa7)

@@ -1,4 +1,4 @@
-# NavuXMLtoConfXMLParamHandler <a href="#cls-NavuXMLtoConfXMLParamHandler" id="cls-NavuXMLtoConfXMLParamHandler"></a>
+# NavuXMLtoConfXMLParamHandler <a href="#navuxmltoconfxmlparamhandler-2c9b9823361c" id="navuxmltoconfxmlparamhandler-2c9b9823361c"></a>
 
 **Package-private**
 
@@ -16,14 +16,14 @@ Handler class for SAX Parser. Contains callback methods
 
 **Methods**:
 
-- [confXMLParam()](#m-confXMLParam-334dac9dee1a)
+- [confXMLParam()](#confxmlparam-334dac9dee1a)
 
 ## Methods
 
-### confXMLParam() <a href="#m-confXMLParam-334dac9dee1a" id="m-confXMLParam-334dac9dee1a"></a>
+### confXMLParam() <a href="#confxmlparam-334dac9dee1a" id="confxmlparam-334dac9dee1a"></a>
 
 ```java
 public abstract com.tailf.conf.ConfXMLParam[] confXMLParam()
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7)

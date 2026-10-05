@@ -1,4 +1,4 @@
-# NedTracer <a href="#cls-NedTracer" id="cls-NedTracer"></a>
+# NedTracer <a href="#nedtracer-f8730263f5f2" id="nedtracer-f8730263f5f2"></a>
 
 ```java
 public interface com.tailf.ned.NedTracer
@@ -8,11 +8,11 @@ public interface com.tailf.ned.NedTracer
 
 **Methods**:
 
-- [trace(String, String, String)](#m-trace-4c88f986a203)
+- [trace(String, String, String)](#trace-4c88f986a203)
 
 ## Methods
 
-### trace(String, String, String) <a href="#m-trace-4c88f986a203" id="m-trace-4c88f986a203"></a>
+### trace(String, String, String) <a href="#trace-4c88f986a203" id="trace-4c88f986a203"></a>
 
 ```java
 public abstract void trace(String msg, String direction, String deviceId)

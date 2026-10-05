@@ -1,26 +1,26 @@
-# ApplyResult <a href="#cls-ApplyResult" id="cls-ApplyResult"></a>
+# ApplyResult <a href="#applyresult-77b049ed4f17" id="applyresult-77b049ed4f17"></a>
 
 ```java
 public class com.tailf.maapi.ApplyResult
 ```
 
 Represents a successful invocation of the
- [`Maapi#applyTransParams(int, boolean, CommitParams)`](Maapi.md#m-applyTransParams-6c20b7896663) method.
+ [`Maapi#applyTransParams(int, boolean, CommitParams)`](Maapi.md#applytransparams-6c20b7896663) method.
 
 **Related classes**
 
-- [CommitQueueResult](CommitQueueResult.md#cls-CommitQueueResult)
-- [DryRunResult](DryRunResult.md#cls-DryRunResult)
+- [CommitQueueResult](CommitQueueResult.md#commitqueueresult-0daa10abf91a)
+- [DryRunResult](DryRunResult.md#dryrunresult-28828490822f)
 
 ## Members
 
 **Constructors**:
 
-- [ApplyResult(ConfResponse)](#m-ApplyResult-7b53e46df937)
+- [ApplyResult(ConfResponse)](#applyresult-7b53e46df937)
 
 ## Constructors
 
-### ApplyResult(ConfResponse) <a href="#m-ApplyResult-7b53e46df937" id="m-ApplyResult-7b53e46df937"></a>
+### ApplyResult(ConfResponse) <a href="#applyresult-7b53e46df937" id="applyresult-7b53e46df937"></a>
 
 ```java
 public ApplyResult(
@@ -29,7 +29,7 @@ public ApplyResult(
     throws com.tailf.maapi.MaapiException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfResponse](../conf/ConfResponse.md#cls-ConfResponse), [MaapiException](MaapiException.md#cls-MaapiException), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [ConfResponse](../conf/ConfResponse.md#confresponse-fd02dad17b49), [MaapiException](MaapiException.md#maapiexception-af58eb4e109e), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 

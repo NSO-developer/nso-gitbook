@@ -1,4 +1,4 @@
-# Meta <a href="#cls-Meta" id="cls-Meta"></a>
+# Meta <a href="#meta-3cec7073d34c" id="meta-3cec7073d34c"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.Cs.Meta
@@ -8,24 +8,24 @@ public static class com.tailf.ncs.maapi.Schema.Cs.Meta
 
 **Constructors**:
 
-- [Meta()](#m-Meta-8f1d19013737)
+- [Meta()](#meta-8f1d19013737)
 
 **Fields**:
 
-- [factory](#m-factory)
-- [listFactory](#m-listFactory)
-- [STRUCT_SIZE](#m-STRUCT_SIZE)
+- [factory](#factory-1649195a6f6e)
+- [listFactory](#listfactory-b96025f1568b)
+- [STRUCT_SIZE](#struct_size-06830f6b9d3b)
 
 **Nested Types**:
 
-- [Builder](Meta/Builder.md#cls-Builder)
-- [Factory](Meta/Factory.md#cls-Factory)
-- [Reader](Meta/Reader.md#cls-Reader)
-- [Which](Meta/Which.md#cls-Which)
+- [Builder](Meta/Builder.md#builder-21f09e83781d)
+- [Factory](Meta/Factory.md#factory-1787784624e8)
+- [Reader](Meta/Reader.md#reader-b2467a96ddff)
+- [Which](Meta/Which.md#which-92b652653aa7)
 
 ## Constructors
 
-### Meta() <a href="#m-Meta-8f1d19013737" id="m-Meta-8f1d19013737"></a>
+### Meta() <a href="#meta-8f1d19013737" id="meta-8f1d19013737"></a>
 
 ```java
 public Meta()
@@ -34,23 +34,23 @@ public Meta()
 
 ## Fields
 
-### factory <a href="#m-factory" id="m-factory"></a>
+### factory <a href="#factory-1649195a6f6e" id="factory-1649195a6f6e"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cs.Meta.Factory factory = null;
 ```
 
-Types: [Factory](Meta/Factory.md#cls-Factory)
+Types: [Factory](Meta/Factory.md#factory-1787784624e8)
 
-### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
+### listFactory <a href="#listfactory-b96025f1568b" id="listfactory-b96025f1568b"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.Cs.Meta.Builder,com.tailf.ncs.maapi.Schema.Cs.Meta.Reader> listFactory = null;
 ```
 
-Types: [Builder](Meta/Builder.md#cls-Builder), [Reader](Meta/Reader.md#cls-Reader)
+Types: [Builder](Meta/Builder.md#builder-21f09e83781d), [Reader](Meta/Reader.md#reader-b2467a96ddff)
 
-### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
+### STRUCT_SIZE <a href="#struct_size-06830f6b9d3b" id="struct_size-06830f6b9d3b"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;
@@ -59,7 +59,7 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](Meta/Builder.md#cls-Builder)
-- [Factory](Meta/Factory.md#cls-Factory)
-- [Reader](Meta/Reader.md#cls-Reader)
-- [Which](Meta/Which.md#cls-Which)
+- [Builder](Meta/Builder.md#builder-21f09e83781d)
+- [Factory](Meta/Factory.md#factory-1787784624e8)
+- [Reader](Meta/Reader.md#reader-b2467a96ddff)
+- [Which](Meta/Which.md#which-92b652653aa7)

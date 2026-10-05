@@ -1,4 +1,4 @@
-# ResultTypeKeyPathValueImpl <a href="#cls-ResultTypeKeyPathValueImpl" id="cls-ResultTypeKeyPathValueImpl"></a>
+# ResultTypeKeyPathValueImpl <a href="#resulttypekeypathvalueimpl-e8e61bf396b4" id="resulttypekeypathvalueimpl-e8e61bf396b4"></a>
 
 **Package-private**
 
@@ -7,22 +7,22 @@ class com.tailf.maapi.ResultTypeKeyPathValueImpl
     implements com.tailf.maapi.ResultTypeKeyPathValue
 ```
 
-Types: [ResultTypeKeyPathValue](ResultTypeKeyPathValue.md#cls-ResultTypeKeyPathValue)
+Types: [ResultTypeKeyPathValue](ResultTypeKeyPathValue.md#resulttypekeypathvalue-73a624076b63)
 
 ## Members
 
 **Constructors**:
 
-- [ResultTypeKeyPathValueImpl(ConfObject[], ConfValue)](#m-ResultTypeKeyPathValueImpl-451cc5da8f7a)
+- [ResultTypeKeyPathValueImpl(ConfObject[], ConfValue)](#resulttypekeypathvalueimpl-451cc5da8f7a)
 
 **Methods**:
 
-- [confValue()](#m-confValue-baca27cbbecf)
-- [keyPath()](#m-keyPath-df48f9bfdabb)
+- [confValue()](#confvalue-baca27cbbecf)
+- [keyPath()](#keypath-df48f9bfdabb)
 
 ## Constructors
 
-### ResultTypeKeyPathValueImpl(ConfObject[], ConfValue) <a href="#m-ResultTypeKeyPathValueImpl-451cc5da8f7a" id="m-ResultTypeKeyPathValueImpl-451cc5da8f7a"></a>
+### ResultTypeKeyPathValueImpl(ConfObject[], ConfValue) <a href="#resulttypekeypathvalueimpl-451cc5da8f7a" id="resulttypekeypathvalueimpl-451cc5da8f7a"></a>
 
 **Package-private**
 
@@ -30,7 +30,7 @@ Types: [ResultTypeKeyPathValue](ResultTypeKeyPathValue.md#cls-ResultTypeKeyPathV
 ResultTypeKeyPathValueImpl(com.tailf.conf.ConfObject[] keyPath, com.tailf.conf.ConfValue val)
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfValue](../conf/ConfValue.md#cls-ConfValue)
+Types: [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d)
 
 **Parameters**
 
@@ -40,18 +40,18 @@ Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfValue](../conf/C
 
 ## Methods
 
-### confValue() <a href="#m-confValue-baca27cbbecf" id="m-confValue-baca27cbbecf"></a>
+### confValue() <a href="#confvalue-baca27cbbecf" id="confvalue-baca27cbbecf"></a>
 
 ```java
 public com.tailf.conf.ConfValue confValue()
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue)
+Types: [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d)
 
-### keyPath() <a href="#m-keyPath-df48f9bfdabb" id="m-keyPath-df48f9bfdabb"></a>
+### keyPath() <a href="#keypath-df48f9bfdabb" id="keypath-df48f9bfdabb"></a>
 
 ```java
 public com.tailf.conf.ConfObject[] keyPath()
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject)
+Types: [ConfObject](../conf/ConfObject.md#confobject-5433616953b2)

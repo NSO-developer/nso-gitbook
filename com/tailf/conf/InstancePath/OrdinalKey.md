@@ -1,91 +1,91 @@
-# OrdinalKey <a href="#cls-OrdinalKey" id="cls-OrdinalKey"></a>
+# OrdinalKey <a href="#ordinalkey-366c6ce27fe2" id="ordinalkey-366c6ce27fe2"></a>
 
 ```java
 protected static class com.tailf.conf.InstancePath.OrdinalKey
     extends com.tailf.conf.ConfKey
 ```
 
-Types: [ConfKey](../ConfKey.md#cls-ConfKey)
+Types: [ConfKey](../ConfKey.md#confkey-e4e1ca98e867)
 
 ## Members
 
 **Constructors**:
 
-- [OrdinalKey(int)](#m-OrdinalKey-f334784a7c1a)
+- [OrdinalKey(int)](#ordinalkey-f334784a7c1a)
 
 **Fields**:
 
-- [J_BINARY](../ConfObject.md#m-J_BINARY) from ConfObject
-- [J_BIT32](../ConfObject.md#m-J_BIT32) from ConfObject
-- [J_BIT64](../ConfObject.md#m-J_BIT64) from ConfObject
-- [J_BITBIG](../ConfObject.md#m-J_BITBIG) from ConfObject
-- [J_BOOL](../ConfObject.md#m-J_BOOL) from ConfObject
-- [J_BUF](../ConfObject.md#m-J_BUF) from ConfObject
-- [J_CDBBEGIN](../ConfObject.md#m-J_CDBBEGIN) from ConfObject
-- [J_DATE](../ConfObject.md#m-J_DATE) from ConfObject
-- [J_DATETIME](../ConfObject.md#m-J_DATETIME) from ConfObject
-- [J_DECIMAL64](../ConfObject.md#m-J_DECIMAL64) from ConfObject
-- [J_DEFAULT](../ConfObject.md#m-J_DEFAULT) from ConfObject
-- [J_DOUBLE](../ConfObject.md#m-J_DOUBLE) from ConfObject
-- [J_DQUAD](../ConfObject.md#m-J_DQUAD) from ConfObject
-- [J_DURATION](../ConfObject.md#m-J_DURATION) from ConfObject
-- [J_EMPTY](../ConfObject.md#m-J_EMPTY) from ConfObject
-- [J_ENUMERATION](../ConfObject.md#m-J_ENUMERATION) from ConfObject
-- [J_HEXSTR](../ConfObject.md#m-J_HEXSTR) from ConfObject
-- [J_IDENTITYREF](../ConfObject.md#m-J_IDENTITYREF) from ConfObject
-- [J_INSTANCE_IDENTIFIER](../ConfObject.md#m-J_INSTANCE_IDENTIFIER) from ConfObject
-- [J_INT16](../ConfObject.md#m-J_INT16) from ConfObject
-- [J_INT32](../ConfObject.md#m-J_INT32) from ConfObject
-- [J_INT64](../ConfObject.md#m-J_INT64) from ConfObject
-- [J_INT8](../ConfObject.md#m-J_INT8) from ConfObject
-- [J_IPV4](../ConfObject.md#m-J_IPV4) from ConfObject
-- [J_IPV4_AND_PLEN](../ConfObject.md#m-J_IPV4_AND_PLEN) from ConfObject
-- [J_IPV4PREFIX](../ConfObject.md#m-J_IPV4PREFIX) from ConfObject
-- [J_IPV6](../ConfObject.md#m-J_IPV6) from ConfObject
-- [J_IPV6_AND_PLEN](../ConfObject.md#m-J_IPV6_AND_PLEN) from ConfObject
-- [J_IPV6PREFIX](../ConfObject.md#m-J_IPV6PREFIX) from ConfObject
-- [J_LIST](../ConfObject.md#m-J_LIST) from ConfObject
-- [J_NOEXISTS](../ConfObject.md#m-J_NOEXISTS) from ConfObject
-- [J_OBJECTREF](../ConfObject.md#m-J_OBJECTREF) from ConfObject
-- [J_OID](../ConfObject.md#m-J_OID) from ConfObject
-- [J_PTR](../ConfObject.md#m-J_PTR) from ConfObject
-- [J_QNAME](../ConfObject.md#m-J_QNAME) from ConfObject
-- [J_STR](../ConfObject.md#m-J_STR) from ConfObject
-- [J_SYMBOL](../ConfObject.md#m-J_SYMBOL) from ConfObject
-- [J_TIME](../ConfObject.md#m-J_TIME) from ConfObject
-- [J_UINT16](../ConfObject.md#m-J_UINT16) from ConfObject
-- [J_UINT32](../ConfObject.md#m-J_UINT32) from ConfObject
-- [J_UINT64](../ConfObject.md#m-J_UINT64) from ConfObject
-- [J_UINT8](../ConfObject.md#m-J_UINT8) from ConfObject
-- [J_UNION](../ConfObject.md#m-J_UNION) from ConfObject
-- [J_XMLBEGIN](../ConfObject.md#m-J_XMLBEGIN) from ConfObject
-- [J_XMLBEGINDEL](../ConfObject.md#m-J_XMLBEGINDEL) from ConfObject
-- [J_XMLEND](../ConfObject.md#m-J_XMLEND) from ConfObject
-- [J_XMLMOVEAFTER](../ConfObject.md#m-J_XMLMOVEAFTER) from ConfObject
-- [J_XMLMOVEFIRST](../ConfObject.md#m-J_XMLMOVEFIRST) from ConfObject
-- [J_XMLTAG](../ConfObject.md#m-J_XMLTAG) from ConfObject
+- [J_BINARY](../ConfObject.md#j_binary-f4395337afc2) from ConfObject
+- [J_BIT32](../ConfObject.md#j_bit32-40251205e2bd) from ConfObject
+- [J_BIT64](../ConfObject.md#j_bit64-15d68e666b90) from ConfObject
+- [J_BITBIG](../ConfObject.md#j_bitbig-835affd18d2b) from ConfObject
+- [J_BOOL](../ConfObject.md#j_bool-fa62aa9e1544) from ConfObject
+- [J_BUF](../ConfObject.md#j_buf-d1b0b08b798f) from ConfObject
+- [J_CDBBEGIN](../ConfObject.md#j_cdbbegin-07a4f9eca5c4) from ConfObject
+- [J_DATE](../ConfObject.md#j_date-00cc8f6e70e6) from ConfObject
+- [J_DATETIME](../ConfObject.md#j_datetime-573fe6a9a577) from ConfObject
+- [J_DECIMAL64](../ConfObject.md#j_decimal64-ff02afe47ff7) from ConfObject
+- [J_DEFAULT](../ConfObject.md#j_default-54b54b027809) from ConfObject
+- [J_DOUBLE](../ConfObject.md#j_double-ade902bbb1aa) from ConfObject
+- [J_DQUAD](../ConfObject.md#j_dquad-852ab4ec2848) from ConfObject
+- [J_DURATION](../ConfObject.md#j_duration-98ef58bed1c0) from ConfObject
+- [J_EMPTY](../ConfObject.md#j_empty-cca63c6cd2c7) from ConfObject
+- [J_ENUMERATION](../ConfObject.md#j_enumeration-47c69754d29b) from ConfObject
+- [J_HEXSTR](../ConfObject.md#j_hexstr-90b6b86efe7b) from ConfObject
+- [J_IDENTITYREF](../ConfObject.md#j_identityref-977d471383c5) from ConfObject
+- [J_INSTANCE_IDENTIFIER](../ConfObject.md#j_instance_identifier-bbb4b8e5e954) from ConfObject
+- [J_INT16](../ConfObject.md#j_int16-4f9df234cba7) from ConfObject
+- [J_INT32](../ConfObject.md#j_int32-db4c66331284) from ConfObject
+- [J_INT64](../ConfObject.md#j_int64-c290a7cb2e11) from ConfObject
+- [J_INT8](../ConfObject.md#j_int8-8f73ffef0f12) from ConfObject
+- [J_IPV4](../ConfObject.md#j_ipv4-54fdc3efb49b) from ConfObject
+- [J_IPV4_AND_PLEN](../ConfObject.md#j_ipv4_and_plen-69b1e630ab12) from ConfObject
+- [J_IPV4PREFIX](../ConfObject.md#j_ipv4prefix-d36121ba89ca) from ConfObject
+- [J_IPV6](../ConfObject.md#j_ipv6-03903b354701) from ConfObject
+- [J_IPV6_AND_PLEN](../ConfObject.md#j_ipv6_and_plen-ac1054abbf31) from ConfObject
+- [J_IPV6PREFIX](../ConfObject.md#j_ipv6prefix-5e95c6e896d2) from ConfObject
+- [J_LIST](../ConfObject.md#j_list-d74b9f073fdc) from ConfObject
+- [J_NOEXISTS](../ConfObject.md#j_noexists-1f0f9b7a9591) from ConfObject
+- [J_OBJECTREF](../ConfObject.md#j_objectref-577d14956cc8) from ConfObject
+- [J_OID](../ConfObject.md#j_oid-2d504f7432b3) from ConfObject
+- [J_PTR](../ConfObject.md#j_ptr-ef54b9484cab) from ConfObject
+- [J_QNAME](../ConfObject.md#j_qname-0d2839adff4c) from ConfObject
+- [J_STR](../ConfObject.md#j_str-ae3bb3034983) from ConfObject
+- [J_SYMBOL](../ConfObject.md#j_symbol-25fd3742c374) from ConfObject
+- [J_TIME](../ConfObject.md#j_time-3ecdebfb0af5) from ConfObject
+- [J_UINT16](../ConfObject.md#j_uint16-1f95eafb4126) from ConfObject
+- [J_UINT32](../ConfObject.md#j_uint32-200f00c0ee05) from ConfObject
+- [J_UINT64](../ConfObject.md#j_uint64-6960c783d61f) from ConfObject
+- [J_UINT8](../ConfObject.md#j_uint8-ab0567c53d7f) from ConfObject
+- [J_UNION](../ConfObject.md#j_union-7c548945cda0) from ConfObject
+- [J_XMLBEGIN](../ConfObject.md#j_xmlbegin-6b887ec4c61b) from ConfObject
+- [J_XMLBEGINDEL](../ConfObject.md#j_xmlbegindel-6c4d37088d90) from ConfObject
+- [J_XMLEND](../ConfObject.md#j_xmlend-e2b443858058) from ConfObject
+- [J_XMLMOVEAFTER](../ConfObject.md#j_xmlmoveafter-e7f2fed6d94d) from ConfObject
+- [J_XMLMOVEFIRST](../ConfObject.md#j_xmlmovefirst-776c36719f23) from ConfObject
+- [J_XMLTAG](../ConfObject.md#j_xmltag-0a12f537271e) from ConfObject
 
 **Methods**:
 
-- [clone()](../ConfObject.md#m-clone-164c86c45e9b) from ConfObject
-- [compare(ConfObject, ConfObject)](../ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [decode(ConfEObject)](../ConfObject.md#m-decode-609792d36602) from ConfObject
-- [decode(ConfEObject, ConfPath)](../ConfObject.md#m-decode-a814ebf64edc) from ConfObject
-- [decode(ConfEObject, String)](../ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
-- [elementAt(int)](../ConfKey.md#m-elementAt-7ff98e6e0268) from ConfKey
-- [elements()](../ConfKey.md#m-elements-1ac1cabc0e96) from ConfKey
-- [encode()](../ConfKey.md#m-encode-fbae522bba37) from ConfKey
-- [equals(Object)](../ConfKey.md#m-equals-fcd6492e0d6c) from ConfKey
-- [hashCode()](../ConfKey.md#m-hashCode-ef797a217903) from ConfKey
-- [length()](../ConfKey.md#m-length-89e7822f25ca) from ConfKey
-- [setPath(InstancePath)](../ConfKey.md#m-setPath-ad9962db3cab) from ConfKey
-- [toStrictlyQuotedString()](../ConfKey.md#m-toStrictlyQuotedString-c10aef71d8ba) from ConfKey
-- [toString()](../ConfKey.md#m-toString-e9d48c5503ef) from ConfKey
-- [toString(boolean)](../ConfKey.md#m-toString-b87d88746a2e) from ConfKey
+- [clone()](../ConfObject.md#clone-164c86c45e9b) from ConfObject
+- [compare(ConfObject, ConfObject)](../ConfObject.md#compare-e78552baa2bf) from ConfObject
+- [decode(ConfEObject)](../ConfObject.md#decode-609792d36602) from ConfObject
+- [decode(ConfEObject, ConfPath)](../ConfObject.md#decode-a814ebf64edc) from ConfObject
+- [decode(ConfEObject, String)](../ConfObject.md#decode-9b92f1de40d8) from ConfObject
+- [elementAt(int)](../ConfKey.md#elementat-7ff98e6e0268) from ConfKey
+- [elements()](../ConfKey.md#elements-1ac1cabc0e96) from ConfKey
+- [encode()](../ConfKey.md#encode-fbae522bba37) from ConfKey
+- [equals(Object)](../ConfKey.md#equals-fcd6492e0d6c) from ConfKey
+- [hashCode()](../ConfKey.md#hashcode-ef797a217903) from ConfKey
+- [length()](../ConfKey.md#length-89e7822f25ca) from ConfKey
+- [setPath(InstancePath)](../ConfKey.md#setpath-ad9962db3cab) from ConfKey
+- [toStrictlyQuotedString()](../ConfKey.md#tostrictlyquotedstring-c10aef71d8ba) from ConfKey
+- [toString()](../ConfKey.md#tostring-e9d48c5503ef) from ConfKey
+- [toString(boolean)](../ConfKey.md#tostring-b87d88746a2e) from ConfKey
 
 ## Constructors
 
-### OrdinalKey(int) <a href="#m-OrdinalKey-f334784a7c1a" id="m-OrdinalKey-f334784a7c1a"></a>
+### OrdinalKey(int) <a href="#ordinalkey-f334784a7c1a" id="ordinalkey-f334784a7c1a"></a>
 
 ```java
 public OrdinalKey(int value)

@@ -1,39 +1,39 @@
-# Type <a href="#cls-Type" id="cls-Type"></a>
+# Type <a href="#type-e2b37c882bf2" id="type-e2b37c882bf2"></a>
 
 ```java
 public static enum com.tailf.ned.NedShowFilter.Type
 ```
 
-Types: [Type](Type.md#cls-Type)
+Types: [Type](Type.md#type-e2b37c882bf2)
 
 ## Members
 
 **Enum Constants**:
 
-- [CONTAINMENT](#m-CONTAINMENT)
-- [CONTENT_MATCH](#m-CONTENT_MATCH)
-- [SELECTION](#m-SELECTION)
+- [CONTAINMENT](#containment-6598cb1ae24e)
+- [CONTENT_MATCH](#content_match-06fdf68e0652)
+- [SELECTION](#selection-a773ec0a07ab)
 
 **Methods**:
 
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### CONTAINMENT <a href="#m-CONTAINMENT" id="m-CONTAINMENT"></a>
+### CONTAINMENT <a href="#containment-6598cb1ae24e" id="containment-6598cb1ae24e"></a>
 
 ```java
 public static final com.tailf.ned.NedShowFilter.Type CONTAINMENT;
 ```
 
-### CONTENT_MATCH <a href="#m-CONTENT_MATCH" id="m-CONTENT_MATCH"></a>
+### CONTENT_MATCH <a href="#content_match-06fdf68e0652" id="content_match-06fdf68e0652"></a>
 
 ```java
 public static final com.tailf.ned.NedShowFilter.Type CONTENT_MATCH;
 ```
 
-### SELECTION <a href="#m-SELECTION" id="m-SELECTION"></a>
+### SELECTION <a href="#selection-a773ec0a07ab" id="selection-a773ec0a07ab"></a>
 
 ```java
 public static final com.tailf.ned.NedShowFilter.Type SELECTION;
@@ -42,22 +42,22 @@ public static final com.tailf.ned.NedShowFilter.Type SELECTION;
 
 ## Methods
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.ned.NedShowFilter.Type valueOf(String name)
 ```
 
-Types: [Type](Type.md#cls-Type)
+Types: [Type](Type.md#type-e2b37c882bf2)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.ned.NedShowFilter.Type[] values()
 ```
 
-Types: [Type](Type.md#cls-Type)
+Types: [Type](Type.md#type-e2b37c882bf2)

@@ -1,11 +1,11 @@
-# FilterKnownIPAddresses <a href="#cls-FilterKnownIPAddresses" id="cls-FilterKnownIPAddresses"></a>
+# FilterKnownIPAddresses <a href="#filterknownipaddresses-693e71797e53" id="filterknownipaddresses-693e71797e53"></a>
 
 ```java
 public class com.tailf.ncs.snmp.snmp4j.FilterKnownIPAddresses
     implements com.tailf.ncs.snmp.snmp4j.NotificationHandler
 ```
 
-Types: [NotificationHandler](NotificationHandler.md#cls-NotificationHandler)
+Types: [NotificationHandler](NotificationHandler.md#notificationhandler-49960afdd747)
 
 Standard filter for suppression of notifications
  emanating from ip addresses outside defined set of addresses
@@ -20,15 +20,15 @@ Standard filter for suppression of notifications
 
 **Constructors**:
 
-- [FilterKnownIPAddresses(Map<InetAddress,ConfKey>)](#m-FilterKnownIPAddresses-46bfae603127)
+- [FilterKnownIPAddresses(Map<InetAddress,ConfKey>)](#filterknownipaddresses-46bfae603127)
 
 **Methods**:
 
-- [processPdu(EventContext, CommandResponderEvent, Object)](#m-processPdu-6c9b32673c38)
+- [processPdu(EventContext, CommandResponderEvent, Object)](#processpdu-6c9b32673c38)
 
 ## Constructors
 
-### FilterKnownIPAddresses(Map<InetAddress,ConfKey>) <a href="#m-FilterKnownIPAddresses-46bfae603127" id="m-FilterKnownIPAddresses-46bfae603127"></a>
+### FilterKnownIPAddresses(Map&lt;InetAddress,ConfKey&gt;) <a href="#filterknownipaddresses-46bfae603127" id="filterknownipaddresses-46bfae603127"></a>
 
 ```java
 public FilterKnownIPAddresses(
@@ -36,7 +36,7 @@ public FilterKnownIPAddresses(
 )
 ```
 
-Types: [ConfKey](../../../conf/ConfKey.md#cls-ConfKey)
+Types: [ConfKey](../../../conf/ConfKey.md#confkey-e4e1ca98e867)
 
 Filter constructor
 
@@ -48,7 +48,7 @@ Filter constructor
 
 ## Methods
 
-### processPdu(EventContext, CommandResponderEvent, Object) <a href="#m-processPdu-6c9b32673c38" id="m-processPdu-6c9b32673c38"></a>
+### processPdu(EventContext, CommandResponderEvent, Object) <a href="#processpdu-6c9b32673c38" id="processpdu-6c9b32673c38"></a>
 
 ```java
 public com.tailf.ncs.snmp.snmp4j.HandlerResponse processPdu(
@@ -59,7 +59,7 @@ public com.tailf.ncs.snmp.snmp4j.HandlerResponse processPdu(
     throws Exception
 ```
 
-Types: [HandlerResponse](HandlerResponse.md#cls-HandlerResponse), [EventContext](EventContext.md#cls-EventContext)
+Types: [HandlerResponse](HandlerResponse.md#handlerresponse-651c4aa97197), [EventContext](EventContext.md#eventcontext-9f1cd876683b)
 
 Standard filter method for suppressing unknown ipAddresses
 

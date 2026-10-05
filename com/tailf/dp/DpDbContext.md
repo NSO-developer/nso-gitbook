@@ -1,4 +1,4 @@
-# DpDbContext <a href="#cls-DpDbContext" id="cls-DpDbContext"></a>
+# DpDbContext <a href="#dpdbcontext-37347e4f266f" id="dpdbcontext-37347e4f266f"></a>
 
 ```java
 public class com.tailf.dp.DpDbContext
@@ -10,24 +10,24 @@ Database context. Given as argument to many of the DpDbCallback methods.
 
 **Constructors**:
 
-- [DpDbContext(int, int, int, DpUserInfo)](#m-DpDbContext-36dd5cf5f227)
+- [DpDbContext(int, int, int, DpUserInfo)](#dpdbcontext-36dd5cf5f227)
 
 **Methods**:
 
-- [getDId()](#m-getDId-0727cf9e0fd9)
-- [getLastOp()](#m-getLastOp-8d68ee764339)
-- [getQRef()](#m-getQRef-ee1c8f107982)
-- [getUserInfo()](#m-getUserInfo-3ecef1f24d3d)
+- [getDId()](#getdid-0727cf9e0fd9)
+- [getLastOp()](#getlastop-8d68ee764339)
+- [getQRef()](#getqref-ee1c8f107982)
+- [getUserInfo()](#getuserinfo-3ecef1f24d3d)
 
 ## Constructors
 
-### DpDbContext(int, int, int, DpUserInfo) <a href="#m-DpDbContext-36dd5cf5f227" id="m-DpDbContext-36dd5cf5f227"></a>
+### DpDbContext(int, int, int, DpUserInfo) <a href="#dpdbcontext-36dd5cf5f227" id="dpdbcontext-36dd5cf5f227"></a>
 
 ```java
 public DpDbContext(int qref, int did, int op, com.tailf.dp.DpUserInfo uinfo)
 ```
 
-Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
+Types: [DpUserInfo](DpUserInfo.md#dpuserinfo-c59746285a6e)
 
 **Parameters**
 
@@ -39,28 +39,28 @@ Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
 
 ## Methods
 
-### getDId() <a href="#m-getDId-0727cf9e0fd9" id="m-getDId-0727cf9e0fd9"></a>
+### getDId() <a href="#getdid-0727cf9e0fd9" id="getdid-0727cf9e0fd9"></a>
 
 ```java
 public int getDId()
 ```
 
-### getLastOp() <a href="#m-getLastOp-8d68ee764339" id="m-getLastOp-8d68ee764339"></a>
+### getLastOp() <a href="#getlastop-8d68ee764339" id="getlastop-8d68ee764339"></a>
 
 ```java
 public int getLastOp()
 ```
 
-### getQRef() <a href="#m-getQRef-ee1c8f107982" id="m-getQRef-ee1c8f107982"></a>
+### getQRef() <a href="#getqref-ee1c8f107982" id="getqref-ee1c8f107982"></a>
 
 ```java
 public int getQRef()
 ```
 
-### getUserInfo() <a href="#m-getUserInfo-3ecef1f24d3d" id="m-getUserInfo-3ecef1f24d3d"></a>
+### getUserInfo() <a href="#getuserinfo-3ecef1f24d3d" id="getuserinfo-3ecef1f24d3d"></a>
 
 ```java
 public com.tailf.dp.DpUserInfo getUserInfo()
 ```
 
-Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
+Types: [DpUserInfo](DpUserInfo.md#dpuserinfo-c59746285a6e)

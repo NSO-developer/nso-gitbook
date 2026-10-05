@@ -81,13 +81,13 @@ NCS snmp4j support package
 
 ## Types
 
-- [CommandResponderImpl](CommandResponderImpl.md#cls-CommandResponderImpl)
-- [EventContext](EventContext.md#cls-EventContext)
-- [EventContextImpl](EventContextImpl.md#cls-EventContextImpl)
-- [FilterAckInforms](FilterAckInforms.md#cls-FilterAckInforms)
-- [FilterKnownIPAddresses](FilterKnownIPAddresses.md#cls-FilterKnownIPAddresses)
-- [FilterOutNonNotifications](FilterOutNonNotifications.md#cls-FilterOutNonNotifications)
-- [HandlerResponse](HandlerResponse.md#cls-HandlerResponse)
-- [NotifHandlerInstance](NotifHandlerInstance.md#cls-NotifHandlerInstance)
-- [NotificationHandler](NotificationHandler.md#cls-NotificationHandler)
-- [NotificationReceiver](NotificationReceiver.md#cls-NotificationReceiver)
+- [CommandResponderImpl](CommandResponderImpl.md#commandresponderimpl-14374724c6fc)
+- [EventContext](EventContext.md#eventcontext-9f1cd876683b)
+- [EventContextImpl](EventContextImpl.md#eventcontextimpl-b15973d3b2cd)
+- [FilterAckInforms](FilterAckInforms.md#filterackinforms-cd47a176f4bd)
+- [FilterKnownIPAddresses](FilterKnownIPAddresses.md#filterknownipaddresses-693e71797e53)
+- [FilterOutNonNotifications](FilterOutNonNotifications.md#filteroutnonnotifications-f53d7df96e64)
+- [HandlerResponse](HandlerResponse.md#handlerresponse-651c4aa97197)
+- [NotifHandlerInstance](NotifHandlerInstance.md#notifhandlerinstance-7fa13bf44d0b)
+- [NotificationHandler](NotificationHandler.md#notificationhandler-49960afdd747)
+- [NotificationReceiver](NotificationReceiver.md#notificationreceiver-fd29973ce750)

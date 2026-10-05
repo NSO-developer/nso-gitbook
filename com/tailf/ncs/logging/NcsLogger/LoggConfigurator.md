@@ -1,4 +1,4 @@
-# LoggConfigurator <a href="#cls-LoggConfigurator" id="cls-LoggConfigurator"></a>
+# LoggConfigurator <a href="#loggconfigurator-94c239f258ab" id="loggconfigurator-94c239f258ab"></a>
 
 **Package-private**
 
@@ -20,17 +20,17 @@ Helper class to map the Ncs YANG enumeration type log-level- type to
 
 **Constructors**:
 
-- [LoggConfigurator(SocketAddress)](#m-LoggConfigurator-6207ae38aa39)
+- [LoggConfigurator(SocketAddress)](#loggconfigurator-6207ae38aa39)
 
 **Methods**:
 
-- [getLog4jLevel(ConfEnumeration)](#m-getLog4jLevel-31ba1eec0be7)
-- [loadLog4JConfig()](#m-loadLog4JConfig-bb849cf7c185)
-- [printLoggerStatus()](#m-printLoggerStatus-e55794ea0a00)
+- [getLog4jLevel(ConfEnumeration)](#getlog4jlevel-31ba1eec0be7)
+- [loadLog4JConfig()](#loadlog4jconfig-bb849cf7c185)
+- [printLoggerStatus()](#printloggerstatus-e55794ea0a00)
 
 ## Constructors
 
-### LoggConfigurator(SocketAddress) <a href="#m-LoggConfigurator-6207ae38aa39" id="m-LoggConfigurator-6207ae38aa39"></a>
+### LoggConfigurator(SocketAddress) <a href="#loggconfigurator-6207ae38aa39" id="loggconfigurator-6207ae38aa39"></a>
 
 **Package-private**
 
@@ -45,7 +45,7 @@ LoggConfigurator(java.net.SocketAddress address)
 
 ## Methods
 
-### getLog4jLevel(ConfEnumeration) <a href="#m-getLog4jLevel-31ba1eec0be7" id="m-getLog4jLevel-31ba1eec0be7"></a>
+### getLog4jLevel(ConfEnumeration) <a href="#getlog4jlevel-31ba1eec0be7" id="getlog4jlevel-31ba1eec0be7"></a>
 
 **Package-private**
 
@@ -53,7 +53,7 @@ LoggConfigurator(java.net.SocketAddress address)
 org.apache.logging.log4j.Level getLog4jLevel(com.tailf.conf.ConfEnumeration level)
 ```
 
-Types: [ConfEnumeration](../../../conf/ConfEnumeration.md#cls-ConfEnumeration)
+Types: [ConfEnumeration](../../../conf/ConfEnumeration.md#confenumeration-c8557b4aeb53)
 
 Maps all the Ncs YANG log-level-types to a log4j corresponding
  Level.
@@ -64,7 +64,7 @@ Maps all the Ncs YANG log-level-types to a log4j corresponding
 
 **Returns:** Corresponding log4j Level
 
-### loadLog4JConfig() <a href="#m-loadLog4JConfig-bb849cf7c185" id="m-loadLog4JConfig-bb849cf7c185"></a>
+### loadLog4JConfig() <a href="#loadlog4jconfig-bb849cf7c185" id="loadlog4jconfig-bb849cf7c185"></a>
 
 **Package-private**
 
@@ -76,7 +76,7 @@ Uses parts of the log4j2 core API.
  When upgrading log4j2 check that LoggerContext, doesn't
  contain changes that break this method.
 
-### printLoggerStatus() <a href="#m-printLoggerStatus-e55794ea0a00" id="m-printLoggerStatus-e55794ea0a00"></a>
+### printLoggerStatus() <a href="#printloggerstatus-e55794ea0a00" id="printloggerstatus-e55794ea0a00"></a>
 
 **Package-private**
 

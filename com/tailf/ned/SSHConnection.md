@@ -1,4 +1,4 @@
-# SSHConnection <a href="#cls-SSHConnection" id="cls-SSHConnection"></a>
+# SSHConnection <a href="#sshconnection-b3d3a2094429" id="sshconnection-b3d3a2094429"></a>
 
 ```java
 @Deprecated
@@ -17,30 +17,30 @@ Overridden SSH Connection class, that is used to handle
 
 **Constructors**:
 
-- [SSHConnection(NedWorker)](#m-SSHConnection-faa636bf3d2e)
+- [SSHConnection(NedWorker)](#sshconnection-faa636bf3d2e)
 
 **Methods**:
 
-- [authenticateWithAgent(String, AgentProxy)](#m-authenticateWithAgent-5d675c49aad6)
-- [authenticateWithKeyboardInteractive(String, String[], InteractiveCallback)](#m-authenticateWithKeyboardInteractive-24b7ce82bc90)
-- [authenticateWithNone(String)](#m-authenticateWithNone-6c03229e2ca2)
-- [authenticateWithPassword(String, String)](#m-authenticateWithPassword-f09fca8d9fc5)
-- [authenticateWithPublicKey(String, char[], String)](#m-authenticateWithPublicKey-160b324ce64a)
-- [authenticateWithPublicKey(String, File, String)](#m-authenticateWithPublicKey-0f6791d166c1)
-- [connect()](#m-connect-394043aad7af)
-- [connect(ServerHostKeyVerifier)](#m-connect-9ac6e0295a74)
-- [connect(ServerHostKeyVerifier, int, int)](#m-connect-bedebc7d4ec2)
-- [getRemainingAuthMethods(String)](#m-getRemainingAuthMethods-3fb72a1c6378)
+- [authenticateWithAgent(String, AgentProxy)](#authenticatewithagent-5d675c49aad6)
+- [authenticateWithKeyboardInteractive(String, String[], InteractiveCallback)](#authenticatewithkeyboardinteractive-24b7ce82bc90)
+- [authenticateWithNone(String)](#authenticatewithnone-6c03229e2ca2)
+- [authenticateWithPassword(String, String)](#authenticatewithpassword-f09fca8d9fc5)
+- [authenticateWithPublicKey(String, char[], String)](#authenticatewithpublickey-160b324ce64a)
+- [authenticateWithPublicKey(String, File, String)](#authenticatewithpublickey-0f6791d166c1)
+- [connect()](#connect-394043aad7af)
+- [connect(ServerHostKeyVerifier)](#connect-9ac6e0295a74)
+- [connect(ServerHostKeyVerifier, int, int)](#connect-bedebc7d4ec2)
+- [getRemainingAuthMethods(String)](#getremainingauthmethods-3fb72a1c6378)
 
 ## Constructors
 
-### SSHConnection(NedWorker) <a href="#m-SSHConnection-faa636bf3d2e" id="m-SSHConnection-faa636bf3d2e"></a>
+### SSHConnection(NedWorker) <a href="#sshconnection-faa636bf3d2e" id="sshconnection-faa636bf3d2e"></a>
 
 ```java
 public SSHConnection(com.tailf.ned.NedWorker worker)
 ```
 
-Types: [NedWorker](NedWorker.md#cls-NedWorker)
+Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 
 Constructor that uses the current NedWorker to retrieve configuration
  parameters like host, port
@@ -53,7 +53,7 @@ Constructor that uses the current NedWorker to retrieve configuration
 
 ## Methods
 
-### authenticateWithAgent(String, AgentProxy) <a href="#m-authenticateWithAgent-5d675c49aad6" id="m-authenticateWithAgent-5d675c49aad6"></a>
+### authenticateWithAgent(String, AgentProxy) <a href="#authenticatewithagent-5d675c49aad6" id="authenticatewithagent-5d675c49aad6"></a>
 
 ```java
 public synchronized boolean authenticateWithAgent(
@@ -70,7 +70,7 @@ Overridden authentication method
 - `String user`
 - `ch.ethz.ssh2.auth.AgentProxy proxy`
 
-### authenticateWithKeyboardInteractive(String, String[], InteractiveCallback) <a href="#m-authenticateWithKeyboardInteractive-24b7ce82bc90" id="m-authenticateWithKeyboardInteractive-24b7ce82bc90"></a>
+### authenticateWithKeyboardInteractive(String, String[], InteractiveCallback) <a href="#authenticatewithkeyboardinteractive-24b7ce82bc90" id="authenticatewithkeyboardinteractive-24b7ce82bc90"></a>
 
 ```java
 public synchronized boolean authenticateWithKeyboardInteractive(
@@ -89,7 +89,7 @@ Overridden authentication method
 - `String[] submethods`
 - `ch.ethz.ssh2.InteractiveCallback cb`
 
-### authenticateWithNone(String) <a href="#m-authenticateWithNone-6c03229e2ca2" id="m-authenticateWithNone-6c03229e2ca2"></a>
+### authenticateWithNone(String) <a href="#authenticatewithnone-6c03229e2ca2" id="authenticatewithnone-6c03229e2ca2"></a>
 
 ```java
 public synchronized boolean authenticateWithNone(String user) throws java.io.IOException
@@ -101,7 +101,7 @@ Overridden authentication method
 
 - `String user`
 
-### authenticateWithPassword(String, String) <a href="#m-authenticateWithPassword-f09fca8d9fc5" id="m-authenticateWithPassword-f09fca8d9fc5"></a>
+### authenticateWithPassword(String, String) <a href="#authenticatewithpassword-f09fca8d9fc5" id="authenticatewithpassword-f09fca8d9fc5"></a>
 
 ```java
 public synchronized boolean authenticateWithPassword(
@@ -118,7 +118,7 @@ Overridden authentication method
 - `String user`
 - `String password`
 
-### authenticateWithPublicKey(String, char[], String) <a href="#m-authenticateWithPublicKey-160b324ce64a" id="m-authenticateWithPublicKey-160b324ce64a"></a>
+### authenticateWithPublicKey(String, char[], String) <a href="#authenticatewithpublickey-160b324ce64a" id="authenticatewithpublickey-160b324ce64a"></a>
 
 ```java
 public synchronized boolean authenticateWithPublicKey(
@@ -137,7 +137,7 @@ Overridden authentication method
 - `char[] pemPrivateKey`
 - `String password`
 
-### authenticateWithPublicKey(String, File, String) <a href="#m-authenticateWithPublicKey-0f6791d166c1" id="m-authenticateWithPublicKey-0f6791d166c1"></a>
+### authenticateWithPublicKey(String, File, String) <a href="#authenticatewithpublickey-0f6791d166c1" id="authenticatewithpublickey-0f6791d166c1"></a>
 
 ```java
 public synchronized boolean authenticateWithPublicKey(
@@ -156,7 +156,7 @@ Overridden authentication method
 - `java.io.File pemFile`
 - `String password`
 
-### connect() <a href="#m-connect-394043aad7af" id="m-connect-394043aad7af"></a>
+### connect() <a href="#connect-394043aad7af" id="connect-394043aad7af"></a>
 
 ```java
 public synchronized ch.ethz.ssh2.ConnectionInfo connect() throws java.io.IOException
@@ -165,9 +165,9 @@ public synchronized ch.ethz.ssh2.ConnectionInfo connect() throws java.io.IOExcep
 Overridden connect method
  see ch.ethz.ssh2.Connection.connect()
  Same as
- [connect(null, 0, 0)](SSHConnection.md#m-connect-bedebc7d4ec2).
+ [connect(null, 0, 0)](SSHConnection.md#connect-bedebc7d4ec2).
 
-### connect(ServerHostKeyVerifier) <a href="#m-connect-9ac6e0295a74" id="m-connect-9ac6e0295a74"></a>
+### connect(ServerHostKeyVerifier) <a href="#connect-9ac6e0295a74" id="connect-9ac6e0295a74"></a>
 
 ```java
 public synchronized ch.ethz.ssh2.ConnectionInfo connect(
@@ -180,13 +180,13 @@ Overridden connect method
  see ch.ethz.ssh2.Connection.connect(ServerHostKeyVerifier verifier)
 
  Same as
- [connect(verifier, 0, 0)](SSHConnection.md#m-connect-bedebc7d4ec2).
+ [connect(verifier, 0, 0)](SSHConnection.md#connect-bedebc7d4ec2).
 
 **Parameters**
 
 - `ch.ethz.ssh2.ServerHostKeyVerifier verifier`
 
-### connect(ServerHostKeyVerifier, int, int) <a href="#m-connect-bedebc7d4ec2" id="m-connect-bedebc7d4ec2"></a>
+### connect(ServerHostKeyVerifier, int, int) <a href="#connect-bedebc7d4ec2" id="connect-bedebc7d4ec2"></a>
 
 ```java
 public synchronized ch.ethz.ssh2.ConnectionInfo connect(
@@ -219,7 +219,7 @@ Overridden connect method
  isAuthenticationComplete() returns true after connect() has been
  called.
 
-### getRemainingAuthMethods(String) <a href="#m-getRemainingAuthMethods-3fb72a1c6378" id="m-getRemainingAuthMethods-3fb72a1c6378"></a>
+### getRemainingAuthMethods(String) <a href="#getremainingauthmethods-3fb72a1c6378" id="getremainingauthmethods-3fb72a1c6378"></a>
 
 ```java
 public synchronized String[] getRemainingAuthMethods(String user) throws java.io.IOException

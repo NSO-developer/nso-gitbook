@@ -1,11 +1,11 @@
-# ResultTypeKeyPathValue <a href="#cls-ResultTypeKeyPathValue" id="cls-ResultTypeKeyPathValue"></a>
+# ResultTypeKeyPathValue <a href="#resulttypekeypathvalue-73a624076b63" id="resulttypekeypathvalue-73a624076b63"></a>
 
 ```java
 public interface com.tailf.maapi.ResultTypeKeyPathValue
     extends com.tailf.maapi.ResultTypeKeyPath
 ```
 
-Types: [ResultTypeKeyPath](ResultTypeKeyPath.md#cls-ResultTypeKeyPath)
+Types: [ResultTypeKeyPath](ResultTypeKeyPath.md#resulttypekeypath-6681ecc7f47b)
 
 XPath Result in keypath and value format. This format
  is specified trough `ReslutTypeKeyPathValue.class` as a parameter
@@ -38,18 +38,18 @@ XPath Result in keypath and value format. This format
 
 **Methods**:
 
-- [confValue()](#m-confValue-baca27cbbecf)
-- [keyPath()](ResultTypeKeyPath.md#m-keyPath-df48f9bfdabb) from ResultTypeKeyPath
+- [confValue()](#confvalue-baca27cbbecf)
+- [keyPath()](ResultTypeKeyPath.md#keypath-df48f9bfdabb) from ResultTypeKeyPath
 
 ## Methods
 
-### confValue() <a href="#m-confValue-baca27cbbecf" id="m-confValue-baca27cbbecf"></a>
+### confValue() <a href="#confvalue-baca27cbbecf" id="confvalue-baca27cbbecf"></a>
 
 ```java
 public abstract com.tailf.conf.ConfValue confValue()
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue)
+Types: [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d)
 
 Retrieves the result value from a query
 

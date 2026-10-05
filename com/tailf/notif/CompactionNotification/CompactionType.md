@@ -1,33 +1,33 @@
-# CompactionType <a href="#cls-CompactionType" id="cls-CompactionType"></a>
+# CompactionType <a href="#compactiontype-0d05e41610fa" id="compactiontype-0d05e41610fa"></a>
 
 ```java
 public static enum com.tailf.notif.CompactionNotification.CompactionType
 ```
 
-Types: [CompactionType](CompactionType.md#cls-CompactionType)
+Types: [CompactionType](CompactionType.md#compactiontype-0d05e41610fa)
 
 ## Members
 
 **Enum Constants**:
 
-- [COMPACTION_AUTOMATIC](#m-COMPACTION_AUTOMATIC)
-- [COMPACTION_MANUAL](#m-COMPACTION_MANUAL)
+- [COMPACTION_AUTOMATIC](#compaction_automatic-10ae9bcb3ccb)
+- [COMPACTION_MANUAL](#compaction_manual-30ec7b6a78e2)
 
 **Methods**:
 
-- [fromInt(int)](#m-fromInt-df0c5649c91b)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [fromInt(int)](#fromint-df0c5649c91b)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### COMPACTION_AUTOMATIC <a href="#m-COMPACTION_AUTOMATIC" id="m-COMPACTION_AUTOMATIC"></a>
+### COMPACTION_AUTOMATIC <a href="#compaction_automatic-10ae9bcb3ccb" id="compaction_automatic-10ae9bcb3ccb"></a>
 
 ```java
 public static final com.tailf.notif.CompactionNotification.CompactionType COMPACTION_AUTOMATIC;
 ```
 
-### COMPACTION_MANUAL <a href="#m-COMPACTION_MANUAL" id="m-COMPACTION_MANUAL"></a>
+### COMPACTION_MANUAL <a href="#compaction_manual-30ec7b6a78e2" id="compaction_manual-30ec7b6a78e2"></a>
 
 ```java
 public static final com.tailf.notif.CompactionNotification.CompactionType COMPACTION_MANUAL;
@@ -36,34 +36,34 @@ public static final com.tailf.notif.CompactionNotification.CompactionType COMPAC
 
 ## Methods
 
-### fromInt(int) <a href="#m-fromInt-df0c5649c91b" id="m-fromInt-df0c5649c91b"></a>
+### fromInt(int) <a href="#fromint-df0c5649c91b" id="fromint-df0c5649c91b"></a>
 
 ```java
 public static com.tailf.notif.CompactionNotification.CompactionType fromInt(int type)
 ```
 
-Types: [CompactionType](CompactionType.md#cls-CompactionType)
+Types: [CompactionType](CompactionType.md#compactiontype-0d05e41610fa)
 
 **Parameters**
 
 - `int type`
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.notif.CompactionNotification.CompactionType valueOf(String name)
 ```
 
-Types: [CompactionType](CompactionType.md#cls-CompactionType)
+Types: [CompactionType](CompactionType.md#compactiontype-0d05e41610fa)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.notif.CompactionNotification.CompactionType[] values()
 ```
 
-Types: [CompactionType](CompactionType.md#cls-CompactionType)
+Types: [CompactionType](CompactionType.md#compactiontype-0d05e41610fa)

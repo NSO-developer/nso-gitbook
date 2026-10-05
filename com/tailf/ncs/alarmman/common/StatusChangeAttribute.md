@@ -1,11 +1,11 @@
-# StatusChangeAttribute <a href="#cls-StatusChangeAttribute" id="cls-StatusChangeAttribute"></a>
+# StatusChangeAttribute <a href="#statuschangeattribute-53548dbb7d69" id="statuschangeattribute-53548dbb7d69"></a>
 
 ```java
 public class com.tailf.ncs.alarmman.common.StatusChangeAttribute
     extends com.tailf.ncs.alarmman.common.Attribute
 ```
 
-Types: [Attribute](Attribute.md#cls-Attribute)
+Types: [Attribute](Attribute.md#attribute-cb42ffd9bcdd)
 
 Class representing a status change attribute.
 
@@ -13,22 +13,22 @@ Class representing a status change attribute.
 
 **Constructors**:
 
-- [StatusChangeAttribute(ConfNamespace, String, ConfValue)](#m-StatusChangeAttribute-31509a8e3de7)
+- [StatusChangeAttribute(ConfNamespace, String, ConfValue)](#statuschangeattribute-31509a8e3de7)
 
 **Fields**:
 
-- [node](Attribute.md#m-node) from Attribute
+- [node](Attribute.md#node-ff68e6a3ebc6) from Attribute
 
 **Methods**:
 
-- [getId()](Attribute.md#m-getId-199a349c70ef) from Attribute
-- [getNameSpace()](Attribute.md#m-getNameSpace-e413af21e168) from Attribute
-- [getValue()](Attribute.md#m-getValue-d93864668c40) from Attribute
-- [toString()](Attribute.md#m-toString-e9d48c5503ef) from Attribute
+- [getId()](Attribute.md#getid-199a349c70ef) from Attribute
+- [getNameSpace()](Attribute.md#getnamespace-e413af21e168) from Attribute
+- [getValue()](Attribute.md#getvalue-d93864668c40) from Attribute
+- [toString()](Attribute.md#tostring-e9d48c5503ef) from Attribute
 
 ## Constructors
 
-### StatusChangeAttribute(ConfNamespace, String, ConfValue) <a href="#m-StatusChangeAttribute-31509a8e3de7" id="m-StatusChangeAttribute-31509a8e3de7"></a>
+### StatusChangeAttribute(ConfNamespace, String, ConfValue) <a href="#statuschangeattribute-31509a8e3de7" id="statuschangeattribute-31509a8e3de7"></a>
 
 ```java
 public StatusChangeAttribute(
@@ -39,7 +39,7 @@ public StatusChangeAttribute(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfNamespace](../../../conf/ConfNamespace.md#cls-ConfNamespace), [ConfValue](../../../conf/ConfValue.md#cls-ConfValue), [ConfException](../../../conf/ConfException.md#cls-ConfException)
+Types: [ConfNamespace](../../../conf/ConfNamespace.md#confnamespace-51b928e168d1), [ConfValue](../../../conf/ConfValue.md#confvalue-769292781c7d), [ConfException](../../../conf/ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 

@@ -1,39 +1,39 @@
-# Verbosity <a href="#cls-Verbosity" id="cls-Verbosity"></a>
+# Verbosity <a href="#verbosity-a9c618ec424f" id="verbosity-a9c618ec424f"></a>
 
 ```java
 public enum com.tailf.navu.Verbosity
 ```
 
-Types: [Verbosity](Verbosity.md#cls-Verbosity)
+Types: [Verbosity](Verbosity.md#verbosity-a9c618ec424f)
 
 ## Members
 
 **Enum Constants**:
 
-- [SHOW_CHILD](#m-SHOW_CHILD)
-- [SHOW_PREFIX](#m-SHOW_PREFIX)
-- [SHOW_URI](#m-SHOW_URI)
+- [SHOW_CHILD](#show_child-e5993c5575c1)
+- [SHOW_PREFIX](#show_prefix-74ac80b5b8de)
+- [SHOW_URI](#show_uri-a982eaf84e8a)
 
 **Methods**:
 
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### SHOW_CHILD <a href="#m-SHOW_CHILD" id="m-SHOW_CHILD"></a>
+### SHOW_CHILD <a href="#show_child-e5993c5575c1" id="show_child-e5993c5575c1"></a>
 
 ```java
 public static final com.tailf.navu.Verbosity SHOW_CHILD;
 ```
 
-### SHOW_PREFIX <a href="#m-SHOW_PREFIX" id="m-SHOW_PREFIX"></a>
+### SHOW_PREFIX <a href="#show_prefix-74ac80b5b8de" id="show_prefix-74ac80b5b8de"></a>
 
 ```java
 public static final com.tailf.navu.Verbosity SHOW_PREFIX;
 ```
 
-### SHOW_URI <a href="#m-SHOW_URI" id="m-SHOW_URI"></a>
+### SHOW_URI <a href="#show_uri-a982eaf84e8a" id="show_uri-a982eaf84e8a"></a>
 
 ```java
 public static final com.tailf.navu.Verbosity SHOW_URI;
@@ -42,22 +42,22 @@ public static final com.tailf.navu.Verbosity SHOW_URI;
 
 ## Methods
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.navu.Verbosity valueOf(String name)
 ```
 
-Types: [Verbosity](Verbosity.md#cls-Verbosity)
+Types: [Verbosity](Verbosity.md#verbosity-a9c618ec424f)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.navu.Verbosity[] values()
 ```
 
-Types: [Verbosity](Verbosity.md#cls-Verbosity)
+Types: [Verbosity](Verbosity.md#verbosity-a9c618ec424f)

@@ -1,4 +1,4 @@
-# ConfNamespace <a href="#cls-ConfNamespace" id="cls-ConfNamespace"></a>
+# ConfNamespace <a href="#confnamespace-51b928e168d1" id="confnamespace-51b928e168d1"></a>
 
 ```java
 public abstract class com.tailf.conf.ConfNamespace
@@ -11,54 +11,54 @@ Base class of the ConfNamespace objects. Namespace objects are normally
 
 **Related classes**
 
-- [ConfNamespaceStub](ConfNamespaceStub.md#cls-ConfNamespaceStub)
-- [Inet](../ncs/ns/Inet.md#cls-Inet)
-- [MaapiSchemaNS](../maapi/MaapiSchemaNS.md#cls-MaapiSchemaNS)
-- [Ncs](../ncs/ns/Ncs.md#cls-Ncs)
-- [NcsAlarms](../ncs/ns/NcsAlarms.md#cls-NcsAlarms)
-- [NcsCommitParams](../ncs/ns/NcsCommitParams.md#cls-NcsCommitParams)
-- [NcsNed](../ncs/ns/NcsNed.md#cls-NcsNed)
-- [NcsSnmp](../ncs/ns/NcsSnmp.md#cls-NcsSnmp)
-- [NcsState](../ncs/ns/NcsState.md#cls-NcsState)
-- [NetconfNcs](../ncs/ns/NetconfNcs.md#cls-NetconfNcs)
-- [Yang](../ncs/ns/Yang.md#cls-Yang)
+- [ConfNamespaceStub](ConfNamespaceStub.md#confnamespacestub-81838488f663)
+- [Inet](../ncs/ns/Inet.md#inet-272d260c8963)
+- [MaapiSchemaNS](../maapi/MaapiSchemaNS.md#maapischemans-0020218f86d5)
+- [Ncs](../ncs/ns/Ncs.md#ncs-2fda95425fc1)
+- [NcsAlarms](../ncs/ns/NcsAlarms.md#ncsalarms-77df46497b22)
+- [NcsCommitParams](../ncs/ns/NcsCommitParams.md#ncscommitparams-0284bbf888f7)
+- [NcsNed](../ncs/ns/NcsNed.md#ncsned-8ec2e0a91ff5)
+- [NcsSnmp](../ncs/ns/NcsSnmp.md#ncssnmp-efed1d5f1dcf)
+- [NcsState](../ncs/ns/NcsState.md#ncsstate-f08eb7c6bdbb)
+- [NetconfNcs](../ncs/ns/NetconfNcs.md#netconfncs-b87e44448f4d)
+- [Yang](../ncs/ns/Yang.md#yang-eb4255bb3177)
 
 ## Members
 
 **Constructors**:
 
-- [ConfNamespace()](#m-ConfNamespace-a3530a4f2975)
+- [ConfNamespace()](#confnamespace-a3530a4f2975)
 
 **Methods**:
 
-- [findNamespace(int, List<ConfNamespace>)](#m-findNamespace-3608c9e64446)
-- [findNamespace(String)](#m-findNamespace-ffbcd6481b17)
-- [findNamespace(String, List<ConfNamespace>)](#m-findNamespace-d388c2984448)
-- [findNamespaceFromMountPrefix(List<String>, String)](#m-findNamespaceFromMountPrefix-bab7e96778db)
-- [findNamespaceFromNsName(ConfPath, MountIdInterface, String)](#m-findNamespaceFromNsName-48eec0922648)
-- [findNamespaceFromPrefix(ConfPath, MountIdInterface, String)](#m-findNamespaceFromPrefix-6e0581090f53)
-- [findNamespaceFromPrefix(String)](#m-findNamespaceFromPrefix-869c6d668202)
-- [findNamespaceFromPrefix(String, List<ConfNamespace>)](#m-findNamespaceFromPrefix-66c7e977c972)
-- [findNamespaceFromRootTag(String)](#m-findNamespaceFromRootTag-f2df2fa2fc2d)
-- [hash()](#m-hash-88880b48029e)
-- [hashToString(int)](#m-hashToString-54eaaef71976)
-- [id()](#m-id-1352448ec267)
-- [isCrunchedNs(String)](#m-isCrunchedNs-360c1c86027d)
-- [lookupNamespaceFromHash(int)](#m-lookupNamespaceFromHash-da403ab8aac5)
-- [lookupNamespaceFromPrefix(ConfPath, MountIdInterface, String)](#m-lookupNamespaceFromPrefix-8f1e7973fb08)
-- [lookupNamespaceFromPrefix(String)](#m-lookupNamespaceFromPrefix-2c59900bb38b)
-- [lookupNamespaceFromURI(String)](#m-lookupNamespaceFromURI-c4f1a0a098c7)
-- [prefix()](#m-prefix-668176aac777)
-- [reinstallRemovedNs(List<ConfNamespace>)](#m-reinstallRemovedNs-87cc8747702c)
-- [stringToHash(String)](#m-stringToHash-7c2af24796ac)
-- [toString()](#m-toString-e9d48c5503ef)
-- [truncateToXMLUri(String)](#m-truncateToXMLUri-601243c5d74e)
-- [uri()](#m-uri-3fbfda96db65)
-- [xmlUri()](#m-xmlUri-e04f3f35f4eb)
+- [findNamespace(int, List<ConfNamespace>)](#findnamespace-3608c9e64446)
+- [findNamespace(String)](#findnamespace-ffbcd6481b17)
+- [findNamespace(String, List<ConfNamespace>)](#findnamespace-d388c2984448)
+- [findNamespaceFromMountPrefix(List<String>, String)](#findnamespacefrommountprefix-bab7e96778db)
+- [findNamespaceFromNsName(ConfPath, MountIdInterface, String)](#findnamespacefromnsname-48eec0922648)
+- [findNamespaceFromPrefix(ConfPath, MountIdInterface, String)](#findnamespacefromprefix-6e0581090f53)
+- [findNamespaceFromPrefix(String)](#findnamespacefromprefix-869c6d668202)
+- [findNamespaceFromPrefix(String, List<ConfNamespace>)](#findnamespacefromprefix-66c7e977c972)
+- [findNamespaceFromRootTag(String)](#findnamespacefromroottag-f2df2fa2fc2d)
+- [hash()](#hash-88880b48029e)
+- [hashToString(int)](#hashtostring-54eaaef71976)
+- [id()](#id-1352448ec267)
+- [isCrunchedNs(String)](#iscrunchedns-360c1c86027d)
+- [lookupNamespaceFromHash(int)](#lookupnamespacefromhash-da403ab8aac5)
+- [lookupNamespaceFromPrefix(ConfPath, MountIdInterface, String)](#lookupnamespacefromprefix-8f1e7973fb08)
+- [lookupNamespaceFromPrefix(String)](#lookupnamespacefromprefix-2c59900bb38b)
+- [lookupNamespaceFromURI(String)](#lookupnamespacefromuri-c4f1a0a098c7)
+- [prefix()](#prefix-668176aac777)
+- [reinstallRemovedNs(List<ConfNamespace>)](#reinstallremovedns-87cc8747702c)
+- [stringToHash(String)](#stringtohash-7c2af24796ac)
+- [toString()](#tostring-e9d48c5503ef)
+- [truncateToXMLUri(String)](#truncatetoxmluri-601243c5d74e)
+- [uri()](#uri-3fbfda96db65)
+- [xmlUri()](#xmluri-e04f3f35f4eb)
 
 ## Constructors
 
-### ConfNamespace() <a href="#m-ConfNamespace-a3530a4f2975" id="m-ConfNamespace-a3530a4f2975"></a>
+### ConfNamespace() <a href="#confnamespace-a3530a4f2975" id="confnamespace-a3530a4f2975"></a>
 
 ```java
 public ConfNamespace()
@@ -67,7 +67,7 @@ public ConfNamespace()
 
 ## Methods
 
-### findNamespace(int, List<ConfNamespace>) <a href="#m-findNamespace-3608c9e64446" id="m-findNamespace-3608c9e64446"></a>
+### findNamespace(int, List&lt;ConfNamespace&gt;) <a href="#findnamespace-3608c9e64446" id="findnamespace-3608c9e64446"></a>
 
 ```java
 public static com.tailf.conf.ConfNamespace findNamespace(
@@ -76,7 +76,7 @@ public static com.tailf.conf.ConfNamespace findNamespace(
 )
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
+Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
 
 Locate a namespace in a namespace list, given a name space hash.
 
@@ -85,13 +85,13 @@ Locate a namespace in a namespace list, given a name space hash.
 - `int hash`
 - `java.util.List<com.tailf.conf.ConfNamespace> nsList`
 
-### findNamespace(String) <a href="#m-findNamespace-ffbcd6481b17" id="m-findNamespace-ffbcd6481b17"></a>
+### findNamespace(String) <a href="#findnamespace-ffbcd6481b17" id="findnamespace-ffbcd6481b17"></a>
 
 ```java
 public static com.tailf.conf.ConfNamespace findNamespace(String id)
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
+Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
 
 Retrieve a namespace by its id, which is either the full uri or the
  short name. These can be obtained as a constant from the generated
@@ -103,7 +103,7 @@ Retrieve a namespace by its id, which is either the full uri or the
 
 **Returns:** null or the namespace object.
 
-### findNamespace(String, List<ConfNamespace>) <a href="#m-findNamespace-d388c2984448" id="m-findNamespace-d388c2984448"></a>
+### findNamespace(String, List&lt;ConfNamespace&gt;) <a href="#findnamespace-d388c2984448" id="findnamespace-d388c2984448"></a>
 
 ```java
 public static com.tailf.conf.ConfNamespace findNamespace(
@@ -112,7 +112,7 @@ public static com.tailf.conf.ConfNamespace findNamespace(
 )
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
+Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
 
 Retrieve a namespace by its id, which is either the full uri or the
  short name. These can be obtained as a constant from the generated
@@ -125,7 +125,7 @@ Retrieve a namespace by its id, which is either the full uri or the
 
 **Returns:** null or the namespace object.
 
-### findNamespaceFromMountPrefix(List<String>, String) <a href="#m-findNamespaceFromMountPrefix-bab7e96778db" id="m-findNamespaceFromMountPrefix-bab7e96778db"></a>
+### findNamespaceFromMountPrefix(List&lt;String&gt;, String) <a href="#findnamespacefrommountprefix-bab7e96778db" id="findnamespacefrommountprefix-bab7e96778db"></a>
 
 ```java
 public static com.tailf.conf.ConfNamespace findNamespaceFromMountPrefix(
@@ -134,14 +134,14 @@ public static com.tailf.conf.ConfNamespace findNamespaceFromMountPrefix(
 )
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
+Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
 
 **Parameters**
 
 - `java.util.List<String> mountId`
 - `String prefix`
 
-### findNamespaceFromNsName(ConfPath, MountIdInterface, String) <a href="#m-findNamespaceFromNsName-48eec0922648" id="m-findNamespaceFromNsName-48eec0922648"></a>
+### findNamespaceFromNsName(ConfPath, MountIdInterface, String) <a href="#findnamespacefromnsname-48eec0922648" id="findnamespacefromnsname-48eec0922648"></a>
 
 ```java
 public static com.tailf.conf.ConfNamespace findNamespaceFromNsName(
@@ -152,7 +152,7 @@ public static com.tailf.conf.ConfNamespace findNamespaceFromNsName(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace), [ConfPath](ConfPath.md#cls-ConfPath), [MountIdInterface](MountIdInterface.md#cls-MountIdInterface), [ConfException](ConfException.md#cls-ConfException)
+Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1), [ConfPath](ConfPath.md#confpath-327831c6fc7d), [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0), [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
@@ -160,7 +160,7 @@ Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace), [ConfPath](ConfPath.
 - `com.tailf.conf.MountIdInterface mountIdGetter`
 - `String namespaceName`
 
-### findNamespaceFromPrefix(ConfPath, MountIdInterface, String) <a href="#m-findNamespaceFromPrefix-6e0581090f53" id="m-findNamespaceFromPrefix-6e0581090f53"></a>
+### findNamespaceFromPrefix(ConfPath, MountIdInterface, String) <a href="#findnamespacefromprefix-6e0581090f53" id="findnamespacefromprefix-6e0581090f53"></a>
 
 ```java
 public static com.tailf.conf.ConfNamespace findNamespaceFromPrefix(
@@ -170,7 +170,7 @@ public static com.tailf.conf.ConfNamespace findNamespaceFromPrefix(
 )
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace), [ConfPath](ConfPath.md#cls-ConfPath), [MountIdInterface](MountIdInterface.md#cls-MountIdInterface)
+Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1), [ConfPath](ConfPath.md#confpath-327831c6fc7d), [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0)
 
 **Parameters**
 
@@ -178,19 +178,19 @@ Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace), [ConfPath](ConfPath.
 - `com.tailf.conf.MountIdInterface mountIdGetter`
 - `String prefix`
 
-### findNamespaceFromPrefix(String) <a href="#m-findNamespaceFromPrefix-869c6d668202" id="m-findNamespaceFromPrefix-869c6d668202"></a>
+### findNamespaceFromPrefix(String) <a href="#findnamespacefromprefix-869c6d668202" id="findnamespacefromprefix-869c6d668202"></a>
 
 ```java
 public static com.tailf.conf.ConfNamespace findNamespaceFromPrefix(String prefix)
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
+Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
 
 **Parameters**
 
 - `String prefix`
 
-### findNamespaceFromPrefix(String, List<ConfNamespace>) <a href="#m-findNamespaceFromPrefix-66c7e977c972" id="m-findNamespaceFromPrefix-66c7e977c972"></a>
+### findNamespaceFromPrefix(String, List&lt;ConfNamespace&gt;) <a href="#findnamespacefromprefix-66c7e977c972" id="findnamespacefromprefix-66c7e977c972"></a>
 
 ```java
 public static com.tailf.conf.ConfNamespace findNamespaceFromPrefix(
@@ -199,32 +199,32 @@ public static com.tailf.conf.ConfNamespace findNamespaceFromPrefix(
 )
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
+Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
 
 **Parameters**
 
 - `String prefix`
 - `java.util.List<com.tailf.conf.ConfNamespace> nsList`
 
-### findNamespaceFromRootTag(String) <a href="#m-findNamespaceFromRootTag-f2df2fa2fc2d" id="m-findNamespaceFromRootTag-f2df2fa2fc2d"></a>
+### findNamespaceFromRootTag(String) <a href="#findnamespacefromroottag-f2df2fa2fc2d" id="findnamespacefromroottag-f2df2fa2fc2d"></a>
 
 ```java
 public static com.tailf.conf.ConfNamespace findNamespaceFromRootTag(String tagName)
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
+Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
 
 **Parameters**
 
 - `String tagName`
 
-### hash() <a href="#m-hash-88880b48029e" id="m-hash-88880b48029e"></a>
+### hash() <a href="#hash-88880b48029e" id="hash-88880b48029e"></a>
 
 ```java
 public abstract int hash()
 ```
 
-### hashToString(int) <a href="#m-hashToString-54eaaef71976" id="m-hashToString-54eaaef71976"></a>
+### hashToString(int) <a href="#hashtostring-54eaaef71976" id="hashtostring-54eaaef71976"></a>
 
 ```java
 public static String hashToString(int tagHash)
@@ -240,13 +240,13 @@ Transforms a namespace hash value into its corresponding string
 
 **Returns:** null or the string representation of the hash value.
 
-### id() <a href="#m-id-1352448ec267" id="m-id-1352448ec267"></a>
+### id() <a href="#id-1352448ec267" id="id-1352448ec267"></a>
 
 ```java
 public abstract String id()
 ```
 
-### isCrunchedNs(String) <a href="#m-isCrunchedNs-360c1c86027d" id="m-isCrunchedNs-360c1c86027d"></a>
+### isCrunchedNs(String) <a href="#iscrunchedns-360c1c86027d" id="iscrunchedns-360c1c86027d"></a>
 
 ```java
 public static boolean isCrunchedNs(String uri)
@@ -256,13 +256,13 @@ public static boolean isCrunchedNs(String uri)
 
 - `String uri`
 
-### lookupNamespaceFromHash(int) <a href="#m-lookupNamespaceFromHash-da403ab8aac5" id="m-lookupNamespaceFromHash-da403ab8aac5"></a>
+### lookupNamespaceFromHash(int) <a href="#lookupnamespacefromhash-da403ab8aac5" id="lookupnamespacefromhash-da403ab8aac5"></a>
 
 ```java
 public static com.tailf.conf.ConfNamespace lookupNamespaceFromHash(int hash)
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
+Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
 
 Locate a namespace in a namespace list, given a name space hash.
 
@@ -270,7 +270,7 @@ Locate a namespace in a namespace list, given a name space hash.
 
 - `int hash`
 
-### lookupNamespaceFromPrefix(ConfPath, MountIdInterface, String) <a href="#m-lookupNamespaceFromPrefix-8f1e7973fb08" id="m-lookupNamespaceFromPrefix-8f1e7973fb08"></a>
+### lookupNamespaceFromPrefix(ConfPath, MountIdInterface, String) <a href="#lookupnamespacefromprefix-8f1e7973fb08" id="lookupnamespacefromprefix-8f1e7973fb08"></a>
 
 ```java
 public static com.tailf.conf.ConfNamespace lookupNamespaceFromPrefix(
@@ -280,7 +280,7 @@ public static com.tailf.conf.ConfNamespace lookupNamespaceFromPrefix(
 )
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace), [ConfPath](ConfPath.md#cls-ConfPath), [MountIdInterface](MountIdInterface.md#cls-MountIdInterface)
+Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1), [ConfPath](ConfPath.md#confpath-327831c6fc7d), [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0)
 
 **Parameters**
 
@@ -288,13 +288,13 @@ Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace), [ConfPath](ConfPath.
 - `com.tailf.conf.MountIdInterface mountIdGetter`
 - `String prefix`
 
-### lookupNamespaceFromPrefix(String) <a href="#m-lookupNamespaceFromPrefix-2c59900bb38b" id="m-lookupNamespaceFromPrefix-2c59900bb38b"></a>
+### lookupNamespaceFromPrefix(String) <a href="#lookupnamespacefromprefix-2c59900bb38b" id="lookupnamespacefromprefix-2c59900bb38b"></a>
 
 ```java
 public static com.tailf.conf.ConfNamespace lookupNamespaceFromPrefix(String prefix)
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
+Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
 
 Locate a namespace in a namespace list, given a name space string. Search
  on full uri or short name.
@@ -303,13 +303,13 @@ Locate a namespace in a namespace list, given a name space string. Search
 
 - `String prefix`
 
-### lookupNamespaceFromURI(String) <a href="#m-lookupNamespaceFromURI-c4f1a0a098c7" id="m-lookupNamespaceFromURI-c4f1a0a098c7"></a>
+### lookupNamespaceFromURI(String) <a href="#lookupnamespacefromuri-c4f1a0a098c7" id="lookupnamespacefromuri-c4f1a0a098c7"></a>
 
 ```java
 public static com.tailf.conf.ConfNamespace lookupNamespaceFromURI(String uri)
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
+Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
 
 Locate a namespace in a namespace list, given a name space string. Search
  on full uri or short name.
@@ -318,19 +318,19 @@ Locate a namespace in a namespace list, given a name space string. Search
 
 - `String uri`
 
-### prefix() <a href="#m-prefix-668176aac777" id="m-prefix-668176aac777"></a>
+### prefix() <a href="#prefix-668176aac777" id="prefix-668176aac777"></a>
 
 ```java
 public abstract String prefix()
 ```
 
-### reinstallRemovedNs(List<ConfNamespace>) <a href="#m-reinstallRemovedNs-87cc8747702c" id="m-reinstallRemovedNs-87cc8747702c"></a>
+### reinstallRemovedNs(List&lt;ConfNamespace&gt;) <a href="#reinstallremovedns-87cc8747702c" id="reinstallremovedns-87cc8747702c"></a>
 
 ```java
 public static void reinstallRemovedNs(java.util.List<com.tailf.conf.ConfNamespace> removedNsList)
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
+Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
 
 This method should only be used in cdb data migration scenarios.
  In this situation old namespaces that have been removed need to
@@ -341,7 +341,7 @@ This method should only be used in cdb data migration scenarios.
 
 - `java.util.List<com.tailf.conf.ConfNamespace> removedNsList` - `List<ConfNamespace>` of obsolete namespaces
 
-### stringToHash(String) <a href="#m-stringToHash-7c2af24796ac" id="m-stringToHash-7c2af24796ac"></a>
+### stringToHash(String) <a href="#stringtohash-7c2af24796ac" id="stringtohash-7c2af24796ac"></a>
 
 ```java
 public static int stringToHash(String tagString)
@@ -355,7 +355,7 @@ Transforms a string into a namespace hash.
 
 **Returns:** 0 or the hash value corresponding to the string
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()
@@ -365,7 +365,7 @@ Return a string representation on the namespace.
 
 **Returns:** null or the string representation, uri, of the namespace.
 
-### truncateToXMLUri(String) <a href="#m-truncateToXMLUri-601243c5d74e" id="m-truncateToXMLUri-601243c5d74e"></a>
+### truncateToXMLUri(String) <a href="#truncatetoxmluri-601243c5d74e" id="truncatetoxmluri-601243c5d74e"></a>
 
 ```java
 public static String truncateToXMLUri(String uri)
@@ -375,13 +375,13 @@ public static String truncateToXMLUri(String uri)
 
 - `String uri`
 
-### uri() <a href="#m-uri-3fbfda96db65" id="m-uri-3fbfda96db65"></a>
+### uri() <a href="#uri-3fbfda96db65" id="uri-3fbfda96db65"></a>
 
 ```java
 public abstract String uri()
 ```
 
-### xmlUri() <a href="#m-xmlUri-e04f3f35f4eb" id="m-xmlUri-e04f3f35f4eb"></a>
+### xmlUri() <a href="#xmluri-e04f3f35f4eb" id="xmluri-e04f3f35f4eb"></a>
 
 ```java
 public abstract String xmlUri()

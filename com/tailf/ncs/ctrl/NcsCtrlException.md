@@ -1,11 +1,11 @@
-# NcsCtrlException <a href="#cls-NcsCtrlException" id="cls-NcsCtrlException"></a>
+# NcsCtrlException <a href="#ncsctrlexception-5ca72987a4d7" id="ncsctrlexception-5ca72987a4d7"></a>
 
 ```java
 public class com.tailf.ncs.ctrl.NcsCtrlException
     extends com.tailf.ncs.NcsException
 ```
 
-Types: [NcsException](../NcsException.md#cls-NcsException)
+Types: [NcsException](../NcsException.md#ncsexception-d2b40ca98ea5)
 
 Ncs exception capable of storing multiple exception causes.
 
@@ -13,21 +13,21 @@ Ncs exception capable of storing multiple exception causes.
 
 **Constructors**:
 
-- [NcsCtrlException(String)](#m-NcsCtrlException-221a6565f48e)
+- [NcsCtrlException(String)](#ncsctrlexception-221a6565f48e)
 
 **Methods**:
 
-- [addCause(Throwable)](#m-addCause-351e6181965d)
-- [getCauseList()](#m-getCauseList-b2e766c8dc20)
-- [getErrorCode()](../../conf/ConfException.md#m-getErrorCode-812152fc083a) from ConfException
-- [getMessage()](#m-getMessage-77b7dae8469e)
-- [getOpaque()](../../conf/ConfException.md#m-getOpaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](../../conf/ConfException.md#m-mk-de1cedfc6ea8) from ConfException
-- [mk(ConfResponse, ConfPath)](../../conf/ConfException.md#m-mk-79e69ffbc022) from ConfException
+- [addCause(Throwable)](#addcause-351e6181965d)
+- [getCauseList()](#getcauselist-b2e766c8dc20)
+- [getErrorCode()](../../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getMessage()](#getmessage-77b7dae8469e)
+- [getOpaque()](../../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk(ConfResponse)](../../conf/ConfException.md#mk-de1cedfc6ea8) from ConfException
+- [mk(ConfResponse, ConfPath)](../../conf/ConfException.md#mk-79e69ffbc022) from ConfException
 
 ## Constructors
 
-### NcsCtrlException(String) <a href="#m-NcsCtrlException-221a6565f48e" id="m-NcsCtrlException-221a6565f48e"></a>
+### NcsCtrlException(String) <a href="#ncsctrlexception-221a6565f48e" id="ncsctrlexception-221a6565f48e"></a>
 
 ```java
 public NcsCtrlException(String msg)
@@ -40,7 +40,7 @@ public NcsCtrlException(String msg)
 
 ## Methods
 
-### addCause(Throwable) <a href="#m-addCause-351e6181965d" id="m-addCause-351e6181965d"></a>
+### addCause(Throwable) <a href="#addcause-351e6181965d" id="addcause-351e6181965d"></a>
 
 ```java
 public void addCause(Throwable e)
@@ -50,13 +50,13 @@ public void addCause(Throwable e)
 
 - `Throwable e`
 
-### getCauseList() <a href="#m-getCauseList-b2e766c8dc20" id="m-getCauseList-b2e766c8dc20"></a>
+### getCauseList() <a href="#getcauselist-b2e766c8dc20" id="getcauselist-b2e766c8dc20"></a>
 
 ```java
 public java.util.List<Throwable> getCauseList()
 ```
 
-### getMessage() <a href="#m-getMessage-77b7dae8469e" id="m-getMessage-77b7dae8469e"></a>
+### getMessage() <a href="#getmessage-77b7dae8469e" id="getmessage-77b7dae8469e"></a>
 
 ```java
 public String getMessage()

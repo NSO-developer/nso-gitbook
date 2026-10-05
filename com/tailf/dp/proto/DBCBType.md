@@ -1,10 +1,10 @@
-# DBCBType <a href="#cls-DBCBType" id="cls-DBCBType"></a>
+# DBCBType <a href="#dbcbtype-b9ff294018bf" id="dbcbtype-b9ff294018bf"></a>
 
 ```java
 public enum com.tailf.dp.proto.DBCBType
 ```
 
-Types: [DBCBType](DBCBType.md#cls-DBCBType)
+Types: [DBCBType](DBCBType.md#dbcbtype-b9ff294018bf)
 
 Enumeration of DB callback methods
 
@@ -14,148 +14,148 @@ Enumeration of DB callback methods
 
 **Enum Constants**:
 
-- [ACTIVATE_CHECKPOINT_RUNNING](#m-ACTIVATE_CHECKPOINT_RUNNING)
-- [ADD_CHECKPOINT_RUNNING](#m-ADD_CHECKPOINT_RUNNING)
-- [CANDIDATE_CHK_NOT_MODIFIED](#m-CANDIDATE_CHK_NOT_MODIFIED)
-- [CANDIDATE_COMMIT](#m-CANDIDATE_COMMIT)
-- [CANDIDATE_CONFIRMING_COMMIT](#m-CANDIDATE_CONFIRMING_COMMIT)
-- [CANDIDATE_RESET](#m-CANDIDATE_RESET)
-- [CANDIDATE_ROLLBACK_RUNNING](#m-CANDIDATE_ROLLBACK_RUNNING)
-- [CANDIDATE_VALIDATE](#m-CANDIDATE_VALIDATE)
-- [COPY_RUNNING_TO_STARTUP](#m-COPY_RUNNING_TO_STARTUP)
-- [DEL_CHECKPOINT_RUNNING](#m-DEL_CHECKPOINT_RUNNING)
-- [DELETE_CONFIG](#m-DELETE_CONFIG)
-- [LOCK](#m-LOCK)
-- [LOCK_PARTIAL](#m-LOCK_PARTIAL)
-- [RUNNING_CHK_NOT_MODIFIED](#m-RUNNING_CHK_NOT_MODIFIED)
-- [UNLOCK](#m-UNLOCK)
-- [UNLOCK_PARTIAL](#m-UNLOCK_PARTIAL)
+- [ACTIVATE_CHECKPOINT_RUNNING](#activate_checkpoint_running-a6100ae5a340)
+- [ADD_CHECKPOINT_RUNNING](#add_checkpoint_running-768e54bdcf2c)
+- [CANDIDATE_CHK_NOT_MODIFIED](#candidate_chk_not_modified-6012c50d33a1)
+- [CANDIDATE_COMMIT](#candidate_commit-971d6b42a25a)
+- [CANDIDATE_CONFIRMING_COMMIT](#candidate_confirming_commit-a4e2d978d491)
+- [CANDIDATE_RESET](#candidate_reset-4c8beeb0d732)
+- [CANDIDATE_ROLLBACK_RUNNING](#candidate_rollback_running-ce29d62e7fa0)
+- [CANDIDATE_VALIDATE](#candidate_validate-88fec4af40ae)
+- [COPY_RUNNING_TO_STARTUP](#copy_running_to_startup-7f29c12e742c)
+- [DEL_CHECKPOINT_RUNNING](#del_checkpoint_running-df7c40981810)
+- [DELETE_CONFIG](#delete_config-bbbb8d87fc7e)
+- [LOCK](#lock-019de6a65aa2)
+- [LOCK_PARTIAL](#lock_partial-018e4e600871)
+- [RUNNING_CHK_NOT_MODIFIED](#running_chk_not_modified-4e227ccf520e)
+- [UNLOCK](#unlock-9bc91c84c792)
+- [UNLOCK_PARTIAL](#unlock_partial-7523966be288)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### ACTIVATE_CHECKPOINT_RUNNING <a href="#m-ACTIVATE_CHECKPOINT_RUNNING" id="m-ACTIVATE_CHECKPOINT_RUNNING"></a>
+### ACTIVATE_CHECKPOINT_RUNNING <a href="#activate_checkpoint_running-a6100ae5a340" id="activate_checkpoint_running-a6100ae5a340"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType ACTIVATE_CHECKPOINT_RUNNING;
 ```
 
 Bit flag for the
- [`DpDbCallback#activateCheckpointRunning(DpDbContext)`](../DpDbCallback.md#m-activateCheckpointRunning-6d290282dc64)
+ [`DpDbCallback#activateCheckpointRunning(DpDbContext)`](../DpDbCallback.md#activatecheckpointrunning-6d290282dc64)
  method.
 
-### ADD_CHECKPOINT_RUNNING <a href="#m-ADD_CHECKPOINT_RUNNING" id="m-ADD_CHECKPOINT_RUNNING"></a>
+### ADD_CHECKPOINT_RUNNING <a href="#add_checkpoint_running-768e54bdcf2c" id="add_checkpoint_running-768e54bdcf2c"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType ADD_CHECKPOINT_RUNNING;
 ```
 
 Bit flag for the
- [`DpDbCallback#addCheckpointRunning(DpDbContext)`](../DpDbCallback.md#m-addCheckpointRunning-e8ef0fad176a)
+ [`DpDbCallback#addCheckpointRunning(DpDbContext)`](../DpDbCallback.md#addcheckpointrunning-e8ef0fad176a)
  method.
 
-### CANDIDATE_CHK_NOT_MODIFIED <a href="#m-CANDIDATE_CHK_NOT_MODIFIED" id="m-CANDIDATE_CHK_NOT_MODIFIED"></a>
+### CANDIDATE_CHK_NOT_MODIFIED <a href="#candidate_chk_not_modified-6012c50d33a1" id="candidate_chk_not_modified-6012c50d33a1"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType CANDIDATE_CHK_NOT_MODIFIED;
 ```
 
 Bit flag for the
- [`DpDbCallback#candidateChkNotModified(DpDbContext)`](../DpDbCallback.md#m-candidateChkNotModified-73d415936fab)
+ [`DpDbCallback#candidateChkNotModified(DpDbContext)`](../DpDbCallback.md#candidatechknotmodified-73d415936fab)
  method.
 
-### CANDIDATE_COMMIT <a href="#m-CANDIDATE_COMMIT" id="m-CANDIDATE_COMMIT"></a>
+### CANDIDATE_COMMIT <a href="#candidate_commit-971d6b42a25a" id="candidate_commit-971d6b42a25a"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType CANDIDATE_COMMIT;
 ```
 
 Bit flag for the
- [`DpDbCallback#candidateCommit(DpDbContext,int)`](../DpDbCallback.md#m-candidateCommit-c7c8900fd15e)
+ [`DpDbCallback#candidateCommit(DpDbContext,int)`](../DpDbCallback.md#candidatecommit-c7c8900fd15e)
  method.
 
-### CANDIDATE_CONFIRMING_COMMIT <a href="#m-CANDIDATE_CONFIRMING_COMMIT" id="m-CANDIDATE_CONFIRMING_COMMIT"></a>
+### CANDIDATE_CONFIRMING_COMMIT <a href="#candidate_confirming_commit-a4e2d978d491" id="candidate_confirming_commit-a4e2d978d491"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType CANDIDATE_CONFIRMING_COMMIT;
 ```
 
 Bit flag for the
- [`DpDbCallback#candidateConfirmingCommit(DpDbContext)`](../DpDbCallback.md#m-candidateConfirmingCommit-e1728f2c501d)
+ [`DpDbCallback#candidateConfirmingCommit(DpDbContext)`](../DpDbCallback.md#candidateconfirmingcommit-e1728f2c501d)
  method.
 
-### CANDIDATE_RESET <a href="#m-CANDIDATE_RESET" id="m-CANDIDATE_RESET"></a>
+### CANDIDATE_RESET <a href="#candidate_reset-4c8beeb0d732" id="candidate_reset-4c8beeb0d732"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType CANDIDATE_RESET;
 ```
 
 Bit flag for the
- [`DpDbCallback#candidateReset(DpDbContext)`](../DpDbCallback.md#m-candidateReset-20893cda7340) method.
+ [`DpDbCallback#candidateReset(DpDbContext)`](../DpDbCallback.md#candidatereset-20893cda7340) method.
 
-### CANDIDATE_ROLLBACK_RUNNING <a href="#m-CANDIDATE_ROLLBACK_RUNNING" id="m-CANDIDATE_ROLLBACK_RUNNING"></a>
+### CANDIDATE_ROLLBACK_RUNNING <a href="#candidate_rollback_running-ce29d62e7fa0" id="candidate_rollback_running-ce29d62e7fa0"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType CANDIDATE_ROLLBACK_RUNNING;
 ```
 
 Bit flag for the
- [`DpDbCallback#candidateRollbackRunning(DpDbContext)`](../DpDbCallback.md#m-candidateRollbackRunning-101fc2327941)
+ [`DpDbCallback#candidateRollbackRunning(DpDbContext)`](../DpDbCallback.md#candidaterollbackrunning-101fc2327941)
  method.
 
-### CANDIDATE_VALIDATE <a href="#m-CANDIDATE_VALIDATE" id="m-CANDIDATE_VALIDATE"></a>
+### CANDIDATE_VALIDATE <a href="#candidate_validate-88fec4af40ae" id="candidate_validate-88fec4af40ae"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType CANDIDATE_VALIDATE;
 ```
 
 Bit flag for the
- [`DpDbCallback#candidateValidate(DpDbContext)`](../DpDbCallback.md#m-candidateValidate-c71b01c4e9e6) method.
+ [`DpDbCallback#candidateValidate(DpDbContext)`](../DpDbCallback.md#candidatevalidate-c71b01c4e9e6) method.
 
-### COPY_RUNNING_TO_STARTUP <a href="#m-COPY_RUNNING_TO_STARTUP" id="m-COPY_RUNNING_TO_STARTUP"></a>
+### COPY_RUNNING_TO_STARTUP <a href="#copy_running_to_startup-7f29c12e742c" id="copy_running_to_startup-7f29c12e742c"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType COPY_RUNNING_TO_STARTUP;
 ```
 
 Bit flag for the
- [`DpDbCallback#copyRunningToStartup(DpDbContext)`](../DpDbCallback.md#m-copyRunningToStartup-963b6506a3d3)
+ [`DpDbCallback#copyRunningToStartup(DpDbContext)`](../DpDbCallback.md#copyrunningtostartup-963b6506a3d3)
  method.
 
-### DEL_CHECKPOINT_RUNNING <a href="#m-DEL_CHECKPOINT_RUNNING" id="m-DEL_CHECKPOINT_RUNNING"></a>
+### DEL_CHECKPOINT_RUNNING <a href="#del_checkpoint_running-df7c40981810" id="del_checkpoint_running-df7c40981810"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType DEL_CHECKPOINT_RUNNING;
 ```
 
 Bit flag for the
- [`DpDbCallback#delCheckpointRunning(DpDbContext)`](../DpDbCallback.md#m-delCheckpointRunning-b03068abbaef)
+ [`DpDbCallback#delCheckpointRunning(DpDbContext)`](../DpDbCallback.md#delcheckpointrunning-b03068abbaef)
  method.
 
-### DELETE_CONFIG <a href="#m-DELETE_CONFIG" id="m-DELETE_CONFIG"></a>
+### DELETE_CONFIG <a href="#delete_config-bbbb8d87fc7e" id="delete_config-bbbb8d87fc7e"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType DELETE_CONFIG;
 ```
 
 Bit flag for the
- [`DpDbCallback#deleteConfig(DpDbContext,int)`](../DpDbCallback.md#m-deleteConfig-bac554ff2a00) method.
+ [`DpDbCallback#deleteConfig(DpDbContext,int)`](../DpDbCallback.md#deleteconfig-bac554ff2a00) method.
 
-### LOCK <a href="#m-LOCK" id="m-LOCK"></a>
+### LOCK <a href="#lock-019de6a65aa2" id="lock-019de6a65aa2"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType LOCK;
 ```
 
 Bit flag for the
- [`DpDbCallback#lock(DpDbContext,int)`](../DpDbCallback.md#m-lock-ed56d39d3ff0) method.
+ [`DpDbCallback#lock(DpDbContext,int)`](../DpDbCallback.md#lock-ed56d39d3ff0) method.
 
-### LOCK_PARTIAL <a href="#m-LOCK_PARTIAL" id="m-LOCK_PARTIAL"></a>
+### LOCK_PARTIAL <a href="#lock_partial-018e4e600871" id="lock_partial-018e4e600871"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType LOCK_PARTIAL;
@@ -163,41 +163,41 @@ public static final com.tailf.dp.proto.DBCBType LOCK_PARTIAL;
 
 Bit flag for the
  [`DpDbCallback#lockPartial(
- DpDbContext,int,int,ConfObject[][])`](../DpDbCallback.md#m-lockPartial-cb09f4152af4) method.
+ DpDbContext,int,int,ConfObject[][])`](../DpDbCallback.md#lockpartial-cb09f4152af4) method.
 
-### RUNNING_CHK_NOT_MODIFIED <a href="#m-RUNNING_CHK_NOT_MODIFIED" id="m-RUNNING_CHK_NOT_MODIFIED"></a>
+### RUNNING_CHK_NOT_MODIFIED <a href="#running_chk_not_modified-4e227ccf520e" id="running_chk_not_modified-4e227ccf520e"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType RUNNING_CHK_NOT_MODIFIED;
 ```
 
 Bit flag for the
- [`DpDbCallback#runningChkNotModified(DpDbContext)`](../DpDbCallback.md#m-runningChkNotModified-0cfa3cd55796)
+ [`DpDbCallback#runningChkNotModified(DpDbContext)`](../DpDbCallback.md#runningchknotmodified-0cfa3cd55796)
  method.
 
-### UNLOCK <a href="#m-UNLOCK" id="m-UNLOCK"></a>
+### UNLOCK <a href="#unlock-9bc91c84c792" id="unlock-9bc91c84c792"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType UNLOCK;
 ```
 
 Bit flag for the
- [`DpDbCallback#unlock(DpDbContext,int)`](../DpDbCallback.md#m-unlock-f30f2fcf978a) method.
+ [`DpDbCallback#unlock(DpDbContext,int)`](../DpDbCallback.md#unlock-f30f2fcf978a) method.
 
-### UNLOCK_PARTIAL <a href="#m-UNLOCK_PARTIAL" id="m-UNLOCK_PARTIAL"></a>
+### UNLOCK_PARTIAL <a href="#unlock_partial-7523966be288" id="unlock_partial-7523966be288"></a>
 
 ```java
 public static final com.tailf.dp.proto.DBCBType UNLOCK_PARTIAL;
 ```
 
 Bit flag for the
- [`DpDbCallback#unlockPartial(DpDbContext,int,int)`](../DpDbCallback.md#m-unlockPartial-3d1988a4cb5d)
+ [`DpDbCallback#unlockPartial(DpDbContext,int,int)`](../DpDbCallback.md#unlockpartial-3d1988a4cb5d)
  method.
 
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -207,22 +207,22 @@ get integer value for enum
 
 **Returns:** int value
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.dp.proto.DBCBType valueOf(String name)
 ```
 
-Types: [DBCBType](DBCBType.md#cls-DBCBType)
+Types: [DBCBType](DBCBType.md#dbcbtype-b9ff294018bf)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.dp.proto.DBCBType[] values()
 ```
 
-Types: [DBCBType](DBCBType.md#cls-DBCBType)
+Types: [DBCBType](DBCBType.md#dbcbtype-b9ff294018bf)

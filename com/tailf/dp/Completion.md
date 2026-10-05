@@ -1,4 +1,4 @@
-# Completion <a href="#cls-Completion" id="cls-Completion"></a>
+# Completion <a href="#completion-86b0b2e96c7f" id="completion-86b0b2e96c7f"></a>
 
 ```java
 public abstract class com.tailf.dp.Completion
@@ -54,27 +54,27 @@ Reply structure container for completion callbacks.
 
 **Related classes**
 
-- [CompletionDefaultReply](CompletionDefaultReply.md#cls-CompletionDefaultReply)
-- [CompletionRangeEnumReply](CompletionRangeEnumReply.md#cls-CompletionRangeEnumReply)
-- [CompletionReply](CompletionReply.md#cls-CompletionReply)
+- [CompletionDefaultReply](CompletionDefaultReply.md#completiondefaultreply-0777c6672e09)
+- [CompletionRangeEnumReply](CompletionRangeEnumReply.md#completionrangeenumreply-ce8621e14f9a)
+- [CompletionReply](CompletionReply.md#completionreply-21386c591079)
 
 ## Members
 
 **Constructors**:
 
-- [Completion()](#m-Completion-b01cd1890a7a)
+- [Completion()](#completion-b01cd1890a7a)
 
 **Methods**:
 
-- [encode()](#m-encode-fbae522bba37)
-- [newDefaultReply()](#m-newDefaultReply-5583906bcd7c)
-- [newRangeEnumReply(int)](#m-newRangeEnumReply-5c101dba6437)
-- [newReply()](#m-newReply-15892c4ebb44)
-- [validate()](#m-validate-dc7ca5eb97ec)
+- [encode()](#encode-fbae522bba37)
+- [newDefaultReply()](#newdefaultreply-5583906bcd7c)
+- [newRangeEnumReply(int)](#newrangeenumreply-5c101dba6437)
+- [newReply()](#newreply-15892c4ebb44)
+- [validate()](#validate-dc7ca5eb97ec)
 
 ## Constructors
 
-### Completion() <a href="#m-Completion-b01cd1890a7a" id="m-Completion-b01cd1890a7a"></a>
+### Completion() <a href="#completion-b01cd1890a7a" id="completion-b01cd1890a7a"></a>
 
 ```java
 public Completion()
@@ -83,23 +83,23 @@ public Completion()
 
 ## Methods
 
-### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
+### encode() <a href="#encode-fbae522bba37" id="encode-fbae522bba37"></a>
 
 ```java
 protected abstract com.tailf.proto.ConfEList encode()
 ```
 
-Types: [ConfEList](../proto/ConfEList.md#cls-ConfEList)
+Types: [ConfEList](../proto/ConfEList.md#confelist-78fa4ba3b3a8)
 
-### newDefaultReply() <a href="#m-newDefaultReply-5583906bcd7c" id="m-newDefaultReply-5583906bcd7c"></a>
+### newDefaultReply() <a href="#newdefaultreply-5583906bcd7c" id="newdefaultreply-5583906bcd7c"></a>
 
 ```java
 public static com.tailf.dp.CompletionDefaultReply newDefaultReply()
 ```
 
-Types: [CompletionDefaultReply](CompletionDefaultReply.md#cls-CompletionDefaultReply)
+Types: [CompletionDefaultReply](CompletionDefaultReply.md#completiondefaultreply-0777c6672e09)
 
-The [`CompletionDefaultReply`](CompletionDefaultReply.md#cls-CompletionDefaultReply) instance is the possible response
+The [`CompletionDefaultReply`](CompletionDefaultReply.md#completiondefaultreply-0777c6672e09) instance is the possible response
  for a tailf:cli-completion-actionpoint or a
  tailf:cli-custom-range-actionpoint directive.
 
@@ -111,15 +111,15 @@ The [`CompletionDefaultReply`](CompletionDefaultReply.md#cls-CompletionDefaultRe
 
 **Returns:** CompletionDefaultReply
 
-### newRangeEnumReply(int) <a href="#m-newRangeEnumReply-5c101dba6437" id="m-newRangeEnumReply-5c101dba6437"></a>
+### newRangeEnumReply(int) <a href="#newrangeenumreply-5c101dba6437" id="newrangeenumreply-5c101dba6437"></a>
 
 ```java
 public static com.tailf.dp.CompletionRangeEnumReply newRangeEnumReply(int keySize)
 ```
 
-Types: [CompletionRangeEnumReply](CompletionRangeEnumReply.md#cls-CompletionRangeEnumReply)
+Types: [CompletionRangeEnumReply](CompletionRangeEnumReply.md#completionrangeenumreply-ce8621e14f9a)
 
-The [`CompletionRangeEnumReply`](CompletionRangeEnumReply.md#cls-CompletionRangeEnumReply) instance is the expected response
+The [`CompletionRangeEnumReply`](CompletionRangeEnumReply.md#completionrangeenumreply-ce8621e14f9a) instance is the expected response
  for a tailf:cli-custom-range-enumerator actionpoint.
 
  The instantiated reply needs to be assembled using its class
@@ -134,15 +134,15 @@ The [`CompletionRangeEnumReply`](CompletionRangeEnumReply.md#cls-CompletionRange
 
 **Returns:** CompletionRangeEnumReply
 
-### newReply() <a href="#m-newReply-15892c4ebb44" id="m-newReply-15892c4ebb44"></a>
+### newReply() <a href="#newreply-15892c4ebb44" id="newreply-15892c4ebb44"></a>
 
 ```java
 public static com.tailf.dp.CompletionReply newReply()
 ```
 
-Types: [CompletionReply](CompletionReply.md#cls-CompletionReply)
+Types: [CompletionReply](CompletionReply.md#completionreply-21386c591079)
 
-The [`CompletionReply`](CompletionReply.md#cls-CompletionReply) instance is the possible response for a
+The [`CompletionReply`](CompletionReply.md#completionreply-21386c591079) instance is the possible response for a
  tailf:cli-completion-actionpoint or a
  tailf:cli-custom-range-actionpoint directive.
 
@@ -151,7 +151,7 @@ The [`CompletionReply`](CompletionReply.md#cls-CompletionReply) instance is the 
 
 **Returns:** CompletionReply
 
-### validate() <a href="#m-validate-dc7ca5eb97ec" id="m-validate-dc7ca5eb97ec"></a>
+### validate() <a href="#validate-dc7ca5eb97ec" id="validate-dc7ca5eb97ec"></a>
 
 **Package-private**
 
@@ -159,4 +159,4 @@ The [`CompletionReply`](CompletionReply.md#cls-CompletionReply) instance is the 
 abstract void validate() throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)

@@ -1,4 +1,4 @@
-# Builder <a href="#cls-Builder" id="cls-Builder"></a>
+# Builder <a href="#builder-21f09e83781d" id="builder-21f09e83781d"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.NsInfo.Builder
@@ -9,45 +9,45 @@ public static final class com.tailf.ncs.maapi.Schema.NsInfo.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asReader-b5c0f2a8d115)
-- [getModule()](#m-getModule-68694513ccce)
-- [getNshash()](#m-getNshash-c5a7631eae00)
-- [getPrefix()](#m-getPrefix-9268091e0223)
-- [getRevision()](#m-getRevision-b0088aa9f0bf)
-- [getRootNodes()](#m-getRootNodes-63f2b6255095)
-- [getTypes()](#m-getTypes-cbd0de718034)
-- [getUri()](#m-getUri-e839fdd3e24c)
-- [hasModule()](#m-hasModule-8a9f381a7ff1)
-- [hasPrefix()](#m-hasPrefix-ddbc3bbca9c3)
-- [hasRevision()](#m-hasRevision-23a5e6a14bd8)
-- [hasRootNodes()](#m-hasRootNodes-251070d577eb)
-- [hasTypes()](#m-hasTypes-5c6311e6f402)
-- [hasUri()](#m-hasUri-d455832c8996)
-- [initModule(int)](#m-initModule-6f250f3d4d33)
-- [initPrefix(int)](#m-initPrefix-e25b609de101)
-- [initRevision(int)](#m-initRevision-6d5e3f6a1d81)
-- [initRootNodes(int)](#m-initRootNodes-2ddd2d777f31)
-- [initTypes(int)](#m-initTypes-a430a792b8dc)
-- [initUri(int)](#m-initUri-5c80765ae71e)
-- [setModule(Reader)](#m-setModule-4fd03b9a95b0)
-- [setModule(String)](#m-setModule-b4ace9c56bac)
-- [setNshash(int)](#m-setNshash-64dcf506c2e9)
-- [setPrefix(Reader)](#m-setPrefix-5c58f0bf0784)
-- [setPrefix(String)](#m-setPrefix-63fe622cb50c)
-- [setRevision(Reader)](#m-setRevision-9ccea35c025d)
-- [setRevision(String)](#m-setRevision-b079ce2468f4)
-- [setRootNodes(Reader<Reader>)](#m-setRootNodes-a8fbf63c1379)
-- [setTypes(Reader<Reader>)](#m-setTypes-85fe39ddeacf)
-- [setUri(Reader)](#m-setUri-456b36112135)
-- [setUri(String)](#m-setUri-7906e915939e)
+- [asReader()](#asreader-b5c0f2a8d115)
+- [getModule()](#getmodule-68694513ccce)
+- [getNshash()](#getnshash-c5a7631eae00)
+- [getPrefix()](#getprefix-9268091e0223)
+- [getRevision()](#getrevision-b0088aa9f0bf)
+- [getRootNodes()](#getrootnodes-63f2b6255095)
+- [getTypes()](#gettypes-cbd0de718034)
+- [getUri()](#geturi-e839fdd3e24c)
+- [hasModule()](#hasmodule-8a9f381a7ff1)
+- [hasPrefix()](#hasprefix-ddbc3bbca9c3)
+- [hasRevision()](#hasrevision-23a5e6a14bd8)
+- [hasRootNodes()](#hasrootnodes-251070d577eb)
+- [hasTypes()](#hastypes-5c6311e6f402)
+- [hasUri()](#hasuri-d455832c8996)
+- [initModule(int)](#initmodule-6f250f3d4d33)
+- [initPrefix(int)](#initprefix-e25b609de101)
+- [initRevision(int)](#initrevision-6d5e3f6a1d81)
+- [initRootNodes(int)](#initrootnodes-2ddd2d777f31)
+- [initTypes(int)](#inittypes-a430a792b8dc)
+- [initUri(int)](#inituri-5c80765ae71e)
+- [setModule(Reader)](#setmodule-4fd03b9a95b0)
+- [setModule(String)](#setmodule-b4ace9c56bac)
+- [setNshash(int)](#setnshash-64dcf506c2e9)
+- [setPrefix(Reader)](#setprefix-5c58f0bf0784)
+- [setPrefix(String)](#setprefix-63fe622cb50c)
+- [setRevision(Reader)](#setrevision-9ccea35c025d)
+- [setRevision(String)](#setrevision-b079ce2468f4)
+- [setRootNodes(Reader<Reader>)](#setrootnodes-a8fbf63c1379)
+- [setTypes(Reader<Reader>)](#settypes-85fe39ddeacf)
+- [setUri(Reader)](#seturi-456b36112135)
+- [setUri(String)](#seturi-7906e915939e)
 
 ## Constructors
 
-### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
+### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -72,97 +72,97 @@ Builder(
 
 ## Methods
 
-### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
+### asReader() <a href="#asreader-b5c0f2a8d115" id="asreader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.NsInfo.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#cls-Reader)
+Types: [Reader](Reader.md#reader-b2467a96ddff)
 
-### getModule() <a href="#m-getModule-68694513ccce" id="m-getModule-68694513ccce"></a>
+### getModule() <a href="#getmodule-68694513ccce" id="getmodule-68694513ccce"></a>
 
 ```java
 public final org.capnproto.Text.Builder getModule()
 ```
 
-### getNshash() <a href="#m-getNshash-c5a7631eae00" id="m-getNshash-c5a7631eae00"></a>
+### getNshash() <a href="#getnshash-c5a7631eae00" id="getnshash-c5a7631eae00"></a>
 
 ```java
 public final int getNshash()
 ```
 
-### getPrefix() <a href="#m-getPrefix-9268091e0223" id="m-getPrefix-9268091e0223"></a>
+### getPrefix() <a href="#getprefix-9268091e0223" id="getprefix-9268091e0223"></a>
 
 ```java
 public final org.capnproto.Text.Builder getPrefix()
 ```
 
-### getRevision() <a href="#m-getRevision-b0088aa9f0bf" id="m-getRevision-b0088aa9f0bf"></a>
+### getRevision() <a href="#getrevision-b0088aa9f0bf" id="getrevision-b0088aa9f0bf"></a>
 
 ```java
 public final org.capnproto.Text.Builder getRevision()
 ```
 
-### getRootNodes() <a href="#m-getRootNodes-63f2b6255095" id="m-getRootNodes-63f2b6255095"></a>
+### getRootNodes() <a href="#getrootnodes-63f2b6255095" id="getrootnodes-63f2b6255095"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.QTag.Builder> getRootNodes()
 ```
 
-Types: [Builder](../QTag/Builder.md#cls-Builder)
+Types: [Builder](../QTag/Builder.md#builder-21f09e83781d)
 
-### getTypes() <a href="#m-getTypes-cbd0de718034" id="m-getTypes-cbd0de718034"></a>
+### getTypes() <a href="#gettypes-cbd0de718034" id="gettypes-cbd0de718034"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.NamedType.Builder> getTypes()
 ```
 
-Types: [Builder](../NamedType/Builder.md#cls-Builder)
+Types: [Builder](../NamedType/Builder.md#builder-21f09e83781d)
 
-### getUri() <a href="#m-getUri-e839fdd3e24c" id="m-getUri-e839fdd3e24c"></a>
+### getUri() <a href="#geturi-e839fdd3e24c" id="geturi-e839fdd3e24c"></a>
 
 ```java
 public final org.capnproto.Text.Builder getUri()
 ```
 
-### hasModule() <a href="#m-hasModule-8a9f381a7ff1" id="m-hasModule-8a9f381a7ff1"></a>
+### hasModule() <a href="#hasmodule-8a9f381a7ff1" id="hasmodule-8a9f381a7ff1"></a>
 
 ```java
 public final boolean hasModule()
 ```
 
-### hasPrefix() <a href="#m-hasPrefix-ddbc3bbca9c3" id="m-hasPrefix-ddbc3bbca9c3"></a>
+### hasPrefix() <a href="#hasprefix-ddbc3bbca9c3" id="hasprefix-ddbc3bbca9c3"></a>
 
 ```java
 public final boolean hasPrefix()
 ```
 
-### hasRevision() <a href="#m-hasRevision-23a5e6a14bd8" id="m-hasRevision-23a5e6a14bd8"></a>
+### hasRevision() <a href="#hasrevision-23a5e6a14bd8" id="hasrevision-23a5e6a14bd8"></a>
 
 ```java
 public final boolean hasRevision()
 ```
 
-### hasRootNodes() <a href="#m-hasRootNodes-251070d577eb" id="m-hasRootNodes-251070d577eb"></a>
+### hasRootNodes() <a href="#hasrootnodes-251070d577eb" id="hasrootnodes-251070d577eb"></a>
 
 ```java
 public final boolean hasRootNodes()
 ```
 
-### hasTypes() <a href="#m-hasTypes-5c6311e6f402" id="m-hasTypes-5c6311e6f402"></a>
+### hasTypes() <a href="#hastypes-5c6311e6f402" id="hastypes-5c6311e6f402"></a>
 
 ```java
 public final boolean hasTypes()
 ```
 
-### hasUri() <a href="#m-hasUri-d455832c8996" id="m-hasUri-d455832c8996"></a>
+### hasUri() <a href="#hasuri-d455832c8996" id="hasuri-d455832c8996"></a>
 
 ```java
 public final boolean hasUri()
 ```
 
-### initModule(int) <a href="#m-initModule-6f250f3d4d33" id="m-initModule-6f250f3d4d33"></a>
+### initModule(int) <a href="#initmodule-6f250f3d4d33" id="initmodule-6f250f3d4d33"></a>
 
 ```java
 public final org.capnproto.Text.Builder initModule(int size)
@@ -172,7 +172,7 @@ public final org.capnproto.Text.Builder initModule(int size)
 
 - `int size`
 
-### initPrefix(int) <a href="#m-initPrefix-e25b609de101" id="m-initPrefix-e25b609de101"></a>
+### initPrefix(int) <a href="#initprefix-e25b609de101" id="initprefix-e25b609de101"></a>
 
 ```java
 public final org.capnproto.Text.Builder initPrefix(int size)
@@ -182,7 +182,7 @@ public final org.capnproto.Text.Builder initPrefix(int size)
 
 - `int size`
 
-### initRevision(int) <a href="#m-initRevision-6d5e3f6a1d81" id="m-initRevision-6d5e3f6a1d81"></a>
+### initRevision(int) <a href="#initrevision-6d5e3f6a1d81" id="initrevision-6d5e3f6a1d81"></a>
 
 ```java
 public final org.capnproto.Text.Builder initRevision(int size)
@@ -192,7 +192,7 @@ public final org.capnproto.Text.Builder initRevision(int size)
 
 - `int size`
 
-### initRootNodes(int) <a href="#m-initRootNodes-2ddd2d777f31" id="m-initRootNodes-2ddd2d777f31"></a>
+### initRootNodes(int) <a href="#initrootnodes-2ddd2d777f31" id="initrootnodes-2ddd2d777f31"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.QTag.Builder> initRootNodes(
@@ -200,13 +200,13 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.QTag.Bu
 )
 ```
 
-Types: [Builder](../QTag/Builder.md#cls-Builder)
+Types: [Builder](../QTag/Builder.md#builder-21f09e83781d)
 
 **Parameters**
 
 - `int size`
 
-### initTypes(int) <a href="#m-initTypes-a430a792b8dc" id="m-initTypes-a430a792b8dc"></a>
+### initTypes(int) <a href="#inittypes-a430a792b8dc" id="inittypes-a430a792b8dc"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.NamedType.Builder> initTypes(
@@ -214,13 +214,13 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.NamedTy
 )
 ```
 
-Types: [Builder](../NamedType/Builder.md#cls-Builder)
+Types: [Builder](../NamedType/Builder.md#builder-21f09e83781d)
 
 **Parameters**
 
 - `int size`
 
-### initUri(int) <a href="#m-initUri-5c80765ae71e" id="m-initUri-5c80765ae71e"></a>
+### initUri(int) <a href="#inituri-5c80765ae71e" id="inituri-5c80765ae71e"></a>
 
 ```java
 public final org.capnproto.Text.Builder initUri(int size)
@@ -230,7 +230,7 @@ public final org.capnproto.Text.Builder initUri(int size)
 
 - `int size`
 
-### setModule(Reader) <a href="#m-setModule-4fd03b9a95b0" id="m-setModule-4fd03b9a95b0"></a>
+### setModule(Reader) <a href="#setmodule-4fd03b9a95b0" id="setmodule-4fd03b9a95b0"></a>
 
 ```java
 public final void setModule(org.capnproto.Text.Reader value)
@@ -240,7 +240,7 @@ public final void setModule(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-### setModule(String) <a href="#m-setModule-b4ace9c56bac" id="m-setModule-b4ace9c56bac"></a>
+### setModule(String) <a href="#setmodule-b4ace9c56bac" id="setmodule-b4ace9c56bac"></a>
 
 ```java
 public final void setModule(String value)
@@ -250,7 +250,7 @@ public final void setModule(String value)
 
 - `String value`
 
-### setNshash(int) <a href="#m-setNshash-64dcf506c2e9" id="m-setNshash-64dcf506c2e9"></a>
+### setNshash(int) <a href="#setnshash-64dcf506c2e9" id="setnshash-64dcf506c2e9"></a>
 
 ```java
 public final void setNshash(int value)
@@ -260,7 +260,7 @@ public final void setNshash(int value)
 
 - `int value`
 
-### setPrefix(Reader) <a href="#m-setPrefix-5c58f0bf0784" id="m-setPrefix-5c58f0bf0784"></a>
+### setPrefix(Reader) <a href="#setprefix-5c58f0bf0784" id="setprefix-5c58f0bf0784"></a>
 
 ```java
 public final void setPrefix(org.capnproto.Text.Reader value)
@@ -270,7 +270,7 @@ public final void setPrefix(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-### setPrefix(String) <a href="#m-setPrefix-63fe622cb50c" id="m-setPrefix-63fe622cb50c"></a>
+### setPrefix(String) <a href="#setprefix-63fe622cb50c" id="setprefix-63fe622cb50c"></a>
 
 ```java
 public final void setPrefix(String value)
@@ -280,7 +280,7 @@ public final void setPrefix(String value)
 
 - `String value`
 
-### setRevision(Reader) <a href="#m-setRevision-9ccea35c025d" id="m-setRevision-9ccea35c025d"></a>
+### setRevision(Reader) <a href="#setrevision-9ccea35c025d" id="setrevision-9ccea35c025d"></a>
 
 ```java
 public final void setRevision(org.capnproto.Text.Reader value)
@@ -290,7 +290,7 @@ public final void setRevision(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-### setRevision(String) <a href="#m-setRevision-b079ce2468f4" id="m-setRevision-b079ce2468f4"></a>
+### setRevision(String) <a href="#setrevision-b079ce2468f4" id="setrevision-b079ce2468f4"></a>
 
 ```java
 public final void setRevision(String value)
@@ -300,7 +300,7 @@ public final void setRevision(String value)
 
 - `String value`
 
-### setRootNodes(Reader<Reader>) <a href="#m-setRootNodes-a8fbf63c1379" id="m-setRootNodes-a8fbf63c1379"></a>
+### setRootNodes(Reader&lt;Reader&gt;) <a href="#setrootnodes-a8fbf63c1379" id="setrootnodes-a8fbf63c1379"></a>
 
 ```java
 public final void setRootNodes(
@@ -308,13 +308,13 @@ public final void setRootNodes(
 )
 ```
 
-Types: [Reader](../QTag/Reader.md#cls-Reader)
+Types: [Reader](../QTag/Reader.md#reader-b2467a96ddff)
 
 **Parameters**
 
 - `org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.QTag.Reader> value`
 
-### setTypes(Reader<Reader>) <a href="#m-setTypes-85fe39ddeacf" id="m-setTypes-85fe39ddeacf"></a>
+### setTypes(Reader&lt;Reader&gt;) <a href="#settypes-85fe39ddeacf" id="settypes-85fe39ddeacf"></a>
 
 ```java
 public final void setTypes(
@@ -322,13 +322,13 @@ public final void setTypes(
 )
 ```
 
-Types: [Reader](../NamedType/Reader.md#cls-Reader)
+Types: [Reader](../NamedType/Reader.md#reader-b2467a96ddff)
 
 **Parameters**
 
 - `org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.NamedType.Reader> value`
 
-### setUri(Reader) <a href="#m-setUri-456b36112135" id="m-setUri-456b36112135"></a>
+### setUri(Reader) <a href="#seturi-456b36112135" id="seturi-456b36112135"></a>
 
 ```java
 public final void setUri(org.capnproto.Text.Reader value)
@@ -338,7 +338,7 @@ public final void setUri(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-### setUri(String) <a href="#m-setUri-7906e915939e" id="m-setUri-7906e915939e"></a>
+### setUri(String) <a href="#seturi-7906e915939e" id="seturi-7906e915939e"></a>
 
 ```java
 public final void setUri(String value)

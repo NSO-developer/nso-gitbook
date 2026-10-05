@@ -1,11 +1,11 @@
-# PathParser <a href="#cls-PathParser" id="cls-PathParser"></a>
+# PathParser <a href="#pathparser-c76e6680dd52" id="pathparser-c76e6680dd52"></a>
 
 ```java
 public final class com.tailf.conf.gen.PathParser
     implements com.tailf.conf.gen.PathParserConstants
 ```
 
-Types: [PathParserConstants](PathParserConstants.md#cls-PathParserConstants)
+Types: [PathParserConstants](PathParserConstants.md#pathparserconstants-bdbbf565b32b)
 
 Path Parser.
 
@@ -13,75 +13,75 @@ Path Parser.
 
 **Constructors**:
 
-- [PathParser()](#m-PathParser-c10c07c8cd77)
-- [PathParser(InputStream)](#m-PathParser-6ef844c1b6fc)
-- [PathParser(InputStream, String)](#m-PathParser-60a47d80f664)
-- [PathParser(PathParserTokenManager)](#m-PathParser-87dc448d0bb4)
-- [PathParser(Reader)](#m-PathParser-8195c9a0b35f)
-- [PathParser(String, Object[])](#m-PathParser-e7ef3c34825a)
+- [PathParser()](#pathparser-c10c07c8cd77)
+- [PathParser(InputStream)](#pathparser-6ef844c1b6fc)
+- [PathParser(InputStream, String)](#pathparser-60a47d80f664)
+- [PathParser(PathParserTokenManager)](#pathparser-87dc448d0bb4)
+- [PathParser(Reader)](#pathparser-8195c9a0b35f)
+- [PathParser(String, Object[])](#pathparser-e7ef3c34825a)
 
 **Fields**:
 
-- [CHAR](PathParserConstants.md#m-CHAR) from PathParserConstants
-- [CHAR2](PathParserConstants.md#m-CHAR2) from PathParserConstants
-- [COLON](PathParserConstants.md#m-COLON) from PathParserConstants
-- [DEFAULT](PathParserConstants.md#m-DEFAULT) from PathParserConstants
-- [EOF](PathParserConstants.md#m-EOF) from PathParserConstants
-- [IDENTIFIER](PathParserConstants.md#m-IDENTIFIER) from PathParserConstants
-- [IDENTIFIER2](PathParserConstants.md#m-IDENTIFIER2) from PathParserConstants
-- [INSIDE_BRACES](PathParserConstants.md#m-INSIDE_BRACES) from PathParserConstants
-- [INSIDE_QUOTE](PathParserConstants.md#m-INSIDE_QUOTE) from PathParserConstants
-- [jj_input_stream](#m-jj_input_stream)
-- [jj_nt](#m-jj_nt)
-- [LBRACE](PathParserConstants.md#m-LBRACE) from PathParserConstants
-- [LBRACKET](PathParserConstants.md#m-LBRACKET) from PathParserConstants
-- [PERCENT](PathParserConstants.md#m-PERCENT) from PathParserConstants
-- [PERCENT2](PathParserConstants.md#m-PERCENT2) from PathParserConstants
-- [RBRACE](PathParserConstants.md#m-RBRACE) from PathParserConstants
-- [RBRACKET](PathParserConstants.md#m-RBRACKET) from PathParserConstants
-- [SLASH](PathParserConstants.md#m-SLASH) from PathParserConstants
-- [STRLIT](PathParserConstants.md#m-STRLIT) from PathParserConstants
-- [token](#m-token)
-- [token_source](#m-token_source)
-- [tokenImage](PathParserConstants.md#m-tokenImage) from PathParserConstants
+- [CHAR](PathParserConstants.md#char-029984bb6c9e) from PathParserConstants
+- [CHAR2](PathParserConstants.md#char2-88635d8a54cf) from PathParserConstants
+- [COLON](PathParserConstants.md#colon-2c1dbe3aeee8) from PathParserConstants
+- [DEFAULT](PathParserConstants.md#default-5965fc85722b) from PathParserConstants
+- [EOF](PathParserConstants.md#eof-e4ab74e8c3eb) from PathParserConstants
+- [IDENTIFIER](PathParserConstants.md#identifier-73b18fdcf248) from PathParserConstants
+- [IDENTIFIER2](PathParserConstants.md#identifier2-8a04449a942b) from PathParserConstants
+- [INSIDE_BRACES](PathParserConstants.md#inside_braces-126526a96a03) from PathParserConstants
+- [INSIDE_QUOTE](PathParserConstants.md#inside_quote-1a887df059d8) from PathParserConstants
+- [jj_input_stream](#jj_input_stream-a656fd5e96db)
+- [jj_nt](#jj_nt-9db0740275fe)
+- [LBRACE](PathParserConstants.md#lbrace-29f2f43b91d0) from PathParserConstants
+- [LBRACKET](PathParserConstants.md#lbracket-2910754c7a67) from PathParserConstants
+- [PERCENT](PathParserConstants.md#percent-732182372b0c) from PathParserConstants
+- [PERCENT2](PathParserConstants.md#percent2-b22c5103c9d8) from PathParserConstants
+- [RBRACE](PathParserConstants.md#rbrace-0415afff6842) from PathParserConstants
+- [RBRACKET](PathParserConstants.md#rbracket-71ce92365b6c) from PathParserConstants
+- [SLASH](PathParserConstants.md#slash-3c7d823f3e28) from PathParserConstants
+- [STRLIT](PathParserConstants.md#strlit-d6078ea07628) from PathParserConstants
+- [token](#token-93f8344c37b8)
+- [token_source](#token_source-65d526092316)
+- [tokenImage](PathParserConstants.md#tokenimage-c13f534d4471) from PathParserConstants
 
 **Methods**:
 
-- [Composite()](#m-Composite-395cb22786fb)
-- [disable_tracing()](#m-disable_tracing-6da9cdfdd969)
-- [Elem()](#m-Elem-faaaa7f12a9f)
-- [enable_tracing()](#m-enable_tracing-4b87a1586eda)
-- [Entity()](#m-Entity-0ac965935919)
-- [Entity2()](#m-Entity2-879dd3264818)
-- [generateParseException()](#m-generateParseException-deb7e661e2f1)
-- [getNextToken()](#m-getNextToken-dc921ada5024)
-- [getToken(int)](#m-getToken-dc7acf63f451)
-- [list()](#m-list-e6b1546900c0)
-- [MatchedBraces()](#m-MatchedBraces-e9eca213d331)
-- [MatchedBrackets()](#m-MatchedBrackets-356b765831ae)
-- [parse()](#m-parse-29d7b3df4ae2)
-- [ReInit(InputStream)](#m-ReInit-e03395a4a4ba)
-- [ReInit(InputStream, String)](#m-ReInit-330085293cfa)
-- [ReInit(PathParserTokenManager)](#m-ReInit-40008fea4204)
-- [ReInit(Reader)](#m-ReInit-4ce6f3557028)
-- [Term()](#m-Term-454e01cdf5f2)
-- [trace_enabled()](#m-trace_enabled-0d5a0a082fa5)
+- [Composite()](#composite-395cb22786fb)
+- [disable_tracing()](#disable_tracing-6da9cdfdd969)
+- [Elem()](#elem-faaaa7f12a9f)
+- [enable_tracing()](#enable_tracing-4b87a1586eda)
+- [Entity()](#entity-0ac965935919)
+- [Entity2()](#entity2-879dd3264818)
+- [generateParseException()](#generateparseexception-deb7e661e2f1)
+- [getNextToken()](#getnexttoken-dc921ada5024)
+- [getToken(int)](#gettoken-dc7acf63f451)
+- [list()](#list-e6b1546900c0)
+- [MatchedBraces()](#matchedbraces-e9eca213d331)
+- [MatchedBrackets()](#matchedbrackets-356b765831ae)
+- [parse()](#parse-29d7b3df4ae2)
+- [ReInit(InputStream)](#reinit-e03395a4a4ba)
+- [ReInit(InputStream, String)](#reinit-330085293cfa)
+- [ReInit(PathParserTokenManager)](#reinit-40008fea4204)
+- [ReInit(Reader)](#reinit-4ce6f3557028)
+- [Term()](#term-454e01cdf5f2)
+- [trace_enabled()](#trace_enabled-0d5a0a082fa5)
 
 **Nested Types**:
 
-- [PathConfBinary](PathParser/PathConfBinary.md#cls-PathConfBinary)
-- [PathElement](PathParser/PathElement.md#cls-PathElement)
-- [PathKey](PathParser/PathKey.md#cls-PathKey)
+- [PathConfBinary](PathParser/PathConfBinary.md#pathconfbinary-5ab7abfe8171)
+- [PathElement](PathParser/PathElement.md#pathelement-30082145995b)
+- [PathKey](PathParser/PathKey.md#pathkey-a9b70d1850aa)
 
 ## Constructors
 
-### PathParser() <a href="#m-PathParser-c10c07c8cd77" id="m-PathParser-c10c07c8cd77"></a>
+### PathParser() <a href="#pathparser-c10c07c8cd77" id="pathparser-c10c07c8cd77"></a>
 
 ```java
 public PathParser()
 ```
 
-### PathParser(InputStream) <a href="#m-PathParser-6ef844c1b6fc" id="m-PathParser-6ef844c1b6fc"></a>
+### PathParser(InputStream) <a href="#pathparser-6ef844c1b6fc" id="pathparser-6ef844c1b6fc"></a>
 
 ```java
 public PathParser(java.io.InputStream stream)
@@ -93,7 +93,7 @@ Constructor with InputStream.
 
 - `java.io.InputStream stream`
 
-### PathParser(InputStream, String) <a href="#m-PathParser-60a47d80f664" id="m-PathParser-60a47d80f664"></a>
+### PathParser(InputStream, String) <a href="#pathparser-60a47d80f664" id="pathparser-60a47d80f664"></a>
 
 ```java
 public PathParser(java.io.InputStream stream, String encoding)
@@ -106,13 +106,13 @@ Constructor with InputStream and supplied encoding
 - `java.io.InputStream stream`
 - `String encoding`
 
-### PathParser(PathParserTokenManager) <a href="#m-PathParser-87dc448d0bb4" id="m-PathParser-87dc448d0bb4"></a>
+### PathParser(PathParserTokenManager) <a href="#pathparser-87dc448d0bb4" id="pathparser-87dc448d0bb4"></a>
 
 ```java
 public PathParser(com.tailf.conf.gen.PathParserTokenManager tm)
 ```
 
-Types: [PathParserTokenManager](PathParserTokenManager.md#cls-PathParserTokenManager)
+Types: [PathParserTokenManager](PathParserTokenManager.md#pathparsertokenmanager-048d8d4f37c4)
 
 Constructor with generated Token Manager.
 
@@ -120,7 +120,7 @@ Constructor with generated Token Manager.
 
 - `com.tailf.conf.gen.PathParserTokenManager tm`
 
-### PathParser(Reader) <a href="#m-PathParser-8195c9a0b35f" id="m-PathParser-8195c9a0b35f"></a>
+### PathParser(Reader) <a href="#pathparser-8195c9a0b35f" id="pathparser-8195c9a0b35f"></a>
 
 ```java
 public PathParser(java.io.Reader stream)
@@ -132,7 +132,7 @@ Constructor.
 
 - `java.io.Reader stream`
 
-### PathParser(String, Object[]) <a href="#m-PathParser-e7ef3c34825a" id="m-PathParser-e7ef3c34825a"></a>
+### PathParser(String, Object[]) <a href="#pathparser-e7ef3c34825a" id="pathparser-e7ef3c34825a"></a>
 
 ```java
 public PathParser(String s, Object[] args)
@@ -146,7 +146,7 @@ public PathParser(String s, Object[] args)
 
 ## Fields
 
-### jj_input_stream <a href="#m-jj_input_stream" id="m-jj_input_stream"></a>
+### jj_input_stream <a href="#jj_input_stream-a656fd5e96db" id="jj_input_stream-a656fd5e96db"></a>
 
 **Package-private**
 
@@ -154,50 +154,50 @@ public PathParser(String s, Object[] args)
 com.tailf.conf.gen.JavaCharStream jj_input_stream = null;
 ```
 
-Types: [JavaCharStream](JavaCharStream.md#cls-JavaCharStream)
+Types: [JavaCharStream](JavaCharStream.md#javacharstream-b90e6870657d)
 
-### jj_nt <a href="#m-jj_nt" id="m-jj_nt"></a>
+### jj_nt <a href="#jj_nt-9db0740275fe" id="jj_nt-9db0740275fe"></a>
 
 ```java
 public com.tailf.conf.gen.Token jj_nt = null;
 ```
 
-Types: [Token](Token.md#cls-Token)
+Types: [Token](Token.md#token-b7a155cc1a5e)
 
 Next token.
 
-### token <a href="#m-token" id="m-token"></a>
+### token <a href="#token-93f8344c37b8" id="token-93f8344c37b8"></a>
 
 ```java
 public com.tailf.conf.gen.Token token = null;
 ```
 
-Types: [Token](Token.md#cls-Token)
+Types: [Token](Token.md#token-b7a155cc1a5e)
 
 Current token.
 
-### token_source <a href="#m-token_source" id="m-token_source"></a>
+### token_source <a href="#token_source-65d526092316" id="token_source-65d526092316"></a>
 
 ```java
 public com.tailf.conf.gen.PathParserTokenManager token_source = null;
 ```
 
-Types: [PathParserTokenManager](PathParserTokenManager.md#cls-PathParserTokenManager)
+Types: [PathParserTokenManager](PathParserTokenManager.md#pathparsertokenmanager-048d8d4f37c4)
 
 Generated Token Manager.
 
 
 ## Methods
 
-### Composite() <a href="#m-Composite-395cb22786fb" id="m-Composite-395cb22786fb"></a>
+### Composite() <a href="#composite-395cb22786fb" id="composite-395cb22786fb"></a>
 
 ```java
 public final com.tailf.conf.ConfObject Composite() throws com.tailf.conf.gen.ParseException
 ```
 
-Types: [ConfObject](../ConfObject.md#cls-ConfObject), [ParseException](ParseException.md#cls-ParseException)
+Types: [ConfObject](../ConfObject.md#confobject-5433616953b2), [ParseException](ParseException.md#parseexception-451af1d737ad)
 
-### disable_tracing() <a href="#m-disable_tracing-6da9cdfdd969" id="m-disable_tracing-6da9cdfdd969"></a>
+### disable_tracing() <a href="#disable_tracing-6da9cdfdd969" id="disable_tracing-6da9cdfdd969"></a>
 
 ```java
 public final void disable_tracing()
@@ -205,15 +205,15 @@ public final void disable_tracing()
 
 Disable tracing.
 
-### Elem() <a href="#m-Elem-faaaa7f12a9f" id="m-Elem-faaaa7f12a9f"></a>
+### Elem() <a href="#elem-faaaa7f12a9f" id="elem-faaaa7f12a9f"></a>
 
 ```java
 public final void Elem() throws com.tailf.conf.gen.ParseException
 ```
 
-Types: [ParseException](ParseException.md#cls-ParseException)
+Types: [ParseException](ParseException.md#parseexception-451af1d737ad)
 
-### enable_tracing() <a href="#m-enable_tracing-4b87a1586eda" id="m-enable_tracing-4b87a1586eda"></a>
+### enable_tracing() <a href="#enable_tracing-4b87a1586eda" id="enable_tracing-4b87a1586eda"></a>
 
 ```java
 public final void enable_tracing()
@@ -221,49 +221,49 @@ public final void enable_tracing()
 
 Enable tracing.
 
-### Entity() <a href="#m-Entity-0ac965935919" id="m-Entity-0ac965935919"></a>
+### Entity() <a href="#entity-0ac965935919" id="entity-0ac965935919"></a>
 
 ```java
 public final com.tailf.conf.ConfObject Entity() throws com.tailf.conf.gen.ParseException
 ```
 
-Types: [ConfObject](../ConfObject.md#cls-ConfObject), [ParseException](ParseException.md#cls-ParseException)
+Types: [ConfObject](../ConfObject.md#confobject-5433616953b2), [ParseException](ParseException.md#parseexception-451af1d737ad)
 
-### Entity2() <a href="#m-Entity2-879dd3264818" id="m-Entity2-879dd3264818"></a>
+### Entity2() <a href="#entity2-879dd3264818" id="entity2-879dd3264818"></a>
 
 ```java
 public final com.tailf.conf.ConfObject Entity2() throws com.tailf.conf.gen.ParseException
 ```
 
-Types: [ConfObject](../ConfObject.md#cls-ConfObject), [ParseException](ParseException.md#cls-ParseException)
+Types: [ConfObject](../ConfObject.md#confobject-5433616953b2), [ParseException](ParseException.md#parseexception-451af1d737ad)
 
-### generateParseException() <a href="#m-generateParseException-deb7e661e2f1" id="m-generateParseException-deb7e661e2f1"></a>
+### generateParseException() <a href="#generateparseexception-deb7e661e2f1" id="generateparseexception-deb7e661e2f1"></a>
 
 ```java
 public com.tailf.conf.gen.ParseException generateParseException()
 ```
 
-Types: [ParseException](ParseException.md#cls-ParseException)
+Types: [ParseException](ParseException.md#parseexception-451af1d737ad)
 
 Generate ParseException.
 
-### getNextToken() <a href="#m-getNextToken-dc921ada5024" id="m-getNextToken-dc921ada5024"></a>
+### getNextToken() <a href="#getnexttoken-dc921ada5024" id="getnexttoken-dc921ada5024"></a>
 
 ```java
 public final com.tailf.conf.gen.Token getNextToken()
 ```
 
-Types: [Token](Token.md#cls-Token)
+Types: [Token](Token.md#token-b7a155cc1a5e)
 
 Get the next Token.
 
-### getToken(int) <a href="#m-getToken-dc7acf63f451" id="m-getToken-dc7acf63f451"></a>
+### getToken(int) <a href="#gettoken-dc7acf63f451" id="gettoken-dc7acf63f451"></a>
 
 ```java
 public final com.tailf.conf.gen.Token getToken(int index)
 ```
 
-Types: [Token](Token.md#cls-Token)
+Types: [Token](Token.md#token-b7a155cc1a5e)
 
 Get the specific Token.
 
@@ -271,42 +271,42 @@ Get the specific Token.
 
 - `int index`
 
-### list() <a href="#m-list-e6b1546900c0" id="m-list-e6b1546900c0"></a>
+### list() <a href="#list-e6b1546900c0" id="list-e6b1546900c0"></a>
 
 ```java
 public final void list() throws com.tailf.conf.gen.ParseException
 ```
 
-Types: [ParseException](ParseException.md#cls-ParseException)
+Types: [ParseException](ParseException.md#parseexception-451af1d737ad)
 
-### MatchedBraces() <a href="#m-MatchedBraces-e9eca213d331" id="m-MatchedBraces-e9eca213d331"></a>
+### MatchedBraces() <a href="#matchedbraces-e9eca213d331" id="matchedbraces-e9eca213d331"></a>
 
 ```java
 public final void MatchedBraces() throws com.tailf.conf.gen.ParseException
 ```
 
-Types: [ParseException](ParseException.md#cls-ParseException)
+Types: [ParseException](ParseException.md#parseexception-451af1d737ad)
 
-### MatchedBrackets() <a href="#m-MatchedBrackets-356b765831ae" id="m-MatchedBrackets-356b765831ae"></a>
+### MatchedBrackets() <a href="#matchedbrackets-356b765831ae" id="matchedbrackets-356b765831ae"></a>
 
 ```java
 public final void MatchedBrackets() throws com.tailf.conf.gen.ParseException
 ```
 
-Types: [ParseException](ParseException.md#cls-ParseException)
+Types: [ParseException](ParseException.md#parseexception-451af1d737ad)
 
-### parse() <a href="#m-parse-29d7b3df4ae2" id="m-parse-29d7b3df4ae2"></a>
+### parse() <a href="#parse-29d7b3df4ae2" id="parse-29d7b3df4ae2"></a>
 
 ```java
 public final java.util.List<com.tailf.conf.gen.PathParser.PathElement> parse() throws com.tailf.conf.gen.ParseException
     throws com.tailf.conf.gen.ParseException
 ```
 
-Types: [PathElement](PathParser/PathElement.md#cls-PathElement), [ParseException](ParseException.md#cls-ParseException)
+Types: [PathElement](PathParser/PathElement.md#pathelement-30082145995b), [ParseException](ParseException.md#parseexception-451af1d737ad)
 
 root method.
 
-### ReInit(InputStream) <a href="#m-ReInit-e03395a4a4ba" id="m-ReInit-e03395a4a4ba"></a>
+### ReInit(InputStream) <a href="#reinit-e03395a4a4ba" id="reinit-e03395a4a4ba"></a>
 
 ```java
 public void ReInit(java.io.InputStream stream)
@@ -318,7 +318,7 @@ Reinitialise.
 
 - `java.io.InputStream stream`
 
-### ReInit(InputStream, String) <a href="#m-ReInit-330085293cfa" id="m-ReInit-330085293cfa"></a>
+### ReInit(InputStream, String) <a href="#reinit-330085293cfa" id="reinit-330085293cfa"></a>
 
 ```java
 public void ReInit(java.io.InputStream stream, String encoding)
@@ -331,13 +331,13 @@ Reinitialise.
 - `java.io.InputStream stream`
 - `String encoding`
 
-### ReInit(PathParserTokenManager) <a href="#m-ReInit-40008fea4204" id="m-ReInit-40008fea4204"></a>
+### ReInit(PathParserTokenManager) <a href="#reinit-40008fea4204" id="reinit-40008fea4204"></a>
 
 ```java
 public void ReInit(com.tailf.conf.gen.PathParserTokenManager tm)
 ```
 
-Types: [PathParserTokenManager](PathParserTokenManager.md#cls-PathParserTokenManager)
+Types: [PathParserTokenManager](PathParserTokenManager.md#pathparsertokenmanager-048d8d4f37c4)
 
 Reinitialise.
 
@@ -345,7 +345,7 @@ Reinitialise.
 
 - `com.tailf.conf.gen.PathParserTokenManager tm`
 
-### ReInit(Reader) <a href="#m-ReInit-4ce6f3557028" id="m-ReInit-4ce6f3557028"></a>
+### ReInit(Reader) <a href="#reinit-4ce6f3557028" id="reinit-4ce6f3557028"></a>
 
 ```java
 public void ReInit(java.io.Reader stream)
@@ -357,15 +357,15 @@ Reinitialise.
 
 - `java.io.Reader stream`
 
-### Term() <a href="#m-Term-454e01cdf5f2" id="m-Term-454e01cdf5f2"></a>
+### Term() <a href="#term-454e01cdf5f2" id="term-454e01cdf5f2"></a>
 
 ```java
 public final void Term() throws com.tailf.conf.gen.ParseException
 ```
 
-Types: [ParseException](ParseException.md#cls-ParseException)
+Types: [ParseException](ParseException.md#parseexception-451af1d737ad)
 
-### trace_enabled() <a href="#m-trace_enabled-0d5a0a082fa5" id="m-trace_enabled-0d5a0a082fa5"></a>
+### trace_enabled() <a href="#trace_enabled-0d5a0a082fa5" id="trace_enabled-0d5a0a082fa5"></a>
 
 ```java
 public final boolean trace_enabled()
@@ -376,6 +376,6 @@ Trace enabled.
 
 ## Nested Types
 
-- [PathConfBinary](PathParser/PathConfBinary.md#cls-PathConfBinary)
-- [PathElement](PathParser/PathElement.md#cls-PathElement)
-- [PathKey](PathParser/PathKey.md#cls-PathKey)
+- [PathConfBinary](PathParser/PathConfBinary.md#pathconfbinary-5ab7abfe8171)
+- [PathElement](PathParser/PathElement.md#pathelement-30082145995b)
+- [PathKey](PathParser/PathKey.md#pathkey-a9b70d1850aa)

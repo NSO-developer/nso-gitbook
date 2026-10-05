@@ -1,4 +1,4 @@
-# Attributes <a href="#cls-Attributes" id="cls-Attributes"></a>
+# Attributes <a href="#attributes-ca725b6502c4" id="attributes-ca725b6502c4"></a>
 
 ```java
 public class com.tailf.progress.Attributes
@@ -12,22 +12,22 @@ public class com.tailf.progress.Attributes
 
 **Constructors**:
 
-- [Attributes()](#m-Attributes-a6d98204d2be)
-- [Attributes(String, String)](#m-Attributes-d2ef445b0bc4)
+- [Attributes()](#attributes-a6d98204d2be)
+- [Attributes(String, String)](#attributes-d2ef445b0bc4)
 
 **Methods**:
 
-- [clear()](#m-clear-ca3baec040cb)
-- [contains(String)](#m-contains-e4bc1b0057b7)
-- [fromMap(HashMap<String,String>)](#m-fromMap-0ea45f2e9170)
-- [getValue(String)](#m-getValue-9dc706042d5b)
-- [merge(Attributes)](#m-merge-d3ebdfaf5faf)
-- [set(String, String)](#m-set-6cacddbc8231)
-- [toMap()](#m-toMap-36a006e0d56a)
+- [clear()](#clear-ca3baec040cb)
+- [contains(String)](#contains-e4bc1b0057b7)
+- [fromMap(HashMap<String,String>)](#frommap-0ea45f2e9170)
+- [getValue(String)](#getvalue-9dc706042d5b)
+- [merge(Attributes)](#merge-d3ebdfaf5faf)
+- [set(String, String)](#set-6cacddbc8231)
+- [toMap()](#tomap-36a006e0d56a)
 
 ## Constructors
 
-### Attributes() <a href="#m-Attributes-a6d98204d2be" id="m-Attributes-a6d98204d2be"></a>
+### Attributes() <a href="#attributes-a6d98204d2be" id="attributes-a6d98204d2be"></a>
 
 ```java
 public Attributes()
@@ -35,7 +35,7 @@ public Attributes()
 
 Instantiate an empty attribute object
 
-### Attributes(String, String) <a href="#m-Attributes-d2ef445b0bc4" id="m-Attributes-d2ef445b0bc4"></a>
+### Attributes(String, String) <a href="#attributes-d2ef445b0bc4" id="attributes-d2ef445b0bc4"></a>
 
 ```java
 public Attributes(String name, String value)
@@ -51,7 +51,7 @@ Instantiate an attribute object
 
 ## Methods
 
-### clear() <a href="#m-clear-ca3baec040cb" id="m-clear-ca3baec040cb"></a>
+### clear() <a href="#clear-ca3baec040cb" id="clear-ca3baec040cb"></a>
 
 ```java
 public void clear()
@@ -59,7 +59,7 @@ public void clear()
 
 Clear all existng attributes
 
-### contains(String) <a href="#m-contains-e4bc1b0057b7" id="m-contains-e4bc1b0057b7"></a>
+### contains(String) <a href="#contains-e4bc1b0057b7" id="contains-e4bc1b0057b7"></a>
 
 ```java
 public boolean contains(String name)
@@ -74,13 +74,13 @@ Check if attribute exists by its name
 **Returns:** true if the attribute exists,
  false otherwise
 
-### fromMap(HashMap<String,String>) <a href="#m-fromMap-0ea45f2e9170" id="m-fromMap-0ea45f2e9170"></a>
+### fromMap(HashMap&lt;String,String&gt;) <a href="#frommap-0ea45f2e9170" id="frommap-0ea45f2e9170"></a>
 
 ```java
 public static com.tailf.progress.Attributes fromMap(java.util.HashMap<String,String> map)
 ```
 
-Types: [Attributes](Attributes.md#cls-Attributes)
+Types: [Attributes](Attributes.md#attributes-ca725b6502c4)
 
 Build attributes from a `HashMap`
 
@@ -88,9 +88,9 @@ Build attributes from a `HashMap`
 
 - `java.util.HashMap<String,String> map` - attributes in `HashMap`
 
-**Returns:** [`Attributes`](Attributes.md#cls-Attributes) object
+**Returns:** [`Attributes`](Attributes.md#attributes-ca725b6502c4) object
 
-### getValue(String) <a href="#m-getValue-9dc706042d5b" id="m-getValue-9dc706042d5b"></a>
+### getValue(String) <a href="#getvalue-9dc706042d5b" id="getvalue-9dc706042d5b"></a>
 
 ```java
 public String getValue(String name)
@@ -106,13 +106,13 @@ Get an attribute's value
  can return `null` if the value
  is not found.
 
-### merge(Attributes) <a href="#m-merge-d3ebdfaf5faf" id="m-merge-d3ebdfaf5faf"></a>
+### merge(Attributes) <a href="#merge-d3ebdfaf5faf" id="merge-d3ebdfaf5faf"></a>
 
 ```java
 public com.tailf.progress.Attributes merge(com.tailf.progress.Attributes otherAttrs)
 ```
 
-Types: [Attributes](Attributes.md#cls-Attributes)
+Types: [Attributes](Attributes.md#attributes-ca725b6502c4)
 
 Merge 2 attribute objects
 
@@ -120,9 +120,9 @@ Merge 2 attribute objects
 
 - `com.tailf.progress.Attributes otherAttrs` - other attributes
 
-**Returns:** a new [`Attributes`](Attributes.md#cls-Attributes) object
+**Returns:** a new [`Attributes`](Attributes.md#attributes-ca725b6502c4) object
 
-### set(String, String) <a href="#m-set-6cacddbc8231" id="m-set-6cacddbc8231"></a>
+### set(String, String) <a href="#set-6cacddbc8231" id="set-6cacddbc8231"></a>
 
 ```java
 public void set(String name, String value)
@@ -135,7 +135,7 @@ Set an attribute name and value
 - `String name` - the name of the attribute
 - `String value` - the value of the attribute
 
-### toMap() <a href="#m-toMap-36a006e0d56a" id="m-toMap-36a006e0d56a"></a>
+### toMap() <a href="#tomap-36a006e0d56a" id="tomap-36a006e0d56a"></a>
 
 ```java
 public java.util.HashMap<String,String> toMap()

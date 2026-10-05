@@ -1,4 +1,4 @@
-# CsMeta <a href="#cls-CsMeta" id="cls-CsMeta"></a>
+# CsMeta <a href="#csmeta-8b57b6b96e18" id="csmeta-8b57b6b96e18"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsMeta
@@ -8,24 +8,24 @@ public static class com.tailf.ncs.maapi.Schema.CsMeta
 
 **Constructors**:
 
-- [CsMeta()](#m-CsMeta-a0562865eba3)
+- [CsMeta()](#csmeta-a0562865eba3)
 
 **Fields**:
 
-- [factory](#m-factory)
-- [listFactory](#m-listFactory)
-- [STRUCT_SIZE](#m-STRUCT_SIZE)
+- [factory](#factory-1649195a6f6e)
+- [listFactory](#listfactory-b96025f1568b)
+- [STRUCT_SIZE](#struct_size-06830f6b9d3b)
 
 **Nested Types**:
 
-- [Builder](CsMeta/Builder.md#cls-Builder)
-- [Factory](CsMeta/Factory.md#cls-Factory)
-- [Reader](CsMeta/Reader.md#cls-Reader)
-- [Value](CsMeta/Value.md#cls-Value)
+- [Builder](CsMeta/Builder.md#builder-21f09e83781d)
+- [Factory](CsMeta/Factory.md#factory-1787784624e8)
+- [Reader](CsMeta/Reader.md#reader-b2467a96ddff)
+- [Value](CsMeta/Value.md#value-a0e04c070223)
 
 ## Constructors
 
-### CsMeta() <a href="#m-CsMeta-a0562865eba3" id="m-CsMeta-a0562865eba3"></a>
+### CsMeta() <a href="#csmeta-a0562865eba3" id="csmeta-a0562865eba3"></a>
 
 ```java
 public CsMeta()
@@ -34,23 +34,23 @@ public CsMeta()
 
 ## Fields
 
-### factory <a href="#m-factory" id="m-factory"></a>
+### factory <a href="#factory-1649195a6f6e" id="factory-1649195a6f6e"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsMeta.Factory factory = null;
 ```
 
-Types: [Factory](CsMeta/Factory.md#cls-Factory)
+Types: [Factory](CsMeta/Factory.md#factory-1787784624e8)
 
-### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
+### listFactory <a href="#listfactory-b96025f1568b" id="listfactory-b96025f1568b"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsMeta.Builder,com.tailf.ncs.maapi.Schema.CsMeta.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsMeta/Builder.md#cls-Builder), [Reader](CsMeta/Reader.md#cls-Reader)
+Types: [Builder](CsMeta/Builder.md#builder-21f09e83781d), [Reader](CsMeta/Reader.md#reader-b2467a96ddff)
 
-### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
+### STRUCT_SIZE <a href="#struct_size-06830f6b9d3b" id="struct_size-06830f6b9d3b"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;
@@ -59,7 +59,7 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsMeta/Builder.md#cls-Builder)
-- [Factory](CsMeta/Factory.md#cls-Factory)
-- [Reader](CsMeta/Reader.md#cls-Reader)
-- [Value](CsMeta/Value.md#cls-Value)
+- [Builder](CsMeta/Builder.md#builder-21f09e83781d)
+- [Factory](CsMeta/Factory.md#factory-1787784624e8)
+- [Reader](CsMeta/Reader.md#reader-b2467a96ddff)
+- [Value](CsMeta/Value.md#value-a0e04c070223)

@@ -1,4 +1,4 @@
-# CSTypeBits <a href="#cls-CSTypeBits" id="cls-CSTypeBits"></a>
+# CSTypeBits <a href="#cstypebits-9c6ae99aa2fc" id="cstypebits-9c6ae99aa2fc"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.CSTypeBits
@@ -8,31 +8,31 @@ public static class com.tailf.maapi.MaapiSchemas.CSTypeBits
 
 **Constructors**:
 
-- [CSTypeBits()](#m-CSTypeBits-12e7c9036219)
-- [CSTypeBits(int, CSBit[])](#m-CSTypeBits-db0376dbc16d)
+- [CSTypeBits()](#cstypebits-12e7c9036219)
+- [CSTypeBits(int, CSBit[])](#cstypebits-db0376dbc16d)
 
 **Methods**:
 
-- [getBitArray()](#m-getBitArray-34b74fdace40)
-- [getNativeType()](#m-getNativeType-5e881dc4a7e8)
-- [getWidth()](#m-getWidth-aff9ccaa8b54)
-- [toString()](#m-toString-e9d48c5503ef)
+- [getBitArray()](#getbitarray-34b74fdace40)
+- [getNativeType()](#getnativetype-5e881dc4a7e8)
+- [getWidth()](#getwidth-aff9ccaa8b54)
+- [toString()](#tostring-e9d48c5503ef)
 
 ## Constructors
 
-### CSTypeBits() <a href="#m-CSTypeBits-12e7c9036219" id="m-CSTypeBits-12e7c9036219"></a>
+### CSTypeBits() <a href="#cstypebits-12e7c9036219" id="cstypebits-12e7c9036219"></a>
 
 ```java
 public CSTypeBits()
 ```
 
-### CSTypeBits(int, CSBit[]) <a href="#m-CSTypeBits-db0376dbc16d" id="m-CSTypeBits-db0376dbc16d"></a>
+### CSTypeBits(int, CSBit[]) <a href="#cstypebits-db0376dbc16d" id="cstypebits-db0376dbc16d"></a>
 
 ```java
 public CSTypeBits(int width, com.tailf.maapi.MaapiSchemas.CSBit[] bitArray)
 ```
 
-Types: [CSBit](CSBit.md#cls-CSBit)
+Types: [CSBit](CSBit.md#csbit-632d615b1a7c)
 
 **Parameters**
 
@@ -42,27 +42,27 @@ Types: [CSBit](CSBit.md#cls-CSBit)
 
 ## Methods
 
-### getBitArray() <a href="#m-getBitArray-34b74fdace40" id="m-getBitArray-34b74fdace40"></a>
+### getBitArray() <a href="#getbitarray-34b74fdace40" id="getbitarray-34b74fdace40"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSBit[] getBitArray()
 ```
 
-Types: [CSBit](CSBit.md#cls-CSBit)
+Types: [CSBit](CSBit.md#csbit-632d615b1a7c)
 
-### getNativeType() <a href="#m-getNativeType-5e881dc4a7e8" id="m-getNativeType-5e881dc4a7e8"></a>
+### getNativeType() <a href="#getnativetype-5e881dc4a7e8" id="getnativetype-5e881dc4a7e8"></a>
 
 ```java
 public int getNativeType()
 ```
 
-### getWidth() <a href="#m-getWidth-aff9ccaa8b54" id="m-getWidth-aff9ccaa8b54"></a>
+### getWidth() <a href="#getwidth-aff9ccaa8b54" id="getwidth-aff9ccaa8b54"></a>
 
 ```java
 public int getWidth()
 ```
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()

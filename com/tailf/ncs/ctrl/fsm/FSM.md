@@ -1,4 +1,4 @@
-# FSM <a href="#cls-FSM" id="cls-FSM"></a>
+# FSM <a href="#fsm-255798df5203" id="fsm-255798df5203"></a>
 
 ```java
 public class com.tailf.ncs.ctrl.fsm.FSM
@@ -34,21 +34,21 @@ Generic finite state machine
 
 **Constructors**:
 
-- [FSM(String[][], String)](#m-FSM-a5e2325c2c06)
+- [FSM(String[][], String)](#fsm-a5e2325c2c06)
 
 **Methods**:
 
-- [addStateAction(String, StateAction)](#m-addStateAction-c7b6b5eb5062)
-- [addTransAction(String, TransAction)](#m-addTransAction-fb3cf361b773)
-- [event(String)](#m-event-35c2a3878e07)
-- [event(String, Object)](#m-event-c2c97f01bc7c)
-- [getCurrentStateName()](#m-getCurrentStateName-ca0e5e591731)
-- [isState(String[])](#m-isState-fb89c494ed4d)
-- [main(String[])](#m-main-1503518a8568)
+- [addStateAction(String, StateAction)](#addstateaction-c7b6b5eb5062)
+- [addTransAction(String, TransAction)](#addtransaction-fb3cf361b773)
+- [event(String)](#event-35c2a3878e07)
+- [event(String, Object)](#event-c2c97f01bc7c)
+- [getCurrentStateName()](#getcurrentstatename-ca0e5e591731)
+- [isState(String[])](#isstate-fb89c494ed4d)
+- [main(String[])](#main-1503518a8568)
 
 ## Constructors
 
-### FSM(String[][], String) <a href="#m-FSM-a5e2325c2c06" id="m-FSM-a5e2325c2c06"></a>
+### FSM(String[][], String) <a href="#fsm-a5e2325c2c06" id="fsm-a5e2325c2c06"></a>
 
 ```java
 public FSM(String[][] transitions, String name)
@@ -65,13 +65,13 @@ Constructor for the FSM
 
 ## Methods
 
-### addStateAction(String, StateAction) <a href="#m-addStateAction-c7b6b5eb5062" id="m-addStateAction-c7b6b5eb5062"></a>
+### addStateAction(String, StateAction) <a href="#addstateaction-c7b6b5eb5062" id="addstateaction-c7b6b5eb5062"></a>
 
 ```java
 public void addStateAction(String stateName, com.tailf.ncs.ctrl.fsm.StateAction action)
 ```
 
-Types: [StateAction](StateAction.md#cls-StateAction)
+Types: [StateAction](StateAction.md#stateaction-dc8dd9a18a65)
 
 Add state action callback
 
@@ -80,13 +80,13 @@ Add state action callback
 - `String stateName` - name of the state for the callback
 - `com.tailf.ncs.ctrl.fsm.StateAction action` - callback interface instance
 
-### addTransAction(String, TransAction) <a href="#m-addTransAction-fb3cf361b773" id="m-addTransAction-fb3cf361b773"></a>
+### addTransAction(String, TransAction) <a href="#addtransaction-fb3cf361b773" id="addtransaction-fb3cf361b773"></a>
 
 ```java
 public void addTransAction(String transName, com.tailf.ncs.ctrl.fsm.TransAction action)
 ```
 
-Types: [TransAction](TransAction.md#cls-TransAction)
+Types: [TransAction](TransAction.md#transaction-066dc29cf183)
 
 Add transition event callback
 
@@ -95,7 +95,7 @@ Add transition event callback
 - `String transName` - name of the transition event
 - `com.tailf.ncs.ctrl.fsm.TransAction action` - callback interface instance
 
-### event(String) <a href="#m-event-35c2a3878e07" id="m-event-35c2a3878e07"></a>
+### event(String) <a href="#event-35c2a3878e07" id="event-35c2a3878e07"></a>
 
 ```java
 public boolean event(String transName) throws Exception
@@ -113,7 +113,7 @@ Sent an transition event to the FSM
 
 - `Exception`
 
-### event(String, Object) <a href="#m-event-c2c97f01bc7c" id="m-event-c2c97f01bc7c"></a>
+### event(String, Object) <a href="#event-c2c97f01bc7c" id="event-c2c97f01bc7c"></a>
 
 ```java
 public boolean event(String transName, Object opaque) throws Exception
@@ -134,7 +134,7 @@ Sent an transition event to the FSM
 
 - `Exception`
 
-### getCurrentStateName() <a href="#m-getCurrentStateName-ca0e5e591731" id="m-getCurrentStateName-ca0e5e591731"></a>
+### getCurrentStateName() <a href="#getcurrentstatename-ca0e5e591731" id="getcurrentstatename-ca0e5e591731"></a>
 
 ```java
 public String getCurrentStateName()
@@ -144,7 +144,7 @@ Get current state
 
 **Returns:** current stateName
 
-### isState(String[]) <a href="#m-isState-fb89c494ed4d" id="m-isState-fb89c494ed4d"></a>
+### isState(String[]) <a href="#isstate-fb89c494ed4d" id="isstate-fb89c494ed4d"></a>
 
 ```java
 public boolean isState(String[] state)
@@ -158,7 +158,7 @@ Check if current state is one of named states
 
 **Returns:** true if current state is one of named states
 
-### main(String[]) <a href="#m-main-1503518a8568" id="m-main-1503518a8568"></a>
+### main(String[]) <a href="#main-1503518a8568" id="main-1503518a8568"></a>
 
 ```java
 public static void main(String[] args) throws Exception

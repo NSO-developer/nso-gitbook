@@ -1,4 +1,4 @@
-# Reader <a href="#cls-Reader" id="cls-Reader"></a>
+# Reader <a href="#reader-b2467a96ddff" id="reader-b2467a96ddff"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsValueDQuad.Reader
@@ -9,18 +9,18 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDQuad.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getD1()](#m-getD1-1ccbbca0d18f)
-- [getD2()](#m-getD2-93b8c43fe331)
-- [getD3()](#m-getD3-1982f3560cd6)
-- [getD4()](#m-getD4-a7608deae360)
+- [getD1()](#getd1-1ccbbca0d18f)
+- [getD2()](#getd2-93b8c43fe331)
+- [getD3()](#getd3-1982f3560cd6)
+- [getD4()](#getd4-a7608deae360)
 
 ## Constructors
 
-### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
+### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -47,25 +47,25 @@ Reader(
 
 ## Methods
 
-### getD1() <a href="#m-getD1-1ccbbca0d18f" id="m-getD1-1ccbbca0d18f"></a>
+### getD1() <a href="#getd1-1ccbbca0d18f" id="getd1-1ccbbca0d18f"></a>
 
 ```java
 public final byte getD1()
 ```
 
-### getD2() <a href="#m-getD2-93b8c43fe331" id="m-getD2-93b8c43fe331"></a>
+### getD2() <a href="#getd2-93b8c43fe331" id="getd2-93b8c43fe331"></a>
 
 ```java
 public final byte getD2()
 ```
 
-### getD3() <a href="#m-getD3-1982f3560cd6" id="m-getD3-1982f3560cd6"></a>
+### getD3() <a href="#getd3-1982f3560cd6" id="getd3-1982f3560cd6"></a>
 
 ```java
 public final byte getD3()
 ```
 
-### getD4() <a href="#m-getD4-a7608deae360" id="m-getD4-a7608deae360"></a>
+### getD4() <a href="#getd4-a7608deae360" id="getd4-a7608deae360"></a>
 
 ```java
 public final byte getD4()

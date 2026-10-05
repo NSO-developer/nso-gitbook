@@ -1,11 +1,11 @@
-# FilterAckInforms <a href="#cls-FilterAckInforms" id="cls-FilterAckInforms"></a>
+# FilterAckInforms <a href="#filterackinforms-cd47a176f4bd" id="filterackinforms-cd47a176f4bd"></a>
 
 ```java
 public class com.tailf.ncs.snmp.snmp4j.FilterAckInforms
     implements com.tailf.ncs.snmp.snmp4j.NotificationHandler
 ```
 
-Types: [NotificationHandler](NotificationHandler.md#cls-NotificationHandler)
+Types: [NotificationHandler](NotificationHandler.md#notificationhandler-49960afdd747)
 
 Standard filter for sending Acknowledge response to
  Snmp INFORMs
@@ -17,15 +17,15 @@ Standard filter for sending Acknowledge response to
 
 **Constructors**:
 
-- [FilterAckInforms()](#m-FilterAckInforms-432b72b87a44)
+- [FilterAckInforms()](#filterackinforms-432b72b87a44)
 
 **Methods**:
 
-- [processPdu(EventContext, CommandResponderEvent, Object)](#m-processPdu-6c9b32673c38)
+- [processPdu(EventContext, CommandResponderEvent, Object)](#processpdu-6c9b32673c38)
 
 ## Constructors
 
-### FilterAckInforms() <a href="#m-FilterAckInforms-432b72b87a44" id="m-FilterAckInforms-432b72b87a44"></a>
+### FilterAckInforms() <a href="#filterackinforms-432b72b87a44" id="filterackinforms-432b72b87a44"></a>
 
 ```java
 public FilterAckInforms()
@@ -36,7 +36,7 @@ Filter constructor
 
 ## Methods
 
-### processPdu(EventContext, CommandResponderEvent, Object) <a href="#m-processPdu-6c9b32673c38" id="m-processPdu-6c9b32673c38"></a>
+### processPdu(EventContext, CommandResponderEvent, Object) <a href="#processpdu-6c9b32673c38" id="processpdu-6c9b32673c38"></a>
 
 ```java
 public com.tailf.ncs.snmp.snmp4j.HandlerResponse processPdu(
@@ -47,7 +47,7 @@ public com.tailf.ncs.snmp.snmp4j.HandlerResponse processPdu(
     throws Exception
 ```
 
-Types: [HandlerResponse](HandlerResponse.md#cls-HandlerResponse), [EventContext](EventContext.md#cls-EventContext)
+Types: [HandlerResponse](HandlerResponse.md#handlerresponse-651c4aa97197), [EventContext](EventContext.md#eventcontext-9f1cd876683b)
 
 Standard filter method for acknowledge of INFORM.
 

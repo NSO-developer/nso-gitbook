@@ -1,11 +1,11 @@
-# NavuContext <a href="#cls-NavuContext" id="cls-NavuContext"></a>
+# NavuContext <a href="#navucontext-2974e9f92a9e" id="navucontext-2974e9f92a9e"></a>
 
 ```java
 public class com.tailf.navu.NavuContext
     extends com.tailf.navu.NavuContextBase
 ```
 
-Types: [NavuContextBase](NavuContextBase.md#cls-NavuContextBase)
+Types: [NavuContextBase](NavuContextBase.md#navucontextbase-0061e2b12534)
 
 This class controls how NAVU should read/write data to ncs.
  With data we mean configuration and/or operational data.
@@ -15,28 +15,28 @@ This class controls how NAVU should read/write data to ncs.
  MODE_READ_WRITE mode, then configuration data can be written with
  this same transaction.
 
- Another constructor [`NavuContext(Maapi)`](NavuContext.md#m-NavuContext-af99f9cc97c7) exists as an option.
- This constructor prepares a context and expects a [`Maapi`](../maapi/Maapi.md#cls-Maapi) instance
+ Another constructor [`NavuContext(Maapi)`](NavuContext.md#navucontext-af99f9cc97c7) exists as an option.
+ This constructor prepares a context and expects a [`Maapi`](../maapi/Maapi.md#maapi-67bcbe89c42e) instance
  with a started user session. Before using this type of context it is
- mandatory to call either [`NavuContext#startRunningTrans(int)`](NavuContext.md#m-startRunningTrans-f44b804de65a) or
- [`NavuContext#startOperationalTrans(int)`](NavuContext.md#m-startOperationalTrans-9d10bde402ce) to retrieve a maapi
+ mandatory to call either [`NavuContext#startRunningTrans(int)`](NavuContext.md#startrunningtrans-f44b804de65a) or
+ [`NavuContext#startOperationalTrans(int)`](NavuContext.md#startoperationaltrans-9d10bde402ce) to retrieve a maapi
  transaction.
 
  The user must manage the transaction which are started using the NavuContext.
  This can be done either by the user storing the retrieved transaction id
  and calling the low level Maapi methods
- [`Maapi#applyTrans(int, boolean)`](../maapi/Maapi.md#m-applyTrans-94f52f2648ce) and/or
- [`Maapi#finishTrans(int)`](../maapi/Maapi.md#m-finishTrans-0f920518d3c3) to commit and end the transaction.
+ [`Maapi#applyTrans(int, boolean)`](../maapi/Maapi.md#applytrans-94f52f2648ce) and/or
+ [`Maapi#finishTrans(int)`](../maapi/Maapi.md#finishtrans-0f920518d3c3) to commit and end the transaction.
 
  There are also a set of convenience methods in the NavuContext to handle
- the transaction like [`NavuContext#applyClearTrans()`](NavuContext.md#m-applyClearTrans-3f1898cf9189) and
- [`NavuContext#finishClearTrans()`](NavuContext.md#m-finishClearTrans-0f9c689756ea) etc.
+ the transaction like [`NavuContext#applyClearTrans()`](NavuContext.md#applycleartrans-3f1898cf9189) and
+ [`NavuContext#finishClearTrans()`](NavuContext.md#finishcleartrans-0f9c689756ea) etc.
 
- Using [`NavuContext#startRunningTrans(int)`](NavuContext.md#m-startRunningTrans-f44b804de65a) is equivalent to using a
- context created with the [`NavuContext(Maapi, int)`](NavuContext.md#m-NavuContext-08f21a9fb7b4) constructor which
+ Using [`NavuContext#startRunningTrans(int)`](NavuContext.md#startrunningtrans-f44b804de65a) is equivalent to using a
+ context created with the [`NavuContext(Maapi, int)`](NavuContext.md#navucontext-08f21a9fb7b4) constructor which
  is kept for backward compatibility.
 
- A typical scenario using the [`NavuContext(Maapi)`](NavuContext.md#m-NavuContext-af99f9cc97c7) constructor
+ A typical scenario using the [`NavuContext(Maapi)`](NavuContext.md#navucontext-af99f9cc97c7) constructor
  would be something like.
 
 
@@ -59,122 +59,122 @@ This class controls how NAVU should read/write data to ncs.
 
 **Constructors**:
 
-- [NavuContext(Maapi)](#m-NavuContext-af99f9cc97c7)
-- [NavuContext(Maapi, int)](#m-NavuContext-08f21a9fb7b4)
+- [NavuContext(Maapi)](#navucontext-af99f9cc97c7)
+- [NavuContext(Maapi, int)](#navucontext-08f21a9fb7b4)
 
 **Fields**:
 
-- [unsetCaseInChoice](NavuContextBase.md#m-unsetCaseInChoice) from NavuContextBase
+- [unsetCaseInChoice](NavuContextBase.md#unsetcaseinchoice-6309da590bfe) from NavuContextBase
 
 **Methods**:
 
-- [applyClearTrans()](#m-applyClearTrans-3f1898cf9189)
-- [applyReplaceTrans()](#m-applyReplaceTrans-8ed9b5f50308)
-- [aquireReadTh()](#m-aquireReadTh-cbeb80470556)
-- [aquireWriteOperTh(boolean)](#m-aquireWriteOperTh-70cdc82b9bd7)
-- [aquireWriteRunTh()](#m-aquireWriteRunTh-f1dd7d07d6f1)
-- [aquireWriteTh(NavuChoice)](#m-aquireWriteTh-94557404af59)
-- [aquireWriteTh(NavuNode)](#m-aquireWriteTh-f4016b4db5b6)
-- [aquireWriteTh(NavuNodeInfo)](#m-aquireWriteTh-4f4b47d2a03a)
-- [attachRunningTrans(int)](#m-attachRunningTrans-7c31c137d0c7)
-- [clear()](#m-clear-ca3baec040cb)
-- [clearTrans()](#m-clearTrans-bdef1d47dfdf)
-- [copy(NavuContext)](#m-copy-87eecbcd063a)
-- [copy(NavuContextBase)](NavuContextBase.md#m-copy-7436fcb6cfc1) from NavuContextBase
-- [create(NavuNode, int, String, Object[])](#m-create-df02612e3971)
-- [delete(NavuNode, String, Object[])](#m-delete-63a54ea2de30)
-- [deref(NavuNode, String, Object[])](#m-deref-ae39a7d6fdde)
-- [detachRunningTrans()](#m-detachRunningTrans-e735bed11543)
-- [diffIterate(MaapiDiffIterate, NavuContext)](#m-diffIterate-4cc73971858b)
-- [diffIterate(MaapiDiffIterate, NavuContextBase)](NavuContextBase.md#m-diffIterate-a6cc344016cf) from NavuContextBase
-- [finishClearTrans()](#m-finishClearTrans-0f9c689756ea)
-- [getBackingStoreCdb()](NavuContextBase.md#m-getBackingStoreCdb-73329cf7d4e1) from NavuContextBase
-- [getBackingStoreCdbSession()](NavuContextBase.md#m-getBackingStoreCdbSession-8b0ef17e8ea3) from NavuContextBase
-- [getCase(NavuChoice, String, ConfPath)](#m-getCase-653069cc39c6)
-- [getCdbSubscriber()](NavuContextBase.md#m-getCdbSubscriber-f292c8c67d4d) from NavuContextBase
-- [getElem(NavuNode, String, Object[])](#m-getElem-99bc0267bad6)
-- [getLeafListIterator(NavuLeafList)](#m-getLeafListIterator-7174ac6a32ca)
-- [getMaapi()](NavuContextBase.md#m-getMaapi-0ce8975d8ec6) from NavuContextBase
-- [getMaapiHandle()](NavuContextBase.md#m-getMaapiHandle-ba447f5d4e3f) from NavuContextBase
-- [getMountIdInterface()](#m-getMountIdInterface-2aa19a564366)
-- [getNavuListIterator(NavuList)](#m-getNavuListIterator-c0c49395e08e)
-- [getNsList()](NavuContextBase.md#m-getNsList-0345f486e876) from NavuContextBase
-- [getReadConfSession()](NavuContextBase.md#m-getReadConfSession-ece7e5773db9) from NavuContextBase
-- [getReadOperSession()](NavuContextBase.md#m-getReadOperSession-7e103aba03ba) from NavuContextBase
-- [getValues(NavuNode, ConfXMLParam[])](#m-getValues-ecb3f8096a7c)
-- [getWriteConfSession()](NavuContextBase.md#m-getWriteConfSession-a042057a7cb8) from NavuContextBase
-- [getWriteOperSession()](NavuContextBase.md#m-getWriteOperSession-eb5d274da267) from NavuContextBase
-- [hasCdbSubscriber()](NavuContextBase.md#m-hasCdbSubscriber-3650a7c55283) from NavuContextBase
-- [idrefDerivedOrSelf(NavuNode, ConfIdentityRef, String, Object[])](#m-idrefDerivedOrSelf-6a08c9a390be)
-- [initMaapiCursor(NavuNode, String, Object[])](#m-initMaapiCursor-dfdad1aa4163)
-- [insert(NavuList, boolean, String, Object[])](#m-insert-55bd5e6f415f)
-- [isActAsSuper()](NavuContextBase.md#m-isActAsSuper-ce02ade4553b) from NavuContextBase
-- [isCdb()](NavuContextBase.md#m-isCdb-20ec16d14862) from NavuContextBase
-- [isCdbSession()](NavuContextBase.md#m-isCdbSession-71fe8b2aab5d) from NavuContextBase
-- [isMaapi()](NavuContextBase.md#m-isMaapi-5c500ef256ce) from NavuContextBase
-- [isOnline()](NavuContextBase.md#m-isOnline-90688b264b83) from NavuContextBase
-- [moveOrdered(NavuNode, MoveWhereFlag, ConfKey, String, Object[])](#m-moveOrdered-373c795909ce)
-- [numOfInstances(NavuNode)](#m-numOfInstances-d5b1fc4e65c9)
-- [releaseReadTh()](#m-releaseReadTh-d8af0d751903)
-- [releaseWriteOperTh()](#m-releaseWriteOperTh-c449c5895f07)
-- [releaseWriteRunTh()](#m-releaseWriteRunTh-f866e93a678c)
-- [releaseWriteTh(NavuChoice)](#m-releaseWriteTh-42da0aac3b34)
-- [releaseWriteTh(NavuNode)](#m-releaseWriteTh-2f10aa89af15)
-- [releaseWriteTh(NavuNodeInfo)](#m-releaseWriteTh-a3f7338814e0)
-- [removeCdbSessions()](NavuContextBase.md#m-removeCdbSessions-71502a05a702) from NavuContextBase
-- [requestAction(NavuAction, ConfXMLParam[], String, Object[])](#m-requestAction-164fcf6d0208)
-- [set(NavuContext)](#m-set-a96f2680982e)
-- [set(NavuContextBase)](NavuContextBase.md#m-set-aa955bb80732) from NavuContextBase
-- [setElem(NavuNode, ConfValue, boolean, String, Object[])](#m-setElem-0daaa25a8e50)
-- [setElem(NavuNode, String, boolean, String, Object[])](#m-setElem-e887291ef6b0)
-- [setMaapiHandle(int)](NavuContextBase.md#m-setMaapiHandle-62fe88de5765) from NavuContextBase
-- [setOption(UnSetCaseInChoice)](NavuContextBase.md#m-setOption-13f7d349ceea) from NavuContextBase
-- [setReadConfLocks(EnumSet<CdbLockType>)](NavuContextBase.md#m-setReadConfLocks-43f86af9b510) from NavuContextBase
-- [setReadOperLocks(EnumSet<CdbLockType>)](NavuContextBase.md#m-setReadOperLocks-9c615c121ad2) from NavuContextBase
-- [setValues(NavuNode, ConfXMLParam[], boolean)](#m-setValues-8ac6838a32ab)
-- [setWriteOperLocks(EnumSet<CdbLockType>)](NavuContextBase.md#m-setWriteOperLocks-d3a3d78b7d7d) from NavuContextBase
-- [shareReadTh()](#m-shareReadTh-00bb7605f233)
-- [startOperationalTrans(int)](#m-startOperationalTrans-9d10bde402ce)
-- [startOperationalTrans(int, String, String, String, String)](#m-startOperationalTrans-f0b7896eb7ea)
-- [startPreCommitRunningTrans()](#m-startPreCommitRunningTrans-1608c1c0d9e6)
-- [startPreCommitRunningTrans(String, String, String, String)](#m-startPreCommitRunningTrans-a6bcef757ab6)
-- [startRunningTrans(int)](#m-startRunningTrans-f44b804de65a)
-- [startRunningTrans(int, String, String, String, String)](#m-startRunningTrans-0b37ed6a4aa8)
-- [toString()](#m-toString-e9d48c5503ef)
-- [xpathEval(NavuXPathSelectResultSet, MaapiXPathEvalTrace, String, Object, String)](#m-xpathEval-9750f496e526)
+- [applyClearTrans()](#applycleartrans-3f1898cf9189)
+- [applyReplaceTrans()](#applyreplacetrans-8ed9b5f50308)
+- [aquireReadTh()](#aquirereadth-cbeb80470556)
+- [aquireWriteOperTh(boolean)](#aquirewriteoperth-70cdc82b9bd7)
+- [aquireWriteRunTh()](#aquirewriterunth-f1dd7d07d6f1)
+- [aquireWriteTh(NavuChoice)](#aquirewriteth-94557404af59)
+- [aquireWriteTh(NavuNode)](#aquirewriteth-f4016b4db5b6)
+- [aquireWriteTh(NavuNodeInfo)](#aquirewriteth-4f4b47d2a03a)
+- [attachRunningTrans(int)](#attachrunningtrans-7c31c137d0c7)
+- [clear()](#clear-ca3baec040cb)
+- [clearTrans()](#cleartrans-bdef1d47dfdf)
+- [copy(NavuContext)](#copy-87eecbcd063a)
+- [copy(NavuContextBase)](NavuContextBase.md#copy-7436fcb6cfc1) from NavuContextBase
+- [create(NavuNode, int, String, Object[])](#create-df02612e3971)
+- [delete(NavuNode, String, Object[])](#delete-63a54ea2de30)
+- [deref(NavuNode, String, Object[])](#deref-ae39a7d6fdde)
+- [detachRunningTrans()](#detachrunningtrans-e735bed11543)
+- [diffIterate(MaapiDiffIterate, NavuContext)](#diffiterate-4cc73971858b)
+- [diffIterate(MaapiDiffIterate, NavuContextBase)](NavuContextBase.md#diffiterate-a6cc344016cf) from NavuContextBase
+- [finishClearTrans()](#finishcleartrans-0f9c689756ea)
+- [getBackingStoreCdb()](NavuContextBase.md#getbackingstorecdb-73329cf7d4e1) from NavuContextBase
+- [getBackingStoreCdbSession()](NavuContextBase.md#getbackingstorecdbsession-8b0ef17e8ea3) from NavuContextBase
+- [getCase(NavuChoice, String, ConfPath)](#getcase-653069cc39c6)
+- [getCdbSubscriber()](NavuContextBase.md#getcdbsubscriber-f292c8c67d4d) from NavuContextBase
+- [getElem(NavuNode, String, Object[])](#getelem-99bc0267bad6)
+- [getLeafListIterator(NavuLeafList)](#getleaflistiterator-7174ac6a32ca)
+- [getMaapi()](NavuContextBase.md#getmaapi-0ce8975d8ec6) from NavuContextBase
+- [getMaapiHandle()](NavuContextBase.md#getmaapihandle-ba447f5d4e3f) from NavuContextBase
+- [getMountIdInterface()](#getmountidinterface-2aa19a564366)
+- [getNavuListIterator(NavuList)](#getnavulistiterator-c0c49395e08e)
+- [getNsList()](NavuContextBase.md#getnslist-0345f486e876) from NavuContextBase
+- [getReadConfSession()](NavuContextBase.md#getreadconfsession-ece7e5773db9) from NavuContextBase
+- [getReadOperSession()](NavuContextBase.md#getreadopersession-7e103aba03ba) from NavuContextBase
+- [getValues(NavuNode, ConfXMLParam[])](#getvalues-ecb3f8096a7c)
+- [getWriteConfSession()](NavuContextBase.md#getwriteconfsession-a042057a7cb8) from NavuContextBase
+- [getWriteOperSession()](NavuContextBase.md#getwriteopersession-eb5d274da267) from NavuContextBase
+- [hasCdbSubscriber()](NavuContextBase.md#hascdbsubscriber-3650a7c55283) from NavuContextBase
+- [idrefDerivedOrSelf(NavuNode, ConfIdentityRef, String, Object[])](#idrefderivedorself-6a08c9a390be)
+- [initMaapiCursor(NavuNode, String, Object[])](#initmaapicursor-dfdad1aa4163)
+- [insert(NavuList, boolean, String, Object[])](#insert-55bd5e6f415f)
+- [isActAsSuper()](NavuContextBase.md#isactassuper-ce02ade4553b) from NavuContextBase
+- [isCdb()](NavuContextBase.md#iscdb-20ec16d14862) from NavuContextBase
+- [isCdbSession()](NavuContextBase.md#iscdbsession-71fe8b2aab5d) from NavuContextBase
+- [isMaapi()](NavuContextBase.md#ismaapi-5c500ef256ce) from NavuContextBase
+- [isOnline()](NavuContextBase.md#isonline-90688b264b83) from NavuContextBase
+- [moveOrdered(NavuNode, MoveWhereFlag, ConfKey, String, Object[])](#moveordered-373c795909ce)
+- [numOfInstances(NavuNode)](#numofinstances-d5b1fc4e65c9)
+- [releaseReadTh()](#releasereadth-d8af0d751903)
+- [releaseWriteOperTh()](#releasewriteoperth-c449c5895f07)
+- [releaseWriteRunTh()](#releasewriterunth-f866e93a678c)
+- [releaseWriteTh(NavuChoice)](#releasewriteth-42da0aac3b34)
+- [releaseWriteTh(NavuNode)](#releasewriteth-2f10aa89af15)
+- [releaseWriteTh(NavuNodeInfo)](#releasewriteth-a3f7338814e0)
+- [removeCdbSessions()](NavuContextBase.md#removecdbsessions-71502a05a702) from NavuContextBase
+- [requestAction(NavuAction, ConfXMLParam[], String, Object[])](#requestaction-164fcf6d0208)
+- [set(NavuContext)](#set-a96f2680982e)
+- [set(NavuContextBase)](NavuContextBase.md#set-aa955bb80732) from NavuContextBase
+- [setElem(NavuNode, ConfValue, boolean, String, Object[])](#setelem-0daaa25a8e50)
+- [setElem(NavuNode, String, boolean, String, Object[])](#setelem-e887291ef6b0)
+- [setMaapiHandle(int)](NavuContextBase.md#setmaapihandle-62fe88de5765) from NavuContextBase
+- [setOption(UnSetCaseInChoice)](NavuContextBase.md#setoption-13f7d349ceea) from NavuContextBase
+- [setReadConfLocks(EnumSet<CdbLockType>)](NavuContextBase.md#setreadconflocks-43f86af9b510) from NavuContextBase
+- [setReadOperLocks(EnumSet<CdbLockType>)](NavuContextBase.md#setreadoperlocks-9c615c121ad2) from NavuContextBase
+- [setValues(NavuNode, ConfXMLParam[], boolean)](#setvalues-8ac6838a32ab)
+- [setWriteOperLocks(EnumSet<CdbLockType>)](NavuContextBase.md#setwriteoperlocks-d3a3d78b7d7d) from NavuContextBase
+- [shareReadTh()](#sharereadth-00bb7605f233)
+- [startOperationalTrans(int)](#startoperationaltrans-9d10bde402ce)
+- [startOperationalTrans(int, String, String, String, String)](#startoperationaltrans-f0b7896eb7ea)
+- [startPreCommitRunningTrans()](#startprecommitrunningtrans-1608c1c0d9e6)
+- [startPreCommitRunningTrans(String, String, String, String)](#startprecommitrunningtrans-a6bcef757ab6)
+- [startRunningTrans(int)](#startrunningtrans-f44b804de65a)
+- [startRunningTrans(int, String, String, String, String)](#startrunningtrans-0b37ed6a4aa8)
+- [toString()](#tostring-e9d48c5503ef)
+- [xpathEval(NavuXPathSelectResultSet, MaapiXPathEvalTrace, String, Object, String)](#xpatheval-9750f496e526)
 
 **Nested Types**:
 
-- [DataMode](NavuContext/DataMode.md#cls-DataMode)
+- [DataMode](NavuContext/DataMode.md#datamode-25b2036cfd59)
 
 ## Constructors
 
-### NavuContext(Maapi) <a href="#m-NavuContext-af99f9cc97c7" id="m-NavuContext-af99f9cc97c7"></a>
+### NavuContext(Maapi) <a href="#navucontext-af99f9cc97c7" id="navucontext-af99f9cc97c7"></a>
 
 ```java
 public NavuContext(com.tailf.maapi.Maapi m)
 ```
 
-Types: [Maapi](../maapi/Maapi.md#cls-Maapi)
+Types: [Maapi](../maapi/Maapi.md#maapi-67bcbe89c42e)
 
 This constructor prepares a context to be used with a maapi transaction
- towards either [`Conf#DB_RUNNING`](../conf/Conf.md#m-DB_RUNNING) or [`Conf#DB_OPERATIONAL`](../conf/Conf.md#m-DB_OPERATIONAL).
+ towards either [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28) or [`Conf#DB_OPERATIONAL`](../conf/Conf.md#db_operational-0d12377eea71).
  This transactions has to be started with one of
- [`NavuContext#startRunningTrans(int)`](NavuContext.md#m-startRunningTrans-f44b804de65a) or
- [`NavuContext#startOperationalTrans(int)`](NavuContext.md#m-startOperationalTrans-9d10bde402ce) before the context can
+ [`NavuContext#startRunningTrans(int)`](NavuContext.md#startrunningtrans-f44b804de65a) or
+ [`NavuContext#startOperationalTrans(int)`](NavuContext.md#startoperationaltrans-9d10bde402ce) before the context can
  be used in NAVU.
 
 **Parameters**
 
 - `com.tailf.maapi.Maapi m` - the `Maapi` instance to be used
 
-### NavuContext(Maapi, int) <a href="#m-NavuContext-08f21a9fb7b4" id="m-NavuContext-08f21a9fb7b4"></a>
+### NavuContext(Maapi, int) <a href="#navucontext-08f21a9fb7b4" id="navucontext-08f21a9fb7b4"></a>
 
 ```java
 public NavuContext(com.tailf.maapi.Maapi m, int confTh)
 ```
 
-Types: [Maapi](../maapi/Maapi.md#cls-Maapi)
+Types: [Maapi](../maapi/Maapi.md#maapi-67bcbe89c42e)
 
 Constructor for running NAVU with a transaction towards DB_RUNNING.
 
@@ -193,22 +193,22 @@ Constructor for running NAVU with a transaction towards DB_RUNNING.
 
 ## Methods
 
-### applyClearTrans() <a href="#m-applyClearTrans-3f1898cf9189" id="m-applyClearTrans-3f1898cf9189"></a>
+### applyClearTrans() <a href="#applycleartrans-3f1898cf9189" id="applycleartrans-3f1898cf9189"></a>
 
 ```java
 public synchronized void applyClearTrans() throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 This method applies any changes in this transaction (Commit) using
- [`Maapi#applyTrans(int, boolean)`](../maapi/Maapi.md#m-applyTrans-94f52f2648ce). Afterwards the transaction is
- finished using [`Maapi#finishTrans(int)`](../maapi/Maapi.md#m-finishTrans-0f920518d3c3) and cleared form this
+ [`Maapi#applyTrans(int, boolean)`](../maapi/Maapi.md#applytrans-94f52f2648ce). Afterwards the transaction is
+ finished using [`Maapi#finishTrans(int)`](../maapi/Maapi.md#finishtrans-0f920518d3c3) and cleared form this
  NavuContext.
 
  After apply and clear of the transaction using this method
  it is possible to start a new transaction using
- [`startRunningTrans(int)`](NavuContext.md#m-startRunningTrans-f44b804de65a) or [`startOperationalTrans(int)`](NavuContext.md#m-startOperationalTrans-9d10bde402ce).
+ [`startRunningTrans(int)`](NavuContext.md#startrunningtrans-f44b804de65a) or [`startOperationalTrans(int)`](NavuContext.md#startoperationaltrans-9d10bde402ce).
 
  If no new transaction is started further navigation with this context
  will not be possible.
@@ -219,19 +219,19 @@ This method applies any changes in this transaction (Commit) using
 
 - `NavuException`
 
-### applyReplaceTrans() <a href="#m-applyReplaceTrans-8ed9b5f50308" id="m-applyReplaceTrans-8ed9b5f50308"></a>
+### applyReplaceTrans() <a href="#applyreplacetrans-8ed9b5f50308" id="applyreplacetrans-8ed9b5f50308"></a>
 
 ```java
 public synchronized void applyReplaceTrans() throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 This method applies (commit) and finish the transaction using
- [`Maapi#applyTrans(int, boolean)`](../maapi/Maapi.md#m-applyTrans-94f52f2648ce)
- and [`Maapi#finishTrans(int)`](../maapi/Maapi.md#m-finishTrans-0f920518d3c3).
+ [`Maapi#applyTrans(int, boolean)`](../maapi/Maapi.md#applytrans-94f52f2648ce)
+ and [`Maapi#finishTrans(int)`](../maapi/Maapi.md#finishtrans-0f920518d3c3).
  Afterwards an new transaction of same type (operational or running) and
- mode ([`Conf#MODE_READ`](../conf/Conf.md#m-MODE_READ) or [`Conf#MODE_READ_WRITE`](../conf/Conf.md#m-MODE_READ_WRITE)) is created
+ mode ([`Conf#MODE_READ`](../conf/Conf.md#mode_read-1e4ced2f015c) or [`Conf#MODE_READ_WRITE`](../conf/Conf.md#mode_read_write-0883a33af731)) is created
  and replaces the old applied transaction.
 
  Hence, navigation using this context can be resumed directly after
@@ -244,85 +244,85 @@ This method applies (commit) and finish the transaction using
 
 - `NavuException`
 
-### aquireReadTh() <a href="#m-aquireReadTh-cbeb80470556" id="m-aquireReadTh-cbeb80470556"></a>
+### aquireReadTh() <a href="#aquirereadth-cbeb80470556" id="aquirereadth-cbeb80470556"></a>
 
 ```java
 protected int aquireReadTh() throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-### aquireWriteOperTh(boolean) <a href="#m-aquireWriteOperTh-70cdc82b9bd7" id="m-aquireWriteOperTh-70cdc82b9bd7"></a>
+### aquireWriteOperTh(boolean) <a href="#aquirewriteoperth-70cdc82b9bd7" id="aquirewriteoperth-70cdc82b9bd7"></a>
 
 ```java
 protected int aquireWriteOperTh(boolean isWriteAll) throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
 - `boolean isWriteAll`
 
-### aquireWriteRunTh() <a href="#m-aquireWriteRunTh-f1dd7d07d6f1" id="m-aquireWriteRunTh-f1dd7d07d6f1"></a>
+### aquireWriteRunTh() <a href="#aquirewriterunth-f1dd7d07d6f1" id="aquirewriterunth-f1dd7d07d6f1"></a>
 
 ```java
 protected int aquireWriteRunTh() throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-### aquireWriteTh(NavuChoice) <a href="#m-aquireWriteTh-94557404af59" id="m-aquireWriteTh-94557404af59"></a>
+### aquireWriteTh(NavuChoice) <a href="#aquirewriteth-94557404af59" id="aquirewriteth-94557404af59"></a>
 
 ```java
 protected int aquireWriteTh(com.tailf.navu.NavuChoice nchoice) throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuChoice](NavuChoice.md#cls-NavuChoice), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuChoice](NavuChoice.md#navuchoice-e8914a50eee5), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
 - `com.tailf.navu.NavuChoice nchoice`
 
-### aquireWriteTh(NavuNode) <a href="#m-aquireWriteTh-f4016b4db5b6" id="m-aquireWriteTh-f4016b4db5b6"></a>
+### aquireWriteTh(NavuNode) <a href="#aquirewriteth-f4016b4db5b6" id="aquirewriteth-f4016b4db5b6"></a>
 
 ```java
 protected int aquireWriteTh(com.tailf.navu.NavuNode node) throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
 - `com.tailf.navu.NavuNode node`
 
-### aquireWriteTh(NavuNodeInfo) <a href="#m-aquireWriteTh-4f4b47d2a03a" id="m-aquireWriteTh-4f4b47d2a03a"></a>
+### aquireWriteTh(NavuNodeInfo) <a href="#aquirewriteth-4f4b47d2a03a" id="aquirewriteth-4f4b47d2a03a"></a>
 
 ```java
 protected int aquireWriteTh(com.tailf.navu.NavuNodeInfo ninfo) throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNodeInfo](NavuNodeInfo.md#cls-NavuNodeInfo), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuNodeInfo](NavuNodeInfo.md#navunodeinfo-ee275327d410), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
 - `com.tailf.navu.NavuNodeInfo ninfo`
 
-### attachRunningTrans(int) <a href="#m-attachRunningTrans-7c31c137d0c7" id="m-attachRunningTrans-7c31c137d0c7"></a>
+### attachRunningTrans(int) <a href="#attachrunningtrans-7c31c137d0c7" id="attachrunningtrans-7c31c137d0c7"></a>
 
 ```java
 public void attachRunningTrans(int th) throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-Attach an existing transaction towards the [`Conf#DB_RUNNING`](../conf/Conf.md#m-DB_RUNNING)
+Attach an existing transaction towards the [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28)
  database to be used in the context.
 
  Because the transaction is attached and not started by the NavuContext
  no finish or apply operations are allowed from the context.
 
- For example the [`finishClearTrans()`](NavuContext.md#m-finishClearTrans-0f9c689756ea) will throw an exception
+ For example the [`finishClearTrans()`](NavuContext.md#finishcleartrans-0f9c689756ea) will throw an exception
  for this type of context.
 
 **Parameters**
@@ -333,7 +333,7 @@ Attach an existing transaction towards the [`Conf#DB_RUNNING`](../conf/Conf.md#m
 
 - `NavuException`
 
-### clear() <a href="#m-clear-ca3baec040cb" id="m-clear-ca3baec040cb"></a>
+### clear() <a href="#clear-ca3baec040cb" id="clear-ca3baec040cb"></a>
 
 ```java
 protected void clear()
@@ -341,23 +341,23 @@ protected void clear()
 
 Clears all connection attributes.
 
-### clearTrans() <a href="#m-clearTrans-bdef1d47dfdf" id="m-clearTrans-bdef1d47dfdf"></a>
+### clearTrans() <a href="#cleartrans-bdef1d47dfdf" id="cleartrans-bdef1d47dfdf"></a>
 
 ```java
 public synchronized int clearTrans() throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 Clears the internal transaction defined by
- [`startRunningTrans(int)`](NavuContext.md#m-startRunningTrans-f44b804de65a) or [`startOperationalTrans(int)`](NavuContext.md#m-startOperationalTrans-9d10bde402ce)
+ [`startRunningTrans(int)`](NavuContext.md#startrunningtrans-f44b804de65a) or [`startOperationalTrans(int)`](NavuContext.md#startoperationaltrans-9d10bde402ce)
  The previous transaction id if any is returned but left unattended.
  If the transaction needs to be committed or finished this has to be
  performed outside of Navu.
 
  After clearing the transaction it is possible to start a new
  transaction using
- [`startRunningTrans(int)`](NavuContext.md#m-startRunningTrans-f44b804de65a) or [`startOperationalTrans(int)`](NavuContext.md#m-startOperationalTrans-9d10bde402ce).
+ [`startRunningTrans(int)`](NavuContext.md#startrunningtrans-f44b804de65a) or [`startOperationalTrans(int)`](NavuContext.md#startoperationaltrans-9d10bde402ce).
 
  If no new transaction is started further navigation with this context
  will not be possible.
@@ -368,13 +368,13 @@ Clears the internal transaction defined by
 
 - `NavuException`
 
-### copy(NavuContext) <a href="#m-copy-87eecbcd063a" id="m-copy-87eecbcd063a"></a>
+### copy(NavuContext) <a href="#copy-87eecbcd063a" id="copy-87eecbcd063a"></a>
 
 ```java
 protected void copy(com.tailf.navu.NavuContext context)
 ```
 
-Types: [NavuContext](NavuContext.md#cls-NavuContext)
+Types: [NavuContext](NavuContext.md#navucontext-2974e9f92a9e)
 
 Copy the contents of a context.
 
@@ -382,7 +382,7 @@ Copy the contents of a context.
 
 - `com.tailf.navu.NavuContext context`
 
-### create(NavuNode, int, String, Object[]) <a href="#m-create-df02612e3971" id="m-create-df02612e3971"></a>
+### create(NavuNode, int, String, Object[]) <a href="#create-df02612e3971" id="create-df02612e3971"></a>
 
 ```java
 protected synchronized void create(
@@ -394,7 +394,7 @@ protected synchronized void create(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -403,7 +403,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cl
 - `String fmt`
 - `Object[] args`
 
-### delete(NavuNode, String, Object[]) <a href="#m-delete-63a54ea2de30" id="m-delete-63a54ea2de30"></a>
+### delete(NavuNode, String, Object[]) <a href="#delete-63a54ea2de30" id="delete-63a54ea2de30"></a>
 
 ```java
 protected synchronized void delete(
@@ -414,7 +414,7 @@ protected synchronized void delete(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -422,7 +422,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cl
 - `String fmt`
 - `Object[] args`
 
-### deref(NavuNode, String, Object[]) <a href="#m-deref-ae39a7d6fdde" id="m-deref-ae39a7d6fdde"></a>
+### deref(NavuNode, String, Object[]) <a href="#deref-ae39a7d6fdde" id="deref-ae39a7d6fdde"></a>
 
 ```java
 protected synchronized java.util.List<com.tailf.navu.NavuNode> deref(
@@ -433,7 +433,7 @@ protected synchronized java.util.List<com.tailf.navu.NavuNode> deref(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -441,23 +441,23 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cl
 - `String fmt`
 - `Object[] args`
 
-### detachRunningTrans() <a href="#m-detachRunningTrans-e735bed11543" id="m-detachRunningTrans-e735bed11543"></a>
+### detachRunningTrans() <a href="#detachrunningtrans-e735bed11543" id="detachrunningtrans-e735bed11543"></a>
 
 ```java
 public void detachRunningTrans() throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 For an context with an attached transaction using
- [`attachRunningTrans(int)`](NavuContext.md#m-attachRunningTrans-7c31c137d0c7) this method will detach
+ [`attachRunningTrans(int)`](NavuContext.md#attachrunningtrans-7c31c137d0c7) this method will detach
  the transaction from the NavuContext maapi instance
 
 **Throws**
 
 - `NavuException`
 
-### diffIterate(MaapiDiffIterate, NavuContext) <a href="#m-diffIterate-4cc73971858b" id="m-diffIterate-4cc73971858b"></a>
+### diffIterate(MaapiDiffIterate, NavuContext) <a href="#diffiterate-4cc73971858b" id="diffiterate-4cc73971858b"></a>
 
 ```java
 protected synchronized void diffIterate(
@@ -467,27 +467,27 @@ protected synchronized void diffIterate(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [MaapiDiffIterate](../maapi/MaapiDiffIterate.md#cls-MaapiDiffIterate), [NavuContext](NavuContext.md#cls-NavuContext), [NavuException](NavuException.md#cls-NavuException)
+Types: [MaapiDiffIterate](../maapi/MaapiDiffIterate.md#maapidiffiterate-199d02e1da37), [NavuContext](NavuContext.md#navucontext-2974e9f92a9e), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
 - `com.tailf.maapi.MaapiDiffIterate iter`
 - `com.tailf.navu.NavuContext delContext`
 
-### finishClearTrans() <a href="#m-finishClearTrans-0f9c689756ea" id="m-finishClearTrans-0f9c689756ea"></a>
+### finishClearTrans() <a href="#finishcleartrans-0f9c689756ea" id="finishcleartrans-0f9c689756ea"></a>
 
 ```java
 public synchronized void finishClearTrans() throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-Finishes current trans using [`Maapi#finishTrans(int)`](../maapi/Maapi.md#m-finishTrans-0f920518d3c3) and
+Finishes current trans using [`Maapi#finishTrans(int)`](../maapi/Maapi.md#finishtrans-0f920518d3c3) and
  clears the trans from this NavuContext.
 
  After finish and clear of the transaction using this method
  it is possible to start a new transaction using
- [`startRunningTrans(int)`](NavuContext.md#m-startRunningTrans-f44b804de65a) or [`startOperationalTrans(int)`](NavuContext.md#m-startOperationalTrans-9d10bde402ce).
+ [`startRunningTrans(int)`](NavuContext.md#startrunningtrans-f44b804de65a) or [`startOperationalTrans(int)`](NavuContext.md#startoperationaltrans-9d10bde402ce).
 
  If no new transaction is started further navigation with this context
  will not be possible.
@@ -496,7 +496,7 @@ Finishes current trans using [`Maapi#finishTrans(int)`](../maapi/Maapi.md#m-fini
 
 - `NavuException`
 
-### getCase(NavuChoice, String, ConfPath) <a href="#m-getCase-653069cc39c6" id="m-getCase-653069cc39c6"></a>
+### getCase(NavuChoice, String, ConfPath) <a href="#getcase-653069cc39c6" id="getcase-653069cc39c6"></a>
 
 ```java
 protected synchronized com.tailf.conf.ConfTag getCase(
@@ -507,7 +507,7 @@ protected synchronized com.tailf.conf.ConfTag getCase(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [ConfTag](../conf/ConfTag.md#cls-ConfTag), [NavuChoice](NavuChoice.md#cls-NavuChoice), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [NavuException](NavuException.md#cls-NavuException)
+Types: [ConfTag](../conf/ConfTag.md#conftag-73757b87bc93), [NavuChoice](NavuChoice.md#navuchoice-e8914a50eee5), [ConfPath](../conf/ConfPath.md#confpath-327831c6fc7d), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -515,7 +515,7 @@ Types: [ConfTag](../conf/ConfTag.md#cls-ConfTag), [NavuChoice](NavuChoice.md#cls
 - `String choiceName`
 - `com.tailf.conf.ConfPath path`
 
-### getElem(NavuNode, String, Object[]) <a href="#m-getElem-99bc0267bad6" id="m-getElem-99bc0267bad6"></a>
+### getElem(NavuNode, String, Object[]) <a href="#getelem-99bc0267bad6" id="getelem-99bc0267bad6"></a>
 
 ```java
 protected synchronized com.tailf.conf.ConfValue getElem(
@@ -526,7 +526,7 @@ protected synchronized com.tailf.conf.ConfValue getElem(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
+Types: [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d), [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -534,7 +534,7 @@ Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [NavuNode](NavuNode.md#c
 - `String fmt`
 - `Object[] args`
 
-### getLeafListIterator(NavuLeafList) <a href="#m-getLeafListIterator-7174ac6a32ca" id="m-getLeafListIterator-7174ac6a32ca"></a>
+### getLeafListIterator(NavuLeafList) <a href="#getleaflistiterator-7174ac6a32ca" id="getleaflistiterator-7174ac6a32ca"></a>
 
 ```java
 protected synchronized com.tailf.navu.NavuLeafListIterator getLeafListIterator(
@@ -543,21 +543,21 @@ protected synchronized com.tailf.navu.NavuLeafListIterator getLeafListIterator(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuLeafList](NavuLeafList.md#cls-NavuLeafList), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuLeafList](NavuLeafList.md#navuleaflist-8d16c43a9b96), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
 - `com.tailf.navu.NavuLeafList navuLeafList`
 
-### getMountIdInterface() <a href="#m-getMountIdInterface-2aa19a564366" id="m-getMountIdInterface-2aa19a564366"></a>
+### getMountIdInterface() <a href="#getmountidinterface-2aa19a564366" id="getmountidinterface-2aa19a564366"></a>
 
 ```java
 public com.tailf.conf.MountIdInterface getMountIdInterface()
 ```
 
-Types: [MountIdInterface](../conf/MountIdInterface.md#cls-MountIdInterface)
+Types: [MountIdInterface](../conf/MountIdInterface.md#mountidinterface-113d1b54dae0)
 
-### getNavuListIterator(NavuList) <a href="#m-getNavuListIterator-c0c49395e08e" id="m-getNavuListIterator-c0c49395e08e"></a>
+### getNavuListIterator(NavuList) <a href="#getnavulistiterator-c0c49395e08e" id="getnavulistiterator-c0c49395e08e"></a>
 
 ```java
 protected synchronized com.tailf.navu.NavuListEntryIterator getNavuListIterator(
@@ -566,13 +566,13 @@ protected synchronized com.tailf.navu.NavuListEntryIterator getNavuListIterator(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuList](NavuList.md#cls-NavuList), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuList](NavuList.md#navulist-472e8d6d3745), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
 - `com.tailf.navu.NavuList navuList`
 
-### getValues(NavuNode, ConfXMLParam[]) <a href="#m-getValues-ecb3f8096a7c" id="m-getValues-ecb3f8096a7c"></a>
+### getValues(NavuNode, ConfXMLParam[]) <a href="#getvalues-ecb3f8096a7c" id="getvalues-ecb3f8096a7c"></a>
 
 ```java
 protected synchronized com.tailf.conf.ConfXMLParam[] getValues(
@@ -582,14 +582,14 @@ protected synchronized com.tailf.conf.ConfXMLParam[] getValues(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
 - `com.tailf.navu.NavuNode node`
 - `com.tailf.conf.ConfXMLParam[] confXMLPs`
 
-### idrefDerivedOrSelf(NavuNode, ConfIdentityRef, String, Object[]) <a href="#m-idrefDerivedOrSelf-6a08c9a390be" id="m-idrefDerivedOrSelf-6a08c9a390be"></a>
+### idrefDerivedOrSelf(NavuNode, ConfIdentityRef, String, Object[]) <a href="#idrefderivedorself-6a08c9a390be" id="idrefderivedorself-6a08c9a390be"></a>
 
 ```java
 protected synchronized boolean idrefDerivedOrSelf(
@@ -601,7 +601,7 @@ protected synchronized boolean idrefDerivedOrSelf(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode), [ConfIdentityRef](../conf/ConfIdentityRef.md#cls-ConfIdentityRef), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [ConfIdentityRef](../conf/ConfIdentityRef.md#confidentityref-1a367056e764), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -610,7 +610,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [ConfIdentityRef](../conf/ConfIdent
 - `String fmt`
 - `Object[] args`
 
-### initMaapiCursor(NavuNode, String, Object[]) <a href="#m-initMaapiCursor-dfdad1aa4163" id="m-initMaapiCursor-dfdad1aa4163"></a>
+### initMaapiCursor(NavuNode, String, Object[]) <a href="#initmaapicursor-dfdad1aa4163" id="initmaapicursor-dfdad1aa4163"></a>
 
 ```java
 protected synchronized java.util.List<com.tailf.conf.ConfKey> initMaapiCursor(
@@ -621,7 +621,7 @@ protected synchronized java.util.List<com.tailf.conf.ConfKey> initMaapiCursor(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [ConfKey](../conf/ConfKey.md#cls-ConfKey), [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
+Types: [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867), [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -629,7 +629,7 @@ Types: [ConfKey](../conf/ConfKey.md#cls-ConfKey), [NavuNode](NavuNode.md#cls-Nav
 - `String fmt`
 - `Object[] arguments`
 
-### insert(NavuList, boolean, String, Object[]) <a href="#m-insert-55bd5e6f415f" id="m-insert-55bd5e6f415f"></a>
+### insert(NavuList, boolean, String, Object[]) <a href="#insert-55bd5e6f415f" id="insert-55bd5e6f415f"></a>
 
 ```java
 protected synchronized void insert(
@@ -641,7 +641,7 @@ protected synchronized void insert(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuList](NavuList.md#cls-NavuList), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuList](NavuList.md#navulist-472e8d6d3745), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -650,7 +650,7 @@ Types: [NavuList](NavuList.md#cls-NavuList), [NavuException](NavuException.md#cl
 - `String fmt`
 - `Object[] args`
 
-### moveOrdered(NavuNode, MoveWhereFlag, ConfKey, String, Object[]) <a href="#m-moveOrdered-373c795909ce" id="m-moveOrdered-373c795909ce"></a>
+### moveOrdered(NavuNode, MoveWhereFlag, ConfKey, String, Object[]) <a href="#moveordered-373c795909ce" id="moveordered-373c795909ce"></a>
 
 ```java
 protected synchronized void moveOrdered(
@@ -663,7 +663,7 @@ protected synchronized void moveOrdered(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode), [MoveWhereFlag](../maapi/MoveWhereFlag.md#cls-MoveWhereFlag), [ConfKey](../conf/ConfKey.md#cls-ConfKey), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [MoveWhereFlag](../maapi/MoveWhereFlag.md#movewhereflag-bbc0edc34bda), [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -673,7 +673,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [MoveWhereFlag](../maapi/MoveWhereF
 - `String fmt`
 - `Object[] args`
 
-### numOfInstances(NavuNode) <a href="#m-numOfInstances-d5b1fc4e65c9" id="m-numOfInstances-d5b1fc4e65c9"></a>
+### numOfInstances(NavuNode) <a href="#numofinstances-d5b1fc4e65c9" id="numofinstances-d5b1fc4e65c9"></a>
 
 ```java
 protected synchronized int numOfInstances(
@@ -682,73 +682,73 @@ protected synchronized int numOfInstances(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
 - `com.tailf.navu.NavuNode navuList`
 
-### releaseReadTh() <a href="#m-releaseReadTh-d8af0d751903" id="m-releaseReadTh-d8af0d751903"></a>
+### releaseReadTh() <a href="#releasereadth-d8af0d751903" id="releasereadth-d8af0d751903"></a>
 
 ```java
 protected void releaseReadTh() throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-### releaseWriteOperTh() <a href="#m-releaseWriteOperTh-c449c5895f07" id="m-releaseWriteOperTh-c449c5895f07"></a>
+### releaseWriteOperTh() <a href="#releasewriteoperth-c449c5895f07" id="releasewriteoperth-c449c5895f07"></a>
 
 ```java
 protected void releaseWriteOperTh() throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-### releaseWriteRunTh() <a href="#m-releaseWriteRunTh-f866e93a678c" id="m-releaseWriteRunTh-f866e93a678c"></a>
+### releaseWriteRunTh() <a href="#releasewriterunth-f866e93a678c" id="releasewriterunth-f866e93a678c"></a>
 
 ```java
 protected void releaseWriteRunTh() throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-### releaseWriteTh(NavuChoice) <a href="#m-releaseWriteTh-42da0aac3b34" id="m-releaseWriteTh-42da0aac3b34"></a>
+### releaseWriteTh(NavuChoice) <a href="#releasewriteth-42da0aac3b34" id="releasewriteth-42da0aac3b34"></a>
 
 ```java
 protected void releaseWriteTh(com.tailf.navu.NavuChoice nchoice) throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuChoice](NavuChoice.md#cls-NavuChoice), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuChoice](NavuChoice.md#navuchoice-e8914a50eee5), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
 - `com.tailf.navu.NavuChoice nchoice`
 
-### releaseWriteTh(NavuNode) <a href="#m-releaseWriteTh-2f10aa89af15" id="m-releaseWriteTh-2f10aa89af15"></a>
+### releaseWriteTh(NavuNode) <a href="#releasewriteth-2f10aa89af15" id="releasewriteth-2f10aa89af15"></a>
 
 ```java
 protected void releaseWriteTh(com.tailf.navu.NavuNode node) throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
 - `com.tailf.navu.NavuNode node`
 
-### releaseWriteTh(NavuNodeInfo) <a href="#m-releaseWriteTh-a3f7338814e0" id="m-releaseWriteTh-a3f7338814e0"></a>
+### releaseWriteTh(NavuNodeInfo) <a href="#releasewriteth-a3f7338814e0" id="releasewriteth-a3f7338814e0"></a>
 
 ```java
 protected void releaseWriteTh(com.tailf.navu.NavuNodeInfo ninfo) throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNodeInfo](NavuNodeInfo.md#cls-NavuNodeInfo), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuNodeInfo](NavuNodeInfo.md#navunodeinfo-ee275327d410), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
 - `com.tailf.navu.NavuNodeInfo ninfo`
 
-### requestAction(NavuAction, ConfXMLParam[], String, Object[]) <a href="#m-requestAction-164fcf6d0208" id="m-requestAction-164fcf6d0208"></a>
+### requestAction(NavuAction, ConfXMLParam[], String, Object[]) <a href="#requestaction-164fcf6d0208" id="requestaction-164fcf6d0208"></a>
 
 ```java
 protected synchronized com.tailf.conf.ConfXMLParam[] requestAction(
@@ -760,7 +760,7 @@ protected synchronized com.tailf.conf.ConfXMLParam[] requestAction(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [NavuAction](NavuAction.md#cls-NavuAction), [NavuException](NavuException.md#cls-NavuException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [NavuAction](NavuAction.md#navuaction-d853bc49f0e8), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -769,13 +769,13 @@ Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [NavuAction](Na
 - `String fmt`
 - `Object[] args`
 
-### set(NavuContext) <a href="#m-set-a96f2680982e" id="m-set-a96f2680982e"></a>
+### set(NavuContext) <a href="#set-a96f2680982e" id="set-a96f2680982e"></a>
 
 ```java
 public synchronized void set(com.tailf.navu.NavuContext context)
 ```
 
-Types: [NavuContext](NavuContext.md#cls-NavuContext)
+Types: [NavuContext](NavuContext.md#navucontext-2974e9f92a9e)
 
 Set the context attributes using another context object.
 
@@ -795,7 +795,7 @@ Set the context attributes using another context object.
 
 - `com.tailf.navu.NavuContext context`
 
-### setElem(NavuNode, ConfValue, boolean, String, Object[]) <a href="#m-setElem-0daaa25a8e50" id="m-setElem-0daaa25a8e50"></a>
+### setElem(NavuNode, ConfValue, boolean, String, Object[]) <a href="#setelem-0daaa25a8e50" id="setelem-0daaa25a8e50"></a>
 
 ```java
 protected synchronized void setElem(
@@ -808,7 +808,7 @@ protected synchronized void setElem(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode), [ConfValue](../conf/ConfValue.md#cls-ConfValue), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -818,7 +818,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [ConfValue](../conf/ConfValue.md#cl
 - `String fmt`
 - `Object[] args`
 
-### setElem(NavuNode, String, boolean, String, Object[]) <a href="#m-setElem-e887291ef6b0" id="m-setElem-e887291ef6b0"></a>
+### setElem(NavuNode, String, boolean, String, Object[]) <a href="#setelem-e887291ef6b0" id="setelem-e887291ef6b0"></a>
 
 ```java
 protected synchronized com.tailf.conf.ConfValue setElem(
@@ -831,7 +831,7 @@ protected synchronized com.tailf.conf.ConfValue setElem(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
+Types: [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d), [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -841,7 +841,7 @@ Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [NavuNode](NavuNode.md#c
 - `String fmt`
 - `Object[] args`
 
-### setValues(NavuNode, ConfXMLParam[], boolean) <a href="#m-setValues-8ac6838a32ab" id="m-setValues-8ac6838a32ab"></a>
+### setValues(NavuNode, ConfXMLParam[], boolean) <a href="#setvalues-8ac6838a32ab" id="setvalues-8ac6838a32ab"></a>
 
 ```java
 protected synchronized void setValues(
@@ -852,7 +852,7 @@ protected synchronized void setValues(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode), [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -860,28 +860,28 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [ConfXMLParam](../conf/ConfXMLParam
 - `com.tailf.conf.ConfXMLParam[] confXMLParams`
 - `boolean shared`
 
-### shareReadTh() <a href="#m-shareReadTh-00bb7605f233" id="m-shareReadTh-00bb7605f233"></a>
+### shareReadTh() <a href="#sharereadth-00bb7605f233" id="sharereadth-00bb7605f233"></a>
 
 ```java
 protected int shareReadTh() throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-### startOperationalTrans(int) <a href="#m-startOperationalTrans-9d10bde402ce" id="m-startOperationalTrans-9d10bde402ce"></a>
+### startOperationalTrans(int) <a href="#startoperationaltrans-9d10bde402ce" id="startoperationaltrans-9d10bde402ce"></a>
 
 ```java
 public synchronized int startOperationalTrans(int mode) throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-This method starts a transaction towards the [`Conf#DB_OPERATIONAL`](../conf/Conf.md#m-DB_OPERATIONAL)
+This method starts a transaction towards the [`Conf#DB_OPERATIONAL`](../conf/Conf.md#db_operational-0d12377eea71)
  database to be used in the context.
 
- This method or its counterpart [`startRunningTrans(int)`](NavuContext.md#m-startRunningTrans-f44b804de65a) is
+ This method or its counterpart [`startRunningTrans(int)`](NavuContext.md#startrunningtrans-f44b804de65a) is
  mandatory to call for a context created by the
- [`NavuContext(Maapi)`](NavuContext.md#m-NavuContext-af99f9cc97c7) constructor before the context is
+ [`NavuContext(Maapi)`](NavuContext.md#navucontext-af99f9cc97c7) constructor before the context is
  being used in NAVU.
 
  Calling this method on contexts that already started an transaction will
@@ -890,7 +890,7 @@ This method starts a transaction towards the [`Conf#DB_OPERATIONAL`](../conf/Con
 
 **Parameters**
 
-- `int mode` - one of [`Conf#MODE_READ_WRITE`](../conf/Conf.md#m-MODE_READ_WRITE), [`Conf#MODE_READ`](../conf/Conf.md#m-MODE_READ)
+- `int mode` - one of [`Conf#MODE_READ_WRITE`](../conf/Conf.md#mode_read_write-0883a33af731), [`Conf#MODE_READ`](../conf/Conf.md#mode_read-1e4ced2f015c)
 
 **Returns:** transaction id for the started transaction
 
@@ -898,7 +898,7 @@ This method starts a transaction towards the [`Conf#DB_OPERATIONAL`](../conf/Con
 
 - `NavuException`
 
-### startOperationalTrans(int, String, String, String, String) <a href="#m-startOperationalTrans-f0b7896eb7ea" id="m-startOperationalTrans-f0b7896eb7ea"></a>
+### startOperationalTrans(int, String, String, String, String) <a href="#startoperationaltrans-f0b7896eb7ea" id="startoperationaltrans-f0b7896eb7ea"></a>
 
 ```java
 public synchronized int startOperationalTrans(
@@ -911,7 +911,7 @@ public synchronized int startOperationalTrans(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -921,26 +921,26 @@ Types: [NavuException](NavuException.md#cls-NavuException)
 - `String version`
 - `String clientId`
 
-### startPreCommitRunningTrans() <a href="#m-startPreCommitRunningTrans-1608c1c0d9e6" id="m-startPreCommitRunningTrans-1608c1c0d9e6"></a>
+### startPreCommitRunningTrans() <a href="#startprecommitrunningtrans-1608c1c0d9e6" id="startprecommitrunningtrans-1608c1c0d9e6"></a>
 
 ```java
 public synchronized int startPreCommitRunningTrans() throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 This method starts a transaction towards the PRE_COMMIT_RUNNING
  datastore. This datastore only exists between a
- [`CdbSubscription#read()`](../cdb/CdbSubscription.md#m-read-b28b830b98d6) and the following
+ [`CdbSubscription#read()`](../cdb/CdbSubscription.md#read-b28b830b98d6) and the following
  [`CdbSubscription#sync(
- com.tailf.cdb.CdbSubscriptionSyncType)`](../cdb/CdbSubscription.md#m-sync-e4ae9cc34a8a).
+ com.tailf.cdb.CdbSubscriptionSyncType)`](../cdb/CdbSubscription.md#sync-e4ae9cc34a8a).
 
  The normal use for this transaction type is to be used in a
  diffIteration where the operation is
- [`DiffIterateOperFlag#MOP_DELETED`](../conf/DiffIterateOperFlag.md#m-MOP_DELETED) and the deleted
+ [`DiffIterateOperFlag#MOP_DELETED`](../conf/DiffIterateOperFlag.md#mop_deleted-bfb313272589) and the deleted
  data values are of interest.
 
- This datastore can only be open in [`Conf#MODE_READ`](../conf/Conf.md#m-MODE_READ)
+ This datastore can only be open in [`Conf#MODE_READ`](../conf/Conf.md#mode_read-1e4ced2f015c)
  Calling this method on contexts that already started an transaction will
  throw an NavuException.
  The user will need to manage the finish of this transaction.
@@ -951,7 +951,7 @@ This method starts a transaction towards the PRE_COMMIT_RUNNING
 
 - `NavuException`
 
-### startPreCommitRunningTrans(String, String, String, String) <a href="#m-startPreCommitRunningTrans-a6bcef757ab6" id="m-startPreCommitRunningTrans-a6bcef757ab6"></a>
+### startPreCommitRunningTrans(String, String, String, String) <a href="#startprecommitrunningtrans-a6bcef757ab6" id="startprecommitrunningtrans-a6bcef757ab6"></a>
 
 ```java
 public synchronized int startPreCommitRunningTrans(
@@ -963,7 +963,7 @@ public synchronized int startPreCommitRunningTrans(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -972,20 +972,20 @@ Types: [NavuException](NavuException.md#cls-NavuException)
 - `String version`
 - `String clientId`
 
-### startRunningTrans(int) <a href="#m-startRunningTrans-f44b804de65a" id="m-startRunningTrans-f44b804de65a"></a>
+### startRunningTrans(int) <a href="#startrunningtrans-f44b804de65a" id="startrunningtrans-f44b804de65a"></a>
 
 ```java
 public synchronized int startRunningTrans(int mode) throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-This method starts a transaction towards the [`Conf#DB_RUNNING`](../conf/Conf.md#m-DB_RUNNING)
+This method starts a transaction towards the [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28)
  database to be used in the context.
 
- This method or its counterpart [`startOperationalTrans(int)`](NavuContext.md#m-startOperationalTrans-9d10bde402ce) is
+ This method or its counterpart [`startOperationalTrans(int)`](NavuContext.md#startoperationaltrans-9d10bde402ce) is
  mandatory to call for a context created by the
- [`NavuContext(Maapi)`](NavuContext.md#m-NavuContext-af99f9cc97c7) constructor before the context is
+ [`NavuContext(Maapi)`](NavuContext.md#navucontext-af99f9cc97c7) constructor before the context is
  being used in NAVU.
 
  Calling this method on contexts that already started an transaction will
@@ -994,7 +994,7 @@ This method starts a transaction towards the [`Conf#DB_RUNNING`](../conf/Conf.md
 
 **Parameters**
 
-- `int mode` - one of [`Conf#MODE_READ_WRITE`](../conf/Conf.md#m-MODE_READ_WRITE), [`Conf#MODE_READ`](../conf/Conf.md#m-MODE_READ)
+- `int mode` - one of [`Conf#MODE_READ_WRITE`](../conf/Conf.md#mode_read_write-0883a33af731), [`Conf#MODE_READ`](../conf/Conf.md#mode_read-1e4ced2f015c)
 
 **Returns:** transaction id for the started transaction
 
@@ -1002,7 +1002,7 @@ This method starts a transaction towards the [`Conf#DB_RUNNING`](../conf/Conf.md
 
 - `NavuException`
 
-### startRunningTrans(int, String, String, String, String) <a href="#m-startRunningTrans-0b37ed6a4aa8" id="m-startRunningTrans-0b37ed6a4aa8"></a>
+### startRunningTrans(int, String, String, String, String) <a href="#startrunningtrans-0b37ed6a4aa8" id="startrunningtrans-0b37ed6a4aa8"></a>
 
 ```java
 public synchronized int startRunningTrans(
@@ -1015,7 +1015,7 @@ public synchronized int startRunningTrans(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#cls-NavuException)
+Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -1025,13 +1025,13 @@ Types: [NavuException](NavuException.md#cls-NavuException)
 - `String version`
 - `String clientId`
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()
 ```
 
-### xpathEval(NavuXPathSelectResultSet, MaapiXPathEvalTrace, String, Object, String) <a href="#m-xpathEval-9750f496e526" id="m-xpathEval-9750f496e526"></a>
+### xpathEval(NavuXPathSelectResultSet, MaapiXPathEvalTrace, String, Object, String) <a href="#xpatheval-9750f496e526" id="xpatheval-9750f496e526"></a>
 
 ```java
 protected synchronized void xpathEval(
@@ -1044,7 +1044,7 @@ protected synchronized void xpathEval(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [MaapiXPathEvalTrace](../maapi/MaapiXPathEvalTrace.md#cls-MaapiXPathEvalTrace), [NavuException](NavuException.md#cls-NavuException)
+Types: [MaapiXPathEvalTrace](../maapi/MaapiXPathEvalTrace.md#maapixpathevaltrace-4a63725791bd), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Parameters**
 
@@ -1057,4 +1057,4 @@ Types: [MaapiXPathEvalTrace](../maapi/MaapiXPathEvalTrace.md#cls-MaapiXPathEvalT
 
 ## Nested Types
 
-- [DataMode](NavuContext/DataMode.md#cls-DataMode)
+- [DataMode](NavuContext/DataMode.md#datamode-25b2036cfd59)

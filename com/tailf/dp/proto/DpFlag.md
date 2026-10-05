@@ -1,26 +1,26 @@
-# DpFlag <a href="#cls-DpFlag" id="cls-DpFlag"></a>
+# DpFlag <a href="#dpflag-40a7c12f7903" id="dpflag-40a7c12f7903"></a>
 
 ```java
 public enum com.tailf.dp.proto.DpFlag
 ```
 
-Types: [DpFlag](DpFlag.md#cls-DpFlag)
+Types: [DpFlag](DpFlag.md#dpflag-40a7c12f7903)
 
 ## Members
 
 **Enum Constants**:
 
-- [NO_DEFAULTS](#m-NO_DEFAULTS)
+- [NO_DEFAULTS](#no_defaults-60bc0f0feb09)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### NO_DEFAULTS <a href="#m-NO_DEFAULTS" id="m-NO_DEFAULTS"></a>
+### NO_DEFAULTS <a href="#no_defaults-60bc0f0feb09" id="no_defaults-60bc0f0feb09"></a>
 
 ```java
 public static final com.tailf.dp.proto.DpFlag NO_DEFAULTS;
@@ -29,7 +29,7 @@ public static final com.tailf.dp.proto.DpFlag NO_DEFAULTS;
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -39,22 +39,22 @@ get integer value for enum
 
 **Returns:** int value
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.dp.proto.DpFlag valueOf(String name)
 ```
 
-Types: [DpFlag](DpFlag.md#cls-DpFlag)
+Types: [DpFlag](DpFlag.md#dpflag-40a7c12f7903)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.dp.proto.DpFlag[] values()
 ```
 
-Types: [DpFlag](DpFlag.md#cls-DpFlag)
+Types: [DpFlag](DpFlag.md#dpflag-40a7c12f7903)

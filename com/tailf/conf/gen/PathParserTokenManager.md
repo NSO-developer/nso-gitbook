@@ -1,4 +1,4 @@
-# PathParserTokenManager <a href="#cls-PathParserTokenManager" id="cls-PathParserTokenManager"></a>
+# PathParserTokenManager <a href="#pathparsertokenmanager-048d8d4f37c4" id="pathparsertokenmanager-048d8d4f37c4"></a>
 
 **Package-private**
 
@@ -8,7 +8,7 @@ class com.tailf.conf.gen.PathParserTokenManager
     implements com.tailf.conf.gen.PathParserConstants
 ```
 
-Types: [PathParserConstants](PathParserConstants.md#cls-PathParserConstants)
+Types: [PathParserConstants](PathParserConstants.md#pathparserconstants-bdbbf565b32b)
 
 Token Manager.
 
@@ -16,70 +16,70 @@ Token Manager.
 
 **Constructors**:
 
-- [PathParserTokenManager(JavaCharStream)](#m-PathParserTokenManager-f1d632e41bca)
-- [PathParserTokenManager(JavaCharStream, int)](#m-PathParserTokenManager-ab57e84d09f3)
+- [PathParserTokenManager(JavaCharStream)](#pathparsertokenmanager-f1d632e41bca)
+- [PathParserTokenManager(JavaCharStream, int)](#pathparsertokenmanager-ab57e84d09f3)
 
 **Fields**:
 
-- [CHAR](PathParserConstants.md#m-CHAR) from PathParserConstants
-- [CHAR2](PathParserConstants.md#m-CHAR2) from PathParserConstants
-- [COLON](PathParserConstants.md#m-COLON) from PathParserConstants
-- [curChar](#m-curChar)
-- [curLexState](#m-curLexState)
-- [debugStream](#m-debugStream)
-- [DEFAULT](PathParserConstants.md#m-DEFAULT) from PathParserConstants
-- [defaultLexState](#m-defaultLexState)
-- [EOF](PathParserConstants.md#m-EOF) from PathParserConstants
-- [IDENTIFIER](PathParserConstants.md#m-IDENTIFIER) from PathParserConstants
-- [IDENTIFIER2](PathParserConstants.md#m-IDENTIFIER2) from PathParserConstants
-- [input_stream](#m-input_stream)
-- [INSIDE_BRACES](PathParserConstants.md#m-INSIDE_BRACES) from PathParserConstants
-- [INSIDE_QUOTE](PathParserConstants.md#m-INSIDE_QUOTE) from PathParserConstants
-- [jjbitVec0](#m-jjbitVec0)
-- [jjbitVec2](#m-jjbitVec2)
-- [jjmatchedKind](#m-jjmatchedKind)
-- [jjmatchedPos](#m-jjmatchedPos)
-- [jjnewLexState](#m-jjnewLexState)
-- [jjnewStateCnt](#m-jjnewStateCnt)
-- [jjnextStates](#m-jjnextStates)
-- [jjround](#m-jjround)
-- [jjstrLiteralImages](#m-jjstrLiteralImages)
-- [jjtoMore](#m-jjtoMore)
-- [jjtoSkip](#m-jjtoSkip)
-- [jjtoSpecial](#m-jjtoSpecial)
-- [jjtoToken](#m-jjtoToken)
-- [LBRACE](PathParserConstants.md#m-LBRACE) from PathParserConstants
-- [LBRACKET](PathParserConstants.md#m-LBRACKET) from PathParserConstants
-- [lexStateNames](#m-lexStateNames)
-- [PERCENT](PathParserConstants.md#m-PERCENT) from PathParserConstants
-- [PERCENT2](PathParserConstants.md#m-PERCENT2) from PathParserConstants
-- [RBRACE](PathParserConstants.md#m-RBRACE) from PathParserConstants
-- [RBRACKET](PathParserConstants.md#m-RBRACKET) from PathParserConstants
-- [SLASH](PathParserConstants.md#m-SLASH) from PathParserConstants
-- [STRLIT](PathParserConstants.md#m-STRLIT) from PathParserConstants
-- [tokenImage](PathParserConstants.md#m-tokenImage) from PathParserConstants
+- [CHAR](PathParserConstants.md#char-029984bb6c9e) from PathParserConstants
+- [CHAR2](PathParserConstants.md#char2-88635d8a54cf) from PathParserConstants
+- [COLON](PathParserConstants.md#colon-2c1dbe3aeee8) from PathParserConstants
+- [curChar](#curchar-3e995b252b00)
+- [curLexState](#curlexstate-28d5fb803bd1)
+- [debugStream](#debugstream-9ee581db3e1f)
+- [DEFAULT](PathParserConstants.md#default-5965fc85722b) from PathParserConstants
+- [defaultLexState](#defaultlexstate-d63dd26271ca)
+- [EOF](PathParserConstants.md#eof-e4ab74e8c3eb) from PathParserConstants
+- [IDENTIFIER](PathParserConstants.md#identifier-73b18fdcf248) from PathParserConstants
+- [IDENTIFIER2](PathParserConstants.md#identifier2-8a04449a942b) from PathParserConstants
+- [input_stream](#input_stream-2a4833575cfa)
+- [INSIDE_BRACES](PathParserConstants.md#inside_braces-126526a96a03) from PathParserConstants
+- [INSIDE_QUOTE](PathParserConstants.md#inside_quote-1a887df059d8) from PathParserConstants
+- [jjbitVec0](#jjbitvec0-7cc00549bd7f)
+- [jjbitVec2](#jjbitvec2-3e0977c072b2)
+- [jjmatchedKind](#jjmatchedkind-d40cd9e25c29)
+- [jjmatchedPos](#jjmatchedpos-4b5241cd0b47)
+- [jjnewLexState](#jjnewlexstate-972aa67747d6)
+- [jjnewStateCnt](#jjnewstatecnt-7d2b6d45c5f6)
+- [jjnextStates](#jjnextstates-72a61a641496)
+- [jjround](#jjround-c259d1b6eef2)
+- [jjstrLiteralImages](#jjstrliteralimages-2ea424cda7b6)
+- [jjtoMore](#jjtomore-21e8bf2d54c0)
+- [jjtoSkip](#jjtoskip-5fd252490508)
+- [jjtoSpecial](#jjtospecial-ebbc0c8f864a)
+- [jjtoToken](#jjtotoken-0f3004df4c88)
+- [LBRACE](PathParserConstants.md#lbrace-29f2f43b91d0) from PathParserConstants
+- [LBRACKET](PathParserConstants.md#lbracket-2910754c7a67) from PathParserConstants
+- [lexStateNames](#lexstatenames-5ae9c2c4b657)
+- [PERCENT](PathParserConstants.md#percent-732182372b0c) from PathParserConstants
+- [PERCENT2](PathParserConstants.md#percent2-b22c5103c9d8) from PathParserConstants
+- [RBRACE](PathParserConstants.md#rbrace-0415afff6842) from PathParserConstants
+- [RBRACKET](PathParserConstants.md#rbracket-71ce92365b6c) from PathParserConstants
+- [SLASH](PathParserConstants.md#slash-3c7d823f3e28) from PathParserConstants
+- [STRLIT](PathParserConstants.md#strlit-d6078ea07628) from PathParserConstants
+- [tokenImage](PathParserConstants.md#tokenimage-c13f534d4471) from PathParserConstants
 
 **Methods**:
 
-- [getNextToken()](#m-getNextToken-dc921ada5024)
-- [jjFillToken()](#m-jjFillToken-65cab186126c)
-- [MoreLexicalActions()](#m-MoreLexicalActions-949853b6331d)
-- [ReInit(JavaCharStream)](#m-ReInit-c114d2c1f7c1)
-- [ReInit(JavaCharStream, int)](#m-ReInit-eaef39c1af93)
-- [setDebugStream(PrintStream)](#m-setDebugStream-b3ded1375b4f)
-- [SkipLexicalActions(Token)](#m-SkipLexicalActions-64f9393655bf)
-- [SwitchTo(int)](#m-SwitchTo-11e96339668c)
-- [TokenLexicalActions(Token)](#m-TokenLexicalActions-f60b6e1bdbf0)
+- [getNextToken()](#getnexttoken-dc921ada5024)
+- [jjFillToken()](#jjfilltoken-65cab186126c)
+- [MoreLexicalActions()](#morelexicalactions-949853b6331d)
+- [ReInit(JavaCharStream)](#reinit-c114d2c1f7c1)
+- [ReInit(JavaCharStream, int)](#reinit-eaef39c1af93)
+- [setDebugStream(PrintStream)](#setdebugstream-b3ded1375b4f)
+- [SkipLexicalActions(Token)](#skiplexicalactions-64f9393655bf)
+- [SwitchTo(int)](#switchto-11e96339668c)
+- [TokenLexicalActions(Token)](#tokenlexicalactions-f60b6e1bdbf0)
 
 ## Constructors
 
-### PathParserTokenManager(JavaCharStream) <a href="#m-PathParserTokenManager-f1d632e41bca" id="m-PathParserTokenManager-f1d632e41bca"></a>
+### PathParserTokenManager(JavaCharStream) <a href="#pathparsertokenmanager-f1d632e41bca" id="pathparsertokenmanager-f1d632e41bca"></a>
 
 ```java
 public PathParserTokenManager(com.tailf.conf.gen.JavaCharStream stream)
 ```
 
-Types: [JavaCharStream](JavaCharStream.md#cls-JavaCharStream)
+Types: [JavaCharStream](JavaCharStream.md#javacharstream-b90e6870657d)
 
 Constructor.
 
@@ -87,13 +87,13 @@ Constructor.
 
 - `com.tailf.conf.gen.JavaCharStream stream`
 
-### PathParserTokenManager(JavaCharStream, int) <a href="#m-PathParserTokenManager-ab57e84d09f3" id="m-PathParserTokenManager-ab57e84d09f3"></a>
+### PathParserTokenManager(JavaCharStream, int) <a href="#pathparsertokenmanager-ab57e84d09f3" id="pathparsertokenmanager-ab57e84d09f3"></a>
 
 ```java
 public PathParserTokenManager(com.tailf.conf.gen.JavaCharStream stream, int lexState)
 ```
 
-Types: [JavaCharStream](JavaCharStream.md#cls-JavaCharStream)
+Types: [JavaCharStream](JavaCharStream.md#javacharstream-b90e6870657d)
 
 Constructor.
 
@@ -105,13 +105,13 @@ Constructor.
 
 ## Fields
 
-### curChar <a href="#m-curChar" id="m-curChar"></a>
+### curChar <a href="#curchar-3e995b252b00" id="curchar-3e995b252b00"></a>
 
 ```java
 protected int curChar = null;
 ```
 
-### curLexState <a href="#m-curLexState" id="m-curLexState"></a>
+### curLexState <a href="#curlexstate-28d5fb803bd1" id="curlexstate-28d5fb803bd1"></a>
 
 **Package-private**
 
@@ -119,7 +119,7 @@ protected int curChar = null;
 int curLexState = null;
 ```
 
-### debugStream <a href="#m-debugStream" id="m-debugStream"></a>
+### debugStream <a href="#debugstream-9ee581db3e1f" id="debugstream-9ee581db3e1f"></a>
 
 ```java
 public java.io.PrintStream debugStream = null;
@@ -127,7 +127,7 @@ public java.io.PrintStream debugStream = null;
 
 Debug output.
 
-### defaultLexState <a href="#m-defaultLexState" id="m-defaultLexState"></a>
+### defaultLexState <a href="#defaultlexstate-d63dd26271ca" id="defaultlexstate-d63dd26271ca"></a>
 
 **Package-private**
 
@@ -135,15 +135,15 @@ Debug output.
 int defaultLexState = null;
 ```
 
-### input_stream <a href="#m-input_stream" id="m-input_stream"></a>
+### input_stream <a href="#input_stream-2a4833575cfa" id="input_stream-2a4833575cfa"></a>
 
 ```java
 protected com.tailf.conf.gen.JavaCharStream input_stream = null;
 ```
 
-Types: [JavaCharStream](JavaCharStream.md#cls-JavaCharStream)
+Types: [JavaCharStream](JavaCharStream.md#javacharstream-b90e6870657d)
 
-### jjbitVec0 <a href="#m-jjbitVec0" id="m-jjbitVec0"></a>
+### jjbitVec0 <a href="#jjbitvec0-7cc00549bd7f" id="jjbitvec0-7cc00549bd7f"></a>
 
 **Package-private**
 
@@ -151,7 +151,7 @@ Types: [JavaCharStream](JavaCharStream.md#cls-JavaCharStream)
 static final long[] jjbitVec0 = null;
 ```
 
-### jjbitVec2 <a href="#m-jjbitVec2" id="m-jjbitVec2"></a>
+### jjbitVec2 <a href="#jjbitvec2-3e0977c072b2" id="jjbitvec2-3e0977c072b2"></a>
 
 **Package-private**
 
@@ -159,7 +159,7 @@ static final long[] jjbitVec0 = null;
 static final long[] jjbitVec2 = null;
 ```
 
-### jjmatchedKind <a href="#m-jjmatchedKind" id="m-jjmatchedKind"></a>
+### jjmatchedKind <a href="#jjmatchedkind-d40cd9e25c29" id="jjmatchedkind-d40cd9e25c29"></a>
 
 **Package-private**
 
@@ -167,7 +167,7 @@ static final long[] jjbitVec2 = null;
 int jjmatchedKind = null;
 ```
 
-### jjmatchedPos <a href="#m-jjmatchedPos" id="m-jjmatchedPos"></a>
+### jjmatchedPos <a href="#jjmatchedpos-4b5241cd0b47" id="jjmatchedpos-4b5241cd0b47"></a>
 
 **Package-private**
 
@@ -175,7 +175,7 @@ int jjmatchedKind = null;
 int jjmatchedPos = null;
 ```
 
-### jjnewLexState <a href="#m-jjnewLexState" id="m-jjnewLexState"></a>
+### jjnewLexState <a href="#jjnewlexstate-972aa67747d6" id="jjnewlexstate-972aa67747d6"></a>
 
 ```java
 public static final int[] jjnewLexState = null;
@@ -183,7 +183,7 @@ public static final int[] jjnewLexState = null;
 
 Lex State array.
 
-### jjnewStateCnt <a href="#m-jjnewStateCnt" id="m-jjnewStateCnt"></a>
+### jjnewStateCnt <a href="#jjnewstatecnt-7d2b6d45c5f6" id="jjnewstatecnt-7d2b6d45c5f6"></a>
 
 **Package-private**
 
@@ -191,7 +191,7 @@ Lex State array.
 int jjnewStateCnt = null;
 ```
 
-### jjnextStates <a href="#m-jjnextStates" id="m-jjnextStates"></a>
+### jjnextStates <a href="#jjnextstates-72a61a641496" id="jjnextstates-72a61a641496"></a>
 
 **Package-private**
 
@@ -199,7 +199,7 @@ int jjnewStateCnt = null;
 static final int[] jjnextStates = null;
 ```
 
-### jjround <a href="#m-jjround" id="m-jjround"></a>
+### jjround <a href="#jjround-c259d1b6eef2" id="jjround-c259d1b6eef2"></a>
 
 **Package-private**
 
@@ -207,7 +207,7 @@ static final int[] jjnextStates = null;
 int jjround = null;
 ```
 
-### jjstrLiteralImages <a href="#m-jjstrLiteralImages" id="m-jjstrLiteralImages"></a>
+### jjstrLiteralImages <a href="#jjstrliteralimages-2ea424cda7b6" id="jjstrliteralimages-2ea424cda7b6"></a>
 
 ```java
 public static final String[] jjstrLiteralImages = null;
@@ -215,7 +215,7 @@ public static final String[] jjstrLiteralImages = null;
 
 Token literal values.
 
-### jjtoMore <a href="#m-jjtoMore" id="m-jjtoMore"></a>
+### jjtoMore <a href="#jjtomore-21e8bf2d54c0" id="jjtomore-21e8bf2d54c0"></a>
 
 **Package-private**
 
@@ -223,7 +223,7 @@ Token literal values.
 static final long[] jjtoMore = null;
 ```
 
-### jjtoSkip <a href="#m-jjtoSkip" id="m-jjtoSkip"></a>
+### jjtoSkip <a href="#jjtoskip-5fd252490508" id="jjtoskip-5fd252490508"></a>
 
 **Package-private**
 
@@ -231,7 +231,7 @@ static final long[] jjtoMore = null;
 static final long[] jjtoSkip = null;
 ```
 
-### jjtoSpecial <a href="#m-jjtoSpecial" id="m-jjtoSpecial"></a>
+### jjtoSpecial <a href="#jjtospecial-ebbc0c8f864a" id="jjtospecial-ebbc0c8f864a"></a>
 
 **Package-private**
 
@@ -239,7 +239,7 @@ static final long[] jjtoSkip = null;
 static final long[] jjtoSpecial = null;
 ```
 
-### jjtoToken <a href="#m-jjtoToken" id="m-jjtoToken"></a>
+### jjtoToken <a href="#jjtotoken-0f3004df4c88" id="jjtotoken-0f3004df4c88"></a>
 
 **Package-private**
 
@@ -247,7 +247,7 @@ static final long[] jjtoSpecial = null;
 static final long[] jjtoToken = null;
 ```
 
-### lexStateNames <a href="#m-lexStateNames" id="m-lexStateNames"></a>
+### lexStateNames <a href="#lexstatenames-5ae9c2c4b657" id="lexstatenames-5ae9c2c4b657"></a>
 
 ```java
 public static final String[] lexStateNames = null;
@@ -258,25 +258,25 @@ Lexer state names.
 
 ## Methods
 
-### getNextToken() <a href="#m-getNextToken-dc921ada5024" id="m-getNextToken-dc921ada5024"></a>
+### getNextToken() <a href="#getnexttoken-dc921ada5024" id="getnexttoken-dc921ada5024"></a>
 
 ```java
 public com.tailf.conf.gen.Token getNextToken()
 ```
 
-Types: [Token](Token.md#cls-Token)
+Types: [Token](Token.md#token-b7a155cc1a5e)
 
 Get the next Token.
 
-### jjFillToken() <a href="#m-jjFillToken-65cab186126c" id="m-jjFillToken-65cab186126c"></a>
+### jjFillToken() <a href="#jjfilltoken-65cab186126c" id="jjfilltoken-65cab186126c"></a>
 
 ```java
 protected com.tailf.conf.gen.Token jjFillToken()
 ```
 
-Types: [Token](Token.md#cls-Token)
+Types: [Token](Token.md#token-b7a155cc1a5e)
 
-### MoreLexicalActions() <a href="#m-MoreLexicalActions-949853b6331d" id="m-MoreLexicalActions-949853b6331d"></a>
+### MoreLexicalActions() <a href="#morelexicalactions-949853b6331d" id="morelexicalactions-949853b6331d"></a>
 
 **Package-private**
 
@@ -284,13 +284,13 @@ Types: [Token](Token.md#cls-Token)
 void MoreLexicalActions()
 ```
 
-### ReInit(JavaCharStream) <a href="#m-ReInit-c114d2c1f7c1" id="m-ReInit-c114d2c1f7c1"></a>
+### ReInit(JavaCharStream) <a href="#reinit-c114d2c1f7c1" id="reinit-c114d2c1f7c1"></a>
 
 ```java
 public void ReInit(com.tailf.conf.gen.JavaCharStream stream)
 ```
 
-Types: [JavaCharStream](JavaCharStream.md#cls-JavaCharStream)
+Types: [JavaCharStream](JavaCharStream.md#javacharstream-b90e6870657d)
 
 Reinitialise parser.
 
@@ -298,13 +298,13 @@ Reinitialise parser.
 
 - `com.tailf.conf.gen.JavaCharStream stream`
 
-### ReInit(JavaCharStream, int) <a href="#m-ReInit-eaef39c1af93" id="m-ReInit-eaef39c1af93"></a>
+### ReInit(JavaCharStream, int) <a href="#reinit-eaef39c1af93" id="reinit-eaef39c1af93"></a>
 
 ```java
 public void ReInit(com.tailf.conf.gen.JavaCharStream stream, int lexState)
 ```
 
-Types: [JavaCharStream](JavaCharStream.md#cls-JavaCharStream)
+Types: [JavaCharStream](JavaCharStream.md#javacharstream-b90e6870657d)
 
 Reinitialise parser.
 
@@ -313,7 +313,7 @@ Reinitialise parser.
 - `com.tailf.conf.gen.JavaCharStream stream`
 - `int lexState`
 
-### setDebugStream(PrintStream) <a href="#m-setDebugStream-b3ded1375b4f" id="m-setDebugStream-b3ded1375b4f"></a>
+### setDebugStream(PrintStream) <a href="#setdebugstream-b3ded1375b4f" id="setdebugstream-b3ded1375b4f"></a>
 
 ```java
 public void setDebugStream(java.io.PrintStream ds)
@@ -325,7 +325,7 @@ Set debug output.
 
 - `java.io.PrintStream ds`
 
-### SkipLexicalActions(Token) <a href="#m-SkipLexicalActions-64f9393655bf" id="m-SkipLexicalActions-64f9393655bf"></a>
+### SkipLexicalActions(Token) <a href="#skiplexicalactions-64f9393655bf" id="skiplexicalactions-64f9393655bf"></a>
 
 **Package-private**
 
@@ -333,13 +333,13 @@ Set debug output.
 void SkipLexicalActions(com.tailf.conf.gen.Token matchedToken)
 ```
 
-Types: [Token](Token.md#cls-Token)
+Types: [Token](Token.md#token-b7a155cc1a5e)
 
 **Parameters**
 
 - `com.tailf.conf.gen.Token matchedToken`
 
-### SwitchTo(int) <a href="#m-SwitchTo-11e96339668c" id="m-SwitchTo-11e96339668c"></a>
+### SwitchTo(int) <a href="#switchto-11e96339668c" id="switchto-11e96339668c"></a>
 
 ```java
 public void SwitchTo(int lexState)
@@ -351,7 +351,7 @@ Switch to specified lex state.
 
 - `int lexState`
 
-### TokenLexicalActions(Token) <a href="#m-TokenLexicalActions-f60b6e1bdbf0" id="m-TokenLexicalActions-f60b6e1bdbf0"></a>
+### TokenLexicalActions(Token) <a href="#tokenlexicalactions-f60b6e1bdbf0" id="tokenlexicalactions-f60b6e1bdbf0"></a>
 
 **Package-private**
 
@@ -359,7 +359,7 @@ Switch to specified lex state.
 void TokenLexicalActions(com.tailf.conf.gen.Token matchedToken)
 ```
 
-Types: [Token](Token.md#cls-Token)
+Types: [Token](Token.md#token-b7a155cc1a5e)
 
 **Parameters**
 

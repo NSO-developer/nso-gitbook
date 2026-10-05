@@ -8,10 +8,10 @@ NAVU (Navigation Utilities) is an API which provides increased
  data tree and a schema tree.
 
  The NAVU-Tree is built on top of the schema tree
- [`MaapiSchemas`](../maapi/MaapiSchemas.md#cls-MaapiSchemas) which is a linked structures of
- [`CSNode`](../maapi/MaapiSchemas/CSNode.md#cls-CSNode) nodes. Each node in NAVU
+ [`MaapiSchemas`](../maapi/MaapiSchemas.md#maapischemas-821ac70b83b7) which is a linked structures of
+ [`CSNode`](../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28) nodes. Each node in NAVU
  holds a reference to its corresponding `CSNode` which can be
- obtained through [`NavuNodeInfo#getCSNode()`](NavuNodeInfo.md#m-getCSNode-cf7a085aa7f5):
+ obtained through [`NavuNodeInfo#getCSNode()`](NavuNodeInfo.md#getcsnode-cf7a085aa7f5):
 
 
 
@@ -26,7 +26,7 @@ NAVU (Navigation Utilities) is an API which provides increased
  Navigation is done entirely on the populated `NAVU-Tree`.
  Each keypath represents a node or a `NavuNode`.
 
- A context ([`NavuContext`](NavuContext.md#cls-NavuContext)) needs to be created and
+ A context ([`NavuContext`](NavuContext.md#navucontext-2974e9f92a9e)) needs to be created and
  supplied before further navigation can be performed.
 
 
@@ -43,14 +43,14 @@ NAVU (Navigation Utilities) is an API which provides increased
  and its leafs with data values.
 
  In NAVU, a list instance is mapping between a
- [`ConfKey`](../conf/ConfKey.md#cls-ConfKey) and an instance of
- [`NavuListEntry`](NavuListEntry.md#cls-NavuListEntry) which is a subclass of
- [`NavuContainer`](NavuContainer.md#cls-NavuContainer). The method
- [`NavuList#elem(com.tailf.conf.ConfKey)`](NavuList.md#m-elem-172930b5966b) (or one of its
+ [`ConfKey`](../conf/ConfKey.md#confkey-e4e1ca98e867) and an instance of
+ [`NavuListEntry`](NavuListEntry.md#navulistentry-6c6e1431f291) which is a subclass of
+ [`NavuContainer`](NavuContainer.md#navucontainer-8e321756755f). The method
+ [`NavuList#elem(com.tailf.conf.ConfKey)`](NavuList.md#elem-172930b5966b) (or one of its
  overloaded variants) retrieves the list entry.
 
- A [`NavuLeaf`](NavuLeaf.md#cls-NavuLeaf) holds a value
- ([`ConfValue`](../conf/ConfValue.md#cls-ConfValue)) that is retrieved through the current
+ A [`NavuLeaf`](NavuLeaf.md#navuleaf-aa68380b180b) holds a value
+ ([`ConfValue`](../conf/ConfValue.md#confvalue-769292781c7d)) that is retrieved through the current
  `NavuContext`.
 
  NAVU caches data throughout its NAVU-Tree.
@@ -61,7 +61,7 @@ NAVU (Navigation Utilities) is an API which provides increased
  nodes and stores them in a hash map.
 
 
- An explicit instance of a [`NavuContainer`](NavuContainer.md#cls-NavuContainer) with only
+ An explicit instance of a [`NavuContainer`](NavuContainer.md#navucontainer-8e321756755f) with only
  the `NavuContext`:
 
 
@@ -81,7 +81,7 @@ NAVU (Navigation Utilities) is an API which provides increased
  Most operation on this node will throw exceptions.
 
  The only operation that should be done on the *base* node
- is to explicitly call [`NavuNode#container(Integer)`](NavuNode.md#m-container-abb10ecdc3f6)
+ is to explicitly call [`NavuNode#container(Integer)`](NavuNode.md#container-abb10ecdc3f6)
  with the `module` hash as its argument.
 
 
@@ -103,9 +103,9 @@ NAVU (Navigation Utilities) is an API which provides increased
  When we reach the point where we have a reference to a specific
  *module* the next step would be to call:
 
- [`NavuNode#container(String)`](NavuNode.md#m-container-76f5d191b16d),
- [`NavuNode#list(String)`](NavuNode.md#m-list-2c1a74a3cf07) or
- [`NavuNode#leaf(String)`](NavuNode.md#m-leaf-ac189787d67d) to move to the next
+ [`NavuNode#container(String)`](NavuNode.md#container-76f5d191b16d),
+ [`NavuNode#list(String)`](NavuNode.md#list-2c1a74a3cf07) or
+ [`NavuNode#leaf(String)`](NavuNode.md#leaf-ac189787d67d) to move to the next
  level (depending on how the *yang* module is modeled).
 
 
@@ -115,9 +115,9 @@ NAVU (Navigation Utilities) is an API which provides increased
 
 - Tree *navigation* through the `NAVU-Tree`.
 
-   - Regexp-based [`NavuContainer#select(ConfObject[])`](NavuContainer.md#m-select-336dd76cd112),
+   - Regexp-based [`NavuContainer#select(ConfObject[])`](NavuContainer.md#select-336dd76cd112),
  `NavuContainer#select(java.util.List)`,
- [`NavuContainer#select(String)`](NavuContainer.md#m-select-5031325154b9) or through simplified
+ [`NavuContainer#select(String)`](NavuContainer.md#select-5031325154b9) or through simplified
  XPath expression `NavuContainer#xPathSelect(String)`,
  `NavuContainer#xPathSelectIterate(String,
                                                         NavuNodeSetIterate)`
@@ -125,7 +125,7 @@ NAVU (Navigation Utilities) is an API which provides increased
  to enable a free search.
 
      - Invocation of actions: Actions may be invoked from
- [`NavuAction`](NavuAction.md#cls-NavuAction) nodes.
+ [`NavuAction`](NavuAction.md#navuaction-d853bc49f0e8) nodes.
 
        - Data loading on demand: Nodes are loaded when they are requested.
 
@@ -150,15 +150,15 @@ NAVU (Navigation Utilities) is an API which provides increased
  The following node types are provided by *NAVU*.
 
 
-          - [`NavuContainer`](NavuContainer.md#cls-NavuContainer) - is roughly equivalent to the
+          - [`NavuContainer`](NavuContainer.md#navucontainer-8e321756755f) - is roughly equivalent to the
  *YANG* *container* node type. Within *NAVU* it is also used
  to represent the module root and list element nodes (through the subclass
- [`NavuListEntry`](NavuListEntry.md#cls-NavuListEntry)).
+ [`NavuListEntry`](NavuListEntry.md#navulistentry-6c6e1431f291)).
 
-             - [`NavuList`](NavuList.md#cls-NavuList) - represents the *YANG* *list*
+             - [`NavuList`](NavuList.md#navulist-472e8d6d3745) - represents the *YANG* *list*
  node and provides a `NavuListEntry` collection.
 
-               - [`NavuLeaf`](NavuLeaf.md#cls-NavuLeaf) - represents *YANG* *leaf*
+               - [`NavuLeaf`](NavuLeaf.md#navuleaf-aa68380b180b) - represents *YANG* *leaf*
  nodes which hold data.
 
  *NAVU* becomes aware of the schema at start-up time. Hence, any
@@ -316,37 +316,37 @@ NAVU (Navigation Utilities) is an API which provides increased
 
 ## Types
 
-- [AbstractXMLtoConfXMLDefaultHandler](AbstractXMLtoConfXMLDefaultHandler.md#cls-AbstractXMLtoConfXMLDefaultHandler)
-- [IllegalParentNavuNodeException](IllegalParentNavuNodeException.md#cls-IllegalParentNavuNodeException)
-- [InternalSAXException](InternalSAXException.md#cls-InternalSAXException)
-- [KeyPath2NavuNode](KeyPath2NavuNode.md#cls-KeyPath2NavuNode)
-- [NavuAction](NavuAction.md#cls-NavuAction)
-- [NavuCdbSessionPool](NavuCdbSessionPool.md#cls-NavuCdbSessionPool)
-- [NavuCdbSessionPoolable](NavuCdbSessionPoolable.md#cls-NavuCdbSessionPoolable)
-- [NavuChange](NavuChange.md#cls-NavuChange)
-- [NavuChoice](NavuChoice.md#cls-NavuChoice)
-- [NavuContainer](NavuContainer.md#cls-NavuContainer)
-- [NavuContext](NavuContext.md#cls-NavuContext)
-- [NavuContextBase](NavuContextBase.md#cls-NavuContextBase)
-- [NavuCursor](NavuCursor.md#cls-NavuCursor)
-- [NavuException](NavuException.md#cls-NavuException)
-- [NavuLeaf](NavuLeaf.md#cls-NavuLeaf)
-- [NavuLeafList](NavuLeafList.md#cls-NavuLeafList)
-- [NavuList](NavuList.md#cls-NavuList)
-- [NavuListEntry](NavuListEntry.md#cls-NavuListEntry)
-- [NavuNode](NavuNode.md#cls-NavuNode)
-- [NavuNodeInfo](NavuNodeInfo.md#cls-NavuNodeInfo)
-- [NavuNodeSetIterate](NavuNodeSetIterate.md#cls-NavuNodeSetIterate)
-- [NavuParser](NavuParser.md#cls-NavuParser)
-- [NavuSAXException](NavuSAXException.md#cls-NavuSAXException)
-- [NavuXMLtoConfXMLParamGetHandler](NavuXMLtoConfXMLParamGetHandler.md#cls-NavuXMLtoConfXMLParamGetHandler)
-- [NavuXMLtoConfXMLParamHandler](NavuXMLtoConfXMLParamHandler.md#cls-NavuXMLtoConfXMLParamHandler)
-- [NavuXMLtoConfXMLParamSetHandler](NavuXMLtoConfXMLParamSetHandler.md#cls-NavuXMLtoConfXMLParamSetHandler)
-- [NavuXMLtoConfXMLParamSetPrepareHandler](NavuXMLtoConfXMLParamSetPrepareHandler.md#cls-NavuXMLtoConfXMLParamSetPrepareHandler)
-- [NavuXPathContext](NavuXPathContext.md#cls-NavuXPathContext)
-- [NoSuchNavuCaseException](NoSuchNavuCaseException.md#cls-NoSuchNavuCaseException)
-- [NoSuchNavuChoiceException](NoSuchNavuChoiceException.md#cls-NoSuchNavuChoiceException)
-- [NoSuchNavuNodeException](NoSuchNavuNodeException.md#cls-NoSuchNavuNodeException)
-- [PreparedXMLStatement](PreparedXMLStatement.md#cls-PreparedXMLStatement)
-- [SessionContainer](SessionContainer.md#cls-SessionContainer)
-- [Verbosity](Verbosity.md#cls-Verbosity)
+- [AbstractXMLtoConfXMLDefaultHandler](AbstractXMLtoConfXMLDefaultHandler.md#abstractxmltoconfxmldefaulthandler-e8abaaf7c43d)
+- [IllegalParentNavuNodeException](IllegalParentNavuNodeException.md#illegalparentnavunodeexception-a74e9b9f6d4a)
+- [InternalSAXException](InternalSAXException.md#internalsaxexception-ecf958a8bf68)
+- [KeyPath2NavuNode](KeyPath2NavuNode.md#keypath2navunode-6efe0ae690fd)
+- [NavuAction](NavuAction.md#navuaction-d853bc49f0e8)
+- [NavuCdbSessionPool](NavuCdbSessionPool.md#navucdbsessionpool-34864381adf5)
+- [NavuCdbSessionPoolable](NavuCdbSessionPoolable.md#navucdbsessionpoolable-eedc8a7da633)
+- [NavuChange](NavuChange.md#navuchange-03ae6b7f3c34)
+- [NavuChoice](NavuChoice.md#navuchoice-e8914a50eee5)
+- [NavuContainer](NavuContainer.md#navucontainer-8e321756755f)
+- [NavuContext](NavuContext.md#navucontext-2974e9f92a9e)
+- [NavuContextBase](NavuContextBase.md#navucontextbase-0061e2b12534)
+- [NavuCursor](NavuCursor.md#navucursor-11e7b4ede514)
+- [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
+- [NavuLeaf](NavuLeaf.md#navuleaf-aa68380b180b)
+- [NavuLeafList](NavuLeafList.md#navuleaflist-8d16c43a9b96)
+- [NavuList](NavuList.md#navulist-472e8d6d3745)
+- [NavuListEntry](NavuListEntry.md#navulistentry-6c6e1431f291)
+- [NavuNode](NavuNode.md#navunode-73944820c8db)
+- [NavuNodeInfo](NavuNodeInfo.md#navunodeinfo-ee275327d410)
+- [NavuNodeSetIterate](NavuNodeSetIterate.md#navunodesetiterate-6793a6b9b4c2)
+- [NavuParser](NavuParser.md#navuparser-248c0ebe248d)
+- [NavuSAXException](NavuSAXException.md#navusaxexception-11da52982a79)
+- [NavuXMLtoConfXMLParamGetHandler](NavuXMLtoConfXMLParamGetHandler.md#navuxmltoconfxmlparamgethandler-2a1e3a3c3efc)
+- [NavuXMLtoConfXMLParamHandler](NavuXMLtoConfXMLParamHandler.md#navuxmltoconfxmlparamhandler-2c9b9823361c)
+- [NavuXMLtoConfXMLParamSetHandler](NavuXMLtoConfXMLParamSetHandler.md#navuxmltoconfxmlparamsethandler-1ff1b1b00b63)
+- [NavuXMLtoConfXMLParamSetPrepareHandler](NavuXMLtoConfXMLParamSetPrepareHandler.md#navuxmltoconfxmlparamsetpreparehandler-fa4631e01f27)
+- [NavuXPathContext](NavuXPathContext.md#navuxpathcontext-b07e9b4d6361)
+- [NoSuchNavuCaseException](NoSuchNavuCaseException.md#nosuchnavucaseexception-2ffd47d19768)
+- [NoSuchNavuChoiceException](NoSuchNavuChoiceException.md#nosuchnavuchoiceexception-553bbfa1348d)
+- [NoSuchNavuNodeException](NoSuchNavuNodeException.md#nosuchnavunodeexception-55702ea478b0)
+- [PreparedXMLStatement](PreparedXMLStatement.md#preparedxmlstatement-abf8aaf04b3a)
+- [SessionContainer](SessionContainer.md#sessioncontainer-a2e0f5259245)
+- [Verbosity](Verbosity.md#verbosity-a9c618ec424f)

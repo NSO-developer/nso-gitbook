@@ -1,4 +1,4 @@
-# ResourceManager <a href="#cls-ResourceManager" id="cls-ResourceManager"></a>
+# ResourceManager <a href="#resourcemanager-e87f3c3222f5" id="resourcemanager-e87f3c3222f5"></a>
 
 ```java
 public class com.tailf.ncs.ResourceManager
@@ -75,39 +75,39 @@ The NCS resource manager able to create Maapi and Cdb objects
 
 **Constructors**:
 
-- [ResourceManager(NcsMain)](#m-ResourceManager-c2228d484dd2)
+- [ResourceManager(NcsMain)](#resourcemanager-c2228d484dd2)
 
 **Methods**:
 
-- [getCdb(Object, ResourceType, Scope, String)](#m-getCdb-8c099aecc3b8)
-- [getCdbResource(Object, ResourceType, Scope)](#m-getCdbResource-4756b4b7eac9)
-- [getCdbResource(Object, ResourceType, Scope, String)](#m-getCdbResource-819f805f6524)
-- [getMaapi(Object, Scope, String)](#m-getMaapi-5ce204d2ba92)
-- [getMaapiResource(Object, Scope)](#m-getMaapiResource-fac30372c33b)
-- [getMaapiResource(Object, Scope, String)](#m-getMaapiResource-13adc6401ea3)
-- [getResourceManager()](#m-getResourceManager-eb64f13b2c87)
-- [register(Object)](#m-register-7aae2d334f99)
-- [registerResources(Object)](#m-registerResources-28726aa911f3)
-- [run()](#m-run-b6dbda048863)
-- [start()](#m-start-79e12dafe9f8)
-- [status()](#m-status-f7d72174690b)
-- [stop()](#m-stop-a62ecc446f97)
-- [unregister()](#m-unregister-638ca6b88803)
-- [unregister(Object)](#m-unregister-f05573abc359)
-- [unregister(String)](#m-unregister-a5b7a2399ff6)
-- [unregisterAllResources()](#m-unregisterAllResources-919993219fa3)
-- [unregisterResources(Object)](#m-unregisterResources-03a05b7fe478)
-- [unregisterResources(String)](#m-unregisterResources-8b7efc728279)
+- [getCdb(Object, ResourceType, Scope, String)](#getcdb-8c099aecc3b8)
+- [getCdbResource(Object, ResourceType, Scope)](#getcdbresource-4756b4b7eac9)
+- [getCdbResource(Object, ResourceType, Scope, String)](#getcdbresource-819f805f6524)
+- [getMaapi(Object, Scope, String)](#getmaapi-5ce204d2ba92)
+- [getMaapiResource(Object, Scope)](#getmaapiresource-fac30372c33b)
+- [getMaapiResource(Object, Scope, String)](#getmaapiresource-13adc6401ea3)
+- [getResourceManager()](#getresourcemanager-eb64f13b2c87)
+- [register(Object)](#register-7aae2d334f99)
+- [registerResources(Object)](#registerresources-28726aa911f3)
+- [run()](#run-b6dbda048863)
+- [start()](#start-79e12dafe9f8)
+- [status()](#status-f7d72174690b)
+- [stop()](#stop-a62ecc446f97)
+- [unregister()](#unregister-638ca6b88803)
+- [unregister(Object)](#unregister-f05573abc359)
+- [unregister(String)](#unregister-a5b7a2399ff6)
+- [unregisterAllResources()](#unregisterallresources-919993219fa3)
+- [unregisterResources(Object)](#unregisterresources-03a05b7fe478)
+- [unregisterResources(String)](#unregisterresources-8b7efc728279)
 
 ## Constructors
 
-### ResourceManager(NcsMain) <a href="#m-ResourceManager-c2228d484dd2" id="m-ResourceManager-c2228d484dd2"></a>
+### ResourceManager(NcsMain) <a href="#resourcemanager-c2228d484dd2" id="resourcemanager-c2228d484dd2"></a>
 
 ```java
 public ResourceManager(com.tailf.ncs.NcsMain main)
 ```
 
-Types: [NcsMain](NcsMain.md#cls-NcsMain)
+Types: [NcsMain](NcsMain.md#ncsmain-eb814813aed4)
 
 **Parameters**
 
@@ -116,7 +116,7 @@ Types: [NcsMain](NcsMain.md#cls-NcsMain)
 
 ## Methods
 
-### getCdb(Object, ResourceType, Scope, String) <a href="#m-getCdb-8c099aecc3b8" id="m-getCdb-8c099aecc3b8"></a>
+### getCdb(Object, ResourceType, Scope, String) <a href="#getcdb-8c099aecc3b8" id="getcdb-8c099aecc3b8"></a>
 
 ```java
 public com.tailf.cdb.Cdb getCdb(
@@ -128,7 +128,7 @@ public com.tailf.cdb.Cdb getCdb(
     throws IllegalAccessException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [Cdb](../cdb/Cdb.md#cls-Cdb), [ResourceType](annotations/ResourceType.md#cls-ResourceType), [Scope](annotations/Scope.md#cls-Scope), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [Cdb](../cdb/Cdb.md#cdb-cb7fc41768c9), [ResourceType](annotations/ResourceType.md#resourcetype-7c885fa4653a), [Scope](annotations/Scope.md#scope-5971086e8af0), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
@@ -137,7 +137,7 @@ Types: [Cdb](../cdb/Cdb.md#cls-Cdb), [ResourceType](annotations/ResourceType.md#
 - `com.tailf.ncs.annotations.Scope scope`
 - `String qualifier`
 
-### getCdbResource(Object, ResourceType, Scope) <a href="#m-getCdbResource-4756b4b7eac9" id="m-getCdbResource-4756b4b7eac9"></a>
+### getCdbResource(Object, ResourceType, Scope) <a href="#getcdbresource-4756b4b7eac9" id="getcdbresource-4756b4b7eac9"></a>
 
 ```java
 public static com.tailf.cdb.Cdb getCdbResource(
@@ -148,7 +148,7 @@ public static com.tailf.cdb.Cdb getCdbResource(
     throws IllegalAccessException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [Cdb](../cdb/Cdb.md#cls-Cdb), [ResourceType](annotations/ResourceType.md#cls-ResourceType), [Scope](annotations/Scope.md#cls-Scope), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [Cdb](../cdb/Cdb.md#cdb-cb7fc41768c9), [ResourceType](annotations/ResourceType.md#resourcetype-7c885fa4653a), [Scope](annotations/Scope.md#scope-5971086e8af0), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
@@ -156,7 +156,7 @@ Types: [Cdb](../cdb/Cdb.md#cls-Cdb), [ResourceType](annotations/ResourceType.md#
 - `com.tailf.ncs.annotations.ResourceType cdbType`
 - `com.tailf.ncs.annotations.Scope scope`
 
-### getCdbResource(Object, ResourceType, Scope, String) <a href="#m-getCdbResource-819f805f6524" id="m-getCdbResource-819f805f6524"></a>
+### getCdbResource(Object, ResourceType, Scope, String) <a href="#getcdbresource-819f805f6524" id="getcdbresource-819f805f6524"></a>
 
 ```java
 public static com.tailf.cdb.Cdb getCdbResource(
@@ -168,7 +168,7 @@ public static com.tailf.cdb.Cdb getCdbResource(
     throws IllegalAccessException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [Cdb](../cdb/Cdb.md#cls-Cdb), [ResourceType](annotations/ResourceType.md#cls-ResourceType), [Scope](annotations/Scope.md#cls-Scope), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [Cdb](../cdb/Cdb.md#cdb-cb7fc41768c9), [ResourceType](annotations/ResourceType.md#resourcetype-7c885fa4653a), [Scope](annotations/Scope.md#scope-5971086e8af0), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
@@ -177,7 +177,7 @@ Types: [Cdb](../cdb/Cdb.md#cls-Cdb), [ResourceType](annotations/ResourceType.md#
 - `com.tailf.ncs.annotations.Scope scope`
 - `String qualifier`
 
-### getMaapi(Object, Scope, String) <a href="#m-getMaapi-5ce204d2ba92" id="m-getMaapi-5ce204d2ba92"></a>
+### getMaapi(Object, Scope, String) <a href="#getmaapi-5ce204d2ba92" id="getmaapi-5ce204d2ba92"></a>
 
 ```java
 public com.tailf.maapi.Maapi getMaapi(
@@ -188,7 +188,7 @@ public com.tailf.maapi.Maapi getMaapi(
     throws IllegalAccessException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [Maapi](../maapi/Maapi.md#cls-Maapi), [Scope](annotations/Scope.md#cls-Scope), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [Maapi](../maapi/Maapi.md#maapi-67bcbe89c42e), [Scope](annotations/Scope.md#scope-5971086e8af0), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
@@ -196,7 +196,7 @@ Types: [Maapi](../maapi/Maapi.md#cls-Maapi), [Scope](annotations/Scope.md#cls-Sc
 - `com.tailf.ncs.annotations.Scope scope`
 - `String qualifier`
 
-### getMaapiResource(Object, Scope) <a href="#m-getMaapiResource-fac30372c33b" id="m-getMaapiResource-fac30372c33b"></a>
+### getMaapiResource(Object, Scope) <a href="#getmaapiresource-fac30372c33b" id="getmaapiresource-fac30372c33b"></a>
 
 ```java
 public static com.tailf.maapi.Maapi getMaapiResource(
@@ -206,14 +206,14 @@ public static com.tailf.maapi.Maapi getMaapiResource(
     throws IllegalAccessException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [Maapi](../maapi/Maapi.md#cls-Maapi), [Scope](annotations/Scope.md#cls-Scope), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [Maapi](../maapi/Maapi.md#maapi-67bcbe89c42e), [Scope](annotations/Scope.md#scope-5971086e8af0), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
 - `Object object`
 - `com.tailf.ncs.annotations.Scope scope`
 
-### getMaapiResource(Object, Scope, String) <a href="#m-getMaapiResource-13adc6401ea3" id="m-getMaapiResource-13adc6401ea3"></a>
+### getMaapiResource(Object, Scope, String) <a href="#getmaapiresource-13adc6401ea3" id="getmaapiresource-13adc6401ea3"></a>
 
 ```java
 public static com.tailf.maapi.Maapi getMaapiResource(
@@ -224,7 +224,7 @@ public static com.tailf.maapi.Maapi getMaapiResource(
     throws IllegalAccessException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [Maapi](../maapi/Maapi.md#cls-Maapi), [Scope](annotations/Scope.md#cls-Scope), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [Maapi](../maapi/Maapi.md#maapi-67bcbe89c42e), [Scope](annotations/Scope.md#scope-5971086e8af0), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
@@ -232,17 +232,17 @@ Types: [Maapi](../maapi/Maapi.md#cls-Maapi), [Scope](annotations/Scope.md#cls-Sc
 - `com.tailf.ncs.annotations.Scope scope`
 - `String qualifier`
 
-### getResourceManager() <a href="#m-getResourceManager-eb64f13b2c87" id="m-getResourceManager-eb64f13b2c87"></a>
+### getResourceManager() <a href="#getresourcemanager-eb64f13b2c87" id="getresourcemanager-eb64f13b2c87"></a>
 
 ```java
 public static com.tailf.ncs.ResourceManager getResourceManager()
 ```
 
-Types: [ResourceManager](ResourceManager.md#cls-ResourceManager)
+Types: [ResourceManager](ResourceManager.md#resourcemanager-e87f3c3222f5)
 
-**Deprecated:** Use [`NcsMain#getResourceManager()`](NcsMain.md#m-getResourceManager-eb64f13b2c87) instead.
+**Deprecated:** Use [`NcsMain#getResourceManager()`](NcsMain.md#getresourcemanager-eb64f13b2c87) instead.
 
-### register(Object) <a href="#m-register-7aae2d334f99" id="m-register-7aae2d334f99"></a>
+### register(Object) <a href="#register-7aae2d334f99" id="register-7aae2d334f99"></a>
 
 ```java
 public void register(
@@ -251,13 +251,13 @@ public void register(
     throws IllegalAccessException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
 - `Object annotatedObject`
 
-### registerResources(Object) <a href="#m-registerResources-28726aa911f3" id="m-registerResources-28726aa911f3"></a>
+### registerResources(Object) <a href="#registerresources-28726aa911f3" id="registerresources-28726aa911f3"></a>
 
 ```java
 public static synchronized void registerResources(
@@ -266,7 +266,7 @@ public static synchronized void registerResources(
     throws IllegalAccessException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 This method will inject resources into annotated fields of
  the object instances passed as argument
@@ -281,37 +281,37 @@ This method will inject resources into annotated fields of
 - `ConfException`
 - `IOException`
 
-### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
+### run() <a href="#run-b6dbda048863" id="run-b6dbda048863"></a>
 
 ```java
 public void run()
 ```
 
-### start() <a href="#m-start-79e12dafe9f8" id="m-start-79e12dafe9f8"></a>
+### start() <a href="#start-79e12dafe9f8" id="start-79e12dafe9f8"></a>
 
 ```java
 public synchronized void start()
 ```
 
-### status() <a href="#m-status-f7d72174690b" id="m-status-f7d72174690b"></a>
+### status() <a href="#status-f7d72174690b" id="status-f7d72174690b"></a>
 
 ```java
 public String[] status()
 ```
 
-### stop() <a href="#m-stop-a62ecc446f97" id="m-stop-a62ecc446f97"></a>
+### stop() <a href="#stop-a62ecc446f97" id="stop-a62ecc446f97"></a>
 
 ```java
 public synchronized void stop()
 ```
 
-### unregister() <a href="#m-unregister-638ca6b88803" id="m-unregister-638ca6b88803"></a>
+### unregister() <a href="#unregister-638ca6b88803" id="unregister-638ca6b88803"></a>
 
 ```java
 public synchronized void unregister() throws IllegalAccessException
 ```
 
-### unregister(Object) <a href="#m-unregister-f05573abc359" id="m-unregister-f05573abc359"></a>
+### unregister(Object) <a href="#unregister-f05573abc359" id="unregister-f05573abc359"></a>
 
 ```java
 public synchronized void unregister(Object annotatedObject) throws IllegalAccessException
@@ -321,7 +321,7 @@ public synchronized void unregister(Object annotatedObject) throws IllegalAccess
 
 - `Object annotatedObject`
 
-### unregister(String) <a href="#m-unregister-a5b7a2399ff6" id="m-unregister-a5b7a2399ff6"></a>
+### unregister(String) <a href="#unregister-a5b7a2399ff6" id="unregister-a5b7a2399ff6"></a>
 
 ```java
 public synchronized void unregister(String packageName)
@@ -331,7 +331,7 @@ public synchronized void unregister(String packageName)
 
 - `String packageName`
 
-### unregisterAllResources() <a href="#m-unregisterAllResources-919993219fa3" id="m-unregisterAllResources-919993219fa3"></a>
+### unregisterAllResources() <a href="#unregisterallresources-919993219fa3" id="unregisterallresources-919993219fa3"></a>
 
 ```java
 public static synchronized void unregisterAllResources() throws IllegalAccessException
@@ -343,7 +343,7 @@ Unregister all resources
 
 - `IllegalAccessException`
 
-### unregisterResources(Object) <a href="#m-unregisterResources-03a05b7fe478" id="m-unregisterResources-03a05b7fe478"></a>
+### unregisterResources(Object) <a href="#unregisterresources-03a05b7fe478" id="unregisterresources-03a05b7fe478"></a>
 
 ```java
 public static synchronized void unregisterResources(
@@ -366,7 +366,7 @@ Unregister all resources for an object instance.
 
 - `IllegalAccessException`
 
-### unregisterResources(String) <a href="#m-unregisterResources-8b7efc728279" id="m-unregisterResources-8b7efc728279"></a>
+### unregisterResources(String) <a href="#unregisterresources-8b7efc728279" id="unregisterresources-8b7efc728279"></a>
 
 ```java
 public static synchronized void unregisterResources(String packageName)

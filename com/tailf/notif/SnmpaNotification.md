@@ -1,11 +1,11 @@
-# SnmpaNotification <a href="#cls-SnmpaNotification" id="cls-SnmpaNotification"></a>
+# SnmpaNotification <a href="#snmpanotification-1dc17468977a" id="snmpanotification-1dc17468977a"></a>
 
 ```java
 public class com.tailf.notif.SnmpaNotification
     extends com.tailf.notif.Notification
 ```
 
-Types: [Notification](Notification.md#cls-Notification)
+Types: [Notification](Notification.md#notification-b2e7d82d4215)
 
 Data structure SNMP agent notifications.
 
@@ -13,46 +13,46 @@ Data structure SNMP agent notifications.
 
 **Constructors**:
 
-- [SnmpaNotification(int, int, int, InetAddress, ConfObject, int, int, int, int, Varbind[], TrapInfo)](#m-SnmpaNotification-d23ddb9474be)
+- [SnmpaNotification(int, int, int, InetAddress, ConfObject, int, int, int, int, Varbind[], TrapInfo)](#snmpanotification-d23ddb9474be)
 
 **Fields**:
 
-- [SNMPA_PDU_GET_BULK_REQUEST](#m-SNMPA_PDU_GET_BULK_REQUEST)
-- [SNMPA_PDU_GET_NEXT_REQUEST](#m-SNMPA_PDU_GET_NEXT_REQUEST)
-- [SNMPA_PDU_GET_REQUEST](#m-SNMPA_PDU_GET_REQUEST)
-- [SNMPA_PDU_GET_RESPONSE](#m-SNMPA_PDU_GET_RESPONSE)
-- [SNMPA_PDU_INFORM](#m-SNMPA_PDU_INFORM)
-- [SNMPA_PDU_REPORT](#m-SNMPA_PDU_REPORT)
-- [SNMPA_PDU_SET_REQUEST](#m-SNMPA_PDU_SET_REQUEST)
-- [SNMPA_PDU_V1TRAP](#m-SNMPA_PDU_V1TRAP)
-- [SNMPA_PDU_V2TRAP](#m-SNMPA_PDU_V2TRAP)
-- [type](Notification.md#m-type) from Notification
+- [SNMPA_PDU_GET_BULK_REQUEST](#snmpa_pdu_get_bulk_request-c4cf740c8ebb)
+- [SNMPA_PDU_GET_NEXT_REQUEST](#snmpa_pdu_get_next_request-991892c3d4b4)
+- [SNMPA_PDU_GET_REQUEST](#snmpa_pdu_get_request-4092ba28cdd3)
+- [SNMPA_PDU_GET_RESPONSE](#snmpa_pdu_get_response-7f84facbc1a5)
+- [SNMPA_PDU_INFORM](#snmpa_pdu_inform-6a7d1835e8b5)
+- [SNMPA_PDU_REPORT](#snmpa_pdu_report-ffa28e725fdc)
+- [SNMPA_PDU_SET_REQUEST](#snmpa_pdu_set_request-9fde39c7d2d1)
+- [SNMPA_PDU_V1TRAP](#snmpa_pdu_v1trap-67541dba9349)
+- [SNMPA_PDU_V2TRAP](#snmpa_pdu_v2trap-d06cbef2315b)
+- [type](Notification.md#type-6ebb3673fbb6) from Notification
 
 **Methods**:
 
-- [getErrorIndex()](#m-getErrorIndex-aadca6a93413)
-- [getErrorStatus()](#m-getErrorStatus-ad62464925f5)
-- [getIP()](#m-getIP-c2f1d3db411f)
-- [getIPValue()](#m-getIPValue-7154021b2d96)
-- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
-- [getNumVariables()](#m-getNumVariables-5b1d8e7ecf95)
-- [getPDUType()](#m-getPDUType-1f4c201e2247)
-- [getPort()](#m-getPort-a2225f868a2b)
-- [getRequestId()](#m-getRequestId-7e5a443c4675)
-- [getTransaction()](#m-getTransaction-4f1c72a828a1)
-- [getTrapInfo()](#m-getTrapInfo-b50e18c963f5)
-- [getVarBinds()](#m-getVarBinds-af55445f0448)
-- [toString()](#m-toString-e9d48c5503ef)
+- [getErrorIndex()](#geterrorindex-aadca6a93413)
+- [getErrorStatus()](#geterrorstatus-ad62464925f5)
+- [getIP()](#getip-c2f1d3db411f)
+- [getIPValue()](#getipvalue-7154021b2d96)
+- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getNumVariables()](#getnumvariables-5b1d8e7ecf95)
+- [getPDUType()](#getpdutype-1f4c201e2247)
+- [getPort()](#getport-a2225f868a2b)
+- [getRequestId()](#getrequestid-7e5a443c4675)
+- [getTransaction()](#gettransaction-4f1c72a828a1)
+- [getTrapInfo()](#gettrapinfo-b50e18c963f5)
+- [getVarBinds()](#getvarbinds-af55445f0448)
+- [toString()](#tostring-e9d48c5503ef)
 
 **Nested Types**:
 
-- [SnmpVar](SnmpaNotification/SnmpVar.md#cls-SnmpVar)
-- [TrapInfo](SnmpaNotification/TrapInfo.md#cls-TrapInfo)
-- [Varbind](SnmpaNotification/Varbind.md#cls-Varbind)
+- [SnmpVar](SnmpaNotification/SnmpVar.md#snmpvar-63e4e33a3a0a)
+- [TrapInfo](SnmpaNotification/TrapInfo.md#trapinfo-b7d40e1a171a)
+- [Varbind](SnmpaNotification/Varbind.md#varbind-54c1201bffe5)
 
 ## Constructors
 
-### SnmpaNotification(int, int, int, InetAddress, ConfObject, int, int, int, int, Varbind[], TrapInfo) <a href="#m-SnmpaNotification-d23ddb9474be" id="m-SnmpaNotification-d23ddb9474be"></a>
+### SnmpaNotification(int, int, int, InetAddress, ConfObject, int, int, int, int, Varbind[], TrapInfo) <a href="#snmpanotification-d23ddb9474be" id="snmpanotification-d23ddb9474be"></a>
 
 ```java
 public SnmpaNotification(
@@ -70,7 +70,7 @@ public SnmpaNotification(
 )
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [Varbind](SnmpaNotification/Varbind.md#cls-Varbind), [TrapInfo](SnmpaNotification/TrapInfo.md#cls-TrapInfo)
+Types: [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [Varbind](SnmpaNotification/Varbind.md#varbind-54c1201bffe5), [TrapInfo](SnmpaNotification/TrapInfo.md#trapinfo-b7d40e1a171a)
 
 **Parameters**
 
@@ -89,55 +89,55 @@ Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [Varbind](SnmpaNotifi
 
 ## Fields
 
-### SNMPA_PDU_GET_BULK_REQUEST <a href="#m-SNMPA_PDU_GET_BULK_REQUEST" id="m-SNMPA_PDU_GET_BULK_REQUEST"></a>
+### SNMPA_PDU_GET_BULK_REQUEST <a href="#snmpa_pdu_get_bulk_request-c4cf740c8ebb" id="snmpa_pdu_get_bulk_request-c4cf740c8ebb"></a>
 
 ```java
 public static final int SNMPA_PDU_GET_BULK_REQUEST = 8;
 ```
 
-### SNMPA_PDU_GET_NEXT_REQUEST <a href="#m-SNMPA_PDU_GET_NEXT_REQUEST" id="m-SNMPA_PDU_GET_NEXT_REQUEST"></a>
+### SNMPA_PDU_GET_NEXT_REQUEST <a href="#snmpa_pdu_get_next_request-991892c3d4b4" id="snmpa_pdu_get_next_request-991892c3d4b4"></a>
 
 ```java
 public static final int SNMPA_PDU_GET_NEXT_REQUEST = 6;
 ```
 
-### SNMPA_PDU_GET_REQUEST <a href="#m-SNMPA_PDU_GET_REQUEST" id="m-SNMPA_PDU_GET_REQUEST"></a>
+### SNMPA_PDU_GET_REQUEST <a href="#snmpa_pdu_get_request-4092ba28cdd3" id="snmpa_pdu_get_request-4092ba28cdd3"></a>
 
 ```java
 public static final int SNMPA_PDU_GET_REQUEST = 5;
 ```
 
-### SNMPA_PDU_GET_RESPONSE <a href="#m-SNMPA_PDU_GET_RESPONSE" id="m-SNMPA_PDU_GET_RESPONSE"></a>
+### SNMPA_PDU_GET_RESPONSE <a href="#snmpa_pdu_get_response-7f84facbc1a5" id="snmpa_pdu_get_response-7f84facbc1a5"></a>
 
 ```java
 public static final int SNMPA_PDU_GET_RESPONSE = 4;
 ```
 
-### SNMPA_PDU_INFORM <a href="#m-SNMPA_PDU_INFORM" id="m-SNMPA_PDU_INFORM"></a>
+### SNMPA_PDU_INFORM <a href="#snmpa_pdu_inform-6a7d1835e8b5" id="snmpa_pdu_inform-6a7d1835e8b5"></a>
 
 ```java
 public static final int SNMPA_PDU_INFORM = 3;
 ```
 
-### SNMPA_PDU_REPORT <a href="#m-SNMPA_PDU_REPORT" id="m-SNMPA_PDU_REPORT"></a>
+### SNMPA_PDU_REPORT <a href="#snmpa_pdu_report-ffa28e725fdc" id="snmpa_pdu_report-ffa28e725fdc"></a>
 
 ```java
 public static final int SNMPA_PDU_REPORT = 7;
 ```
 
-### SNMPA_PDU_SET_REQUEST <a href="#m-SNMPA_PDU_SET_REQUEST" id="m-SNMPA_PDU_SET_REQUEST"></a>
+### SNMPA_PDU_SET_REQUEST <a href="#snmpa_pdu_set_request-9fde39c7d2d1" id="snmpa_pdu_set_request-9fde39c7d2d1"></a>
 
 ```java
 public static final int SNMPA_PDU_SET_REQUEST = 9;
 ```
 
-### SNMPA_PDU_V1TRAP <a href="#m-SNMPA_PDU_V1TRAP" id="m-SNMPA_PDU_V1TRAP"></a>
+### SNMPA_PDU_V1TRAP <a href="#snmpa_pdu_v1trap-67541dba9349" id="snmpa_pdu_v1trap-67541dba9349"></a>
 
 ```java
 public static final int SNMPA_PDU_V1TRAP = 1;
 ```
 
-### SNMPA_PDU_V2TRAP <a href="#m-SNMPA_PDU_V2TRAP" id="m-SNMPA_PDU_V2TRAP"></a>
+### SNMPA_PDU_V2TRAP <a href="#snmpa_pdu_v2trap-d06cbef2315b" id="snmpa_pdu_v2trap-d06cbef2315b"></a>
 
 ```java
 public static final int SNMPA_PDU_V2TRAP = 2;
@@ -146,33 +146,33 @@ public static final int SNMPA_PDU_V2TRAP = 2;
 
 ## Methods
 
-### getErrorIndex() <a href="#m-getErrorIndex-aadca6a93413" id="m-getErrorIndex-aadca6a93413"></a>
+### getErrorIndex() <a href="#geterrorindex-aadca6a93413" id="geterrorindex-aadca6a93413"></a>
 
 ```java
 public int getErrorIndex()
 ```
 
-### getErrorStatus() <a href="#m-getErrorStatus-ad62464925f5" id="m-getErrorStatus-ad62464925f5"></a>
+### getErrorStatus() <a href="#geterrorstatus-ad62464925f5" id="geterrorstatus-ad62464925f5"></a>
 
 ```java
 public int getErrorStatus()
 ```
 
-### getIP() <a href="#m-getIP-c2f1d3db411f" id="m-getIP-c2f1d3db411f"></a>
+### getIP() <a href="#getip-c2f1d3db411f" id="getip-c2f1d3db411f"></a>
 
 ```java
 public java.net.InetAddress getIP()
 ```
 
-### getIPValue() <a href="#m-getIPValue-7154021b2d96" id="m-getIPValue-7154021b2d96"></a>
+### getIPValue() <a href="#getipvalue-7154021b2d96" id="getipvalue-7154021b2d96"></a>
 
 ```java
 public com.tailf.conf.ConfObject getIPValue()
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject)
+Types: [ConfObject](../conf/ConfObject.md#confobject-5433616953b2)
 
-### getNumVariables() <a href="#m-getNumVariables-5b1d8e7ecf95" id="m-getNumVariables-5b1d8e7ecf95"></a>
+### getNumVariables() <a href="#getnumvariables-5b1d8e7ecf95" id="getnumvariables-5b1d8e7ecf95"></a>
 
 ```java
 public int getNumVariables()
@@ -180,47 +180,47 @@ public int getNumVariables()
 
 size of vbinds
 
-### getPDUType() <a href="#m-getPDUType-1f4c201e2247" id="m-getPDUType-1f4c201e2247"></a>
+### getPDUType() <a href="#getpdutype-1f4c201e2247" id="getpdutype-1f4c201e2247"></a>
 
 ```java
 public int getPDUType()
 ```
 
-### getPort() <a href="#m-getPort-a2225f868a2b" id="m-getPort-a2225f868a2b"></a>
+### getPort() <a href="#getport-a2225f868a2b" id="getport-a2225f868a2b"></a>
 
 ```java
 public int getPort()
 ```
 
-### getRequestId() <a href="#m-getRequestId-7e5a443c4675" id="m-getRequestId-7e5a443c4675"></a>
+### getRequestId() <a href="#getrequestid-7e5a443c4675" id="getrequestid-7e5a443c4675"></a>
 
 ```java
 public int getRequestId()
 ```
 
-### getTransaction() <a href="#m-getTransaction-4f1c72a828a1" id="m-getTransaction-4f1c72a828a1"></a>
+### getTransaction() <a href="#gettransaction-4f1c72a828a1" id="gettransaction-4f1c72a828a1"></a>
 
 ```java
 public int getTransaction()
 ```
 
-### getTrapInfo() <a href="#m-getTrapInfo-b50e18c963f5" id="m-getTrapInfo-b50e18c963f5"></a>
+### getTrapInfo() <a href="#gettrapinfo-b50e18c963f5" id="gettrapinfo-b50e18c963f5"></a>
 
 ```java
 public com.tailf.notif.SnmpaNotification.TrapInfo getTrapInfo()
 ```
 
-Types: [TrapInfo](SnmpaNotification/TrapInfo.md#cls-TrapInfo)
+Types: [TrapInfo](SnmpaNotification/TrapInfo.md#trapinfo-b7d40e1a171a)
 
-### getVarBinds() <a href="#m-getVarBinds-af55445f0448" id="m-getVarBinds-af55445f0448"></a>
+### getVarBinds() <a href="#getvarbinds-af55445f0448" id="getvarbinds-af55445f0448"></a>
 
 ```java
 public com.tailf.notif.SnmpaNotification.Varbind[] getVarBinds()
 ```
 
-Types: [Varbind](SnmpaNotification/Varbind.md#cls-Varbind)
+Types: [Varbind](SnmpaNotification/Varbind.md#varbind-54c1201bffe5)
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()
@@ -229,6 +229,6 @@ public String toString()
 
 ## Nested Types
 
-- [SnmpVar](SnmpaNotification/SnmpVar.md#cls-SnmpVar)
-- [TrapInfo](SnmpaNotification/TrapInfo.md#cls-TrapInfo)
-- [Varbind](SnmpaNotification/Varbind.md#cls-Varbind)
+- [SnmpVar](SnmpaNotification/SnmpVar.md#snmpvar-63e4e33a3a0a)
+- [TrapInfo](SnmpaNotification/TrapInfo.md#trapinfo-b7d40e1a171a)
+- [Varbind](SnmpaNotification/Varbind.md#varbind-54c1201bffe5)

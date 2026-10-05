@@ -1,4 +1,4 @@
-# ProxyUtils <a href="#cls-ProxyUtils" id="cls-ProxyUtils"></a>
+# ProxyUtils <a href="#proxyutils-d543cd11793e" id="proxyutils-d543cd11793e"></a>
 
 ```java
 public class com.tailf.dp.annotations.ProxyUtils
@@ -10,16 +10,16 @@ Helper class for callback proxys
 
 **Constructors**:
 
-- [ProxyUtils()](#m-ProxyUtils-58dca161942d)
+- [ProxyUtils()](#proxyutils-58dca161942d)
 
 **Methods**:
 
-- [compareMethods(Method, Method)](#m-compareMethods-ffc443ede70d)
-- [invocationTargetCheck(InvocationTargetException)](#m-invocationTargetCheck-20a147521b60)
+- [compareMethods(Method, Method)](#comparemethods-ffc443ede70d)
+- [invocationTargetCheck(InvocationTargetException)](#invocationtargetcheck-20a147521b60)
 
 ## Constructors
 
-### ProxyUtils() <a href="#m-ProxyUtils-58dca161942d" id="m-ProxyUtils-58dca161942d"></a>
+### ProxyUtils() <a href="#proxyutils-58dca161942d" id="proxyutils-58dca161942d"></a>
 
 ```java
 public ProxyUtils()
@@ -28,7 +28,7 @@ public ProxyUtils()
 
 ## Methods
 
-### compareMethods(Method, Method) <a href="#m-compareMethods-ffc443ede70d" id="m-compareMethods-ffc443ede70d"></a>
+### compareMethods(Method, Method) <a href="#comparemethods-ffc443ede70d" id="comparemethods-ffc443ede70d"></a>
 
 ```java
 public static boolean compareMethods(
@@ -47,7 +47,7 @@ Comparison of method signatures. Compares arguments and return types but
 
 **Returns:** true if arguments and return type of methods coincide
 
-### invocationTargetCheck(InvocationTargetException) <a href="#m-invocationTargetCheck-20a147521b60" id="m-invocationTargetCheck-20a147521b60"></a>
+### invocationTargetCheck(InvocationTargetException) <a href="#invocationtargetcheck-20a147521b60" id="invocationtargetcheck-20a147521b60"></a>
 
 ```java
 public static com.tailf.dp.DpCallbackException invocationTargetCheck(
@@ -55,7 +55,7 @@ public static com.tailf.dp.DpCallbackException invocationTargetCheck(
 )
 ```
 
-Types: [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
+Types: [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 **Parameters**
 

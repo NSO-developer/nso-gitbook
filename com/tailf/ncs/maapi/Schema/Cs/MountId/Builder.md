@@ -1,4 +1,4 @@
-# Builder <a href="#cls-Builder" id="cls-Builder"></a>
+# Builder <a href="#builder-21f09e83781d" id="builder-21f09e83781d"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.Cs.MountId.Builder
@@ -9,23 +9,23 @@ public static final class com.tailf.ncs.maapi.Schema.Cs.MountId.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asReader-b5c0f2a8d115)
-- [getNone()](#m-getNone-e31bfdbffa7f)
-- [getValue()](#m-getValue-d93864668c40)
-- [initValue()](#m-initValue-a7755fffc529)
-- [isNone()](#m-isNone-e8a993ad0453)
-- [isValue()](#m-isValue-7280ea8211f4)
-- [setNone(Void)](#m-setNone-46764db867d5)
-- [setValue(Reader)](#m-setValue-d872edb1fc9e)
-- [which()](#m-which-0b2d23db5ed0)
+- [asReader()](#asreader-b5c0f2a8d115)
+- [getNone()](#getnone-e31bfdbffa7f)
+- [getValue()](#getvalue-d93864668c40)
+- [initValue()](#initvalue-a7755fffc529)
+- [isNone()](#isnone-e8a993ad0453)
+- [isValue()](#isvalue-7280ea8211f4)
+- [setNone(Void)](#setnone-46764db867d5)
+- [setValue(Reader)](#setvalue-d872edb1fc9e)
+- [which()](#which-0b2d23db5ed0)
 
 ## Constructors
 
-### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
+### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -50,49 +50,49 @@ Builder(
 
 ## Methods
 
-### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
+### asReader() <a href="#asreader-b5c0f2a8d115" id="asreader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.MountId.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#cls-Reader)
+Types: [Reader](Reader.md#reader-b2467a96ddff)
 
-### getNone() <a href="#m-getNone-e31bfdbffa7f" id="m-getNone-e31bfdbffa7f"></a>
+### getNone() <a href="#getnone-e31bfdbffa7f" id="getnone-e31bfdbffa7f"></a>
 
 ```java
 public final org.capnproto.Void getNone()
 ```
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.QTag.Builder getValue()
 ```
 
-Types: [Builder](../../QTag/Builder.md#cls-Builder)
+Types: [Builder](../../QTag/Builder.md#builder-21f09e83781d)
 
-### initValue() <a href="#m-initValue-a7755fffc529" id="m-initValue-a7755fffc529"></a>
+### initValue() <a href="#initvalue-a7755fffc529" id="initvalue-a7755fffc529"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.QTag.Builder initValue()
 ```
 
-Types: [Builder](../../QTag/Builder.md#cls-Builder)
+Types: [Builder](../../QTag/Builder.md#builder-21f09e83781d)
 
-### isNone() <a href="#m-isNone-e8a993ad0453" id="m-isNone-e8a993ad0453"></a>
+### isNone() <a href="#isnone-e8a993ad0453" id="isnone-e8a993ad0453"></a>
 
 ```java
 public final boolean isNone()
 ```
 
-### isValue() <a href="#m-isValue-7280ea8211f4" id="m-isValue-7280ea8211f4"></a>
+### isValue() <a href="#isvalue-7280ea8211f4" id="isvalue-7280ea8211f4"></a>
 
 ```java
 public final boolean isValue()
 ```
 
-### setNone(Void) <a href="#m-setNone-46764db867d5" id="m-setNone-46764db867d5"></a>
+### setNone(Void) <a href="#setnone-46764db867d5" id="setnone-46764db867d5"></a>
 
 ```java
 public final void setNone(org.capnproto.Void value)
@@ -102,22 +102,22 @@ public final void setNone(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-### setValue(Reader) <a href="#m-setValue-d872edb1fc9e" id="m-setValue-d872edb1fc9e"></a>
+### setValue(Reader) <a href="#setvalue-d872edb1fc9e" id="setvalue-d872edb1fc9e"></a>
 
 ```java
 public final void setValue(com.tailf.ncs.maapi.Schema.QTag.Reader value)
 ```
 
-Types: [Reader](../../QTag/Reader.md#cls-Reader)
+Types: [Reader](../../QTag/Reader.md#reader-b2467a96ddff)
 
 **Parameters**
 
 - `com.tailf.ncs.maapi.Schema.QTag.Reader value`
 
-### which() <a href="#m-which-0b2d23db5ed0" id="m-which-0b2d23db5ed0"></a>
+### which() <a href="#which-0b2d23db5ed0" id="which-0b2d23db5ed0"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.Cs.MountId.Which which()
 ```
 
-Types: [Which](Which.md#cls-Which)
+Types: [Which](Which.md#which-92b652653aa7)

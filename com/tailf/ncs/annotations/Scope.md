@@ -1,10 +1,10 @@
-# Scope <a href="#cls-Scope" id="cls-Scope"></a>
+# Scope <a href="#scope-5971086e8af0" id="scope-5971086e8af0"></a>
 
 ```java
 public enum com.tailf.ncs.annotations.Scope
 ```
 
-Types: [Scope](Scope.md#cls-Scope)
+Types: [Scope](Scope.md#scope-5971086e8af0)
 
 Scope for resources managed by the Resource Manager
 
@@ -12,18 +12,18 @@ Scope for resources managed by the Resource Manager
 
 **Enum Constants**:
 
-- [CONTEXT](#m-CONTEXT)
-- [INSTANCE](#m-INSTANCE)
+- [CONTEXT](#context-87b787ddc857)
+- [INSTANCE](#instance-5a6b3c2a0c71)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### CONTEXT <a href="#m-CONTEXT" id="m-CONTEXT"></a>
+### CONTEXT <a href="#context-87b787ddc857" id="context-87b787ddc857"></a>
 
 ```java
 public static final com.tailf.ncs.annotations.Scope CONTEXT;
@@ -36,7 +36,7 @@ Context scope implies that the resource is
  be extended between packages.
  If the qualifier is not given it becomes "DEFAULT"
 
-### INSTANCE <a href="#m-INSTANCE" id="m-INSTANCE"></a>
+### INSTANCE <a href="#instance-5a6b3c2a0c71" id="instance-5a6b3c2a0c71"></a>
 
 ```java
 public static final com.tailf.ncs.annotations.Scope INSTANCE;
@@ -50,28 +50,28 @@ Instance scope implies that all instances will
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.ncs.annotations.Scope valueOf(String name)
 ```
 
-Types: [Scope](Scope.md#cls-Scope)
+Types: [Scope](Scope.md#scope-5971086e8af0)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.ncs.annotations.Scope[] values()
 ```
 
-Types: [Scope](Scope.md#cls-Scope)
+Types: [Scope](Scope.md#scope-5971086e8af0)

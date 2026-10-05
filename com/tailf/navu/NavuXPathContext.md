@@ -1,35 +1,35 @@
-# NavuXPathContext <a href="#cls-NavuXPathContext" id="cls-NavuXPathContext"></a>
+# NavuXPathContext <a href="#navuxpathcontext-b07e9b4d6361" id="navuxpathcontext-b07e9b4d6361"></a>
 
 ```java
 public class com.tailf.navu.NavuXPathContext
 ```
 
 This class contains Node context for
- a callback iterator implementing [`NavuNodeSetIterate`](NavuNodeSetIterate.md#cls-NavuNodeSetIterate)
+ a callback iterator implementing [`NavuNodeSetIterate`](NavuNodeSetIterate.md#navunodesetiterate-6793a6b9b4c2)
  which is used by
- [`NavuNode#xPathSelectIterate(String, NavuNodeSetIterate)`](NavuNode.md#m-xPathSelectIterate-12547f34f47c)
+ [`NavuNode#xPathSelectIterate(String, NavuNodeSetIterate)`](NavuNode.md#xpathselectiterate-12547f34f47c)
 
 ## Members
 
 **Constructors**:
 
-- [NavuXPathContext()](#m-NavuXPathContext-522e7c8cb8d3)
+- [NavuXPathContext()](#navuxpathcontext-522e7c8cb8d3)
 
 **Methods**:
 
-- [getNode()](#m-getNode-52e3d8224b48)
-- [getValue()](#m-getValue-d93864668c40)
-- [iterflag()](#m-iterflag-73a56d0d3999)
-- [nextNode()](#m-nextNode-1d3dc20cc072)
-- [setNode(NavuNode)](#m-setNode-512b6bf958bb)
-- [setState(Object)](#m-setState-f6716d0f1f89)
-- [setValue(ConfValue)](#m-setValue-cda51a6fb391)
-- [state()](#m-state-54117dea2388)
-- [stopNode()](#m-stopNode-114945f05435)
+- [getNode()](#getnode-52e3d8224b48)
+- [getValue()](#getvalue-d93864668c40)
+- [iterflag()](#iterflag-73a56d0d3999)
+- [nextNode()](#nextnode-1d3dc20cc072)
+- [setNode(NavuNode)](#setnode-512b6bf958bb)
+- [setState(Object)](#setstate-f6716d0f1f89)
+- [setValue(ConfValue)](#setvalue-cda51a6fb391)
+- [state()](#state-54117dea2388)
+- [stopNode()](#stopnode-114945f05435)
 
 ## Constructors
 
-### NavuXPathContext() <a href="#m-NavuXPathContext-522e7c8cb8d3" id="m-NavuXPathContext-522e7c8cb8d3"></a>
+### NavuXPathContext() <a href="#navuxpathcontext-522e7c8cb8d3" id="navuxpathcontext-522e7c8cb8d3"></a>
 
 ```java
 public NavuXPathContext()
@@ -38,39 +38,39 @@ public NavuXPathContext()
 
 ## Methods
 
-### getNode() <a href="#m-getNode-52e3d8224b48" id="m-getNode-52e3d8224b48"></a>
+### getNode() <a href="#getnode-52e3d8224b48" id="getnode-52e3d8224b48"></a>
 
 ```java
 public com.tailf.navu.NavuNode getNode()
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db)
 
 Get current NavuNode
 
 **Returns:** NavuNode
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public com.tailf.conf.ConfValue getValue()
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue)
+Types: [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d)
 
 get NavuNode value if applicable
 
 **Returns:** ConfValue
 
-### iterflag() <a href="#m-iterflag-73a56d0d3999" id="m-iterflag-73a56d0d3999"></a>
+### iterflag() <a href="#iterflag-73a56d0d3999" id="iterflag-73a56d0d3999"></a>
 
 ```java
 protected com.tailf.maapi.XPathNodeIterateResultFlag iterflag()
 ```
 
-Types: [XPathNodeIterateResultFlag](../maapi/XPathNodeIterateResultFlag.md#cls-XPathNodeIterateResultFlag)
+Types: [XPathNodeIterateResultFlag](../maapi/XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd)
 
-### nextNode() <a href="#m-nextNode-1d3dc20cc072" id="m-nextNode-1d3dc20cc072"></a>
+### nextNode() <a href="#nextnode-1d3dc20cc072" id="nextnode-1d3dc20cc072"></a>
 
 ```java
 public void nextNode()
@@ -78,19 +78,19 @@ public void nextNode()
 
 Continue iteration to next node after this invocation
 
-### setNode(NavuNode) <a href="#m-setNode-512b6bf958bb" id="m-setNode-512b6bf958bb"></a>
+### setNode(NavuNode) <a href="#setnode-512b6bf958bb" id="setnode-512b6bf958bb"></a>
 
 ```java
 protected void setNode(com.tailf.navu.NavuNode node)
 ```
 
-Types: [NavuNode](NavuNode.md#cls-NavuNode)
+Types: [NavuNode](NavuNode.md#navunode-73944820c8db)
 
 **Parameters**
 
 - `com.tailf.navu.NavuNode node`
 
-### setState(Object) <a href="#m-setState-f6716d0f1f89" id="m-setState-f6716d0f1f89"></a>
+### setState(Object) <a href="#setstate-f6716d0f1f89" id="setstate-f6716d0f1f89"></a>
 
 ```java
 protected void setState(Object state)
@@ -100,19 +100,19 @@ protected void setState(Object state)
 
 - `Object state`
 
-### setValue(ConfValue) <a href="#m-setValue-cda51a6fb391" id="m-setValue-cda51a6fb391"></a>
+### setValue(ConfValue) <a href="#setvalue-cda51a6fb391" id="setvalue-cda51a6fb391"></a>
 
 ```java
 protected void setValue(com.tailf.conf.ConfValue value)
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue)
+Types: [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d)
 
 **Parameters**
 
 - `com.tailf.conf.ConfValue value`
 
-### state() <a href="#m-state-54117dea2388" id="m-state-54117dea2388"></a>
+### state() <a href="#state-54117dea2388" id="state-54117dea2388"></a>
 
 ```java
 public Object state()
@@ -122,7 +122,7 @@ Iteration state object, if set for the iteration
 
 **Returns:** opaque object
 
-### stopNode() <a href="#m-stopNode-114945f05435" id="m-stopNode-114945f05435"></a>
+### stopNode() <a href="#stopnode-114945f05435" id="stopnode-114945f05435"></a>
 
 ```java
 public void stopNode()

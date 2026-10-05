@@ -35,5 +35,5 @@ The Alarm Manager consumer package provides support for subscription to
 
 ## Types
 
-- [AlarmSource](AlarmSource.md#cls-AlarmSource)
-- [AlarmSourceCentral](AlarmSourceCentral.md#cls-AlarmSourceCentral)
+- [AlarmSource](AlarmSource.md#alarmsource-f5bcbf5bed9e)
+- [AlarmSourceCentral](AlarmSourceCentral.md#alarmsourcecentral-bdfee4422149)

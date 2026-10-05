@@ -1,27 +1,27 @@
-# MaapiDiffIterate <a href="#cls-MaapiDiffIterate" id="cls-MaapiDiffIterate"></a>
+# MaapiDiffIterate <a href="#maapidiffiterate-199d02e1da37" id="maapidiffiterate-199d02e1da37"></a>
 
 ```java
 public interface com.tailf.maapi.MaapiDiffIterate
     extends com.tailf.conf.ConfIterate
 ```
 
-Types: [ConfIterate](../conf/ConfIterate.md#cls-ConfIterate)
+Types: [ConfIterate](../conf/ConfIterate.md#confiterate-bf30f0c248a0)
 
 This interface is used with the diffIterate method in Maapi. It allows a way
  to iterate through a set of changes and have a user provided method applied
  on each of them.
 
-**See also:** [`Maapi#diffIterate(int,MaapiDiffIterate)`](Maapi.md#m-diffIterate-8d4d9d07b552)
+**See also:** [`Maapi#diffIterate(int,MaapiDiffIterate)`](Maapi.md#diffiterate-8d4d9d07b552)
 
 ## Members
 
 **Methods**:
 
-- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#m-iterate-d80a566b7e0a)
+- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#iterate-d80a566b7e0a)
 
 ## Methods
 
-### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object) <a href="#m-iterate-d80a566b7e0a" id="m-iterate-d80a566b7e0a"></a>
+### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object) <a href="#iterate-d80a566b7e0a" id="iterate-d80a566b7e0a"></a>
 
 ```java
 public abstract com.tailf.conf.DiffIterateResultFlag iterate(
@@ -33,7 +33,7 @@ public abstract com.tailf.conf.DiffIterateResultFlag iterate(
 )
 ```
 
-Types: [DiffIterateResultFlag](../conf/DiffIterateResultFlag.md#cls-DiffIterateResultFlag), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DiffIterateOperFlag](../conf/DiffIterateOperFlag.md#cls-DiffIterateOperFlag)
+Types: [DiffIterateResultFlag](../conf/DiffIterateResultFlag.md#diffiterateresultflag-3bcd05ed3269), [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [DiffIterateOperFlag](../conf/DiffIterateOperFlag.md#diffiterateoperflag-d1cd8560c2ec)
 
 **Parameters**
 

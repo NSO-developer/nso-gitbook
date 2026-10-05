@@ -1,4 +1,4 @@
-# PathParserConstants <a href="#cls-PathParserConstants" id="cls-PathParserConstants"></a>
+# PathParserConstants <a href="#pathparserconstants-bdbbf565b32b" id="pathparserconstants-bdbbf565b32b"></a>
 
 **Package-private**
 
@@ -13,28 +13,28 @@ Token literal values and constants.
 
 **Fields**:
 
-- [CHAR](#m-CHAR)
-- [CHAR2](#m-CHAR2)
-- [COLON](#m-COLON)
-- [DEFAULT](#m-DEFAULT)
-- [EOF](#m-EOF)
-- [IDENTIFIER](#m-IDENTIFIER)
-- [IDENTIFIER2](#m-IDENTIFIER2)
-- [INSIDE_BRACES](#m-INSIDE_BRACES)
-- [INSIDE_QUOTE](#m-INSIDE_QUOTE)
-- [LBRACE](#m-LBRACE)
-- [LBRACKET](#m-LBRACKET)
-- [PERCENT](#m-PERCENT)
-- [PERCENT2](#m-PERCENT2)
-- [RBRACE](#m-RBRACE)
-- [RBRACKET](#m-RBRACKET)
-- [SLASH](#m-SLASH)
-- [STRLIT](#m-STRLIT)
-- [tokenImage](#m-tokenImage)
+- [CHAR](#char-029984bb6c9e)
+- [CHAR2](#char2-88635d8a54cf)
+- [COLON](#colon-2c1dbe3aeee8)
+- [DEFAULT](#default-5965fc85722b)
+- [EOF](#eof-e4ab74e8c3eb)
+- [IDENTIFIER](#identifier-73b18fdcf248)
+- [IDENTIFIER2](#identifier2-8a04449a942b)
+- [INSIDE_BRACES](#inside_braces-126526a96a03)
+- [INSIDE_QUOTE](#inside_quote-1a887df059d8)
+- [LBRACE](#lbrace-29f2f43b91d0)
+- [LBRACKET](#lbracket-2910754c7a67)
+- [PERCENT](#percent-732182372b0c)
+- [PERCENT2](#percent2-b22c5103c9d8)
+- [RBRACE](#rbrace-0415afff6842)
+- [RBRACKET](#rbracket-71ce92365b6c)
+- [SLASH](#slash-3c7d823f3e28)
+- [STRLIT](#strlit-d6078ea07628)
+- [tokenImage](#tokenimage-c13f534d4471)
 
 ## Fields
 
-### CHAR <a href="#m-CHAR" id="m-CHAR"></a>
+### CHAR <a href="#char-029984bb6c9e" id="char-029984bb6c9e"></a>
 
 ```java
 public static final int CHAR = 7;
@@ -42,7 +42,7 @@ public static final int CHAR = 7;
 
 RegularExpression Id.
 
-### CHAR2 <a href="#m-CHAR2" id="m-CHAR2"></a>
+### CHAR2 <a href="#char2-88635d8a54cf" id="char2-88635d8a54cf"></a>
 
 ```java
 public static final int CHAR2 = 19;
@@ -50,7 +50,7 @@ public static final int CHAR2 = 19;
 
 RegularExpression Id.
 
-### COLON <a href="#m-COLON" id="m-COLON"></a>
+### COLON <a href="#colon-2c1dbe3aeee8" id="colon-2c1dbe3aeee8"></a>
 
 ```java
 public static final int COLON = 9;
@@ -58,7 +58,7 @@ public static final int COLON = 9;
 
 RegularExpression Id.
 
-### DEFAULT <a href="#m-DEFAULT" id="m-DEFAULT"></a>
+### DEFAULT <a href="#default-5965fc85722b" id="default-5965fc85722b"></a>
 
 ```java
 public static final int DEFAULT = 0;
@@ -66,7 +66,7 @@ public static final int DEFAULT = 0;
 
 Lexical state.
 
-### EOF <a href="#m-EOF" id="m-EOF"></a>
+### EOF <a href="#eof-e4ab74e8c3eb" id="eof-e4ab74e8c3eb"></a>
 
 ```java
 public static final int EOF = 0;
@@ -74,7 +74,7 @@ public static final int EOF = 0;
 
 End of File.
 
-### IDENTIFIER <a href="#m-IDENTIFIER" id="m-IDENTIFIER"></a>
+### IDENTIFIER <a href="#identifier-73b18fdcf248" id="identifier-73b18fdcf248"></a>
 
 ```java
 public static final int IDENTIFIER = 6;
@@ -82,7 +82,7 @@ public static final int IDENTIFIER = 6;
 
 RegularExpression Id.
 
-### IDENTIFIER2 <a href="#m-IDENTIFIER2" id="m-IDENTIFIER2"></a>
+### IDENTIFIER2 <a href="#identifier2-8a04449a942b" id="identifier2-8a04449a942b"></a>
 
 ```java
 public static final int IDENTIFIER2 = 18;
@@ -90,7 +90,7 @@ public static final int IDENTIFIER2 = 18;
 
 RegularExpression Id.
 
-### INSIDE_BRACES <a href="#m-INSIDE_BRACES" id="m-INSIDE_BRACES"></a>
+### INSIDE_BRACES <a href="#inside_braces-126526a96a03" id="inside_braces-126526a96a03"></a>
 
 ```java
 public static final int INSIDE_BRACES = 1;
@@ -98,7 +98,7 @@ public static final int INSIDE_BRACES = 1;
 
 Lexical state.
 
-### INSIDE_QUOTE <a href="#m-INSIDE_QUOTE" id="m-INSIDE_QUOTE"></a>
+### INSIDE_QUOTE <a href="#inside_quote-1a887df059d8" id="inside_quote-1a887df059d8"></a>
 
 ```java
 public static final int INSIDE_QUOTE = 2;
@@ -106,7 +106,7 @@ public static final int INSIDE_QUOTE = 2;
 
 Lexical state.
 
-### LBRACE <a href="#m-LBRACE" id="m-LBRACE"></a>
+### LBRACE <a href="#lbrace-29f2f43b91d0" id="lbrace-29f2f43b91d0"></a>
 
 ```java
 public static final int LBRACE = 11;
@@ -114,7 +114,7 @@ public static final int LBRACE = 11;
 
 RegularExpression Id.
 
-### LBRACKET <a href="#m-LBRACKET" id="m-LBRACKET"></a>
+### LBRACKET <a href="#lbracket-2910754c7a67" id="lbracket-2910754c7a67"></a>
 
 ```java
 public static final int LBRACKET = 12;
@@ -122,7 +122,7 @@ public static final int LBRACKET = 12;
 
 RegularExpression Id.
 
-### PERCENT <a href="#m-PERCENT" id="m-PERCENT"></a>
+### PERCENT <a href="#percent-732182372b0c" id="percent-732182372b0c"></a>
 
 ```java
 public static final int PERCENT = 8;
@@ -130,7 +130,7 @@ public static final int PERCENT = 8;
 
 RegularExpression Id.
 
-### PERCENT2 <a href="#m-PERCENT2" id="m-PERCENT2"></a>
+### PERCENT2 <a href="#percent2-b22c5103c9d8" id="percent2-b22c5103c9d8"></a>
 
 ```java
 public static final int PERCENT2 = 20;
@@ -138,7 +138,7 @@ public static final int PERCENT2 = 20;
 
 RegularExpression Id.
 
-### RBRACE <a href="#m-RBRACE" id="m-RBRACE"></a>
+### RBRACE <a href="#rbrace-0415afff6842" id="rbrace-0415afff6842"></a>
 
 ```java
 public static final int RBRACE = 21;
@@ -146,7 +146,7 @@ public static final int RBRACE = 21;
 
 RegularExpression Id.
 
-### RBRACKET <a href="#m-RBRACKET" id="m-RBRACKET"></a>
+### RBRACKET <a href="#rbracket-71ce92365b6c" id="rbracket-71ce92365b6c"></a>
 
 ```java
 public static final int RBRACKET = 13;
@@ -154,7 +154,7 @@ public static final int RBRACKET = 13;
 
 RegularExpression Id.
 
-### SLASH <a href="#m-SLASH" id="m-SLASH"></a>
+### SLASH <a href="#slash-3c7d823f3e28" id="slash-3c7d823f3e28"></a>
 
 ```java
 public static final int SLASH = 10;
@@ -162,7 +162,7 @@ public static final int SLASH = 10;
 
 RegularExpression Id.
 
-### STRLIT <a href="#m-STRLIT" id="m-STRLIT"></a>
+### STRLIT <a href="#strlit-d6078ea07628" id="strlit-d6078ea07628"></a>
 
 ```java
 public static final int STRLIT = 23;
@@ -170,7 +170,7 @@ public static final int STRLIT = 23;
 
 RegularExpression Id.
 
-### tokenImage <a href="#m-tokenImage" id="m-tokenImage"></a>
+### tokenImage <a href="#tokenimage-c13f534d4471" id="tokenimage-c13f534d4471"></a>
 
 ```java
 public static final String[] tokenImage = null;

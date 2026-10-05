@@ -1,10 +1,10 @@
-# DiffIterateFlags <a href="#cls-DiffIterateFlags" id="cls-DiffIterateFlags"></a>
+# DiffIterateFlags <a href="#diffiterateflags-79473c9fdab6" id="diffiterateflags-79473c9fdab6"></a>
 
 ```java
 public enum com.tailf.conf.DiffIterateFlags
 ```
 
-Types: [DiffIterateFlags](DiffIterateFlags.md#cls-DiffIterateFlags)
+Types: [DiffIterateFlags](DiffIterateFlags.md#diffiterateflags-79473c9fdab6)
 
 Enumeration flags us by
  `CdbSubscription#diffIterate(
@@ -15,27 +15,27 @@ Enumeration flags us by
 
 **Enum Constants**:
 
-- [ITER_WANT_ANCESTOR_DELETE](#m-ITER_WANT_ANCESTOR_DELETE)
-- [ITER_WANT_ATTR](#m-ITER_WANT_ATTR)
-- [ITER_WANT_CLI_STR](#m-ITER_WANT_CLI_STR)
-- [ITER_WANT_LEAF_FIRST_ORDER](#m-ITER_WANT_LEAF_FIRST_ORDER)
-- [ITER_WANT_LEAF_LAST_ORDER](#m-ITER_WANT_LEAF_LAST_ORDER)
-- [ITER_WANT_PREV](#m-ITER_WANT_PREV)
-- [ITER_WANT_REVERSE](#m-ITER_WANT_REVERSE)
-- [ITER_WANT_SCHEMA_ORDER](#m-ITER_WANT_SCHEMA_ORDER)
-- [ITER_WANT_SUPPRESS_CONF_DEFAULTS](#m-ITER_WANT_SUPPRESS_CONF_DEFAULTS)
-- [ITER_WANT_SUPPRESS_OPER_DEFAULTS](#m-ITER_WANT_SUPPRESS_OPER_DEFAULTS)
+- [ITER_WANT_ANCESTOR_DELETE](#iter_want_ancestor_delete-8aeb50c9a808)
+- [ITER_WANT_ATTR](#iter_want_attr-946a41e3cb08)
+- [ITER_WANT_CLI_STR](#iter_want_cli_str-439533dcd1aa)
+- [ITER_WANT_LEAF_FIRST_ORDER](#iter_want_leaf_first_order-1ef3029f141f)
+- [ITER_WANT_LEAF_LAST_ORDER](#iter_want_leaf_last_order-90156295eb70)
+- [ITER_WANT_PREV](#iter_want_prev-20404d5d1d20)
+- [ITER_WANT_REVERSE](#iter_want_reverse-584e3ca20d2a)
+- [ITER_WANT_SCHEMA_ORDER](#iter_want_schema_order-81f758c281ea)
+- [ITER_WANT_SUPPRESS_CONF_DEFAULTS](#iter_want_suppress_conf_defaults-deb131f01638)
+- [ITER_WANT_SUPPRESS_OPER_DEFAULTS](#iter_want_suppress_oper_defaults-695be9e11ea4)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(int)](#m-valueOf-c0d46d25fc67)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(int)](#valueof-c0d46d25fc67)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### ITER_WANT_ANCESTOR_DELETE <a href="#m-ITER_WANT_ANCESTOR_DELETE" id="m-ITER_WANT_ANCESTOR_DELETE"></a>
+### ITER_WANT_ANCESTOR_DELETE <a href="#iter_want_ancestor_delete-8aeb50c9a808" id="iter_want_ancestor_delete-8aeb50c9a808"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateFlags ITER_WANT_ANCESTOR_DELETE;
@@ -51,10 +51,10 @@ Control if the deleted of a ancestor will trigger a subscription
  will be the path that was actually deleted.
 
  This option is not default in
- [`CdbSubscription#diffIterate(int, CdbDiffIterate)`](../cdb/CdbSubscription.md#m-diffIterate-89b9ae6f39bb)
+ [`CdbSubscription#diffIterate(int, CdbDiffIterate)`](../cdb/CdbSubscription.md#diffiterate-89b9ae6f39bb)
  which means that the flag needs to be passed explicitly.
 
-### ITER_WANT_ATTR <a href="#m-ITER_WANT_ATTR" id="m-ITER_WANT_ATTR"></a>
+### ITER_WANT_ATTR <a href="#iter_want_attr-946a41e3cb08" id="iter_want_attr-946a41e3cb08"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateFlags ITER_WANT_ATTR;
@@ -63,28 +63,28 @@ public static final com.tailf.conf.DiffIterateFlags ITER_WANT_ATTR;
 This is flag that only has meaning in the maapi case.
  If set, the iteration will also go over attribute values. In such cases
  the DiffIterateOperFlag will be set to
- [`DiffIterateOperFlag#MOP_ATTR_SET`](DiffIterateOperFlag.md#m-MOP_ATTR_SET) in the iterator and the new
- and old values will be of type [`ConfAttributeValue`](ConfAttributeValue.md#cls-ConfAttributeValue)
+ [`DiffIterateOperFlag#MOP_ATTR_SET`](DiffIterateOperFlag.md#mop_attr_set-93d0727524e3) in the iterator and the new
+ and old values will be of type [`ConfAttributeValue`](ConfAttributeValue.md#confattributevalue-d38e058ca48e)
 
-### ITER_WANT_CLI_STR <a href="#m-ITER_WANT_CLI_STR" id="m-ITER_WANT_CLI_STR"></a>
+### ITER_WANT_CLI_STR <a href="#iter_want_cli_str-439533dcd1aa" id="iter_want_cli_str-439533dcd1aa"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateFlags ITER_WANT_CLI_STR;
 ```
 
-### ITER_WANT_LEAF_FIRST_ORDER <a href="#m-ITER_WANT_LEAF_FIRST_ORDER" id="m-ITER_WANT_LEAF_FIRST_ORDER"></a>
+### ITER_WANT_LEAF_FIRST_ORDER <a href="#iter_want_leaf_first_order-1ef3029f141f" id="iter_want_leaf_first_order-1ef3029f141f"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateFlags ITER_WANT_LEAF_FIRST_ORDER;
 ```
 
-### ITER_WANT_LEAF_LAST_ORDER <a href="#m-ITER_WANT_LEAF_LAST_ORDER" id="m-ITER_WANT_LEAF_LAST_ORDER"></a>
+### ITER_WANT_LEAF_LAST_ORDER <a href="#iter_want_leaf_last_order-90156295eb70" id="iter_want_leaf_last_order-90156295eb70"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateFlags ITER_WANT_LEAF_LAST_ORDER;
 ```
 
-### ITER_WANT_PREV <a href="#m-ITER_WANT_PREV" id="m-ITER_WANT_PREV"></a>
+### ITER_WANT_PREV <a href="#iter_want_prev-20404d5d1d20" id="iter_want_prev-20404d5d1d20"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateFlags ITER_WANT_PREV;
@@ -98,37 +98,37 @@ Include the previous value for modification of a leaf/leaf-list
   int ,CdbDiffIterate,EnumSet,Object)`
  The old value is supplied to the call to
  [`CdbDiffIterate#iterate(ConfObject[],
-  DiffIterateOperFlag, ConfObject,ConfObject,Object)`](../cdb/CdbDiffIterate.md#m-iterate-d80a566b7e0a)
+  DiffIterateOperFlag, ConfObject,ConfObject,Object)`](../cdb/CdbDiffIterate.md#iterate-d80a566b7e0a)
  if a value have changed.
 
  For operational data subscriptions, the `ITER_WANT_PREV` flag
  is ignored, and old value is always null - there is no equivalent
- to [`CdbDBType#CDB_PRE_COMMIT_RUNNING`](../cdb/CdbDBType.md#m-CDB_PRE_COMMIT_RUNNING) that holds
+ to [`CdbDBType#CDB_PRE_COMMIT_RUNNING`](../cdb/CdbDBType.md#cdb_pre_commit_running-68ec740136a8) that holds
  "old" operational data method.
 
  This option is default in
- [`CdbSubscription#diffIterate(int, CdbDiffIterate)`](../cdb/CdbSubscription.md#m-diffIterate-89b9ae6f39bb)
+ [`CdbSubscription#diffIterate(int, CdbDiffIterate)`](../cdb/CdbSubscription.md#diffiterate-89b9ae6f39bb)
  which means that the flag needs not to be passed explicitly.
 
-### ITER_WANT_REVERSE <a href="#m-ITER_WANT_REVERSE" id="m-ITER_WANT_REVERSE"></a>
+### ITER_WANT_REVERSE <a href="#iter_want_reverse-584e3ca20d2a" id="iter_want_reverse-584e3ca20d2a"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateFlags ITER_WANT_REVERSE;
 ```
 
-### ITER_WANT_SCHEMA_ORDER <a href="#m-ITER_WANT_SCHEMA_ORDER" id="m-ITER_WANT_SCHEMA_ORDER"></a>
+### ITER_WANT_SCHEMA_ORDER <a href="#iter_want_schema_order-81f758c281ea" id="iter_want_schema_order-81f758c281ea"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateFlags ITER_WANT_SCHEMA_ORDER;
 ```
 
-### ITER_WANT_SUPPRESS_CONF_DEFAULTS <a href="#m-ITER_WANT_SUPPRESS_CONF_DEFAULTS" id="m-ITER_WANT_SUPPRESS_CONF_DEFAULTS"></a>
+### ITER_WANT_SUPPRESS_CONF_DEFAULTS <a href="#iter_want_suppress_conf_defaults-deb131f01638" id="iter_want_suppress_conf_defaults-deb131f01638"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateFlags ITER_WANT_SUPPRESS_CONF_DEFAULTS;
 ```
 
-### ITER_WANT_SUPPRESS_OPER_DEFAULTS <a href="#m-ITER_WANT_SUPPRESS_OPER_DEFAULTS" id="m-ITER_WANT_SUPPRESS_OPER_DEFAULTS"></a>
+### ITER_WANT_SUPPRESS_OPER_DEFAULTS <a href="#iter_want_suppress_oper_defaults-695be9e11ea4" id="iter_want_suppress_oper_defaults-695be9e11ea4"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateFlags ITER_WANT_SUPPRESS_OPER_DEFAULTS;
@@ -137,40 +137,40 @@ public static final com.tailf.conf.DiffIterateFlags ITER_WANT_SUPPRESS_OPER_DEFA
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
+### valueOf(int) <a href="#valueof-c0d46d25fc67" id="valueof-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.conf.DiffIterateFlags valueOf(int i)
 ```
 
-Types: [DiffIterateFlags](DiffIterateFlags.md#cls-DiffIterateFlags)
+Types: [DiffIterateFlags](DiffIterateFlags.md#diffiterateflags-79473c9fdab6)
 
 **Parameters**
 
 - `int i`
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.conf.DiffIterateFlags valueOf(String name)
 ```
 
-Types: [DiffIterateFlags](DiffIterateFlags.md#cls-DiffIterateFlags)
+Types: [DiffIterateFlags](DiffIterateFlags.md#diffiterateflags-79473c9fdab6)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.conf.DiffIterateFlags[] values()
 ```
 
-Types: [DiffIterateFlags](DiffIterateFlags.md#cls-DiffIterateFlags)
+Types: [DiffIterateFlags](DiffIterateFlags.md#diffiterateflags-79473c9fdab6)

@@ -1,4 +1,4 @@
-# Reader <a href="#cls-Reader" id="cls-Reader"></a>
+# Reader <a href="#reader-b2467a96ddff" id="reader-b2467a96ddff"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.MountPoint.Reader
@@ -9,20 +9,20 @@ public static final class com.tailf.ncs.maapi.Schema.MountPoint.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getEntries()](#m-getEntries-f554b7f62e3d)
-- [getNsHash()](#m-getNsHash-f6f3e3ae1e6b)
-- [getPath()](#m-getPath-88fb21895561)
-- [getPathHash()](#m-getPathHash-14d7d9222b28)
-- [hasEntries()](#m-hasEntries-ccf5edf194a9)
-- [hasPath()](#m-hasPath-c0f486b47df7)
+- [getEntries()](#getentries-f554b7f62e3d)
+- [getNsHash()](#getnshash-f6f3e3ae1e6b)
+- [getPath()](#getpath-88fb21895561)
+- [getPathHash()](#getpathhash-14d7d9222b28)
+- [hasEntries()](#hasentries-ccf5edf194a9)
+- [hasPath()](#haspath-c0f486b47df7)
 
 ## Constructors
 
-### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
+### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -49,41 +49,41 @@ Reader(
 
 ## Methods
 
-### getEntries() <a href="#m-getEntries-f554b7f62e3d" id="m-getEntries-f554b7f62e3d"></a>
+### getEntries() <a href="#getentries-f554b7f62e3d" id="getentries-f554b7f62e3d"></a>
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.MountPointChildren.Reader> getEntries()
 ```
 
-Types: [Reader](../MountPointChildren/Reader.md#cls-Reader)
+Types: [Reader](../MountPointChildren/Reader.md#reader-b2467a96ddff)
 
-### getNsHash() <a href="#m-getNsHash-f6f3e3ae1e6b" id="m-getNsHash-f6f3e3ae1e6b"></a>
+### getNsHash() <a href="#getnshash-f6f3e3ae1e6b" id="getnshash-f6f3e3ae1e6b"></a>
 
 ```java
 public final int getNsHash()
 ```
 
-### getPath() <a href="#m-getPath-88fb21895561" id="m-getPath-88fb21895561"></a>
+### getPath() <a href="#getpath-88fb21895561" id="getpath-88fb21895561"></a>
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.QTag.Reader> getPath()
 ```
 
-Types: [Reader](../QTag/Reader.md#cls-Reader)
+Types: [Reader](../QTag/Reader.md#reader-b2467a96ddff)
 
-### getPathHash() <a href="#m-getPathHash-14d7d9222b28" id="m-getPathHash-14d7d9222b28"></a>
+### getPathHash() <a href="#getpathhash-14d7d9222b28" id="getpathhash-14d7d9222b28"></a>
 
 ```java
 public final int getPathHash()
 ```
 
-### hasEntries() <a href="#m-hasEntries-ccf5edf194a9" id="m-hasEntries-ccf5edf194a9"></a>
+### hasEntries() <a href="#hasentries-ccf5edf194a9" id="hasentries-ccf5edf194a9"></a>
 
 ```java
 public final boolean hasEntries()
 ```
 
-### hasPath() <a href="#m-hasPath-c0f486b47df7" id="m-hasPath-c0f486b47df7"></a>
+### hasPath() <a href="#haspath-c0f486b47df7" id="haspath-c0f486b47df7"></a>
 
 ```java
 public final boolean hasPath()

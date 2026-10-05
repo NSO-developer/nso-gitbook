@@ -1,39 +1,39 @@
-# MaapiUserSession <a href="#cls-MaapiUserSession" id="cls-MaapiUserSession"></a>
+# MaapiUserSession <a href="#maapiusersession-2d8a37dd2abf" id="maapiusersession-2d8a37dd2abf"></a>
 
 ```java
 public class com.tailf.maapi.MaapiUserSession
 ```
 
 User session descriptor class. Objects of this class is returned by the
- [`Maapi#getUserSession(int)`](Maapi.md#m-getUserSession-ce8473a1e046) method.
+ [`Maapi#getUserSession(int)`](Maapi.md#getusersession-ce8473a1e046) method.
 
 ## Members
 
 **Constructors**:
 
-- [MaapiUserSession(ConfETuple)](#m-MaapiUserSession-a9d867da0651)
-- [MaapiUserSession(int, ConfETuple)](#m-MaapiUserSession-ad5f41178198)
+- [MaapiUserSession(ConfETuple)](#maapiusersession-a9d867da0651)
+- [MaapiUserSession(int, ConfETuple)](#maapiusersession-ad5f41178198)
 
 **Methods**:
 
-- [getContext()](#m-getContext-b18d576df5d9)
-- [getIPAddress()](#m-getIPAddress-ff0e3ce26ce7)
-- [getLoginTime()](#m-getLoginTime-624e37ca38f1)
-- [getSessionFlags()](#m-getSessionFlags-c6e0fef9018b)
-- [getSnmpV3Context()](#m-getSnmpV3Context-8f8121e9764c)
-- [getUser()](#m-getUser-fbcccdd28c7c)
-- [getUserId()](#m-getUserId-46c2e98d8db7)
-- [toString()](#m-toString-e9d48c5503ef)
+- [getContext()](#getcontext-b18d576df5d9)
+- [getIPAddress()](#getipaddress-ff0e3ce26ce7)
+- [getLoginTime()](#getlogintime-624e37ca38f1)
+- [getSessionFlags()](#getsessionflags-c6e0fef9018b)
+- [getSnmpV3Context()](#getsnmpv3context-8f8121e9764c)
+- [getUser()](#getuser-fbcccdd28c7c)
+- [getUserId()](#getuserid-46c2e98d8db7)
+- [toString()](#tostring-e9d48c5503ef)
 
 ## Constructors
 
-### MaapiUserSession(ConfETuple) <a href="#m-MaapiUserSession-a9d867da0651" id="m-MaapiUserSession-a9d867da0651"></a>
+### MaapiUserSession(ConfETuple) <a href="#maapiusersession-a9d867da0651" id="maapiusersession-a9d867da0651"></a>
 
 ```java
 public MaapiUserSession(com.tailf.proto.ConfETuple usess) throws com.tailf.maapi.MaapiException
 ```
 
-Types: [ConfETuple](../proto/ConfETuple.md#cls-ConfETuple), [MaapiException](MaapiException.md#cls-MaapiException)
+Types: [ConfETuple](../proto/ConfETuple.md#confetuple-b1f9702a82a1), [MaapiException](MaapiException.md#maapiexception-af58eb4e109e)
 
 Internally used constructor
 
@@ -45,7 +45,7 @@ Internally used constructor
 
 - `MaapiException`
 
-### MaapiUserSession(int, ConfETuple) <a href="#m-MaapiUserSession-ad5f41178198" id="m-MaapiUserSession-ad5f41178198"></a>
+### MaapiUserSession(int, ConfETuple) <a href="#maapiusersession-ad5f41178198" id="maapiusersession-ad5f41178198"></a>
 
 ```java
 public MaapiUserSession(
@@ -55,7 +55,7 @@ public MaapiUserSession(
     throws com.tailf.maapi.MaapiException
 ```
 
-Types: [ConfETuple](../proto/ConfETuple.md#cls-ConfETuple), [MaapiException](MaapiException.md#cls-MaapiException)
+Types: [ConfETuple](../proto/ConfETuple.md#confetuple-b1f9702a82a1), [MaapiException](MaapiException.md#maapiexception-af58eb4e109e)
 
 Internally used constructor
 
@@ -71,7 +71,7 @@ Internally used constructor
 
 ## Methods
 
-### getContext() <a href="#m-getContext-b18d576df5d9" id="m-getContext-b18d576df5d9"></a>
+### getContext() <a href="#getcontext-b18d576df5d9" id="getcontext-b18d576df5d9"></a>
 
 ```java
 public String getContext()
@@ -82,7 +82,7 @@ Get User session context, one of
 
 **Returns:** context as string
 
-### getIPAddress() <a href="#m-getIPAddress-ff0e3ce26ce7" id="m-getIPAddress-ff0e3ce26ce7"></a>
+### getIPAddress() <a href="#getipaddress-ff0e3ce26ce7" id="getipaddress-ff0e3ce26ce7"></a>
 
 ```java
 public java.net.InetAddress getIPAddress()
@@ -92,7 +92,7 @@ Get user session ip address as java InetAddress instance
 
 **Returns:** ip as InetAddress
 
-### getLoginTime() <a href="#m-getLoginTime-624e37ca38f1" id="m-getLoginTime-624e37ca38f1"></a>
+### getLoginTime() <a href="#getlogintime-624e37ca38f1" id="getlogintime-624e37ca38f1"></a>
 
 ```java
 public java.util.Date getLoginTime()
@@ -102,19 +102,19 @@ Get user session login time
 
 **Returns:** login time as Date
 
-### getSessionFlags() <a href="#m-getSessionFlags-c6e0fef9018b" id="m-getSessionFlags-c6e0fef9018b"></a>
+### getSessionFlags() <a href="#getsessionflags-c6e0fef9018b" id="getsessionflags-c6e0fef9018b"></a>
 
 ```java
 public com.tailf.maapi.MaapiUserSessionFlag getSessionFlags()
 ```
 
-Types: [MaapiUserSessionFlag](MaapiUserSessionFlag.md#cls-MaapiUserSessionFlag)
+Types: [MaapiUserSessionFlag](MaapiUserSessionFlag.md#maapiusersessionflag-ee298af54ca4)
 
 Get User session protocol
 
 **Returns:** flag as MaapiUserSessionFlag
 
-### getSnmpV3Context() <a href="#m-getSnmpV3Context-8f8121e9764c" id="m-getSnmpV3Context-8f8121e9764c"></a>
+### getSnmpV3Context() <a href="#getsnmpv3context-8f8121e9764c" id="getsnmpv3context-8f8121e9764c"></a>
 
 ```java
 public String getSnmpV3Context()
@@ -124,7 +124,7 @@ Get snmpv3 context if available
 
 **Returns:** snmpv3 context as string
 
-### getUser() <a href="#m-getUser-fbcccdd28c7c" id="m-getUser-fbcccdd28c7c"></a>
+### getUser() <a href="#getuser-fbcccdd28c7c" id="getuser-fbcccdd28c7c"></a>
 
 ```java
 public String getUser()
@@ -134,7 +134,7 @@ Get user name
 
 **Returns:** user name as string
 
-### getUserId() <a href="#m-getUserId-46c2e98d8db7" id="m-getUserId-46c2e98d8db7"></a>
+### getUserId() <a href="#getuserid-46c2e98d8db7" id="getuserid-46c2e98d8db7"></a>
 
 ```java
 public int getUserId()
@@ -144,7 +144,7 @@ Get user session id
 
 **Returns:** usid as int
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()

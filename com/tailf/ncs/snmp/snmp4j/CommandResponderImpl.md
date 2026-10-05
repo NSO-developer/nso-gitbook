@@ -1,4 +1,4 @@
-# CommandResponderImpl <a href="#cls-CommandResponderImpl" id="cls-CommandResponderImpl"></a>
+# CommandResponderImpl <a href="#commandresponderimpl-14374724c6fc" id="commandresponderimpl-14374724c6fc"></a>
 
 ```java
 public class com.tailf.ncs.snmp.snmp4j.CommandResponderImpl
@@ -11,15 +11,15 @@ Internal snmp4j callback class used by the SnmpNotificationReceiver
 
 **Constructors**:
 
-- [CommandResponderImpl(SocketAddress, List<NotifHandlerInstance>)](#m-CommandResponderImpl-336dc0d55a04)
+- [CommandResponderImpl(SocketAddress, List<NotifHandlerInstance>)](#commandresponderimpl-336dc0d55a04)
 
 **Methods**:
 
-- [processPdu(CommandResponderEvent)](#m-processPdu-9257ca95aa3e)
+- [processPdu(CommandResponderEvent)](#processpdu-9257ca95aa3e)
 
 ## Constructors
 
-### CommandResponderImpl(SocketAddress, List<NotifHandlerInstance>) <a href="#m-CommandResponderImpl-336dc0d55a04" id="m-CommandResponderImpl-336dc0d55a04"></a>
+### CommandResponderImpl(SocketAddress, List&lt;NotifHandlerInstance&gt;) <a href="#commandresponderimpl-336dc0d55a04" id="commandresponderimpl-336dc0d55a04"></a>
 
 ```java
 protected CommandResponderImpl(
@@ -28,7 +28,7 @@ protected CommandResponderImpl(
 )
 ```
 
-Types: [NotifHandlerInstance](NotifHandlerInstance.md#cls-NotifHandlerInstance)
+Types: [NotifHandlerInstance](NotifHandlerInstance.md#notifhandlerinstance-7fa13bf44d0b)
 
 **Parameters**
 
@@ -38,7 +38,7 @@ Types: [NotifHandlerInstance](NotifHandlerInstance.md#cls-NotifHandlerInstance)
 
 ## Methods
 
-### processPdu(CommandResponderEvent) <a href="#m-processPdu-9257ca95aa3e" id="m-processPdu-9257ca95aa3e"></a>
+### processPdu(CommandResponderEvent) <a href="#processpdu-9257ca95aa3e" id="processpdu-9257ca95aa3e"></a>
 
 ```java
 public synchronized void processPdu(org.snmp4j.CommandResponderEvent event)

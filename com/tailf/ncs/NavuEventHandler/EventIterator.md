@@ -1,28 +1,28 @@
-# EventIterator <a href="#cls-EventIterator" id="cls-EventIterator"></a>
+# EventIterator <a href="#eventiterator-77ded33d8f63" id="eventiterator-77ded33d8f63"></a>
 
 ```java
 protected class com.tailf.ncs.NavuEventHandler.EventIterator
     implements com.tailf.cdb.CdbDiffIterate
 ```
 
-Types: [CdbDiffIterate](../../cdb/CdbDiffIterate.md#cls-CdbDiffIterate)
+Types: [CdbDiffIterate](../../cdb/CdbDiffIterate.md#cdbdiffiterate-ab6fafeeb31e)
 
 ## Members
 
 **Constructors**:
 
-- [EventIterator(SocketAddress)](#m-EventIterator-35bf486bdb4e)
+- [EventIterator(SocketAddress)](#eventiterator-35bf486bdb4e)
 
 **Methods**:
 
-- [close()](#m-close-8107c6dc012b)
-- [finish()](#m-finish-8c785ae2e6bb)
-- [init()](#m-init-e3919b885d98)
-- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#m-iterate-d80a566b7e0a)
+- [close()](#close-8107c6dc012b)
+- [finish()](#finish-8c785ae2e6bb)
+- [init()](#init-e3919b885d98)
+- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#iterate-d80a566b7e0a)
 
 ## Constructors
 
-### EventIterator(SocketAddress) <a href="#m-EventIterator-35bf486bdb4e" id="m-EventIterator-35bf486bdb4e"></a>
+### EventIterator(SocketAddress) <a href="#eventiterator-35bf486bdb4e" id="eventiterator-35bf486bdb4e"></a>
 
 ```java
 public EventIterator(
@@ -31,7 +31,7 @@ public EventIterator(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../../conf/ConfException.md#cls-ConfException)
+Types: [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
@@ -40,29 +40,29 @@ Types: [ConfException](../../conf/ConfException.md#cls-ConfException)
 
 ## Methods
 
-### close() <a href="#m-close-8107c6dc012b" id="m-close-8107c6dc012b"></a>
+### close() <a href="#close-8107c6dc012b" id="close-8107c6dc012b"></a>
 
 ```java
 public void close()
 ```
 
-### finish() <a href="#m-finish-8c785ae2e6bb" id="m-finish-8c785ae2e6bb"></a>
+### finish() <a href="#finish-8c785ae2e6bb" id="finish-8c785ae2e6bb"></a>
 
 ```java
 public void finish() throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../../conf/ConfException.md#cls-ConfException)
+Types: [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
 
-### init() <a href="#m-init-e3919b885d98" id="m-init-e3919b885d98"></a>
+### init() <a href="#init-e3919b885d98" id="init-e3919b885d98"></a>
 
 ```java
 public void init() throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../../conf/ConfException.md#cls-ConfException)
+Types: [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
 
-### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object) <a href="#m-iterate-d80a566b7e0a" id="m-iterate-d80a566b7e0a"></a>
+### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object) <a href="#iterate-d80a566b7e0a" id="iterate-d80a566b7e0a"></a>
 
 ```java
 public com.tailf.conf.DiffIterateResultFlag iterate(
@@ -74,7 +74,7 @@ public com.tailf.conf.DiffIterateResultFlag iterate(
 )
 ```
 
-Types: [DiffIterateResultFlag](../../conf/DiffIterateResultFlag.md#cls-DiffIterateResultFlag), [ConfObject](../../conf/ConfObject.md#cls-ConfObject), [DiffIterateOperFlag](../../conf/DiffIterateOperFlag.md#cls-DiffIterateOperFlag)
+Types: [DiffIterateResultFlag](../../conf/DiffIterateResultFlag.md#diffiterateresultflag-3bcd05ed3269), [ConfObject](../../conf/ConfObject.md#confobject-5433616953b2), [DiffIterateOperFlag](../../conf/DiffIterateOperFlag.md#diffiterateoperflag-d1cd8560c2ec)
 
 **Parameters**
 

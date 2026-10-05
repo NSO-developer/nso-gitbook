@@ -1,10 +1,10 @@
-# HaStateType <a href="#cls-HaStateType" id="cls-HaStateType"></a>
+# HaStateType <a href="#hastatetype-8f5797940a11" id="hastatetype-8f5797940a11"></a>
 
 ```java
 public enum com.tailf.ha.HaStateType
 ```
 
-Types: [HaStateType](HaStateType.md#cls-HaStateType)
+Types: [HaStateType](HaStateType.md#hastatetype-8f5797940a11)
 
 This enum describes the different states a HA node can be in.
 
@@ -12,21 +12,21 @@ This enum describes the different states a HA node can be in.
 
 **Enum Constants**:
 
-- [NONE](#m-NONE)
-- [PRIMARY](#m-PRIMARY)
-- [SECONDARY](#m-SECONDARY)
-- [SECONDARY_RELAY](#m-SECONDARY_RELAY)
+- [NONE](#none-f29411358a7b)
+- [PRIMARY](#primary-b37cfb8b5165)
+- [SECONDARY](#secondary-0ebc1e389638)
+- [SECONDARY_RELAY](#secondary_relay-30883f2fae5b)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(int)](#m-valueOf-c0d46d25fc67)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(int)](#valueof-c0d46d25fc67)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### NONE <a href="#m-NONE" id="m-NONE"></a>
+### NONE <a href="#none-f29411358a7b" id="none-f29411358a7b"></a>
 
 ```java
 public static final com.tailf.ha.HaStateType NONE;
@@ -34,7 +34,7 @@ public static final com.tailf.ha.HaStateType NONE;
 
 NONE implies that the node is not participating in a HA cluster.
 
-### PRIMARY <a href="#m-PRIMARY" id="m-PRIMARY"></a>
+### PRIMARY <a href="#primary-b37cfb8b5165" id="primary-b37cfb8b5165"></a>
 
 ```java
 public static final com.tailf.ha.HaStateType PRIMARY;
@@ -42,7 +42,7 @@ public static final com.tailf.ha.HaStateType PRIMARY;
 
 PRIMARY implies that the node is primary in a HA cluster.
 
-### SECONDARY <a href="#m-SECONDARY" id="m-SECONDARY"></a>
+### SECONDARY <a href="#secondary-0ebc1e389638" id="secondary-0ebc1e389638"></a>
 
 ```java
 public static final com.tailf.ha.HaStateType SECONDARY;
@@ -50,7 +50,7 @@ public static final com.tailf.ha.HaStateType SECONDARY;
 
 SECONDARY implies that the node is secondary in a HA cluster.
 
-### SECONDARY_RELAY <a href="#m-SECONDARY_RELAY" id="m-SECONDARY_RELAY"></a>
+### SECONDARY_RELAY <a href="#secondary_relay-30883f2fae5b" id="secondary_relay-30883f2fae5b"></a>
 
 ```java
 public static final com.tailf.ha.HaStateType SECONDARY_RELAY;
@@ -62,7 +62,7 @@ SECONDARY_RELAY implies that the node is secondary in a HA cluster,
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -72,13 +72,13 @@ Get the integer value represented by this enum value.
 
 **Returns:** integer value for enum
 
-### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
+### valueOf(int) <a href="#valueof-c0d46d25fc67" id="valueof-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.ha.HaStateType valueOf(int i)
 ```
 
-Types: [HaStateType](HaStateType.md#cls-HaStateType)
+Types: [HaStateType](HaStateType.md#hastatetype-8f5797940a11)
 
 Instantiates an HaStateType from an integer value.
 
@@ -88,22 +88,22 @@ Instantiates an HaStateType from an integer value.
 
 **Returns:** an HaStateType object
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.ha.HaStateType valueOf(String name)
 ```
 
-Types: [HaStateType](HaStateType.md#cls-HaStateType)
+Types: [HaStateType](HaStateType.md#hastatetype-8f5797940a11)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.ha.HaStateType[] values()
 ```
 
-Types: [HaStateType](HaStateType.md#cls-HaStateType)
+Types: [HaStateType](HaStateType.md#hastatetype-8f5797940a11)

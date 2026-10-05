@@ -1,4 +1,4 @@
-# NextObjectArrayList <a href="#cls-NextObjectArrayList" id="cls-NextObjectArrayList"></a>
+# NextObjectArrayList <a href="#nextobjectarraylist-28f6c867871e" id="nextobjectarraylist-28f6c867871e"></a>
 
 ```java
 public class com.tailf.dp.NextObjectArrayList<E>
@@ -6,7 +6,7 @@ public class com.tailf.dp.NextObjectArrayList<E>
     implements com.tailf.dp.NextObjectList<E>
 ```
 
-Types: [NextObjectList](NextObjectList.md#cls-NextObjectList)
+Types: [NextObjectList](NextObjectList.md#nextobjectlist-86d6d5d5f508)
 
 ArrayList-based implementation of the NextObjectList interface.
 
@@ -14,24 +14,24 @@ ArrayList-based implementation of the NextObjectList interface.
 
 **Constructors**:
 
-- [NextObjectArrayList()](#m-NextObjectArrayList-8247e2abf6fa)
-- [NextObjectArrayList(Collection<? extends E>)](#m-NextObjectArrayList-a6fbfda6c13c)
-- [NextObjectArrayList(int)](#m-NextObjectArrayList-dc46d12ae286)
+- [NextObjectArrayList()](#nextobjectarraylist-8247e2abf6fa)
+- [NextObjectArrayList(Collection<? extends E>)](#nextobjectarraylist-a6fbfda6c13c)
+- [NextObjectArrayList(int)](#nextobjectarraylist-dc46d12ae286)
 
 **Methods**:
 
-- [getTimeout()](#m-getTimeout-c6606d7f7c00)
-- [setTimeout(int)](#m-setTimeout-cbe758ecb5d8)
+- [getTimeout()](#gettimeout-c6606d7f7c00)
+- [setTimeout(int)](#settimeout-cbe758ecb5d8)
 
 ## Constructors
 
-### NextObjectArrayList() <a href="#m-NextObjectArrayList-8247e2abf6fa" id="m-NextObjectArrayList-8247e2abf6fa"></a>
+### NextObjectArrayList() <a href="#nextobjectarraylist-8247e2abf6fa" id="nextobjectarraylist-8247e2abf6fa"></a>
 
 ```java
 public NextObjectArrayList()
 ```
 
-### NextObjectArrayList(Collection<? extends E>) <a href="#m-NextObjectArrayList-a6fbfda6c13c" id="m-NextObjectArrayList-a6fbfda6c13c"></a>
+### NextObjectArrayList(Collection&lt;? extends E&gt;) <a href="#nextobjectarraylist-a6fbfda6c13c" id="nextobjectarraylist-a6fbfda6c13c"></a>
 
 ```java
 public NextObjectArrayList(java.util.Collection<? extends E> c)
@@ -41,7 +41,7 @@ public NextObjectArrayList(java.util.Collection<? extends E> c)
 
 - `java.util.Collection<? extends E> c`
 
-### NextObjectArrayList(int) <a href="#m-NextObjectArrayList-dc46d12ae286" id="m-NextObjectArrayList-dc46d12ae286"></a>
+### NextObjectArrayList(int) <a href="#nextobjectarraylist-dc46d12ae286" id="nextobjectarraylist-dc46d12ae286"></a>
 
 ```java
 public NextObjectArrayList(int initialCapacity)
@@ -54,7 +54,7 @@ public NextObjectArrayList(int initialCapacity)
 
 ## Methods
 
-### getTimeout() <a href="#m-getTimeout-c6606d7f7c00" id="m-getTimeout-c6606d7f7c00"></a>
+### getTimeout() <a href="#gettimeout-c6606d7f7c00" id="gettimeout-c6606d7f7c00"></a>
 
 ```java
 public int getTimeout()
@@ -66,7 +66,7 @@ This method is used by the library to read the timeout value pertaining
  I.e. it governs for how long NCS will retain the objects and read them
  from its cache.
 
-### setTimeout(int) <a href="#m-setTimeout-cbe758ecb5d8" id="m-setTimeout-cbe758ecb5d8"></a>
+### setTimeout(int) <a href="#settimeout-cbe758ecb5d8" id="settimeout-cbe758ecb5d8"></a>
 
 ```java
 public void setTimeout(int newTimeout)

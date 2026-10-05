@@ -1,4 +1,4 @@
-# XMLtoConfXMLParam <a href="#cls-XMLtoConfXMLParam" id="cls-XMLtoConfXMLParam"></a>
+# XMLtoConfXMLParam <a href="#xmltoconfxmlparam-f4845d9828ee" id="xmltoconfxmlparam-f4845d9828ee"></a>
 
 ```java
 public class com.tailf.util.XMLtoConfXMLParam
@@ -17,23 +17,23 @@ Convenience utility class for transformation from
 
 **Constructors**:
 
-- [XMLtoConfXMLParam(String, ConfPath)](#m-XMLtoConfXMLParam-c8c5db7811e2)
+- [XMLtoConfXMLParam(String, ConfPath)](#xmltoconfxmlparam-c8c5db7811e2)
 
 **Fields**:
 
-- [MODE_GET](#m-MODE_GET)
-- [MODE_SET](#m-MODE_SET)
-- [MODE_SET_ACTION_PARAM](#m-MODE_SET_ACTION_PARAM)
-- [MODE_SET_ACTION_RESULT](#m-MODE_SET_ACTION_RESULT)
+- [MODE_GET](#mode_get-f993d996e8d3)
+- [MODE_SET](#mode_set-a3c0f3ec95f7)
+- [MODE_SET_ACTION_PARAM](#mode_set_action_param-2b8bfb16378e)
+- [MODE_SET_ACTION_RESULT](#mode_set_action_result-51a0a8eb8d0a)
 
 **Methods**:
 
-- [toXMLParam()](#m-toXMLParam-035915632f19)
-- [toXMLParam(int)](#m-toXMLParam-cfa4dab14cf4)
+- [toXMLParam()](#toxmlparam-035915632f19)
+- [toXMLParam(int)](#toxmlparam-cfa4dab14cf4)
 
 ## Constructors
 
-### XMLtoConfXMLParam(String, ConfPath) <a href="#m-XMLtoConfXMLParam-c8c5db7811e2" id="m-XMLtoConfXMLParam-c8c5db7811e2"></a>
+### XMLtoConfXMLParam(String, ConfPath) <a href="#xmltoconfxmlparam-c8c5db7811e2" id="xmltoconfxmlparam-c8c5db7811e2"></a>
 
 ```java
 public XMLtoConfXMLParam(
@@ -43,7 +43,7 @@ public XMLtoConfXMLParam(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [ConfPath](../conf/ConfPath.md#confpath-327831c6fc7d), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Main constructor for initializing the xml parser.
 
@@ -56,7 +56,7 @@ Main constructor for initializing the xml parser.
 
 ## Fields
 
-### MODE_GET <a href="#m-MODE_GET" id="m-MODE_GET"></a>
+### MODE_GET <a href="#mode_get-f993d996e8d3" id="mode_get-f993d996e8d3"></a>
 
 ```java
 public static final int MODE_GET = 1;
@@ -64,7 +64,7 @@ public static final int MODE_GET = 1;
 
 parse xml as preparation for a getValues() call
 
-### MODE_SET <a href="#m-MODE_SET" id="m-MODE_SET"></a>
+### MODE_SET <a href="#mode_set-a3c0f3ec95f7" id="mode_set-a3c0f3ec95f7"></a>
 
 ```java
 public static final int MODE_SET = 2;
@@ -72,7 +72,7 @@ public static final int MODE_SET = 2;
 
 parse xml as preparation for a setValues() call
 
-### MODE_SET_ACTION_PARAM <a href="#m-MODE_SET_ACTION_PARAM" id="m-MODE_SET_ACTION_PARAM"></a>
+### MODE_SET_ACTION_PARAM <a href="#mode_set_action_param-2b8bfb16378e" id="mode_set_action_param-2b8bfb16378e"></a>
 
 ```java
 public static final int MODE_SET_ACTION_PARAM = 4;
@@ -81,7 +81,7 @@ public static final int MODE_SET_ACTION_PARAM = 4;
 parse xml as preparation for a setValues() call
  for action's or rpc's parameters
 
-### MODE_SET_ACTION_RESULT <a href="#m-MODE_SET_ACTION_RESULT" id="m-MODE_SET_ACTION_RESULT"></a>
+### MODE_SET_ACTION_RESULT <a href="#mode_set_action_result-51a0a8eb8d0a" id="mode_set_action_result-51a0a8eb8d0a"></a>
 
 ```java
 public static final int MODE_SET_ACTION_RESULT = 5;
@@ -93,13 +93,13 @@ parse xml as preparation for a setValues() call
 
 ## Methods
 
-### toXMLParam() <a href="#m-toXMLParam-035915632f19" id="m-toXMLParam-035915632f19"></a>
+### toXMLParam() <a href="#toxmlparam-035915632f19" id="toxmlparam-035915632f19"></a>
 
 ```java
 public com.tailf.conf.ConfXMLParam[] toXMLParam() throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Converts the xml to corresponding ConfXMLParam[]
  The resulting ConfXMLParam[] is prepared for a getValues() call.
@@ -110,23 +110,23 @@ Converts the xml to corresponding ConfXMLParam[]
 
 - `ConfException`
 
-### toXMLParam(int) <a href="#m-toXMLParam-cfa4dab14cf4" id="m-toXMLParam-cfa4dab14cf4"></a>
+### toXMLParam(int) <a href="#toxmlparam-cfa4dab14cf4" id="toxmlparam-cfa4dab14cf4"></a>
 
 ```java
 public com.tailf.conf.ConfXMLParam[] toXMLParam(int mode) throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfException](../conf/ConfException.md#cls-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Converts the xml to corresponding ConfXMLParam[]
  The mode parameter controls whether this ConfXMLParam[] should be
  prepared for a getValues() call or for a setValues() call using
- using [`MODE_GET`](XMLtoConfXMLParam.md#m-MODE_GET) or [`MODE_SET`](XMLtoConfXMLParam.md#m-MODE_SET) respectively.
+ using [`MODE_GET`](XMLtoConfXMLParam.md#mode_get-f993d996e8d3) or [`MODE_SET`](XMLtoConfXMLParam.md#mode_set-a3c0f3ec95f7) respectively.
 
 **Parameters**
 
-- `int mode` - one of [`MODE_GET`](XMLtoConfXMLParam.md#m-MODE_GET), [`MODE_SET`](XMLtoConfXMLParam.md#m-MODE_SET),
- [`MODE_SET_ACTION_PARAM`](XMLtoConfXMLParam.md#m-MODE_SET_ACTION_PARAM) or [`MODE_SET_ACTION_RESULT`](XMLtoConfXMLParam.md#m-MODE_SET_ACTION_RESULT)
+- `int mode` - one of [`MODE_GET`](XMLtoConfXMLParam.md#mode_get-f993d996e8d3), [`MODE_SET`](XMLtoConfXMLParam.md#mode_set-a3c0f3ec95f7),
+ [`MODE_SET_ACTION_PARAM`](XMLtoConfXMLParam.md#mode_set_action_param-2b8bfb16378e) or [`MODE_SET_ACTION_RESULT`](XMLtoConfXMLParam.md#mode_set_action_result-51a0a8eb8d0a)
 
 **Returns:** the resulting ConfXMLParam[]
 

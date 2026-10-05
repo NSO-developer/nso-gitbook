@@ -1,4 +1,4 @@
-# CsValueDate <a href="#cls-CsValueDate" id="cls-CsValueDate"></a>
+# CsValueDate <a href="#csvaluedate-be1749e6bc77" id="csvaluedate-be1749e6bc77"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsValueDate
@@ -8,23 +8,23 @@ public static class com.tailf.ncs.maapi.Schema.CsValueDate
 
 **Constructors**:
 
-- [CsValueDate()](#m-CsValueDate-71cf7570c177)
+- [CsValueDate()](#csvaluedate-71cf7570c177)
 
 **Fields**:
 
-- [factory](#m-factory)
-- [listFactory](#m-listFactory)
-- [STRUCT_SIZE](#m-STRUCT_SIZE)
+- [factory](#factory-1649195a6f6e)
+- [listFactory](#listfactory-b96025f1568b)
+- [STRUCT_SIZE](#struct_size-06830f6b9d3b)
 
 **Nested Types**:
 
-- [Builder](CsValueDate/Builder.md#cls-Builder)
-- [Factory](CsValueDate/Factory.md#cls-Factory)
-- [Reader](CsValueDate/Reader.md#cls-Reader)
+- [Builder](CsValueDate/Builder.md#builder-21f09e83781d)
+- [Factory](CsValueDate/Factory.md#factory-1787784624e8)
+- [Reader](CsValueDate/Reader.md#reader-b2467a96ddff)
 
 ## Constructors
 
-### CsValueDate() <a href="#m-CsValueDate-71cf7570c177" id="m-CsValueDate-71cf7570c177"></a>
+### CsValueDate() <a href="#csvaluedate-71cf7570c177" id="csvaluedate-71cf7570c177"></a>
 
 ```java
 public CsValueDate()
@@ -33,23 +33,23 @@ public CsValueDate()
 
 ## Fields
 
-### factory <a href="#m-factory" id="m-factory"></a>
+### factory <a href="#factory-1649195a6f6e" id="factory-1649195a6f6e"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValueDate.Factory factory = null;
 ```
 
-Types: [Factory](CsValueDate/Factory.md#cls-Factory)
+Types: [Factory](CsValueDate/Factory.md#factory-1787784624e8)
 
-### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
+### listFactory <a href="#listfactory-b96025f1568b" id="listfactory-b96025f1568b"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueDate.Builder,com.tailf.ncs.maapi.Schema.CsValueDate.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsValueDate/Builder.md#cls-Builder), [Reader](CsValueDate/Reader.md#cls-Reader)
+Types: [Builder](CsValueDate/Builder.md#builder-21f09e83781d), [Reader](CsValueDate/Reader.md#reader-b2467a96ddff)
 
-### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
+### STRUCT_SIZE <a href="#struct_size-06830f6b9d3b" id="struct_size-06830f6b9d3b"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;
@@ -58,6 +58,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsValueDate/Builder.md#cls-Builder)
-- [Factory](CsValueDate/Factory.md#cls-Factory)
-- [Reader](CsValueDate/Reader.md#cls-Reader)
+- [Builder](CsValueDate/Builder.md#builder-21f09e83781d)
+- [Factory](CsValueDate/Factory.md#factory-1787784624e8)
+- [Reader](CsValueDate/Reader.md#reader-b2467a96ddff)

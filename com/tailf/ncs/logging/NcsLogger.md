@@ -1,4 +1,4 @@
-# NcsLogger <a href="#cls-NcsLogger" id="cls-NcsLogger"></a>
+# NcsLogger <a href="#ncslogger-0139fac936a2" id="ncslogger-0139fac936a2"></a>
 
 ```java
 public class com.tailf.ncs.logging.NcsLogger
@@ -27,23 +27,23 @@ NCS Logging Management.
 
 **Methods**:
 
-- [config(SocketAddress)](#m-config-27b84e0fef53)
-- [config(SocketAddress, boolean)](#m-config-ecb3e9b393e2)
-- [config(String, int)](#m-config-1ba577c4f8cb)
-- [config(String, int, boolean)](#m-config-69cc5a37a307)
-- [run()](#m-run-b6dbda048863)
-- [stop()](#m-stop-a62ecc446f97)
+- [config(SocketAddress)](#config-27b84e0fef53)
+- [config(SocketAddress, boolean)](#config-ecb3e9b393e2)
+- [config(String, int)](#config-1ba577c4f8cb)
+- [config(String, int, boolean)](#config-69cc5a37a307)
+- [run()](#run-b6dbda048863)
+- [stop()](#stop-a62ecc446f97)
 
 **Nested Types**:
 
-- [LoggConfigurator](NcsLogger/LoggConfigurator.md#cls-LoggConfigurator)
-- [LogIter](NcsLogger/LogIter.md#cls-LogIter)
-- [NedIdIter](NcsLogger/NedIdIter.md#cls-NedIdIter)
-- [VerbosityIter](NcsLogger/VerbosityIter.md#cls-VerbosityIter)
+- [LoggConfigurator](NcsLogger/LoggConfigurator.md#loggconfigurator-94c239f258ab)
+- [LogIter](NcsLogger/LogIter.md#logiter-ecede56df6fd)
+- [NedIdIter](NcsLogger/NedIdIter.md#nediditer-c9ce7eb389da)
+- [VerbosityIter](NcsLogger/VerbosityIter.md#verbosityiter-e51c846079ee)
 
 ## Methods
 
-### config(SocketAddress) <a href="#m-config-27b84e0fef53" id="m-config-27b84e0fef53"></a>
+### config(SocketAddress) <a href="#config-27b84e0fef53" id="config-27b84e0fef53"></a>
 
 ```java
 public static void config(java.net.SocketAddress address)
@@ -53,7 +53,7 @@ public static void config(java.net.SocketAddress address)
 
 - `java.net.SocketAddress address`
 
-### config(SocketAddress, boolean) <a href="#m-config-ecb3e9b393e2" id="m-config-ecb3e9b393e2"></a>
+### config(SocketAddress, boolean) <a href="#config-ecb3e9b393e2" id="config-ecb3e9b393e2"></a>
 
 ```java
 public static void config(java.net.SocketAddress address, boolean readConfig)
@@ -64,7 +64,7 @@ public static void config(java.net.SocketAddress address, boolean readConfig)
 - `java.net.SocketAddress address`
 - `boolean readConfig`
 
-### config(String, int) <a href="#m-config-1ba577c4f8cb" id="m-config-1ba577c4f8cb"></a>
+### config(String, int) <a href="#config-1ba577c4f8cb" id="config-1ba577c4f8cb"></a>
 
 ```java
 public static void config(String host, int port)
@@ -88,7 +88,7 @@ Creates and setup a subscriber that listen on changes
 - `String host` - hostname or ip for ncs
 - `int port` - port number
 
-### config(String, int, boolean) <a href="#m-config-69cc5a37a307" id="m-config-69cc5a37a307"></a>
+### config(String, int, boolean) <a href="#config-69cc5a37a307" id="config-69cc5a37a307"></a>
 
 ```java
 public static void config(String host, int port, boolean readConfig)
@@ -100,13 +100,13 @@ public static void config(String host, int port, boolean readConfig)
 - `int port`
 - `boolean readConfig`
 
-### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
+### run() <a href="#run-b6dbda048863" id="run-b6dbda048863"></a>
 
 ```java
 public void run()
 ```
 
-### stop() <a href="#m-stop-a62ecc446f97" id="m-stop-a62ecc446f97"></a>
+### stop() <a href="#stop-a62ecc446f97" id="stop-a62ecc446f97"></a>
 
 ```java
 public static void stop()
@@ -115,7 +115,7 @@ public static void stop()
 
 ## Nested Types
 
-- [LoggConfigurator](NcsLogger/LoggConfigurator.md#cls-LoggConfigurator)
-- [LogIter](NcsLogger/LogIter.md#cls-LogIter)
-- [NedIdIter](NcsLogger/NedIdIter.md#cls-NedIdIter)
-- [VerbosityIter](NcsLogger/VerbosityIter.md#cls-VerbosityIter)
+- [LoggConfigurator](NcsLogger/LoggConfigurator.md#loggconfigurator-94c239f258ab)
+- [LogIter](NcsLogger/LogIter.md#logiter-ecede56df6fd)
+- [NedIdIter](NcsLogger/NedIdIter.md#nediditer-c9ce7eb389da)
+- [VerbosityIter](NcsLogger/VerbosityIter.md#verbosityiter-e51c846079ee)

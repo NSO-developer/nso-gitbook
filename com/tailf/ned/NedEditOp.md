@@ -1,4 +1,4 @@
-# NedEditOp <a href="#cls-NedEditOp" id="cls-NedEditOp"></a>
+# NedEditOp <a href="#nededitop-b7874a11393d" id="nededitop-b7874a11393d"></a>
 
 ```java
 public class com.tailf.ned.NedEditOp
@@ -11,40 +11,40 @@ NedEditOp represents the edit operations provided to a
 
 **Constructors**:
 
-- [NedEditOp(ConfETuple)](#m-NedEditOp-fb5ea191f957)
+- [NedEditOp(ConfETuple)](#nededitop-fb5ea191f957)
 
 **Fields**:
 
-- [AFTER](#m-AFTER)
-- [ATTR_DEL](#m-ATTR_DEL)
-- [ATTR_SET](#m-ATTR_SET)
-- [CREATED](#m-CREATED)
-- [DEFAULT_SET](#m-DEFAULT_SET)
-- [DELETED](#m-DELETED)
-- [FIRST](#m-FIRST)
-- [MODIFIED](#m-MODIFIED)
-- [MOVED](#m-MOVED)
-- [VALUE_SET](#m-VALUE_SET)
+- [AFTER](#after-22d3951db1ad)
+- [ATTR_DEL](#attr_del-4a1cc8e2643f)
+- [ATTR_SET](#attr_set-0ae457aadd97)
+- [CREATED](#created-fb73349d7fe1)
+- [DEFAULT_SET](#default_set-62669637559e)
+- [DELETED](#deleted-c1cbfd27938b)
+- [FIRST](#first-9a16e3379a19)
+- [MODIFIED](#modified-9434b1a4ec58)
+- [MOVED](#moved-4aea31177742)
+- [VALUE_SET](#value_set-04a6e7720356)
 
 **Methods**:
 
-- [getMoveDestination()](#m-getMoveDestination-35c9f26a0b8a)
-- [getOpDone()](#m-getOpDone-6611ced4926a)
-- [getOperation()](#m-getOperation-baf0e4738a2a)
-- [getPath()](#m-getPath-88fb21895561)
-- [getValue()](#m-getValue-d93864668c40)
-- [setOpDone()](#m-setOpDone-2519596437b1)
-- [toString()](#m-toString-e9d48c5503ef)
+- [getMoveDestination()](#getmovedestination-35c9f26a0b8a)
+- [getOpDone()](#getopdone-6611ced4926a)
+- [getOperation()](#getoperation-baf0e4738a2a)
+- [getPath()](#getpath-88fb21895561)
+- [getValue()](#getvalue-d93864668c40)
+- [setOpDone()](#setopdone-2519596437b1)
+- [toString()](#tostring-e9d48c5503ef)
 
 ## Constructors
 
-### NedEditOp(ConfETuple) <a href="#m-NedEditOp-fb5ea191f957" id="m-NedEditOp-fb5ea191f957"></a>
+### NedEditOp(ConfETuple) <a href="#nededitop-fb5ea191f957" id="nededitop-fb5ea191f957"></a>
 
 ```java
 public NedEditOp(com.tailf.proto.ConfETuple t)
 ```
 
-Types: [ConfETuple](../proto/ConfETuple.md#cls-ConfETuple)
+Types: [ConfETuple](../proto/ConfETuple.md#confetuple-b1f9702a82a1)
 
 **Parameters**
 
@@ -53,61 +53,61 @@ Types: [ConfETuple](../proto/ConfETuple.md#cls-ConfETuple)
 
 ## Fields
 
-### AFTER <a href="#m-AFTER" id="m-AFTER"></a>
+### AFTER <a href="#after-22d3951db1ad" id="after-22d3951db1ad"></a>
 
 ```java
 public static final int AFTER = 2;
 ```
 
-### ATTR_DEL <a href="#m-ATTR_DEL" id="m-ATTR_DEL"></a>
+### ATTR_DEL <a href="#attr_del-4a1cc8e2643f" id="attr_del-4a1cc8e2643f"></a>
 
 ```java
 public static final int ATTR_DEL = 7;
 ```
 
-### ATTR_SET <a href="#m-ATTR_SET" id="m-ATTR_SET"></a>
+### ATTR_SET <a href="#attr_set-0ae457aadd97" id="attr_set-0ae457aadd97"></a>
 
 ```java
 public static final int ATTR_SET = 6;
 ```
 
-### CREATED <a href="#m-CREATED" id="m-CREATED"></a>
+### CREATED <a href="#created-fb73349d7fe1" id="created-fb73349d7fe1"></a>
 
 ```java
 public static final int CREATED = 0;
 ```
 
-### DEFAULT_SET <a href="#m-DEFAULT_SET" id="m-DEFAULT_SET"></a>
+### DEFAULT_SET <a href="#default_set-62669637559e" id="default_set-62669637559e"></a>
 
 ```java
 public static final int DEFAULT_SET = 5;
 ```
 
-### DELETED <a href="#m-DELETED" id="m-DELETED"></a>
+### DELETED <a href="#deleted-c1cbfd27938b" id="deleted-c1cbfd27938b"></a>
 
 ```java
 public static final int DELETED = 1;
 ```
 
-### FIRST <a href="#m-FIRST" id="m-FIRST"></a>
+### FIRST <a href="#first-9a16e3379a19" id="first-9a16e3379a19"></a>
 
 ```java
 public static final int FIRST = 1;
 ```
 
-### MODIFIED <a href="#m-MODIFIED" id="m-MODIFIED"></a>
+### MODIFIED <a href="#modified-9434b1a4ec58" id="modified-9434b1a4ec58"></a>
 
 ```java
 public static final int MODIFIED = 3;
 ```
 
-### MOVED <a href="#m-MOVED" id="m-MOVED"></a>
+### MOVED <a href="#moved-4aea31177742" id="moved-4aea31177742"></a>
 
 ```java
 public static final int MOVED = 2;
 ```
 
-### VALUE_SET <a href="#m-VALUE_SET" id="m-VALUE_SET"></a>
+### VALUE_SET <a href="#value_set-04a6e7720356" id="value_set-04a6e7720356"></a>
 
 ```java
 public static final int VALUE_SET = 4;
@@ -116,18 +116,18 @@ public static final int VALUE_SET = 4;
 
 ## Methods
 
-### getMoveDestination() <a href="#m-getMoveDestination-35c9f26a0b8a" id="m-getMoveDestination-35c9f26a0b8a"></a>
+### getMoveDestination() <a href="#getmovedestination-35c9f26a0b8a" id="getmovedestination-35c9f26a0b8a"></a>
 
 ```java
 public int getMoveDestination() throws com.tailf.ned.NedException
 ```
 
-Types: [NedException](NedException.md#cls-NedException)
+Types: [NedException](NedException.md#nedexception-9d3a19f3640e)
 
 Returns the absolute or relative destination of a move operation.
  For the relative destinations (before/after), the element which
- the move is relative to is given by [`getValue()`](NedEditOp.md#m-getValue-d93864668c40). The two
- possible return values are [`FIRST`](NedEditOp.md#m-FIRST) and [`AFTER`](NedEditOp.md#m-AFTER).
+ the move is relative to is given by [`getValue()`](NedEditOp.md#getvalue-d93864668c40). The two
+ possible return values are [`FIRST`](NedEditOp.md#first-9a16e3379a19) and [`AFTER`](NedEditOp.md#after-22d3951db1ad).
  For a non-move operation, this method will always return -1.
 
 **Returns:** the destination for this move operation
@@ -136,48 +136,48 @@ Returns the absolute or relative destination of a move operation.
 
 - `NedException`
 
-### getOpDone() <a href="#m-getOpDone-6611ced4926a" id="m-getOpDone-6611ced4926a"></a>
+### getOpDone() <a href="#getopdone-6611ced4926a" id="getopdone-6611ced4926a"></a>
 
 ```java
 public boolean getOpDone()
 ```
 
-### getOperation() <a href="#m-getOperation-baf0e4738a2a" id="m-getOperation-baf0e4738a2a"></a>
+### getOperation() <a href="#getoperation-baf0e4738a2a" id="getoperation-baf0e4738a2a"></a>
 
 ```java
 public int getOperation()
 ```
 
-### getPath() <a href="#m-getPath-88fb21895561" id="m-getPath-88fb21895561"></a>
+### getPath() <a href="#getpath-88fb21895561" id="getpath-88fb21895561"></a>
 
 ```java
 public com.tailf.conf.ConfPath getPath()
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath)
+Types: [ConfPath](../conf/ConfPath.md#confpath-327831c6fc7d)
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public com.tailf.conf.ConfObject getValue()
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject)
+Types: [ConfObject](../conf/ConfObject.md#confobject-5433616953b2)
 
 Returns the value used in this operation. Typically this is the value
  set by a set operation. For a relative move operation, this value, in
- combination with the constant returned by [`getMoveDestination()`](NedEditOp.md#m-getMoveDestination-35c9f26a0b8a),
+ combination with the constant returned by [`getMoveDestination()`](NedEditOp.md#getmovedestination-35c9f26a0b8a),
  specifies the destination of the moved element.
 
 **Returns:** the value used in the operation
 
-### setOpDone() <a href="#m-setOpDone-2519596437b1" id="m-setOpDone-2519596437b1"></a>
+### setOpDone() <a href="#setopdone-2519596437b1" id="setopdone-2519596437b1"></a>
 
 ```java
 public void setOpDone()
 ```
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()

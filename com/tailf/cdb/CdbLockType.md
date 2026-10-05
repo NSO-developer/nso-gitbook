@@ -1,10 +1,10 @@
-# CdbLockType <a href="#cls-CdbLockType" id="cls-CdbLockType"></a>
+# CdbLockType <a href="#cdblocktype-1d165621c0a3" id="cdblocktype-1d165621c0a3"></a>
 
 ```java
 public enum com.tailf.cdb.CdbLockType
 ```
 
-Types: [CdbLockType](CdbLockType.md#cls-CdbLockType)
+Types: [CdbLockType](CdbLockType.md#cdblocktype-1d165621c0a3)
 
 DB lock type flag for *Cdb Sessions* which controls locking of
  sessions.
@@ -44,20 +44,20 @@ DB lock type flag for *Cdb Sessions* which controls locking of
 
 **Enum Constants**:
 
-- [LOCK_PARTIAL](#m-LOCK_PARTIAL)
-- [LOCK_REQUEST](#m-LOCK_REQUEST)
-- [LOCK_SESSION](#m-LOCK_SESSION)
-- [LOCK_WAIT](#m-LOCK_WAIT)
+- [LOCK_PARTIAL](#lock_partial-018e4e600871)
+- [LOCK_REQUEST](#lock_request-7644a883c14e)
+- [LOCK_SESSION](#lock_session-306b0dde39ea)
+- [LOCK_WAIT](#lock_wait-1b85e04cb86b)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### LOCK_PARTIAL <a href="#m-LOCK_PARTIAL" id="m-LOCK_PARTIAL"></a>
+### LOCK_PARTIAL <a href="#lock_partial-018e4e600871" id="lock_partial-018e4e600871"></a>
 
 ```java
 public static final com.tailf.cdb.CdbLockType LOCK_PARTIAL;
@@ -66,7 +66,7 @@ public static final com.tailf.cdb.CdbLockType LOCK_PARTIAL;
 Controls if locks of type LOCK_REQUEST should be partial
  i.e. only lock subtree under the point of access
 
-### LOCK_REQUEST <a href="#m-LOCK_REQUEST" id="m-LOCK_REQUEST"></a>
+### LOCK_REQUEST <a href="#lock_request-7644a883c14e" id="lock_request-7644a883c14e"></a>
 
 ```java
 public static final com.tailf.cdb.CdbLockType LOCK_REQUEST;
@@ -74,7 +74,7 @@ public static final com.tailf.cdb.CdbLockType LOCK_REQUEST;
 
 Obtain read lock for each read request
 
-### LOCK_SESSION <a href="#m-LOCK_SESSION" id="m-LOCK_SESSION"></a>
+### LOCK_SESSION <a href="#lock_session-306b0dde39ea" id="lock_session-306b0dde39ea"></a>
 
 ```java
 public static final com.tailf.cdb.CdbLockType LOCK_SESSION;
@@ -82,7 +82,7 @@ public static final com.tailf.cdb.CdbLockType LOCK_SESSION;
 
 Obtain read lock for the complete session
 
-### LOCK_WAIT <a href="#m-LOCK_WAIT" id="m-LOCK_WAIT"></a>
+### LOCK_WAIT <a href="#lock_wait-1b85e04cb86b" id="lock_wait-1b85e04cb86b"></a>
 
 ```java
 public static final com.tailf.cdb.CdbLockType LOCK_WAIT;
@@ -95,28 +95,28 @@ Controls in combination with one of LOCK_SESSION or LOCK_REQUEST if the
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.cdb.CdbLockType valueOf(String name)
 ```
 
-Types: [CdbLockType](CdbLockType.md#cls-CdbLockType)
+Types: [CdbLockType](CdbLockType.md#cdblocktype-1d165621c0a3)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.cdb.CdbLockType[] values()
 ```
 
-Types: [CdbLockType](CdbLockType.md#cls-CdbLockType)
+Types: [CdbLockType](CdbLockType.md#cdblocktype-1d165621c0a3)

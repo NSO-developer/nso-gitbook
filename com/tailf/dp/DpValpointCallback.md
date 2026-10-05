@@ -1,4 +1,4 @@
-# DpValpointCallback <a href="#cls-DpValpointCallback" id="cls-DpValpointCallback"></a>
+# DpValpointCallback <a href="#dpvalpointcallback-ee36356695e1" id="dpvalpointcallback-ee36356695e1"></a>
 
 ```java
 public interface com.tailf.dp.DpValpointCallback
@@ -6,18 +6,18 @@ public interface com.tailf.dp.DpValpointCallback
 
 This interface is used for the user valpoint callbacks.
 
-**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerAnnotatedCallbacks-ffaebadbfc42)
+**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
 
 **Methods**:
 
-- [validate(DpTrans, ConfObject[], ConfValue)](#m-validate-1a546d06dca5)
-- [valpoint()](#m-valpoint-a064c4954648)
+- [validate(DpTrans, ConfObject[], ConfValue)](#validate-1a546d06dca5)
+- [valpoint()](#valpoint-a064c4954648)
 
 ## Methods
 
-### validate(DpTrans, ConfObject[], ConfValue) <a href="#m-validate-1a546d06dca5" id="m-validate-1a546d06dca5"></a>
+### validate(DpTrans, ConfObject[], ConfValue) <a href="#validate-1a546d06dca5" id="validate-1a546d06dca5"></a>
 
 ```java
 public abstract void validate(
@@ -28,7 +28,7 @@ public abstract void validate(
     throws com.tailf.dp.DpCallbackException, com.tailf.dp.DpCallbackWarningException
 ```
 
-Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfValue](../conf/ConfValue.md#cls-ConfValue), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException), [DpCallbackWarningException](DpCallbackWarningException.md#cls-DpCallbackWarningException)
+Types: [DpTrans](DpTrans.md#dptrans-bf19458d92ec), [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb), [DpCallbackWarningException](DpCallbackWarningException.md#dpcallbackwarningexception-82a350729169)
 
 The validate() callback should validate the values and throw a
  `DpCallbackException` if the validation fails. There is also a
@@ -58,7 +58,7 @@ The validate() callback should validate the values and throw a
 - `DpCallbackWarningException` - If a warning should be propagated to the originator of the
              transaction.
 
-### valpoint() <a href="#m-valpoint-a064c4954648" id="m-valpoint-a064c4954648"></a>
+### valpoint() <a href="#valpoint-a064c4954648" id="valpoint-a064c4954648"></a>
 
 ```java
 public abstract String valpoint()

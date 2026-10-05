@@ -1,4 +1,4 @@
-# ServiceLog <a href="#cls-ServiceLog" id="cls-ServiceLog"></a>
+# ServiceLog <a href="#servicelog-e6fa4f1a1851" id="servicelog-e6fa4f1a1851"></a>
 
 ```java
 public class com.tailf.dp.services.ServiceLog
@@ -10,19 +10,19 @@ This class contains methods to write service log entries.
 
 **Constructors**:
 
-- [ServiceLog()](#m-ServiceLog-e0ce7e0be510)
+- [ServiceLog()](#servicelog-e0ce7e0be510)
 
 **Methods**:
 
-- [debug(NavuNode, String, ConfIdentityRef)](#m-debug-39896980ab6c)
-- [error(NavuNode, String, ConfIdentityRef)](#m-error-36ea172332a6)
-- [info(NavuNode, String, ConfIdentityRef)](#m-info-4b3af861e27b)
-- [trace(NavuNode, String, ConfIdentityRef)](#m-trace-678d3c696ad3)
-- [warn(NavuNode, String, ConfIdentityRef)](#m-warn-34f7ad4bc513)
+- [debug(NavuNode, String, ConfIdentityRef)](#debug-39896980ab6c)
+- [error(NavuNode, String, ConfIdentityRef)](#error-36ea172332a6)
+- [info(NavuNode, String, ConfIdentityRef)](#info-4b3af861e27b)
+- [trace(NavuNode, String, ConfIdentityRef)](#trace-678d3c696ad3)
+- [warn(NavuNode, String, ConfIdentityRef)](#warn-34f7ad4bc513)
 
 ## Constructors
 
-### ServiceLog() <a href="#m-ServiceLog-e0ce7e0be510" id="m-ServiceLog-e0ce7e0be510"></a>
+### ServiceLog() <a href="#servicelog-e0ce7e0be510" id="servicelog-e0ce7e0be510"></a>
 
 ```java
 public ServiceLog()
@@ -31,7 +31,7 @@ public ServiceLog()
 
 ## Methods
 
-### debug(NavuNode, String, ConfIdentityRef) <a href="#m-debug-39896980ab6c" id="m-debug-39896980ab6c"></a>
+### debug(NavuNode, String, ConfIdentityRef) <a href="#debug-39896980ab6c" id="debug-39896980ab6c"></a>
 
 ```java
 public static void debug(
@@ -42,7 +42,7 @@ public static void debug(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [NavuNode](../../navu/NavuNode.md#cls-NavuNode), [ConfIdentityRef](../../conf/ConfIdentityRef.md#cls-ConfIdentityRef), [ConfException](../../conf/ConfException.md#cls-ConfException)
+Types: [NavuNode](../../navu/NavuNode.md#navunode-73944820c8db), [ConfIdentityRef](../../conf/ConfIdentityRef.md#confidentityref-1a367056e764), [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Write service log entry with level debug.
 
@@ -57,7 +57,7 @@ Write service log entry with level debug.
 - `IOException`
 - `ConfException`
 
-### error(NavuNode, String, ConfIdentityRef) <a href="#m-error-36ea172332a6" id="m-error-36ea172332a6"></a>
+### error(NavuNode, String, ConfIdentityRef) <a href="#error-36ea172332a6" id="error-36ea172332a6"></a>
 
 ```java
 public static void error(
@@ -68,7 +68,7 @@ public static void error(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [NavuNode](../../navu/NavuNode.md#cls-NavuNode), [ConfIdentityRef](../../conf/ConfIdentityRef.md#cls-ConfIdentityRef), [ConfException](../../conf/ConfException.md#cls-ConfException)
+Types: [NavuNode](../../navu/NavuNode.md#navunode-73944820c8db), [ConfIdentityRef](../../conf/ConfIdentityRef.md#confidentityref-1a367056e764), [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Write service log entry with level error.
 
@@ -83,7 +83,7 @@ Write service log entry with level error.
 - `IOException`
 - `ConfException`
 
-### info(NavuNode, String, ConfIdentityRef) <a href="#m-info-4b3af861e27b" id="m-info-4b3af861e27b"></a>
+### info(NavuNode, String, ConfIdentityRef) <a href="#info-4b3af861e27b" id="info-4b3af861e27b"></a>
 
 ```java
 public static void info(
@@ -94,7 +94,7 @@ public static void info(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [NavuNode](../../navu/NavuNode.md#cls-NavuNode), [ConfIdentityRef](../../conf/ConfIdentityRef.md#cls-ConfIdentityRef), [ConfException](../../conf/ConfException.md#cls-ConfException)
+Types: [NavuNode](../../navu/NavuNode.md#navunode-73944820c8db), [ConfIdentityRef](../../conf/ConfIdentityRef.md#confidentityref-1a367056e764), [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Write service log entry with level info.
 
@@ -109,7 +109,7 @@ Write service log entry with level info.
 - `IOException`
 - `ConfException`
 
-### trace(NavuNode, String, ConfIdentityRef) <a href="#m-trace-678d3c696ad3" id="m-trace-678d3c696ad3"></a>
+### trace(NavuNode, String, ConfIdentityRef) <a href="#trace-678d3c696ad3" id="trace-678d3c696ad3"></a>
 
 ```java
 public static void trace(
@@ -120,7 +120,7 @@ public static void trace(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [NavuNode](../../navu/NavuNode.md#cls-NavuNode), [ConfIdentityRef](../../conf/ConfIdentityRef.md#cls-ConfIdentityRef), [ConfException](../../conf/ConfException.md#cls-ConfException)
+Types: [NavuNode](../../navu/NavuNode.md#navunode-73944820c8db), [ConfIdentityRef](../../conf/ConfIdentityRef.md#confidentityref-1a367056e764), [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Write service log entry with level trace.
 
@@ -135,7 +135,7 @@ Write service log entry with level trace.
 - `IOException`
 - `ConfException`
 
-### warn(NavuNode, String, ConfIdentityRef) <a href="#m-warn-34f7ad4bc513" id="m-warn-34f7ad4bc513"></a>
+### warn(NavuNode, String, ConfIdentityRef) <a href="#warn-34f7ad4bc513" id="warn-34f7ad4bc513"></a>
 
 ```java
 public static void warn(
@@ -146,7 +146,7 @@ public static void warn(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [NavuNode](../../navu/NavuNode.md#cls-NavuNode), [ConfIdentityRef](../../conf/ConfIdentityRef.md#cls-ConfIdentityRef), [ConfException](../../conf/ConfException.md#cls-ConfException)
+Types: [NavuNode](../../navu/NavuNode.md#navunode-73944820c8db), [ConfIdentityRef](../../conf/ConfIdentityRef.md#confidentityref-1a367056e764), [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Write service log entry with level warn.
 

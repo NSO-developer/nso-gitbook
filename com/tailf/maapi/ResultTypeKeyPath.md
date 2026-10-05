@@ -1,11 +1,11 @@
-# ResultTypeKeyPath <a href="#cls-ResultTypeKeyPath" id="cls-ResultTypeKeyPath"></a>
+# ResultTypeKeyPath <a href="#resulttypekeypath-6681ecc7f47b" id="resulttypekeypath-6681ecc7f47b"></a>
 
 ```java
 public interface com.tailf.maapi.ResultTypeKeyPath
     extends com.tailf.maapi.ResultType
 ```
 
-Types: [ResultType](ResultType.md#cls-ResultType)
+Types: [ResultType](ResultType.md#resulttype-1a8a08651698)
 
 XPath Result in keypath format.
 
@@ -38,17 +38,17 @@ XPath Result in keypath format.
 
 **Methods**:
 
-- [keyPath()](#m-keyPath-df48f9bfdabb)
+- [keyPath()](#keypath-df48f9bfdabb)
 
 ## Methods
 
-### keyPath() <a href="#m-keyPath-df48f9bfdabb" id="m-keyPath-df48f9bfdabb"></a>
+### keyPath() <a href="#keypath-df48f9bfdabb" id="keypath-df48f9bfdabb"></a>
 
 ```java
 public abstract com.tailf.conf.ConfObject[] keyPath()
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject)
+Types: [ConfObject](../conf/ConfObject.md#confobject-5433616953b2)
 
 Retrieves the result keypath from a query
 

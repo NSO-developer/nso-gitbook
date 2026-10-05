@@ -1,10 +1,10 @@
-# EventCBType <a href="#cls-EventCBType" id="cls-EventCBType"></a>
+# EventCBType <a href="#eventcbtype-2b91d6aed05c" id="eventcbtype-2b91d6aed05c"></a>
 
 ```java
 public enum com.tailf.ncs.proto.EventCBType
 ```
 
-Types: [EventCBType](EventCBType.md#cls-EventCBType)
+Types: [EventCBType](EventCBType.md#eventcbtype-2b91d6aed05c)
 
 Enumeration of Event callback methods
 
@@ -12,17 +12,17 @@ Enumeration of Event callback methods
 
 **Enum Constants**:
 
-- [NOTIF_RECEIVED](#m-NOTIF_RECEIVED)
+- [NOTIF_RECEIVED](#notif_received-c74c9d30176e)
 
 **Methods**:
 
-- [getValue()](#m-getValue-d93864668c40)
-- [valueOf(String)](#m-valueOf-ac61b3547613)
-- [values()](#m-values-406dfe3ca270)
+- [getValue()](#getvalue-d93864668c40)
+- [valueOf(String)](#valueof-ac61b3547613)
+- [values()](#values-406dfe3ca270)
 
 ## Enum Constants
 
-### NOTIF_RECEIVED <a href="#m-NOTIF_RECEIVED" id="m-NOTIF_RECEIVED"></a>
+### NOTIF_RECEIVED <a href="#notif_received-c74c9d30176e" id="notif_received-c74c9d30176e"></a>
 
 ```java
 public static final com.tailf.ncs.proto.EventCBType NOTIF_RECEIVED;
@@ -31,7 +31,7 @@ public static final com.tailf.ncs.proto.EventCBType NOTIF_RECEIVED;
 
 ## Methods
 
-### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
+### getValue() <a href="#getvalue-d93864668c40" id="getvalue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -41,22 +41,22 @@ get integer value for enum
 
 **Returns:** int value
 
-### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
+### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 
 ```java
 public static com.tailf.ncs.proto.EventCBType valueOf(String name)
 ```
 
-Types: [EventCBType](EventCBType.md#cls-EventCBType)
+Types: [EventCBType](EventCBType.md#eventcbtype-2b91d6aed05c)
 
 **Parameters**
 
 - `String name`
 
-### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
+### values() <a href="#values-406dfe3ca270" id="values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.ncs.proto.EventCBType[] values()
 ```
 
-Types: [EventCBType](EventCBType.md#cls-EventCBType)
+Types: [EventCBType](EventCBType.md#eventcbtype-2b91d6aed05c)

@@ -1,27 +1,27 @@
-# DisplayHintTypeMethodsImpl <a href="#cls-DisplayHintTypeMethodsImpl" id="cls-DisplayHintTypeMethodsImpl"></a>
+# DisplayHintTypeMethodsImpl <a href="#displayhinttypemethodsimpl-4e5e33460120" id="displayhinttypemethodsimpl-4e5e33460120"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.DisplayHintTypeMethodsImpl
     extends com.tailf.maapi.MaapiSchemas.CSTypeMethods
 ```
 
-Types: [CSTypeMethods](CSTypeMethods.md#cls-CSTypeMethods)
+Types: [CSTypeMethods](CSTypeMethods.md#cstypemethods-41a37625616b)
 
 ## Members
 
 **Constructors**:
 
-- [DisplayHintTypeMethodsImpl()](#m-DisplayHintTypeMethodsImpl-22d6f6edafe7)
+- [DisplayHintTypeMethodsImpl()](#displayhinttypemethodsimpl-22d6f6edafe7)
 
 **Methods**:
 
-- [stringToValue(CSType, String)](#m-stringToValue-9fef98be9bb2)
-- [validate(CSType, ConfValue)](#m-validate-d2696432436e)
-- [valueToString(CSType, ConfValue)](#m-valueToString-f281f6b6d7d7)
+- [stringToValue(CSType, String)](#stringtovalue-9fef98be9bb2)
+- [validate(CSType, ConfValue)](#validate-d2696432436e)
+- [valueToString(CSType, ConfValue)](#valuetostring-f281f6b6d7d7)
 
 ## Constructors
 
-### DisplayHintTypeMethodsImpl() <a href="#m-DisplayHintTypeMethodsImpl-22d6f6edafe7" id="m-DisplayHintTypeMethodsImpl-22d6f6edafe7"></a>
+### DisplayHintTypeMethodsImpl() <a href="#displayhinttypemethodsimpl-22d6f6edafe7" id="displayhinttypemethodsimpl-22d6f6edafe7"></a>
 
 ```java
 public DisplayHintTypeMethodsImpl()
@@ -30,7 +30,7 @@ public DisplayHintTypeMethodsImpl()
 
 ## Methods
 
-### stringToValue(CSType, String) <a href="#m-stringToValue-9fef98be9bb2" id="m-stringToValue-9fef98be9bb2"></a>
+### stringToValue(CSType, String) <a href="#stringtovalue-9fef98be9bb2" id="stringtovalue-9fef98be9bb2"></a>
 
 ```java
 public com.tailf.conf.ConfValue stringToValue(
@@ -40,14 +40,14 @@ public com.tailf.conf.ConfValue stringToValue(
     throws com.tailf.maapi.MaapiException
 ```
 
-Types: [ConfValue](../../conf/ConfValue.md#cls-ConfValue), [CSType](CSType.md#cls-CSType), [MaapiException](../MaapiException.md#cls-MaapiException)
+Types: [ConfValue](../../conf/ConfValue.md#confvalue-769292781c7d), [CSType](CSType.md#cstype-8bf086cc0595), [MaapiException](../MaapiException.md#maapiexception-af58eb4e109e)
 
 **Parameters**
 
 - `com.tailf.maapi.MaapiSchemas.CSType type`
 - `String str`
 
-### validate(CSType, ConfValue) <a href="#m-validate-d2696432436e" id="m-validate-d2696432436e"></a>
+### validate(CSType, ConfValue) <a href="#validate-d2696432436e" id="validate-d2696432436e"></a>
 
 ```java
 public boolean validate(
@@ -57,20 +57,20 @@ public boolean validate(
     throws com.tailf.maapi.MaapiException
 ```
 
-Types: [CSType](CSType.md#cls-CSType), [ConfValue](../../conf/ConfValue.md#cls-ConfValue), [MaapiException](../MaapiException.md#cls-MaapiException)
+Types: [CSType](CSType.md#cstype-8bf086cc0595), [ConfValue](../../conf/ConfValue.md#confvalue-769292781c7d), [MaapiException](../MaapiException.md#maapiexception-af58eb4e109e)
 
 **Parameters**
 
 - `com.tailf.maapi.MaapiSchemas.CSType type`
 - `com.tailf.conf.ConfValue val`
 
-### valueToString(CSType, ConfValue) <a href="#m-valueToString-f281f6b6d7d7" id="m-valueToString-f281f6b6d7d7"></a>
+### valueToString(CSType, ConfValue) <a href="#valuetostring-f281f6b6d7d7" id="valuetostring-f281f6b6d7d7"></a>
 
 ```java
 public String valueToString(com.tailf.maapi.MaapiSchemas.CSType type, com.tailf.conf.ConfValue val)
 ```
 
-Types: [CSType](CSType.md#cls-CSType), [ConfValue](../../conf/ConfValue.md#cls-ConfValue)
+Types: [CSType](CSType.md#cstype-8bf086cc0595), [ConfValue](../../conf/ConfValue.md#confvalue-769292781c7d)
 
 **Parameters**
 

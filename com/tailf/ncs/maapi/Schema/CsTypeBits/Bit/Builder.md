@@ -1,4 +1,4 @@
-# Builder <a href="#cls-Builder" id="cls-Builder"></a>
+# Builder <a href="#builder-21f09e83781d" id="builder-21f09e83781d"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsTypeBits.Bit.Builder
@@ -9,22 +9,22 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeBits.Bit.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asReader-b5c0f2a8d115)
-- [getName()](#m-getName-2634b18b4a25)
-- [getPos()](#m-getPos-ad2d7b30807f)
-- [hasName()](#m-hasName-bfe6c334e0d1)
-- [initName(int)](#m-initName-281e5d2102d4)
-- [setName(Reader)](#m-setName-79f9d1263a41)
-- [setName(String)](#m-setName-c76ccfcb9f18)
-- [setPos(int)](#m-setPos-a83f79498a31)
+- [asReader()](#asreader-b5c0f2a8d115)
+- [getName()](#getname-2634b18b4a25)
+- [getPos()](#getpos-ad2d7b30807f)
+- [hasName()](#hasname-bfe6c334e0d1)
+- [initName(int)](#initname-281e5d2102d4)
+- [setName(Reader)](#setname-79f9d1263a41)
+- [setName(String)](#setname-c76ccfcb9f18)
+- [setPos(int)](#setpos-a83f79498a31)
 
 ## Constructors
 
-### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
+### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -49,33 +49,33 @@ Builder(
 
 ## Methods
 
-### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
+### asReader() <a href="#asreader-b5c0f2a8d115" id="asreader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeBits.Bit.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#cls-Reader)
+Types: [Reader](Reader.md#reader-b2467a96ddff)
 
-### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
+### getName() <a href="#getname-2634b18b4a25" id="getname-2634b18b4a25"></a>
 
 ```java
 public final org.capnproto.Text.Builder getName()
 ```
 
-### getPos() <a href="#m-getPos-ad2d7b30807f" id="m-getPos-ad2d7b30807f"></a>
+### getPos() <a href="#getpos-ad2d7b30807f" id="getpos-ad2d7b30807f"></a>
 
 ```java
 public final int getPos()
 ```
 
-### hasName() <a href="#m-hasName-bfe6c334e0d1" id="m-hasName-bfe6c334e0d1"></a>
+### hasName() <a href="#hasname-bfe6c334e0d1" id="hasname-bfe6c334e0d1"></a>
 
 ```java
 public final boolean hasName()
 ```
 
-### initName(int) <a href="#m-initName-281e5d2102d4" id="m-initName-281e5d2102d4"></a>
+### initName(int) <a href="#initname-281e5d2102d4" id="initname-281e5d2102d4"></a>
 
 ```java
 public final org.capnproto.Text.Builder initName(int size)
@@ -85,7 +85,7 @@ public final org.capnproto.Text.Builder initName(int size)
 
 - `int size`
 
-### setName(Reader) <a href="#m-setName-79f9d1263a41" id="m-setName-79f9d1263a41"></a>
+### setName(Reader) <a href="#setname-79f9d1263a41" id="setname-79f9d1263a41"></a>
 
 ```java
 public final void setName(org.capnproto.Text.Reader value)
@@ -95,7 +95,7 @@ public final void setName(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-### setName(String) <a href="#m-setName-c76ccfcb9f18" id="m-setName-c76ccfcb9f18"></a>
+### setName(String) <a href="#setname-c76ccfcb9f18" id="setname-c76ccfcb9f18"></a>
 
 ```java
 public final void setName(String value)
@@ -105,7 +105,7 @@ public final void setName(String value)
 
 - `String value`
 
-### setPos(int) <a href="#m-setPos-a83f79498a31" id="m-setPos-a83f79498a31"></a>
+### setPos(int) <a href="#setpos-a83f79498a31" id="setpos-a83f79498a31"></a>
 
 ```java
 public final void setPos(int value)

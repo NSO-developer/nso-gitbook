@@ -1,11 +1,11 @@
-# StreamNotification <a href="#cls-StreamNotification" id="cls-StreamNotification"></a>
+# StreamNotification <a href="#streamnotification-80461d0dc6f6" id="streamnotification-80461d0dc6f6"></a>
 
 ```java
 public class com.tailf.notif.StreamNotification
     extends com.tailf.notif.Notification
 ```
 
-Types: [Notification](Notification.md#cls-Notification)
+Types: [Notification](Notification.md#notification-b2e7d82d4215)
 
 Data structure for Stream notifications.
 
@@ -13,28 +13,28 @@ Data structure for Stream notifications.
 
 **Constructors**:
 
-- [StreamNotification(int, ConfDatetime, ConfXMLParam[], String)](#m-StreamNotification-bd5e6ecc4276)
+- [StreamNotification(int, ConfDatetime, ConfXMLParam[], String)](#streamnotification-bd5e6ecc4276)
 
 **Fields**:
 
-- [STREAM_NOTIFICATION_COMPLETE](#m-STREAM_NOTIFICATION_COMPLETE)
-- [STREAM_NOTIFICATION_EVENT](#m-STREAM_NOTIFICATION_EVENT)
-- [STREAM_REPLAY_COMPLETE](#m-STREAM_REPLAY_COMPLETE)
-- [STREAM_REPLAY_FAILED](#m-STREAM_REPLAY_FAILED)
-- [type](Notification.md#m-type) from Notification
+- [STREAM_NOTIFICATION_COMPLETE](#stream_notification_complete-4d6aaf0cda01)
+- [STREAM_NOTIFICATION_EVENT](#stream_notification_event-3c8329ec2bbc)
+- [STREAM_REPLAY_COMPLETE](#stream_replay_complete-9b615ef73b1a)
+- [STREAM_REPLAY_FAILED](#stream_replay_failed-576b43512df8)
+- [type](Notification.md#type-6ebb3673fbb6) from Notification
 
 **Methods**:
 
-- [eventTime()](#m-eventTime-52f779266f34)
-- [getErrorString()](#m-getErrorString-3b4eba00496b)
-- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
-- [getStreamEventType()](#m-getStreamEventType-396b63149e8b)
-- [getValues()](#m-getValues-06542a92d7fa)
-- [toString()](#m-toString-e9d48c5503ef)
+- [eventTime()](#eventtime-52f779266f34)
+- [getErrorString()](#geterrorstring-3b4eba00496b)
+- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getStreamEventType()](#getstreameventtype-396b63149e8b)
+- [getValues()](#getvalues-06542a92d7fa)
+- [toString()](#tostring-e9d48c5503ef)
 
 ## Constructors
 
-### StreamNotification(int, ConfDatetime, ConfXMLParam[], String) <a href="#m-StreamNotification-bd5e6ecc4276" id="m-StreamNotification-bd5e6ecc4276"></a>
+### StreamNotification(int, ConfDatetime, ConfXMLParam[], String) <a href="#streamnotification-bd5e6ecc4276" id="streamnotification-bd5e6ecc4276"></a>
 
 ```java
 public StreamNotification(
@@ -45,7 +45,7 @@ public StreamNotification(
 )
 ```
 
-Types: [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime), [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam)
+Types: [ConfDatetime](../conf/ConfDatetime.md#confdatetime-8f67d7ff6ae8), [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7)
 
 **Parameters**
 
@@ -57,25 +57,25 @@ Types: [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime), [ConfXMLParam](
 
 ## Fields
 
-### STREAM_NOTIFICATION_COMPLETE <a href="#m-STREAM_NOTIFICATION_COMPLETE" id="m-STREAM_NOTIFICATION_COMPLETE"></a>
+### STREAM_NOTIFICATION_COMPLETE <a href="#stream_notification_complete-4d6aaf0cda01" id="stream_notification_complete-4d6aaf0cda01"></a>
 
 ```java
 public static final int STREAM_NOTIFICATION_COMPLETE = 2;
 ```
 
-### STREAM_NOTIFICATION_EVENT <a href="#m-STREAM_NOTIFICATION_EVENT" id="m-STREAM_NOTIFICATION_EVENT"></a>
+### STREAM_NOTIFICATION_EVENT <a href="#stream_notification_event-3c8329ec2bbc" id="stream_notification_event-3c8329ec2bbc"></a>
 
 ```java
 public static final int STREAM_NOTIFICATION_EVENT = 1;
 ```
 
-### STREAM_REPLAY_COMPLETE <a href="#m-STREAM_REPLAY_COMPLETE" id="m-STREAM_REPLAY_COMPLETE"></a>
+### STREAM_REPLAY_COMPLETE <a href="#stream_replay_complete-9b615ef73b1a" id="stream_replay_complete-9b615ef73b1a"></a>
 
 ```java
 public static final int STREAM_REPLAY_COMPLETE = 3;
 ```
 
-### STREAM_REPLAY_FAILED <a href="#m-STREAM_REPLAY_FAILED" id="m-STREAM_REPLAY_FAILED"></a>
+### STREAM_REPLAY_FAILED <a href="#stream_replay_failed-576b43512df8" id="stream_replay_failed-576b43512df8"></a>
 
 ```java
 public static final int STREAM_REPLAY_FAILED = 4;
@@ -84,21 +84,21 @@ public static final int STREAM_REPLAY_FAILED = 4;
 
 ## Methods
 
-### eventTime() <a href="#m-eventTime-52f779266f34" id="m-eventTime-52f779266f34"></a>
+### eventTime() <a href="#eventtime-52f779266f34" id="eventtime-52f779266f34"></a>
 
 ```java
 public com.tailf.conf.ConfDatetime eventTime()
 ```
 
-Types: [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime)
+Types: [ConfDatetime](../conf/ConfDatetime.md#confdatetime-8f67d7ff6ae8)
 
-### getErrorString() <a href="#m-getErrorString-3b4eba00496b" id="m-getErrorString-3b4eba00496b"></a>
+### getErrorString() <a href="#geterrorstring-3b4eba00496b" id="geterrorstring-3b4eba00496b"></a>
 
 ```java
 public String getErrorString()
 ```
 
-### getStreamEventType() <a href="#m-getStreamEventType-396b63149e8b" id="m-getStreamEventType-396b63149e8b"></a>
+### getStreamEventType() <a href="#getstreameventtype-396b63149e8b" id="getstreameventtype-396b63149e8b"></a>
 
 ```java
 public int getStreamEventType()
@@ -107,20 +107,20 @@ public int getStreamEventType()
 Stream event type.
 
 
-- [`STREAM_NOTIFICATION_EVENT`](StreamNotification.md#m-STREAM_NOTIFICATION_EVENT)
-   - [`STREAM_NOTIFICATION_COMPLETE`](StreamNotification.md#m-STREAM_NOTIFICATION_COMPLETE)
-     - [`STREAM_REPLAY_COMPLETE`](StreamNotification.md#m-STREAM_REPLAY_COMPLETE)
-       - [`STREAM_REPLAY_FAILED`](StreamNotification.md#m-STREAM_REPLAY_FAILED)
+- [`STREAM_NOTIFICATION_EVENT`](StreamNotification.md#stream_notification_event-3c8329ec2bbc)
+   - [`STREAM_NOTIFICATION_COMPLETE`](StreamNotification.md#stream_notification_complete-4d6aaf0cda01)
+     - [`STREAM_REPLAY_COMPLETE`](StreamNotification.md#stream_replay_complete-9b615ef73b1a)
+       - [`STREAM_REPLAY_FAILED`](StreamNotification.md#stream_replay_failed-576b43512df8)
 
-### getValues() <a href="#m-getValues-06542a92d7fa" id="m-getValues-06542a92d7fa"></a>
+### getValues() <a href="#getvalues-06542a92d7fa" id="getvalues-06542a92d7fa"></a>
 
 ```java
 public com.tailf.conf.ConfXMLParam[] getValues()
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7)
 
-### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
+### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()

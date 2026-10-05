@@ -7,8 +7,8 @@ Service callback specific context and utilities.
 
 ## Types
 
-- [NanoServiceContext](NanoServiceContext.md#cls-NanoServiceContext)
-- [ServiceContext](ServiceContext.md#cls-ServiceContext)
-- [ServiceLog](ServiceLog.md#cls-ServiceLog)
-- [ServiceModificationContextImpl](ServiceModificationContextImpl.md#cls-ServiceModificationContextImpl)
-- [ServiceOperationType](ServiceOperationType.md#cls-ServiceOperationType)
+- [NanoServiceContext](NanoServiceContext.md#nanoservicecontext-10c84a5701dd)
+- [ServiceContext](ServiceContext.md#servicecontext-f7734df4f22b)
+- [ServiceLog](ServiceLog.md#servicelog-e6fa4f1a1851)
+- [ServiceModificationContextImpl](ServiceModificationContextImpl.md#servicemodificationcontextimpl-1935e8396cc3)
+- [ServiceOperationType](ServiceOperationType.md#serviceoperationtype-76755b5b3de9)

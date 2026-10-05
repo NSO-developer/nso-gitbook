@@ -1,4 +1,4 @@
-# DpDbCallback <a href="#cls-DpDbCallback" id="cls-DpDbCallback"></a>
+# DpDbCallback <a href="#dpdbcallback-7fcc01bd0281" id="dpdbcallback-7fcc01bd0281"></a>
 
 ```java
 public interface com.tailf.dp.DpDbCallback
@@ -33,53 +33,53 @@ This interface is used for the user database callbacks. It only applies to
  system already has implemented extensive configuration validation - the
  validate() callback can be used.
 
-**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerAnnotatedCallbacks-ffaebadbfc42)
+**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
 
 **Fields**:
 
-- [M_ACTIVATE_CHECKPOINT_RUNNING](#m-M_ACTIVATE_CHECKPOINT_RUNNING)
-- [M_ADD_CHECKPOINT_RUNNING](#m-M_ADD_CHECKPOINT_RUNNING)
-- [M_ALL](#m-M_ALL)
-- [M_CANDIDATE_CHK_NOT_MODIFIED](#m-M_CANDIDATE_CHK_NOT_MODIFIED)
-- [M_CANDIDATE_COMMIT](#m-M_CANDIDATE_COMMIT)
-- [M_CANDIDATE_CONFIRMING_COMMIT](#m-M_CANDIDATE_CONFIRMING_COMMIT)
-- [M_CANDIDATE_RESET](#m-M_CANDIDATE_RESET)
-- [M_CANDIDATE_ROLLBACK_RUNNING](#m-M_CANDIDATE_ROLLBACK_RUNNING)
-- [M_CANDIDATE_VALIDATE](#m-M_CANDIDATE_VALIDATE)
-- [M_COPY_RUNNING_TO_STARTUP](#m-M_COPY_RUNNING_TO_STARTUP)
-- [M_DEL_CHECKPOINT_RUNNING](#m-M_DEL_CHECKPOINT_RUNNING)
-- [M_DELETE_CONFIG](#m-M_DELETE_CONFIG)
-- [M_LOCK](#m-M_LOCK)
-- [M_LOCK_PARTIAL](#m-M_LOCK_PARTIAL)
-- [M_RUNNING_CHK_NOT_MODIFIED](#m-M_RUNNING_CHK_NOT_MODIFIED)
-- [M_UNLOCK](#m-M_UNLOCK)
-- [M_UNLOCK_PARTIAL](#m-M_UNLOCK_PARTIAL)
+- [M_ACTIVATE_CHECKPOINT_RUNNING](#m_activate_checkpoint_running-0ebd33a643c3)
+- [M_ADD_CHECKPOINT_RUNNING](#m_add_checkpoint_running-43b65718bdd6)
+- [M_ALL](#m_all-e3844e41e8ee)
+- [M_CANDIDATE_CHK_NOT_MODIFIED](#m_candidate_chk_not_modified-f172de5cec21)
+- [M_CANDIDATE_COMMIT](#m_candidate_commit-484bd03f581b)
+- [M_CANDIDATE_CONFIRMING_COMMIT](#m_candidate_confirming_commit-6299d1509720)
+- [M_CANDIDATE_RESET](#m_candidate_reset-f3acd855e47f)
+- [M_CANDIDATE_ROLLBACK_RUNNING](#m_candidate_rollback_running-a7202b20d951)
+- [M_CANDIDATE_VALIDATE](#m_candidate_validate-87728731434d)
+- [M_COPY_RUNNING_TO_STARTUP](#m_copy_running_to_startup-02d63903fcec)
+- [M_DEL_CHECKPOINT_RUNNING](#m_del_checkpoint_running-3c2efd2f93fb)
+- [M_DELETE_CONFIG](#m_delete_config-61b73fae3b26)
+- [M_LOCK](#m_lock-f8a733783845)
+- [M_LOCK_PARTIAL](#m_lock_partial-aa26abd80f7d)
+- [M_RUNNING_CHK_NOT_MODIFIED](#m_running_chk_not_modified-fea5508dd165)
+- [M_UNLOCK](#m_unlock-58690e51e70c)
+- [M_UNLOCK_PARTIAL](#m_unlock_partial-a67ada980c0d)
 
 **Methods**:
 
-- [activateCheckpointRunning(DpDbContext)](#m-activateCheckpointRunning-6d290282dc64)
-- [addCheckpointRunning(DpDbContext)](#m-addCheckpointRunning-e8ef0fad176a)
-- [candidateChkNotModified(DpDbContext)](#m-candidateChkNotModified-73d415936fab)
-- [candidateCommit(DpDbContext, int)](#m-candidateCommit-c7c8900fd15e)
-- [candidateConfirmingCommit(DpDbContext)](#m-candidateConfirmingCommit-e1728f2c501d)
-- [candidateReset(DpDbContext)](#m-candidateReset-20893cda7340)
-- [candidateRollbackRunning(DpDbContext)](#m-candidateRollbackRunning-101fc2327941)
-- [candidateValidate(DpDbContext)](#m-candidateValidate-c71b01c4e9e6)
-- [copyRunningToStartup(DpDbContext)](#m-copyRunningToStartup-963b6506a3d3)
-- [delCheckpointRunning(DpDbContext)](#m-delCheckpointRunning-b03068abbaef)
-- [deleteConfig(DpDbContext, int)](#m-deleteConfig-bac554ff2a00)
-- [lock(DpDbContext, int)](#m-lock-ed56d39d3ff0)
-- [lockPartial(DpDbContext, int, int, ConfObject[][])](#m-lockPartial-cb09f4152af4)
-- [mask()](#m-mask-24c2fa29c6af)
-- [runningChkNotModified(DpDbContext)](#m-runningChkNotModified-0cfa3cd55796)
-- [unlock(DpDbContext, int)](#m-unlock-f30f2fcf978a)
-- [unlockPartial(DpDbContext, int, int)](#m-unlockPartial-3d1988a4cb5d)
+- [activateCheckpointRunning(DpDbContext)](#activatecheckpointrunning-6d290282dc64)
+- [addCheckpointRunning(DpDbContext)](#addcheckpointrunning-e8ef0fad176a)
+- [candidateChkNotModified(DpDbContext)](#candidatechknotmodified-73d415936fab)
+- [candidateCommit(DpDbContext, int)](#candidatecommit-c7c8900fd15e)
+- [candidateConfirmingCommit(DpDbContext)](#candidateconfirmingcommit-e1728f2c501d)
+- [candidateReset(DpDbContext)](#candidatereset-20893cda7340)
+- [candidateRollbackRunning(DpDbContext)](#candidaterollbackrunning-101fc2327941)
+- [candidateValidate(DpDbContext)](#candidatevalidate-c71b01c4e9e6)
+- [copyRunningToStartup(DpDbContext)](#copyrunningtostartup-963b6506a3d3)
+- [delCheckpointRunning(DpDbContext)](#delcheckpointrunning-b03068abbaef)
+- [deleteConfig(DpDbContext, int)](#deleteconfig-bac554ff2a00)
+- [lock(DpDbContext, int)](#lock-ed56d39d3ff0)
+- [lockPartial(DpDbContext, int, int, ConfObject[][])](#lockpartial-cb09f4152af4)
+- [mask()](#mask-24c2fa29c6af)
+- [runningChkNotModified(DpDbContext)](#runningchknotmodified-0cfa3cd55796)
+- [unlock(DpDbContext, int)](#unlock-f30f2fcf978a)
+- [unlockPartial(DpDbContext, int, int)](#unlockpartial-3d1988a4cb5d)
 
 ## Fields
 
-### M_ACTIVATE_CHECKPOINT_RUNNING <a href="#m-M_ACTIVATE_CHECKPOINT_RUNNING" id="m-M_ACTIVATE_CHECKPOINT_RUNNING"></a>
+### M_ACTIVATE_CHECKPOINT_RUNNING <a href="#m_activate_checkpoint_running-0ebd33a643c3" id="m_activate_checkpoint_running-0ebd33a643c3"></a>
 
 ```java
 public static final int M_ACTIVATE_CHECKPOINT_RUNNING = 256;
@@ -88,7 +88,7 @@ public static final int M_ACTIVATE_CHECKPOINT_RUNNING = 256;
 Bit flag for the `activateCheckpointRunning(DpDbContext)`
  method.
 
-### M_ADD_CHECKPOINT_RUNNING <a href="#m-M_ADD_CHECKPOINT_RUNNING" id="m-M_ADD_CHECKPOINT_RUNNING"></a>
+### M_ADD_CHECKPOINT_RUNNING <a href="#m_add_checkpoint_running-43b65718bdd6" id="m_add_checkpoint_running-43b65718bdd6"></a>
 
 ```java
 public static final int M_ADD_CHECKPOINT_RUNNING = 64;
@@ -96,13 +96,13 @@ public static final int M_ADD_CHECKPOINT_RUNNING = 64;
 
 Bit flag for the `addCheckpointRunning(DpDbContext)` method.
 
-### M_ALL <a href="#m-M_ALL" id="m-M_ALL"></a>
+### M_ALL <a href="#m_all-e3844e41e8ee" id="m_all-e3844e41e8ee"></a>
 
 ```java
 public static final int M_ALL = 65535;
 ```
 
-### M_CANDIDATE_CHK_NOT_MODIFIED <a href="#m-M_CANDIDATE_CHK_NOT_MODIFIED" id="m-M_CANDIDATE_CHK_NOT_MODIFIED"></a>
+### M_CANDIDATE_CHK_NOT_MODIFIED <a href="#m_candidate_chk_not_modified-f172de5cec21" id="m_candidate_chk_not_modified-f172de5cec21"></a>
 
 ```java
 public static final int M_CANDIDATE_CHK_NOT_MODIFIED = 8;
@@ -111,7 +111,7 @@ public static final int M_CANDIDATE_CHK_NOT_MODIFIED = 8;
 Bit flag for the `candidateChkNotModified(DpDbContext)`
  method.
 
-### M_CANDIDATE_COMMIT <a href="#m-M_CANDIDATE_COMMIT" id="m-M_CANDIDATE_COMMIT"></a>
+### M_CANDIDATE_COMMIT <a href="#m_candidate_commit-484bd03f581b" id="m_candidate_commit-484bd03f581b"></a>
 
 ```java
 public static final int M_CANDIDATE_COMMIT = 1;
@@ -119,7 +119,7 @@ public static final int M_CANDIDATE_COMMIT = 1;
 
 Bit flag for the `candidateCommit(DpDbContext,int)` method.
 
-### M_CANDIDATE_CONFIRMING_COMMIT <a href="#m-M_CANDIDATE_CONFIRMING_COMMIT" id="m-M_CANDIDATE_CONFIRMING_COMMIT"></a>
+### M_CANDIDATE_CONFIRMING_COMMIT <a href="#m_candidate_confirming_commit-6299d1509720" id="m_candidate_confirming_commit-6299d1509720"></a>
 
 ```java
 public static final int M_CANDIDATE_CONFIRMING_COMMIT = 2;
@@ -128,7 +128,7 @@ public static final int M_CANDIDATE_CONFIRMING_COMMIT = 2;
 Bit flag for the `candidateConfirmingCommit(DpDbContext)`
   method.
 
-### M_CANDIDATE_RESET <a href="#m-M_CANDIDATE_RESET" id="m-M_CANDIDATE_RESET"></a>
+### M_CANDIDATE_RESET <a href="#m_candidate_reset-f3acd855e47f" id="m_candidate_reset-f3acd855e47f"></a>
 
 ```java
 public static final int M_CANDIDATE_RESET = 4;
@@ -136,7 +136,7 @@ public static final int M_CANDIDATE_RESET = 4;
 
 Bit flag for the `candidateReset(DpDbContext)` method.
 
-### M_CANDIDATE_ROLLBACK_RUNNING <a href="#m-M_CANDIDATE_ROLLBACK_RUNNING" id="m-M_CANDIDATE_ROLLBACK_RUNNING"></a>
+### M_CANDIDATE_ROLLBACK_RUNNING <a href="#m_candidate_rollback_running-a7202b20d951" id="m_candidate_rollback_running-a7202b20d951"></a>
 
 ```java
 public static final int M_CANDIDATE_ROLLBACK_RUNNING = 16;
@@ -145,7 +145,7 @@ public static final int M_CANDIDATE_ROLLBACK_RUNNING = 16;
 Bit flag for the `candidateRollbackRunning(DpDbContext)`
  method.
 
-### M_CANDIDATE_VALIDATE <a href="#m-M_CANDIDATE_VALIDATE" id="m-M_CANDIDATE_VALIDATE"></a>
+### M_CANDIDATE_VALIDATE <a href="#m_candidate_validate-87728731434d" id="m_candidate_validate-87728731434d"></a>
 
 ```java
 public static final int M_CANDIDATE_VALIDATE = 32;
@@ -153,7 +153,7 @@ public static final int M_CANDIDATE_VALIDATE = 32;
 
 Bit flag for the `candidateValidate(DpDbContext)` method.
 
-### M_COPY_RUNNING_TO_STARTUP <a href="#m-M_COPY_RUNNING_TO_STARTUP" id="m-M_COPY_RUNNING_TO_STARTUP"></a>
+### M_COPY_RUNNING_TO_STARTUP <a href="#m_copy_running_to_startup-02d63903fcec" id="m_copy_running_to_startup-02d63903fcec"></a>
 
 ```java
 public static final int M_COPY_RUNNING_TO_STARTUP = 512;
@@ -161,7 +161,7 @@ public static final int M_COPY_RUNNING_TO_STARTUP = 512;
 
 Bit flag for the `copyRunningToStartup(DpDbContext)` method.
 
-### M_DEL_CHECKPOINT_RUNNING <a href="#m-M_DEL_CHECKPOINT_RUNNING" id="m-M_DEL_CHECKPOINT_RUNNING"></a>
+### M_DEL_CHECKPOINT_RUNNING <a href="#m_del_checkpoint_running-3c2efd2f93fb" id="m_del_checkpoint_running-3c2efd2f93fb"></a>
 
 ```java
 public static final int M_DEL_CHECKPOINT_RUNNING = 128;
@@ -169,7 +169,7 @@ public static final int M_DEL_CHECKPOINT_RUNNING = 128;
 
 Bit flag for the `delCheckpointRunning(DpDbContext)` method.
 
-### M_DELETE_CONFIG <a href="#m-M_DELETE_CONFIG" id="m-M_DELETE_CONFIG"></a>
+### M_DELETE_CONFIG <a href="#m_delete_config-61b73fae3b26" id="m_delete_config-61b73fae3b26"></a>
 
 ```java
 public static final int M_DELETE_CONFIG = 4096;
@@ -177,7 +177,7 @@ public static final int M_DELETE_CONFIG = 4096;
 
 Bit flag for the `deleteConfig(DpDbContext,int)` method.
 
-### M_LOCK <a href="#m-M_LOCK" id="m-M_LOCK"></a>
+### M_LOCK <a href="#m_lock-f8a733783845" id="m_lock-f8a733783845"></a>
 
 ```java
 public static final int M_LOCK = 1024;
@@ -185,7 +185,7 @@ public static final int M_LOCK = 1024;
 
 Bit flag for the `lock(DpDbContext,int)` method.
 
-### M_LOCK_PARTIAL <a href="#m-M_LOCK_PARTIAL" id="m-M_LOCK_PARTIAL"></a>
+### M_LOCK_PARTIAL <a href="#m_lock_partial-aa26abd80f7d" id="m_lock_partial-aa26abd80f7d"></a>
 
 ```java
 public static final int M_LOCK_PARTIAL = 8192;
@@ -194,7 +194,7 @@ public static final int M_LOCK_PARTIAL = 8192;
 Bit flag for the `lockPartial(DpDbContext,int,int,ConfObject[][])`
  method.
 
-### M_RUNNING_CHK_NOT_MODIFIED <a href="#m-M_RUNNING_CHK_NOT_MODIFIED" id="m-M_RUNNING_CHK_NOT_MODIFIED"></a>
+### M_RUNNING_CHK_NOT_MODIFIED <a href="#m_running_chk_not_modified-fea5508dd165" id="m_running_chk_not_modified-fea5508dd165"></a>
 
 ```java
 public static final int M_RUNNING_CHK_NOT_MODIFIED = 32768;
@@ -202,7 +202,7 @@ public static final int M_RUNNING_CHK_NOT_MODIFIED = 32768;
 
 Bit flag for the `runningChkNotModified(DpDbContext)` method.
 
-### M_UNLOCK <a href="#m-M_UNLOCK" id="m-M_UNLOCK"></a>
+### M_UNLOCK <a href="#m_unlock-58690e51e70c" id="m_unlock-58690e51e70c"></a>
 
 ```java
 public static final int M_UNLOCK = 2048;
@@ -210,7 +210,7 @@ public static final int M_UNLOCK = 2048;
 
 Bit flag for the `unlock(DpDbContext,int)` method.
 
-### M_UNLOCK_PARTIAL <a href="#m-M_UNLOCK_PARTIAL" id="m-M_UNLOCK_PARTIAL"></a>
+### M_UNLOCK_PARTIAL <a href="#m_unlock_partial-a67ada980c0d" id="m_unlock_partial-a67ada980c0d"></a>
 
 ```java
 public static final int M_UNLOCK_PARTIAL = 16384;
@@ -221,7 +221,7 @@ Bit flag for the `unlockPartial(DpDbContext,int,int)` method.
 
 ## Methods
 
-### activateCheckpointRunning(DpDbContext) <a href="#m-activateCheckpointRunning-6d290282dc64" id="m-activateCheckpointRunning-6d290282dc64"></a>
+### activateCheckpointRunning(DpDbContext) <a href="#activatecheckpointrunning-6d290282dc64" id="activatecheckpointrunning-6d290282dc64"></a>
 
 ```java
 public abstract void activateCheckpointRunning(
@@ -230,7 +230,7 @@ public abstract void activateCheckpointRunning(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 This method should rollback running to the checkpoint created by
  addCheckpointRunning(). It is called by ConfD when the timer expires or
@@ -244,7 +244,7 @@ This method should rollback running to the checkpoint created by
 
 - `DpCallbackException` - Callback method failed.
 
-### addCheckpointRunning(DpDbContext) <a href="#m-addCheckpointRunning-e8ef0fad176a" id="m-addCheckpointRunning-e8ef0fad176a"></a>
+### addCheckpointRunning(DpDbContext) <a href="#addcheckpointrunning-e8ef0fad176a" id="addcheckpointrunning-e8ef0fad176a"></a>
 
 ```java
 public abstract void addCheckpointRunning(
@@ -253,7 +253,7 @@ public abstract void addCheckpointRunning(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 This method should be implemented only when ConfD owns the candidate, and
  confirmed-commit is enabled.
@@ -271,7 +271,7 @@ This method should be implemented only when ConfD owns the candidate, and
 
 - `DpCallbackException` - Callback method failed.
 
-### candidateChkNotModified(DpDbContext) <a href="#m-candidateChkNotModified-73d415936fab" id="m-candidateChkNotModified-73d415936fab"></a>
+### candidateChkNotModified(DpDbContext) <a href="#candidatechknotmodified-73d415936fab" id="candidatechknotmodified-73d415936fab"></a>
 
 ```java
 public abstract void candidateChkNotModified(
@@ -280,7 +280,7 @@ public abstract void candidateChkNotModified(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 This method should check to see if the candidate has been modified or
  not. Returns if no modifications has been done since the last commit or
@@ -295,7 +295,7 @@ This method should check to see if the candidate has been modified or
 
 - `DpCallbackException` - Callback method failed.
 
-### candidateCommit(DpDbContext, int) <a href="#m-candidateCommit-c7c8900fd15e" id="m-candidateCommit-c7c8900fd15e"></a>
+### candidateCommit(DpDbContext, int) <a href="#candidatecommit-c7c8900fd15e" id="candidatecommit-c7c8900fd15e"></a>
 
 ```java
 public abstract void candidateCommit(
@@ -305,7 +305,7 @@ public abstract void candidateCommit(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 This method should copy the candidate DB into the running DB. If timeout
  != 0, we should be prepared to do a rollback or act on a
@@ -326,7 +326,7 @@ This method should copy the candidate DB into the running DB. If timeout
 
 - `DpCallbackException` - Callback method failed.
 
-### candidateConfirmingCommit(DpDbContext) <a href="#m-candidateConfirmingCommit-e1728f2c501d" id="m-candidateConfirmingCommit-e1728f2c501d"></a>
+### candidateConfirmingCommit(DpDbContext) <a href="#candidateconfirmingcommit-e1728f2c501d" id="candidateconfirmingcommit-e1728f2c501d"></a>
 
 ```java
 public abstract void candidateConfirmingCommit(
@@ -335,7 +335,7 @@ public abstract void candidateConfirmingCommit(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 If the timeout in the candidate_commit() method is != 0, we will be
  either invoked here or in the candidateRollbackRunning() method within
@@ -351,7 +351,7 @@ If the timeout in the candidate_commit() method is != 0, we will be
 
 - `DpCallbackException` - Callback method failed.
 
-### candidateReset(DpDbContext) <a href="#m-candidateReset-20893cda7340" id="m-candidateReset-20893cda7340"></a>
+### candidateReset(DpDbContext) <a href="#candidatereset-20893cda7340" id="candidatereset-20893cda7340"></a>
 
 ```java
 public abstract void candidateReset(
@@ -360,7 +360,7 @@ public abstract void candidateReset(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 This method is intended to copy the current running configuration into
  the candidate. It is invoked whenever the NETCONF operation
@@ -375,7 +375,7 @@ This method is intended to copy the current running configuration into
 
 - `DpCallbackException` - Callback method failed.
 
-### candidateRollbackRunning(DpDbContext) <a href="#m-candidateRollbackRunning-101fc2327941" id="m-candidateRollbackRunning-101fc2327941"></a>
+### candidateRollbackRunning(DpDbContext) <a href="#candidaterollbackrunning-101fc2327941" id="candidaterollbackrunning-101fc2327941"></a>
 
 ```java
 public abstract void candidateRollbackRunning(
@@ -384,7 +384,7 @@ public abstract void candidateRollbackRunning(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 If for some reason, apart from a timeout, something goes wrong, we get
  invoked in the candidateRollbackRunning() method. The method should copy
@@ -398,7 +398,7 @@ If for some reason, apart from a timeout, something goes wrong, we get
 
 - `DpCallbackException` - Callback method failed.
 
-### candidateValidate(DpDbContext) <a href="#m-candidateValidate-c71b01c4e9e6" id="m-candidateValidate-c71b01c4e9e6"></a>
+### candidateValidate(DpDbContext) <a href="#candidatevalidate-c71b01c4e9e6" id="candidatevalidate-c71b01c4e9e6"></a>
 
 ```java
 public abstract void candidateValidate(
@@ -407,7 +407,7 @@ public abstract void candidateValidate(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 This callback is optional. If implemented, the task of the callback is to
  validate the candidate configuration. Note that the running database can
@@ -423,7 +423,7 @@ This callback is optional. If implemented, the task of the callback is to
 
 - `DpCallbackException` - Callback method failed.
 
-### copyRunningToStartup(DpDbContext) <a href="#m-copyRunningToStartup-963b6506a3d3" id="m-copyRunningToStartup-963b6506a3d3"></a>
+### copyRunningToStartup(DpDbContext) <a href="#copyrunningtostartup-963b6506a3d3" id="copyrunningtostartup-963b6506a3d3"></a>
 
 ```java
 public abstract void copyRunningToStartup(
@@ -432,7 +432,7 @@ public abstract void copyRunningToStartup(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 Copies the 'running' database to 'startup'.
 
@@ -444,7 +444,7 @@ Copies the 'running' database to 'startup'.
 
 - `DpCallbackException` - Callback method failed.
 
-### delCheckpointRunning(DpDbContext) <a href="#m-delCheckpointRunning-b03068abbaef" id="m-delCheckpointRunning-b03068abbaef"></a>
+### delCheckpointRunning(DpDbContext) <a href="#delcheckpointrunning-b03068abbaef" id="delcheckpointrunning-b03068abbaef"></a>
 
 ```java
 public abstract void delCheckpointRunning(
@@ -453,7 +453,7 @@ public abstract void delCheckpointRunning(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 This method should delete a checkpoint created by addCheckPointRunning().
  It is called by ConfD when a confirming commit is received.
@@ -466,7 +466,7 @@ This method should delete a checkpoint created by addCheckPointRunning().
 
 - `DpCallbackException` - Callback method failed.
 
-### deleteConfig(DpDbContext, int) <a href="#m-deleteConfig-bac554ff2a00" id="m-deleteConfig-bac554ff2a00"></a>
+### deleteConfig(DpDbContext, int) <a href="#deleteconfig-bac554ff2a00" id="deleteconfig-bac554ff2a00"></a>
 
 ```java
 public abstract void deleteConfig(
@@ -476,16 +476,16 @@ public abstract void deleteConfig(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 Will be called for 'startup' or 'candidate' only. The database is
  supposed to be set to erased. The dbname constants:
 
 
-- [`Conf#DB_NONE`](../conf/Conf.md#m-DB_NONE)
-   - [`Conf#DB_CANDIDATE`](../conf/Conf.md#m-DB_CANDIDATE)
-     - [`Conf#DB_RUNNING`](../conf/Conf.md#m-DB_RUNNING)
-       - [`Conf#DB_STARTUP`](../conf/Conf.md#m-DB_STARTUP)
+- [`Conf#DB_NONE`](../conf/Conf.md#db_none-5069c3fe4466)
+   - [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
+     - [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28)
+       - [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486)
 
 **Parameters**
 
@@ -496,7 +496,7 @@ Will be called for 'startup' or 'candidate' only. The database is
 
 - `DpCallbackException` - Callback method failed.
 
-### lock(DpDbContext, int) <a href="#m-lock-ed56d39d3ff0" id="m-lock-ed56d39d3ff0"></a>
+### lock(DpDbContext, int) <a href="#lock-ed56d39d3ff0" id="lock-ed56d39d3ff0"></a>
 
 ```java
 public abstract void lock(
@@ -506,7 +506,7 @@ public abstract void lock(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 This should only be implemented if our database supports locking from
  other sources than through ConfD. If a lock is set through e.g. NETCONF,
@@ -519,10 +519,10 @@ This should only be implemented if our database supports locking from
  The dbname constants:
 
 
-- [`Conf#DB_NONE`](../conf/Conf.md#m-DB_NONE)
-   - [`Conf#DB_CANDIDATE`](../conf/Conf.md#m-DB_CANDIDATE)
-     - [`Conf#DB_RUNNING`](../conf/Conf.md#m-DB_RUNNING)
-       - [`Conf#DB_STARTUP`](../conf/Conf.md#m-DB_STARTUP)
+- [`Conf#DB_NONE`](../conf/Conf.md#db_none-5069c3fe4466)
+   - [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
+     - [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28)
+       - [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486)
 
 **Parameters**
 
@@ -533,7 +533,7 @@ This should only be implemented if our database supports locking from
 
 - `DpCallbackException` - Callback method failed.
 
-### lockPartial(DpDbContext, int, int, ConfObject[][]) <a href="#m-lockPartial-cb09f4152af4" id="m-lockPartial-cb09f4152af4"></a>
+### lockPartial(DpDbContext, int, int, ConfObject[][]) <a href="#lockpartial-cb09f4152af4" id="lockpartial-cb09f4152af4"></a>
 
 ```java
 public abstract void lockPartial(
@@ -545,7 +545,7 @@ public abstract void lockPartial(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 This should only be implemented if our database supports locking from
  other sources than through ConfD, see `lock(DpDbContext,int)`
@@ -559,10 +559,10 @@ This should only be implemented if our database supports locking from
  The dbname constants:
 
 
-- [`Conf#DB_NONE`](../conf/Conf.md#m-DB_NONE)
-   - [`Conf#DB_CANDIDATE`](../conf/Conf.md#m-DB_CANDIDATE)
-     - [`Conf#DB_RUNNING`](../conf/Conf.md#m-DB_RUNNING)
-       - [`Conf#DB_STARTUP`](../conf/Conf.md#m-DB_STARTUP)
+- [`Conf#DB_NONE`](../conf/Conf.md#db_none-5069c3fe4466)
+   - [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
+     - [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28)
+       - [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486)
 
 **Parameters**
 
@@ -575,7 +575,7 @@ This should only be implemented if our database supports locking from
 
 - `DpCallbackException` - Callback method failed
 
-### mask() <a href="#m-mask-24c2fa29c6af" id="m-mask-24c2fa29c6af"></a>
+### mask() <a href="#mask-24c2fa29c6af" id="mask-24c2fa29c6af"></a>
 
 ```java
 public abstract int mask()
@@ -584,24 +584,24 @@ public abstract int mask()
 Mask of flags for methods that are supported by this callback:
 
 
-- [`M_CANDIDATE_COMMIT`](DpDbCallback.md#m-M_CANDIDATE_COMMIT)
-   - [`M_CANDIDATE_CONFIRMING_COMMIT`](DpDbCallback.md#m-M_CANDIDATE_CONFIRMING_COMMIT)
-     - [`M_CANDIDATE_RESET`](DpDbCallback.md#m-M_CANDIDATE_RESET)
-       - [`M_CANDIDATE_CHK_NOT_MODIFIED`](DpDbCallback.md#m-M_CANDIDATE_CHK_NOT_MODIFIED)
-         - [`M_CANDIDATE_ROLLBACK_RUNNING`](DpDbCallback.md#m-M_CANDIDATE_ROLLBACK_RUNNING)
-           - [`M_CANDIDATE_VALIDATE`](DpDbCallback.md#m-M_CANDIDATE_VALIDATE)
-             - [`M_ADD_CHECKPOINT_RUNNING`](DpDbCallback.md#m-M_ADD_CHECKPOINT_RUNNING)
-               - [`M_DEL_CHECKPOINT_RUNNING`](DpDbCallback.md#m-M_DEL_CHECKPOINT_RUNNING)
-                 - [`M_ACTIVATE_CHECKPOINT_RUNNING`](DpDbCallback.md#m-M_ACTIVATE_CHECKPOINT_RUNNING)
-                   - [`M_COPY_RUNNING_TO_STARTUP`](DpDbCallback.md#m-M_COPY_RUNNING_TO_STARTUP)
-                     - [`M_LOCK`](DpDbCallback.md#m-M_LOCK)
-                       - [`M_UNLOCK`](DpDbCallback.md#m-M_UNLOCK)
-                         - [`M_DELETE_CONFIG`](DpDbCallback.md#m-M_DELETE_CONFIG)
-                           - [`M_LOCK_PARTIAL`](DpDbCallback.md#m-M_LOCK_PARTIAL)
-                             - [`M_UNLOCK_PARTIAL`](DpDbCallback.md#m-M_UNLOCK_PARTIAL)
-                               - [`M_RUNNING_CHK_NOT_MODIFIED`](DpDbCallback.md#m-M_RUNNING_CHK_NOT_MODIFIED)
+- [`M_CANDIDATE_COMMIT`](DpDbCallback.md#m_candidate_commit-484bd03f581b)
+   - [`M_CANDIDATE_CONFIRMING_COMMIT`](DpDbCallback.md#m_candidate_confirming_commit-6299d1509720)
+     - [`M_CANDIDATE_RESET`](DpDbCallback.md#m_candidate_reset-f3acd855e47f)
+       - [`M_CANDIDATE_CHK_NOT_MODIFIED`](DpDbCallback.md#m_candidate_chk_not_modified-f172de5cec21)
+         - [`M_CANDIDATE_ROLLBACK_RUNNING`](DpDbCallback.md#m_candidate_rollback_running-a7202b20d951)
+           - [`M_CANDIDATE_VALIDATE`](DpDbCallback.md#m_candidate_validate-87728731434d)
+             - [`M_ADD_CHECKPOINT_RUNNING`](DpDbCallback.md#m_add_checkpoint_running-43b65718bdd6)
+               - [`M_DEL_CHECKPOINT_RUNNING`](DpDbCallback.md#m_del_checkpoint_running-3c2efd2f93fb)
+                 - [`M_ACTIVATE_CHECKPOINT_RUNNING`](DpDbCallback.md#m_activate_checkpoint_running-0ebd33a643c3)
+                   - [`M_COPY_RUNNING_TO_STARTUP`](DpDbCallback.md#m_copy_running_to_startup-02d63903fcec)
+                     - [`M_LOCK`](DpDbCallback.md#m_lock-f8a733783845)
+                       - [`M_UNLOCK`](DpDbCallback.md#m_unlock-58690e51e70c)
+                         - [`M_DELETE_CONFIG`](DpDbCallback.md#m_delete_config-61b73fae3b26)
+                           - [`M_LOCK_PARTIAL`](DpDbCallback.md#m_lock_partial-aa26abd80f7d)
+                             - [`M_UNLOCK_PARTIAL`](DpDbCallback.md#m_unlock_partial-a67ada980c0d)
+                               - [`M_RUNNING_CHK_NOT_MODIFIED`](DpDbCallback.md#m_running_chk_not_modified-fea5508dd165)
 
-### runningChkNotModified(DpDbContext) <a href="#m-runningChkNotModified-0cfa3cd55796" id="m-runningChkNotModified-0cfa3cd55796"></a>
+### runningChkNotModified(DpDbContext) <a href="#runningchknotmodified-0cfa3cd55796" id="runningchknotmodified-0cfa3cd55796"></a>
 
 ```java
 public abstract void runningChkNotModified(
@@ -610,7 +610,7 @@ public abstract void runningChkNotModified(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 This function should check to see if running has been modified or not. It
  only needs to be implemented if the startup data store is enabled. Return
@@ -626,7 +626,7 @@ This function should check to see if running has been modified or not. It
 
 - `DpCallbackException` - Callback method failed
 
-### unlock(DpDbContext, int) <a href="#m-unlock-f30f2fcf978a" id="m-unlock-f30f2fcf978a"></a>
+### unlock(DpDbContext, int) <a href="#unlock-f30f2fcf978a" id="unlock-f30f2fcf978a"></a>
 
 ```java
 public abstract void unlock(
@@ -636,15 +636,15 @@ public abstract void unlock(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 Unlocks the database. The dbname constants:
 
 
-- [`Conf#DB_NONE`](../conf/Conf.md#m-DB_NONE)
-   - [`Conf#DB_CANDIDATE`](../conf/Conf.md#m-DB_CANDIDATE)
-     - [`Conf#DB_RUNNING`](../conf/Conf.md#m-DB_RUNNING)
-       - [`Conf#DB_STARTUP`](../conf/Conf.md#m-DB_STARTUP)
+- [`Conf#DB_NONE`](../conf/Conf.md#db_none-5069c3fe4466)
+   - [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
+     - [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28)
+       - [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486)
 
 **Parameters**
 
@@ -655,7 +655,7 @@ Unlocks the database. The dbname constants:
 
 - `DpCallbackException` - Callback method failed.
 
-### unlockPartial(DpDbContext, int, int) <a href="#m-unlockPartial-3d1988a4cb5d" id="m-unlockPartial-3d1988a4cb5d"></a>
+### unlockPartial(DpDbContext, int, int) <a href="#unlockpartial-3d1988a4cb5d" id="unlockpartial-3d1988a4cb5d"></a>
 
 ```java
 public abstract void unlockPartial(
@@ -666,17 +666,17 @@ public abstract void unlockPartial(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDbContext](DpDbContext.md#cls-DpDbContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
+Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
 Unlocks the partial locks that where previously locked with
  `lockPartial(DpDbContext,int,int,ConfObject[][])`. The dbname
  constants:
 
 
-- [`Conf#DB_NONE`](../conf/Conf.md#m-DB_NONE)
-   - [`Conf#DB_CANDIDATE`](../conf/Conf.md#m-DB_CANDIDATE)
-     - [`Conf#DB_RUNNING`](../conf/Conf.md#m-DB_RUNNING)
-       - [`Conf#DB_STARTUP`](../conf/Conf.md#m-DB_STARTUP)
+- [`Conf#DB_NONE`](../conf/Conf.md#db_none-5069c3fe4466)
+   - [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
+     - [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28)
+       - [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486)
 
 **Parameters**
 

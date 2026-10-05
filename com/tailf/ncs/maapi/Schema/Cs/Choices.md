@@ -1,4 +1,4 @@
-# Choices <a href="#cls-Choices" id="cls-Choices"></a>
+# Choices <a href="#choices-18f7da9e7a25" id="choices-18f7da9e7a25"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.Cs.Choices
@@ -8,24 +8,24 @@ public static class com.tailf.ncs.maapi.Schema.Cs.Choices
 
 **Constructors**:
 
-- [Choices()](#m-Choices-56052799ac5f)
+- [Choices()](#choices-56052799ac5f)
 
 **Fields**:
 
-- [factory](#m-factory)
-- [listFactory](#m-listFactory)
-- [STRUCT_SIZE](#m-STRUCT_SIZE)
+- [factory](#factory-1649195a6f6e)
+- [listFactory](#listfactory-b96025f1568b)
+- [STRUCT_SIZE](#struct_size-06830f6b9d3b)
 
 **Nested Types**:
 
-- [Builder](Choices/Builder.md#cls-Builder)
-- [Factory](Choices/Factory.md#cls-Factory)
-- [Reader](Choices/Reader.md#cls-Reader)
-- [Which](Choices/Which.md#cls-Which)
+- [Builder](Choices/Builder.md#builder-21f09e83781d)
+- [Factory](Choices/Factory.md#factory-1787784624e8)
+- [Reader](Choices/Reader.md#reader-b2467a96ddff)
+- [Which](Choices/Which.md#which-92b652653aa7)
 
 ## Constructors
 
-### Choices() <a href="#m-Choices-56052799ac5f" id="m-Choices-56052799ac5f"></a>
+### Choices() <a href="#choices-56052799ac5f" id="choices-56052799ac5f"></a>
 
 ```java
 public Choices()
@@ -34,23 +34,23 @@ public Choices()
 
 ## Fields
 
-### factory <a href="#m-factory" id="m-factory"></a>
+### factory <a href="#factory-1649195a6f6e" id="factory-1649195a6f6e"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cs.Choices.Factory factory = null;
 ```
 
-Types: [Factory](Choices/Factory.md#cls-Factory)
+Types: [Factory](Choices/Factory.md#factory-1787784624e8)
 
-### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
+### listFactory <a href="#listfactory-b96025f1568b" id="listfactory-b96025f1568b"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.Cs.Choices.Builder,com.tailf.ncs.maapi.Schema.Cs.Choices.Reader> listFactory = null;
 ```
 
-Types: [Builder](Choices/Builder.md#cls-Builder), [Reader](Choices/Reader.md#cls-Reader)
+Types: [Builder](Choices/Builder.md#builder-21f09e83781d), [Reader](Choices/Reader.md#reader-b2467a96ddff)
 
-### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
+### STRUCT_SIZE <a href="#struct_size-06830f6b9d3b" id="struct_size-06830f6b9d3b"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;
@@ -59,7 +59,7 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](Choices/Builder.md#cls-Builder)
-- [Factory](Choices/Factory.md#cls-Factory)
-- [Reader](Choices/Reader.md#cls-Reader)
-- [Which](Choices/Which.md#cls-Which)
+- [Builder](Choices/Builder.md#builder-21f09e83781d)
+- [Factory](Choices/Factory.md#factory-1787784624e8)
+- [Reader](Choices/Reader.md#reader-b2467a96ddff)
+- [Which](Choices/Which.md#which-92b652653aa7)
