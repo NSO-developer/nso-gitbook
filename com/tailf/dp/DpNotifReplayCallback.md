@@ -50,9 +50,9 @@ This interface is used for the notifications replay callback.
 
 **Methods**:
 
-- [getLogAgedTime(DpNotifStream)](#getlogagedtime-52a6ca6114ae)
-- [getLogStartTime(DpNotifStream)](#getlogstarttime-19cd5e71b8f6)
-- [replay(DpNotifStream, ConfDatetime, ConfDatetime)](#replay-9189095b66c6)
+- [getLogAgedTime\(DpNotifStream\)](#getlogagedtime-52a6ca6114ae)
+- [getLogStartTime\(DpNotifStream\)](#getlogstarttime-19cd5e71b8f6)
+- [replay\(DpNotifStream, ConfDatetime, ConfDatetime\)](#replay-9189095b66c6)
 
 ## Methods
 

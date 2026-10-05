@@ -8,7 +8,7 @@ public final class com.tailf.util.W3CRegex
 
 **Methods**:
 
-- [validate(String, String)](#validate-9990930fde53)
+- [validate\(String, String\)](#validate-9990930fde53)
 
 ## Methods
 

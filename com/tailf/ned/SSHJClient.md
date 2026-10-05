@@ -18,17 +18,17 @@ SSH Client implementation using the net.schmizz.sshj
 
 **Constructors**:
 
-- [SSHJClient(NedWorker, NedConnectionBase)](#sshjclient-bcd20512cdc1)
-- [SSHJClient(SSHJClient)](#sshjclient-518171fafb24)
+- [SSHJClient\(NedWorker, NedConnectionBase\)](#sshjclient-bcd20512cdc1)
+- [SSHJClient\(SSHJClient\)](#sshjclient-518171fafb24)
 
 **Fields**:
 
 - [address](#address-7f51d5da91c5)
-- [AUTH_HOSTBASED](SSHClient.md#auth_hostbased-c6a671f0f224) from SSHClient
-- [AUTH_KEYBOARD_INTERACTIVE](SSHClient.md#auth_keyboard_interactive-768b4a794353) from SSHClient
-- [AUTH_NONE](SSHClient.md#auth_none-029b3d1645d6) from SSHClient
-- [AUTH_PASSWORD](SSHClient.md#auth_password-3076e602ee35) from SSHClient
-- [AUTH_PUBLIC_KEY](SSHClient.md#auth_public_key-3e68515cb9a2) from SSHClient
+- [AUTH\_HOSTBASED](SSHClient.md#auth_hostbased-c6a671f0f224) from SSHClient
+- [AUTH\_KEYBOARD\_INTERACTIVE](SSHClient.md#auth_keyboard_interactive-768b4a794353) from SSHClient
+- [AUTH\_NONE](SSHClient.md#auth_none-029b3d1645d6) from SSHClient
+- [AUTH\_PASSWORD](SSHClient.md#auth_password-3076e602ee35) from SSHClient
+- [AUTH\_PUBLIC\_KEY](SSHClient.md#auth_public_key-3e68515cb9a2) from SSHClient
 - [authOrder](#authorder-dd584ce52010)
 - [connectTimeout](#connecttimeout-da6f2bf6befb)
 - [hostKeys](#hostkeys-8561573572ca)
@@ -51,30 +51,30 @@ SSH Client implementation using the net.schmizz.sshj
 
 **Methods**:
 
-- [authenticate()](#authenticate-41c0007ddd8b)
-- [authenticate(String[])](#authenticate-0a5a44636e08)
-- [authenticate(String[], String, String)](#authenticate-cf9e8fb6d459)
-- [close()](#close-8107c6dc012b)
-- [connect()](#connect-394043aad7af)
-- [connect(int, int)](#connect-28d2385bf1c0)
-- [connect(int, int, InetAddress, int)](#connect-3ed6ad461bcf)
-- [createSCP()](#createscp-ac5423466997)
-- [createSession()](#createsession-57f0b0e31f12)
-- [createSession(int, int)](#createsession-b35d82f6e733)
-- [createSFTP()](#createsftp-222ee1678abc)
-- [createSubsystem(String)](#createsubsystem-2f3a0d6c84f0)
-- [disableHostKeyVerification()](#disablehostkeyverification-6d21c174124b)
-- [findExistingAlgorithms(String, int)](#findexistingalgorithms-3e5f1494ab6d)
-- [getConnectionInfo()](#getconnectioninfo-72b270c75b17)
-- [getProviderName()](#getprovidername-e8ad7190e853)
-- [isAuthenticated()](#isauthenticated-11159d3d38a6)
-- [isConnected()](#isconnected-c00395001a3e)
-- [setRemoteCharset(Charset)](#setremotecharset-6f11114c7330)
-- [setTrafficClass(int)](#settrafficclass-6ef3381655c9)
-- [startSession()](#startsession-ee121903dcfa)
-- [useCompression()](#usecompression-2016e4bae05f)
-- [verify(NegotiatedAlgorithms)](#verify-b1784ca71c10)
-- [verify(String, int, PublicKey)](#verify-afddadb2ee00)
+- [authenticate\(\)](#authenticate-41c0007ddd8b)
+- [authenticate\(String\[\]\)](#authenticate-0a5a44636e08)
+- [authenticate\(String\[\], String, String\)](#authenticate-cf9e8fb6d459)
+- [close\(\)](#close-8107c6dc012b)
+- [connect\(\)](#connect-394043aad7af)
+- [connect\(int, int\)](#connect-28d2385bf1c0)
+- [connect\(int, int, InetAddress, int\)](#connect-3ed6ad461bcf)
+- [createSCP\(\)](#createscp-ac5423466997)
+- [createSession\(\)](#createsession-57f0b0e31f12)
+- [createSession\(int, int\)](#createsession-b35d82f6e733)
+- [createSFTP\(\)](#createsftp-222ee1678abc)
+- [createSubsystem\(String\)](#createsubsystem-2f3a0d6c84f0)
+- [disableHostKeyVerification\(\)](#disablehostkeyverification-6d21c174124b)
+- [findExistingAlgorithms\(String, int\)](#findexistingalgorithms-3e5f1494ab6d)
+- [getConnectionInfo\(\)](#getconnectioninfo-72b270c75b17)
+- [getProviderName\(\)](#getprovidername-e8ad7190e853)
+- [isAuthenticated\(\)](#isauthenticated-11159d3d38a6)
+- [isConnected\(\)](#isconnected-c00395001a3e)
+- [setRemoteCharset\(Charset\)](#setremotecharset-6f11114c7330)
+- [setTrafficClass\(int\)](#settrafficclass-6ef3381655c9)
+- [startSession\(\)](#startsession-ee121903dcfa)
+- [useCompression\(\)](#usecompression-2016e4bae05f)
+- [verify\(NegotiatedAlgorithms\)](#verify-b1784ca71c10)
+- [verify\(String, int, PublicKey\)](#verify-afddadb2ee00)
 
 **Nested Types**:
 

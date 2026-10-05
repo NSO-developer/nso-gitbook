@@ -13,11 +13,11 @@ Types: [ResultTypeKeyPath](ResultTypeKeyPath.md#resulttypekeypath-6681ecc7f47b)
 
 **Constructors**:
 
-- [ResultTypeKeyPathImpl(ConfObject[])](#resulttypekeypathimpl-b28a3014bfec)
+- [ResultTypeKeyPathImpl\(ConfObject\[\]\)](#resulttypekeypathimpl-b28a3014bfec)
 
 **Methods**:
 
-- [keyPath()](#keypath-df48f9bfdabb)
+- [keyPath\(\)](#keypath-df48f9bfdabb)
 
 ## Constructors
 

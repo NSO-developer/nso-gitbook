@@ -16,15 +16,15 @@ Base class for Component Managers
 
 **Constructors**:
 
-- [MuxManager(String)](#muxmanager-4f412e8b0cf6)
+- [MuxManager\(String\)](#muxmanager-4f412e8b0cf6)
 
 **Methods**:
 
-- [addToDeployException(NcsCtrlException, String, Throwable)](#addtodeployexception-90e2cb8f32b2)
-- [doneLoadingEvent()](#doneloadingevent-b85c1c01738a)
-- [instantiateComponentEvent(NcsComponentData)](#instantiatecomponentevent-9050503646b9)
-- [loadPackageEvent(NcsComponentData)](#loadpackageevent-4650a75a851a)
-- [unloadPackageEvent(NcsComponentData)](#unloadpackageevent-f14422e73a47)
+- [addToDeployException\(NcsCtrlException, String, Throwable\)](#addtodeployexception-90e2cb8f32b2)
+- [doneLoadingEvent\(\)](#doneloadingevent-b85c1c01738a)
+- [instantiateComponentEvent\(NcsComponentData\)](#instantiatecomponentevent-9050503646b9)
+- [loadPackageEvent\(NcsComponentData\)](#loadpackageevent-4650a75a851a)
+- [unloadPackageEvent\(NcsComponentData\)](#unloadpackageevent-f14422e73a47)
 
 ## Constructors
 

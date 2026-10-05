@@ -12,16 +12,16 @@ NcsThread is a subclass of Thread with the ability to log more info about
 
 **Constructors**:
 
-- [NcsThread(Runnable)](#ncsthread-2da10fc87e4c)
-- [NcsThread(Runnable, String)](#ncsthread-ff60b8717078)
+- [NcsThread\(Runnable\)](#ncsthread-2da10fc87e4c)
+- [NcsThread\(Runnable, String\)](#ncsthread-ff60b8717078)
 
 **Fields**:
 
-- [DEFAULT_NAME](#default_name-176b69b4d69f)
+- [DEFAULT\_NAME](#default_name-176b69b4d69f)
 
 **Methods**:
 
-- [run()](#run-b6dbda048863)
+- [run\(\)](#run-b6dbda048863)
 
 ## Constructors
 

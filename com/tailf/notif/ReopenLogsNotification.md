@@ -13,7 +13,7 @@ Data structure for ReopenLogs notifications.
 
 **Constructors**:
 
-- [ReopenLogsNotification()](#reopenlogsnotification-3e9efd04d83e)
+- [ReopenLogsNotification\(\)](#reopenlogsnotification-3e9efd04d83e)
 
 **Fields**:
 
@@ -21,8 +21,8 @@ Data structure for ReopenLogs notifications.
 
 **Methods**:
 
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [toString()](Notification.md#tostring-e9d48c5503ef) from Notification
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [toString\(\)](Notification.md#tostring-e9d48c5503ef) from Notification
 
 ## Constructors
 

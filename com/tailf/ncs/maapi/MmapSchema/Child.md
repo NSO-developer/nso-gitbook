@@ -13,17 +13,17 @@ Child entry, stored in a continuous area of memory after a level record.
 
 **Constructors**:
 
-- [Child()](#child-7aab3b03a8c5)
-- [Child(Source, int, int)](#child-ad55798fd08a)
+- [Child\(\)](#child-7aab3b03a8c5)
+- [Child\(Source, int, int\)](#child-ad55798fd08a)
 
 **Methods**:
 
-- [getIdx()](#getidx-97576e8cb221)
-- [getLevelOff()](#getleveloff-56218c3aecdf)
-- [getNs()](#getns-59b97eae2a4a)
-- [getOff()](#getoff-578b9943fd00)
-- [getTag()](#gettag-315f45956d6f)
-- [read(Source, int)](#read-c048381a08bd)
+- [getIdx\(\)](#getidx-97576e8cb221)
+- [getLevelOff\(\)](#getleveloff-56218c3aecdf)
+- [getNs\(\)](#getns-59b97eae2a4a)
+- [getOff\(\)](#getoff-578b9943fd00)
+- [getTag\(\)](#gettag-315f45956d6f)
+- [read\(Source, int\)](#read-c048381a08bd)
 
 ## Constructors
 

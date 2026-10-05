@@ -11,19 +11,19 @@ Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b24
 
 **Constructors**:
 
-- [Factory()](#factory-0e9f9d7f4e84)
+- [Factory\(\)](#factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#asreader-24669c1e1c4c)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#constructreader-fbce6f4f912a)
-- [getRanges()](Builder.md#getranges-c1cd383e54a0) from Builder
-- [hasRanges()](Builder.md#hasranges-77bc63fe4ea8) from Builder
-- [initRanges(int)](Builder.md#initranges-d04c09762bd6) from Builder
-- [setRanges(Reader<Reader>)](Builder.md#setranges-69bbcdb47f71) from Builder
-- [structSize()](#structsize-1fa68dcadd21)
+- [asReader\(\)](Builder.md#asreader-b5c0f2a8d115) from Builder
+- [asReader\(Builder\)](#asreader-24669c1e1c4c)
+- [constructBuilder\(SegmentBuilder, int, int, int, short\)](#constructbuilder-5a2abf3209f9)
+- [constructReader\(SegmentReader, int, int, int, short, int\)](#constructreader-fbce6f4f912a)
+- [getRanges\(\)](Builder.md#getranges-c1cd383e54a0) from Builder
+- [hasRanges\(\)](Builder.md#hasranges-77bc63fe4ea8) from Builder
+- [initRanges\(int\)](Builder.md#initranges-d04c09762bd6) from Builder
+- [setRanges\(Reader\<Reader\>\)](Builder.md#setranges-69bbcdb47f71) from Builder
+- [structSize\(\)](#structsize-1fa68dcadd21)
 
 ## Constructors
 

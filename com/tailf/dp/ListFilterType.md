@@ -12,19 +12,19 @@ Enumeration of list filter types
 
 **Enum Constants**:
 
-- [CONFD_LF_AND](#confd_lf_and-21574f054605)
-- [CONFD_LF_CMP](#confd_lf_cmp-583727db1b1c)
-- [CONFD_LF_EXEC](#confd_lf_exec-5af1f0461120)
-- [CONFD_LF_EXISTS](#confd_lf_exists-dfdd2bdabe58)
-- [CONFD_LF_NOT](#confd_lf_not-303281c57901)
-- [CONFD_LF_OR](#confd_lf_or-e8352365e0cd)
-- [CONFD_LF_ORIGIN](#confd_lf_origin-91a898baad60)
+- [CONFD\_LF\_AND](#confd_lf_and-21574f054605)
+- [CONFD\_LF\_CMP](#confd_lf_cmp-583727db1b1c)
+- [CONFD\_LF\_EXEC](#confd_lf_exec-5af1f0461120)
+- [CONFD\_LF\_EXISTS](#confd_lf_exists-dfdd2bdabe58)
+- [CONFD\_LF\_NOT](#confd_lf_not-303281c57901)
+- [CONFD\_LF\_OR](#confd_lf_or-e8352365e0cd)
+- [CONFD\_LF\_ORIGIN](#confd_lf_origin-91a898baad60)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

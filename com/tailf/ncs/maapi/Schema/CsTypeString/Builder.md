@@ -9,22 +9,22 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeString.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getInvertMatch()](#getinvertmatch-323126ccbf2f)
-- [getPattern()](#getpattern-b471c55bbd3b)
-- [getRanges()](#getranges-c1cd383e54a0)
-- [hasPattern()](#haspattern-e3fe48944019)
-- [hasRanges()](#hasranges-77bc63fe4ea8)
-- [initPattern(int)](#initpattern-6928d503a051)
-- [initRanges(int)](#initranges-d04c09762bd6)
-- [setInvertMatch(boolean)](#setinvertmatch-e00cbbce7115)
-- [setPattern(Reader)](#setpattern-e1a344734fbf)
-- [setPattern(String)](#setpattern-15104080a7b1)
-- [setRanges(Reader<Reader>)](#setranges-69bbcdb47f71)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getInvertMatch\(\)](#getinvertmatch-323126ccbf2f)
+- [getPattern\(\)](#getpattern-b471c55bbd3b)
+- [getRanges\(\)](#getranges-c1cd383e54a0)
+- [hasPattern\(\)](#haspattern-e3fe48944019)
+- [hasRanges\(\)](#hasranges-77bc63fe4ea8)
+- [initPattern\(int\)](#initpattern-6928d503a051)
+- [initRanges\(int\)](#initranges-d04c09762bd6)
+- [setInvertMatch\(boolean\)](#setinvertmatch-e00cbbce7115)
+- [setPattern\(Reader\)](#setpattern-e1a344734fbf)
+- [setPattern\(String\)](#setpattern-15104080a7b1)
+- [setRanges\(Reader\<Reader\>\)](#setranges-69bbcdb47f71)
 
 ## Constructors
 

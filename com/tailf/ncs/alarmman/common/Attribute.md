@@ -16,7 +16,7 @@ Base class for attributes. Use [`AlarmAttribute`](AlarmAttribute.md#alarmattribu
 
 **Constructors**:
 
-- [Attribute(ConfNamespace, String, ConfValue)](#attribute-8450316471c9)
+- [Attribute\(ConfNamespace, String, ConfValue\)](#attribute-8450316471c9)
 
 **Fields**:
 
@@ -24,10 +24,10 @@ Base class for attributes. Use [`AlarmAttribute`](AlarmAttribute.md#alarmattribu
 
 **Methods**:
 
-- [getId()](#getid-199a349c70ef)
-- [getNameSpace()](#getnamespace-e413af21e168)
-- [getValue()](#getvalue-d93864668c40)
-- [toString()](#tostring-e9d48c5503ef)
+- [getId\(\)](#getid-199a349c70ef)
+- [getNameSpace\(\)](#getnamespace-e413af21e168)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

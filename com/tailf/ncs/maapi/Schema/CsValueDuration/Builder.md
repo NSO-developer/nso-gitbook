@@ -9,25 +9,25 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDuration.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getDays()](#getdays-046356f0d5f0)
-- [getHours()](#gethours-3fa193b38793)
-- [getMicros()](#getmicros-062944cf4511)
-- [getMins()](#getmins-c1eeffb194a4)
-- [getMonths()](#getmonths-980c2a29d103)
-- [getSecs()](#getsecs-460472c1be09)
-- [getYears()](#getyears-04cc2ca752eb)
-- [setDays(int)](#setdays-1ad4dd185830)
-- [setHours(int)](#sethours-9f714fc42623)
-- [setMicros(int)](#setmicros-9410072f84ff)
-- [setMins(int)](#setmins-5fc890f362e6)
-- [setMonths(int)](#setmonths-cdd1cef5d14a)
-- [setSecs(int)](#setsecs-b16b5f90b69a)
-- [setYears(int)](#setyears-d08ddee7575a)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getDays\(\)](#getdays-046356f0d5f0)
+- [getHours\(\)](#gethours-3fa193b38793)
+- [getMicros\(\)](#getmicros-062944cf4511)
+- [getMins\(\)](#getmins-c1eeffb194a4)
+- [getMonths\(\)](#getmonths-980c2a29d103)
+- [getSecs\(\)](#getsecs-460472c1be09)
+- [getYears\(\)](#getyears-04cc2ca752eb)
+- [setDays\(int\)](#setdays-1ad4dd185830)
+- [setHours\(int\)](#sethours-9f714fc42623)
+- [setMicros\(int\)](#setmicros-9410072f84ff)
+- [setMins\(int\)](#setmins-5fc890f362e6)
+- [setMonths\(int\)](#setmonths-cdd1cef5d14a)
+- [setSecs\(int\)](#setsecs-b16b5f90b69a)
+- [setYears\(int\)](#setyears-d08ddee7575a)
 
 ## Constructors
 

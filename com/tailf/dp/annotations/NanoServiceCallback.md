@@ -30,10 +30,10 @@ Annotation class for Nano Service Callbacks.
 
 **Methods**:
 
-- [callType()](#calltype-0d0f9b61a036)
-- [componentType()](#componenttype-59add484020d)
-- [servicePoint()](#servicepoint-b277aa382c7d)
-- [state()](#state-54117dea2388)
+- [callType\(\)](#calltype-0d0f9b61a036)
+- [componentType\(\)](#componenttype-59add484020d)
+- [servicePoint\(\)](#servicepoint-b277aa382c7d)
+- [state\(\)](#state-54117dea2388)
 
 ## Methods
 

@@ -21,22 +21,22 @@ Exception raised from the navu package
 
 **Constructors**:
 
-- [NavuException(ConfException)](#navuexception-cb130257ec60)
-- [NavuException(IOException)](#navuexception-77041496a997)
-- [NavuException(MaapiException)](#navuexception-5c5a496fd22b)
-- [NavuException(String)](#navuexception-a3ed40280047)
-- [NavuException(String, ConfException)](#navuexception-a4ac943843f8)
-- [NavuException(String, ErrorCode, Throwable)](#navuexception-011f1640694f)
-- [NavuException(String, int, Throwable)](#navuexception-5613700dce64)
-- [NavuException(String, Throwable)](#navuexception-f8be029568e4)
-- [NavuException(Throwable)](#navuexception-d0b010924c53)
+- [NavuException\(ConfException\)](#navuexception-cb130257ec60)
+- [NavuException\(IOException\)](#navuexception-77041496a997)
+- [NavuException\(MaapiException\)](#navuexception-5c5a496fd22b)
+- [NavuException\(String\)](#navuexception-a3ed40280047)
+- [NavuException\(String, ConfException\)](#navuexception-a4ac943843f8)
+- [NavuException\(String, ErrorCode, Throwable\)](#navuexception-011f1640694f)
+- [NavuException\(String, int, Throwable\)](#navuexception-5613700dce64)
+- [NavuException\(String, Throwable\)](#navuexception-f8be029568e4)
+- [NavuException\(Throwable\)](#navuexception-d0b010924c53)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](#mk-de1cedfc6ea8)
-- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
+- [getErrorCode\(\)](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](#mk-de1cedfc6ea8)
+- [mk\(ConfResponse, ConfPath\)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
 
 ## Constructors
 

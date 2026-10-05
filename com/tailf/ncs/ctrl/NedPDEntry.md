@@ -13,24 +13,24 @@ Ned Component metadata
 
 **Constructors**:
 
-- [NedPDEntry(NcsMain, String, String, String, NcsComponentData)](#nedpdentry-3f6123b971b9)
+- [NedPDEntry\(NcsMain, String, String, String, NcsComponentData\)](#nedpdentry-3f6123b971b9)
 
 **Methods**:
 
-- [addReplacement(NcsComponentData)](AbstractPDEntry.md#addreplacement-afd0844ae705) from AbstractPDEntry
-- [getComponent()](AbstractPDEntry.md#getcomponent-f0c33077e458) from AbstractPDEntry
-- [getFSM()](AbstractPDEntry.md#getfsm-b0d67a77e6e5) from AbstractPDEntry
-- [getInstances()](AbstractPDEntry.md#getinstances-1d7ff49c0f24) from AbstractPDEntry
-- [getNedIdNS()](#getnedidns-6d5bc3028343)
-- [getNedIdTag()](#getnedidtag-9254c612474d)
-- [getNedType()](#getnedtype-0f22e3831af4)
-- [isRunning()](AbstractPDEntry.md#isrunning-02db4ec84a8d) from AbstractPDEntry
-- [isStopNedMux()](#isstopnedmux-722ddbc26624)
-- [load(List<Object>)](AbstractPDEntry.md#load-0a08bc3b9064) from AbstractPDEntry
-- [reload()](AbstractPDEntry.md#reload-b0cf67aa2f64) from AbstractPDEntry
-- [setPendingStopNedMux(boolean)](#setpendingstopnedmux-3abe713fa588)
-- [toString()](#tostring-e9d48c5503ef)
-- [unload(AbstractPDEntry)](AbstractPDEntry.md#unload-79ee120e7a8a) from AbstractPDEntry
+- [addReplacement\(NcsComponentData\)](AbstractPDEntry.md#addreplacement-afd0844ae705) from AbstractPDEntry
+- [getComponent\(\)](AbstractPDEntry.md#getcomponent-f0c33077e458) from AbstractPDEntry
+- [getFSM\(\)](AbstractPDEntry.md#getfsm-b0d67a77e6e5) from AbstractPDEntry
+- [getInstances\(\)](AbstractPDEntry.md#getinstances-1d7ff49c0f24) from AbstractPDEntry
+- [getNedIdNS\(\)](#getnedidns-6d5bc3028343)
+- [getNedIdTag\(\)](#getnedidtag-9254c612474d)
+- [getNedType\(\)](#getnedtype-0f22e3831af4)
+- [isRunning\(\)](AbstractPDEntry.md#isrunning-02db4ec84a8d) from AbstractPDEntry
+- [isStopNedMux\(\)](#isstopnedmux-722ddbc26624)
+- [load\(List\<Object\>\)](AbstractPDEntry.md#load-0a08bc3b9064) from AbstractPDEntry
+- [reload\(\)](AbstractPDEntry.md#reload-b0cf67aa2f64) from AbstractPDEntry
+- [setPendingStopNedMux\(boolean\)](#setpendingstopnedmux-3abe713fa588)
+- [toString\(\)](#tostring-e9d48c5503ef)
+- [unload\(AbstractPDEntry\)](AbstractPDEntry.md#unload-79ee120e7a8a) from AbstractPDEntry
 
 ## Constructors
 

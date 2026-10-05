@@ -11,13 +11,13 @@ Authentication result container. This class is returned as result of a
 
 **Constructors**:
 
-- [MaapiAuthentication(ConfEObject)](#maapiauthentication-13a9030ac9e6)
+- [MaapiAuthentication\(ConfEObject\)](#maapiauthentication-13a9030ac9e6)
 
 **Methods**:
 
-- [getGroups()](#getgroups-42a63746c815)
-- [getReason()](#getreason-5eb89e7b2733)
-- [isValid()](#isvalid-9646fea474d9)
+- [getGroups\(\)](#getgroups-42a63746c815)
+- [getReason\(\)](#getreason-5eb89e7b2733)
+- [isValid\(\)](#isvalid-9646fea474d9)
 
 ## Constructors
 

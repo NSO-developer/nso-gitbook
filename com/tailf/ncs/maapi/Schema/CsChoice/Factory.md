@@ -11,28 +11,28 @@ Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b24
 
 **Constructors**:
 
-- [Factory()](#factory-0e9f9d7f4e84)
+- [Factory\(\)](#factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#asreader-17674457d941)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#constructreader-fbce6f4f912a)
-- [getCases()](Builder.md#getcases-42abc2944fb1) from Builder
-- [getDefCase()](Builder.md#getdefcase-593fa181831e) from Builder
-- [getHns()](Builder.md#gethns-457afaf41ae6) from Builder
-- [getHtag()](Builder.md#gethtag-3a838d71ddf7) from Builder
-- [getMinOccurs()](Builder.md#getminoccurs-cac79959dff8) from Builder
-- [hasCases()](Builder.md#hascases-682cbddafe6a) from Builder
-- [initCases(int)](Builder.md#initcases-102f13b140b1) from Builder
-- [initDefCase()](Builder.md#initdefcase-ddb954b8162e) from Builder
-- [setCases(Reader<Reader>)](Builder.md#setcases-0a50d2d330ee) from Builder
-- [setDefCase(Reader)](Builder.md#setdefcase-aa1695d9bbde) from Builder
-- [setHns(int)](Builder.md#sethns-7405e78f40fe) from Builder
-- [setHtag(int)](Builder.md#sethtag-d40f4d76b210) from Builder
-- [setMinOccurs(int)](Builder.md#setminoccurs-2cb1f96150f8) from Builder
-- [structSize()](#structsize-1fa68dcadd21)
+- [asReader\(\)](Builder.md#asreader-b5c0f2a8d115) from Builder
+- [asReader\(Builder\)](#asreader-17674457d941)
+- [constructBuilder\(SegmentBuilder, int, int, int, short\)](#constructbuilder-5a2abf3209f9)
+- [constructReader\(SegmentReader, int, int, int, short, int\)](#constructreader-fbce6f4f912a)
+- [getCases\(\)](Builder.md#getcases-42abc2944fb1) from Builder
+- [getDefCase\(\)](Builder.md#getdefcase-593fa181831e) from Builder
+- [getHns\(\)](Builder.md#gethns-457afaf41ae6) from Builder
+- [getHtag\(\)](Builder.md#gethtag-3a838d71ddf7) from Builder
+- [getMinOccurs\(\)](Builder.md#getminoccurs-cac79959dff8) from Builder
+- [hasCases\(\)](Builder.md#hascases-682cbddafe6a) from Builder
+- [initCases\(int\)](Builder.md#initcases-102f13b140b1) from Builder
+- [initDefCase\(\)](Builder.md#initdefcase-ddb954b8162e) from Builder
+- [setCases\(Reader\<Reader\>\)](Builder.md#setcases-0a50d2d330ee) from Builder
+- [setDefCase\(Reader\)](Builder.md#setdefcase-aa1695d9bbde) from Builder
+- [setHns\(int\)](Builder.md#sethns-7405e78f40fe) from Builder
+- [setHtag\(int\)](Builder.md#sethtag-d40f4d76b210) from Builder
+- [setMinOccurs\(int\)](Builder.md#setminoccurs-2cb1f96150f8) from Builder
+- [structSize\(\)](#structsize-1fa68dcadd21)
 
 ## Constructors
 

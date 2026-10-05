@@ -17,17 +17,17 @@ Callback proxy for Validation Callbacks. Implements the
 
 **Constructors**:
 
-- [ValidateCallbackProxy(Object, String)](#validatecallbackproxy-0ddbaa7c282d)
+- [ValidateCallbackProxy\(Object, String\)](#validatecallbackproxy-0ddbaa7c282d)
 
 **Methods**:
 
-- [addActionCapability(ValidateCBType)](#addactioncapability-2c606e9189d3)
-- [addActionMethod(String, Method)](#addactionmethod-cf3e43a67fd9)
-- [getBackupObject()](#getbackupobject-a6fb23c24524)
-- [getCallPoint()](#getcallpoint-f816d0a44b26)
-- [getValidateCallbackProxys(Object)](#getvalidatecallbackproxys-93663cbdace2)
-- [validate(DpTrans, ConfObject[], ConfValue)](#validate-1a546d06dca5)
-- [valpoint()](#valpoint-a064c4954648)
+- [addActionCapability\(ValidateCBType\)](#addactioncapability-2c606e9189d3)
+- [addActionMethod\(String, Method\)](#addactionmethod-cf3e43a67fd9)
+- [getBackupObject\(\)](#getbackupobject-a6fb23c24524)
+- [getCallPoint\(\)](#getcallpoint-f816d0a44b26)
+- [getValidateCallbackProxys\(Object\)](#getvalidatecallbackproxys-93663cbdace2)
+- [validate\(DpTrans, ConfObject\[\], ConfValue\)](#validate-1a546d06dca5)
+- [valpoint\(\)](#valpoint-a064c4954648)
 
 ## Constructors
 

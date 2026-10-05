@@ -13,28 +13,28 @@ Data structure for High Availability notifications.
 
 **Constructors**:
 
-- [HaNotification(int, int, ConfHaNode, boolean, int)](#hanotification-7e618c9a58ab)
+- [HaNotification\(int, int, ConfHaNode, boolean, int\)](#hanotification-7e618c9a58ab)
 
 **Fields**:
 
-- [HA_INFO_BESECONDARY_RESULT](#ha_info_besecondary_result-d7c07f4fc293)
-- [HA_INFO_IS_NONE](#ha_info_is_none-7887b586b950)
-- [HA_INFO_IS_PRIMARY](#ha_info_is_primary-480d29bb9a77)
-- [HA_INFO_NOPRIMARY](#ha_info_noprimary-07eeb1051c35)
-- [HA_INFO_SECONDARY_ARRIVED](#ha_info_secondary_arrived-79ce1c211781)
-- [HA_INFO_SECONDARY_DIED](#ha_info_secondary_died-65cb8286382f)
-- [HA_INFO_SECONDARY_INITIALIZED](#ha_info_secondary_initialized-fec5b4b7f257)
+- [HA\_INFO\_BESECONDARY\_RESULT](#ha_info_besecondary_result-d7c07f4fc293)
+- [HA\_INFO\_IS\_NONE](#ha_info_is_none-7887b586b950)
+- [HA\_INFO\_IS\_PRIMARY](#ha_info_is_primary-480d29bb9a77)
+- [HA\_INFO\_NOPRIMARY](#ha_info_noprimary-07eeb1051c35)
+- [HA\_INFO\_SECONDARY\_ARRIVED](#ha_info_secondary_arrived-79ce1c211781)
+- [HA\_INFO\_SECONDARY\_DIED](#ha_info_secondary_died-65cb8286382f)
+- [HA\_INFO\_SECONDARY\_INITIALIZED](#ha_info_secondary_initialized-fec5b4b7f257)
 - [type](Notification.md#type-6ebb3673fbb6) from Notification
 
 **Methods**:
 
-- [beSecondaryResult()](#besecondaryresult-4d03e9a6c1b0)
-- [getHAInfoType()](#gethainfotype-726331ca6854)
-- [getHANode()](#gethanode-71f215e50750)
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [isCdbInitializedByCopy()](#iscdbinitializedbycopy-57e3c0fa65e3)
-- [noPrimaryError()](#noprimaryerror-069bbf8e6194)
-- [toString()](#tostring-e9d48c5503ef)
+- [beSecondaryResult\(\)](#besecondaryresult-4d03e9a6c1b0)
+- [getHAInfoType\(\)](#gethainfotype-726331ca6854)
+- [getHANode\(\)](#gethanode-71f215e50750)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [isCdbInitializedByCopy\(\)](#iscdbinitializedbycopy-57e3c0fa65e3)
+- [noPrimaryError\(\)](#noprimaryerror-069bbf8e6194)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

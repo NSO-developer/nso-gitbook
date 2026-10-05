@@ -8,12 +8,12 @@ public static class com.tailf.maapi.MaapiSchemas.CSStringLength
 
 **Constructors**:
 
-- [CSStringLength(ConfObject, ConfObject)](#csstringlength-6fba6f4d6638)
+- [CSStringLength\(ConfObject, ConfObject\)](#csstringlength-6fba6f4d6638)
 
 **Methods**:
 
-- [getHigh()](#gethigh-92e6b3d5438b)
-- [getLow()](#getlow-70f61b401781)
+- [getHigh\(\)](#gethigh-92e6b3d5438b)
+- [getLow\(\)](#getlow-70f61b401781)
 
 ## Constructors
 

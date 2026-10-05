@@ -9,16 +9,16 @@ public static final class com.tailf.ncs.maapi.Schema.CsCase.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getChoices()](#getchoices-818fb3fccb86)
-- [getHns()](#gethns-457afaf41ae6)
-- [getHtag()](#gethtag-3a838d71ddf7)
-- [getNodes()](#getnodes-0d0e9b3adfd1)
-- [hasChoices()](#haschoices-6534dc5f2f55)
-- [hasNodes()](#hasnodes-0c3a4b7d62ab)
+- [getChoices\(\)](#getchoices-818fb3fccb86)
+- [getHns\(\)](#gethns-457afaf41ae6)
+- [getHtag\(\)](#gethtag-3a838d71ddf7)
+- [getNodes\(\)](#getnodes-0d0e9b3adfd1)
+- [hasChoices\(\)](#haschoices-6534dc5f2f55)
+- [hasNodes\(\)](#hasnodes-0c3a4b7d62ab)
 
 ## Constructors
 

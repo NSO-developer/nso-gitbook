@@ -11,7 +11,7 @@ Types: [ProgressAttributeValue](ProgressAttributeValue.md#progressattributevalue
 
 **Constructors**:
 
-- [ProgressAttributeNumber(Long)](#progressattributenumber-49c0433eef5a)
+- [ProgressAttributeNumber\(Long\)](#progressattributenumber-49c0433eef5a)
 
 **Fields**:
 
@@ -20,8 +20,8 @@ Types: [ProgressAttributeValue](ProgressAttributeValue.md#progressattributevalue
 
 **Methods**:
 
-- [longValue()](#longvalue-636bfe2d6862)
-- [toString()](#tostring-e9d48c5503ef)
+- [longValue\(\)](#longvalue-636bfe2d6862)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

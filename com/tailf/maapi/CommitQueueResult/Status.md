@@ -19,11 +19,11 @@ Types: [Status](Status.md#status-84eaa40b9dbc)
 
 **Methods**:
 
-- [fromOrdinal(int)](#fromordinal-b79cdbf4f899)
-- [getOrdinal()](#getordinal-a41b33f04fd8)
-- [toString()](#tostring-e9d48c5503ef)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [fromOrdinal\(int\)](#fromordinal-b79cdbf4f899)
+- [getOrdinal\(\)](#getordinal-a41b33f04fd8)
+- [toString\(\)](#tostring-e9d48c5503ef)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

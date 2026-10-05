@@ -20,7 +20,7 @@ Data structure for CommitDiff notifications.
 
 **Constructors**:
 
-- [CommitDiffNotification(int, DpUserInfo, int, String, String)](#commitdiffnotification-b085d6f75e0f)
+- [CommitDiffNotification\(int, DpUserInfo, int, String, String\)](#commitdiffnotification-b085d6f75e0f)
 
 **Fields**:
 
@@ -28,13 +28,13 @@ Data structure for CommitDiff notifications.
 
 **Methods**:
 
-- [getComment()](#getcomment-a5625f95afef)
-- [getDatabase()](#getdatabase-3c5eb5bcb258)
-- [getLabel()](#getlabel-72bf899bf6f1)
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getTransaction()](#gettransaction-4f1c72a828a1)
-- [getUserInfo()](#getuserinfo-3ecef1f24d3d)
-- [toString()](#tostring-e9d48c5503ef)
+- [getComment\(\)](#getcomment-a5625f95afef)
+- [getDatabase\(\)](#getdatabase-3c5eb5bcb258)
+- [getLabel\(\)](#getlabel-72bf899bf6f1)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getTransaction\(\)](#gettransaction-4f1c72a828a1)
+- [getUserInfo\(\)](#getuserinfo-3ecef1f24d3d)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

@@ -13,17 +13,17 @@ Warnings raised from the maapi package
 
 **Constructors**:
 
-- [MaapiWarningException(String)](#maapiwarningexception-8930de4ffd0a)
-- [MaapiWarningException(String, ErrorCode, ConfWarning[])](#maapiwarningexception-6a1a58c2de36)
-- [MaapiWarningException(String, int, ConfWarning[])](#maapiwarningexception-e976024f5184)
+- [MaapiWarningException\(String\)](#maapiwarningexception-8930de4ffd0a)
+- [MaapiWarningException\(String, ErrorCode, ConfWarning\[\]\)](#maapiwarningexception-6a1a58c2de36)
+- [MaapiWarningException\(String, int, ConfWarning\[\]\)](#maapiwarningexception-e976024f5184)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [getWarnings()](#getwarnings-875cbe661ca7)
-- [mk(ConfResponse)](MaapiException.md#mk-de1cedfc6ea8) from MaapiException
-- [mk(ConfResponse, ConfPath)](MaapiException.md#mk-79e69ffbc022) from MaapiException
+- [getErrorCode\(\)](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [getWarnings\(\)](#getwarnings-875cbe661ca7)
+- [mk\(ConfResponse\)](MaapiException.md#mk-de1cedfc6ea8) from MaapiException
+- [mk\(ConfResponse, ConfPath\)](MaapiException.md#mk-79e69ffbc022) from MaapiException
 
 ## Constructors
 

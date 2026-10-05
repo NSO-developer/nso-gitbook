@@ -8,7 +8,7 @@ public class com.tailf.proto.ConfEAtom
 Types: [ConfEObject](ConfEObject.md#confeobject-2a9c0d03e350)
 
 Provides a Java representation of E atoms. Atoms can be created from strings
- whose length is not more than [MAX_ATOM_LENGTH](ConfEAtom.md#max_atom_length-b3ed4a748361)
+ whose length is not more than [MAX\_ATOM\_LENGTH](ConfEAtom.md#max_atom_length-b3ed4a748361)
  characters.
 
 **Related classes**
@@ -19,25 +19,25 @@ Provides a Java representation of E atoms. Atoms can be created from strings
 
 **Constructors**:
 
-- [ConfEAtom(boolean)](#confeatom-ff3304319572)
-- [ConfEAtom(ConfInputStream)](#confeatom-3aa5fefd12c5)
-- [ConfEAtom(String)](#confeatom-4bbef374d858)
+- [ConfEAtom\(boolean\)](#confeatom-ff3304319572)
+- [ConfEAtom\(ConfInputStream\)](#confeatom-3aa5fefd12c5)
+- [ConfEAtom\(String\)](#confeatom-4bbef374d858)
 
 **Fields**:
 
-- [MAX_ATOM_LENGTH](#max_atom_length-b3ed4a748361)
+- [MAX\_ATOM\_LENGTH](#max_atom_length-b3ed4a748361)
 - [serialVersionUID](#serialversionuid-b9f0e1ec001d)
 
 **Methods**:
 
-- [atomValue()](#atomvalue-e1510c85d5fa)
-- [booleanValue()](#booleanvalue-8b1662434d74)
-- [clone()](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
-- [decode(ConfInputStream)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
-- [encode(ConfOutputStream)](#encode-cb1ad9eb7771)
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [hashCode()](#hashcode-ef797a217903)
-- [toString()](#tostring-e9d48c5503ef)
+- [atomValue\(\)](#atomvalue-e1510c85d5fa)
+- [booleanValue\(\)](#booleanvalue-8b1662434d74)
+- [clone\(\)](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
+- [decode\(ConfInputStream\)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
+- [encode\(ConfOutputStream\)](#encode-cb1ad9eb7771)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 
@@ -88,7 +88,7 @@ Create an atom from the given string.
 **Throws**
 
 - `IllegalArgumentException` - if the string contains more than
-                [MAX_ATOM_LENGTH](ConfEAtom.md#max_atom_length-b3ed4a748361) characters.
+                [MAX\_ATOM\_LENGTH](ConfEAtom.md#max_atom_length-b3ed4a748361) characters.
 
 
 ## Fields

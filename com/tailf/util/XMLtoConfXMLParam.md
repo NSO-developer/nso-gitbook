@@ -17,19 +17,19 @@ Convenience utility class for transformation from
 
 **Constructors**:
 
-- [XMLtoConfXMLParam(String, ConfPath)](#xmltoconfxmlparam-c8c5db7811e2)
+- [XMLtoConfXMLParam\(String, ConfPath\)](#xmltoconfxmlparam-c8c5db7811e2)
 
 **Fields**:
 
-- [MODE_GET](#mode_get-f993d996e8d3)
-- [MODE_SET](#mode_set-a3c0f3ec95f7)
-- [MODE_SET_ACTION_PARAM](#mode_set_action_param-2b8bfb16378e)
-- [MODE_SET_ACTION_RESULT](#mode_set_action_result-51a0a8eb8d0a)
+- [MODE\_GET](#mode_get-f993d996e8d3)
+- [MODE\_SET](#mode_set-a3c0f3ec95f7)
+- [MODE\_SET\_ACTION\_PARAM](#mode_set_action_param-2b8bfb16378e)
+- [MODE\_SET\_ACTION\_RESULT](#mode_set_action_result-51a0a8eb8d0a)
 
 **Methods**:
 
-- [toXMLParam()](#toxmlparam-035915632f19)
-- [toXMLParam(int)](#toxmlparam-cfa4dab14cf4)
+- [toXMLParam\(\)](#toxmlparam-035915632f19)
+- [toXMLParam\(int\)](#toxmlparam-cfa4dab14cf4)
 
 ## Constructors
 

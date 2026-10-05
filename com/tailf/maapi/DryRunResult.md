@@ -18,17 +18,17 @@ Represents a successful invocation of the
 
 **Constructors**:
 
-- [DryRunResult(ConfResponse)](#dryrunresult-91936489d995)
+- [DryRunResult\(ConfResponse\)](#dryrunresult-91936489d995)
 
 **Methods**:
 
-- [getData()](DryRunResult/DryRunEntry.md#getdata-8ef0e36ab01b) from DryRunEntry
-- [getFormat()](#getformat-8617415c2f83)
-- [getFormatAsString()](#getformatasstring-e50e8059b9b9)
-- [getName()](DryRunResult/DryRunEntry.md#getname-2634b18b4a25) from DryRunEntry
-- [getType()](DryRunResult/DryRunEntry.md#gettype-5a52f6f0d4c1) from DryRunEntry
-- [getTypeAsString()](DryRunResult/DryRunEntry.md#gettypeasstring-ea437139f174) from DryRunEntry
-- [iterator()](#iterator-188aa52d1f86)
+- [getData\(\)](DryRunResult/DryRunEntry.md#getdata-8ef0e36ab01b) from DryRunEntry
+- [getFormat\(\)](#getformat-8617415c2f83)
+- [getFormatAsString\(\)](#getformatasstring-e50e8059b9b9)
+- [getName\(\)](DryRunResult/DryRunEntry.md#getname-2634b18b4a25) from DryRunEntry
+- [getType\(\)](DryRunResult/DryRunEntry.md#gettype-5a52f6f0d4c1) from DryRunEntry
+- [getTypeAsString\(\)](DryRunResult/DryRunEntry.md#gettypeasstring-ea437139f174) from DryRunEntry
+- [iterator\(\)](#iterator-188aa52d1f86)
 
 **Nested Types**:
 

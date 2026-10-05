@@ -9,24 +9,24 @@ public static final class com.tailf.ncs.maapi.Schema.CsChoice.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getCases()](#getcases-42abc2944fb1)
-- [getDefCase()](#getdefcase-593fa181831e)
-- [getHns()](#gethns-457afaf41ae6)
-- [getHtag()](#gethtag-3a838d71ddf7)
-- [getMinOccurs()](#getminoccurs-cac79959dff8)
-- [hasCases()](#hascases-682cbddafe6a)
-- [initCases(int)](#initcases-102f13b140b1)
-- [initDefCase()](#initdefcase-ddb954b8162e)
-- [setCases(Reader<Reader>)](#setcases-0a50d2d330ee)
-- [setDefCase(Reader)](#setdefcase-aa1695d9bbde)
-- [setHns(int)](#sethns-7405e78f40fe)
-- [setHtag(int)](#sethtag-d40f4d76b210)
-- [setMinOccurs(int)](#setminoccurs-2cb1f96150f8)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getCases\(\)](#getcases-42abc2944fb1)
+- [getDefCase\(\)](#getdefcase-593fa181831e)
+- [getHns\(\)](#gethns-457afaf41ae6)
+- [getHtag\(\)](#gethtag-3a838d71ddf7)
+- [getMinOccurs\(\)](#getminoccurs-cac79959dff8)
+- [hasCases\(\)](#hascases-682cbddafe6a)
+- [initCases\(int\)](#initcases-102f13b140b1)
+- [initDefCase\(\)](#initdefcase-ddb954b8162e)
+- [setCases\(Reader\<Reader\>\)](#setcases-0a50d2d330ee)
+- [setDefCase\(Reader\)](#setdefcase-aa1695d9bbde)
+- [setHns\(int\)](#sethns-7405e78f40fe)
+- [setHtag\(int\)](#sethtag-d40f4d76b210)
+- [setMinOccurs\(int\)](#setminoccurs-2cb1f96150f8)
 
 ## Constructors
 

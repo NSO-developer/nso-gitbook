@@ -13,7 +13,7 @@ Data structure for syslog notifications.
 
 **Constructors**:
 
-- [SyslogNotification(NotificationType, int, int, String)](#syslognotification-b7a94aea9504)
+- [SyslogNotification\(NotificationType, int, int, String\)](#syslognotification-b7a94aea9504)
 
 **Fields**:
 
@@ -21,11 +21,11 @@ Data structure for syslog notifications.
 
 **Methods**:
 
-- [getLogNo()](#getlogno-0a53380cc549)
-- [getMessage()](#getmessage-77b7dae8469e)
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getPrio()](#getprio-c1baed14ad8b)
-- [toString()](#tostring-e9d48c5503ef)
+- [getLogNo\(\)](#getlogno-0a53380cc549)
+- [getMessage\(\)](#getmessage-77b7dae8469e)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getPrio\(\)](#getprio-c1baed14ad8b)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

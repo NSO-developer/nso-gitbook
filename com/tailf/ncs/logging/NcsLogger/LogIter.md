@@ -18,13 +18,13 @@ Class make the diffIterate and trigger the Log Level changes to all
 
 **Constructors**:
 
-- [LogIter()](#logiter-2449327a7e19)
+- [LogIter\(\)](#logiter-2449327a7e19)
 
 **Methods**:
 
-- [applyChanges()](#applychanges-7bfabdfb7bc4)
-- [clearChanges()](#clearchanges-dfce305f5de6)
-- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#iterate-d80a566b7e0a)
+- [applyChanges\(\)](#applychanges-7bfabdfb7bc4)
+- [clearChanges\(\)](#clearchanges-dfce305f5de6)
+- [iterate\(ConfObject\[\], DiffIterateOperFlag, ConfObject, ConfObject, Object\)](#iterate-d80a566b7e0a)
 
 ## Constructors
 

@@ -13,7 +13,7 @@ This interface is used with the `xpathEval` method
 
 **Methods**:
 
-- [trace(String)](#trace-108e6d2bbf2f)
+- [trace\(String\)](#trace-108e6d2bbf2f)
 
 ## Methods
 

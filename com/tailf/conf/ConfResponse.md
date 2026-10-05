@@ -11,7 +11,7 @@ Internal Class. This class is used by the internal
 
 **Constructors**:
 
-- [ConfResponse()](#confresponse-af59e9b2ab29)
+- [ConfResponse\(\)](#confresponse-af59e9b2ab29)
 
 **Fields**:
 
@@ -23,7 +23,7 @@ Internal Class. This class is used by the internal
 
 **Methods**:
 
-- [toString()](#tostring-e9d48c5503ef)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

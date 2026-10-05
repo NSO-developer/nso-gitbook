@@ -10,19 +10,19 @@ The user information.
 
 **Constructors**:
 
-- [DpUserInfo(ConfETuple)](#dpuserinfo-b042388b04f5)
+- [DpUserInfo\(ConfETuple\)](#dpuserinfo-b042388b04f5)
 
 **Methods**:
 
-- [addRunningActionTrans(DpActionTrans)](#addrunningactiontrans-d75b58ec9312)
-- [getContext()](#getcontext-b18d576df5d9)
-- [getIPAddress()](#getipaddress-ff0e3ce26ce7)
-- [getProtocol()](#getprotocol-7199008875a5)
-- [getRunningActionTrans()](#getrunningactiontrans-3b0c0768ffd9)
-- [getUserId()](#getuserid-46c2e98d8db7)
-- [getUserName()](#getusername-d985b9b35273)
-- [removeRunningActionTrans(DpActionTrans)](#removerunningactiontrans-c41179725077)
-- [toString()](#tostring-e9d48c5503ef)
+- [addRunningActionTrans\(DpActionTrans\)](#addrunningactiontrans-d75b58ec9312)
+- [getContext\(\)](#getcontext-b18d576df5d9)
+- [getIPAddress\(\)](#getipaddress-ff0e3ce26ce7)
+- [getProtocol\(\)](#getprotocol-7199008875a5)
+- [getRunningActionTrans\(\)](#getrunningactiontrans-3b0c0768ffd9)
+- [getUserId\(\)](#getuserid-46c2e98d8db7)
+- [getUserName\(\)](#getusername-d985b9b35273)
+- [removeRunningActionTrans\(DpActionTrans\)](#removerunningactiontrans-c41179725077)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

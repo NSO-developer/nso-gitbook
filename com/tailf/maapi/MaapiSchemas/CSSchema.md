@@ -16,25 +16,25 @@ The Schema Container class. Contains the first root node, if available,
 
 **Constructors**:
 
-- [CSSchema(int, String)](#csschema-f9e5989e119d)
-- [CSSchema(int, String, String, String, String, String)](#csschema-1d155be5067d)
+- [CSSchema\(int, String\)](#csschema-f9e5989e119d)
+- [CSSchema\(int, String, String, String, String, String\)](#csschema-1d155be5067d)
 
 **Methods**:
 
-- [addType(CSNamedType)](#addtype-f27eb8b6623c)
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [getModule()](#getmodule-68694513ccce)
-- [getNamedTypes()](#getnamedtypes-ac976f4fda73)
-- [getNS()](#getns-3613c99d8888)
-- [getNSHash()](#getnshash-2129fb8b3cfe)
-- [getPrefix()](#getprefix-9268091e0223)
-- [getRevision()](#getrevision-b0088aa9f0bf)
-- [getRootNode()](#getrootnode-eed9b3c70129)
-- [getURI()](#geturi-7ec1ffd8cd93)
-- [hashCode()](#hashcode-ef797a217903)
-- [isDynamic()](#isdynamic-6b453d4ad739)
-- [setRoot(CSNode)](#setroot-4ba56f7c3847)
-- [toString()](#tostring-e9d48c5503ef)
+- [addType\(CSNamedType\)](#addtype-f27eb8b6623c)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [getModule\(\)](#getmodule-68694513ccce)
+- [getNamedTypes\(\)](#getnamedtypes-ac976f4fda73)
+- [getNS\(\)](#getns-3613c99d8888)
+- [getNSHash\(\)](#getnshash-2129fb8b3cfe)
+- [getPrefix\(\)](#getprefix-9268091e0223)
+- [getRevision\(\)](#getrevision-b0088aa9f0bf)
+- [getRootNode\(\)](#getrootnode-eed9b3c70129)
+- [getURI\(\)](#geturi-7ec1ffd8cd93)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [isDynamic\(\)](#isdynamic-6b453d4ad739)
+- [setRoot\(CSNode\)](#setroot-4ba56f7c3847)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

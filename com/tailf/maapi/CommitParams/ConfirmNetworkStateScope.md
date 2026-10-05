@@ -10,15 +10,15 @@ Types: [ConfirmNetworkStateScope](ConfirmNetworkStateScope.md#confirmnetworkstat
 
 **Enum Constants**:
 
-- [WRITE_AND_FULL_READ_SET](#write_and_full_read_set-4e55e1aabb9e)
-- [WRITE_AND_SERVICE_READ_SET](#write_and_service_read_set-ada5614bc022)
+- [WRITE\_AND\_FULL\_READ\_SET](#write_and_full_read_set-4e55e1aabb9e)
+- [WRITE\_AND\_SERVICE\_READ\_SET](#write_and_service_read_set-ada5614bc022)
 
 **Methods**:
 
-- [fromValue(int)](#fromvalue-f24ff0b9d5bf)
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [fromValue\(int\)](#fromvalue-f24ff0b9d5bf)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

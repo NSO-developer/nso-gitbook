@@ -17,20 +17,20 @@ Overridden SSH Connection class, that is used to handle
 
 **Constructors**:
 
-- [SSHConnection(NedWorker)](#sshconnection-faa636bf3d2e)
+- [SSHConnection\(NedWorker\)](#sshconnection-faa636bf3d2e)
 
 **Methods**:
 
-- [authenticateWithAgent(String, AgentProxy)](#authenticatewithagent-5d675c49aad6)
-- [authenticateWithKeyboardInteractive(String, String[], InteractiveCallback)](#authenticatewithkeyboardinteractive-24b7ce82bc90)
-- [authenticateWithNone(String)](#authenticatewithnone-6c03229e2ca2)
-- [authenticateWithPassword(String, String)](#authenticatewithpassword-f09fca8d9fc5)
-- [authenticateWithPublicKey(String, char[], String)](#authenticatewithpublickey-160b324ce64a)
-- [authenticateWithPublicKey(String, File, String)](#authenticatewithpublickey-0f6791d166c1)
-- [connect()](#connect-394043aad7af)
-- [connect(ServerHostKeyVerifier)](#connect-9ac6e0295a74)
-- [connect(ServerHostKeyVerifier, int, int)](#connect-bedebc7d4ec2)
-- [getRemainingAuthMethods(String)](#getremainingauthmethods-3fb72a1c6378)
+- [authenticateWithAgent\(String, AgentProxy\)](#authenticatewithagent-5d675c49aad6)
+- [authenticateWithKeyboardInteractive\(String, String\[\], InteractiveCallback\)](#authenticatewithkeyboardinteractive-24b7ce82bc90)
+- [authenticateWithNone\(String\)](#authenticatewithnone-6c03229e2ca2)
+- [authenticateWithPassword\(String, String\)](#authenticatewithpassword-f09fca8d9fc5)
+- [authenticateWithPublicKey\(String, char\[\], String\)](#authenticatewithpublickey-160b324ce64a)
+- [authenticateWithPublicKey\(String, File, String\)](#authenticatewithpublickey-0f6791d166c1)
+- [connect\(\)](#connect-394043aad7af)
+- [connect\(ServerHostKeyVerifier\)](#connect-9ac6e0295a74)
+- [connect\(ServerHostKeyVerifier, int, int\)](#connect-bedebc7d4ec2)
+- [getRemainingAuthMethods\(String\)](#getremainingauthmethods-3fb72a1c6378)
 
 ## Constructors
 
@@ -165,7 +165,7 @@ public synchronized ch.ethz.ssh2.ConnectionInfo connect() throws java.io.IOExcep
 Overridden connect method
  see ch.ethz.ssh2.Connection.connect()
  Same as
- [connect(null, 0, 0)](SSHConnection.md#connect-bedebc7d4ec2).
+ [connect\(null, 0, 0\)](SSHConnection.md#connect-bedebc7d4ec2).
 
 ### connect(ServerHostKeyVerifier) <a href="#connect-9ac6e0295a74" id="connect-9ac6e0295a74"></a>
 
@@ -180,7 +180,7 @@ Overridden connect method
  see ch.ethz.ssh2.Connection.connect(ServerHostKeyVerifier verifier)
 
  Same as
- [connect(verifier, 0, 0)](SSHConnection.md#connect-bedebc7d4ec2).
+ [connect\(verifier, 0, 0\)](SSHConnection.md#connect-bedebc7d4ec2).
 
 **Parameters**
 

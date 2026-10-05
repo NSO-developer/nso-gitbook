@@ -13,17 +13,17 @@ Enum containing the valid response types for a telemetry notification.
 **Enum Constants**:
 
 - [NOTIFICATION](#notification-cfd483f9d35d)
-- [PUSH_CHANGE_UPDATE](#push_change_update-a7088e2522cd)
-- [PUSH_UPDATE](#push_update-b0dc29bea59e)
+- [PUSH\_CHANGE\_UPDATE](#push_change_update-a7088e2522cd)
+- [PUSH\_UPDATE](#push_update-b0dc29bea59e)
 - [RAW](#raw-66ddfd0e319a)
 
 **Methods**:
 
-- [fromString(String)](#fromstring-5d905e812973)
-- [getValue()](#getvalue-d93864668c40)
-- [toString()](#tostring-e9d48c5503ef)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [fromString\(String\)](#fromstring-5d905e812973)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [toString\(\)](#tostring-e9d48c5503ef)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

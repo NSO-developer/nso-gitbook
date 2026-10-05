@@ -8,7 +8,7 @@ public interface com.tailf.ned.NedTracer
 
 **Methods**:
 
-- [trace(String, String, String)](#trace-4c88f986a203)
+- [trace\(String, String, String\)](#trace-4c88f986a203)
 
 ## Methods
 

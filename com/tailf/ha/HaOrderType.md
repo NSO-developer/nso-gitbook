@@ -18,13 +18,13 @@ enum for the different HA cluster protocol operations Used internally by the
 - [BERELAY](#berelay-4319cee8cab8)
 - [BESECONDARY](#besecondary-a9ff5fc98372)
 - [GETSTATUS](#getstatus-8b73e123eca8)
-- [SECONDARY_DEAD](#secondary_dead-dbf3430fbfb9)
+- [SECONDARY\_DEAD](#secondary_dead-dbf3430fbfb9)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

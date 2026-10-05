@@ -13,7 +13,7 @@ AES algorithm encryption/decryption utility class
 
 **Constructors**:
 
-- [AesEncrypter(byte[], byte[])](#aesencrypter-067df4aa23b0)
+- [AesEncrypter\(byte\[\], byte\[\]\)](#aesencrypter-067df4aa23b0)
 
 **Fields**:
 
@@ -22,8 +22,8 @@ AES algorithm encryption/decryption utility class
 
 **Methods**:
 
-- [decrypt(byte[])](Encrypter.md#decrypt-a219da65e4d1) from Encrypter
-- [encrypt(String)](Encrypter.md#encrypt-c3e82593a386) from Encrypter
+- [decrypt\(byte\[\]\)](Encrypter.md#decrypt-a219da65e4d1) from Encrypter
+- [encrypt\(String\)](Encrypter.md#encrypt-c3e82593a386) from Encrypter
 
 ## Constructors
 

@@ -14,8 +14,8 @@ Class representing a Schema Choice
 
 **Constructors**:
 
-- [CSChoice()](#cschoice-68f5778b1ef7)
-- [CSChoice(int, String, CSSchema, int, CSNode, CSCase, CSChoice)](#cschoice-c5a1557367a2)
+- [CSChoice\(\)](#cschoice-68f5778b1ef7)
+- [CSChoice\(int, String, CSSchema, int, CSNode, CSCase, CSChoice\)](#cschoice-c5a1557367a2)
 
 **Fields**:
 
@@ -24,17 +24,17 @@ Class representing a Schema Choice
 
 **Methods**:
 
-- [getCaseParent()](#getcaseparent-85381d0de39b)
-- [getCases()](#getcases-42abc2944fb1)
-- [getDefaultCase()](#getdefaultcase-fa7745cee0b4)
-- [getMinOccurs()](#getminoccurs-cac79959dff8)
-- [getNS()](#getns-3613c99d8888)
-- [getNSHash()](#getnshash-2129fb8b3cfe)
-- [getParentNode()](#getparentnode-452921385cc4)
-- [getSiblings()](#getsiblings-f467dd8b6a33)
-- [getTag()](#gettag-315f45956d6f)
-- [getTagHash()](#gettaghash-8f057919039c)
-- [toString()](#tostring-e9d48c5503ef)
+- [getCaseParent\(\)](#getcaseparent-85381d0de39b)
+- [getCases\(\)](#getcases-42abc2944fb1)
+- [getDefaultCase\(\)](#getdefaultcase-fa7745cee0b4)
+- [getMinOccurs\(\)](#getminoccurs-cac79959dff8)
+- [getNS\(\)](#getns-3613c99d8888)
+- [getNSHash\(\)](#getnshash-2129fb8b3cfe)
+- [getParentNode\(\)](#getparentnode-452921385cc4)
+- [getSiblings\(\)](#getsiblings-f467dd8b6a33)
+- [getTag\(\)](#gettag-315f45956d6f)
+- [getTagHash\(\)](#gettaghash-8f057919039c)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

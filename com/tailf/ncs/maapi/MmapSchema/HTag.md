@@ -10,13 +10,13 @@ class com.tailf.ncs.maapi.MmapSchema.HTag
 
 **Constructors**:
 
-- [HTag(int)](#htag-ec3742d47e9d)
-- [HTag(int, int)](#htag-e441b14fddd5)
+- [HTag\(int\)](#htag-ec3742d47e9d)
+- [HTag\(int, int\)](#htag-e441b14fddd5)
 
 **Methods**:
 
-- [getNs()](#getns-59b97eae2a4a)
-- [getTag()](#gettag-315f45956d6f)
+- [getNs\(\)](#getns-59b97eae2a4a)
+- [getTag\(\)](#gettag-315f45956d6f)
 
 ## Constructors
 

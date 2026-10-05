@@ -19,9 +19,9 @@ Provides a Java representation of E integral types. E does not distinguish
 
 **Constructors**:
 
-- [ConfEBig(BigInteger)](#confebig-35fdf2f7de83)
-- [ConfEBig(byte[])](#confebig-97bb5b05e82f)
-- [ConfEBig(ConfInputStream)](#confebig-c2dca078cfcf)
+- [ConfEBig\(BigInteger\)](#confebig-35fdf2f7de83)
+- [ConfEBig\(byte\[\]\)](#confebig-97bb5b05e82f)
+- [ConfEBig\(ConfInputStream\)](#confebig-c2dca078cfcf)
 
 **Fields**:
 
@@ -29,15 +29,15 @@ Provides a Java representation of E integral types. E does not distinguish
 
 **Methods**:
 
-- [bigValue()](#bigvalue-eee3ffc9c3fa)
-- [clone()](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
-- [decode(ConfInputStream)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
-- [encode(ConfOutputStream)](#encode-cb1ad9eb7771)
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [floatValue()](#floatvalue-6e7c2cd63bb9)
-- [hashCode()](#hashcode-ef797a217903)
-- [longValue()](#longvalue-636bfe2d6862)
-- [toString()](#tostring-e9d48c5503ef)
+- [bigValue\(\)](#bigvalue-eee3ffc9c3fa)
+- [clone\(\)](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
+- [decode\(ConfInputStream\)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
+- [encode\(ConfOutputStream\)](#encode-cb1ad9eb7771)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [floatValue\(\)](#floatvalue-6e7c2cd63bb9)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [longValue\(\)](#longvalue-636bfe2d6862)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

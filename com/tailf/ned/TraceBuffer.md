@@ -8,13 +8,13 @@ public class com.tailf.ned.TraceBuffer
 
 **Constructors**:
 
-- [TraceBuffer(int, String, String)](#tracebuffer-39991147aa5b)
+- [TraceBuffer\(int, String, String\)](#tracebuffer-39991147aa5b)
 
 **Methods**:
 
-- [append(NedTracer, String)](#append-793a73e659d8)
-- [flush(NedTracer)](#flush-a415364e52f6)
-- [setLength(int)](#setlength-bb1c41009d62)
+- [append\(NedTracer, String\)](#append-793a73e659d8)
+- [flush\(NedTracer\)](#flush-a415364e52f6)
+- [setLength\(int\)](#setlength-bb1c41009d62)
 
 ## Constructors
 

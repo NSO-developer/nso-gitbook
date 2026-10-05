@@ -12,13 +12,13 @@ Authorization context class. The DpAuthorizationCallback callback methods
 
 **Constructors**:
 
-- [DpAuthorizationContext(DpUserInfo, String[], int, int, Dp)](#dpauthorizationcontext-06f65fd62f1d)
+- [DpAuthorizationContext\(DpUserInfo, String\[\], int, int, Dp\)](#dpauthorizationcontext-06f65fd62f1d)
 
 **Methods**:
 
-- [getGroups()](#getgroups-42a63746c815)
-- [getUserInfo()](#getuserinfo-3ecef1f24d3d)
-- [setAuthorizationTimeout(int)](#setauthorizationtimeout-b4c17837fa6f)
+- [getGroups\(\)](#getgroups-42a63746c815)
+- [getUserInfo\(\)](#getuserinfo-3ecef1f24d3d)
+- [setAuthorizationTimeout\(int\)](#setauthorizationtimeout-b4c17837fa6f)
 
 ## Constructors
 

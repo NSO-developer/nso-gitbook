@@ -9,16 +9,16 @@ public static final class com.tailf.ncs.maapi.Schema.Cs.HideGroups.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getNone()](#getnone-e31bfdbffa7f)
-- [getValue()](#getvalue-d93864668c40)
-- [hasValue()](#hasvalue-dad92e423e7a)
-- [isNone()](#isnone-e8a993ad0453)
-- [isValue()](#isvalue-7280ea8211f4)
-- [which()](#which-0b2d23db5ed0)
+- [getNone\(\)](#getnone-e31bfdbffa7f)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [hasValue\(\)](#hasvalue-dad92e423e7a)
+- [isNone\(\)](#isnone-e8a993ad0453)
+- [isValue\(\)](#isvalue-7280ea8211f4)
+- [which\(\)](#which-0b2d23db5ed0)
 
 ## Constructors
 

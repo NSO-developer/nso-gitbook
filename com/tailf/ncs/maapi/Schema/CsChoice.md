@@ -8,13 +8,13 @@ public static class com.tailf.ncs.maapi.Schema.CsChoice
 
 **Constructors**:
 
-- [CsChoice()](#cschoice-b4700c34a48c)
+- [CsChoice\(\)](#cschoice-b4700c34a48c)
 
 **Fields**:
 
 - [factory](#factory-1649195a6f6e)
 - [listFactory](#listfactory-b96025f1568b)
-- [STRUCT_SIZE](#struct_size-06830f6b9d3b)
+- [STRUCT\_SIZE](#struct_size-06830f6b9d3b)
 
 **Nested Types**:
 

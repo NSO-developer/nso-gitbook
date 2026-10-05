@@ -8,12 +8,12 @@ public class com.tailf.maapi.ProgressLink
 
 **Constructors**:
 
-- [ProgressLink(String, String)](#progresslink-0a58cee8778f)
+- [ProgressLink\(String, String\)](#progresslink-0a58cee8778f)
 
 **Methods**:
 
-- [getSpanId()](#getspanid-155306b8dcae)
-- [getTraceId()](#gettraceid-c3a30b94d9ce)
+- [getSpanId\(\)](#getspanid-155306b8dcae)
+- [getTraceId\(\)](#gettraceid-c3a30b94d9ce)
 
 ## Constructors
 

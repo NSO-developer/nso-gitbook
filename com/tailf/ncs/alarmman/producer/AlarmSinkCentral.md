@@ -36,8 +36,8 @@ An `AlarmSinkCentral` represent a central "proxy"
 
 **Constructors**:
 
-- [AlarmSinkCentral(int, Maapi)](#alarmsinkcentral-5ca121e75734)
-- [AlarmSinkCentral(int, Maapi, int, long)](#alarmsinkcentral-15fb13c004f7)
+- [AlarmSinkCentral\(int, Maapi\)](#alarmsinkcentral-5ca121e75734)
+- [AlarmSinkCentral\(int, Maapi, int, long\)](#alarmsinkcentral-15fb13c004f7)
 
 **Fields**:
 
@@ -45,13 +45,13 @@ An `AlarmSinkCentral` represent a central "proxy"
 
 **Methods**:
 
-- [close()](#close-8107c6dc012b)
-- [getQueue()](#getqueue-d349d0a1f2e7)
-- [isAlive()](#isalive-264918864856)
-- [requestStop()](#requeststop-7507d99bde08)
-- [run()](#run-b6dbda048863)
-- [start()](#start-79e12dafe9f8)
-- [stop()](#stop-a62ecc446f97)
+- [close\(\)](#close-8107c6dc012b)
+- [getQueue\(\)](#getqueue-d349d0a1f2e7)
+- [isAlive\(\)](#isalive-264918864856)
+- [requestStop\(\)](#requeststop-7507d99bde08)
+- [run\(\)](#run-b6dbda048863)
+- [start\(\)](#start-79e12dafe9f8)
+- [stop\(\)](#stop-a62ecc446f97)
 
 ## Constructors
 

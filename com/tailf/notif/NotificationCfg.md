@@ -8,29 +8,29 @@ public class com.tailf.notif.NotificationCfg
 
 **Constructors**:
 
-- [NotificationCfg()](#notificationcfg-095bdbf9c2db)
-- [NotificationCfg(int, int)](#notificationcfg-3db7173f4b4d)
-- [NotificationCfg(int, int, String, ConfValue, ConfValue, String, int, Verbosity)](#notificationcfg-d4b7e7a43fb5)
-- [NotificationCfg(Verbosity)](#notificationcfg-c0258cf12ca3)
+- [NotificationCfg\(\)](#notificationcfg-095bdbf9c2db)
+- [NotificationCfg\(int, int\)](#notificationcfg-3db7173f4b4d)
+- [NotificationCfg\(int, int, String, ConfValue, ConfValue, String, int, Verbosity\)](#notificationcfg-d4b7e7a43fb5)
+- [NotificationCfg\(Verbosity\)](#notificationcfg-c0258cf12ca3)
 
 **Methods**:
 
-- [getHealthCheckInterval()](#gethealthcheckinterval-a48eba3bd905)
-- [getHeartbeatInterval()](#getheartbeatinterval-e473fe40fa59)
-- [getStartTime()](#getstarttime-f237c63a0230)
-- [getStopTime()](#getstoptime-2b002db8cc27)
-- [getStreamName()](#getstreamname-7146bcdbf461)
-- [getUsid()](#getusid-62d0ecfd68fd)
-- [getVerbosity()](#getverbosity-6b0b3a4f5e03)
-- [getXPathFilter()](#getxpathfilter-3bccf218e10c)
-- [setHealthCheckInterval(int)](#sethealthcheckinterval-75bd7406cd93)
-- [setHeartbeatInterval(int)](#setheartbeatinterval-7c6e8a4c4223)
-- [setStartTime(ConfValue)](#setstarttime-65fd39b07ed3)
-- [setStopTime(ConfValue)](#setstoptime-01a03233a195)
-- [setStreamName(String)](#setstreamname-366567b41990)
-- [setUsid(int)](#setusid-f5dcd6d3ac5f)
-- [setVerbosity(Verbosity)](#setverbosity-72632efb4fb1)
-- [setXPathFilter(String)](#setxpathfilter-c4e977f0220c)
+- [getHealthCheckInterval\(\)](#gethealthcheckinterval-a48eba3bd905)
+- [getHeartbeatInterval\(\)](#getheartbeatinterval-e473fe40fa59)
+- [getStartTime\(\)](#getstarttime-f237c63a0230)
+- [getStopTime\(\)](#getstoptime-2b002db8cc27)
+- [getStreamName\(\)](#getstreamname-7146bcdbf461)
+- [getUsid\(\)](#getusid-62d0ecfd68fd)
+- [getVerbosity\(\)](#getverbosity-6b0b3a4f5e03)
+- [getXPathFilter\(\)](#getxpathfilter-3bccf218e10c)
+- [setHealthCheckInterval\(int\)](#sethealthcheckinterval-75bd7406cd93)
+- [setHeartbeatInterval\(int\)](#setheartbeatinterval-7c6e8a4c4223)
+- [setStartTime\(ConfValue\)](#setstarttime-65fd39b07ed3)
+- [setStopTime\(ConfValue\)](#setstoptime-01a03233a195)
+- [setStreamName\(String\)](#setstreamname-366567b41990)
+- [setUsid\(int\)](#setusid-f5dcd6d3ac5f)
+- [setVerbosity\(Verbosity\)](#setverbosity-72632efb4fb1)
+- [setXPathFilter\(String\)](#setxpathfilter-c4e977f0220c)
 
 ## Constructors
 

@@ -10,21 +10,21 @@ Parsed command Component data
 
 **Constructors**:
 
-- [NcsComponentData(NcsPDData, String, String, String, String, String, String[])](#ncscomponentdata-2d0c349d77e7)
+- [NcsComponentData\(NcsPDData, String, String, String, String, String, String\[\]\)](#ncscomponentdata-2d0c349d77e7)
 
 **Methods**:
 
-- [getClasses()](#getclasses-af3620c8cef5)
-- [getComponentName()](#getcomponentname-7c7a8acb1be7)
-- [getComponentType()](#getcomponenttype-8cb31666621f)
-- [getNedIdNS()](#getnedidns-6d5bc3028343)
-- [getNedIdTag()](#getnedidtag-9254c612474d)
-- [getNedType()](#getnedtype-0f22e3831af4)
-- [getParentPackage()](#getparentpackage-8f854d27b434)
-- [getUniqueName()](#getuniquename-f814f98e3025)
-- [isPendingStop()](#ispendingstop-eeb09cbcc411)
-- [setPendingStop(boolean)](#setpendingstop-6efd01c6ce11)
-- [toString()](#tostring-e9d48c5503ef)
+- [getClasses\(\)](#getclasses-af3620c8cef5)
+- [getComponentName\(\)](#getcomponentname-7c7a8acb1be7)
+- [getComponentType\(\)](#getcomponenttype-8cb31666621f)
+- [getNedIdNS\(\)](#getnedidns-6d5bc3028343)
+- [getNedIdTag\(\)](#getnedidtag-9254c612474d)
+- [getNedType\(\)](#getnedtype-0f22e3831af4)
+- [getParentPackage\(\)](#getparentpackage-8f854d27b434)
+- [getUniqueName\(\)](#getuniquename-f814f98e3025)
+- [isPendingStop\(\)](#ispendingstop-eeb09cbcc411)
+- [setPendingStop\(boolean\)](#setpendingstop-6efd01c6ce11)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

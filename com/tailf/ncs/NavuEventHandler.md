@@ -109,26 +109,26 @@ This class represents the a running daemon where it provides the means
 
 **Constructors**:
 
-- [NavuEventHandler(SocketAddress, String)](#navueventhandler-891bd346a2fa)
-- [NavuEventHandler(String, int, String)](#navueventhandler-e6148b2b8e5e)
+- [NavuEventHandler\(SocketAddress, String\)](#navueventhandler-891bd346a2fa)
+- [NavuEventHandler\(String, int, String\)](#navueventhandler-e6148b2b8e5e)
 
 **Fields**:
 
-- [NOTIFICATION_EVENT_PATH](#notification_event_path-c8627c2a8d6e)
+- [NOTIFICATION\_EVENT\_PATH](#notification_event_path-c8627c2a8d6e)
 
 **Methods**:
 
-- [awaitStopped()](#awaitstopped-07bdf4883d6b)
-- [getCallbacks(String, String)](#getcallbacks-cf69c24d830b)
-- [invokeNavuEventCallbacks(String, String, NavuNode)](#invokenavueventcallbacks-d6eb2ab2120a)
-- [isRunning()](#isrunning-02db4ec84a8d)
-- [isStopped()](#isstopped-9ec54eaf1bc2)
-- [main(String[])](#main-1503518a8568)
-- [registerAnnotatedCallbacks(Object)](#registerannotatedcallbacks-ffaebadbfc42)
-- [registerInterfaceCallback(String, String, NavuEventCallback)](#registerinterfacecallback-266c7a185b0e)
-- [run()](#run-b6dbda048863)
-- [start()](#start-79e12dafe9f8)
-- [stop()](#stop-a62ecc446f97)
+- [awaitStopped\(\)](#awaitstopped-07bdf4883d6b)
+- [getCallbacks\(String, String\)](#getcallbacks-cf69c24d830b)
+- [invokeNavuEventCallbacks\(String, String, NavuNode\)](#invokenavueventcallbacks-d6eb2ab2120a)
+- [isRunning\(\)](#isrunning-02db4ec84a8d)
+- [isStopped\(\)](#isstopped-9ec54eaf1bc2)
+- [main\(String\[\]\)](#main-1503518a8568)
+- [registerAnnotatedCallbacks\(Object\)](#registerannotatedcallbacks-ffaebadbfc42)
+- [registerInterfaceCallback\(String, String, NavuEventCallback\)](#registerinterfacecallback-266c7a185b0e)
+- [run\(\)](#run-b6dbda048863)
+- [start\(\)](#start-79e12dafe9f8)
+- [stop\(\)](#stop-a62ecc446f97)
 
 **Nested Types**:
 

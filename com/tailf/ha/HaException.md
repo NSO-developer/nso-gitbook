@@ -13,17 +13,17 @@ Exception for the HA handling
 
 **Constructors**:
 
-- [HaException(String)](#haexception-6466f26d1012)
-- [HaException(String, ErrorCode)](#haexception-32139dd642cc)
-- [HaException(String, ErrorCode, Throwable)](#haexception-c7b840ccd056)
-- [HaException(String, Throwable)](#haexception-21b4bcf9175b)
+- [HaException\(String\)](#haexception-6466f26d1012)
+- [HaException\(String, ErrorCode\)](#haexception-32139dd642cc)
+- [HaException\(String, ErrorCode, Throwable\)](#haexception-c7b840ccd056)
+- [HaException\(String, Throwable\)](#haexception-21b4bcf9175b)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](#mk-de1cedfc6ea8)
-- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
+- [getErrorCode\(\)](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](#mk-de1cedfc6ea8)
+- [mk\(ConfResponse, ConfPath\)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
 
 ## Constructors
 

@@ -10,7 +10,7 @@ static final class com.tailf.conf.dbg.XPathAbrevGrammar.JJCalls
 
 **Constructors**:
 
-- [JJCalls()](#jjcalls-343e844686fb)
+- [JJCalls\(\)](#jjcalls-343e844686fb)
 
 **Fields**:
 

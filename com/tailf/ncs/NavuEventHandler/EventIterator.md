@@ -11,14 +11,14 @@ Types: [CdbDiffIterate](../../cdb/CdbDiffIterate.md#cdbdiffiterate-ab6fafeeb31e)
 
 **Constructors**:
 
-- [EventIterator(SocketAddress)](#eventiterator-35bf486bdb4e)
+- [EventIterator\(SocketAddress\)](#eventiterator-35bf486bdb4e)
 
 **Methods**:
 
-- [close()](#close-8107c6dc012b)
-- [finish()](#finish-8c785ae2e6bb)
-- [init()](#init-e3919b885d98)
-- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#iterate-d80a566b7e0a)
+- [close\(\)](#close-8107c6dc012b)
+- [finish\(\)](#finish-8c785ae2e6bb)
+- [init\(\)](#init-e3919b885d98)
+- [iterate\(ConfObject\[\], DiffIterateOperFlag, ConfObject, ConfObject, Object\)](#iterate-d80a566b7e0a)
 
 ## Constructors
 

@@ -10,9 +10,9 @@ Tools for array manipulation.
 
 **Methods**:
 
-- [concatArrays(Object[], Object)](#concatarrays-f32733fb7851)
-- [concatArrays(Object[], Object[])](#concatarrays-d5889ad0c069)
-- [copyOfRange(T[], int, int)](#copyofrange-69de5e44fd9f)
+- [concatArrays\(Object\[\], Object\)](#concatarrays-f32733fb7851)
+- [concatArrays\(Object\[\], Object\[\]\)](#concatarrays-d5889ad0c069)
+- [copyOfRange\(T\[\], int, int\)](#copyofrange-69de5e44fd9f)
 
 ## Methods
 

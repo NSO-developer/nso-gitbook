@@ -9,7 +9,7 @@ public static class com.tailf.ned.NedWorker.NotEnoughDataException
 
 **Constructors**:
 
-- [NotEnoughDataException()](#notenoughdataexception-c47b064eeb8d)
+- [NotEnoughDataException\(\)](#notenoughdataexception-c47b064eeb8d)
 
 **Fields**:
 

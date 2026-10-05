@@ -9,16 +9,16 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueBitBig.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getValue()](#getvalue-d93864668c40)
-- [hasValue()](#hasvalue-dad92e423e7a)
-- [initValue(int)](#initvalue-a117f5eca48d)
-- [setValue(byte[])](#setvalue-da5fdcdbf2b9)
-- [setValue(Reader)](#setvalue-f6f6b43d91d8)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [hasValue\(\)](#hasvalue-dad92e423e7a)
+- [initValue\(int\)](#initvalue-a117f5eca48d)
+- [setValue\(byte\[\]\)](#setvalue-da5fdcdbf2b9)
+- [setValue\(Reader\)](#setvalue-f6f6b43d91d8)
 
 ## Constructors
 

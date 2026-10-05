@@ -16,7 +16,7 @@ Instances of classes implementing this interface can be used as
 
 **Methods**:
 
-- [getTimeout()](#gettimeout-c6606d7f7c00)
+- [getTimeout\(\)](#gettimeout-c6606d7f7c00)
 
 ## Methods
 

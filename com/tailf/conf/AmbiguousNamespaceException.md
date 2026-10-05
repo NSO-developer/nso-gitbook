@@ -11,8 +11,8 @@ Exception thrown when protocol data is malformed.
 
 **Constructors**:
 
-- [AmbiguousNamespaceException(String)](#ambiguousnamespaceexception-b6dffc54393a)
-- [AmbiguousNamespaceException(String, Throwable)](#ambiguousnamespaceexception-4bae7267e4c3)
+- [AmbiguousNamespaceException\(String\)](#ambiguousnamespaceexception-b6dffc54393a)
+- [AmbiguousNamespaceException\(String, Throwable\)](#ambiguousnamespaceexception-4bae7267e4c3)
 
 ## Constructors
 

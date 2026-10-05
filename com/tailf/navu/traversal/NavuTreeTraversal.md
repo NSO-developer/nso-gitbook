@@ -17,12 +17,12 @@ Starting point for both *Active* and *Passive* mode traversal
 
 **Methods**:
 
-- [addFilter(TraversalFilter)](#addfilter-8eb81a3c72a2)
-- [createInstance(NavuContext, NavuTraversalMean)](#createinstance-60ebd53e9e1f)
-- [iterator(NavuContext)](#iterator-56e43ce23a9e)
-- [iterator(NavuNode)](#iterator-509e808ecab4)
-- [printChain(NavuNode)](#printchain-5285eb03e708)
-- [traverse()](#traverse-4f872e3540cb)
+- [addFilter\(TraversalFilter\)](#addfilter-8eb81a3c72a2)
+- [createInstance\(NavuContext, NavuTraversalMean\)](#createinstance-60ebd53e9e1f)
+- [iterator\(NavuContext\)](#iterator-56e43ce23a9e)
+- [iterator\(NavuNode\)](#iterator-509e808ecab4)
+- [printChain\(NavuNode\)](#printchain-5285eb03e708)
+- [traverse\(\)](#traverse-4f872e3540cb)
 
 ## Methods
 

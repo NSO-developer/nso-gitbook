@@ -11,11 +11,11 @@ public class com.tailf.ncs.template.TemplateVariables
 
 **Constructors**:
 
-- [TemplateVariables()](#templatevariables-3563335fc6a2)
+- [TemplateVariables\(\)](#templatevariables-3563335fc6a2)
 
 **Methods**:
 
-- [putQuoted(String, String)](#putquoted-6dd8179b4b5e)
+- [putQuoted\(String, String\)](#putquoted-6dd8179b4b5e)
 
 ## Constructors
 

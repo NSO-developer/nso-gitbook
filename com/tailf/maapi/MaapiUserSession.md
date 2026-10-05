@@ -11,19 +11,19 @@ User session descriptor class. Objects of this class is returned by the
 
 **Constructors**:
 
-- [MaapiUserSession(ConfETuple)](#maapiusersession-a9d867da0651)
-- [MaapiUserSession(int, ConfETuple)](#maapiusersession-ad5f41178198)
+- [MaapiUserSession\(ConfETuple\)](#maapiusersession-a9d867da0651)
+- [MaapiUserSession\(int, ConfETuple\)](#maapiusersession-ad5f41178198)
 
 **Methods**:
 
-- [getContext()](#getcontext-b18d576df5d9)
-- [getIPAddress()](#getipaddress-ff0e3ce26ce7)
-- [getLoginTime()](#getlogintime-624e37ca38f1)
-- [getSessionFlags()](#getsessionflags-c6e0fef9018b)
-- [getSnmpV3Context()](#getsnmpv3context-8f8121e9764c)
-- [getUser()](#getuser-fbcccdd28c7c)
-- [getUserId()](#getuserid-46c2e98d8db7)
-- [toString()](#tostring-e9d48c5503ef)
+- [getContext\(\)](#getcontext-b18d576df5d9)
+- [getIPAddress\(\)](#getipaddress-ff0e3ce26ce7)
+- [getLoginTime\(\)](#getlogintime-624e37ca38f1)
+- [getSessionFlags\(\)](#getsessionflags-c6e0fef9018b)
+- [getSnmpV3Context\(\)](#getsnmpv3context-8f8121e9764c)
+- [getUser\(\)](#getuser-fbcccdd28c7c)
+- [getUserId\(\)](#getuserid-46c2e98d8db7)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

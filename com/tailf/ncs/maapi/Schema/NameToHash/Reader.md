@@ -9,13 +9,13 @@ public static final class com.tailf.ncs.maapi.Schema.NameToHash.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getHash()](#gethash-7efe0716cf4b)
-- [getName()](#getname-2634b18b4a25)
-- [hasName()](#hasname-bfe6c334e0d1)
+- [getHash\(\)](#gethash-7efe0716cf4b)
+- [getName\(\)](#getname-2634b18b4a25)
+- [hasName\(\)](#hasname-bfe6c334e0d1)
 
 ## Constructors
 

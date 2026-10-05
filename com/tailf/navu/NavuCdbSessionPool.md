@@ -10,15 +10,15 @@ class com.tailf.navu.NavuCdbSessionPool
 
 **Constructors**:
 
-- [NavuCdbSessionPool()](#navucdbsessionpool-d5eff8a65c40)
+- [NavuCdbSessionPool\(\)](#navucdbsessionpool-d5eff8a65c40)
 
 **Methods**:
 
-- [getCdbSession(Cdb, CdbDBType)](#getcdbsession-d341a676ff83)
-- [getCdbSession(Cdb, CdbDBType, EnumSet<CdbLockType>)](#getcdbsession-1e3bd33ef562)
-- [removeAllSessions()](#removeallsessions-211f72fa9478)
-- [removeCdbSessions(Cdb)](#removecdbsessions-5b75ba1be78f)
-- [setImpl(NavuCdbSessionPoolable)](#setimpl-fa30123ffe55)
+- [getCdbSession\(Cdb, CdbDBType\)](#getcdbsession-d341a676ff83)
+- [getCdbSession\(Cdb, CdbDBType, EnumSet\<CdbLockType\>\)](#getcdbsession-1e3bd33ef562)
+- [removeAllSessions\(\)](#removeallsessions-211f72fa9478)
+- [removeCdbSessions\(Cdb\)](#removecdbsessions-5b75ba1be78f)
+- [setImpl\(NavuCdbSessionPoolable\)](#setimpl-fa30123ffe55)
 
 ## Constructors
 

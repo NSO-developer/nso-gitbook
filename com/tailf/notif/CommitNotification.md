@@ -13,7 +13,7 @@ Data structure for simple commit notifications.
 
 **Constructors**:
 
-- [CommitNotification(int, boolean, DpUserInfo)](#commitnotification-d12b0ad0627b)
+- [CommitNotification\(int, boolean, DpUserInfo\)](#commitnotification-d12b0ad0627b)
 
 **Fields**:
 
@@ -21,11 +21,11 @@ Data structure for simple commit notifications.
 
 **Methods**:
 
-- [getDatabase()](#getdatabase-3c5eb5bcb258)
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getUserInfo()](#getuserinfo-3ecef1f24d3d)
-- [isDiffAvailable()](#isdiffavailable-435088c38777)
-- [toString()](#tostring-e9d48c5503ef)
+- [getDatabase\(\)](#getdatabase-3c5eb5bcb258)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getUserInfo\(\)](#getuserinfo-3ecef1f24d3d)
+- [isDiffAvailable\(\)](#isdiffavailable-435088c38777)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

@@ -44,16 +44,16 @@ DB lock type flag for *Cdb Sessions* which controls locking of
 
 **Enum Constants**:
 
-- [LOCK_PARTIAL](#lock_partial-018e4e600871)
-- [LOCK_REQUEST](#lock_request-7644a883c14e)
-- [LOCK_SESSION](#lock_session-306b0dde39ea)
-- [LOCK_WAIT](#lock_wait-1b85e04cb86b)
+- [LOCK\_PARTIAL](#lock_partial-018e4e600871)
+- [LOCK\_REQUEST](#lock_request-7644a883c14e)
+- [LOCK\_SESSION](#lock_session-306b0dde39ea)
+- [LOCK\_WAIT](#lock_wait-1b85e04cb86b)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

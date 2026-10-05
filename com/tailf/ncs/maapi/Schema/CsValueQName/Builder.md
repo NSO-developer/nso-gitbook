@@ -9,21 +9,21 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueQName.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getName()](#getname-2634b18b4a25)
-- [getPrefix()](#getprefix-9268091e0223)
-- [hasName()](#hasname-bfe6c334e0d1)
-- [hasPrefix()](#hasprefix-ddbc3bbca9c3)
-- [initName(int)](#initname-281e5d2102d4)
-- [initPrefix(int)](#initprefix-e25b609de101)
-- [setName(Reader)](#setname-79f9d1263a41)
-- [setName(String)](#setname-c76ccfcb9f18)
-- [setPrefix(Reader)](#setprefix-5c58f0bf0784)
-- [setPrefix(String)](#setprefix-63fe622cb50c)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getName\(\)](#getname-2634b18b4a25)
+- [getPrefix\(\)](#getprefix-9268091e0223)
+- [hasName\(\)](#hasname-bfe6c334e0d1)
+- [hasPrefix\(\)](#hasprefix-ddbc3bbca9c3)
+- [initName\(int\)](#initname-281e5d2102d4)
+- [initPrefix\(int\)](#initprefix-e25b609de101)
+- [setName\(Reader\)](#setname-79f9d1263a41)
+- [setName\(String\)](#setname-c76ccfcb9f18)
+- [setPrefix\(Reader\)](#setprefix-5c58f0bf0784)
+- [setPrefix\(String\)](#setprefix-63fe622cb50c)
 
 ## Constructors
 

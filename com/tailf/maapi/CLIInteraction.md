@@ -12,24 +12,24 @@ Get CLI Interaction class for interaction with the user via the CLI.
 
 **Constructors**:
 
-- [CLIInteraction(Maapi, int)](#cliinteraction-6a1b37c9c9ba)
+- [CLIInteraction\(Maapi, int\)](#cliinteraction-6a1b37c9c9ba)
 
 **Methods**:
 
-- [cmd(String)](#cmd-eb782fd04760)
-- [cmd(String, EnumSet<CLIInteractionFlag>)](#cmd-6c89d5978ec8)
-- [cmd(String, EnumSet<CLIInteractionFlag>, String)](#cmd-2610c4fd95ef)
-- [cmdIO(String, EnumSet<CLIInteractionFlag>, String)](#cmdio-b5995307ada1)
-- [get(String)](#get-e86cd4d90bf3)
-- [printf(String, Object[])](#printf-a63ff41f959f)
-- [prompt(String, boolean)](#prompt-297d27e3e528)
-- [prompt(String, boolean, int)](#prompt-8d2b71411d58)
-- [promptOneOf(String, String[], boolean)](#promptoneof-a845984ad36e)
-- [promptOneOf(String, String[], boolean, int)](#promptoneof-0a6e79d200d3)
-- [readEOF(boolean)](#readeof-0a63a88d6c07)
-- [readEOF(boolean, int)](#readeof-303fe4cb25f2)
-- [set(String, String)](#set-6cacddbc8231)
-- [write(String)](#write-65e1fbc7c416)
+- [cmd\(String\)](#cmd-eb782fd04760)
+- [cmd\(String, EnumSet\<CLIInteractionFlag\>\)](#cmd-6c89d5978ec8)
+- [cmd\(String, EnumSet\<CLIInteractionFlag\>, String\)](#cmd-2610c4fd95ef)
+- [cmdIO\(String, EnumSet\<CLIInteractionFlag\>, String\)](#cmdio-b5995307ada1)
+- [get\(String\)](#get-e86cd4d90bf3)
+- [printf\(String, Object\[\]\)](#printf-a63ff41f959f)
+- [prompt\(String, boolean\)](#prompt-297d27e3e528)
+- [prompt\(String, boolean, int\)](#prompt-8d2b71411d58)
+- [promptOneOf\(String, String\[\], boolean\)](#promptoneof-a845984ad36e)
+- [promptOneOf\(String, String\[\], boolean, int\)](#promptoneof-0a6e79d200d3)
+- [readEOF\(boolean\)](#readeof-0a63a88d6c07)
+- [readEOF\(boolean, int\)](#readeof-303fe4cb25f2)
+- [set\(String, String\)](#set-6cacddbc8231)
+- [write\(String\)](#write-65e1fbc7c416)
 
 ## Constructors
 

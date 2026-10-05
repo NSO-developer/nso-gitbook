@@ -8,7 +8,7 @@ public interface com.tailf.navu.traversal.NavuTraversalMean
 
 **Methods**:
 
-- [traverse(NavuNode, List<TraversalFilter>)](#traverse-e72c3ea2612b)
+- [traverse\(NavuNode, List\<TraversalFilter\>\)](#traverse-e72c3ea2612b)
 
 ## Methods
 

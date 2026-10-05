@@ -10,31 +10,31 @@ Class representing a varbind for a trap
 
 **Constructors**:
 
-- [Varbind(int, SnmpVar, ConfObject, int)](#varbind-3bad12702bce)
+- [Varbind\(int, SnmpVar, ConfObject, int\)](#varbind-3bad12702bce)
 
 **Fields**:
 
-- [TYPE_SNMP_COL_ROW](#type_snmp_col_row-292697ccb605)
-- [TYPE_SNMP_OID](#type_snmp_oid-39794fc37eb6)
-- [TYPE_SNMP_VARIABLE](#type_snmp_variable-ac9da1e9df0a)
-- [VARTYPE_SNMP_Counter32](#vartype_snmp_counter32-4371b23fffb0)
-- [VARTYPE_SNMP_Counter64](#vartype_snmp_counter64-c8e9eda6225e)
-- [VARTYPE_SNMP_INTEGER](#vartype_snmp_integer-c852add84dbb)
-- [VARTYPE_SNMP_Interger32](#vartype_snmp_interger32-43b506b3da0a)
-- [VARTYPE_SNMP_IpAddress](#vartype_snmp_ipaddress-ca0706e0f0c7)
-- [VARTYPE_SNMP_NULL](#vartype_snmp_null-0d765a90b37a)
-- [VARTYPE_SNMP_OBJECT_IDENTIFIER](#vartype_snmp_object_identifier-197ca9d8094f)
-- [VARTYPE_SNMP_OCTET_STRING](#vartype_snmp_octet_string-7f2102daf452)
-- [VARTYPE_SNMP_Opaque](#vartype_snmp_opaque-8982c272303c)
-- [VARTYPE_SNMP_TimeTicks](#vartype_snmp_timeticks-4f2d52e27935)
-- [VARTYPE_SNMP_Unsigned32](#vartype_snmp_unsigned32-86e3ef62f34b)
+- [TYPE\_SNMP\_COL\_ROW](#type_snmp_col_row-292697ccb605)
+- [TYPE\_SNMP\_OID](#type_snmp_oid-39794fc37eb6)
+- [TYPE\_SNMP\_VARIABLE](#type_snmp_variable-ac9da1e9df0a)
+- [VARTYPE\_SNMP\_Counter32](#vartype_snmp_counter32-4371b23fffb0)
+- [VARTYPE\_SNMP\_Counter64](#vartype_snmp_counter64-c8e9eda6225e)
+- [VARTYPE\_SNMP\_INTEGER](#vartype_snmp_integer-c852add84dbb)
+- [VARTYPE\_SNMP\_Interger32](#vartype_snmp_interger32-43b506b3da0a)
+- [VARTYPE\_SNMP\_IpAddress](#vartype_snmp_ipaddress-ca0706e0f0c7)
+- [VARTYPE\_SNMP\_NULL](#vartype_snmp_null-0d765a90b37a)
+- [VARTYPE\_SNMP\_OBJECT\_IDENTIFIER](#vartype_snmp_object_identifier-197ca9d8094f)
+- [VARTYPE\_SNMP\_OCTET\_STRING](#vartype_snmp_octet_string-7f2102daf452)
+- [VARTYPE\_SNMP\_Opaque](#vartype_snmp_opaque-8982c272303c)
+- [VARTYPE\_SNMP\_TimeTicks](#vartype_snmp_timeticks-4f2d52e27935)
+- [VARTYPE\_SNMP\_Unsigned32](#vartype_snmp_unsigned32-86e3ef62f34b)
 
 **Methods**:
 
-- [getSnmpVar()](#getsnmpvar-4f692734b654)
-- [getType()](#gettype-5a52f6f0d4c1)
-- [getValue()](#getvalue-d93864668c40)
-- [getVarType()](#getvartype-310b177095e2)
+- [getSnmpVar\(\)](#getsnmpvar-4f692734b654)
+- [getType\(\)](#gettype-5a52f6f0d4c1)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [getVarType\(\)](#getvartype-310b177095e2)
 
 ## Constructors
 

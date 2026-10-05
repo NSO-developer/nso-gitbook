@@ -11,19 +11,19 @@ Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b24
 
 **Constructors**:
 
-- [Factory()](#factory-0e9f9d7f4e84)
+- [Factory\(\)](#factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#asreader-5c4f46171518)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#constructreader-fbce6f4f912a)
-- [getFractionDigits()](Builder.md#getfractiondigits-57dce19c4ffe) from Builder
-- [getValue()](Builder.md#getvalue-d93864668c40) from Builder
-- [setFractionDigits(byte)](Builder.md#setfractiondigits-4268b060f4fc) from Builder
-- [setValue(long)](Builder.md#setvalue-0eb87343a952) from Builder
-- [structSize()](#structsize-1fa68dcadd21)
+- [asReader\(\)](Builder.md#asreader-b5c0f2a8d115) from Builder
+- [asReader\(Builder\)](#asreader-5c4f46171518)
+- [constructBuilder\(SegmentBuilder, int, int, int, short\)](#constructbuilder-5a2abf3209f9)
+- [constructReader\(SegmentReader, int, int, int, short, int\)](#constructreader-fbce6f4f912a)
+- [getFractionDigits\(\)](Builder.md#getfractiondigits-57dce19c4ffe) from Builder
+- [getValue\(\)](Builder.md#getvalue-d93864668c40) from Builder
+- [setFractionDigits\(byte\)](Builder.md#setfractiondigits-4268b060f4fc) from Builder
+- [setValue\(long\)](Builder.md#setvalue-0eb87343a952) from Builder
+- [structSize\(\)](#structsize-1fa68dcadd21)
 
 ## Constructors
 

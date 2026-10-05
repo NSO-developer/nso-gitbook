@@ -18,12 +18,12 @@ Class for `Span` information.
 
 **Constructors**:
 
-- [Span(String, String)](#span-6afbb0648a46)
+- [Span\(String, String\)](#span-6afbb0648a46)
 
 **Methods**:
 
-- [getSpanId()](#getspanid-155306b8dcae)
-- [getTraceId()](#gettraceid-c3a30b94d9ce)
+- [getSpanId\(\)](#getspanid-155306b8dcae)
+- [getTraceId\(\)](#gettraceid-c3a30b94d9ce)
 
 ## Constructors
 

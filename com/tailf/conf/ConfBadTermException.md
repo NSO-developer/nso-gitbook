@@ -13,15 +13,15 @@ Exception thrown when protocol data is malformed.
 
 **Constructors**:
 
-- [ConfBadTermException(String, ErrorCode, Throwable)](#confbadtermexception-4bfec5e7ece6)
-- [ConfBadTermException(String, int, Throwable)](#confbadtermexception-85e234e03090)
+- [ConfBadTermException\(String, ErrorCode, Throwable\)](#confbadtermexception-4bfec5e7ece6)
+- [ConfBadTermException\(String, int, Throwable\)](#confbadtermexception-85e234e03090)
 
 **Methods**:
 
-- [getErrorCode()](ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](ConfException.md#mk-de1cedfc6ea8) from ConfException
-- [mk(ConfResponse, ConfPath)](ConfException.md#mk-79e69ffbc022) from ConfException
+- [getErrorCode\(\)](ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](ConfException.md#mk-de1cedfc6ea8) from ConfException
+- [mk\(ConfResponse, ConfPath\)](ConfException.md#mk-79e69ffbc022) from ConfException
 
 ## Constructors
 

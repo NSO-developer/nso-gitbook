@@ -59,8 +59,8 @@ This class controls how NAVU should read/write data to ncs.
 
 **Constructors**:
 
-- [NavuContext(Maapi)](#navucontext-af99f9cc97c7)
-- [NavuContext(Maapi, int)](#navucontext-08f21a9fb7b4)
+- [NavuContext\(Maapi\)](#navucontext-af99f9cc97c7)
+- [NavuContext\(Maapi, int\)](#navucontext-08f21a9fb7b4)
 
 **Fields**:
 
@@ -68,80 +68,80 @@ This class controls how NAVU should read/write data to ncs.
 
 **Methods**:
 
-- [applyClearTrans()](#applycleartrans-3f1898cf9189)
-- [applyReplaceTrans()](#applyreplacetrans-8ed9b5f50308)
-- [aquireReadTh()](#aquirereadth-cbeb80470556)
-- [aquireWriteOperTh(boolean)](#aquirewriteoperth-70cdc82b9bd7)
-- [aquireWriteRunTh()](#aquirewriterunth-f1dd7d07d6f1)
-- [aquireWriteTh(NavuChoice)](#aquirewriteth-94557404af59)
-- [aquireWriteTh(NavuNode)](#aquirewriteth-f4016b4db5b6)
-- [aquireWriteTh(NavuNodeInfo)](#aquirewriteth-4f4b47d2a03a)
-- [attachRunningTrans(int)](#attachrunningtrans-7c31c137d0c7)
-- [clear()](#clear-ca3baec040cb)
-- [clearTrans()](#cleartrans-bdef1d47dfdf)
-- [copy(NavuContext)](#copy-87eecbcd063a)
-- [copy(NavuContextBase)](NavuContextBase.md#copy-7436fcb6cfc1) from NavuContextBase
-- [create(NavuNode, int, String, Object[])](#create-df02612e3971)
-- [delete(NavuNode, String, Object[])](#delete-63a54ea2de30)
-- [deref(NavuNode, String, Object[])](#deref-ae39a7d6fdde)
-- [detachRunningTrans()](#detachrunningtrans-e735bed11543)
-- [diffIterate(MaapiDiffIterate, NavuContext)](#diffiterate-4cc73971858b)
-- [diffIterate(MaapiDiffIterate, NavuContextBase)](NavuContextBase.md#diffiterate-a6cc344016cf) from NavuContextBase
-- [finishClearTrans()](#finishcleartrans-0f9c689756ea)
-- [getBackingStoreCdb()](NavuContextBase.md#getbackingstorecdb-73329cf7d4e1) from NavuContextBase
-- [getBackingStoreCdbSession()](NavuContextBase.md#getbackingstorecdbsession-8b0ef17e8ea3) from NavuContextBase
-- [getCase(NavuChoice, String, ConfPath)](#getcase-653069cc39c6)
-- [getCdbSubscriber()](NavuContextBase.md#getcdbsubscriber-f292c8c67d4d) from NavuContextBase
-- [getElem(NavuNode, String, Object[])](#getelem-99bc0267bad6)
-- [getLeafListIterator(NavuLeafList)](#getleaflistiterator-7174ac6a32ca)
-- [getMaapi()](NavuContextBase.md#getmaapi-0ce8975d8ec6) from NavuContextBase
-- [getMaapiHandle()](NavuContextBase.md#getmaapihandle-ba447f5d4e3f) from NavuContextBase
-- [getMountIdInterface()](#getmountidinterface-2aa19a564366)
-- [getNavuListIterator(NavuList)](#getnavulistiterator-c0c49395e08e)
-- [getNsList()](NavuContextBase.md#getnslist-0345f486e876) from NavuContextBase
-- [getReadConfSession()](NavuContextBase.md#getreadconfsession-ece7e5773db9) from NavuContextBase
-- [getReadOperSession()](NavuContextBase.md#getreadopersession-7e103aba03ba) from NavuContextBase
-- [getValues(NavuNode, ConfXMLParam[])](#getvalues-ecb3f8096a7c)
-- [getWriteConfSession()](NavuContextBase.md#getwriteconfsession-a042057a7cb8) from NavuContextBase
-- [getWriteOperSession()](NavuContextBase.md#getwriteopersession-eb5d274da267) from NavuContextBase
-- [hasCdbSubscriber()](NavuContextBase.md#hascdbsubscriber-3650a7c55283) from NavuContextBase
-- [idrefDerivedOrSelf(NavuNode, ConfIdentityRef, String, Object[])](#idrefderivedorself-6a08c9a390be)
-- [initMaapiCursor(NavuNode, String, Object[])](#initmaapicursor-dfdad1aa4163)
-- [insert(NavuList, boolean, String, Object[])](#insert-55bd5e6f415f)
-- [isActAsSuper()](NavuContextBase.md#isactassuper-ce02ade4553b) from NavuContextBase
-- [isCdb()](NavuContextBase.md#iscdb-20ec16d14862) from NavuContextBase
-- [isCdbSession()](NavuContextBase.md#iscdbsession-71fe8b2aab5d) from NavuContextBase
-- [isMaapi()](NavuContextBase.md#ismaapi-5c500ef256ce) from NavuContextBase
-- [isOnline()](NavuContextBase.md#isonline-90688b264b83) from NavuContextBase
-- [moveOrdered(NavuNode, MoveWhereFlag, ConfKey, String, Object[])](#moveordered-373c795909ce)
-- [numOfInstances(NavuNode)](#numofinstances-d5b1fc4e65c9)
-- [releaseReadTh()](#releasereadth-d8af0d751903)
-- [releaseWriteOperTh()](#releasewriteoperth-c449c5895f07)
-- [releaseWriteRunTh()](#releasewriterunth-f866e93a678c)
-- [releaseWriteTh(NavuChoice)](#releasewriteth-42da0aac3b34)
-- [releaseWriteTh(NavuNode)](#releasewriteth-2f10aa89af15)
-- [releaseWriteTh(NavuNodeInfo)](#releasewriteth-a3f7338814e0)
-- [removeCdbSessions()](NavuContextBase.md#removecdbsessions-71502a05a702) from NavuContextBase
-- [requestAction(NavuAction, ConfXMLParam[], String, Object[])](#requestaction-164fcf6d0208)
-- [set(NavuContext)](#set-a96f2680982e)
-- [set(NavuContextBase)](NavuContextBase.md#set-aa955bb80732) from NavuContextBase
-- [setElem(NavuNode, ConfValue, boolean, String, Object[])](#setelem-0daaa25a8e50)
-- [setElem(NavuNode, String, boolean, String, Object[])](#setelem-e887291ef6b0)
-- [setMaapiHandle(int)](NavuContextBase.md#setmaapihandle-62fe88de5765) from NavuContextBase
-- [setOption(UnSetCaseInChoice)](NavuContextBase.md#setoption-13f7d349ceea) from NavuContextBase
-- [setReadConfLocks(EnumSet<CdbLockType>)](NavuContextBase.md#setreadconflocks-43f86af9b510) from NavuContextBase
-- [setReadOperLocks(EnumSet<CdbLockType>)](NavuContextBase.md#setreadoperlocks-9c615c121ad2) from NavuContextBase
-- [setValues(NavuNode, ConfXMLParam[], boolean)](#setvalues-8ac6838a32ab)
-- [setWriteOperLocks(EnumSet<CdbLockType>)](NavuContextBase.md#setwriteoperlocks-d3a3d78b7d7d) from NavuContextBase
-- [shareReadTh()](#sharereadth-00bb7605f233)
-- [startOperationalTrans(int)](#startoperationaltrans-9d10bde402ce)
-- [startOperationalTrans(int, String, String, String, String)](#startoperationaltrans-f0b7896eb7ea)
-- [startPreCommitRunningTrans()](#startprecommitrunningtrans-1608c1c0d9e6)
-- [startPreCommitRunningTrans(String, String, String, String)](#startprecommitrunningtrans-a6bcef757ab6)
-- [startRunningTrans(int)](#startrunningtrans-f44b804de65a)
-- [startRunningTrans(int, String, String, String, String)](#startrunningtrans-0b37ed6a4aa8)
-- [toString()](#tostring-e9d48c5503ef)
-- [xpathEval(NavuXPathSelectResultSet, MaapiXPathEvalTrace, String, Object, String)](#xpatheval-9750f496e526)
+- [applyClearTrans\(\)](#applycleartrans-3f1898cf9189)
+- [applyReplaceTrans\(\)](#applyreplacetrans-8ed9b5f50308)
+- [aquireReadTh\(\)](#aquirereadth-cbeb80470556)
+- [aquireWriteOperTh\(boolean\)](#aquirewriteoperth-70cdc82b9bd7)
+- [aquireWriteRunTh\(\)](#aquirewriterunth-f1dd7d07d6f1)
+- [aquireWriteTh\(NavuChoice\)](#aquirewriteth-94557404af59)
+- [aquireWriteTh\(NavuNode\)](#aquirewriteth-f4016b4db5b6)
+- [aquireWriteTh\(NavuNodeInfo\)](#aquirewriteth-4f4b47d2a03a)
+- [attachRunningTrans\(int\)](#attachrunningtrans-7c31c137d0c7)
+- [clear\(\)](#clear-ca3baec040cb)
+- [clearTrans\(\)](#cleartrans-bdef1d47dfdf)
+- [copy\(NavuContext\)](#copy-87eecbcd063a)
+- [copy\(NavuContextBase\)](NavuContextBase.md#copy-7436fcb6cfc1) from NavuContextBase
+- [create\(NavuNode, int, String, Object\[\]\)](#create-df02612e3971)
+- [delete\(NavuNode, String, Object\[\]\)](#delete-63a54ea2de30)
+- [deref\(NavuNode, String, Object\[\]\)](#deref-ae39a7d6fdde)
+- [detachRunningTrans\(\)](#detachrunningtrans-e735bed11543)
+- [diffIterate\(MaapiDiffIterate, NavuContext\)](#diffiterate-4cc73971858b)
+- [diffIterate\(MaapiDiffIterate, NavuContextBase\)](NavuContextBase.md#diffiterate-a6cc344016cf) from NavuContextBase
+- [finishClearTrans\(\)](#finishcleartrans-0f9c689756ea)
+- [getBackingStoreCdb\(\)](NavuContextBase.md#getbackingstorecdb-73329cf7d4e1) from NavuContextBase
+- [getBackingStoreCdbSession\(\)](NavuContextBase.md#getbackingstorecdbsession-8b0ef17e8ea3) from NavuContextBase
+- [getCase\(NavuChoice, String, ConfPath\)](#getcase-653069cc39c6)
+- [getCdbSubscriber\(\)](NavuContextBase.md#getcdbsubscriber-f292c8c67d4d) from NavuContextBase
+- [getElem\(NavuNode, String, Object\[\]\)](#getelem-99bc0267bad6)
+- [getLeafListIterator\(NavuLeafList\)](#getleaflistiterator-7174ac6a32ca)
+- [getMaapi\(\)](NavuContextBase.md#getmaapi-0ce8975d8ec6) from NavuContextBase
+- [getMaapiHandle\(\)](NavuContextBase.md#getmaapihandle-ba447f5d4e3f) from NavuContextBase
+- [getMountIdInterface\(\)](#getmountidinterface-2aa19a564366)
+- [getNavuListIterator\(NavuList\)](#getnavulistiterator-c0c49395e08e)
+- [getNsList\(\)](NavuContextBase.md#getnslist-0345f486e876) from NavuContextBase
+- [getReadConfSession\(\)](NavuContextBase.md#getreadconfsession-ece7e5773db9) from NavuContextBase
+- [getReadOperSession\(\)](NavuContextBase.md#getreadopersession-7e103aba03ba) from NavuContextBase
+- [getValues\(NavuNode, ConfXMLParam\[\]\)](#getvalues-ecb3f8096a7c)
+- [getWriteConfSession\(\)](NavuContextBase.md#getwriteconfsession-a042057a7cb8) from NavuContextBase
+- [getWriteOperSession\(\)](NavuContextBase.md#getwriteopersession-eb5d274da267) from NavuContextBase
+- [hasCdbSubscriber\(\)](NavuContextBase.md#hascdbsubscriber-3650a7c55283) from NavuContextBase
+- [idrefDerivedOrSelf\(NavuNode, ConfIdentityRef, String, Object\[\]\)](#idrefderivedorself-6a08c9a390be)
+- [initMaapiCursor\(NavuNode, String, Object\[\]\)](#initmaapicursor-dfdad1aa4163)
+- [insert\(NavuList, boolean, String, Object\[\]\)](#insert-55bd5e6f415f)
+- [isActAsSuper\(\)](NavuContextBase.md#isactassuper-ce02ade4553b) from NavuContextBase
+- [isCdb\(\)](NavuContextBase.md#iscdb-20ec16d14862) from NavuContextBase
+- [isCdbSession\(\)](NavuContextBase.md#iscdbsession-71fe8b2aab5d) from NavuContextBase
+- [isMaapi\(\)](NavuContextBase.md#ismaapi-5c500ef256ce) from NavuContextBase
+- [isOnline\(\)](NavuContextBase.md#isonline-90688b264b83) from NavuContextBase
+- [moveOrdered\(NavuNode, MoveWhereFlag, ConfKey, String, Object\[\]\)](#moveordered-373c795909ce)
+- [numOfInstances\(NavuNode\)](#numofinstances-d5b1fc4e65c9)
+- [releaseReadTh\(\)](#releasereadth-d8af0d751903)
+- [releaseWriteOperTh\(\)](#releasewriteoperth-c449c5895f07)
+- [releaseWriteRunTh\(\)](#releasewriterunth-f866e93a678c)
+- [releaseWriteTh\(NavuChoice\)](#releasewriteth-42da0aac3b34)
+- [releaseWriteTh\(NavuNode\)](#releasewriteth-2f10aa89af15)
+- [releaseWriteTh\(NavuNodeInfo\)](#releasewriteth-a3f7338814e0)
+- [removeCdbSessions\(\)](NavuContextBase.md#removecdbsessions-71502a05a702) from NavuContextBase
+- [requestAction\(NavuAction, ConfXMLParam\[\], String, Object\[\]\)](#requestaction-164fcf6d0208)
+- [set\(NavuContext\)](#set-a96f2680982e)
+- [set\(NavuContextBase\)](NavuContextBase.md#set-aa955bb80732) from NavuContextBase
+- [setElem\(NavuNode, ConfValue, boolean, String, Object\[\]\)](#setelem-0daaa25a8e50)
+- [setElem\(NavuNode, String, boolean, String, Object\[\]\)](#setelem-e887291ef6b0)
+- [setMaapiHandle\(int\)](NavuContextBase.md#setmaapihandle-62fe88de5765) from NavuContextBase
+- [setOption\(UnSetCaseInChoice\)](NavuContextBase.md#setoption-13f7d349ceea) from NavuContextBase
+- [setReadConfLocks\(EnumSet\<CdbLockType\>\)](NavuContextBase.md#setreadconflocks-43f86af9b510) from NavuContextBase
+- [setReadOperLocks\(EnumSet\<CdbLockType\>\)](NavuContextBase.md#setreadoperlocks-9c615c121ad2) from NavuContextBase
+- [setValues\(NavuNode, ConfXMLParam\[\], boolean\)](#setvalues-8ac6838a32ab)
+- [setWriteOperLocks\(EnumSet\<CdbLockType\>\)](NavuContextBase.md#setwriteoperlocks-d3a3d78b7d7d) from NavuContextBase
+- [shareReadTh\(\)](#sharereadth-00bb7605f233)
+- [startOperationalTrans\(int\)](#startoperationaltrans-9d10bde402ce)
+- [startOperationalTrans\(int, String, String, String, String\)](#startoperationaltrans-f0b7896eb7ea)
+- [startPreCommitRunningTrans\(\)](#startprecommitrunningtrans-1608c1c0d9e6)
+- [startPreCommitRunningTrans\(String, String, String, String\)](#startprecommitrunningtrans-a6bcef757ab6)
+- [startRunningTrans\(int\)](#startrunningtrans-f44b804de65a)
+- [startRunningTrans\(int, String, String, String, String\)](#startrunningtrans-0b37ed6a4aa8)
+- [toString\(\)](#tostring-e9d48c5503ef)
+- [xpathEval\(NavuXPathSelectResultSet, MaapiXPathEvalTrace, String, Object, String\)](#xpatheval-9750f496e526)
 
 **Nested Types**:
 

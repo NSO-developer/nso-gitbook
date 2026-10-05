@@ -13,9 +13,9 @@ Annotation class for Event Callbacks Attributes are deviceName,
 
 **Methods**:
 
-- [callType()](#calltype-0d0f9b61a036)
-- [deviceName()](#devicename-e1bdeb253d0a)
-- [subscriptionName()](#subscriptionname-2f5dadeb6aba)
+- [callType\(\)](#calltype-0d0f9b61a036)
+- [deviceName\(\)](#devicename-e1bdeb253d0a)
+- [subscriptionName\(\)](#subscriptionname-2f5dadeb6aba)
 
 ## Methods
 

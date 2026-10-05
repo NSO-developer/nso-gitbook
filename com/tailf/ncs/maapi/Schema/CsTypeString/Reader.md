@@ -9,15 +9,15 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeString.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getInvertMatch()](#getinvertmatch-323126ccbf2f)
-- [getPattern()](#getpattern-b471c55bbd3b)
-- [getRanges()](#getranges-c1cd383e54a0)
-- [hasPattern()](#haspattern-e3fe48944019)
-- [hasRanges()](#hasranges-77bc63fe4ea8)
+- [getInvertMatch\(\)](#getinvertmatch-323126ccbf2f)
+- [getPattern\(\)](#getpattern-b471c55bbd3b)
+- [getRanges\(\)](#getranges-c1cd383e54a0)
+- [hasPattern\(\)](#haspattern-e3fe48944019)
+- [hasRanges\(\)](#hasranges-77bc63fe4ea8)
 
 ## Constructors
 

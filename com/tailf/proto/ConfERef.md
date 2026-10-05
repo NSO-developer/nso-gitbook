@@ -15,9 +15,9 @@ Provides a Java representation of E refs. There are two styles of E refs, old
 
 **Constructors**:
 
-- [ConfERef(ConfInputStream)](#conferef-ef452c652e20)
-- [ConfERef(String, int, int)](#conferef-8d974ce14696)
-- [ConfERef(String, int[], int)](#conferef-c26fc44f32e1)
+- [ConfERef\(ConfInputStream\)](#conferef-ef452c652e20)
+- [ConfERef\(String, int, int\)](#conferef-8d974ce14696)
+- [ConfERef\(String, int\[\], int\)](#conferef-c26fc44f32e1)
 
 **Fields**:
 
@@ -25,17 +25,17 @@ Provides a Java representation of E refs. There are two styles of E refs, old
 
 **Methods**:
 
-- [clone()](#clone-164c86c45e9b)
-- [creation()](#creation-46181b4a88a5)
-- [decode(ConfInputStream)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
-- [encode(ConfOutputStream)](#encode-cb1ad9eb7771)
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [hashCode()](#hashcode-ef797a217903)
-- [id()](#id-1352448ec267)
-- [ids()](#ids-ffb689fcb456)
-- [isNewRef()](#isnewref-e4f4038aefac)
-- [node()](#node-1fe382dfa2c3)
-- [toString()](#tostring-e9d48c5503ef)
+- [clone\(\)](#clone-164c86c45e9b)
+- [creation\(\)](#creation-46181b4a88a5)
+- [decode\(ConfInputStream\)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
+- [encode\(ConfOutputStream\)](#encode-cb1ad9eb7771)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [id\(\)](#id-1352448ec267)
+- [ids\(\)](#ids-ffb689fcb456)
+- [isNewRef\(\)](#isnewref-e4f4038aefac)
+- [node\(\)](#node-1fe382dfa2c3)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

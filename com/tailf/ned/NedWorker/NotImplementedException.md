@@ -9,7 +9,7 @@ public static class com.tailf.ned.NedWorker.NotImplementedException
 
 **Constructors**:
 
-- [NotImplementedException()](#notimplementedexception-01e007d22304)
+- [NotImplementedException\(\)](#notimplementedexception-01e007d22304)
 
 **Fields**:
 

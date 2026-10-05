@@ -10,8 +10,8 @@ State action callback interface
 
 **Methods**:
 
-- [enterState(String, Object)](#enterstate-ec1380c664b4)
-- [leaveState(String, Object)](#leavestate-8aeeca64138e)
+- [enterState\(String, Object\)](#enterstate-ec1380c664b4)
+- [leaveState\(String, Object\)](#leavestate-8aeeca64138e)
 
 ## Methods
 

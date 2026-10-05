@@ -16,24 +16,24 @@ Token Manager.
 
 **Constructors**:
 
-- [XPathAbrevGrammarTokenManager(JavaCharStream)](#xpathabrevgrammartokenmanager-17b8fdcee667)
-- [XPathAbrevGrammarTokenManager(JavaCharStream, int)](#xpathabrevgrammartokenmanager-e879d22c6d57)
+- [XPathAbrevGrammarTokenManager\(JavaCharStream\)](#xpathabrevgrammartokenmanager-17b8fdcee667)
+- [XPathAbrevGrammarTokenManager\(JavaCharStream, int\)](#xpathabrevgrammartokenmanager-e879d22c6d57)
 
 **Fields**:
 
-- [AXIS_ANCESTOR](XPathAbrevGrammarConstants.md#axis_ancestor-62c59dd9b2e3) from XPathAbrevGrammarConstants
-- [AXIS_ANCESTOR_OR_SELF](XPathAbrevGrammarConstants.md#axis_ancestor_or_self-8a86e8f77b65) from XPathAbrevGrammarConstants
-- [AXIS_ATTRIBUTE](XPathAbrevGrammarConstants.md#axis_attribute-a05946445c05) from XPathAbrevGrammarConstants
-- [AXIS_CHILD](XPathAbrevGrammarConstants.md#axis_child-b30db2353719) from XPathAbrevGrammarConstants
-- [AXIS_DESCENDANT](XPathAbrevGrammarConstants.md#axis_descendant-15e7b43dd049) from XPathAbrevGrammarConstants
-- [AXIS_DESCENDANT_OR_SELF](XPathAbrevGrammarConstants.md#axis_descendant_or_self-9f6c29a66ab9) from XPathAbrevGrammarConstants
-- [AXIS_FOLLOWING](XPathAbrevGrammarConstants.md#axis_following-a1c4549e0b7e) from XPathAbrevGrammarConstants
-- [AXIS_FOLLOWING_SIBLING](XPathAbrevGrammarConstants.md#axis_following_sibling-15c026a27921) from XPathAbrevGrammarConstants
-- [AXIS_NAMESPACE](XPathAbrevGrammarConstants.md#axis_namespace-fca116cb0837) from XPathAbrevGrammarConstants
-- [AXIS_PARENT](XPathAbrevGrammarConstants.md#axis_parent-a46c866285ba) from XPathAbrevGrammarConstants
-- [AXIS_PRECEDING](XPathAbrevGrammarConstants.md#axis_preceding-928fdaa9975d) from XPathAbrevGrammarConstants
-- [AXIS_PRECEDING_SIBLING](XPathAbrevGrammarConstants.md#axis_preceding_sibling-d98b9bd3ec33) from XPathAbrevGrammarConstants
-- [AXIS_SELF](XPathAbrevGrammarConstants.md#axis_self-e8df13365b56) from XPathAbrevGrammarConstants
+- [AXIS\_ANCESTOR](XPathAbrevGrammarConstants.md#axis_ancestor-62c59dd9b2e3) from XPathAbrevGrammarConstants
+- [AXIS\_ANCESTOR\_OR\_SELF](XPathAbrevGrammarConstants.md#axis_ancestor_or_self-8a86e8f77b65) from XPathAbrevGrammarConstants
+- [AXIS\_ATTRIBUTE](XPathAbrevGrammarConstants.md#axis_attribute-a05946445c05) from XPathAbrevGrammarConstants
+- [AXIS\_CHILD](XPathAbrevGrammarConstants.md#axis_child-b30db2353719) from XPathAbrevGrammarConstants
+- [AXIS\_DESCENDANT](XPathAbrevGrammarConstants.md#axis_descendant-15e7b43dd049) from XPathAbrevGrammarConstants
+- [AXIS\_DESCENDANT\_OR\_SELF](XPathAbrevGrammarConstants.md#axis_descendant_or_self-9f6c29a66ab9) from XPathAbrevGrammarConstants
+- [AXIS\_FOLLOWING](XPathAbrevGrammarConstants.md#axis_following-a1c4549e0b7e) from XPathAbrevGrammarConstants
+- [AXIS\_FOLLOWING\_SIBLING](XPathAbrevGrammarConstants.md#axis_following_sibling-15c026a27921) from XPathAbrevGrammarConstants
+- [AXIS\_NAMESPACE](XPathAbrevGrammarConstants.md#axis_namespace-fca116cb0837) from XPathAbrevGrammarConstants
+- [AXIS\_PARENT](XPathAbrevGrammarConstants.md#axis_parent-a46c866285ba) from XPathAbrevGrammarConstants
+- [AXIS\_PRECEDING](XPathAbrevGrammarConstants.md#axis_preceding-928fdaa9975d) from XPathAbrevGrammarConstants
+- [AXIS\_PRECEDING\_SIBLING](XPathAbrevGrammarConstants.md#axis_preceding_sibling-d98b9bd3ec33) from XPathAbrevGrammarConstants
+- [AXIS\_SELF](XPathAbrevGrammarConstants.md#axis_self-e8df13365b56) from XPathAbrevGrammarConstants
 - [BaseChar](XPathAbrevGrammarConstants.md#basechar-40e1261471a6) from XPathAbrevGrammarConstants
 - [CombiningChar](XPathAbrevGrammarConstants.md#combiningchar-04353df29e46) from XPathAbrevGrammarConstants
 - [curChar](#curchar-3e995b252b00)
@@ -45,9 +45,9 @@ Token Manager.
 - [EOF](XPathAbrevGrammarConstants.md#eof-e4ab74e8c3eb) from XPathAbrevGrammarConstants
 - [EQ](XPathAbrevGrammarConstants.md#eq-27379a35bac0) from XPathAbrevGrammarConstants
 - [Extender](XPathAbrevGrammarConstants.md#extender-16833fdff759) from XPathAbrevGrammarConstants
-- [FUNCTION_CURRENT](XPathAbrevGrammarConstants.md#function_current-756d70c6837c) from XPathAbrevGrammarConstants
+- [FUNCTION\_CURRENT](XPathAbrevGrammarConstants.md#function_current-756d70c6837c) from XPathAbrevGrammarConstants
 - [Ideographic](XPathAbrevGrammarConstants.md#ideographic-9e9a508c5c4b) from XPathAbrevGrammarConstants
-- [input_stream](#input_stream-2a4833575cfa)
+- [input\_stream](#input_stream-2a4833575cfa)
 - [jjbitVec0](#jjbitvec0-7cc00549bd7f)
 - [jjbitVec10](#jjbitvec10-5873bcaf2305)
 - [jjbitVec11](#jjbitvec11-239c699d39a0)
@@ -111,15 +111,15 @@ Token Manager.
 
 **Methods**:
 
-- [getNextToken()](#getnexttoken-dc921ada5024)
-- [jjFillToken()](#jjfilltoken-65cab186126c)
-- [MoreLexicalActions()](#morelexicalactions-949853b6331d)
-- [ReInit(JavaCharStream)](#reinit-b39574178b47)
-- [ReInit(JavaCharStream, int)](#reinit-6000a5dcdc64)
-- [setDebugStream(PrintStream)](#setdebugstream-b3ded1375b4f)
-- [SkipLexicalActions(Token)](#skiplexicalactions-424bc724dae7)
-- [SwitchTo(int)](#switchto-11e96339668c)
-- [TokenLexicalActions(Token)](#tokenlexicalactions-2e44b9f98c7f)
+- [getNextToken\(\)](#getnexttoken-dc921ada5024)
+- [jjFillToken\(\)](#jjfilltoken-65cab186126c)
+- [MoreLexicalActions\(\)](#morelexicalactions-949853b6331d)
+- [ReInit\(JavaCharStream\)](#reinit-b39574178b47)
+- [ReInit\(JavaCharStream, int\)](#reinit-6000a5dcdc64)
+- [setDebugStream\(PrintStream\)](#setdebugstream-b3ded1375b4f)
+- [SkipLexicalActions\(Token\)](#skiplexicalactions-424bc724dae7)
+- [SwitchTo\(int\)](#switchto-11e96339668c)
+- [TokenLexicalActions\(Token\)](#tokenlexicalactions-2e44b9f98c7f)
 
 ## Constructors
 

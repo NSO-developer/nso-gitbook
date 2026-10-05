@@ -9,23 +9,23 @@ public static final class com.tailf.ncs.maapi.Schema.CsType.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getName()](#getname-2634b18b4a25)
-- [getNs()](#getns-59b97eae2a4a)
-- [getParent()](#getparent-45c1b196ed70)
-- [getValue()](#getvalue-d93864668c40)
-- [hasName()](#hasname-bfe6c334e0d1)
-- [initName(int)](#initname-281e5d2102d4)
-- [initParent()](#initparent-42003b75a7dd)
-- [initValue()](#initvalue-a7755fffc529)
-- [setName(Reader)](#setname-79f9d1263a41)
-- [setName(String)](#setname-c76ccfcb9f18)
-- [setNs(int)](#setns-3c6980dbfd35)
-- [setParent(Reader)](#setparent-9ed68f47e1db)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getName\(\)](#getname-2634b18b4a25)
+- [getNs\(\)](#getns-59b97eae2a4a)
+- [getParent\(\)](#getparent-45c1b196ed70)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [hasName\(\)](#hasname-bfe6c334e0d1)
+- [initName\(int\)](#initname-281e5d2102d4)
+- [initParent\(\)](#initparent-42003b75a7dd)
+- [initValue\(\)](#initvalue-a7755fffc529)
+- [setName\(Reader\)](#setname-79f9d1263a41)
+- [setName\(String\)](#setname-c76ccfcb9f18)
+- [setNs\(int\)](#setns-3c6980dbfd35)
+- [setParent\(Reader\)](#setparent-9ed68f47e1db)
 
 ## Constructors
 

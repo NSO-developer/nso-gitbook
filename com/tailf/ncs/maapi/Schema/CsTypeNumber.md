@@ -8,13 +8,13 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeNumber
 
 **Constructors**:
 
-- [CsTypeNumber()](#cstypenumber-1b35457f95ae)
+- [CsTypeNumber\(\)](#cstypenumber-1b35457f95ae)
 
 **Fields**:
 
 - [factory](#factory-1649195a6f6e)
 - [listFactory](#listfactory-b96025f1568b)
-- [STRUCT_SIZE](#struct_size-06830f6b9d3b)
+- [STRUCT\_SIZE](#struct_size-06830f6b9d3b)
 
 **Nested Types**:
 

@@ -11,22 +11,22 @@ Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b24
 
 **Constructors**:
 
-- [Factory()](#factory-0e9f9d7f4e84)
+- [Factory\(\)](#factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#asreader-12258448f865)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#constructreader-fbce6f4f912a)
-- [getKey()](Builder.md#getkey-9a8856159458) from Builder
-- [getValue()](Builder.md#getvalue-d93864668c40) from Builder
-- [hasKey()](Builder.md#haskey-feb6e0de2bc0) from Builder
-- [initKey(int)](Builder.md#initkey-c974a5aab6d7) from Builder
-- [initValue()](Builder.md#initvalue-a7755fffc529) from Builder
-- [setKey(Reader)](Builder.md#setkey-aecf165a1c36) from Builder
-- [setKey(String)](Builder.md#setkey-b33e905ae785) from Builder
-- [structSize()](#structsize-1fa68dcadd21)
+- [asReader\(\)](Builder.md#asreader-b5c0f2a8d115) from Builder
+- [asReader\(Builder\)](#asreader-12258448f865)
+- [constructBuilder\(SegmentBuilder, int, int, int, short\)](#constructbuilder-5a2abf3209f9)
+- [constructReader\(SegmentReader, int, int, int, short, int\)](#constructreader-fbce6f4f912a)
+- [getKey\(\)](Builder.md#getkey-9a8856159458) from Builder
+- [getValue\(\)](Builder.md#getvalue-d93864668c40) from Builder
+- [hasKey\(\)](Builder.md#haskey-feb6e0de2bc0) from Builder
+- [initKey\(int\)](Builder.md#initkey-c974a5aab6d7) from Builder
+- [initValue\(\)](Builder.md#initvalue-a7755fffc529) from Builder
+- [setKey\(Reader\)](Builder.md#setkey-aecf165a1c36) from Builder
+- [setKey\(String\)](Builder.md#setkey-b33e905ae785) from Builder
+- [structSize\(\)](#structsize-1fa68dcadd21)
 
 ## Constructors
 

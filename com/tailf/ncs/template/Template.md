@@ -11,9 +11,9 @@ public class com.tailf.ncs.template.Template
 
 **Constructors**:
 
-- [Template(Maapi, String)](#template-b9516245ebda)
-- [Template(NavuContext, String)](#template-feaf74f200fb)
-- [Template(ServiceContext, String)](#template-0d1b4c642e2d)
+- [Template\(Maapi, String\)](#template-b9516245ebda)
+- [Template\(NavuContext, String\)](#template-feaf74f200fb)
+- [Template\(ServiceContext, String\)](#template-0d1b4c642e2d)
 
 **Fields**:
 
@@ -23,17 +23,17 @@ public class com.tailf.ncs.template.Template
 
 **Methods**:
 
-- [apply(Maapi, int, ConfPath, TemplateVariables)](#apply-4c072cad4101)
-- [apply(NavuNode, TemplateVariables)](#apply-ea8ea18a91df)
-- [exists(Maapi, String)](#exists-1e9581ff660e)
-- [exists(NavuContext, String)](#exists-a77fd90bdc9b)
-- [exists(ServiceContext, String)](#exists-c68e459f4029)
-- [getCreateShared()](#getcreateshared-5dab242fc9a3)
-- [getTemplates(Maapi)](#gettemplates-7e8250894e0f)
-- [getTemplates(NavuContext)](#gettemplates-1025fddc1c4f)
-- [getTemplates(ServiceContext)](#gettemplates-d75e5ab7a744)
-- [getVariables()](#getvariables-94c6f2182e29)
-- [setCreateShared(boolean)](#setcreateshared-745f84731eb7)
+- [apply\(Maapi, int, ConfPath, TemplateVariables\)](#apply-4c072cad4101)
+- [apply\(NavuNode, TemplateVariables\)](#apply-ea8ea18a91df)
+- [exists\(Maapi, String\)](#exists-1e9581ff660e)
+- [exists\(NavuContext, String\)](#exists-a77fd90bdc9b)
+- [exists\(ServiceContext, String\)](#exists-c68e459f4029)
+- [getCreateShared\(\)](#getcreateshared-5dab242fc9a3)
+- [getTemplates\(Maapi\)](#gettemplates-7e8250894e0f)
+- [getTemplates\(NavuContext\)](#gettemplates-1025fddc1c4f)
+- [getTemplates\(ServiceContext\)](#gettemplates-d75e5ab7a744)
+- [getVariables\(\)](#getvariables-94c6f2182e29)
+- [setCreateShared\(boolean\)](#setcreateshared-745f84731eb7)
 
 ## Constructors
 

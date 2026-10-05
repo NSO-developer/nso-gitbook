@@ -23,19 +23,19 @@ Class for creation and control of sockets.
 
 **Methods**:
 
-- [getSocket(InetAddress, int)](#getsocket-60f7047e1210)
-- [getSocket(Object, InetAddress, int)](#getsocket-2fc4ed37c8ec)
-- [getSocket(Object, Socket)](#getsocket-e33d64204891)
-- [getSocket(Object, SocketAddress)](#getsocket-56f7f9efbb5e)
-- [getSocket(Object, String, int)](#getsocket-716fbc8e8570)
-- [getSocket(Socket)](#getsocket-843c18d87453)
-- [getSocket(SocketAddress)](#getsocket-294002c373e6)
-- [getSocket(String, int)](#getsocket-30dffcd0af21)
-- [getSocketFactoryCb()](#getsocketfactorycb-374cd9148ad9)
-- [getUnconnectedSocket(Object, ProtocolFamily)](#getunconnectedsocket-4d9322b795e2)
-- [getUnconnectedSocket(ProtocolFamily)](#getunconnectedsocket-2b37476a3a26)
-- [registerCallback(SocketFactoryCallback)](#registercallback-6bd9f054044b)
-- [wrapSocket(Socket)](#wrapsocket-52cbce4e91a6)
+- [getSocket\(InetAddress, int\)](#getsocket-60f7047e1210)
+- [getSocket\(Object, InetAddress, int\)](#getsocket-2fc4ed37c8ec)
+- [getSocket\(Object, Socket\)](#getsocket-e33d64204891)
+- [getSocket\(Object, SocketAddress\)](#getsocket-56f7f9efbb5e)
+- [getSocket\(Object, String, int\)](#getsocket-716fbc8e8570)
+- [getSocket\(Socket\)](#getsocket-843c18d87453)
+- [getSocket\(SocketAddress\)](#getsocket-294002c373e6)
+- [getSocket\(String, int\)](#getsocket-30dffcd0af21)
+- [getSocketFactoryCb\(\)](#getsocketfactorycb-374cd9148ad9)
+- [getUnconnectedSocket\(Object, ProtocolFamily\)](#getunconnectedsocket-4d9322b795e2)
+- [getUnconnectedSocket\(ProtocolFamily\)](#getunconnectedsocket-2b37476a3a26)
+- [registerCallback\(SocketFactoryCallback\)](#registercallback-6bd9f054044b)
+- [wrapSocket\(Socket\)](#wrapsocket-52cbce4e91a6)
 
 ## Methods
 

@@ -9,20 +9,20 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getHid()](#gethid-34aa6038c623)
-- [getHns()](#gethns-457afaf41ae6)
-- [getQname()](#getqname-022156d42738)
-- [hasQname()](#hasqname-3146e94ee2c2)
-- [initQname(int)](#initqname-070346dcfd2a)
-- [setHid(int)](#sethid-628b88f6c037)
-- [setHns(int)](#sethns-7405e78f40fe)
-- [setQname(Reader)](#setqname-5263707f5f9e)
-- [setQname(String)](#setqname-d55a4e375433)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getHid\(\)](#gethid-34aa6038c623)
+- [getHns\(\)](#gethns-457afaf41ae6)
+- [getQname\(\)](#getqname-022156d42738)
+- [hasQname\(\)](#hasqname-3146e94ee2c2)
+- [initQname\(int\)](#initqname-070346dcfd2a)
+- [setHid\(int\)](#sethid-628b88f6c037)
+- [setHns\(int\)](#sethns-7405e78f40fe)
+- [setQname\(Reader\)](#setqname-5263707f5f9e)
+- [setQname\(String\)](#setqname-d55a4e375433)
 
 ## Constructors
 

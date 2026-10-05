@@ -13,14 +13,14 @@ This class implements an alarm dispatching  function.
 
 **Constructors**:
 
-- [AlarmDispatcher(SocketAddress)](#alarmdispatcher-613c7e189e3f)
+- [AlarmDispatcher\(SocketAddress\)](#alarmdispatcher-613c7e189e3f)
 
 **Methods**:
 
-- [close()](#close-8107c6dc012b)
-- [finish()](#finish-8c785ae2e6bb)
-- [init()](#init-e3919b885d98)
-- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#iterate-d80a566b7e0a)
+- [close\(\)](#close-8107c6dc012b)
+- [finish\(\)](#finish-8c785ae2e6bb)
+- [init\(\)](#init-e3919b885d98)
+- [iterate\(ConfObject\[\], DiffIterateOperFlag, ConfObject, ConfObject, Object\)](#iterate-d80a566b7e0a)
 
 ## Constructors
 

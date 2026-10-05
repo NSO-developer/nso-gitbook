@@ -24,7 +24,7 @@ Extended Iterator interface used to get `findNext` functionality.
 
 **Methods**:
 
-- [findNext(DpTrans, ConfObject[], ConfFindNextType, ConfKey)](#findnext-76a998cf9bff)
+- [findNext\(DpTrans, ConfObject\[\], ConfFindNextType, ConfKey\)](#findnext-76a998cf9bff)
 
 ## Methods
 

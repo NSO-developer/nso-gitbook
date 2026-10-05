@@ -8,7 +8,7 @@ public final class com.tailf.ncs.maapi.Schema
 
 **Constructors**:
 
-- [Schema()](#schema-10e4e25aa95a)
+- [Schema\(\)](#schema-10e4e25aa95a)
 
 **Nested Types**:
 

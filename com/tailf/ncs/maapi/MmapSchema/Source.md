@@ -10,13 +10,13 @@ class com.tailf.ncs.maapi.MmapSchema.Source
 
 **Constructors**:
 
-- [Source(String, ByteBuffer)](#source-88a6b5379f91)
+- [Source\(String, ByteBuffer\)](#source-88a6b5379f91)
 
 **Methods**:
 
-- [getBuffer()](#getbuffer-570122302064)
-- [getBufferDuplicate()](#getbufferduplicate-cbf9cb33fd3d)
-- [getPath()](#getpath-88fb21895561)
+- [getBuffer\(\)](#getbuffer-570122302064)
+- [getBufferDuplicate\(\)](#getbufferduplicate-cbf9cb33fd3d)
+- [getPath\(\)](#getpath-88fb21895561)
 
 ## Constructors
 

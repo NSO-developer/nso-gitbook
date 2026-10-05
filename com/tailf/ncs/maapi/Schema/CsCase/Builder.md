@@ -9,23 +9,23 @@ public static final class com.tailf.ncs.maapi.Schema.CsCase.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getChoices()](#getchoices-818fb3fccb86)
-- [getHns()](#gethns-457afaf41ae6)
-- [getHtag()](#gethtag-3a838d71ddf7)
-- [getNodes()](#getnodes-0d0e9b3adfd1)
-- [hasChoices()](#haschoices-6534dc5f2f55)
-- [hasNodes()](#hasnodes-0c3a4b7d62ab)
-- [initChoices(int)](#initchoices-6d6ca0d6d87e)
-- [initNodes(int)](#initnodes-ae27813ecc84)
-- [setChoices(Reader<Reader>)](#setchoices-6c56beb14596)
-- [setHns(int)](#sethns-7405e78f40fe)
-- [setHtag(int)](#sethtag-d40f4d76b210)
-- [setNodes(Reader<Reader>)](#setnodes-1a7a637d61d9)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getChoices\(\)](#getchoices-818fb3fccb86)
+- [getHns\(\)](#gethns-457afaf41ae6)
+- [getHtag\(\)](#gethtag-3a838d71ddf7)
+- [getNodes\(\)](#getnodes-0d0e9b3adfd1)
+- [hasChoices\(\)](#haschoices-6534dc5f2f55)
+- [hasNodes\(\)](#hasnodes-0c3a4b7d62ab)
+- [initChoices\(int\)](#initchoices-6d6ca0d6d87e)
+- [initNodes\(int\)](#initnodes-ae27813ecc84)
+- [setChoices\(Reader\<Reader\>\)](#setchoices-6c56beb14596)
+- [setHns\(int\)](#sethns-7405e78f40fe)
+- [setHtag\(int\)](#sethtag-d40f4d76b210)
+- [setNodes\(Reader\<Reader\>\)](#setnodes-1a7a637d61d9)
 
 ## Constructors
 

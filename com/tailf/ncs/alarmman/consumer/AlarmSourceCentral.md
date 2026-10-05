@@ -31,19 +31,19 @@ The consuming part of the *Alarm API*.
 
 **Constructors**:
 
-- [AlarmSourceCentral(int, Cdb)](#alarmsourcecentral-d1b13ad77707)
+- [AlarmSourceCentral\(int, Cdb\)](#alarmsourcecentral-d1b13ad77707)
 
 **Methods**:
 
-- [getAlarmQueue()](#getalarmqueue-86ea427127cc)
-- [getAlarmSource(int, Cdb)](#getalarmsource-3dbc04cb0fba)
-- [getQueue()](#getqueue-d349d0a1f2e7)
-- [isAlive()](#isalive-264918864856)
-- [returnAlarmQueue(ArrayBlockingQueue<Alarm>)](#returnalarmqueue-4561d0dee1d9)
-- [returnQueue(ArrayBlockingQueue<Alarm>)](#returnqueue-87db70115c92)
-- [run()](#run-b6dbda048863)
-- [start()](#start-79e12dafe9f8)
-- [stop()](#stop-a62ecc446f97)
+- [getAlarmQueue\(\)](#getalarmqueue-86ea427127cc)
+- [getAlarmSource\(int, Cdb\)](#getalarmsource-3dbc04cb0fba)
+- [getQueue\(\)](#getqueue-d349d0a1f2e7)
+- [isAlive\(\)](#isalive-264918864856)
+- [returnAlarmQueue\(ArrayBlockingQueue\<Alarm\>\)](#returnalarmqueue-4561d0dee1d9)
+- [returnQueue\(ArrayBlockingQueue\<Alarm\>\)](#returnqueue-87db70115c92)
+- [run\(\)](#run-b6dbda048863)
+- [start\(\)](#start-79e12dafe9f8)
+- [stop\(\)](#stop-a62ecc446f97)
 
 **Nested Types**:
 

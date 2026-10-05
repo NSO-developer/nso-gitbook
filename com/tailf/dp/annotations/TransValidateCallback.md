@@ -14,7 +14,7 @@ Annotation class for TransValidate Callbacks Attribute is callType
 
 **Methods**:
 
-- [callType()](#calltype-0d0f9b61a036)
+- [callType\(\)](#calltype-0d0f9b61a036)
 
 ## Methods
 

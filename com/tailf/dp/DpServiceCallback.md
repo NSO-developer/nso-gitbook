@@ -12,17 +12,17 @@ This interface is used for the service callbacks.
 
 **Fields**:
 
-- [M_CREATE](#m_create-741f9c6b07dc)
-- [M_POST_MODIFICATION](#m_post_modification-94386bb8ea4a)
-- [M_PRE_MODIFICATION](#m_pre_modification-f78525f61907)
+- [M\_CREATE](#m_create-741f9c6b07dc)
+- [M\_POST\_MODIFICATION](#m_post_modification-94386bb8ea4a)
+- [M\_PRE\_MODIFICATION](#m_pre_modification-f78525f61907)
 
 **Methods**:
 
-- [create(ServiceContext, NavuNode, NavuNode, Properties)](#create-4ddbd09c0e51)
-- [mask()](#mask-24c2fa29c6af)
-- [postModification(ServiceContext, ServiceOperationType, ConfPath, Properties)](#postmodification-271e17afdb57)
-- [preModification(ServiceContext, ServiceOperationType, ConfPath, Properties)](#premodification-92ab0a35864a)
-- [servicepoint()](#servicepoint-33fbd1d46c70)
+- [create\(ServiceContext, NavuNode, NavuNode, Properties\)](#create-4ddbd09c0e51)
+- [mask\(\)](#mask-24c2fa29c6af)
+- [postModification\(ServiceContext, ServiceOperationType, ConfPath, Properties\)](#postmodification-271e17afdb57)
+- [preModification\(ServiceContext, ServiceOperationType, ConfPath, Properties\)](#premodification-92ab0a35864a)
+- [servicepoint\(\)](#servicepoint-33fbd1d46c70)
 
 ## Fields
 

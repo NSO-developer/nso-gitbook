@@ -10,12 +10,12 @@ Helper class for callback proxys
 
 **Constructors**:
 
-- [ProxyUtils()](#proxyutils-58dca161942d)
+- [ProxyUtils\(\)](#proxyutils-58dca161942d)
 
 **Methods**:
 
-- [compareMethods(Method, Method)](#comparemethods-ffc443ede70d)
-- [invocationTargetCheck(InvocationTargetException)](#invocationtargetcheck-20a147521b60)
+- [compareMethods\(Method, Method\)](#comparemethods-ffc443ede70d)
+- [invocationTargetCheck\(InvocationTargetException\)](#invocationtargetcheck-20a147521b60)
 
 ## Constructors
 

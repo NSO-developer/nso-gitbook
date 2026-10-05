@@ -11,19 +11,19 @@ Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b24
 
 **Constructors**:
 
-- [Factory()](#factory-0e9f9d7f4e84)
+- [Factory\(\)](#factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#asreader-7e4c14f7b2d0)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#constructreader-fbce6f4f912a)
-- [getHns()](Builder.md#gethns-457afaf41ae6) from Builder
-- [getHtag()](Builder.md#gethtag-3a838d71ddf7) from Builder
-- [setHns(int)](Builder.md#sethns-7405e78f40fe) from Builder
-- [setHtag(int)](Builder.md#sethtag-d40f4d76b210) from Builder
-- [structSize()](#structsize-1fa68dcadd21)
+- [asReader\(\)](Builder.md#asreader-b5c0f2a8d115) from Builder
+- [asReader\(Builder\)](#asreader-7e4c14f7b2d0)
+- [constructBuilder\(SegmentBuilder, int, int, int, short\)](#constructbuilder-5a2abf3209f9)
+- [constructReader\(SegmentReader, int, int, int, short, int\)](#constructreader-fbce6f4f912a)
+- [getHns\(\)](Builder.md#gethns-457afaf41ae6) from Builder
+- [getHtag\(\)](Builder.md#gethtag-3a838d71ddf7) from Builder
+- [setHns\(int\)](Builder.md#sethns-7405e78f40fe) from Builder
+- [setHtag\(int\)](Builder.md#sethtag-d40f4d76b210) from Builder
+- [structSize\(\)](#structsize-1fa68dcadd21)
 
 ## Constructors
 

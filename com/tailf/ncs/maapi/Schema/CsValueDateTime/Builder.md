@@ -9,29 +9,29 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDateTime.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getDay()](#getday-3b07996cd5f6)
-- [getHour()](#gethour-32c719f425c9)
-- [getMicro()](#getmicro-37aa6b436572)
-- [getMin()](#getmin-8654ceab94db)
-- [getMonth()](#getmonth-3813513d5069)
-- [getSec()](#getsec-c0fe657f6906)
-- [getTimezone()](#gettimezone-9573790f24e6)
-- [getTimezoneMinutes()](#gettimezoneminutes-b20d3de8d152)
-- [getYear()](#getyear-584af4457cda)
-- [setDay(byte)](#setday-2c873a29eed0)
-- [setHour(byte)](#sethour-49c3f93cc667)
-- [setMicro(int)](#setmicro-f8ae466800c3)
-- [setMin(byte)](#setmin-4bea903ce744)
-- [setMonth(byte)](#setmonth-b56a6d48db74)
-- [setSec(byte)](#setsec-487f1ad78d76)
-- [setTimezone(byte)](#settimezone-c58c111fac16)
-- [setTimezoneMinutes(byte)](#settimezoneminutes-69e0ed31afd1)
-- [setYear(short)](#setyear-ecdf80e7189d)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getDay\(\)](#getday-3b07996cd5f6)
+- [getHour\(\)](#gethour-32c719f425c9)
+- [getMicro\(\)](#getmicro-37aa6b436572)
+- [getMin\(\)](#getmin-8654ceab94db)
+- [getMonth\(\)](#getmonth-3813513d5069)
+- [getSec\(\)](#getsec-c0fe657f6906)
+- [getTimezone\(\)](#gettimezone-9573790f24e6)
+- [getTimezoneMinutes\(\)](#gettimezoneminutes-b20d3de8d152)
+- [getYear\(\)](#getyear-584af4457cda)
+- [setDay\(byte\)](#setday-2c873a29eed0)
+- [setHour\(byte\)](#sethour-49c3f93cc667)
+- [setMicro\(int\)](#setmicro-f8ae466800c3)
+- [setMin\(byte\)](#setmin-4bea903ce744)
+- [setMonth\(byte\)](#setmonth-b56a6d48db74)
+- [setSec\(byte\)](#setsec-487f1ad78d76)
+- [setTimezone\(byte\)](#settimezone-c58c111fac16)
+- [setTimezoneMinutes\(byte\)](#settimezoneminutes-69e0ed31afd1)
+- [setYear\(short\)](#setyear-ecdf80e7189d)
 
 ## Constructors
 

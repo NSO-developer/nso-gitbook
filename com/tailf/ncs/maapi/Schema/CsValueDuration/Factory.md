@@ -11,29 +11,29 @@ Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b24
 
 **Constructors**:
 
-- [Factory()](#factory-0e9f9d7f4e84)
+- [Factory\(\)](#factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#asreader-f5a8817ee133)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#constructreader-fbce6f4f912a)
-- [getDays()](Builder.md#getdays-046356f0d5f0) from Builder
-- [getHours()](Builder.md#gethours-3fa193b38793) from Builder
-- [getMicros()](Builder.md#getmicros-062944cf4511) from Builder
-- [getMins()](Builder.md#getmins-c1eeffb194a4) from Builder
-- [getMonths()](Builder.md#getmonths-980c2a29d103) from Builder
-- [getSecs()](Builder.md#getsecs-460472c1be09) from Builder
-- [getYears()](Builder.md#getyears-04cc2ca752eb) from Builder
-- [setDays(int)](Builder.md#setdays-1ad4dd185830) from Builder
-- [setHours(int)](Builder.md#sethours-9f714fc42623) from Builder
-- [setMicros(int)](Builder.md#setmicros-9410072f84ff) from Builder
-- [setMins(int)](Builder.md#setmins-5fc890f362e6) from Builder
-- [setMonths(int)](Builder.md#setmonths-cdd1cef5d14a) from Builder
-- [setSecs(int)](Builder.md#setsecs-b16b5f90b69a) from Builder
-- [setYears(int)](Builder.md#setyears-d08ddee7575a) from Builder
-- [structSize()](#structsize-1fa68dcadd21)
+- [asReader\(\)](Builder.md#asreader-b5c0f2a8d115) from Builder
+- [asReader\(Builder\)](#asreader-f5a8817ee133)
+- [constructBuilder\(SegmentBuilder, int, int, int, short\)](#constructbuilder-5a2abf3209f9)
+- [constructReader\(SegmentReader, int, int, int, short, int\)](#constructreader-fbce6f4f912a)
+- [getDays\(\)](Builder.md#getdays-046356f0d5f0) from Builder
+- [getHours\(\)](Builder.md#gethours-3fa193b38793) from Builder
+- [getMicros\(\)](Builder.md#getmicros-062944cf4511) from Builder
+- [getMins\(\)](Builder.md#getmins-c1eeffb194a4) from Builder
+- [getMonths\(\)](Builder.md#getmonths-980c2a29d103) from Builder
+- [getSecs\(\)](Builder.md#getsecs-460472c1be09) from Builder
+- [getYears\(\)](Builder.md#getyears-04cc2ca752eb) from Builder
+- [setDays\(int\)](Builder.md#setdays-1ad4dd185830) from Builder
+- [setHours\(int\)](Builder.md#sethours-9f714fc42623) from Builder
+- [setMicros\(int\)](Builder.md#setmicros-9410072f84ff) from Builder
+- [setMins\(int\)](Builder.md#setmins-5fc890f362e6) from Builder
+- [setMonths\(int\)](Builder.md#setmonths-cdd1cef5d14a) from Builder
+- [setSecs\(int\)](Builder.md#setsecs-b16b5f90b69a) from Builder
+- [setYears\(int\)](Builder.md#setyears-d08ddee7575a) from Builder
+- [structSize\(\)](#structsize-1fa68dcadd21)
 
 ## Constructors
 

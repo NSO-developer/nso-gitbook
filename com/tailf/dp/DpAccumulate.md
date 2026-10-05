@@ -15,22 +15,22 @@ The DpAccumulate object is used for accumulating operations on database from
 
 **Constructors**:
 
-- [DpAccumulate(String, int, ConfObject[])](#dpaccumulate-de9e3eaafa4b)
-- [DpAccumulate(String, int, ConfObject[], ConfValue)](#dpaccumulate-1fee939d1993)
+- [DpAccumulate\(String, int, ConfObject\[\]\)](#dpaccumulate-de9e3eaafa4b)
+- [DpAccumulate\(String, int, ConfObject\[\], ConfValue\)](#dpaccumulate-1fee939d1993)
 
 **Fields**:
 
 - [CREATE](#create-815a8a632c4b)
 - [REMOVE](#remove-6d87754ff4a2)
-- [SET_ELEM](#set_elem-9a90fa845e50)
+- [SET\_ELEM](#set_elem-9a90fa845e50)
 
 **Methods**:
 
-- [getCallPoint()](#getcallpoint-f816d0a44b26)
-- [getKP()](#getkp-45b2f95adae4)
-- [getOperation()](#getoperation-baf0e4738a2a)
-- [getValue()](#getvalue-d93864668c40)
-- [toString()](#tostring-e9d48c5503ef)
+- [getCallPoint\(\)](#getcallpoint-f816d0a44b26)
+- [getKP\(\)](#getkp-45b2f95adae4)
+- [getOperation\(\)](#getoperation-baf0e4738a2a)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

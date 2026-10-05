@@ -9,19 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.MNsMap.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getEntries()](#getentries-f554b7f62e3d)
-- [getNsHash()](#getnshash-f6f3e3ae1e6b)
-- [getTagHash()](#gettaghash-8f057919039c)
-- [hasEntries()](#hasentries-ccf5edf194a9)
-- [initEntries(int)](#initentries-f2a53bc0911b)
-- [setEntries(Reader<Reader>)](#setentries-edf21be99f7c)
-- [setNsHash(int)](#setnshash-856e3c88b24a)
-- [setTagHash(int)](#settaghash-0e9cfe2575f5)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getEntries\(\)](#getentries-f554b7f62e3d)
+- [getNsHash\(\)](#getnshash-f6f3e3ae1e6b)
+- [getTagHash\(\)](#gettaghash-8f057919039c)
+- [hasEntries\(\)](#hasentries-ccf5edf194a9)
+- [initEntries\(int\)](#initentries-f2a53bc0911b)
+- [setEntries\(Reader\<Reader\>\)](#setentries-edf21be99f7c)
+- [setNsHash\(int\)](#setnshash-856e3c88b24a)
+- [setTagHash\(int\)](#settaghash-0e9cfe2575f5)
 
 ## Constructors
 

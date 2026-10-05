@@ -10,7 +10,7 @@ Progress constants for use in progress reporting.
 
 **Constructors**:
 
-- [Progress()](#progress-0edac2dc87c1)
+- [Progress\(\)](#progress-0edac2dc87c1)
 
 ## Constructors
 

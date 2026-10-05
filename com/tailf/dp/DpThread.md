@@ -13,17 +13,17 @@ DpThread with the ability to log more info about
 
 **Constructors**:
 
-- [DpThread(Runnable)](#dpthread-9efa3f28cb99)
-- [DpThread(Runnable, String)](#dpthread-e9bcaa66a795)
+- [DpThread\(Runnable\)](#dpthread-9efa3f28cb99)
+- [DpThread\(Runnable, String\)](#dpthread-e9bcaa66a795)
 
 **Fields**:
 
-- [DEFAULT_NAME](#default_name-176b69b4d69f)
+- [DEFAULT\_NAME](#default_name-176b69b4d69f)
 
 **Methods**:
 
-- [run()](#run-b6dbda048863)
-- [uncaughtException(Thread, Throwable)](#uncaughtexception-ad07d4154b36)
+- [run\(\)](#run-b6dbda048863)
+- [uncaughtException\(Thread, Throwable\)](#uncaughtexception-ad07d4154b36)
 
 ## Constructors
 

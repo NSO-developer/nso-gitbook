@@ -21,8 +21,8 @@ Enum identifying type of ConfXMLParam subclass.
 
 **Methods**:
 
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

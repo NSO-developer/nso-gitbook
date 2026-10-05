@@ -14,14 +14,14 @@ This class implements the Notification streams thread. The purpose of this
 
 **Constructors**:
 
-- [DpNotifReplayThread(DpNotifStream, ConfDatetime, ConfDatetime)](#dpnotifreplaythread-ff8e548c1579)
+- [DpNotifReplayThread\(DpNotifStream, ConfDatetime, ConfDatetime\)](#dpnotifreplaythread-ff8e548c1579)
 
 **Methods**:
 
-- [getNotifStream()](#getnotifstream-b60ff57383f1)
-- [getStart()](#getstart-f15aa51eaab7)
-- [getStop()](#getstop-509e70b17b96)
-- [run()](#run-b6dbda048863)
+- [getNotifStream\(\)](#getnotifstream-b60ff57383f1)
+- [getStart\(\)](#getstart-f15aa51eaab7)
+- [getStop\(\)](#getstop-509e70b17b96)
+- [run\(\)](#run-b6dbda048863)
 
 ## Constructors
 

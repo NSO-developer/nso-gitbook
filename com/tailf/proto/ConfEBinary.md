@@ -14,10 +14,10 @@ Provides a Java representation of E binaries. Anything that can be
 
 **Constructors**:
 
-- [ConfEBinary(byte[])](#confebinary-506aed111f96)
-- [ConfEBinary(ConfInputStream)](#confebinary-d94a11feacbc)
-- [ConfEBinary(Object)](#confebinary-879efbf3bf5f)
-- [ConfEBinary(String)](#confebinary-d6e30703f244)
+- [ConfEBinary\(byte\[\]\)](#confebinary-506aed111f96)
+- [ConfEBinary\(ConfInputStream\)](#confebinary-d94a11feacbc)
+- [ConfEBinary\(Object\)](#confebinary-879efbf3bf5f)
+- [ConfEBinary\(String\)](#confebinary-d6e30703f244)
 
 **Fields**:
 
@@ -25,16 +25,16 @@ Provides a Java representation of E binaries. Anything that can be
 
 **Methods**:
 
-- [binaryValue()](#binaryvalue-33c968bac7b6)
-- [clone()](#clone-164c86c45e9b)
-- [decode(ConfInputStream)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
-- [encode(ConfOutputStream)](#encode-cb1ad9eb7771)
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [getObject()](#getobject-723a0ba5640e)
-- [hashCode()](#hashcode-ef797a217903)
-- [size()](#size-c6d8505255fd)
-- [stringValue()](#stringvalue-a6efca13ec08)
-- [toString()](#tostring-e9d48c5503ef)
+- [binaryValue\(\)](#binaryvalue-33c968bac7b6)
+- [clone\(\)](#clone-164c86c45e9b)
+- [decode\(ConfInputStream\)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
+- [encode\(ConfOutputStream\)](#encode-cb1ad9eb7771)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [getObject\(\)](#getobject-723a0ba5640e)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [size\(\)](#size-c6d8505255fd)
+- [stringValue\(\)](#stringvalue-a6efca13ec08)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

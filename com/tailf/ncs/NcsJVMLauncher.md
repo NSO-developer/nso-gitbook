@@ -11,16 +11,16 @@ Helper class implementing a java main() method which
 
 **Constructors**:
 
-- [NcsJVMLauncher()](#ncsjvmlauncher-da3644742c99)
+- [NcsJVMLauncher\(\)](#ncsjvmlauncher-da3644742c99)
 
 **Fields**:
 
-- [SYSTEM_EXIT_ON_STOP](#system_exit_on_stop-213faca30ffa)
-- [TAILF_SOCKET_FACTORY_CB](#tailf_socket_factory_cb-e3406d68f218)
+- [SYSTEM\_EXIT\_ON\_STOP](#system_exit_on_stop-213faca30ffa)
+- [TAILF\_SOCKET\_FACTORY\_CB](#tailf_socket_factory_cb-e3406d68f218)
 
 **Methods**:
 
-- [main(String[])](#main-1503518a8568)
+- [main\(String\[\]\)](#main-1503518a8568)
 
 ## Constructors
 

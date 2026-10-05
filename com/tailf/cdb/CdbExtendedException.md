@@ -21,34 +21,34 @@ This exception is used by clients of CdbSubscription that needs to report
 
 **Constructors**:
 
-- [CdbExtendedException(int, ConfNamespace, String, ConfException)](#cdbextendedexception-d4627df609d2)
-- [CdbExtendedException(int, ConfNamespace, String, String)](#cdbextendedexception-dcf45499af32)
-- [CdbExtendedException(int, String)](#cdbextendedexception-03279c6b0750)
+- [CdbExtendedException\(int, ConfNamespace, String, ConfException\)](#cdbextendedexception-d4627df609d2)
+- [CdbExtendedException\(int, ConfNamespace, String, String\)](#cdbextendedexception-dcf45499af32)
+- [CdbExtendedException\(int, String\)](#cdbextendedexception-03279c6b0750)
 
 **Fields**:
 
-- [ERRCODE_ACCESS_DENIED](#errcode_access_denied-8378f1679ea9)
-- [ERRCODE_APPLICATION](#errcode_application-768d4d3ab472)
-- [ERRCODE_APPLICATION_INTERNAL](#errcode_application_internal-df6aa1d24b5f)
-- [ERRCODE_DATA_MISSING](#errcode_data_missing-7c7b0e40eee5)
-- [ERRCODE_IN_USE](#errcode_in_use-45e7b94d9a26)
-- [ERRCODE_INCONSISTENT_VALUE](#errcode_inconsistent_value-25091f223ca4)
-- [ERRCODE_INTERNAL](#errcode_internal-d03248afe467)
-- [ERRCODE_INTERRUPT](#errcode_interrupt-e2cc2ca2104c)
-- [ERRCODE_PROTO_USAGE](#errcode_proto_usage-2f5be49068a7)
-- [ERRCODE_RESOURCE_DENIED](#errcode_resource_denied-4d20871f49da)
+- [ERRCODE\_ACCESS\_DENIED](#errcode_access_denied-8378f1679ea9)
+- [ERRCODE\_APPLICATION](#errcode_application-768d4d3ab472)
+- [ERRCODE\_APPLICATION\_INTERNAL](#errcode_application_internal-df6aa1d24b5f)
+- [ERRCODE\_DATA\_MISSING](#errcode_data_missing-7c7b0e40eee5)
+- [ERRCODE\_IN\_USE](#errcode_in_use-45e7b94d9a26)
+- [ERRCODE\_INCONSISTENT\_VALUE](#errcode_inconsistent_value-25091f223ca4)
+- [ERRCODE\_INTERNAL](#errcode_internal-d03248afe467)
+- [ERRCODE\_INTERRUPT](#errcode_interrupt-e2cc2ca2104c)
+- [ERRCODE\_PROTO\_USAGE](#errcode_proto_usage-2f5be49068a7)
+- [ERRCODE\_RESOURCE\_DENIED](#errcode_resource_denied-4d20871f49da)
 - [extendedErrorCode](#extendederrorcode-3db0588d19ba)
 
 **Methods**:
 
-- [getAppNS()](#getappns-7c6fc85ea70b)
-- [getAppTag()](#getapptag-9f85f05c1736)
-- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getExtendedErrorCodeString()](#getextendederrorcodestring-522ef11dd66a)
-- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](CdbException.md#mk-de1cedfc6ea8) from CdbException
-- [mk(ConfResponse, ConfPath)](CdbException.md#mk-79e69ffbc022) from CdbException
-- [mk(int, ConfNamespace, String, ConfResponse)](#mk-45b8f9041391)
+- [getAppNS\(\)](#getappns-7c6fc85ea70b)
+- [getAppTag\(\)](#getapptag-9f85f05c1736)
+- [getErrorCode\(\)](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getExtendedErrorCodeString\(\)](#getextendederrorcodestring-522ef11dd66a)
+- [getOpaque\(\)](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](CdbException.md#mk-de1cedfc6ea8) from CdbException
+- [mk\(ConfResponse, ConfPath\)](CdbException.md#mk-79e69ffbc022) from CdbException
+- [mk\(int, ConfNamespace, String, ConfResponse\)](#mk-45b8f9041391)
 
 ## Constructors
 

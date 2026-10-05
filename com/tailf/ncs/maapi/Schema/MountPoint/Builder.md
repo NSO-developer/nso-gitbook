@@ -9,23 +9,23 @@ public static final class com.tailf.ncs.maapi.Schema.MountPoint.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getEntries()](#getentries-f554b7f62e3d)
-- [getNsHash()](#getnshash-f6f3e3ae1e6b)
-- [getPath()](#getpath-88fb21895561)
-- [getPathHash()](#getpathhash-14d7d9222b28)
-- [hasEntries()](#hasentries-ccf5edf194a9)
-- [hasPath()](#haspath-c0f486b47df7)
-- [initEntries(int)](#initentries-f2a53bc0911b)
-- [initPath(int)](#initpath-efcaee2c9a10)
-- [setEntries(Reader<Reader>)](#setentries-65d42e9eb737)
-- [setNsHash(int)](#setnshash-856e3c88b24a)
-- [setPath(Reader<Reader>)](#setpath-3ceb96b4eeae)
-- [setPathHash(int)](#setpathhash-5447341695d9)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getEntries\(\)](#getentries-f554b7f62e3d)
+- [getNsHash\(\)](#getnshash-f6f3e3ae1e6b)
+- [getPath\(\)](#getpath-88fb21895561)
+- [getPathHash\(\)](#getpathhash-14d7d9222b28)
+- [hasEntries\(\)](#hasentries-ccf5edf194a9)
+- [hasPath\(\)](#haspath-c0f486b47df7)
+- [initEntries\(int\)](#initentries-f2a53bc0911b)
+- [initPath\(int\)](#initpath-efcaee2c9a10)
+- [setEntries\(Reader\<Reader\>\)](#setentries-65d42e9eb737)
+- [setNsHash\(int\)](#setnshash-856e3c88b24a)
+- [setPath\(Reader\<Reader\>\)](#setpath-3ceb96b4eeae)
+- [setPathHash\(int\)](#setpathhash-5447341695d9)
 
 ## Constructors
 

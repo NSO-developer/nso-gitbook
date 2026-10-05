@@ -16,8 +16,8 @@ Exception raised when an attempt is made to create an E term with data that
 
 **Constructors**:
 
-- [ConfERangeException(String)](#conferangeexception-de782d935745)
-- [ConfERangeException(String, Throwable)](#conferangeexception-3e21becd1deb)
+- [ConfERangeException\(String\)](#conferangeexception-de782d935745)
+- [ConfERangeException\(String, Throwable\)](#conferangeexception-3e21becd1deb)
 
 ## Constructors
 

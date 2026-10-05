@@ -9,19 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.MNsMapEntry.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getModname()](#getmodname-40cd7f77aac9)
-- [getNs()](#getns-59b97eae2a4a)
-- [getNsHash()](#getnshash-f6f3e3ae1e6b)
-- [getPrefix()](#getprefix-9268091e0223)
-- [getXmlns()](#getxmlns-e2c0fd08466b)
-- [hasModname()](#hasmodname-fdd47b76b94a)
-- [hasNs()](#hasns-9cd343037be1)
-- [hasPrefix()](#hasprefix-ddbc3bbca9c3)
-- [hasXmlns()](#hasxmlns-3eb601ca5705)
+- [getModname\(\)](#getmodname-40cd7f77aac9)
+- [getNs\(\)](#getns-59b97eae2a4a)
+- [getNsHash\(\)](#getnshash-f6f3e3ae1e6b)
+- [getPrefix\(\)](#getprefix-9268091e0223)
+- [getXmlns\(\)](#getxmlns-e2c0fd08466b)
+- [hasModname\(\)](#hasmodname-fdd47b76b94a)
+- [hasNs\(\)](#hasns-9cd343037be1)
+- [hasPrefix\(\)](#hasprefix-ddbc3bbca9c3)
+- [hasXmlns\(\)](#hasxmlns-3eb601ca5705)
 
 ## Constructors
 

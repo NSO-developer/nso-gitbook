@@ -14,26 +14,26 @@ The NedMux is used as the interface between NCS and the NedConnections.
 
 **Constructors**:
 
-- [NedMux(NcsMain)](#nedmux-5d47e1091ec5)
+- [NedMux\(NcsMain\)](#nedmux-5d47e1091ec5)
 
 **Methods**:
 
-- [addToConnectionList(NedConnectionBase)](#addtoconnectionlist-0d53d864a35a)
-- [dorun()](#dorun-4965d2173fd3)
-- [getConnection(int)](#getconnection-a8fbfff22e02)
-- [getErrorMessageFormatter()](#geterrormessageformatter-8c75ba6f07e5)
-- [getErrorVerbosity()](#geterrorverbosity-defe49ca237d)
-- [getNewNeds()](#getnewneds-1ea8feed407d)
-- [listOpenConnections()](#listopenconnections-28eee6f299b2)
-- [register(NedConnectionBase)](#register-86d55bf880b4)
-- [removeFromConnectionList(int)](#removefromconnectionlist-2e9ec1695419)
-- [reRegister(NedConnectionBase)](#reregister-69b675594a1f)
-- [resetNewNeds()](#resetnewneds-8a4fddc81846)
-- [run()](#run-b6dbda048863)
-- [setErrorVerbosity(ErrorVerbosity)](#seterrorverbosity-bab7950e55c8)
-- [start()](#start-79e12dafe9f8)
-- [stopRequest()](#stoprequest-5e6b3185772c)
-- [termRead(Socket)](#termread-a6eabc408efc)
+- [addToConnectionList\(NedConnectionBase\)](#addtoconnectionlist-0d53d864a35a)
+- [dorun\(\)](#dorun-4965d2173fd3)
+- [getConnection\(int\)](#getconnection-a8fbfff22e02)
+- [getErrorMessageFormatter\(\)](#geterrormessageformatter-8c75ba6f07e5)
+- [getErrorVerbosity\(\)](#geterrorverbosity-defe49ca237d)
+- [getNewNeds\(\)](#getnewneds-1ea8feed407d)
+- [listOpenConnections\(\)](#listopenconnections-28eee6f299b2)
+- [register\(NedConnectionBase\)](#register-86d55bf880b4)
+- [removeFromConnectionList\(int\)](#removefromconnectionlist-2e9ec1695419)
+- [reRegister\(NedConnectionBase\)](#reregister-69b675594a1f)
+- [resetNewNeds\(\)](#resetnewneds-8a4fddc81846)
+- [run\(\)](#run-b6dbda048863)
+- [setErrorVerbosity\(ErrorVerbosity\)](#seterrorverbosity-bab7950e55c8)
+- [start\(\)](#start-79e12dafe9f8)
+- [stopRequest\(\)](#stoprequest-5e6b3185772c)
+- [termRead\(Socket\)](#termread-a6eabc408efc)
 
 ## Constructors
 

@@ -14,10 +14,10 @@ Internal class implementing the service context for PRE/POST MODIFICATION
 
 **Constructors**:
 
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject)](#servicemodificationcontextimpl-d0eddddd16f2)
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject, ServiceOperationType)](#servicemodificationcontextimpl-be8c23b53fc7)
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEList)](#servicemodificationcontextimpl-90b24dd80819)
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEObject)](#servicemodificationcontextimpl-767900bccb2e)
+- [ServiceModificationContextImpl\(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject\)](#servicemodificationcontextimpl-d0eddddd16f2)
+- [ServiceModificationContextImpl\(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject, ServiceOperationType\)](#servicemodificationcontextimpl-be8c23b53fc7)
+- [ServiceModificationContextImpl\(DpTrans, Dp, ConfEList\)](#servicemodificationcontextimpl-90b24dd80819)
+- [ServiceModificationContextImpl\(DpTrans, Dp, ConfEObject\)](#servicemodificationcontextimpl-767900bccb2e)
 
 ## Constructors
 

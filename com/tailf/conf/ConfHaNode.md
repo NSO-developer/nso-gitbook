@@ -10,15 +10,15 @@ ConfHaNode represents a HA node by identity and IP address
 
 **Constructors**:
 
-- [ConfHaNode(ConfValue, ConfValue)](#confhanode-7146bae77a19)
+- [ConfHaNode\(ConfValue, ConfValue\)](#confhanode-7146bae77a19)
 
 **Methods**:
 
-- [getAddr()](#getaddr-7643cf1deb7b)
-- [getNodeId()](#getnodeid-1bc8b2feefac)
-- [pack_ha_node(ConfHaNode)](#pack_ha_node-dc74c8785624)
-- [toString()](#tostring-e9d48c5503ef)
-- [unpack_ha_node(ConfEObject)](#unpack_ha_node-25b6274287f0)
+- [getAddr\(\)](#getaddr-7643cf1deb7b)
+- [getNodeId\(\)](#getnodeid-1bc8b2feefac)
+- [pack\_ha\_node\(ConfHaNode\)](#pack_ha_node-dc74c8785624)
+- [toString\(\)](#tostring-e9d48c5503ef)
+- [unpack\_ha\_node\(ConfEObject\)](#unpack_ha_node-25b6274287f0)
 
 ## Constructors
 

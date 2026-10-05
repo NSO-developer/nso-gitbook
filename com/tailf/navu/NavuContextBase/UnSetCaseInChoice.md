@@ -14,15 +14,15 @@ The enumeration specifies the behavior
 
 **Enum Constants**:
 
-- [ERROR_EXCEPTION](#error_exception-c1763e4fca52)
+- [ERROR\_EXCEPTION](#error_exception-c1763e4fca52)
 - [MUTE](#mute-8ea7a733cf2b)
-- [WARN_LOG](#warn_log-aa99735ca482)
-- [WARN_LOG_EXCEPTION](#warn_log_exception-76f5f52f87a1)
+- [WARN\_LOG](#warn_log-aa99735ca482)
+- [WARN\_LOG\_EXCEPTION](#warn_log_exception-76f5f52f87a1)
 
 **Methods**:
 
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

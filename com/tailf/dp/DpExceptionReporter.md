@@ -11,7 +11,7 @@ Interface for the user of the Dp deamon to handle catched exceptions
 
 **Methods**:
 
-- [reportException(Throwable)](#reportexception-f2030dd5aa98)
+- [reportException\(Throwable\)](#reportexception-f2030dd5aa98)
 
 ## Methods
 

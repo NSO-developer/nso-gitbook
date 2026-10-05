@@ -11,7 +11,7 @@ Interface that all Handlers must implement
 
 **Methods**:
 
-- [processPdu(EventContext, CommandResponderEvent, Object)](#processpdu-6c9b32673c38)
+- [processPdu\(EventContext, CommandResponderEvent, Object\)](#processpdu-6c9b32673c38)
 
 ## Methods
 

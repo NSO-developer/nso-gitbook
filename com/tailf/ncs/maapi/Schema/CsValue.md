@@ -8,13 +8,13 @@ public static class com.tailf.ncs.maapi.Schema.CsValue
 
 **Constructors**:
 
-- [CsValue()](#csvalue-71f10c5517b7)
+- [CsValue\(\)](#csvalue-71f10c5517b7)
 
 **Fields**:
 
 - [factory](#factory-1649195a6f6e)
 - [listFactory](#listfactory-b96025f1568b)
-- [STRUCT_SIZE](#struct_size-06830f6b9d3b)
+- [STRUCT\_SIZE](#struct_size-06830f6b9d3b)
 
 **Nested Types**:
 

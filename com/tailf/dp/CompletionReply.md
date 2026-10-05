@@ -15,18 +15,18 @@ Reply structure container for completion callbacks invoked by a
 
 **Constructors**:
 
-- [CompletionReply()](#completionreply-c343da72c278)
+- [CompletionReply\(\)](#completionreply-c343da72c278)
 
 **Methods**:
 
-- [addCompletion(String, String)](#addcompletion-a74d991bf023)
-- [encode()](#encode-fbae522bba37)
-- [newDefaultReply()](Completion.md#newdefaultreply-5583906bcd7c) from Completion
-- [newRangeEnumReply(int)](Completion.md#newrangeenumreply-5c101dba6437) from Completion
-- [newReply()](Completion.md#newreply-15892c4ebb44) from Completion
-- [setCompletionDesc(String)](#setcompletiondesc-e675fbf83e8d)
-- [setCompletionInfo(String)](#setcompletioninfo-e4b2cbdfc598)
-- [validate()](#validate-dc7ca5eb97ec)
+- [addCompletion\(String, String\)](#addcompletion-a74d991bf023)
+- [encode\(\)](#encode-fbae522bba37)
+- [newDefaultReply\(\)](Completion.md#newdefaultreply-5583906bcd7c) from Completion
+- [newRangeEnumReply\(int\)](Completion.md#newrangeenumreply-5c101dba6437) from Completion
+- [newReply\(\)](Completion.md#newreply-15892c4ebb44) from Completion
+- [setCompletionDesc\(String\)](#setcompletiondesc-e675fbf83e8d)
+- [setCompletionInfo\(String\)](#setcompletioninfo-e4b2cbdfc598)
+- [validate\(\)](#validate-dc7ca5eb97ec)
 
 ## Constructors
 

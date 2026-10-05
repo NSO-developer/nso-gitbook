@@ -8,15 +8,15 @@ public class com.tailf.conf.ErrorMessageFormatter
 
 **Constructors**:
 
-- [ErrorMessageFormatter()](#errormessageformatter-e461b8487ab4)
+- [ErrorMessageFormatter\(\)](#errormessageformatter-e461b8487ab4)
 
 **Methods**:
 
-- [getDefaultErrorVerbosity()](#getdefaulterrorverbosity-e44604dc5cd5)
-- [getErrorVerbosity()](#geterrorverbosity-defe49ca237d)
-- [initCauseMessage(Throwable)](#initcausemessage-334589d04193)
-- [setDefaultErrorVerbosity(ErrorVerbosity)](#setdefaulterrorverbosity-b04ecfc4dd74)
-- [setErrorVerbosity(ErrorVerbosity)](#seterrorverbosity-bab7950e55c8)
+- [getDefaultErrorVerbosity\(\)](#getdefaulterrorverbosity-e44604dc5cd5)
+- [getErrorVerbosity\(\)](#geterrorverbosity-defe49ca237d)
+- [initCauseMessage\(Throwable\)](#initcausemessage-334589d04193)
+- [setDefaultErrorVerbosity\(ErrorVerbosity\)](#setdefaulterrorverbosity-b04ecfc4dd74)
+- [setErrorVerbosity\(ErrorVerbosity\)](#seterrorverbosity-bab7950e55c8)
 
 ## Constructors
 

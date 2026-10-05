@@ -8,14 +8,14 @@ public class com.tailf.maapi.MaapiUserSessionId
 
 **Constructors**:
 
-- [MaapiUserSessionId(ConfEObject)](#maapiusersessionid-25af3d95040e)
+- [MaapiUserSessionId\(ConfEObject\)](#maapiusersessionid-25af3d95040e)
 
 **Methods**:
 
-- [getClientId()](#getclientid-c217e3b72666)
-- [getProduct()](#getproduct-b91c069d055a)
-- [getVendor()](#getvendor-0cd0c37b3148)
-- [getVersion()](#getversion-bb66b19ad84e)
+- [getClientId\(\)](#getclientid-c217e3b72666)
+- [getProduct\(\)](#getproduct-b91c069d055a)
+- [getVendor\(\)](#getvendor-0cd0c37b3148)
+- [getVersion\(\)](#getversion-bb66b19ad84e)
 
 ## Constructors
 

@@ -16,9 +16,9 @@ Enumeration of Auth callback methods.
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

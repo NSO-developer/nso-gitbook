@@ -9,11 +9,11 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeIdentity.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
 
 ## Constructors
 

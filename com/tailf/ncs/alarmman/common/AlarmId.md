@@ -18,19 +18,19 @@ Represents the unique identity of an NCS alarm. An NCS alarm is uniquely
 
 **Constructors**:
 
-- [AlarmId(ManagedDevice, ConfIdentityRef, ManagedObject)](#alarmid-f411e7ef5feb)
-- [AlarmId(ManagedDevice, ConfIdentityRef, ManagedObject, ConfBuf)](#alarmid-ad5c8bdf2045)
-- [AlarmId(ManagedDevice, ConfIdentityRef, ManagedObject, String)](#alarmid-76778f74e5e5)
+- [AlarmId\(ManagedDevice, ConfIdentityRef, ManagedObject\)](#alarmid-f411e7ef5feb)
+- [AlarmId\(ManagedDevice, ConfIdentityRef, ManagedObject, ConfBuf\)](#alarmid-ad5c8bdf2045)
+- [AlarmId\(ManagedDevice, ConfIdentityRef, ManagedObject, String\)](#alarmid-76778f74e5e5)
 
 **Methods**:
 
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [getAlarmType()](#getalarmtype-80d08d07e5c6)
-- [getManagedDevice()](#getmanageddevice-a92f8741d02f)
-- [getManagedObject()](#getmanagedobject-2257610c0381)
-- [getSpecificProblem()](#getspecificproblem-236478d10663)
-- [hashCode()](#hashcode-ef797a217903)
-- [toString()](#tostring-e9d48c5503ef)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [getAlarmType\(\)](#getalarmtype-80d08d07e5c6)
+- [getManagedDevice\(\)](#getmanageddevice-a92f8741d02f)
+- [getManagedObject\(\)](#getmanagedobject-2257610c0381)
+- [getSpecificProblem\(\)](#getspecificproblem-236478d10663)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

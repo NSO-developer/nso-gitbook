@@ -12,8 +12,8 @@ This interface is used for the user valpoint callbacks.
 
 **Methods**:
 
-- [validate(DpTrans, ConfObject[], ConfValue)](#validate-1a546d06dca5)
-- [valpoint()](#valpoint-a064c4954648)
+- [validate\(DpTrans, ConfObject\[\], ConfValue\)](#validate-1a546d06dca5)
+- [valpoint\(\)](#valpoint-a064c4954648)
 
 ## Methods
 

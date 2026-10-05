@@ -16,7 +16,7 @@ mmap version of CSChoice, extend to support setting first and default
 
 **Constructors**:
 
-- [MmapCSChoice(int, String, CSSchema, int, CSNode, CSCase, CSChoice)](#mmapcschoice-7d5f6da50c6f)
+- [MmapCSChoice\(int, String, CSSchema, int, CSNode, CSCase, CSChoice\)](#mmapcschoice-7d5f6da50c6f)
 
 **Fields**:
 
@@ -25,19 +25,19 @@ mmap version of CSChoice, extend to support setting first and default
 
 **Methods**:
 
-- [getCaseParent()](../../maapi/MaapiSchemas/CSChoice.md#getcaseparent-85381d0de39b) from CSChoice
-- [getCases()](../../maapi/MaapiSchemas/CSChoice.md#getcases-42abc2944fb1) from CSChoice
-- [getDefaultCase()](../../maapi/MaapiSchemas/CSChoice.md#getdefaultcase-fa7745cee0b4) from CSChoice
-- [getMinOccurs()](../../maapi/MaapiSchemas/CSChoice.md#getminoccurs-cac79959dff8) from CSChoice
-- [getNS()](../../maapi/MaapiSchemas/CSChoice.md#getns-3613c99d8888) from CSChoice
-- [getNSHash()](../../maapi/MaapiSchemas/CSChoice.md#getnshash-2129fb8b3cfe) from CSChoice
-- [getParentNode()](../../maapi/MaapiSchemas/CSChoice.md#getparentnode-452921385cc4) from CSChoice
-- [getSiblings()](../../maapi/MaapiSchemas/CSChoice.md#getsiblings-f467dd8b6a33) from CSChoice
-- [getTag()](../../maapi/MaapiSchemas/CSChoice.md#gettag-315f45956d6f) from CSChoice
-- [getTagHash()](../../maapi/MaapiSchemas/CSChoice.md#gettaghash-8f057919039c) from CSChoice
-- [setDefaultCase(CSCase)](#setdefaultcase-7c0722356351)
-- [setFirstCase(CSCase)](#setfirstcase-9d1a575d1f3a)
-- [toString()](../../maapi/MaapiSchemas/CSChoice.md#tostring-e9d48c5503ef) from CSChoice
+- [getCaseParent\(\)](../../maapi/MaapiSchemas/CSChoice.md#getcaseparent-85381d0de39b) from CSChoice
+- [getCases\(\)](../../maapi/MaapiSchemas/CSChoice.md#getcases-42abc2944fb1) from CSChoice
+- [getDefaultCase\(\)](../../maapi/MaapiSchemas/CSChoice.md#getdefaultcase-fa7745cee0b4) from CSChoice
+- [getMinOccurs\(\)](../../maapi/MaapiSchemas/CSChoice.md#getminoccurs-cac79959dff8) from CSChoice
+- [getNS\(\)](../../maapi/MaapiSchemas/CSChoice.md#getns-3613c99d8888) from CSChoice
+- [getNSHash\(\)](../../maapi/MaapiSchemas/CSChoice.md#getnshash-2129fb8b3cfe) from CSChoice
+- [getParentNode\(\)](../../maapi/MaapiSchemas/CSChoice.md#getparentnode-452921385cc4) from CSChoice
+- [getSiblings\(\)](../../maapi/MaapiSchemas/CSChoice.md#getsiblings-f467dd8b6a33) from CSChoice
+- [getTag\(\)](../../maapi/MaapiSchemas/CSChoice.md#gettag-315f45956d6f) from CSChoice
+- [getTagHash\(\)](../../maapi/MaapiSchemas/CSChoice.md#gettaghash-8f057919039c) from CSChoice
+- [setDefaultCase\(CSCase\)](#setdefaultcase-7c0722356351)
+- [setFirstCase\(CSCase\)](#setfirstcase-9d1a575d1f3a)
+- [toString\(\)](../../maapi/MaapiSchemas/CSChoice.md#tostring-e9d48c5503ef) from CSChoice
 
 ## Constructors
 

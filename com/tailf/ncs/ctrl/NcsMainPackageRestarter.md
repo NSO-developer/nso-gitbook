@@ -11,14 +11,14 @@ Package restarter helper.
 
 **Constructors**:
 
-- [NcsMainPackageRestarter(NcsMain, int)](#ncsmainpackagerestarter-74d9915593e3)
+- [NcsMainPackageRestarter\(NcsMain, int\)](#ncsmainpackagerestarter-74d9915593e3)
 
 **Methods**:
 
-- [addPackage(String)](#addpackage-73f3ce22ecee)
-- [run()](#run-b6dbda048863)
-- [start()](#start-79e12dafe9f8)
-- [stop()](#stop-a62ecc446f97)
+- [addPackage\(String\)](#addpackage-73f3ce22ecee)
+- [run\(\)](#run-b6dbda048863)
+- [start\(\)](#start-79e12dafe9f8)
+- [stop\(\)](#stop-a62ecc446f97)
 
 ## Constructors
 

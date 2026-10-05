@@ -10,15 +10,15 @@ Types: [CompactionFile](CompactionFile.md#compactionfile-19e286d90f5f)
 
 **Enum Constants**:
 
-- [COMPACTION_A_CDB](#compaction_a_cdb-1036a712400c)
-- [COMPACTION_O_CDB](#compaction_o_cdb-5b55deea8f6d)
-- [COMPACTION_S_CDB](#compaction_s_cdb-e2ce630be938)
+- [COMPACTION\_A\_CDB](#compaction_a_cdb-1036a712400c)
+- [COMPACTION\_O\_CDB](#compaction_o_cdb-5b55deea8f6d)
+- [COMPACTION\_S\_CDB](#compaction_s_cdb-e2ce630be938)
 
 **Methods**:
 
-- [fromInt(int)](#fromint-df0c5649c91b)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [fromInt\(int\)](#fromint-df0c5649c91b)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

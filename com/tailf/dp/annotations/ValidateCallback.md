@@ -14,8 +14,8 @@ Annotation class for Validate Callbacks Attribute is callPoint
 
 **Methods**:
 
-- [callPoint()](#callpoint-c21f52042879)
-- [callType()](#calltype-0d0f9b61a036)
+- [callPoint\(\)](#callpoint-c21f52042879)
+- [callType\(\)](#calltype-0d0f9b61a036)
 
 ## Methods
 

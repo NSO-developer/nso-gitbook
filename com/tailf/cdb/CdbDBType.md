@@ -12,16 +12,16 @@ Database types specified when setting up CDB sessions
 
 **Enum Constants**:
 
-- [CDB_OPERATIONAL](#cdb_operational-502b916801c6)
-- [CDB_PRE_COMMIT_RUNNING](#cdb_pre_commit_running-68ec740136a8)
-- [CDB_RUNNING](#cdb_running-a1f43295f116)
-- [CDB_STARTUP](#cdb_startup-4e1e423a32bb)
+- [CDB\_OPERATIONAL](#cdb_operational-502b916801c6)
+- [CDB\_PRE\_COMMIT\_RUNNING](#cdb_pre_commit_running-68ec740136a8)
+- [CDB\_RUNNING](#cdb_running-a1f43295f116)
+- [CDB\_STARTUP](#cdb_startup-4e1e423a32bb)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

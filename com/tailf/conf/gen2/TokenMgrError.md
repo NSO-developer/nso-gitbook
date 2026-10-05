@@ -14,23 +14,23 @@ Token Manager Error.
 
 **Constructors**:
 
-- [TokenMgrError()](#tokenmgrerror-effbd6b83fab)
-- [TokenMgrError(boolean, int, int, int, String, int, int)](#tokenmgrerror-531c6d946fca)
-- [TokenMgrError(String, int)](#tokenmgrerror-e90dda5e1ebf)
+- [TokenMgrError\(\)](#tokenmgrerror-effbd6b83fab)
+- [TokenMgrError\(boolean, int, int, int, String, int, int\)](#tokenmgrerror-531c6d946fca)
+- [TokenMgrError\(String, int\)](#tokenmgrerror-e90dda5e1ebf)
 
 **Fields**:
 
 - [errorCode](#errorcode-e873fccf9c64)
-- [INVALID_LEXICAL_STATE](#invalid_lexical_state-851c129557cb)
-- [LEXICAL_ERROR](#lexical_error-885f326ca7c5)
-- [LOOP_DETECTED](#loop_detected-edd9f4707a4a)
-- [STATIC_LEXER_ERROR](#static_lexer_error-79f12685e808)
+- [INVALID\_LEXICAL\_STATE](#invalid_lexical_state-851c129557cb)
+- [LEXICAL\_ERROR](#lexical_error-885f326ca7c5)
+- [LOOP\_DETECTED](#loop_detected-edd9f4707a4a)
+- [STATIC\_LEXER\_ERROR](#static_lexer_error-79f12685e808)
 
 **Methods**:
 
-- [addEscapes(String)](#addescapes-83898b501596)
-- [getMessage()](#getmessage-77b7dae8469e)
-- [LexicalErr(boolean, int, int, int, String, int)](#lexicalerr-369ebacfdb5b)
+- [addEscapes\(String\)](#addescapes-83898b501596)
+- [getMessage\(\)](#getmessage-77b7dae8469e)
+- [LexicalErr\(boolean, int, int, int, String, int\)](#lexicalerr-369ebacfdb5b)
 
 ## Constructors
 

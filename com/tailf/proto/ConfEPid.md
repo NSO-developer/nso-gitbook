@@ -14,8 +14,8 @@ Provides a Java representation of E pids.
 
 **Constructors**:
 
-- [ConfEPid(ConfInputStream)](#confepid-b561633bc969)
-- [ConfEPid(String, int, int, int, boolean)](#confepid-d74983699e9a)
+- [ConfEPid\(ConfInputStream\)](#confepid-b561633bc969)
+- [ConfEPid\(String, int, int, int, boolean\)](#confepid-d74983699e9a)
 
 **Fields**:
 
@@ -23,16 +23,16 @@ Provides a Java representation of E pids.
 
 **Methods**:
 
-- [clone()](#clone-164c86c45e9b)
-- [creation()](#creation-46181b4a88a5)
-- [decode(ConfInputStream)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
-- [encode(ConfOutputStream)](#encode-cb1ad9eb7771)
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [hashCode()](#hashcode-ef797a217903)
-- [id()](#id-1352448ec267)
-- [node()](#node-1fe382dfa2c3)
-- [serial()](#serial-d8ec222a1489)
-- [toString()](#tostring-e9d48c5503ef)
+- [clone\(\)](#clone-164c86c45e9b)
+- [creation\(\)](#creation-46181b4a88a5)
+- [decode\(ConfInputStream\)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
+- [encode\(ConfOutputStream\)](#encode-cb1ad9eb7771)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [id\(\)](#id-1352448ec267)
+- [node\(\)](#node-1fe382dfa2c3)
+- [serial\(\)](#serial-d8ec222a1489)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

@@ -13,7 +13,7 @@ Data structure for compaction notifications.
 
 **Constructors**:
 
-- [CompactionNotification(int, int, long, long, long, long, long, int)](#compactionnotification-0c17dc576da7)
+- [CompactionNotification\(int, int, long, long, long, long, long, int\)](#compactionnotification-0c17dc576da7)
 
 **Fields**:
 
@@ -21,16 +21,16 @@ Data structure for compaction notifications.
 
 **Methods**:
 
-- [getCompactionFile()](#getcompactionfile-3eb01a1683fd)
-- [getCompactionType()](#getcompactiontype-3be15f6ef3fb)
-- [getDuration()](#getduration-aee615ea7fe2)
-- [getFsizeEnd()](#getfsizeend-057a34fa16b7)
-- [getFsizeLast()](#getfsizelast-bf24c434e64a)
-- [getFsizeStart()](#getfsizestart-8f3bfb841399)
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getNTrans()](#getntrans-2cd88cc47142)
-- [getTimeStart()](#gettimestart-524baafff753)
-- [toString()](#tostring-e9d48c5503ef)
+- [getCompactionFile\(\)](#getcompactionfile-3eb01a1683fd)
+- [getCompactionType\(\)](#getcompactiontype-3be15f6ef3fb)
+- [getDuration\(\)](#getduration-aee615ea7fe2)
+- [getFsizeEnd\(\)](#getfsizeend-057a34fa16b7)
+- [getFsizeLast\(\)](#getfsizelast-bf24c434e64a)
+- [getFsizeStart\(\)](#getfsizestart-8f3bfb841399)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getNTrans\(\)](#getntrans-2cd88cc47142)
+- [getTimeStart\(\)](#gettimestart-524baafff753)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 **Nested Types**:
 

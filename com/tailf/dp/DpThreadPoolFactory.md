@@ -15,7 +15,7 @@ The customized thread Factory
 
 **Constructors**:
 
-- [DpThreadPoolFactory(String)](#dpthreadpoolfactory-210774692872)
+- [DpThreadPoolFactory\(String\)](#dpthreadpoolfactory-210774692872)
 
 **Fields**:
 
@@ -23,7 +23,7 @@ The customized thread Factory
 
 **Methods**:
 
-- [newThread(Runnable)](#newthread-d68745b22554)
+- [newThread\(Runnable\)](#newthread-d68745b22554)
 
 ## Constructors
 

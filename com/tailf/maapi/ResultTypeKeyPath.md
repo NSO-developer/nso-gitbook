@@ -38,7 +38,7 @@ XPath Result in keypath format.
 
 **Methods**:
 
-- [keyPath()](#keypath-df48f9bfdabb)
+- [keyPath\(\)](#keypath-df48f9bfdabb)
 
 ## Methods
 

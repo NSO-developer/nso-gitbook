@@ -12,14 +12,14 @@ Class representing a named type. A named type is represented as a
 
 **Constructors**:
 
-- [CSNamedType()](#csnamedtype-f49a833ba022)
-- [CSNamedType(String, CSType)](#csnamedtype-456f42d9d5af)
+- [CSNamedType\(\)](#csnamedtype-f49a833ba022)
+- [CSNamedType\(String, CSType\)](#csnamedtype-456f42d9d5af)
 
 **Methods**:
 
-- [getName()](#getname-2634b18b4a25)
-- [getType()](#gettype-5a52f6f0d4c1)
-- [toString()](#tostring-e9d48c5503ef)
+- [getName\(\)](#getname-2634b18b4a25)
+- [getType\(\)](#gettype-5a52f6f0d4c1)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

@@ -13,7 +13,7 @@ Data structure for SystemGoingDown notifications.
 
 **Constructors**:
 
-- [SystemGoingDownNotification()](#systemgoingdownnotification-beaedd19d9a3)
+- [SystemGoingDownNotification\(\)](#systemgoingdownnotification-beaedd19d9a3)
 
 **Fields**:
 
@@ -21,8 +21,8 @@ Data structure for SystemGoingDown notifications.
 
 **Methods**:
 
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [toString()](Notification.md#tostring-e9d48c5503ef) from Notification
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [toString\(\)](Notification.md#tostring-e9d48c5503ef) from Notification
 
 ## Constructors
 

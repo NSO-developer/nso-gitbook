@@ -13,12 +13,12 @@ EventContext implementation class
 
 **Constructors**:
 
-- [EventContextImpl()](#eventcontextimpl-f0979f02a693)
+- [EventContextImpl\(\)](#eventcontextimpl-f0979f02a693)
 
 **Methods**:
 
-- [getDeviceName()](#getdevicename-95c72ec0cf27)
-- [setDeviceKey(ConfKey)](#setdevicekey-f51d3171cb37)
+- [getDeviceName\(\)](#getdevicename-95c72ec0cf27)
+- [setDeviceKey\(ConfKey\)](#setdevicekey-f51d3171cb37)
 
 ## Constructors
 

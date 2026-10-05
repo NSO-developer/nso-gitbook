@@ -102,15 +102,15 @@ Enumeration of Trans callback methods
 - [FINISH](#finish-d07f8d2510ea)
 - [INIT](#init-5407b9c86a37)
 - [PREPARE](#prepare-751688bc2f01)
-- [TRANS_LOCK](#trans_lock-ca813c8ef589)
-- [TRANS_UNLOCK](#trans_unlock-33c04d445eb8)
-- [WRITE_START](#write_start-c5f19ac27692)
+- [TRANS\_LOCK](#trans_lock-ca813c8ef589)
+- [TRANS\_UNLOCK](#trans_unlock-33c04d445eb8)
+- [WRITE\_START](#write_start-c5f19ac27692)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

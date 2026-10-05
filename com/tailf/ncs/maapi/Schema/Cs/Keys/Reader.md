@@ -9,16 +9,16 @@ public static final class com.tailf.ncs.maapi.Schema.Cs.Keys.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getList()](#getlist-bb3f8cbe83be)
-- [getNone()](#getnone-e31bfdbffa7f)
-- [hasList()](#haslist-3712d7ce73ac)
-- [isList()](#islist-c36bce63b506)
-- [isNone()](#isnone-e8a993ad0453)
-- [which()](#which-0b2d23db5ed0)
+- [getList\(\)](#getlist-bb3f8cbe83be)
+- [getNone\(\)](#getnone-e31bfdbffa7f)
+- [hasList\(\)](#haslist-3712d7ce73ac)
+- [isList\(\)](#islist-c36bce63b506)
+- [isNone\(\)](#isnone-e8a993ad0453)
+- [which\(\)](#which-0b2d23db5ed0)
 
 ## Constructors
 

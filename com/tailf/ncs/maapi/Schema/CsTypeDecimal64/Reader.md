@@ -9,13 +9,13 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getFractionDigits()](#getfractiondigits-57dce19c4ffe)
-- [getRanges()](#getranges-c1cd383e54a0)
-- [hasRanges()](#hasranges-77bc63fe4ea8)
+- [getFractionDigits\(\)](#getfractiondigits-57dce19c4ffe)
+- [getRanges\(\)](#getranges-c1cd383e54a0)
+- [hasRanges\(\)](#hasranges-77bc63fe4ea8)
 
 ## Constructors
 

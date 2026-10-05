@@ -13,17 +13,17 @@ Ncs exception capable of storing multiple exception causes.
 
 **Constructors**:
 
-- [NcsCtrlException(String)](#ncsctrlexception-221a6565f48e)
+- [NcsCtrlException\(String\)](#ncsctrlexception-221a6565f48e)
 
 **Methods**:
 
-- [addCause(Throwable)](#addcause-351e6181965d)
-- [getCauseList()](#getcauselist-b2e766c8dc20)
-- [getErrorCode()](../../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getMessage()](#getmessage-77b7dae8469e)
-- [getOpaque()](../../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](../../conf/ConfException.md#mk-de1cedfc6ea8) from ConfException
-- [mk(ConfResponse, ConfPath)](../../conf/ConfException.md#mk-79e69ffbc022) from ConfException
+- [addCause\(Throwable\)](#addcause-351e6181965d)
+- [getCauseList\(\)](#getcauselist-b2e766c8dc20)
+- [getErrorCode\(\)](../../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getMessage\(\)](#getmessage-77b7dae8469e)
+- [getOpaque\(\)](../../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](../../conf/ConfException.md#mk-de1cedfc6ea8) from ConfException
+- [mk\(ConfResponse, ConfPath\)](../../conf/ConfException.md#mk-79e69ffbc022) from ConfException
 
 ## Constructors
 

@@ -13,14 +13,14 @@ Enumeration of Service callback methods
 **Enum Constants**:
 
 - [CREATE](#create-146c3c7e4f65)
-- [POST_MODIFICATION](#post_modification-9df86e7e6776)
-- [PRE_MODIFICATION](#pre_modification-c5a7904084f0)
+- [POST\_MODIFICATION](#post_modification-9df86e7e6776)
+- [PRE\_MODIFICATION](#pre_modification-c5a7904084f0)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

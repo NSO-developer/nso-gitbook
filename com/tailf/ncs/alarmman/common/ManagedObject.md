@@ -48,20 +48,20 @@ The Managed object is the object within a managed device that is
 
 **Constructors**:
 
-- [ManagedObject(ConfBuf)](#managedobject-efd4fa3079cc)
-- [ManagedObject(ConfObjectRef)](#managedobject-2308f0fca056)
-- [ManagedObject(ConfOID)](#managedobject-fb037f79e02d)
-- [ManagedObject(ConfPath)](#managedobject-ed89c5578582)
-- [ManagedObject(ConfValue)](#managedobject-994d60b828f1)
-- [ManagedObject(String)](#managedobject-de2707ffa6da)
-- [ManagedObject(String, MountIdInterface)](#managedobject-531f3424d0f3)
+- [ManagedObject\(ConfBuf\)](#managedobject-efd4fa3079cc)
+- [ManagedObject\(ConfObjectRef\)](#managedobject-2308f0fca056)
+- [ManagedObject\(ConfOID\)](#managedobject-fb037f79e02d)
+- [ManagedObject\(ConfPath\)](#managedobject-ed89c5578582)
+- [ManagedObject\(ConfValue\)](#managedobject-994d60b828f1)
+- [ManagedObject\(String\)](#managedobject-de2707ffa6da)
+- [ManagedObject\(String, MountIdInterface\)](#managedobject-531f3424d0f3)
 
 **Methods**:
 
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [getAsConfValue()](#getasconfvalue-7d0bad95ad00)
-- [hashCode()](#hashcode-ef797a217903)
-- [toString()](#tostring-e9d48c5503ef)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [getAsConfValue\(\)](#getasconfvalue-7d0bad95ad00)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

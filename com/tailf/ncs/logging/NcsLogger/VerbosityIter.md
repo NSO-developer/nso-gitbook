@@ -16,11 +16,11 @@ Class make the diffIterate for exception error verbosity and
 
 **Constructors**:
 
-- [VerbosityIter()](#verbosityiter-cf703d6c61f3)
+- [VerbosityIter\(\)](#verbosityiter-cf703d6c61f3)
 
 **Methods**:
 
-- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#iterate-d80a566b7e0a)
+- [iterate\(ConfObject\[\], DiffIterateOperFlag, ConfObject, ConfObject, Object\)](#iterate-d80a566b7e0a)
 
 ## Constructors
 

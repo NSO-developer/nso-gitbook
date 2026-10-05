@@ -13,17 +13,17 @@ Subscription notification type retrieved from getLatestNotificationType()
 
 **Enum Constants**:
 
-- [SUB_ABORT](#sub_abort-ac91cee66b28)
-- [SUB_COMMIT](#sub_commit-633bd95c1d87)
-- [SUB_OPER](#sub_oper-f2b8e63685f1)
-- [SUB_PREPARE](#sub_prepare-1762334ebd19)
+- [SUB\_ABORT](#sub_abort-ac91cee66b28)
+- [SUB\_COMMIT](#sub_commit-633bd95c1d87)
+- [SUB\_OPER](#sub_oper-f2b8e63685f1)
+- [SUB\_PREPARE](#sub_prepare-1762334ebd19)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

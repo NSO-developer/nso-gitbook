@@ -10,18 +10,18 @@ Level of data, corresponding to a single node in the schema tree.
 
 **Constructors**:
 
-- [Level(Source, int)](#level-9cb7eaef780c)
+- [Level\(Source, int\)](#level-9cb7eaef780c)
 
 **Methods**:
 
-- [getChild(Source, int)](#getchild-fd813ae0d5e9)
-- [getFlags()](#getflags-3c1ca90fd29c)
-- [getNumChildren()](#getnumchildren-532d09a62d4c)
-- [getNumRecords()](#getnumrecords-03318f72ab23)
-- [getOff()](#getoff-578b9943fd00)
-- [getRecord(Source, int)](#getrecord-e26482ff7b93)
-- [read(Source, int)](#read-c048381a08bd)
-- [readChild(Source, int, Child)](#readchild-c2da12eeb9d7)
+- [getChild\(Source, int\)](#getchild-fd813ae0d5e9)
+- [getFlags\(\)](#getflags-3c1ca90fd29c)
+- [getNumChildren\(\)](#getnumchildren-532d09a62d4c)
+- [getNumRecords\(\)](#getnumrecords-03318f72ab23)
+- [getOff\(\)](#getoff-578b9943fd00)
+- [getRecord\(Source, int\)](#getrecord-e26482ff7b93)
+- [read\(Source, int\)](#read-c048381a08bd)
+- [readChild\(Source, int, Child\)](#readchild-c2da12eeb9d7)
 
 ## Constructors
 

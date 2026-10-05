@@ -13,7 +13,7 @@ NavuEventCallback interface is used to implement callback methods to be used
 
 **Methods**:
 
-- [notifReceived(NavuContainer)](#notifreceived-df06be623526)
+- [notifReceived\(NavuContainer\)](#notifreceived-df06be623526)
 
 ## Methods
 

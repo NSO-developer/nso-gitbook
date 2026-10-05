@@ -10,7 +10,7 @@ Inner class representing a leaf-list
 
 **Constructors**:
 
-- [LeafListEntry(CSNode)](#leaflistentry-86fab3e87b87)
+- [LeafListEntry\(CSNode\)](#leaflistentry-86fab3e87b87)
 
 **Fields**:
 
@@ -19,10 +19,10 @@ Inner class representing a leaf-list
 
 **Methods**:
 
-- [addValue(ConfValue)](#addvalue-abe2bc760531)
-- [getNode()](#getnode-52e3d8224b48)
-- [getSize()](#getsize-572b3725211f)
-- [getValue()](#getvalue-d93864668c40)
+- [addValue\(ConfValue\)](#addvalue-abe2bc760531)
+- [getNode\(\)](#getnode-52e3d8224b48)
+- [getSize\(\)](#getsize-572b3725211f)
+- [getValue\(\)](#getvalue-d93864668c40)
 
 ## Constructors
 

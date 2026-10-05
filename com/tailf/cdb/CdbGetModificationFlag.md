@@ -10,20 +10,20 @@ Types: [CdbGetModificationFlag](CdbGetModificationFlag.md#cdbgetmodificationflag
 
 **Enum Constants**:
 
-- [CDB_GET_MODS_CLI_NO_BACKQUOTES](#cdb_get_mods_cli_no_backquotes-f77ecdcb82aa)
-- [CDB_GET_MODS_CLI_SUPPRESS_QUOTING](#cdb_get_mods_cli_suppress_quoting-2e253ea6db62)
-- [CDB_GET_MODS_INCLUDE_LISTS](#cdb_get_mods_include_lists-0911f0c4b5f1)
-- [CDB_GET_MODS_INCLUDE_MOVES](#cdb_get_mods_include_moves-02241f608c8e)
-- [CDB_GET_MODS_REVERSE](#cdb_get_mods_reverse-ad28ccaadd8f)
-- [CDB_GET_MODS_SUPPRESS_DEFAULTS](#cdb_get_mods_suppress_defaults-da168d5178bc)
-- [CDB_GET_MODS_WANT_ANCESTOR_DELETE](#cdb_get_mods_want_ancestor_delete-01b2af02cfb1)
+- [CDB\_GET\_MODS\_CLI\_NO\_BACKQUOTES](#cdb_get_mods_cli_no_backquotes-f77ecdcb82aa)
+- [CDB\_GET\_MODS\_CLI\_SUPPRESS\_QUOTING](#cdb_get_mods_cli_suppress_quoting-2e253ea6db62)
+- [CDB\_GET\_MODS\_INCLUDE\_LISTS](#cdb_get_mods_include_lists-0911f0c4b5f1)
+- [CDB\_GET\_MODS\_INCLUDE\_MOVES](#cdb_get_mods_include_moves-02241f608c8e)
+- [CDB\_GET\_MODS\_REVERSE](#cdb_get_mods_reverse-ad28ccaadd8f)
+- [CDB\_GET\_MODS\_SUPPRESS\_DEFAULTS](#cdb_get_mods_suppress_defaults-da168d5178bc)
+- [CDB\_GET\_MODS\_WANT\_ANCESTOR\_DELETE](#cdb_get_mods_want_ancestor_delete-01b2af02cfb1)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

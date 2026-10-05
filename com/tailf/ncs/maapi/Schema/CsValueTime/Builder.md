@@ -9,23 +9,23 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueTime.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getHour()](#gethour-32c719f425c9)
-- [getMicro()](#getmicro-37aa6b436572)
-- [getMin()](#getmin-8654ceab94db)
-- [getSec()](#getsec-c0fe657f6906)
-- [getTimezone()](#gettimezone-9573790f24e6)
-- [getTimezoneMinutes()](#gettimezoneminutes-b20d3de8d152)
-- [setHour(byte)](#sethour-49c3f93cc667)
-- [setMicro(int)](#setmicro-f8ae466800c3)
-- [setMin(byte)](#setmin-4bea903ce744)
-- [setSec(byte)](#setsec-487f1ad78d76)
-- [setTimezone(byte)](#settimezone-c58c111fac16)
-- [setTimezoneMinutes(byte)](#settimezoneminutes-69e0ed31afd1)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getHour\(\)](#gethour-32c719f425c9)
+- [getMicro\(\)](#getmicro-37aa6b436572)
+- [getMin\(\)](#getmin-8654ceab94db)
+- [getSec\(\)](#getsec-c0fe657f6906)
+- [getTimezone\(\)](#gettimezone-9573790f24e6)
+- [getTimezoneMinutes\(\)](#gettimezoneminutes-b20d3de8d152)
+- [setHour\(byte\)](#sethour-49c3f93cc667)
+- [setMicro\(int\)](#setmicro-f8ae466800c3)
+- [setMin\(byte\)](#setmin-4bea903ce744)
+- [setSec\(byte\)](#setsec-487f1ad78d76)
+- [setTimezone\(byte\)](#settimezone-c58c111fac16)
+- [setTimezoneMinutes\(byte\)](#settimezoneminutes-69e0ed31afd1)
 
 ## Constructors
 

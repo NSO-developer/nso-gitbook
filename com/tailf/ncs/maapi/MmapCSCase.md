@@ -13,7 +13,7 @@ mmap version of CSCase, special handling of getNodes.
 
 **Constructors**:
 
-- [MmapCSCase(Reader<Reader>, CSNode, int, String, CSSchema, CSChoice, CSCase)](#mmapcscase-e1cbf71e66cd)
+- [MmapCSCase\(Reader\<Reader\>, CSNode, int, String, CSSchema, CSChoice, CSCase\)](#mmapcscase-e1cbf71e66cd)
 
 **Fields**:
 
@@ -21,16 +21,16 @@ mmap version of CSCase, special handling of getNodes.
 
 **Methods**:
 
-- [getChoices()](../../maapi/MaapiSchemas/CSCase.md#getchoices-818fb3fccb86) from CSCase
-- [getNodes()](#getnodes-0d0e9b3adfd1)
-- [getNS()](../../maapi/MaapiSchemas/CSCase.md#getns-3613c99d8888) from CSCase
-- [getNSHash()](../../maapi/MaapiSchemas/CSCase.md#getnshash-2129fb8b3cfe) from CSCase
-- [getParentChoice()](../../maapi/MaapiSchemas/CSCase.md#getparentchoice-4434d9347d10) from CSCase
-- [getSiblings()](../../maapi/MaapiSchemas/CSCase.md#getsiblings-f467dd8b6a33) from CSCase
-- [getTag()](../../maapi/MaapiSchemas/CSCase.md#gettag-315f45956d6f) from CSCase
-- [getTagHash()](../../maapi/MaapiSchemas/CSCase.md#gettaghash-8f057919039c) from CSCase
-- [setFirstChoice(CSChoice)](#setfirstchoice-d4a33b33b18f)
-- [toString()](../../maapi/MaapiSchemas/CSCase.md#tostring-e9d48c5503ef) from CSCase
+- [getChoices\(\)](../../maapi/MaapiSchemas/CSCase.md#getchoices-818fb3fccb86) from CSCase
+- [getNodes\(\)](#getnodes-0d0e9b3adfd1)
+- [getNS\(\)](../../maapi/MaapiSchemas/CSCase.md#getns-3613c99d8888) from CSCase
+- [getNSHash\(\)](../../maapi/MaapiSchemas/CSCase.md#getnshash-2129fb8b3cfe) from CSCase
+- [getParentChoice\(\)](../../maapi/MaapiSchemas/CSCase.md#getparentchoice-4434d9347d10) from CSCase
+- [getSiblings\(\)](../../maapi/MaapiSchemas/CSCase.md#getsiblings-f467dd8b6a33) from CSCase
+- [getTag\(\)](../../maapi/MaapiSchemas/CSCase.md#gettag-315f45956d6f) from CSCase
+- [getTagHash\(\)](../../maapi/MaapiSchemas/CSCase.md#gettaghash-8f057919039c) from CSCase
+- [setFirstChoice\(CSChoice\)](#setfirstchoice-d4a33b33b18f)
+- [toString\(\)](../../maapi/MaapiSchemas/CSCase.md#tostring-e9d48c5503ef) from CSCase
 
 ## Constructors
 

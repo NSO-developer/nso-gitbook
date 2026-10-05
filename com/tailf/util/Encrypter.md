@@ -14,7 +14,7 @@ Base class for encryption algorithm utility classes
 
 **Constructors**:
 
-- [Encrypter()](#encrypter-3e84936d4906)
+- [Encrypter\(\)](#encrypter-3e84936d4906)
 
 **Fields**:
 
@@ -23,8 +23,8 @@ Base class for encryption algorithm utility classes
 
 **Methods**:
 
-- [decrypt(byte[])](#decrypt-a219da65e4d1)
-- [encrypt(String)](#encrypt-c3e82593a386)
+- [decrypt\(byte\[\]\)](#decrypt-a219da65e4d1)
+- [encrypt\(String\)](#encrypt-c3e82593a386)
 
 ## Constructors
 

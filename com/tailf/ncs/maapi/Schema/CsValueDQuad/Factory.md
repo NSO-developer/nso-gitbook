@@ -11,23 +11,23 @@ Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b24
 
 **Constructors**:
 
-- [Factory()](#factory-0e9f9d7f4e84)
+- [Factory\(\)](#factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#asreader-abbd59648836)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#constructreader-fbce6f4f912a)
-- [getD1()](Builder.md#getd1-1ccbbca0d18f) from Builder
-- [getD2()](Builder.md#getd2-93b8c43fe331) from Builder
-- [getD3()](Builder.md#getd3-1982f3560cd6) from Builder
-- [getD4()](Builder.md#getd4-a7608deae360) from Builder
-- [setD1(byte)](Builder.md#setd1-123e1073562a) from Builder
-- [setD2(byte)](Builder.md#setd2-7e3edbd83eb9) from Builder
-- [setD3(byte)](Builder.md#setd3-304a3b391ac1) from Builder
-- [setD4(byte)](Builder.md#setd4-fad28190aa51) from Builder
-- [structSize()](#structsize-1fa68dcadd21)
+- [asReader\(\)](Builder.md#asreader-b5c0f2a8d115) from Builder
+- [asReader\(Builder\)](#asreader-abbd59648836)
+- [constructBuilder\(SegmentBuilder, int, int, int, short\)](#constructbuilder-5a2abf3209f9)
+- [constructReader\(SegmentReader, int, int, int, short, int\)](#constructreader-fbce6f4f912a)
+- [getD1\(\)](Builder.md#getd1-1ccbbca0d18f) from Builder
+- [getD2\(\)](Builder.md#getd2-93b8c43fe331) from Builder
+- [getD3\(\)](Builder.md#getd3-1982f3560cd6) from Builder
+- [getD4\(\)](Builder.md#getd4-a7608deae360) from Builder
+- [setD1\(byte\)](Builder.md#setd1-123e1073562a) from Builder
+- [setD2\(byte\)](Builder.md#setd2-7e3edbd83eb9) from Builder
+- [setD3\(byte\)](Builder.md#setd3-304a3b391ac1) from Builder
+- [setD4\(byte\)](Builder.md#setd4-fad28190aa51) from Builder
+- [structSize\(\)](#structsize-1fa68dcadd21)
 
 ## Constructors
 

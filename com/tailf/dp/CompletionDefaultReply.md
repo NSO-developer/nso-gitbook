@@ -15,15 +15,15 @@ Default completion reply for callbacks invoked by a
 
 **Constructors**:
 
-- [CompletionDefaultReply()](#completiondefaultreply-fa43ba8d9700)
+- [CompletionDefaultReply\(\)](#completiondefaultreply-fa43ba8d9700)
 
 **Methods**:
 
-- [encode()](#encode-fbae522bba37)
-- [newDefaultReply()](Completion.md#newdefaultreply-5583906bcd7c) from Completion
-- [newRangeEnumReply(int)](Completion.md#newrangeenumreply-5c101dba6437) from Completion
-- [newReply()](Completion.md#newreply-15892c4ebb44) from Completion
-- [validate()](#validate-dc7ca5eb97ec)
+- [encode\(\)](#encode-fbae522bba37)
+- [newDefaultReply\(\)](Completion.md#newdefaultreply-5583906bcd7c) from Completion
+- [newRangeEnumReply\(int\)](Completion.md#newrangeenumreply-5c101dba6437) from Completion
+- [newReply\(\)](Completion.md#newreply-15892c4ebb44) from Completion
+- [validate\(\)](#validate-dc7ca5eb97ec)
 
 ## Constructors
 

@@ -14,10 +14,10 @@ This interface is used for the SNMP notifier callbacks.
 
 **Methods**:
 
-- [id()](#id-1352448ec267)
-- [mask()](#mask-24c2fa29c6af)
-- [result(Integer, ConfETuple, Boolean)](#result-633f0f760c10)
-- [targets(Integer, ConfETuple[])](#targets-aaa64a3aa8f3)
+- [id\(\)](#id-1352448ec267)
+- [mask\(\)](#mask-24c2fa29c6af)
+- [result\(Integer, ConfETuple, Boolean\)](#result-633f0f760c10)
+- [targets\(Integer, ConfETuple\[\]\)](#targets-aaa64a3aa8f3)
 
 ## Methods
 

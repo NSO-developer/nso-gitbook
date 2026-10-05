@@ -11,8 +11,8 @@ The NavuCursor is a helper class used within NAVU to simplify the
 
 **Constructors**:
 
-- [NavuCursor(CdbSession, NavuNode, String, Object[])](#navucursor-a2344014c2ea)
-- [NavuCursor(NavuContext, NavuNode, String, Object[])](#navucursor-94fad5f61492)
+- [NavuCursor\(CdbSession, NavuNode, String, Object\[\]\)](#navucursor-a2344014c2ea)
+- [NavuCursor\(NavuContext, NavuNode, String, Object\[\]\)](#navucursor-94fad5f61492)
 
 **Fields**:
 
@@ -20,7 +20,7 @@ The NavuCursor is a helper class used within NAVU to simplify the
 
 **Methods**:
 
-- [getKeys()](#getkeys-a24b9d377db7)
+- [getKeys\(\)](#getkeys-a24b9d377db7)
 
 ## Constructors
 

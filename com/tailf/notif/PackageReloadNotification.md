@@ -13,7 +13,7 @@ Data structure for PackageReload notifications.
 
 **Constructors**:
 
-- [PackageReloadNotification()](#packagereloadnotification-6681ea04ae8b)
+- [PackageReloadNotification\(\)](#packagereloadnotification-6681ea04ae8b)
 
 **Fields**:
 
@@ -21,8 +21,8 @@ Data structure for PackageReload notifications.
 
 **Methods**:
 
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [toString()](Notification.md#tostring-e9d48c5503ef) from Notification
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [toString\(\)](Notification.md#tostring-e9d48c5503ef) from Notification
 
 ## Constructors
 

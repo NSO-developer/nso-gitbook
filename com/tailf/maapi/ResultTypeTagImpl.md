@@ -13,11 +13,11 @@ Types: [ResultTypeTag](ResultTypeTag.md#resulttypetag-91d1aeee8818)
 
 **Constructors**:
 
-- [ResultTypeTagImpl(ConfXMLParam)](#resulttypetagimpl-588cebf1bfba)
+- [ResultTypeTagImpl\(ConfXMLParam\)](#resulttypetagimpl-588cebf1bfba)
 
 **Methods**:
 
-- [tag()](#tag-7b2271ab156c)
+- [tag\(\)](#tag-7b2271ab156c)
 
 ## Constructors
 

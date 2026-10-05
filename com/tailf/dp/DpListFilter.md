@@ -10,7 +10,7 @@ This class represents list filters that may be passed to data providers.
 
 **Constructors**:
 
-- [DpListFilter(ConfETuple)](#dplistfilter-f7d847956d30)
+- [DpListFilter\(ConfETuple\)](#dplistfilter-f7d847956d30)
 
 **Fields**:
 
@@ -24,7 +24,7 @@ This class represents list filters that may be passed to data providers.
 
 **Methods**:
 
-- [toString()](#tostring-e9d48c5503ef)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

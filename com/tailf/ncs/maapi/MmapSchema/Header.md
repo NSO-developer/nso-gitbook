@@ -17,20 +17,20 @@ Schema header, comes first in the schema file with a magic identifying
 
 **Constructors**:
 
-- [Header(Source, int)](#header-7e393d717b0e)
+- [Header\(Source, int\)](#header-7e393d717b0e)
 
 **Fields**:
 
-- [BYTE_ORDER_EXPECTED](#byte_order_expected-4d149330e9d2)
-- [BYTE_ORDER_REVERSE](#byte_order_reverse-fb2c2407e2fe)
-- [EXPECTED_MAGIC](#expected_magic-5e236c1543e1)
+- [BYTE\_ORDER\_EXPECTED](#byte_order_expected-4d149330e9d2)
+- [BYTE\_ORDER\_REVERSE](#byte_order_reverse-fb2c2407e2fe)
+- [EXPECTED\_MAGIC](#expected_magic-5e236c1543e1)
 
 **Methods**:
 
-- [getTreeLen()](#gettreelen-f0ab2ff698f1)
-- [getTreeOff()](#gettreeoff-37a8f3ff6546)
-- [read(Source, int)](#read-c048381a08bd)
-- [toString()](#tostring-e9d48c5503ef)
+- [getTreeLen\(\)](#gettreelen-f0ab2ff698f1)
+- [getTreeOff\(\)](#gettreeoff-37a8f3ff6546)
+- [read\(Source, int\)](#read-c048381a08bd)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

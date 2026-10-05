@@ -36,7 +36,7 @@ Base class for notification data structures.
 
 **Constructors**:
 
-- [Notification()](#notification-7fae6ec3923e)
+- [Notification\(\)](#notification-7fae6ec3923e)
 
 **Fields**:
 
@@ -44,8 +44,8 @@ Base class for notification data structures.
 
 **Methods**:
 
-- [getNotificationType()](#getnotificationtype-f0e32b7b644f)
-- [toString()](#tostring-e9d48c5503ef)
+- [getNotificationType\(\)](#getnotificationtype-f0e32b7b644f)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

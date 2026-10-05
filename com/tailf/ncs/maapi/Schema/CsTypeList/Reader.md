@@ -9,12 +9,12 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeList.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getTypeReferences()](#gettypereferences-ba94c4f34d9c)
-- [hasTypeReferences()](#hastypereferences-8e6b59641fe0)
+- [getTypeReferences\(\)](#gettypereferences-ba94c4f34d9c)
+- [hasTypeReferences\(\)](#hastypereferences-8e6b59641fe0)
 
 ## Constructors
 

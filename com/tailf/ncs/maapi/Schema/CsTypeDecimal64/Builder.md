@@ -9,17 +9,17 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getFractionDigits()](#getfractiondigits-57dce19c4ffe)
-- [getRanges()](#getranges-c1cd383e54a0)
-- [hasRanges()](#hasranges-77bc63fe4ea8)
-- [initRanges(int)](#initranges-d04c09762bd6)
-- [setFractionDigits(byte)](#setfractiondigits-4268b060f4fc)
-- [setRanges(Reader<Reader>)](#setranges-69bbcdb47f71)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getFractionDigits\(\)](#getfractiondigits-57dce19c4ffe)
+- [getRanges\(\)](#getranges-c1cd383e54a0)
+- [hasRanges\(\)](#hasranges-77bc63fe4ea8)
+- [initRanges\(int\)](#initranges-d04c09762bd6)
+- [setFractionDigits\(byte\)](#setfractiondigits-4268b060f4fc)
+- [setRanges\(Reader\<Reader\>\)](#setranges-69bbcdb47f71)
 
 ## Constructors
 

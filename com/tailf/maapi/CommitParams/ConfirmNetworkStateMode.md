@@ -11,12 +11,12 @@ Types: [ConfirmNetworkStateMode](ConfirmNetworkStateMode.md#confirmnetworkstatem
 **Enum Constants**:
 
 - [NORMAL](#normal-b34e6bc0c9ca)
-- [RE_EVALUATE_POLICIES](#re_evaluate_policies-1866fe2fdda0)
+- [RE\_EVALUATE\_POLICIES](#re_evaluate_policies-1866fe2fdda0)
 
 **Methods**:
 
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

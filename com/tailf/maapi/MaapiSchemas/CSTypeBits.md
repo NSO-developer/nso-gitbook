@@ -8,15 +8,15 @@ public static class com.tailf.maapi.MaapiSchemas.CSTypeBits
 
 **Constructors**:
 
-- [CSTypeBits()](#cstypebits-12e7c9036219)
-- [CSTypeBits(int, CSBit[])](#cstypebits-db0376dbc16d)
+- [CSTypeBits\(\)](#cstypebits-12e7c9036219)
+- [CSTypeBits\(int, CSBit\[\]\)](#cstypebits-db0376dbc16d)
 
 **Methods**:
 
-- [getBitArray()](#getbitarray-34b74fdace40)
-- [getNativeType()](#getnativetype-5e881dc4a7e8)
-- [getWidth()](#getwidth-aff9ccaa8b54)
-- [toString()](#tostring-e9d48c5503ef)
+- [getBitArray\(\)](#getbitarray-34b74fdace40)
+- [getNativeType\(\)](#getnativetype-5e881dc4a7e8)
+- [getWidth\(\)](#getwidth-aff9ccaa8b54)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

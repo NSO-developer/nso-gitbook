@@ -9,12 +9,12 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDecimal64.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getFractionDigits()](#getfractiondigits-57dce19c4ffe)
-- [getValue()](#getvalue-d93864668c40)
+- [getFractionDigits\(\)](#getfractiondigits-57dce19c4ffe)
+- [getValue\(\)](#getvalue-d93864668c40)
 
 ## Constructors
 

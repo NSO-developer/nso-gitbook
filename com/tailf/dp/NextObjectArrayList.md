@@ -14,14 +14,14 @@ ArrayList-based implementation of the NextObjectList interface.
 
 **Constructors**:
 
-- [NextObjectArrayList()](#nextobjectarraylist-8247e2abf6fa)
-- [NextObjectArrayList(Collection<? extends E>)](#nextobjectarraylist-a6fbfda6c13c)
-- [NextObjectArrayList(int)](#nextobjectarraylist-dc46d12ae286)
+- [NextObjectArrayList\(\)](#nextobjectarraylist-8247e2abf6fa)
+- [NextObjectArrayList\(Collection\<? extends E\>\)](#nextobjectarraylist-a6fbfda6c13c)
+- [NextObjectArrayList\(int\)](#nextobjectarraylist-dc46d12ae286)
 
 **Methods**:
 
-- [getTimeout()](#gettimeout-c6606d7f7c00)
-- [setTimeout(int)](#settimeout-cbe758ecb5d8)
+- [getTimeout\(\)](#gettimeout-c6606d7f7c00)
+- [setTimeout\(int\)](#settimeout-cbe758ecb5d8)
 
 ## Constructors
 

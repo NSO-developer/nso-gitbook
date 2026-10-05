@@ -12,20 +12,20 @@ NedCapability is used to communicate the capabilities (supported
 
 **Constructors**:
 
-- [NedCapability(String, String)](#nedcapability-cbee6d94f26b)
-- [NedCapability(String, String, List<String>, String, List<String>)](#nedcapability-0618acf74952)
-- [NedCapability(String, String, String, List<String>, String, List<String>)](#nedcapability-a0ce331f8ac0)
+- [NedCapability\(String, String\)](#nedcapability-cbee6d94f26b)
+- [NedCapability\(String, String, List\<String\>, String, List\<String\>\)](#nedcapability-0618acf74952)
+- [NedCapability\(String, String, String, List\<String\>, String, List\<String\>\)](#nedcapability-a0ce331f8ac0)
 
 **Methods**:
 
-- [encode()](#encode-fbae522bba37)
-- [getDeviations()](#getdeviations-635611da0c3c)
-- [getFeatures()](#getfeatures-2b82b997b3cb)
-- [getModule()](#getmodule-68694513ccce)
-- [getName()](#getname-2634b18b4a25)
-- [getRevision()](#getrevision-b0088aa9f0bf)
-- [getURI()](#geturi-7ec1ffd8cd93)
-- [toString()](#tostring-e9d48c5503ef)
+- [encode\(\)](#encode-fbae522bba37)
+- [getDeviations\(\)](#getdeviations-635611da0c3c)
+- [getFeatures\(\)](#getfeatures-2b82b997b3cb)
+- [getModule\(\)](#getmodule-68694513ccce)
+- [getName\(\)](#getname-2634b18b4a25)
+- [getRevision\(\)](#getrevision-b0088aa9f0bf)
+- [getURI\(\)](#geturi-7ec1ffd8cd93)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

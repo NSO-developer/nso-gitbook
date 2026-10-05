@@ -17,17 +17,17 @@ Warnings raised from the maapi package
 
 **Constructors**:
 
-- [MaapiMNsException()](#maapimnsexception-ecaf045bb69f)
-- [MaapiMNsException(String)](#maapimnsexception-685feed2a82c)
-- [MaapiMNsException(String, Throwable)](#maapimnsexception-9b2e85d8ea1e)
-- [MaapiMNsException(Throwable)](#maapimnsexception-f03a76028dfc)
+- [MaapiMNsException\(\)](#maapimnsexception-ecaf045bb69f)
+- [MaapiMNsException\(String\)](#maapimnsexception-685feed2a82c)
+- [MaapiMNsException\(String, Throwable\)](#maapimnsexception-9b2e85d8ea1e)
+- [MaapiMNsException\(Throwable\)](#maapimnsexception-f03a76028dfc)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](MaapiException.md#mk-de1cedfc6ea8) from MaapiException
-- [mk(ConfResponse, ConfPath)](MaapiException.md#mk-79e69ffbc022) from MaapiException
+- [getErrorCode\(\)](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](MaapiException.md#mk-de1cedfc6ea8) from MaapiException
+- [mk\(ConfResponse, ConfPath\)](MaapiException.md#mk-79e69ffbc022) from MaapiException
 
 ## Constructors
 

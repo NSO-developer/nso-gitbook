@@ -11,25 +11,25 @@ Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b24
 
 **Constructors**:
 
-- [Factory()](#factory-0e9f9d7f4e84)
+- [Factory\(\)](#factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#asreader-9c5174106110)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#constructreader-fbce6f4f912a)
-- [getName()](Builder.md#getname-2634b18b4a25) from Builder
-- [getPrefix()](Builder.md#getprefix-9268091e0223) from Builder
-- [hasName()](Builder.md#hasname-bfe6c334e0d1) from Builder
-- [hasPrefix()](Builder.md#hasprefix-ddbc3bbca9c3) from Builder
-- [initName(int)](Builder.md#initname-281e5d2102d4) from Builder
-- [initPrefix(int)](Builder.md#initprefix-e25b609de101) from Builder
-- [setName(Reader)](Builder.md#setname-79f9d1263a41) from Builder
-- [setName(String)](Builder.md#setname-c76ccfcb9f18) from Builder
-- [setPrefix(Reader)](Builder.md#setprefix-5c58f0bf0784) from Builder
-- [setPrefix(String)](Builder.md#setprefix-63fe622cb50c) from Builder
-- [structSize()](#structsize-1fa68dcadd21)
+- [asReader\(\)](Builder.md#asreader-b5c0f2a8d115) from Builder
+- [asReader\(Builder\)](#asreader-9c5174106110)
+- [constructBuilder\(SegmentBuilder, int, int, int, short\)](#constructbuilder-5a2abf3209f9)
+- [constructReader\(SegmentReader, int, int, int, short, int\)](#constructreader-fbce6f4f912a)
+- [getName\(\)](Builder.md#getname-2634b18b4a25) from Builder
+- [getPrefix\(\)](Builder.md#getprefix-9268091e0223) from Builder
+- [hasName\(\)](Builder.md#hasname-bfe6c334e0d1) from Builder
+- [hasPrefix\(\)](Builder.md#hasprefix-ddbc3bbca9c3) from Builder
+- [initName\(int\)](Builder.md#initname-281e5d2102d4) from Builder
+- [initPrefix\(int\)](Builder.md#initprefix-e25b609de101) from Builder
+- [setName\(Reader\)](Builder.md#setname-79f9d1263a41) from Builder
+- [setName\(String\)](Builder.md#setname-c76ccfcb9f18) from Builder
+- [setPrefix\(Reader\)](Builder.md#setprefix-5c58f0bf0784) from Builder
+- [setPrefix\(String\)](Builder.md#setprefix-63fe622cb50c) from Builder
+- [structSize\(\)](#structsize-1fa68dcadd21)
 
 ## Constructors
 

@@ -9,19 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getA1()](#geta1-f8b8009a6bc7)
-- [getA2()](#geta2-a28d45466763)
-- [getA3()](#geta3-330abd611894)
-- [getA4()](#geta4-fce3220b7c51)
-- [getA5()](#geta5-c33c7ae5b8bf)
-- [getA6()](#geta6-50491e3e5ce6)
-- [getA7()](#geta7-84843d409266)
-- [getA8()](#geta8-c03708d8a2bb)
-- [getPrefix()](#getprefix-9268091e0223)
+- [getA1\(\)](#geta1-f8b8009a6bc7)
+- [getA2\(\)](#geta2-a28d45466763)
+- [getA3\(\)](#geta3-330abd611894)
+- [getA4\(\)](#geta4-fce3220b7c51)
+- [getA5\(\)](#geta5-c33c7ae5b8bf)
+- [getA6\(\)](#geta6-50491e3e5ce6)
+- [getA7\(\)](#geta7-84843d409266)
+- [getA8\(\)](#geta8-c03708d8a2bb)
+- [getPrefix\(\)](#getprefix-9268091e0223)
 
 ## Constructors
 

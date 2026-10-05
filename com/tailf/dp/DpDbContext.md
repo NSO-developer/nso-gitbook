@@ -10,14 +10,14 @@ Database context. Given as argument to many of the DpDbCallback methods.
 
 **Constructors**:
 
-- [DpDbContext(int, int, int, DpUserInfo)](#dpdbcontext-36dd5cf5f227)
+- [DpDbContext\(int, int, int, DpUserInfo\)](#dpdbcontext-36dd5cf5f227)
 
 **Methods**:
 
-- [getDId()](#getdid-0727cf9e0fd9)
-- [getLastOp()](#getlastop-8d68ee764339)
-- [getQRef()](#getqref-ee1c8f107982)
-- [getUserInfo()](#getuserinfo-3ecef1f24d3d)
+- [getDId\(\)](#getdid-0727cf9e0fd9)
+- [getLastOp\(\)](#getlastop-8d68ee764339)
+- [getQRef\(\)](#getqref-ee1c8f107982)
+- [getUserInfo\(\)](#getuserinfo-3ecef1f24d3d)
 
 ## Constructors
 

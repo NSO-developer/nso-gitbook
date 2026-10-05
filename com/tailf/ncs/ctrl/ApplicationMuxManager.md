@@ -13,18 +13,18 @@ Manager for Application components
 
 **Constructors**:
 
-- [ApplicationMuxManager(NcsMain)](#applicationmuxmanager-a0e66f3399bd)
+- [ApplicationMuxManager\(NcsMain\)](#applicationmuxmanager-a0e66f3399bd)
 
 **Methods**:
 
-- [addToDeployException(NcsCtrlException, String, Throwable)](MuxManager.md#addtodeployexception-90e2cb8f32b2) from MuxManager
-- [doneLoadingEvent()](#doneloadingevent-b85c1c01738a)
-- [finish()](#finish-8c785ae2e6bb)
-- [getPDEntry(String)](#getpdentry-342c37e0891e)
-- [instantiateComponentAction(String, String, Object)](#instantiatecomponentaction-9e067ecafe91)
-- [instantiateComponentEvent(NcsComponentData)](#instantiatecomponentevent-9050503646b9)
-- [loadPackageEvent(NcsComponentData)](#loadpackageevent-4650a75a851a)
-- [unloadPackageEvent(NcsComponentData)](#unloadpackageevent-f14422e73a47)
+- [addToDeployException\(NcsCtrlException, String, Throwable\)](MuxManager.md#addtodeployexception-90e2cb8f32b2) from MuxManager
+- [doneLoadingEvent\(\)](#doneloadingevent-b85c1c01738a)
+- [finish\(\)](#finish-8c785ae2e6bb)
+- [getPDEntry\(String\)](#getpdentry-342c37e0891e)
+- [instantiateComponentAction\(String, String, Object\)](#instantiatecomponentaction-9e067ecafe91)
+- [instantiateComponentEvent\(NcsComponentData\)](#instantiatecomponentevent-9050503646b9)
+- [loadPackageEvent\(NcsComponentData\)](#loadpackageevent-4650a75a851a)
+- [unloadPackageEvent\(NcsComponentData\)](#unloadpackageevent-f14422e73a47)
 
 ## Constructors
 

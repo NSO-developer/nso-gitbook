@@ -8,7 +8,7 @@ protected static class com.tailf.navu.KeyPath2NavuNode.Formats
 
 **Constructors**:
 
-- [Formats()](#formats-26bb2d200cad)
+- [Formats\(\)](#formats-26bb2d200cad)
 
 **Fields**:
 
@@ -17,7 +17,7 @@ protected static class com.tailf.navu.KeyPath2NavuNode.Formats
 
 **Methods**:
 
-- [getFormats(ConfObject[])](#getformats-9877423057ad)
+- [getFormats\(ConfObject\[\]\)](#getformats-9877423057ad)
 
 ## Constructors
 

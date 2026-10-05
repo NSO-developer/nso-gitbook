@@ -27,12 +27,12 @@ NCS Logging Management.
 
 **Methods**:
 
-- [config(SocketAddress)](#config-27b84e0fef53)
-- [config(SocketAddress, boolean)](#config-ecb3e9b393e2)
-- [config(String, int)](#config-1ba577c4f8cb)
-- [config(String, int, boolean)](#config-69cc5a37a307)
-- [run()](#run-b6dbda048863)
-- [stop()](#stop-a62ecc446f97)
+- [config\(SocketAddress\)](#config-27b84e0fef53)
+- [config\(SocketAddress, boolean\)](#config-ecb3e9b393e2)
+- [config\(String, int\)](#config-1ba577c4f8cb)
+- [config\(String, int, boolean\)](#config-69cc5a37a307)
+- [run\(\)](#run-b6dbda048863)
+- [stop\(\)](#stop-a62ecc446f97)
 
 **Nested Types**:
 

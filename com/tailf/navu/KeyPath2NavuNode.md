@@ -10,11 +10,11 @@ Utility class for creating [`NavuNode`](NavuNode.md#navunode-73944820c8db) from 
 
 **Methods**:
 
-- [getList(CSNode, ConfObject[])](#getlist-059f57e4e042)
-- [getListOrListEntry(CSNode, ConfObject[])](#getlistorlistentry-2d3a88ed873b)
-- [getNode(ConfObject[], NavuContext)](#getnode-0dbf03f5ea6c)
-- [getNode(ConfPath, NavuContext)](#getnode-440eaae488b9)
-- [getParent(CSNode, ConfObject[])](#getparent-c4f035d88579)
+- [getList\(CSNode, ConfObject\[\]\)](#getlist-059f57e4e042)
+- [getListOrListEntry\(CSNode, ConfObject\[\]\)](#getlistorlistentry-2d3a88ed873b)
+- [getNode\(ConfObject\[\], NavuContext\)](#getnode-0dbf03f5ea6c)
+- [getNode\(ConfPath, NavuContext\)](#getnode-440eaae488b9)
+- [getParent\(CSNode, ConfObject\[\]\)](#getparent-c4f035d88579)
 
 **Nested Types**:
 

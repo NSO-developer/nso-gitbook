@@ -11,13 +11,13 @@ Types: [CSTypeMethods](CSTypeMethods.md#cstypemethods-41a37625616b)
 
 **Constructors**:
 
-- [RetrictedNumberTypeMethodsImpl()](#retrictednumbertypemethodsimpl-b3e8353977f6)
+- [RetrictedNumberTypeMethodsImpl\(\)](#retrictednumbertypemethodsimpl-b3e8353977f6)
 
 **Methods**:
 
-- [stringToValue(CSType, String)](CSTypeMethods.md#stringtovalue-9fef98be9bb2) from CSTypeMethods
-- [validate(CSType, ConfValue)](#validate-d2696432436e)
-- [valueToString(CSType, ConfValue)](CSTypeMethods.md#valuetostring-f281f6b6d7d7) from CSTypeMethods
+- [stringToValue\(CSType, String\)](CSTypeMethods.md#stringtovalue-9fef98be9bb2) from CSTypeMethods
+- [validate\(CSType, ConfValue\)](#validate-d2696432436e)
+- [valueToString\(CSType, ConfValue\)](CSTypeMethods.md#valuetostring-f281f6b6d7d7) from CSTypeMethods
 
 ## Constructors
 

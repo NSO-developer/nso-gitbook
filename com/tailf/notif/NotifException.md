@@ -13,17 +13,17 @@ Exceptions raised from the notif package
 
 **Constructors**:
 
-- [NotifException(String, ErrorCode)](#notifexception-97ea59f506f8)
-- [NotifException(String, ErrorCode, Throwable)](#notifexception-fde89e4ba591)
-- [NotifException(String, int, Throwable)](#notifexception-f53608ca5bfd)
-- [NotifException(String, Throwable)](#notifexception-c8adc3e6a9e6)
+- [NotifException\(String, ErrorCode\)](#notifexception-97ea59f506f8)
+- [NotifException\(String, ErrorCode, Throwable\)](#notifexception-fde89e4ba591)
+- [NotifException\(String, int, Throwable\)](#notifexception-f53608ca5bfd)
+- [NotifException\(String, Throwable\)](#notifexception-c8adc3e6a9e6)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](#mk-de1cedfc6ea8)
-- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
+- [getErrorCode\(\)](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](#mk-de1cedfc6ea8)
+- [mk\(ConfResponse, ConfPath\)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
 
 ## Constructors
 

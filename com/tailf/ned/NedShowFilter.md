@@ -14,23 +14,23 @@ Filter used when requesting data from a NED using the
 
 **Constructors**:
 
-- [NedShowFilter(ConfTag, List<NedShowFilter>, Map<String,String>)](#nedshowfilter-e24067760c77)
-- [NedShowFilter(ConfTag, Map<String,String>)](#nedshowfilter-5a69a2a4897b)
-- [NedShowFilter(ConfTag, String, Map<String,String>)](#nedshowfilter-2ca13ef3b25d)
+- [NedShowFilter\(ConfTag, List\<NedShowFilter\>, Map\<String,String\>\)](#nedshowfilter-e24067760c77)
+- [NedShowFilter\(ConfTag, Map\<String,String\>\)](#nedshowfilter-5a69a2a4897b)
+- [NedShowFilter\(ConfTag, String, Map\<String,String\>\)](#nedshowfilter-2ca13ef3b25d)
 
 **Methods**:
 
-- [attributesToString(StringBuilder)](#attributestostring-68fbb6883385)
-- [childrenToString(StringBuilder)](#childrentostring-afdb9b7e7d76)
-- [fromFNode(ConfETuple)](#fromfnode-7e0a9ee74a68)
-- [fromFNodes(ConfEList)](#fromfnodes-f0ad64958391)
-- [getAttributes()](#getattributes-34824a17bc02)
-- [getChildren()](#getchildren-fe2038dff10d)
-- [getData()](#getdata-8ef0e36ab01b)
-- [getTag()](#gettag-315f45956d6f)
-- [getType()](#gettype-5a52f6f0d4c1)
-- [toString()](#tostring-e9d48c5503ef)
-- [toString(StringBuilder)](#tostring-55c3f8510392)
+- [attributesToString\(StringBuilder\)](#attributestostring-68fbb6883385)
+- [childrenToString\(StringBuilder\)](#childrentostring-afdb9b7e7d76)
+- [fromFNode\(ConfETuple\)](#fromfnode-7e0a9ee74a68)
+- [fromFNodes\(ConfEList\)](#fromfnodes-f0ad64958391)
+- [getAttributes\(\)](#getattributes-34824a17bc02)
+- [getChildren\(\)](#getchildren-fe2038dff10d)
+- [getData\(\)](#getdata-8ef0e36ab01b)
+- [getTag\(\)](#gettag-315f45956d6f)
+- [getType\(\)](#gettype-5a52f6f0d4c1)
+- [toString\(\)](#tostring-e9d48c5503ef)
+- [toString\(StringBuilder\)](#tostring-55c3f8510392)
 
 **Nested Types**:
 

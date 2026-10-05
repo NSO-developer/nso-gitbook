@@ -13,17 +13,17 @@ flags us by DiffIterate interface The iterate() method should return any
 
 **Enum Constants**:
 
-- [ITER_CONTINUE](#iter_continue-987b3f3577df)
-- [ITER_RECURSE](#iter_recurse-691241795ec1)
-- [ITER_STOP](#iter_stop-1b807e9343da)
-- [ITER_SUSPEND](#iter_suspend-575a3c5be208)
+- [ITER\_CONTINUE](#iter_continue-987b3f3577df)
+- [ITER\_RECURSE](#iter_recurse-691241795ec1)
+- [ITER\_STOP](#iter_stop-1b807e9343da)
+- [ITER\_SUSPEND](#iter_suspend-575a3c5be208)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

@@ -11,13 +11,13 @@ Types: [CSTypeMethods](CSTypeMethods.md#cstypemethods-41a37625616b)
 
 **Constructors**:
 
-- [DisplayHintTypeMethodsImpl()](#displayhinttypemethodsimpl-22d6f6edafe7)
+- [DisplayHintTypeMethodsImpl\(\)](#displayhinttypemethodsimpl-22d6f6edafe7)
 
 **Methods**:
 
-- [stringToValue(CSType, String)](#stringtovalue-9fef98be9bb2)
-- [validate(CSType, ConfValue)](#validate-d2696432436e)
-- [valueToString(CSType, ConfValue)](#valuetostring-f281f6b6d7d7)
+- [stringToValue\(CSType, String\)](#stringtovalue-9fef98be9bb2)
+- [validate\(CSType, ConfValue\)](#validate-d2696432436e)
+- [valueToString\(CSType, ConfValue\)](#valuetostring-f281f6b6d7d7)
 
 ## Constructors
 

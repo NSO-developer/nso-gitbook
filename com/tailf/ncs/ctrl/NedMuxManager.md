@@ -13,25 +13,25 @@ Manager for Ned components
 
 **Constructors**:
 
-- [NedMuxManager(NcsMain)](#nedmuxmanager-bf00c2f19d8f)
+- [NedMuxManager\(NcsMain\)](#nedmuxmanager-bf00c2f19d8f)
 
 **Methods**:
 
-- [addToDeployException(NcsCtrlException, String, Throwable)](MuxManager.md#addtodeployexception-90e2cb8f32b2) from MuxManager
-- [doneLoadingEvent()](#doneloadingevent-b85c1c01738a)
-- [finish()](#finish-8c785ae2e6bb)
-- [getNewNeds()](#getnewneds-1ea8feed407d)
-- [getPDEntry(String)](#getpdentry-342c37e0891e)
-- [initMux()](#initmux-0da83a337e4c)
-- [instantiateComponentAction(String, String, Object)](#instantiatecomponentaction-9e067ecafe91)
-- [instantiateComponentEvent(NcsComponentData)](#instantiatecomponentevent-9050503646b9)
-- [listOpenConnections()](#listopenconnections-28eee6f299b2)
-- [listPackageComponents()](#listpackagecomponents-23eafc7a674c)
-- [loadPackageEvent(NcsComponentData)](#loadpackageevent-4650a75a851a)
-- [numberOfCachedMountIdPaths()](#numberofcachedmountidpaths-b7e5d13d5dcf)
-- [startMux()](#startmux-b821d879ccff)
-- [stopNedMux()](#stopnedmux-84005222c0d3)
-- [unloadPackageEvent(NcsComponentData)](#unloadpackageevent-f14422e73a47)
+- [addToDeployException\(NcsCtrlException, String, Throwable\)](MuxManager.md#addtodeployexception-90e2cb8f32b2) from MuxManager
+- [doneLoadingEvent\(\)](#doneloadingevent-b85c1c01738a)
+- [finish\(\)](#finish-8c785ae2e6bb)
+- [getNewNeds\(\)](#getnewneds-1ea8feed407d)
+- [getPDEntry\(String\)](#getpdentry-342c37e0891e)
+- [initMux\(\)](#initmux-0da83a337e4c)
+- [instantiateComponentAction\(String, String, Object\)](#instantiatecomponentaction-9e067ecafe91)
+- [instantiateComponentEvent\(NcsComponentData\)](#instantiatecomponentevent-9050503646b9)
+- [listOpenConnections\(\)](#listopenconnections-28eee6f299b2)
+- [listPackageComponents\(\)](#listpackagecomponents-23eafc7a674c)
+- [loadPackageEvent\(NcsComponentData\)](#loadpackageevent-4650a75a851a)
+- [numberOfCachedMountIdPaths\(\)](#numberofcachedmountidpaths-b7e5d13d5dcf)
+- [startMux\(\)](#startmux-b821d879ccff)
+- [stopNedMux\(\)](#stopnedmux-84005222c0d3)
+- [unloadPackageEvent\(NcsComponentData\)](#unloadpackageevent-f14422e73a47)
 
 ## Constructors
 

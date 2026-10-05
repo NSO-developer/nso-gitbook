@@ -11,26 +11,26 @@ Types: [XPathAbrevGrammarConstants](XPathAbrevGrammarConstants.md#xpathabrevgram
 
 **Constructors**:
 
-- [XPathAbrevGrammar(InputStream)](#xpathabrevgrammar-2e473df9b9b4)
-- [XPathAbrevGrammar(InputStream, String)](#xpathabrevgrammar-e1a637b61fa2)
-- [XPathAbrevGrammar(Reader)](#xpathabrevgrammar-118515e28a0e)
-- [XPathAbrevGrammar(XPathAbrevGrammarTokenManager)](#xpathabrevgrammar-a4de409058c6)
+- [XPathAbrevGrammar\(InputStream\)](#xpathabrevgrammar-2e473df9b9b4)
+- [XPathAbrevGrammar\(InputStream, String\)](#xpathabrevgrammar-e1a637b61fa2)
+- [XPathAbrevGrammar\(Reader\)](#xpathabrevgrammar-118515e28a0e)
+- [XPathAbrevGrammar\(XPathAbrevGrammarTokenManager\)](#xpathabrevgrammar-a4de409058c6)
 
 **Fields**:
 
-- [AXIS_ANCESTOR](XPathAbrevGrammarConstants.md#axis_ancestor-62c59dd9b2e3) from XPathAbrevGrammarConstants
-- [AXIS_ANCESTOR_OR_SELF](XPathAbrevGrammarConstants.md#axis_ancestor_or_self-8a86e8f77b65) from XPathAbrevGrammarConstants
-- [AXIS_ATTRIBUTE](XPathAbrevGrammarConstants.md#axis_attribute-a05946445c05) from XPathAbrevGrammarConstants
-- [AXIS_CHILD](XPathAbrevGrammarConstants.md#axis_child-b30db2353719) from XPathAbrevGrammarConstants
-- [AXIS_DESCENDANT](XPathAbrevGrammarConstants.md#axis_descendant-15e7b43dd049) from XPathAbrevGrammarConstants
-- [AXIS_DESCENDANT_OR_SELF](XPathAbrevGrammarConstants.md#axis_descendant_or_self-9f6c29a66ab9) from XPathAbrevGrammarConstants
-- [AXIS_FOLLOWING](XPathAbrevGrammarConstants.md#axis_following-a1c4549e0b7e) from XPathAbrevGrammarConstants
-- [AXIS_FOLLOWING_SIBLING](XPathAbrevGrammarConstants.md#axis_following_sibling-15c026a27921) from XPathAbrevGrammarConstants
-- [AXIS_NAMESPACE](XPathAbrevGrammarConstants.md#axis_namespace-fca116cb0837) from XPathAbrevGrammarConstants
-- [AXIS_PARENT](XPathAbrevGrammarConstants.md#axis_parent-a46c866285ba) from XPathAbrevGrammarConstants
-- [AXIS_PRECEDING](XPathAbrevGrammarConstants.md#axis_preceding-928fdaa9975d) from XPathAbrevGrammarConstants
-- [AXIS_PRECEDING_SIBLING](XPathAbrevGrammarConstants.md#axis_preceding_sibling-d98b9bd3ec33) from XPathAbrevGrammarConstants
-- [AXIS_SELF](XPathAbrevGrammarConstants.md#axis_self-e8df13365b56) from XPathAbrevGrammarConstants
+- [AXIS\_ANCESTOR](XPathAbrevGrammarConstants.md#axis_ancestor-62c59dd9b2e3) from XPathAbrevGrammarConstants
+- [AXIS\_ANCESTOR\_OR\_SELF](XPathAbrevGrammarConstants.md#axis_ancestor_or_self-8a86e8f77b65) from XPathAbrevGrammarConstants
+- [AXIS\_ATTRIBUTE](XPathAbrevGrammarConstants.md#axis_attribute-a05946445c05) from XPathAbrevGrammarConstants
+- [AXIS\_CHILD](XPathAbrevGrammarConstants.md#axis_child-b30db2353719) from XPathAbrevGrammarConstants
+- [AXIS\_DESCENDANT](XPathAbrevGrammarConstants.md#axis_descendant-15e7b43dd049) from XPathAbrevGrammarConstants
+- [AXIS\_DESCENDANT\_OR\_SELF](XPathAbrevGrammarConstants.md#axis_descendant_or_self-9f6c29a66ab9) from XPathAbrevGrammarConstants
+- [AXIS\_FOLLOWING](XPathAbrevGrammarConstants.md#axis_following-a1c4549e0b7e) from XPathAbrevGrammarConstants
+- [AXIS\_FOLLOWING\_SIBLING](XPathAbrevGrammarConstants.md#axis_following_sibling-15c026a27921) from XPathAbrevGrammarConstants
+- [AXIS\_NAMESPACE](XPathAbrevGrammarConstants.md#axis_namespace-fca116cb0837) from XPathAbrevGrammarConstants
+- [AXIS\_PARENT](XPathAbrevGrammarConstants.md#axis_parent-a46c866285ba) from XPathAbrevGrammarConstants
+- [AXIS\_PRECEDING](XPathAbrevGrammarConstants.md#axis_preceding-928fdaa9975d) from XPathAbrevGrammarConstants
+- [AXIS\_PRECEDING\_SIBLING](XPathAbrevGrammarConstants.md#axis_preceding_sibling-d98b9bd3ec33) from XPathAbrevGrammarConstants
+- [AXIS\_SELF](XPathAbrevGrammarConstants.md#axis_self-e8df13365b56) from XPathAbrevGrammarConstants
 - [BaseChar](XPathAbrevGrammarConstants.md#basechar-40e1261471a6) from XPathAbrevGrammarConstants
 - [CombiningChar](XPathAbrevGrammarConstants.md#combiningchar-04353df29e46) from XPathAbrevGrammarConstants
 - [DEFAULT](XPathAbrevGrammarConstants.md#default-5965fc85722b) from XPathAbrevGrammarConstants
@@ -38,59 +38,59 @@ Types: [XPathAbrevGrammarConstants](XPathAbrevGrammarConstants.md#xpathabrevgram
 - [EOF](XPathAbrevGrammarConstants.md#eof-e4ab74e8c3eb) from XPathAbrevGrammarConstants
 - [EQ](XPathAbrevGrammarConstants.md#eq-27379a35bac0) from XPathAbrevGrammarConstants
 - [Extender](XPathAbrevGrammarConstants.md#extender-16833fdff759) from XPathAbrevGrammarConstants
-- [FUNCTION_CURRENT](XPathAbrevGrammarConstants.md#function_current-756d70c6837c) from XPathAbrevGrammarConstants
+- [FUNCTION\_CURRENT](XPathAbrevGrammarConstants.md#function_current-756d70c6837c) from XPathAbrevGrammarConstants
 - [Ideographic](XPathAbrevGrammarConstants.md#ideographic-9e9a508c5c4b) from XPathAbrevGrammarConstants
-- [jj_input_stream](#jj_input_stream-a656fd5e96db)
-- [jj_nt](#jj_nt-9db0740275fe)
+- [jj\_input\_stream](#jj_input_stream-a656fd5e96db)
+- [jj\_nt](#jj_nt-9db0740275fe)
 - [Letter](XPathAbrevGrammarConstants.md#letter-b7da983a0a77) from XPathAbrevGrammarConstants
 - [Literal](XPathAbrevGrammarConstants.md#literal-d5804337bb25) from XPathAbrevGrammarConstants
 - [NCName](XPathAbrevGrammarConstants.md#ncname-61cf3f5186ac) from XPathAbrevGrammarConstants
 - [Number](XPathAbrevGrammarConstants.md#number-d1bd19560532) from XPathAbrevGrammarConstants
 - [SLASH](XPathAbrevGrammarConstants.md#slash-3c7d823f3e28) from XPathAbrevGrammarConstants
 - [token](#token-93f8344c37b8)
-- [token_source](#token_source-65d526092316)
+- [token\_source](#token_source-65d526092316)
 - [tokenImage](XPathAbrevGrammarConstants.md#tokenimage-c13f534d4471) from XPathAbrevGrammarConstants
 - [UnicodeDigit](XPathAbrevGrammarConstants.md#unicodedigit-85441abdb275) from XPathAbrevGrammarConstants
 
 **Methods**:
 
-- [AbbreviatedAxisSpecifier()](#abbreviatedaxisspecifier-2077ffc46a36)
-- [AbsoluteLocationPath()](#absolutelocationpath-4e8bf87fbecb)
-- [AxisName()](#axisname-26f35eaa1e25)
-- [AxisSpecifier()](#axisspecifier-3422df92e1f5)
-- [CoreFunctionCall()](#corefunctioncall-bbc848cd7f68)
-- [CoreFunctionName()](#corefunctionname-a9428b54fc9d)
-- [disable_tracing()](#disable_tracing-6da9cdfdd969)
-- [enable_tracing()](#enable_tracing-4b87a1586eda)
-- [EqualityExpr()](#equalityexpr-01aa6828049d)
-- [Expression()](#expression-202b8d891679)
-- [FilterExpr()](#filterexpr-2734d9da846d)
-- [FunctionCall()](#functioncall-b53ad6cb019a)
-- [FunctionName()](#functionname-e065b916e82a)
-- [generateParseException()](#generateparseexception-deb7e661e2f1)
-- [getNextToken()](#getnexttoken-dc921ada5024)
-- [getToken(int)](#gettoken-dc7acf63f451)
-- [LocationPath()](#locationpath-35ea9d0f3255)
-- [LocationStep(ArrayList<Object>)](#locationstep-a5e94dba22db)
-- [main(String[])](#main-1503518a8568)
-- [NCName()](#ncname-7b30a4c1f737)
-- [NCName_Without_CoreFunctions()](#ncname_without_corefunctions-6566bbe274b7)
-- [NodeTest(ArrayList<Object>)](#nodetest-22e2f0747db1)
-- [parseExpression()](#parseexpression-09140d7abc03)
-- [PathExpr()](#pathexpr-2e73edb0ff0c)
-- [Predicate()](#predicate-c03c201960b0)
-- [PrimaryExpr()](#primaryexpr-1e465f74325b)
-- [QName()](#qname-7107ceb3aca9)
-- [QName_Without_CoreFunctions()](#qname_without_corefunctions-158727e2e312)
-- [ReInit(InputStream)](#reinit-e03395a4a4ba)
-- [ReInit(InputStream, String)](#reinit-330085293cfa)
-- [ReInit(Reader)](#reinit-4ce6f3557028)
-- [ReInit(XPathAbrevGrammarTokenManager)](#reinit-88ffc30c9b57)
-- [RelationalExpr()](#relationalexpr-1f528ea442a1)
-- [RelativeLocationPath()](#relativelocationpath-dddce07a8f49)
-- [setCompiler(Compiler)](#setcompiler-ba6ce2506c89)
-- [trace_enabled()](#trace_enabled-0d5a0a082fa5)
-- [WildcardName()](#wildcardname-8dffbb9f4b24)
+- [AbbreviatedAxisSpecifier\(\)](#abbreviatedaxisspecifier-2077ffc46a36)
+- [AbsoluteLocationPath\(\)](#absolutelocationpath-4e8bf87fbecb)
+- [AxisName\(\)](#axisname-26f35eaa1e25)
+- [AxisSpecifier\(\)](#axisspecifier-3422df92e1f5)
+- [CoreFunctionCall\(\)](#corefunctioncall-bbc848cd7f68)
+- [CoreFunctionName\(\)](#corefunctionname-a9428b54fc9d)
+- [disable\_tracing\(\)](#disable_tracing-6da9cdfdd969)
+- [enable\_tracing\(\)](#enable_tracing-4b87a1586eda)
+- [EqualityExpr\(\)](#equalityexpr-01aa6828049d)
+- [Expression\(\)](#expression-202b8d891679)
+- [FilterExpr\(\)](#filterexpr-2734d9da846d)
+- [FunctionCall\(\)](#functioncall-b53ad6cb019a)
+- [FunctionName\(\)](#functionname-e065b916e82a)
+- [generateParseException\(\)](#generateparseexception-deb7e661e2f1)
+- [getNextToken\(\)](#getnexttoken-dc921ada5024)
+- [getToken\(int\)](#gettoken-dc7acf63f451)
+- [LocationPath\(\)](#locationpath-35ea9d0f3255)
+- [LocationStep\(ArrayList\<Object\>\)](#locationstep-a5e94dba22db)
+- [main\(String\[\]\)](#main-1503518a8568)
+- [NCName\(\)](#ncname-7b30a4c1f737)
+- [NCName\_Without\_CoreFunctions\(\)](#ncname_without_corefunctions-6566bbe274b7)
+- [NodeTest\(ArrayList\<Object\>\)](#nodetest-22e2f0747db1)
+- [parseExpression\(\)](#parseexpression-09140d7abc03)
+- [PathExpr\(\)](#pathexpr-2e73edb0ff0c)
+- [Predicate\(\)](#predicate-c03c201960b0)
+- [PrimaryExpr\(\)](#primaryexpr-1e465f74325b)
+- [QName\(\)](#qname-7107ceb3aca9)
+- [QName\_Without\_CoreFunctions\(\)](#qname_without_corefunctions-158727e2e312)
+- [ReInit\(InputStream\)](#reinit-e03395a4a4ba)
+- [ReInit\(InputStream, String\)](#reinit-330085293cfa)
+- [ReInit\(Reader\)](#reinit-4ce6f3557028)
+- [ReInit\(XPathAbrevGrammarTokenManager\)](#reinit-88ffc30c9b57)
+- [RelationalExpr\(\)](#relationalexpr-1f528ea442a1)
+- [RelativeLocationPath\(\)](#relativelocationpath-dddce07a8f49)
+- [setCompiler\(Compiler\)](#setcompiler-ba6ce2506c89)
+- [trace\_enabled\(\)](#trace_enabled-0d5a0a082fa5)
+- [WildcardName\(\)](#wildcardname-8dffbb9f4b24)
 
 **Nested Types**:
 

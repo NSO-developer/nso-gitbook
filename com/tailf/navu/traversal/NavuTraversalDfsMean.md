@@ -19,13 +19,13 @@ This implements the `NavuTraversalMean` for DFS
 
 **Constructors**:
 
-- [NavuTraversalDfsMean()](#navutraversaldfsmean-123820830c40)
+- [NavuTraversalDfsMean\(\)](#navutraversaldfsmean-123820830c40)
 
 **Methods**:
 
-- [dfs(NavuNode)](#dfs-5b348f76fa8d)
-- [doDfs(NavuNode, Set<String>)](#dodfs-ffb6caf3db53)
-- [traverse(NavuNode, List<TraversalFilter>)](#traverse-e72c3ea2612b)
+- [dfs\(NavuNode\)](#dfs-5b348f76fa8d)
+- [doDfs\(NavuNode, Set\<String\>\)](#dodfs-ffb6caf3db53)
+- [traverse\(NavuNode, List\<TraversalFilter\>\)](#traverse-e72c3ea2612b)
 
 ## Constructors
 

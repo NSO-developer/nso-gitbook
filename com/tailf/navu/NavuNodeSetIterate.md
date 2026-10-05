@@ -12,7 +12,7 @@ This class is used by
 
 **Methods**:
 
-- [iterate(NavuXPathContext)](#iterate-adeee70ee872)
+- [iterate\(NavuXPathContext\)](#iterate-adeee70ee872)
 
 ## Methods
 

@@ -9,12 +9,12 @@ public static final class com.tailf.ncs.maapi.Schema.NsDb.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getEntries()](#getentries-f554b7f62e3d)
-- [hasEntries()](#hasentries-ccf5edf194a9)
+- [getEntries\(\)](#getentries-f554b7f62e3d)
+- [hasEntries\(\)](#hasentries-ccf5edf194a9)
 
 ## Constructors
 

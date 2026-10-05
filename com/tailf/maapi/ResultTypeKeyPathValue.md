@@ -38,8 +38,8 @@ XPath Result in keypath and value format. This format
 
 **Methods**:
 
-- [confValue()](#confvalue-baca27cbbecf)
-- [keyPath()](ResultTypeKeyPath.md#keypath-df48f9bfdabb) from ResultTypeKeyPath
+- [confValue\(\)](#confvalue-baca27cbbecf)
+- [keyPath\(\)](ResultTypeKeyPath.md#keypath-df48f9bfdabb) from ResultTypeKeyPath
 
 ## Methods
 

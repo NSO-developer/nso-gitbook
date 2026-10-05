@@ -9,15 +9,15 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDate.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getDay()](#getday-3b07996cd5f6)
-- [getMonth()](#getmonth-3813513d5069)
-- [getTimezone()](#gettimezone-9573790f24e6)
-- [getTimezoneMinutes()](#gettimezoneminutes-b20d3de8d152)
-- [getYear()](#getyear-584af4457cda)
+- [getDay\(\)](#getday-3b07996cd5f6)
+- [getMonth\(\)](#getmonth-3813513d5069)
+- [getTimezone\(\)](#gettimezone-9573790f24e6)
+- [getTimezoneMinutes\(\)](#gettimezoneminutes-b20d3de8d152)
+- [getYear\(\)](#getyear-584af4457cda)
 
 ## Constructors
 

@@ -10,7 +10,7 @@ static interface com.tailf.dp.Dp.DpWork
 
 **Methods**:
 
-- [call(Socket)](#call-67d40d1ba51c)
+- [call\(Socket\)](#call-67d40d1ba51c)
 
 ## Methods
 

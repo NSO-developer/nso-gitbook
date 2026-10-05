@@ -8,22 +8,22 @@ public class com.tailf.navu.SessionContainer
 
 **Constructors**:
 
-- [SessionContainer()](#sessioncontainer-5722e7c9e0a4)
+- [SessionContainer\(\)](#sessioncontainer-5722e7c9e0a4)
 
 **Methods**:
 
-- [addCdbSession(CdbSession)](#addcdbsession-f7ca9b94278a)
-- [addDbType(CdbDBType)](#adddbtype-2ce0fb5bdde5)
-- [addLocalCdb(Cdb)](#addlocalcdb-96c2b7d1d52f)
-- [addLocalSocket(Socket)](#addlocalsocket-b8f21bb4cf13)
-- [addLocks(EnumSet<CdbLockType>)](#addlocks-cd86e43787ca)
-- [addRootCdb(Cdb)](#addrootcdb-667684e02a6f)
-- [getCdbSession()](#getcdbsession-8bef8e62ac12)
-- [getDbType()](#getdbtype-9503dd2b103d)
-- [getLocalCdb()](#getlocalcdb-c973782f43e5)
-- [getLocalSocket()](#getlocalsocket-d59b3f74caea)
-- [getLocks()](#getlocks-252721701f90)
-- [getRootCdb()](#getrootcdb-5b1594e46589)
+- [addCdbSession\(CdbSession\)](#addcdbsession-f7ca9b94278a)
+- [addDbType\(CdbDBType\)](#adddbtype-2ce0fb5bdde5)
+- [addLocalCdb\(Cdb\)](#addlocalcdb-96c2b7d1d52f)
+- [addLocalSocket\(Socket\)](#addlocalsocket-b8f21bb4cf13)
+- [addLocks\(EnumSet\<CdbLockType\>\)](#addlocks-cd86e43787ca)
+- [addRootCdb\(Cdb\)](#addrootcdb-667684e02a6f)
+- [getCdbSession\(\)](#getcdbsession-8bef8e62ac12)
+- [getDbType\(\)](#getdbtype-9503dd2b103d)
+- [getLocalCdb\(\)](#getlocalcdb-c973782f43e5)
+- [getLocalSocket\(\)](#getlocalsocket-d59b3f74caea)
+- [getLocks\(\)](#getlocks-252721701f90)
+- [getRootCdb\(\)](#getrootcdb-5b1594e46589)
 
 ## Constructors
 

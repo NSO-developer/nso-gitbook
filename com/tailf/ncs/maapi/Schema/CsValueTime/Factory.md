@@ -11,27 +11,27 @@ Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b24
 
 **Constructors**:
 
-- [Factory()](#factory-0e9f9d7f4e84)
+- [Factory\(\)](#factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#asreader-c5b4c70fffc2)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#constructreader-fbce6f4f912a)
-- [getHour()](Builder.md#gethour-32c719f425c9) from Builder
-- [getMicro()](Builder.md#getmicro-37aa6b436572) from Builder
-- [getMin()](Builder.md#getmin-8654ceab94db) from Builder
-- [getSec()](Builder.md#getsec-c0fe657f6906) from Builder
-- [getTimezone()](Builder.md#gettimezone-9573790f24e6) from Builder
-- [getTimezoneMinutes()](Builder.md#gettimezoneminutes-b20d3de8d152) from Builder
-- [setHour(byte)](Builder.md#sethour-49c3f93cc667) from Builder
-- [setMicro(int)](Builder.md#setmicro-f8ae466800c3) from Builder
-- [setMin(byte)](Builder.md#setmin-4bea903ce744) from Builder
-- [setSec(byte)](Builder.md#setsec-487f1ad78d76) from Builder
-- [setTimezone(byte)](Builder.md#settimezone-c58c111fac16) from Builder
-- [setTimezoneMinutes(byte)](Builder.md#settimezoneminutes-69e0ed31afd1) from Builder
-- [structSize()](#structsize-1fa68dcadd21)
+- [asReader\(\)](Builder.md#asreader-b5c0f2a8d115) from Builder
+- [asReader\(Builder\)](#asreader-c5b4c70fffc2)
+- [constructBuilder\(SegmentBuilder, int, int, int, short\)](#constructbuilder-5a2abf3209f9)
+- [constructReader\(SegmentReader, int, int, int, short, int\)](#constructreader-fbce6f4f912a)
+- [getHour\(\)](Builder.md#gethour-32c719f425c9) from Builder
+- [getMicro\(\)](Builder.md#getmicro-37aa6b436572) from Builder
+- [getMin\(\)](Builder.md#getmin-8654ceab94db) from Builder
+- [getSec\(\)](Builder.md#getsec-c0fe657f6906) from Builder
+- [getTimezone\(\)](Builder.md#gettimezone-9573790f24e6) from Builder
+- [getTimezoneMinutes\(\)](Builder.md#gettimezoneminutes-b20d3de8d152) from Builder
+- [setHour\(byte\)](Builder.md#sethour-49c3f93cc667) from Builder
+- [setMicro\(int\)](Builder.md#setmicro-f8ae466800c3) from Builder
+- [setMin\(byte\)](Builder.md#setmin-4bea903ce744) from Builder
+- [setSec\(byte\)](Builder.md#setsec-487f1ad78d76) from Builder
+- [setTimezone\(byte\)](Builder.md#settimezone-c58c111fac16) from Builder
+- [setTimezoneMinutes\(byte\)](Builder.md#settimezoneminutes-69e0ed31afd1) from Builder
+- [structSize\(\)](#structsize-1fa68dcadd21)
 
 ## Constructors
 

@@ -11,15 +11,15 @@ Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Constructors**:
 
-- [NoSuchNavuCaseException(NavuChoice, String, String)](#nosuchnavucaseexception-e1cdf258242d)
+- [NoSuchNavuCaseException\(NavuChoice, String, String\)](#nosuchnavucaseexception-e1cdf258242d)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](NavuException.md#mk-de1cedfc6ea8) from NavuException
-- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
-- [mk(NavuChoice, String)](#mk-aac9088ddfd6)
+- [getErrorCode\(\)](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](NavuException.md#mk-de1cedfc6ea8) from NavuException
+- [mk\(ConfResponse, ConfPath\)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
+- [mk\(NavuChoice, String\)](#mk-aac9088ddfd6)
 
 ## Constructors
 

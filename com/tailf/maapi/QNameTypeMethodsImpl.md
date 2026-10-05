@@ -13,13 +13,13 @@ xs:QName type methods
 
 **Constructors**:
 
-- [QNameTypeMethodsImpl()](#qnametypemethodsimpl-694f709231cf)
+- [QNameTypeMethodsImpl\(\)](#qnametypemethodsimpl-694f709231cf)
 
 **Methods**:
 
-- [stringToValue(CSType, String)](#stringtovalue-9fef98be9bb2)
-- [validate(CSType, ConfValue)](MaapiSchemas/CSTypeMethods.md#validate-d2696432436e) from CSTypeMethods
-- [valueToString(CSType, ConfValue)](#valuetostring-f281f6b6d7d7)
+- [stringToValue\(CSType, String\)](#stringtovalue-9fef98be9bb2)
+- [validate\(CSType, ConfValue\)](MaapiSchemas/CSTypeMethods.md#validate-d2696432436e) from CSTypeMethods
+- [valueToString\(CSType, ConfValue\)](#valuetostring-f281f6b6d7d7)
 
 ## Constructors
 

@@ -15,24 +15,24 @@ Callback proxy for Authorization Callbacks.
 
 **Constructors**:
 
-- [AuthorizationCallbackProxy(Object)](#authorizationcallbackproxy-7ede8d1c2000)
+- [AuthorizationCallbackProxy\(Object\)](#authorizationcallbackproxy-7ede8d1c2000)
 
 **Fields**:
 
-- [M_CHECK_CMD_ACCESS](../DpAuthorizationCallback.md#m_check_cmd_access-e47eddd0f9b4) from DpAuthorizationCallback
-- [M_CHECK_DATA_ACCESS](../DpAuthorizationCallback.md#m_check_data_access-62fe3a480427) from DpAuthorizationCallback
+- [M\_CHECK\_CMD\_ACCESS](../DpAuthorizationCallback.md#m_check_cmd_access-e47eddd0f9b4) from DpAuthorizationCallback
+- [M\_CHECK\_DATA\_ACCESS](../DpAuthorizationCallback.md#m_check_data_access-62fe3a480427) from DpAuthorizationCallback
 
 **Methods**:
 
-- [addActionCapability(AuthorizationCBType)](#addactioncapability-e39732677c1f)
-- [addActionMethod(String, Method)](#addactionmethod-cf3e43a67fd9)
-- [checkCommandAccess(DpAuthorizationContext, String[], AuthorizationOperCheck)](#checkcommandaccess-db6891a729e3)
-- [checkDataAccess(DpAuthorizationContext, ConfObject[], AuthorizationOperCheck, AuthorizationOperCheck)](#checkdataaccess-e7c6a7d5a565)
-- [commandFilter()](#commandfilter-75902bf3c954)
-- [dataFilter()](#datafilter-5e19142fe25a)
-- [getAuthorizationCallbackProxys(Object)](#getauthorizationcallbackproxys-e3cad5454283)
-- [getBackupObject()](#getbackupobject-a6fb23c24524)
-- [mask()](#mask-24c2fa29c6af)
+- [addActionCapability\(AuthorizationCBType\)](#addactioncapability-e39732677c1f)
+- [addActionMethod\(String, Method\)](#addactionmethod-cf3e43a67fd9)
+- [checkCommandAccess\(DpAuthorizationContext, String\[\], AuthorizationOperCheck\)](#checkcommandaccess-db6891a729e3)
+- [checkDataAccess\(DpAuthorizationContext, ConfObject\[\], AuthorizationOperCheck, AuthorizationOperCheck\)](#checkdataaccess-e7c6a7d5a565)
+- [commandFilter\(\)](#commandfilter-75902bf3c954)
+- [dataFilter\(\)](#datafilter-5e19142fe25a)
+- [getAuthorizationCallbackProxys\(Object\)](#getauthorizationcallbackproxys-e3cad5454283)
+- [getBackupObject\(\)](#getbackupobject-a6fb23c24524)
+- [mask\(\)](#mask-24c2fa29c6af)
 
 ## Constructors
 

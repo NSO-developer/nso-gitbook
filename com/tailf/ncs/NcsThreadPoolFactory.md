@@ -15,12 +15,12 @@ The customized thread Factory
 
 **Constructors**:
 
-- [NcsThreadPoolFactory(String)](#ncsthreadpoolfactory-118adbedb509)
+- [NcsThreadPoolFactory\(String\)](#ncsthreadpoolfactory-118adbedb509)
 
 **Methods**:
 
-- [getPoolName()](#getpoolname-b9fe3e660a7e)
-- [newThread(Runnable)](#newthread-d68745b22554)
+- [getPoolName\(\)](#getpoolname-b9fe3e660a7e)
+- [newThread\(Runnable\)](#newthread-d68745b22554)
 
 ## Constructors
 

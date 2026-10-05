@@ -16,30 +16,30 @@ The SnmpVarbind is a data structure for holding an SNMP variable binding
 
 **Constructors**:
 
-- [SnmpVarbind(long[], ConfValue)](#snmpvarbind-622bbf39c7f7)
-- [SnmpVarbind(String, ConfValue)](#snmpvarbind-2cb6509a0e9e)
-- [SnmpVarbind(String, int[], ConfValue)](#snmpvarbind-14ee5cde09f9)
+- [SnmpVarbind\(long\[\], ConfValue\)](#snmpvarbind-622bbf39c7f7)
+- [SnmpVarbind\(String, ConfValue\)](#snmpvarbind-2cb6509a0e9e)
+- [SnmpVarbind\(String, int\[\], ConfValue\)](#snmpvarbind-14ee5cde09f9)
 
 **Fields**:
 
-- [COLUMN_ROW](#column_row-de37eda67f2e)
+- [COLUMN\_ROW](#column_row-de37eda67f2e)
 - [OID](#oid-7016dcf53778)
 - [VARIABLE](#variable-d89e4de9003e)
 
 **Methods**:
 
-- [encode()](#encode-fbae522bba37)
-- [encodeOid(int[])](#encodeoid-1492ca23fa41)
-- [encodeOid(long[])](#encodeoid-0c7047df30be)
-- [getColumn()](#getcolumn-d5f8434d3d26)
-- [getOIDLong()](#getoidlong-60af351acc27)
-- [getRowIndex()](#getrowindex-7a54ed7b2c63)
-- [getType()](#gettype-5a52f6f0d4c1)
-- [getValue()](#getvalue-d93864668c40)
-- [getVariable()](#getvariable-e541c832a812)
-- [oidToString(int[])](#oidtostring-182e9901b522)
-- [oidToString(long[])](#oidtostring-75bded30fd10)
-- [toString()](#tostring-e9d48c5503ef)
+- [encode\(\)](#encode-fbae522bba37)
+- [encodeOid\(int\[\]\)](#encodeoid-1492ca23fa41)
+- [encodeOid\(long\[\]\)](#encodeoid-0c7047df30be)
+- [getColumn\(\)](#getcolumn-d5f8434d3d26)
+- [getOIDLong\(\)](#getoidlong-60af351acc27)
+- [getRowIndex\(\)](#getrowindex-7a54ed7b2c63)
+- [getType\(\)](#gettype-5a52f6f0d4c1)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [getVariable\(\)](#getvariable-e541c832a812)
+- [oidToString\(int\[\]\)](#oidtostring-182e9901b522)
+- [oidToString\(long\[\]\)](#oidtostring-75bded30fd10)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

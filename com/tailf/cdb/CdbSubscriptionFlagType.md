@@ -12,19 +12,19 @@ Distinguish the different types of subscription notifications
 
 **Enum Constants**:
 
-- [CDB_SUB_FLAG_HA_IS_SECONDARY](#cdb_sub_flag_ha_is_secondary-b33a98c07944)
-- [CDB_SUB_FLAG_HA_SYNC](#cdb_sub_flag_ha_sync-316e067b9757)
-- [CDB_SUB_FLAG_IS_LAST](#cdb_sub_flag_is_last-2455f6196fbe)
-- [CDB_SUB_FLAG_REVERT](#cdb_sub_flag_revert-a60d9caf0742)
-- [CDB_SUB_FLAG_TRIGGER](#cdb_sub_flag_trigger-758be0880da5)
+- [CDB\_SUB\_FLAG\_HA\_IS\_SECONDARY](#cdb_sub_flag_ha_is_secondary-b33a98c07944)
+- [CDB\_SUB\_FLAG\_HA\_SYNC](#cdb_sub_flag_ha_sync-316e067b9757)
+- [CDB\_SUB\_FLAG\_IS\_LAST](#cdb_sub_flag_is_last-2455f6196fbe)
+- [CDB\_SUB\_FLAG\_REVERT](#cdb_sub_flag_revert-a60d9caf0742)
+- [CDB\_SUB\_FLAG\_TRIGGER](#cdb_sub_flag_trigger-758be0880da5)
 
 **Methods**:
 
-- [enumSetOf(int)](#enumsetof-af9f1a9f53f8)
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [enumSetOf\(int\)](#enumsetof-af9f1a9f53f8)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

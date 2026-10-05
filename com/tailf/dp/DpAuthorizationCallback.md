@@ -24,16 +24,16 @@ We can register two authorization callbacks with ConfD´s AAA subsystem.
 
 **Fields**:
 
-- [M_CHECK_CMD_ACCESS](#m_check_cmd_access-e47eddd0f9b4)
-- [M_CHECK_DATA_ACCESS](#m_check_data_access-62fe3a480427)
+- [M\_CHECK\_CMD\_ACCESS](#m_check_cmd_access-e47eddd0f9b4)
+- [M\_CHECK\_DATA\_ACCESS](#m_check_data_access-62fe3a480427)
 
 **Methods**:
 
-- [checkCommandAccess(DpAuthorizationContext, String[], AuthorizationOperCheck)](#checkcommandaccess-db6891a729e3)
-- [checkDataAccess(DpAuthorizationContext, ConfObject[], AuthorizationOperCheck, AuthorizationOperCheck)](#checkdataaccess-e7c6a7d5a565)
-- [commandFilter()](#commandfilter-75902bf3c954)
-- [dataFilter()](#datafilter-5e19142fe25a)
-- [mask()](#mask-24c2fa29c6af)
+- [checkCommandAccess\(DpAuthorizationContext, String\[\], AuthorizationOperCheck\)](#checkcommandaccess-db6891a729e3)
+- [checkDataAccess\(DpAuthorizationContext, ConfObject\[\], AuthorizationOperCheck, AuthorizationOperCheck\)](#checkdataaccess-e7c6a7d5a565)
+- [commandFilter\(\)](#commandfilter-75902bf3c954)
+- [dataFilter\(\)](#datafilter-5e19142fe25a)
+- [mask\(\)](#mask-24c2fa29c6af)
 
 ## Fields
 

@@ -13,7 +13,7 @@ Data structure for audit network notifications.
 
 **Constructors**:
 
-- [AuditNetworkNotification(int, int, String, String, String, String)](#auditnetworknotification-076e0c2c0987)
+- [AuditNetworkNotification\(int, int, String, String, String, String\)](#auditnetworknotification-076e0c2c0987)
 
 **Fields**:
 
@@ -21,14 +21,14 @@ Data structure for audit network notifications.
 
 **Methods**:
 
-- [getConfig()](#getconfig-5f7a3a2878d2)
-- [getDevice()](#getdevice-4acac4557fc6)
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getTraceId()](#gettraceid-c3a30b94d9ce)
-- [getTransactionId()](#gettransactionid-c986b15287a0)
-- [getUser()](#getuser-fbcccdd28c7c)
-- [getUserId()](#getuserid-46c2e98d8db7)
-- [toString()](#tostring-e9d48c5503ef)
+- [getConfig\(\)](#getconfig-5f7a3a2878d2)
+- [getDevice\(\)](#getdevice-4acac4557fc6)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getTraceId\(\)](#gettraceid-c3a30b94d9ce)
+- [getTransactionId\(\)](#gettransactionid-c986b15287a0)
+- [getUser\(\)](#getuser-fbcccdd28c7c)
+- [getUserId\(\)](#getuserid-46c2e98d8db7)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

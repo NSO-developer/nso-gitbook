@@ -17,7 +17,7 @@ Annotation class that allows to specify data provider flags to tweak
 
 **Methods**:
 
-- [noDefaults()](#nodefaults-fa4b3f614c22)
+- [noDefaults\(\)](#nodefaults-fa4b3f614c22)
 
 ## Methods
 

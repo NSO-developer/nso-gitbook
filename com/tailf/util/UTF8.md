@@ -8,14 +8,14 @@ public class com.tailf.util.UTF8
 
 **Constructors**:
 
-- [UTF8()](#utf8-276b1ee131b3)
+- [UTF8\(\)](#utf8-276b1ee131b3)
 
 **Methods**:
 
-- [getBytes(String)](#getbytes-dc2a63683673)
-- [isEncoding(String, byte[])](#isencoding-d2f8137f1dd6)
-- [isUTF8(byte[])](#isutf8-69f5acf4ead8)
-- [toString(byte[])](#tostring-5d65abc8eb30)
+- [getBytes\(String\)](#getbytes-dc2a63683673)
+- [isEncoding\(String, byte\[\]\)](#isencoding-d2f8137f1dd6)
+- [isUTF8\(byte\[\]\)](#isutf8-69f5acf4ead8)
+- [toString\(byte\[\]\)](#tostring-5d65abc8eb30)
 
 ## Constructors
 

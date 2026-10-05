@@ -9,19 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.NamedType.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getName()](#getname-2634b18b4a25)
-- [getType()](#gettype-5a52f6f0d4c1)
-- [hasName()](#hasname-bfe6c334e0d1)
-- [initName(int)](#initname-281e5d2102d4)
-- [initType()](#inittype-9d8086c9965a)
-- [setName(Reader)](#setname-79f9d1263a41)
-- [setName(String)](#setname-c76ccfcb9f18)
-- [setType(Reader)](#settype-b1128ee37ec1)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getName\(\)](#getname-2634b18b4a25)
+- [getType\(\)](#gettype-5a52f6f0d4c1)
+- [hasName\(\)](#hasname-bfe6c334e0d1)
+- [initName\(int\)](#initname-281e5d2102d4)
+- [initType\(\)](#inittype-9d8086c9965a)
+- [setName\(Reader\)](#setname-79f9d1263a41)
+- [setName\(String\)](#setname-c76ccfcb9f18)
+- [setType\(Reader\)](#settype-b1128ee37ec1)
 
 ## Constructors
 

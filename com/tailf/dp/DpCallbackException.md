@@ -19,18 +19,18 @@ Exception thrown from inside callbacks to identify problems.
 
 **Constructors**:
 
-- [DpCallbackException(String)](#dpcallbackexception-a5652d7c1d08)
-- [DpCallbackException(String, ErrorCode)](#dpcallbackexception-53b98f1d2897)
-- [DpCallbackException(String, ErrorCode, Throwable)](#dpcallbackexception-1c2ed9d506c2)
-- [DpCallbackException(String, Throwable)](#dpcallbackexception-3f993a79a901)
-- [DpCallbackException(Throwable)](#dpcallbackexception-24c1c7bd7c34)
+- [DpCallbackException\(String\)](#dpcallbackexception-a5652d7c1d08)
+- [DpCallbackException\(String, ErrorCode\)](#dpcallbackexception-53b98f1d2897)
+- [DpCallbackException\(String, ErrorCode, Throwable\)](#dpcallbackexception-1c2ed9d506c2)
+- [DpCallbackException\(String, Throwable\)](#dpcallbackexception-3f993a79a901)
+- [DpCallbackException\(Throwable\)](#dpcallbackexception-24c1c7bd7c34)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](DpException.md#mk-de1cedfc6ea8) from DpException
-- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
+- [getErrorCode\(\)](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](DpException.md#mk-de1cedfc6ea8) from DpException
+- [mk\(ConfResponse, ConfPath\)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
 
 ## Constructors
 

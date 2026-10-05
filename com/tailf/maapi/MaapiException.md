@@ -18,19 +18,19 @@ Exception raised from the maapi package
 
 **Constructors**:
 
-- [MaapiException(String)](#maapiexception-415f096b5036)
-- [MaapiException(String, ErrorCode)](#maapiexception-259d1ef61a79)
-- [MaapiException(String, ErrorCode, Throwable)](#maapiexception-f9ca62813237)
-- [MaapiException(String, int)](#maapiexception-5e33165914c8)
-- [MaapiException(String, int, Throwable)](#maapiexception-ecd0bcd458ea)
-- [MaapiException(String, Throwable)](#maapiexception-fe7353f5073f)
+- [MaapiException\(String\)](#maapiexception-415f096b5036)
+- [MaapiException\(String, ErrorCode\)](#maapiexception-259d1ef61a79)
+- [MaapiException\(String, ErrorCode, Throwable\)](#maapiexception-f9ca62813237)
+- [MaapiException\(String, int\)](#maapiexception-5e33165914c8)
+- [MaapiException\(String, int, Throwable\)](#maapiexception-ecd0bcd458ea)
+- [MaapiException\(String, Throwable\)](#maapiexception-fe7353f5073f)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](#mk-de1cedfc6ea8)
-- [mk(ConfResponse, ConfPath)](#mk-79e69ffbc022)
+- [getErrorCode\(\)](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](#mk-de1cedfc6ea8)
+- [mk\(ConfResponse, ConfPath\)](#mk-79e69ffbc022)
 
 ## Constructors
 

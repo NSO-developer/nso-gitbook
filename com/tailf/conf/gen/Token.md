@@ -13,9 +13,9 @@ Describes the input token stream.
 
 **Constructors**:
 
-- [Token()](#token-ad1ba4434bc6)
-- [Token(int)](#token-9b190fa6121c)
-- [Token(int, String)](#token-096b06e2c2ae)
+- [Token\(\)](#token-ad1ba4434bc6)
+- [Token\(int\)](#token-9b190fa6121c)
+- [Token\(int, String\)](#token-096b06e2c2ae)
 
 **Fields**:
 
@@ -30,10 +30,10 @@ Describes the input token stream.
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [newToken(int)](#newtoken-17fd3841532d)
-- [newToken(int, String)](#newtoken-d7f9b13e20a7)
-- [toString()](#tostring-e9d48c5503ef)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [newToken\(int\)](#newtoken-17fd3841532d)
+- [newToken\(int, String\)](#newtoken-d7f9b13e20a7)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

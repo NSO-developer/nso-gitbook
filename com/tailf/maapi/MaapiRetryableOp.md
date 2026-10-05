@@ -11,7 +11,7 @@ Maapi retryable operation that will be called repeatadly until no
 
 **Methods**:
 
-- [execute(Maapi, int)](#execute-3f0f8a96b258)
+- [execute\(Maapi, int\)](#execute-3f0f8a96b258)
 
 ## Methods
 

@@ -12,15 +12,15 @@ Subscription type used in subscribe() method
 
 **Enum Constants**:
 
-- [SUB_OPERATIONAL](#sub_operational-108575580ffa)
-- [SUB_RUNNING](#sub_running-2fc9f97444d6)
-- [SUB_RUNNING_TWOPHASE](#sub_running_twophase-ae7b9c659f06)
+- [SUB\_OPERATIONAL](#sub_operational-108575580ffa)
+- [SUB\_RUNNING](#sub_running-2fc9f97444d6)
+- [SUB\_RUNNING\_TWOPHASE](#sub_running_twophase-ae7b9c659f06)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

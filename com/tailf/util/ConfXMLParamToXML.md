@@ -35,17 +35,17 @@ Utility class to transform `ConfXMLParam[]`
 
 **Constructors**:
 
-- [ConfXMLParamToXML()](#confxmlparamtoxml-ee47ca2e850d)
+- [ConfXMLParamToXML\(\)](#confxmlparamtoxml-ee47ca2e850d)
 
 **Methods**:
 
-- [clear()](#clear-ca3baec040cb)
-- [serialize(Document, OutputStream)](#serialize-55bd4c595c9d)
-- [serialize(Document, Writer)](#serialize-d15119ec5ca5)
-- [toXML(ConfXMLParam[])](#toxml-122580fde7a8)
-- [toXML(ConfXMLParam[], boolean)](#toxml-37f46ad3cde5)
-- [toXML(ConfXMLParam[], String, String)](#toxml-e7cef9be4b1e)
-- [toXML(ConfXMLParam[], String, String, boolean)](#toxml-5c273ed8be98)
+- [clear\(\)](#clear-ca3baec040cb)
+- [serialize\(Document, OutputStream\)](#serialize-55bd4c595c9d)
+- [serialize\(Document, Writer\)](#serialize-d15119ec5ca5)
+- [toXML\(ConfXMLParam\[\]\)](#toxml-122580fde7a8)
+- [toXML\(ConfXMLParam\[\], boolean\)](#toxml-37f46ad3cde5)
+- [toXML\(ConfXMLParam\[\], String, String\)](#toxml-e7cef9be4b1e)
+- [toXML\(ConfXMLParam\[\], String, String, boolean\)](#toxml-5c273ed8be98)
 
 ## Constructors
 

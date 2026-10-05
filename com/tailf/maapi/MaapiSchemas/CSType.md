@@ -10,21 +10,21 @@ Class representing a type
 
 **Constructors**:
 
-- [CSType()](#cstype-ff40cc45b1b6)
-- [CSType(CSType)](#cstype-c38ba137bef9)
-- [CSType(CSType, int, CSTypeMethods, Object)](#cstype-0f57d2bd64a8)
-- [CSType(int)](#cstype-5117a061d665)
+- [CSType\(\)](#cstype-ff40cc45b1b6)
+- [CSType\(CSType\)](#cstype-c38ba137bef9)
+- [CSType\(CSType, int, CSTypeMethods, Object\)](#cstype-0f57d2bd64a8)
+- [CSType\(int\)](#cstype-5117a061d665)
 
 **Methods**:
 
-- [getDefval()](#getdefval-561ad5494c47)
-- [getListType()](#getlisttype-ca1da952d2ff)
-- [getNativeType()](#getnativetype-5e881dc4a7e8)
-- [getOpaque()](#getopaque-92e4945ec92d)
-- [getParentType()](#getparenttype-859131debbf6)
-- [getSuperType()](#getsupertype-268c4b34af41)
-- [setOpaque(Object)](#setopaque-2578a6a555bb)
-- [toString()](#tostring-e9d48c5503ef)
+- [getDefval\(\)](#getdefval-561ad5494c47)
+- [getListType\(\)](#getlisttype-ca1da952d2ff)
+- [getNativeType\(\)](#getnativetype-5e881dc4a7e8)
+- [getOpaque\(\)](#getopaque-92e4945ec92d)
+- [getParentType\(\)](#getparenttype-859131debbf6)
+- [getSuperType\(\)](#getsupertype-268c4b34af41)
+- [setOpaque\(Object\)](#setopaque-2578a6a555bb)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

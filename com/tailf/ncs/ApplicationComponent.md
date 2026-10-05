@@ -19,8 +19,8 @@ User defined Applications should implement this interface that
 
 **Methods**:
 
-- [finish()](#finish-8c785ae2e6bb)
-- [init()](#init-e3919b885d98)
+- [finish\(\)](#finish-8c785ae2e6bb)
+- [init\(\)](#init-e3919b885d98)
 
 ## Methods
 

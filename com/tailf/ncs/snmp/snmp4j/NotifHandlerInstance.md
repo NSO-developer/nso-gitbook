@@ -11,12 +11,12 @@ Helper class which holds handler and if applicable
 
 **Constructors**:
 
-- [NotifHandlerInstance(NotificationHandler, Object)](#notifhandlerinstance-b39819cfd174)
+- [NotifHandlerInstance\(NotificationHandler, Object\)](#notifhandlerinstance-b39819cfd174)
 
 **Methods**:
 
-- [getOpaque()](#getopaque-92e4945ec92d)
-- [getSnmpNotificationHandler()](#getsnmpnotificationhandler-b29e570de0bc)
+- [getOpaque\(\)](#getopaque-92e4945ec92d)
+- [getSnmpNotificationHandler\(\)](#getsnmpnotificationhandler-b29e570de0bc)
 
 ## Constructors
 

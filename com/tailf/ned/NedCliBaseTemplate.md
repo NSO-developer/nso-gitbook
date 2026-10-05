@@ -13,14 +13,14 @@ This class implements NED CLI template
 
 **Constructors**:
 
-- [NedCliBaseTemplate()](#nedclibasetemplate-e3cd7d53da2b)
-- [NedCliBaseTemplate(String, InetAddress, int, String, String, String, String, boolean, int, int, int, NedMux, NedWorker)](#nedclibasetemplate-c183924d4e06)
+- [NedCliBaseTemplate\(\)](#nedclibasetemplate-e3cd7d53da2b)
+- [NedCliBaseTemplate\(String, InetAddress, int, String, String, String, String, boolean, int, int, int, NedMux, NedWorker\)](#nedclibasetemplate-c183924d4e06)
 
 **Fields**:
 
 - [connection](#connection-10cb65e4a7bd)
 - [connectTimeout](#connecttimeout-da6f2bf6befb)
-- [device_id](#device_id-b23d313b9b98)
+- [device\_id](#device_id-b23d313b9b98)
 - [ip](#ip-47c04d6ce4c0)
 - [mux](#mux-bdb6413b8b1f)
 - [pass](#pass-4fd8d65070e9)
@@ -37,65 +37,65 @@ This class implements NED CLI template
 
 **Methods**:
 
-- [abort(NedWorker, String)](#abort-e0e56f7ce202)
-- [applyConfig(NedWorker, int, String)](#applyconfig-7b024768cd7e)
-- [close()](#close-8107c6dc012b)
-- [close(NedWorker)](#close-30f80583fb17)
-- [command(NedWorker, String, ConfXMLParam[])](#command-e9b29b4222a3)
-- [commit(NedWorker, int)](#commit-7dc36c07ab47)
-- [createSubscription(NedWorker, String, String, String, int)](NedConnectionBase.md#createsubscription-79162376c959) from NedConnectionBase
-- [createTelemetrySubscription(NedWorker, Map<String,List<String>>)](NedConnectionBase.md#createtelemetrysubscription-c3b822b943ab) from NedConnectionBase
-- [device_id()](#device_id-f50bb7031536)
-- [getCapas()](NedConnectionBase.md#getcapas-7f9d1774e7a0) from NedConnectionBase
-- [getConnectionId()](NedConnectionBase.md#getconnectionid-600ebb3e7d7f) from NedConnectionBase
-- [getPlatformData()](NedConnectionBase.md#getplatformdata-aa820968b919) from NedConnectionBase
-- [getStatsCapas()](NedConnectionBase.md#getstatscapas-aa8dc0859e62) from NedConnectionBase
-- [getTimeInPool()](NedConnectionBase.md#gettimeinpool-df6d5c843d53) from NedConnectionBase
-- [getTransactionIdMode()](NedConnectionBase.md#gettransactionidmode-79b4efc0e31d) from NedConnectionBase
-- [getTransId(NedWorker)](#gettransid-01de732a93e8)
-- [getUseStoredCapas()](NedConnectionBase.md#getusestoredcapas-77d5f5640e81) from NedConnectionBase
-- [getWantRevertDiff()](NedConnectionBase.md#getwantrevertdiff-ddea9ec7db21) from NedConnectionBase
-- [handshake(NedWorker)](#handshake-602ba649a458)
-- [identity()](#identity-16b9d59e26e7)
-- [initialize(NedWorker)](NedConnectionBase.md#initialize-b9daf0f9b461) from NedConnectionBase
-- [initNoConnect(String, NedMux, NedWorker)](NedCliBase.md#initnoconnect-d8b0c37173df) from NedCliBase
-- [isAlive(NedWorker)](#isalive-6915ae01ec8a)
-- [isConnection(String, InetAddress, int, String, String, String, String, String, boolean, int, int, int)](#isconnection-83e14a2692f7)
-- [isSessionAlive(NedWorker)](NedConnectionBase.md#issessionalive-f0d233ff28c0) from NedConnectionBase
-- [keepAlive(NedWorker)](NedConnectionBase.md#keepalive-92dcaaf81a7a) from NedConnectionBase
-- [keepSessionAlive(NedWorker)](NedConnectionBase.md#keepsessionalive-f2332bacddd5) from NedConnectionBase
-- [modules()](#modules-15ef53dcaf36)
-- [newConnection(String, InetAddress, int, String, String, String, String, String, boolean, int, int, int, NedMux, NedWorker)](#newconnection-00bd117e5875)
-- [persist(NedWorker)](#persist-a67bc9247622)
-- [prepare(NedWorker, String)](#prepare-ed9e4d4b6a29)
-- [prepareDry(NedWorker, String)](#preparedry-169e1f01784c)
-- [quote(String)](#quote-5785a7e30ac4)
-- [reconnect(NedWorker)](#reconnect-a7a5900d41d6)
-- [retrieveIdentity(NedConnectionBase)](NedConnectionBase.md#retrieveidentity-910704c2eafa) from NedConnectionBase
-- [revert(NedWorker, String)](#revert-5ad837ca98a4)
-- [setCapabilities(NedCapability[])](NedConnectionBase.md#setcapabilities-67ad7861715a) from NedConnectionBase
-- [setConnectionData(NedCapability[], NedCapability[], boolean, TransactionIdMode)](NedConnectionBase.md#setconnectiondata-3c1697dcc350) from NedConnectionBase
-- [setConnectionId(int)](NedConnectionBase.md#setconnectionid-7eea4fea28bf) from NedConnectionBase
-- [setPlatformData(ConfXMLParam[])](NedConnectionBase.md#setplatformdata-a069c83c8fde) from NedConnectionBase
-- [setPoolTimestamp(long)](NedConnectionBase.md#setpooltimestamp-28239e3d2dc4) from NedConnectionBase
-- [setupSSH(NedWorker)](#setupssh-e795823b6e87)
-- [setupTelnet(NedWorker)](#setuptelnet-0c5e791a6b66)
-- [show(NedWorker, String)](#show-5a497cd9b854)
-- [showOffline(NedWorker, String, String)](NedCliBase.md#showoffline-4a83874bc32c) from NedCliBase
-- [showPartial(NedWorker, ConfPath[])](NedCliBase.md#showpartial-aa998f554abd) from NedCliBase
-- [showPartial(NedWorker, ConfPath[], String[])](NedCliBase.md#showpartial-d37a025ae7ee) from NedCliBase
-- [showStatsFilter(NedWorker, int, ConfPath[])](NedConnectionBase.md#showstatsfilter-f3bd9d17b71c) from NedConnectionBase
-- [showStatsFilter(NedWorker, int, NedShowFilter[])](NedConnectionBase.md#showstatsfilter-1410355f6f46) from NedConnectionBase
-- [showStatsFilter(NedWorker, int, String[])](NedConnectionBase.md#showstatsfilter-38409a8f79a0) from NedConnectionBase
-- [showStatsPath(NedWorker, int, ConfPath)](NedConnectionBase.md#showstatspath-1704122a5ac4) from NedConnectionBase
-- [string_dequote(String)](#string_dequote-74ef73b493ff)
-- [string_quote(String)](#string_quote-3abeed221bc3)
-- [toString()](#tostring-e9d48c5503ef)
-- [trace(NedWorker, String, String)](#trace-a95f19736f87)
-- [type()](#type-7a4a5f26039a)
-- [uninitialize(NedWorker)](NedConnectionBase.md#uninitialize-bba07dcc2d37) from NedConnectionBase
-- [unquote(String)](#unquote-bdee91b3a426)
-- [useStoredCapabilities()](NedConnectionBase.md#usestoredcapabilities-06864caacb8f) from NedConnectionBase
+- [abort\(NedWorker, String\)](#abort-e0e56f7ce202)
+- [applyConfig\(NedWorker, int, String\)](#applyconfig-7b024768cd7e)
+- [close\(\)](#close-8107c6dc012b)
+- [close\(NedWorker\)](#close-30f80583fb17)
+- [command\(NedWorker, String, ConfXMLParam\[\]\)](#command-e9b29b4222a3)
+- [commit\(NedWorker, int\)](#commit-7dc36c07ab47)
+- [createSubscription\(NedWorker, String, String, String, int\)](NedConnectionBase.md#createsubscription-79162376c959) from NedConnectionBase
+- [createTelemetrySubscription\(NedWorker, Map\<String,List\<String\>\>\)](NedConnectionBase.md#createtelemetrysubscription-c3b822b943ab) from NedConnectionBase
+- [device\_id\(\)](#device_id-f50bb7031536)
+- [getCapas\(\)](NedConnectionBase.md#getcapas-7f9d1774e7a0) from NedConnectionBase
+- [getConnectionId\(\)](NedConnectionBase.md#getconnectionid-600ebb3e7d7f) from NedConnectionBase
+- [getPlatformData\(\)](NedConnectionBase.md#getplatformdata-aa820968b919) from NedConnectionBase
+- [getStatsCapas\(\)](NedConnectionBase.md#getstatscapas-aa8dc0859e62) from NedConnectionBase
+- [getTimeInPool\(\)](NedConnectionBase.md#gettimeinpool-df6d5c843d53) from NedConnectionBase
+- [getTransactionIdMode\(\)](NedConnectionBase.md#gettransactionidmode-79b4efc0e31d) from NedConnectionBase
+- [getTransId\(NedWorker\)](#gettransid-01de732a93e8)
+- [getUseStoredCapas\(\)](NedConnectionBase.md#getusestoredcapas-77d5f5640e81) from NedConnectionBase
+- [getWantRevertDiff\(\)](NedConnectionBase.md#getwantrevertdiff-ddea9ec7db21) from NedConnectionBase
+- [handshake\(NedWorker\)](#handshake-602ba649a458)
+- [identity\(\)](#identity-16b9d59e26e7)
+- [initialize\(NedWorker\)](NedConnectionBase.md#initialize-b9daf0f9b461) from NedConnectionBase
+- [initNoConnect\(String, NedMux, NedWorker\)](NedCliBase.md#initnoconnect-d8b0c37173df) from NedCliBase
+- [isAlive\(NedWorker\)](#isalive-6915ae01ec8a)
+- [isConnection\(String, InetAddress, int, String, String, String, String, String, boolean, int, int, int\)](#isconnection-83e14a2692f7)
+- [isSessionAlive\(NedWorker\)](NedConnectionBase.md#issessionalive-f0d233ff28c0) from NedConnectionBase
+- [keepAlive\(NedWorker\)](NedConnectionBase.md#keepalive-92dcaaf81a7a) from NedConnectionBase
+- [keepSessionAlive\(NedWorker\)](NedConnectionBase.md#keepsessionalive-f2332bacddd5) from NedConnectionBase
+- [modules\(\)](#modules-15ef53dcaf36)
+- [newConnection\(String, InetAddress, int, String, String, String, String, String, boolean, int, int, int, NedMux, NedWorker\)](#newconnection-00bd117e5875)
+- [persist\(NedWorker\)](#persist-a67bc9247622)
+- [prepare\(NedWorker, String\)](#prepare-ed9e4d4b6a29)
+- [prepareDry\(NedWorker, String\)](#preparedry-169e1f01784c)
+- [quote\(String\)](#quote-5785a7e30ac4)
+- [reconnect\(NedWorker\)](#reconnect-a7a5900d41d6)
+- [retrieveIdentity\(NedConnectionBase\)](NedConnectionBase.md#retrieveidentity-910704c2eafa) from NedConnectionBase
+- [revert\(NedWorker, String\)](#revert-5ad837ca98a4)
+- [setCapabilities\(NedCapability\[\]\)](NedConnectionBase.md#setcapabilities-67ad7861715a) from NedConnectionBase
+- [setConnectionData\(NedCapability\[\], NedCapability\[\], boolean, TransactionIdMode\)](NedConnectionBase.md#setconnectiondata-3c1697dcc350) from NedConnectionBase
+- [setConnectionId\(int\)](NedConnectionBase.md#setconnectionid-7eea4fea28bf) from NedConnectionBase
+- [setPlatformData\(ConfXMLParam\[\]\)](NedConnectionBase.md#setplatformdata-a069c83c8fde) from NedConnectionBase
+- [setPoolTimestamp\(long\)](NedConnectionBase.md#setpooltimestamp-28239e3d2dc4) from NedConnectionBase
+- [setupSSH\(NedWorker\)](#setupssh-e795823b6e87)
+- [setupTelnet\(NedWorker\)](#setuptelnet-0c5e791a6b66)
+- [show\(NedWorker, String\)](#show-5a497cd9b854)
+- [showOffline\(NedWorker, String, String\)](NedCliBase.md#showoffline-4a83874bc32c) from NedCliBase
+- [showPartial\(NedWorker, ConfPath\[\]\)](NedCliBase.md#showpartial-aa998f554abd) from NedCliBase
+- [showPartial\(NedWorker, ConfPath\[\], String\[\]\)](NedCliBase.md#showpartial-d37a025ae7ee) from NedCliBase
+- [showStatsFilter\(NedWorker, int, ConfPath\[\]\)](NedConnectionBase.md#showstatsfilter-f3bd9d17b71c) from NedConnectionBase
+- [showStatsFilter\(NedWorker, int, NedShowFilter\[\]\)](NedConnectionBase.md#showstatsfilter-1410355f6f46) from NedConnectionBase
+- [showStatsFilter\(NedWorker, int, String\[\]\)](NedConnectionBase.md#showstatsfilter-38409a8f79a0) from NedConnectionBase
+- [showStatsPath\(NedWorker, int, ConfPath\)](NedConnectionBase.md#showstatspath-1704122a5ac4) from NedConnectionBase
+- [string\_dequote\(String\)](#string_dequote-74ef73b493ff)
+- [string\_quote\(String\)](#string_quote-3abeed221bc3)
+- [toString\(\)](#tostring-e9d48c5503ef)
+- [trace\(NedWorker, String, String\)](#trace-a95f19736f87)
+- [type\(\)](#type-7a4a5f26039a)
+- [uninitialize\(NedWorker\)](NedConnectionBase.md#uninitialize-bba07dcc2d37) from NedConnectionBase
+- [unquote\(String\)](#unquote-bdee91b3a426)
+- [useStoredCapabilities\(\)](NedConnectionBase.md#usestoredcapabilities-06864caacb8f) from NedConnectionBase
 
 **Nested Types**:
 

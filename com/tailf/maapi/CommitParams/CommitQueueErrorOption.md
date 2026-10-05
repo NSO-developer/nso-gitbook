@@ -10,17 +10,17 @@ Types: [CommitQueueErrorOption](CommitQueueErrorOption.md#commitqueueerroroption
 
 **Enum Constants**:
 
-- [CONTINUE_ON_ERROR](#continue_on_error-c322b0c0a38b)
-- [ROLLBACK_ON_ERROR](#rollback_on_error-c11d17b7a439)
-- [STOP_ON_ERROR](#stop_on_error-78f7b093300f)
+- [CONTINUE\_ON\_ERROR](#continue_on_error-c322b0c0a38b)
+- [ROLLBACK\_ON\_ERROR](#rollback_on_error-c11d17b7a439)
+- [STOP\_ON\_ERROR](#stop_on_error-78f7b093300f)
 
 **Methods**:
 
-- [fromValue(int)](#fromvalue-f24ff0b9d5bf)
-- [getValue()](#getvalue-d93864668c40)
-- [toString()](#tostring-e9d48c5503ef)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [fromValue\(int\)](#fromvalue-f24ff0b9d5bf)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [toString\(\)](#tostring-e9d48c5503ef)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

@@ -9,15 +9,15 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeIdref.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getRefs()](#getrefs-b06b91bf4474)
-- [hasRefs()](#hasrefs-1092d9d8bb51)
-- [initRefs(int)](#initrefs-ba28b74a20d7)
-- [setRefs(Reader<Reader>)](#setrefs-be4e2cc42754)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getRefs\(\)](#getrefs-b06b91bf4474)
+- [hasRefs\(\)](#hasrefs-1092d9d8bb51)
+- [initRefs\(int\)](#initrefs-ba28b74a20d7)
+- [setRefs\(Reader\<Reader\>\)](#setrefs-be4e2cc42754)
 
 ## Constructors
 

@@ -13,26 +13,26 @@ The type of comparison or function to employ when the filter type is
 
 **Enum Constants**:
 
-- [CONFD_CMP_EQ](#confd_cmp_eq-332b4448fb0b)
-- [CONFD_CMP_GT](#confd_cmp_gt-ceabc5eebdaa)
-- [CONFD_CMP_GTE](#confd_cmp_gte-17a7fc0ae59d)
-- [CONFD_CMP_LT](#confd_cmp_lt-2b3a94accb8e)
-- [CONFD_CMP_LTE](#confd_cmp_lte-3e74f2fe4da2)
-- [CONFD_CMP_NEQ](#confd_cmp_neq-33fb0499d0d8)
-- [CONFD_CMP_NOP](#confd_cmp_nop-7a2b3b30fe2f)
-- [CONFD_EXEC_COMPARE](#confd_exec_compare-c0037182c849)
-- [CONFD_EXEC_CONTAINS](#confd_exec_contains-106a13bdce5f)
-- [CONFD_EXEC_DERIVED_FROM](#confd_exec_derived_from-a67889e0504c)
-- [CONFD_EXEC_DERIVED_FROM_OR_SELF](#confd_exec_derived_from_or_self-d3f85307a1e8)
-- [CONFD_EXEC_RE_MATCH](#confd_exec_re_match-861818357283)
-- [CONFD_EXEC_STARTS_WITH](#confd_exec_starts_with-d5e15acec3a3)
-- [CONFD_EXEC_STRING_COMPARE](#confd_exec_string_compare-d4bf1b4c2d15)
+- [CONFD\_CMP\_EQ](#confd_cmp_eq-332b4448fb0b)
+- [CONFD\_CMP\_GT](#confd_cmp_gt-ceabc5eebdaa)
+- [CONFD\_CMP\_GTE](#confd_cmp_gte-17a7fc0ae59d)
+- [CONFD\_CMP\_LT](#confd_cmp_lt-2b3a94accb8e)
+- [CONFD\_CMP\_LTE](#confd_cmp_lte-3e74f2fe4da2)
+- [CONFD\_CMP\_NEQ](#confd_cmp_neq-33fb0499d0d8)
+- [CONFD\_CMP\_NOP](#confd_cmp_nop-7a2b3b30fe2f)
+- [CONFD\_EXEC\_COMPARE](#confd_exec_compare-c0037182c849)
+- [CONFD\_EXEC\_CONTAINS](#confd_exec_contains-106a13bdce5f)
+- [CONFD\_EXEC\_DERIVED\_FROM](#confd_exec_derived_from-a67889e0504c)
+- [CONFD\_EXEC\_DERIVED\_FROM\_OR\_SELF](#confd_exec_derived_from_or_self-d3f85307a1e8)
+- [CONFD\_EXEC\_RE\_MATCH](#confd_exec_re_match-861818357283)
+- [CONFD\_EXEC\_STARTS\_WITH](#confd_exec_starts_with-d5e15acec3a3)
+- [CONFD\_EXEC\_STRING\_COMPARE](#confd_exec_string_compare-d4bf1b4c2d15)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

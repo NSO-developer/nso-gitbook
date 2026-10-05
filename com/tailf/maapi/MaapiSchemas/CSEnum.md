@@ -8,13 +8,13 @@ public static class com.tailf.maapi.MaapiSchemas.CSEnum
 
 **Constructors**:
 
-- [CSEnum(String, long)](#csenum-dfd954eec0e1)
+- [CSEnum\(String, long\)](#csenum-dfd954eec0e1)
 
 **Methods**:
 
-- [getName()](#getname-2634b18b4a25)
-- [getValue()](#getvalue-d93864668c40)
-- [toString()](#tostring-e9d48c5503ef)
+- [getName\(\)](#getname-2634b18b4a25)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

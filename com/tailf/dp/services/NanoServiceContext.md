@@ -15,18 +15,18 @@ The Nano service context object.
 
 **Methods**:
 
-- [decodeComponentProperties()](#decodecomponentproperties-92dc7d27cfae)
-- [getComponentName()](#getcomponentname-7c7a8acb1be7)
-- [getComponentType()](#getcomponenttype-8cb31666621f)
-- [getNedIdByDeviceName(String)](ServiceContext.md#getnedidbydevicename-11861342f251) from ServiceContext
-- [getRootNode()](ServiceContext.md#getrootnode-eed9b3c70129) from ServiceContext
-- [getServiceNode()](ServiceContext.md#getservicenode-ffc6dd44e182) from ServiceContext
-- [getState()](#getstate-6661a5722798)
-- [getStateNode()](#getstatenode-69968ad036f3)
-- [setFailed()](#setfailed-87e27ea56b52)
-- [setNotReached()](#setnotreached-82612c28e78a)
-- [setReached()](#setreached-d006785646d0)
-- [setTimeout(int)](ServiceContext.md#settimeout-cbe758ecb5d8) from ServiceContext
+- [decodeComponentProperties\(\)](#decodecomponentproperties-92dc7d27cfae)
+- [getComponentName\(\)](#getcomponentname-7c7a8acb1be7)
+- [getComponentType\(\)](#getcomponenttype-8cb31666621f)
+- [getNedIdByDeviceName\(String\)](ServiceContext.md#getnedidbydevicename-11861342f251) from ServiceContext
+- [getRootNode\(\)](ServiceContext.md#getrootnode-eed9b3c70129) from ServiceContext
+- [getServiceNode\(\)](ServiceContext.md#getservicenode-ffc6dd44e182) from ServiceContext
+- [getState\(\)](#getstate-6661a5722798)
+- [getStateNode\(\)](#getstatenode-69968ad036f3)
+- [setFailed\(\)](#setfailed-87e27ea56b52)
+- [setNotReached\(\)](#setnotreached-82612c28e78a)
+- [setReached\(\)](#setreached-d006785646d0)
+- [setTimeout\(int\)](ServiceContext.md#settimeout-cbe758ecb5d8) from ServiceContext
 
 ## Methods
 

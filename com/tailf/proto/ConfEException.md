@@ -16,9 +16,9 @@ Base class for the other Conf E exception classes.
 
 **Constructors**:
 
-- [ConfEException(String)](#confeexception-c640f41f4223)
-- [ConfEException(String, Throwable)](#confeexception-db09789b919c)
-- [ConfEException(Throwable)](#confeexception-e03f5666b3e4)
+- [ConfEException\(String\)](#confeexception-c640f41f4223)
+- [ConfEException\(String, Throwable\)](#confeexception-db09789b919c)
+- [ConfEException\(Throwable\)](#confeexception-e03f5666b3e4)
 
 ## Constructors
 

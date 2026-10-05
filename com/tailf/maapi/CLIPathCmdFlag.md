@@ -13,14 +13,14 @@ Flags used in `Maapi#CLIPathCmd(int,EnumSet,String,Object... )`
 **Enum Constants**:
 
 - [DELETE](#delete-17bb47048092)
-- [EMIT_PARENTS](#emit_parents-7672db479b6c)
-- [NON_RECURSIVE](#non_recursive-560671442c67)
+- [EMIT\_PARENTS](#emit_parents-7672db479b6c)
+- [NON\_RECURSIVE](#non_recursive-560671442c67)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

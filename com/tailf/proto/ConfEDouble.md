@@ -20,8 +20,8 @@ Provides a Java representation of E floats and doubles. E defines only one
 
 **Constructors**:
 
-- [ConfEDouble(ConfInputStream)](#confedouble-5d29c11b7f1f)
-- [ConfEDouble(double)](#confedouble-2d502f9ddc23)
+- [ConfEDouble\(ConfInputStream\)](#confedouble-5d29c11b7f1f)
+- [ConfEDouble\(double\)](#confedouble-2d502f9ddc23)
 
 **Fields**:
 
@@ -29,14 +29,14 @@ Provides a Java representation of E floats and doubles. E defines only one
 
 **Methods**:
 
-- [clone()](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
-- [decode(ConfInputStream)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
-- [doubleValue()](#doublevalue-aea67f67de5a)
-- [encode(ConfOutputStream)](#encode-cb1ad9eb7771)
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [floatValue()](#floatvalue-6e7c2cd63bb9)
-- [hashCode()](#hashcode-ef797a217903)
-- [toString()](#tostring-e9d48c5503ef)
+- [clone\(\)](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
+- [decode\(ConfInputStream\)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
+- [doubleValue\(\)](#doublevalue-aea67f67de5a)
+- [encode\(ConfOutputStream\)](#encode-cb1ad9eb7771)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [floatValue\(\)](#floatvalue-6e7c2cd63bb9)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

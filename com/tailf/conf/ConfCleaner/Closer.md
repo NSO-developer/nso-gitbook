@@ -9,14 +9,14 @@ public static final class com.tailf.conf.ConfCleaner.Closer
 
 **Constructors**:
 
-- [Closer(AutoCloseable[])](#closer-dee93e523677)
+- [Closer\(AutoCloseable\[\]\)](#closer-dee93e523677)
 
 **Methods**:
 
-- [add(AutoCloseable[])](#add-c180b7888b01)
-- [close()](#close-8107c6dc012b)
-- [remove(AutoCloseable)](#remove-a78d7d35b531)
-- [run()](#run-b6dbda048863)
+- [add\(AutoCloseable\[\]\)](#add-c180b7888b01)
+- [close\(\)](#close-8107c6dc012b)
+- [remove\(AutoCloseable\)](#remove-a78d7d35b531)
+- [run\(\)](#run-b6dbda048863)
 
 ## Constructors
 

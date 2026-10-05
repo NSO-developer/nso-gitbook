@@ -29,16 +29,16 @@ The class `AlarmSink` represents a "sink" where
 
 **Constructors**:
 
-- [AlarmSink()](#alarmsink-bfafeb8b3d91)
-- [AlarmSink(AlarmSinkCentral)](#alarmsink-b39f3967d739)
-- [AlarmSink(Maapi)](#alarmsink-bec483a98b11)
+- [AlarmSink\(\)](#alarmsink-bfafeb8b3d91)
+- [AlarmSink\(AlarmSinkCentral\)](#alarmsink-b39f3967d739)
+- [AlarmSink\(Maapi\)](#alarmsink-bec483a98b11)
 
 **Methods**:
 
-- [submitAlarm(Alarm)](#submitalarm-aff190c46329)
-- [submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#submitalarm-00b8df4003d0)
-- [submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, String, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#submitalarm-99f8171f0795)
-- [submitAlarmList(List<Alarm>)](#submitalarmlist-a59c291d1268)
+- [submitAlarm\(Alarm\)](#submitalarm-aff190c46329)
+- [submitAlarm\(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List\<ManagedObject\>, List\<AlarmId\>, List\<ManagedObject\>, ConfDatetime, Attribute\[\]\)](#submitalarm-00b8df4003d0)
+- [submitAlarm\(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, String, List\<ManagedObject\>, List\<AlarmId\>, List\<ManagedObject\>, ConfDatetime, Attribute\[\]\)](#submitalarm-99f8171f0795)
+- [submitAlarmList\(List\<Alarm\>\)](#submitalarmlist-a59c291d1268)
 
 ## Constructors
 

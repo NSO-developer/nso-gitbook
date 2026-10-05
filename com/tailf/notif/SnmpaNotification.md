@@ -13,36 +13,36 @@ Data structure SNMP agent notifications.
 
 **Constructors**:
 
-- [SnmpaNotification(int, int, int, InetAddress, ConfObject, int, int, int, int, Varbind[], TrapInfo)](#snmpanotification-d23ddb9474be)
+- [SnmpaNotification\(int, int, int, InetAddress, ConfObject, int, int, int, int, Varbind\[\], TrapInfo\)](#snmpanotification-d23ddb9474be)
 
 **Fields**:
 
-- [SNMPA_PDU_GET_BULK_REQUEST](#snmpa_pdu_get_bulk_request-c4cf740c8ebb)
-- [SNMPA_PDU_GET_NEXT_REQUEST](#snmpa_pdu_get_next_request-991892c3d4b4)
-- [SNMPA_PDU_GET_REQUEST](#snmpa_pdu_get_request-4092ba28cdd3)
-- [SNMPA_PDU_GET_RESPONSE](#snmpa_pdu_get_response-7f84facbc1a5)
-- [SNMPA_PDU_INFORM](#snmpa_pdu_inform-6a7d1835e8b5)
-- [SNMPA_PDU_REPORT](#snmpa_pdu_report-ffa28e725fdc)
-- [SNMPA_PDU_SET_REQUEST](#snmpa_pdu_set_request-9fde39c7d2d1)
-- [SNMPA_PDU_V1TRAP](#snmpa_pdu_v1trap-67541dba9349)
-- [SNMPA_PDU_V2TRAP](#snmpa_pdu_v2trap-d06cbef2315b)
+- [SNMPA\_PDU\_GET\_BULK\_REQUEST](#snmpa_pdu_get_bulk_request-c4cf740c8ebb)
+- [SNMPA\_PDU\_GET\_NEXT\_REQUEST](#snmpa_pdu_get_next_request-991892c3d4b4)
+- [SNMPA\_PDU\_GET\_REQUEST](#snmpa_pdu_get_request-4092ba28cdd3)
+- [SNMPA\_PDU\_GET\_RESPONSE](#snmpa_pdu_get_response-7f84facbc1a5)
+- [SNMPA\_PDU\_INFORM](#snmpa_pdu_inform-6a7d1835e8b5)
+- [SNMPA\_PDU\_REPORT](#snmpa_pdu_report-ffa28e725fdc)
+- [SNMPA\_PDU\_SET\_REQUEST](#snmpa_pdu_set_request-9fde39c7d2d1)
+- [SNMPA\_PDU\_V1TRAP](#snmpa_pdu_v1trap-67541dba9349)
+- [SNMPA\_PDU\_V2TRAP](#snmpa_pdu_v2trap-d06cbef2315b)
 - [type](Notification.md#type-6ebb3673fbb6) from Notification
 
 **Methods**:
 
-- [getErrorIndex()](#geterrorindex-aadca6a93413)
-- [getErrorStatus()](#geterrorstatus-ad62464925f5)
-- [getIP()](#getip-c2f1d3db411f)
-- [getIPValue()](#getipvalue-7154021b2d96)
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getNumVariables()](#getnumvariables-5b1d8e7ecf95)
-- [getPDUType()](#getpdutype-1f4c201e2247)
-- [getPort()](#getport-a2225f868a2b)
-- [getRequestId()](#getrequestid-7e5a443c4675)
-- [getTransaction()](#gettransaction-4f1c72a828a1)
-- [getTrapInfo()](#gettrapinfo-b50e18c963f5)
-- [getVarBinds()](#getvarbinds-af55445f0448)
-- [toString()](#tostring-e9d48c5503ef)
+- [getErrorIndex\(\)](#geterrorindex-aadca6a93413)
+- [getErrorStatus\(\)](#geterrorstatus-ad62464925f5)
+- [getIP\(\)](#getip-c2f1d3db411f)
+- [getIPValue\(\)](#getipvalue-7154021b2d96)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getNumVariables\(\)](#getnumvariables-5b1d8e7ecf95)
+- [getPDUType\(\)](#getpdutype-1f4c201e2247)
+- [getPort\(\)](#getport-a2225f868a2b)
+- [getRequestId\(\)](#getrequestid-7e5a443c4675)
+- [getTransaction\(\)](#gettransaction-4f1c72a828a1)
+- [getTrapInfo\(\)](#gettrapinfo-b50e18c963f5)
+- [getVarBinds\(\)](#getvarbinds-af55445f0448)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 **Nested Types**:
 

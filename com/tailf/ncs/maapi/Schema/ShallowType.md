@@ -10,7 +10,7 @@ Types: [ShallowType](ShallowType.md#shallowtype-736a38acb289)
 
 **Enum Constants**:
 
-- [_NOT_IN_SCHEMA](#_not_in_schema-515ed8bae617)
+- [\_NOT\_IN\_SCHEMA](#_not_in_schema-515ed8bae617)
 - [BINARY](#binary-adf3f267a1a8)
 - [BIT32](#bit32-8d8bdf7763a0)
 - [BIT64](#bit64-c365a2b04ddd)
@@ -34,10 +34,10 @@ Types: [ShallowType](ShallowType.md#shallowtype-736a38acb289)
 - [INT64](#int64-0b6e71c95bfc)
 - [INT8](#int8-0ad9cb8b5f0c)
 - [IPV4](#ipv4-708343554add)
-- [IPV4_AND_PLEN](#ipv4_and_plen-c3b87ab796e1)
+- [IPV4\_AND\_PLEN](#ipv4_and_plen-c3b87ab796e1)
 - [IPV4PREFIX](#ipv4prefix-09e8fedafb7c)
 - [IPV6](#ipv6-7c8dcb7d9d7a)
-- [IPV6_AND_PLEN](#ipv6_and_plen-5994e2717c48)
+- [IPV6\_AND\_PLEN](#ipv6_and_plen-5994e2717c48)
 - [IPV6PREFIX](#ipv6prefix-8d0c94cd13de)
 - [LIST](#list-2576ea1fe9a9)
 - [NOEXISTS](#noexists-ac8dd938ad65)
@@ -59,8 +59,8 @@ Types: [ShallowType](ShallowType.md#shallowtype-736a38acb289)
 - [UNUSED3](#unused3-eff134007071)
 - [UNUSED4](#unused4-4f312ac08a60)
 - [UNUSED5](#unused5-1acf63dbcf1c)
-- [XML_MOVE_AFTER](#xml_move_after-aefe79ad65af)
-- [XML_MOVE_FIRST](#xml_move_first-4c5d71d8d802)
+- [XML\_MOVE\_AFTER](#xml_move_after-aefe79ad65af)
+- [XML\_MOVE\_FIRST](#xml_move_first-4c5d71d8d802)
 - [XMLBEGIN](#xmlbegin-c4fca64095db)
 - [XMLBEGINDEL](#xmlbegindel-defde1551b8c)
 - [XMLEND](#xmlend-6a256522f0b6)
@@ -68,8 +68,8 @@ Types: [ShallowType](ShallowType.md#shallowtype-736a38acb289)
 
 **Methods**:
 
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

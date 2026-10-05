@@ -12,16 +12,16 @@ Enumeration of Authorization callback methods
 
 **Enum Constants**:
 
-- [CHECK_CMD_ACCESS](#check_cmd_access-8a77478fcfe0)
-- [CHECK_DATA_ACCESS](#check_data_access-1aff0f5526c7)
-- [CMD_FILTER](#cmd_filter-202bdf5d983c)
-- [DATA_FILTER](#data_filter-fb72d718d64a)
+- [CHECK\_CMD\_ACCESS](#check_cmd_access-8a77478fcfe0)
+- [CHECK\_DATA\_ACCESS](#check_data_access-1aff0f5526c7)
+- [CMD\_FILTER](#cmd_filter-202bdf5d983c)
+- [DATA\_FILTER](#data_filter-fb72d718d64a)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

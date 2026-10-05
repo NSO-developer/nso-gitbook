@@ -11,25 +11,25 @@ Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b24
 
 **Constructors**:
 
-- [Factory()](#factory-0e9f9d7f4e84)
+- [Factory\(\)](#factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#asreader-ca134a2a5b60)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#constructreader-fbce6f4f912a)
-- [getDay()](Builder.md#getday-3b07996cd5f6) from Builder
-- [getMonth()](Builder.md#getmonth-3813513d5069) from Builder
-- [getTimezone()](Builder.md#gettimezone-9573790f24e6) from Builder
-- [getTimezoneMinutes()](Builder.md#gettimezoneminutes-b20d3de8d152) from Builder
-- [getYear()](Builder.md#getyear-584af4457cda) from Builder
-- [setDay(byte)](Builder.md#setday-2c873a29eed0) from Builder
-- [setMonth(byte)](Builder.md#setmonth-b56a6d48db74) from Builder
-- [setTimezone(byte)](Builder.md#settimezone-c58c111fac16) from Builder
-- [setTimezoneMinutes(byte)](Builder.md#settimezoneminutes-69e0ed31afd1) from Builder
-- [setYear(short)](Builder.md#setyear-ecdf80e7189d) from Builder
-- [structSize()](#structsize-1fa68dcadd21)
+- [asReader\(\)](Builder.md#asreader-b5c0f2a8d115) from Builder
+- [asReader\(Builder\)](#asreader-ca134a2a5b60)
+- [constructBuilder\(SegmentBuilder, int, int, int, short\)](#constructbuilder-5a2abf3209f9)
+- [constructReader\(SegmentReader, int, int, int, short, int\)](#constructreader-fbce6f4f912a)
+- [getDay\(\)](Builder.md#getday-3b07996cd5f6) from Builder
+- [getMonth\(\)](Builder.md#getmonth-3813513d5069) from Builder
+- [getTimezone\(\)](Builder.md#gettimezone-9573790f24e6) from Builder
+- [getTimezoneMinutes\(\)](Builder.md#gettimezoneminutes-b20d3de8d152) from Builder
+- [getYear\(\)](Builder.md#getyear-584af4457cda) from Builder
+- [setDay\(byte\)](Builder.md#setday-2c873a29eed0) from Builder
+- [setMonth\(byte\)](Builder.md#setmonth-b56a6d48db74) from Builder
+- [setTimezone\(byte\)](Builder.md#settimezone-c58c111fac16) from Builder
+- [setTimezoneMinutes\(byte\)](Builder.md#settimezoneminutes-69e0ed31afd1) from Builder
+- [setYear\(short\)](Builder.md#setyear-ecdf80e7189d) from Builder
+- [structSize\(\)](#structsize-1fa68dcadd21)
 
 ## Constructors
 

@@ -108,29 +108,29 @@ This class is used to represent an alarm instance of an entry in
 
 **Constructors**:
 
-- [Alarm()](#alarm-85f095f88654)
-- [Alarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#alarm-81c1058677fc)
-- [Alarm(ManagedDevice, ManagedObject, ConfIdentityRef, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#alarm-35d516f7889e)
+- [Alarm\(\)](#alarm-85f095f88654)
+- [Alarm\(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List\<ManagedObject\>, List\<AlarmId\>, List\<ManagedObject\>, ConfDatetime, Attribute\[\]\)](#alarm-81c1058677fc)
+- [Alarm\(ManagedDevice, ManagedObject, ConfIdentityRef, PerceivedSeverity, ConfBuf, List\<ManagedObject\>, List\<AlarmId\>, List\<ManagedObject\>, ConfDatetime, Attribute\[\]\)](#alarm-35d516f7889e)
 
 **Methods**:
 
-- [alarmText()](#alarmtext-efe8fe4bc726)
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [getAlarmType()](#getalarmtype-80d08d07e5c6)
-- [getCustomAttributes()](#getcustomattributes-47a1386413e6)
-- [getImpactedObjects()](#getimpactedobjects-5bad4ce10c30)
-- [getManagedDevice()](#getmanageddevice-a92f8741d02f)
-- [getManagedObject()](#getmanagedobject-2257610c0381)
-- [getPerceivedSeverity()](#getperceivedseverity-45b453ff90f8)
-- [getRelatedAlarms()](#getrelatedalarms-caad0a60b2e2)
-- [getRootCauseObjects()](#getrootcauseobjects-73835daf51d9)
-- [getSpecificProblem()](#getspecificproblem-236478d10663)
-- [getTimeStamp()](#gettimestamp-f6129b80c824)
-- [hashCode()](#hashcode-ef797a217903)
-- [isCleared()](#iscleared-94f487388947)
-- [isLastAlarm()](#islastalarm-45ec5733b904)
-- [lastAlarm()](#lastalarm-b867c9cc4a2f)
-- [toString()](#tostring-e9d48c5503ef)
+- [alarmText\(\)](#alarmtext-efe8fe4bc726)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [getAlarmType\(\)](#getalarmtype-80d08d07e5c6)
+- [getCustomAttributes\(\)](#getcustomattributes-47a1386413e6)
+- [getImpactedObjects\(\)](#getimpactedobjects-5bad4ce10c30)
+- [getManagedDevice\(\)](#getmanageddevice-a92f8741d02f)
+- [getManagedObject\(\)](#getmanagedobject-2257610c0381)
+- [getPerceivedSeverity\(\)](#getperceivedseverity-45b453ff90f8)
+- [getRelatedAlarms\(\)](#getrelatedalarms-caad0a60b2e2)
+- [getRootCauseObjects\(\)](#getrootcauseobjects-73835daf51d9)
+- [getSpecificProblem\(\)](#getspecificproblem-236478d10663)
+- [getTimeStamp\(\)](#gettimestamp-f6129b80c824)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [isCleared\(\)](#iscleared-94f487388947)
+- [isLastAlarm\(\)](#islastalarm-45ec5733b904)
+- [lastAlarm\(\)](#lastalarm-b867c9cc4a2f)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

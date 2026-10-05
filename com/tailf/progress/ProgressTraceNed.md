@@ -30,22 +30,22 @@ The purpose of ` ProgressTraceNed ` class
 
 **Constructors**:
 
-- [ProgressTraceNed(Maapi, String)](#progresstracened-035453e18770)
+- [ProgressTraceNed\(Maapi, String\)](#progresstracened-035453e18770)
 
 **Methods**:
 
-- [endSpan(Span)](ProgressTrace.md#endspan-832d21f903c3) from ProgressTrace
-- [endSpan(Span, String)](ProgressTrace.md#endspan-1c44c700da19) from ProgressTrace
-- [event(String)](#event-35c2a3878e07)
-- [event(Verbosity, String)](#event-9f8a52e74d94)
-- [event(Verbosity, String, Attributes)](#event-cdc8c9e968cd)
-- [getCurrentSpan()](ProgressTrace.md#getcurrentspan-95e59db0f66f) from ProgressTrace
-- [setDeviceId(String)](#setdeviceid-d5a05ed041f8)
-- [setPhase(String)](#setphase-06ea7510d166)
-- [setServicePath(ConfPath)](ProgressTrace.md#setservicepath-95207665ae57) from ProgressTrace
-- [startSpan(String)](#startspan-a255151f7145)
-- [startSpan(Verbosity, String)](#startspan-b310d5a59dbf)
-- [startSpan(Verbosity, String, Attributes, Span[])](#startspan-ec78710be35e)
+- [endSpan\(Span\)](ProgressTrace.md#endspan-832d21f903c3) from ProgressTrace
+- [endSpan\(Span, String\)](ProgressTrace.md#endspan-1c44c700da19) from ProgressTrace
+- [event\(String\)](#event-35c2a3878e07)
+- [event\(Verbosity, String\)](#event-9f8a52e74d94)
+- [event\(Verbosity, String, Attributes\)](#event-cdc8c9e968cd)
+- [getCurrentSpan\(\)](ProgressTrace.md#getcurrentspan-95e59db0f66f) from ProgressTrace
+- [setDeviceId\(String\)](#setdeviceid-d5a05ed041f8)
+- [setPhase\(String\)](#setphase-06ea7510d166)
+- [setServicePath\(ConfPath\)](ProgressTrace.md#setservicepath-95207665ae57) from ProgressTrace
+- [startSpan\(String\)](#startspan-a255151f7145)
+- [startSpan\(Verbosity, String\)](#startspan-b310d5a59dbf)
+- [startSpan\(Verbosity, String, Attributes, Span\[\]\)](#startspan-ec78710be35e)
 
 ## Constructors
 

@@ -45,14 +45,14 @@ Represents configuration data input stream used to download configurations.
 
 **Constructors**:
 
-- [MaapiInputStream(Maapi, int, int)](#maapiinputstream-5fb25a8abbc7)
+- [MaapiInputStream\(Maapi, int, int\)](#maapiinputstream-5fb25a8abbc7)
 
 **Methods**:
 
-- [getStreamId()](#getstreamid-97befd015dba)
-- [hasReadAll()](#hasreadall-90559f69e54d)
-- [read()](#read-b28b830b98d6)
-- [read(byte[], int, int)](#read-0ea898e534b6)
+- [getStreamId\(\)](#getstreamid-97befd015dba)
+- [hasReadAll\(\)](#hasreadall-90559f69e54d)
+- [read\(\)](#read-b28b830b98d6)
+- [read\(byte\[\], int, int\)](#read-0ea898e534b6)
 
 ## Constructors
 

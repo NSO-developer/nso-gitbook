@@ -9,16 +9,16 @@ public static final class com.tailf.ncs.maapi.Schema.MountPoint.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getEntries()](#getentries-f554b7f62e3d)
-- [getNsHash()](#getnshash-f6f3e3ae1e6b)
-- [getPath()](#getpath-88fb21895561)
-- [getPathHash()](#getpathhash-14d7d9222b28)
-- [hasEntries()](#hasentries-ccf5edf194a9)
-- [hasPath()](#haspath-c0f486b47df7)
+- [getEntries\(\)](#getentries-f554b7f62e3d)
+- [getNsHash\(\)](#getnshash-f6f3e3ae1e6b)
+- [getPath\(\)](#getpath-88fb21895561)
+- [getPathHash\(\)](#getpathhash-14d7d9222b28)
+- [hasEntries\(\)](#hasentries-ccf5edf194a9)
+- [hasPath\(\)](#haspath-c0f486b47df7)
 
 ## Constructors
 

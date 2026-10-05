@@ -16,24 +16,24 @@ Token Manager.
 
 **Constructors**:
 
-- [XPathAbrev1TokenManager(JavaCharStream)](#xpathabrev1tokenmanager-9d591d3f2da9)
-- [XPathAbrev1TokenManager(JavaCharStream, int)](#xpathabrev1tokenmanager-77d0e278c64e)
+- [XPathAbrev1TokenManager\(JavaCharStream\)](#xpathabrev1tokenmanager-9d591d3f2da9)
+- [XPathAbrev1TokenManager\(JavaCharStream, int\)](#xpathabrev1tokenmanager-77d0e278c64e)
 
 **Fields**:
 
-- [AXIS_ANCESTOR](XPathAbrev1Constants.md#axis_ancestor-62c59dd9b2e3) from XPathAbrev1Constants
-- [AXIS_ANCESTOR_OR_SELF](XPathAbrev1Constants.md#axis_ancestor_or_self-8a86e8f77b65) from XPathAbrev1Constants
-- [AXIS_ATTRIBUTE](XPathAbrev1Constants.md#axis_attribute-a05946445c05) from XPathAbrev1Constants
-- [AXIS_CHILD](XPathAbrev1Constants.md#axis_child-b30db2353719) from XPathAbrev1Constants
-- [AXIS_DESCENDANT](XPathAbrev1Constants.md#axis_descendant-15e7b43dd049) from XPathAbrev1Constants
-- [AXIS_DESCENDANT_OR_SELF](XPathAbrev1Constants.md#axis_descendant_or_self-9f6c29a66ab9) from XPathAbrev1Constants
-- [AXIS_FOLLOWING](XPathAbrev1Constants.md#axis_following-a1c4549e0b7e) from XPathAbrev1Constants
-- [AXIS_FOLLOWING_SIBLING](XPathAbrev1Constants.md#axis_following_sibling-15c026a27921) from XPathAbrev1Constants
-- [AXIS_NAMESPACE](XPathAbrev1Constants.md#axis_namespace-fca116cb0837) from XPathAbrev1Constants
-- [AXIS_PARENT](XPathAbrev1Constants.md#axis_parent-a46c866285ba) from XPathAbrev1Constants
-- [AXIS_PRECEDING](XPathAbrev1Constants.md#axis_preceding-928fdaa9975d) from XPathAbrev1Constants
-- [AXIS_PRECEDING_SIBLING](XPathAbrev1Constants.md#axis_preceding_sibling-d98b9bd3ec33) from XPathAbrev1Constants
-- [AXIS_SELF](XPathAbrev1Constants.md#axis_self-e8df13365b56) from XPathAbrev1Constants
+- [AXIS\_ANCESTOR](XPathAbrev1Constants.md#axis_ancestor-62c59dd9b2e3) from XPathAbrev1Constants
+- [AXIS\_ANCESTOR\_OR\_SELF](XPathAbrev1Constants.md#axis_ancestor_or_self-8a86e8f77b65) from XPathAbrev1Constants
+- [AXIS\_ATTRIBUTE](XPathAbrev1Constants.md#axis_attribute-a05946445c05) from XPathAbrev1Constants
+- [AXIS\_CHILD](XPathAbrev1Constants.md#axis_child-b30db2353719) from XPathAbrev1Constants
+- [AXIS\_DESCENDANT](XPathAbrev1Constants.md#axis_descendant-15e7b43dd049) from XPathAbrev1Constants
+- [AXIS\_DESCENDANT\_OR\_SELF](XPathAbrev1Constants.md#axis_descendant_or_self-9f6c29a66ab9) from XPathAbrev1Constants
+- [AXIS\_FOLLOWING](XPathAbrev1Constants.md#axis_following-a1c4549e0b7e) from XPathAbrev1Constants
+- [AXIS\_FOLLOWING\_SIBLING](XPathAbrev1Constants.md#axis_following_sibling-15c026a27921) from XPathAbrev1Constants
+- [AXIS\_NAMESPACE](XPathAbrev1Constants.md#axis_namespace-fca116cb0837) from XPathAbrev1Constants
+- [AXIS\_PARENT](XPathAbrev1Constants.md#axis_parent-a46c866285ba) from XPathAbrev1Constants
+- [AXIS\_PRECEDING](XPathAbrev1Constants.md#axis_preceding-928fdaa9975d) from XPathAbrev1Constants
+- [AXIS\_PRECEDING\_SIBLING](XPathAbrev1Constants.md#axis_preceding_sibling-d98b9bd3ec33) from XPathAbrev1Constants
+- [AXIS\_SELF](XPathAbrev1Constants.md#axis_self-e8df13365b56) from XPathAbrev1Constants
 - [BaseChar](XPathAbrev1Constants.md#basechar-40e1261471a6) from XPathAbrev1Constants
 - [CombiningChar](XPathAbrev1Constants.md#combiningchar-04353df29e46) from XPathAbrev1Constants
 - [curChar](#curchar-3e995b252b00)
@@ -45,9 +45,9 @@ Token Manager.
 - [EOF](XPathAbrev1Constants.md#eof-e4ab74e8c3eb) from XPathAbrev1Constants
 - [EQ](XPathAbrev1Constants.md#eq-27379a35bac0) from XPathAbrev1Constants
 - [Extender](XPathAbrev1Constants.md#extender-16833fdff759) from XPathAbrev1Constants
-- [FUNCTION_CURRENT](XPathAbrev1Constants.md#function_current-756d70c6837c) from XPathAbrev1Constants
+- [FUNCTION\_CURRENT](XPathAbrev1Constants.md#function_current-756d70c6837c) from XPathAbrev1Constants
 - [Ideographic](XPathAbrev1Constants.md#ideographic-9e9a508c5c4b) from XPathAbrev1Constants
-- [input_stream](#input_stream-2a4833575cfa)
+- [input\_stream](#input_stream-2a4833575cfa)
 - [jjbitVec0](#jjbitvec0-7cc00549bd7f)
 - [jjbitVec10](#jjbitvec10-5873bcaf2305)
 - [jjbitVec11](#jjbitvec11-239c699d39a0)
@@ -111,15 +111,15 @@ Token Manager.
 
 **Methods**:
 
-- [getNextToken()](#getnexttoken-dc921ada5024)
-- [jjFillToken()](#jjfilltoken-65cab186126c)
-- [MoreLexicalActions()](#morelexicalactions-949853b6331d)
-- [ReInit(JavaCharStream)](#reinit-aea274b20650)
-- [ReInit(JavaCharStream, int)](#reinit-162412793959)
-- [setDebugStream(PrintStream)](#setdebugstream-b3ded1375b4f)
-- [SkipLexicalActions(Token)](#skiplexicalactions-0975b69b0591)
-- [SwitchTo(int)](#switchto-11e96339668c)
-- [TokenLexicalActions(Token)](#tokenlexicalactions-16d53417ba92)
+- [getNextToken\(\)](#getnexttoken-dc921ada5024)
+- [jjFillToken\(\)](#jjfilltoken-65cab186126c)
+- [MoreLexicalActions\(\)](#morelexicalactions-949853b6331d)
+- [ReInit\(JavaCharStream\)](#reinit-aea274b20650)
+- [ReInit\(JavaCharStream, int\)](#reinit-162412793959)
+- [setDebugStream\(PrintStream\)](#setdebugstream-b3ded1375b4f)
+- [SkipLexicalActions\(Token\)](#skiplexicalactions-0975b69b0591)
+- [SwitchTo\(int\)](#switchto-11e96339668c)
+- [TokenLexicalActions\(Token\)](#tokenlexicalactions-16d53417ba92)
 
 ## Constructors
 

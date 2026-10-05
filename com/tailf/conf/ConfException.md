@@ -25,21 +25,21 @@ Exception base class. Capable of formatting protocol errors into exceptions.
 
 **Constructors**:
 
-- [ConfException(String)](#confexception-dc970c7fe4fe)
-- [ConfException(String, ErrorCode)](#confexception-d917b21fb864)
-- [ConfException(String, ErrorCode, Throwable)](#confexception-2ef26e60c90a)
-- [ConfException(String, ErrorCode, Throwable, Object)](#confexception-1d5a0544c033)
-- [ConfException(String, int)](#confexception-f9ced700f545)
-- [ConfException(String, int, Throwable)](#confexception-b28d9204d01c)
-- [ConfException(String, Throwable)](#confexception-c87e2ff2e68c)
-- [ConfException(Throwable)](#confexception-97f34dedf669)
+- [ConfException\(String\)](#confexception-dc970c7fe4fe)
+- [ConfException\(String, ErrorCode\)](#confexception-d917b21fb864)
+- [ConfException\(String, ErrorCode, Throwable\)](#confexception-2ef26e60c90a)
+- [ConfException\(String, ErrorCode, Throwable, Object\)](#confexception-1d5a0544c033)
+- [ConfException\(String, int\)](#confexception-f9ced700f545)
+- [ConfException\(String, int, Throwable\)](#confexception-b28d9204d01c)
+- [ConfException\(String, Throwable\)](#confexception-c87e2ff2e68c)
+- [ConfException\(Throwable\)](#confexception-97f34dedf669)
 
 **Methods**:
 
-- [getErrorCode()](#geterrorcode-812152fc083a)
-- [getOpaque()](#getopaque-92e4945ec92d)
-- [mk(ConfResponse)](#mk-de1cedfc6ea8)
-- [mk(ConfResponse, ConfPath)](#mk-79e69ffbc022)
+- [getErrorCode\(\)](#geterrorcode-812152fc083a)
+- [getOpaque\(\)](#getopaque-92e4945ec92d)
+- [mk\(ConfResponse\)](#mk-de1cedfc6ea8)
+- [mk\(ConfResponse, ConfPath\)](#mk-79e69ffbc022)
 
 ## Constructors
 

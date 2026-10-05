@@ -13,17 +13,17 @@ Data structure received from [`Cdb#getTxId()`](Cdb.md#gettxid-1817ce3409ba) meth
 
 **Constructors**:
 
-- [CdbTxId(String, int, int, int)](#cdbtxid-e81c281fc8c1)
+- [CdbTxId\(String, int, int, int\)](#cdbtxid-e81c281fc8c1)
 
 **Methods**:
 
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [getNode()](#getnode-52e3d8224b48)
-- [getS1()](#gets1-50b10751fabb)
-- [getS2()](#gets2-1443594bd6f7)
-- [getS3()](#gets3-2ee1ddf494a1)
-- [hashCode()](#hashcode-ef797a217903)
-- [toString()](#tostring-e9d48c5503ef)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [getNode\(\)](#getnode-52e3d8224b48)
+- [getS1\(\)](#gets1-50b10751fabb)
+- [getS2\(\)](#gets2-1443594bd6f7)
+- [getS3\(\)](#gets3-2ee1ddf494a1)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

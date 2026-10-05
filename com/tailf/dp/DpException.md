@@ -17,19 +17,19 @@ General Dp Exception
 
 **Constructors**:
 
-- [DpException(String)](#dpexception-adf0b93881e4)
-- [DpException(String, ErrorCode)](#dpexception-e3361e681466)
-- [DpException(String, ErrorCode, Throwable)](#dpexception-e6dd2c98e757)
-- [DpException(String, int, Throwable)](#dpexception-68c3df6b9602)
-- [DpException(String, Throwable)](#dpexception-3ddd54e89606)
-- [DpException(Throwable)](#dpexception-780b792b8566)
+- [DpException\(String\)](#dpexception-adf0b93881e4)
+- [DpException\(String, ErrorCode\)](#dpexception-e3361e681466)
+- [DpException\(String, ErrorCode, Throwable\)](#dpexception-e6dd2c98e757)
+- [DpException\(String, int, Throwable\)](#dpexception-68c3df6b9602)
+- [DpException\(String, Throwable\)](#dpexception-3ddd54e89606)
+- [DpException\(Throwable\)](#dpexception-780b792b8566)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](#mk-de1cedfc6ea8)
-- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
+- [getErrorCode\(\)](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](#mk-de1cedfc6ea8)
+- [mk\(ConfResponse, ConfPath\)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
 
 ## Constructors
 

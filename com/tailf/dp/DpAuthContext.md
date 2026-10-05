@@ -12,19 +12,19 @@ Authentication context class. The DpAuthCallback.auth() callback method is
 
 **Constructors**:
 
-- [DpAuthContext(DpUserInfo, String, boolean, int, String[], int, String, String)](#dpauthcontext-fe04319e1322)
+- [DpAuthContext\(DpUserInfo, String, boolean, int, String\[\], int, String, String\)](#dpauthcontext-fe04319e1322)
 
 **Methods**:
 
-- [getErrorString()](#geterrorstring-3b4eba00496b)
-- [getGroups()](#getgroups-42a63746c815)
-- [getLogNo()](#getlogno-0a53380cc549)
-- [getMethod()](#getmethod-50f16c317ece)
-- [getNumGroups()](#getnumgroups-08bbbf8f5900)
-- [getReason()](#getreason-5eb89e7b2733)
-- [getUserInfo()](#getuserinfo-3ecef1f24d3d)
-- [isSuccess()](#issuccess-92b05032c7ec)
-- [setError(String, Object[])](#seterror-3f96aececb3d)
+- [getErrorString\(\)](#geterrorstring-3b4eba00496b)
+- [getGroups\(\)](#getgroups-42a63746c815)
+- [getLogNo\(\)](#getlogno-0a53380cc549)
+- [getMethod\(\)](#getmethod-50f16c317ece)
+- [getNumGroups\(\)](#getnumgroups-08bbbf8f5900)
+- [getReason\(\)](#getreason-5eb89e7b2733)
+- [getUserInfo\(\)](#getuserinfo-3ecef1f24d3d)
+- [isSuccess\(\)](#issuccess-92b05032c7ec)
+- [setError\(String, Object\[\]\)](#seterror-3f96aececb3d)
 
 ## Constructors
 

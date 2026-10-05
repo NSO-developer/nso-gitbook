@@ -9,15 +9,15 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDecimal64.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getFractionDigits()](#getfractiondigits-57dce19c4ffe)
-- [getValue()](#getvalue-d93864668c40)
-- [setFractionDigits(byte)](#setfractiondigits-4268b060f4fc)
-- [setValue(long)](#setvalue-0eb87343a952)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getFractionDigits\(\)](#getfractiondigits-57dce19c4ffe)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [setFractionDigits\(byte\)](#setfractiondigits-4268b060f4fc)
+- [setValue\(long\)](#setvalue-0eb87343a952)
 
 ## Constructors
 

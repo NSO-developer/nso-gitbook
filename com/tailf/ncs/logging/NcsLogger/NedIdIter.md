@@ -13,11 +13,11 @@ Types: [CdbDiffIterate](../../../cdb/CdbDiffIterate.md#cdbdiffiterate-ab6fafeeb3
 
 **Constructors**:
 
-- [NedIdIter()](#nediditer-97d6da7077c5)
+- [NedIdIter\(\)](#nediditer-97d6da7077c5)
 
 **Methods**:
 
-- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#iterate-d80a566b7e0a)
+- [iterate\(ConfObject\[\], DiffIterateOperFlag, ConfObject, ConfObject, Object\)](#iterate-d80a566b7e0a)
 
 ## Constructors
 

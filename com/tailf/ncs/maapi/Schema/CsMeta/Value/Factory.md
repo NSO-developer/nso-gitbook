@@ -11,25 +11,25 @@ Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b24
 
 **Constructors**:
 
-- [Factory()](#factory-0e9f9d7f4e84)
+- [Factory\(\)](#factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#asreader-de6df5863fd3)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#constructreader-fbce6f4f912a)
-- [getNone()](Builder.md#getnone-e31bfdbffa7f) from Builder
-- [getText()](Builder.md#gettext-e63d55fcdcbd) from Builder
-- [hasText()](Builder.md#hastext-9f49522a4f5a) from Builder
-- [initText(int)](Builder.md#inittext-6175682972e5) from Builder
-- [isNone()](Builder.md#isnone-e8a993ad0453) from Builder
-- [isText()](Builder.md#istext-98869fdb86ee) from Builder
-- [setNone(Void)](Builder.md#setnone-46764db867d5) from Builder
-- [setText(Reader)](Builder.md#settext-e072baf7bad6) from Builder
-- [setText(String)](Builder.md#settext-bb5093080571) from Builder
-- [structSize()](#structsize-1fa68dcadd21)
-- [which()](Builder.md#which-0b2d23db5ed0) from Builder
+- [asReader\(\)](Builder.md#asreader-b5c0f2a8d115) from Builder
+- [asReader\(Builder\)](#asreader-de6df5863fd3)
+- [constructBuilder\(SegmentBuilder, int, int, int, short\)](#constructbuilder-5a2abf3209f9)
+- [constructReader\(SegmentReader, int, int, int, short, int\)](#constructreader-fbce6f4f912a)
+- [getNone\(\)](Builder.md#getnone-e31bfdbffa7f) from Builder
+- [getText\(\)](Builder.md#gettext-e63d55fcdcbd) from Builder
+- [hasText\(\)](Builder.md#hastext-9f49522a4f5a) from Builder
+- [initText\(int\)](Builder.md#inittext-6175682972e5) from Builder
+- [isNone\(\)](Builder.md#isnone-e8a993ad0453) from Builder
+- [isText\(\)](Builder.md#istext-98869fdb86ee) from Builder
+- [setNone\(Void\)](Builder.md#setnone-46764db867d5) from Builder
+- [setText\(Reader\)](Builder.md#settext-e072baf7bad6) from Builder
+- [setText\(String\)](Builder.md#settext-bb5093080571) from Builder
+- [structSize\(\)](#structsize-1fa68dcadd21)
+- [which\(\)](Builder.md#which-0b2d23db5ed0) from Builder
 
 ## Constructors
 

@@ -11,16 +11,16 @@ Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Constructors**:
 
-- [IllegalParentNavuNodeException(String, CSNode, NavuList, String)](#illegalparentnavunodeexception-cce18948ed49)
+- [IllegalParentNavuNodeException\(String, CSNode, NavuList, String\)](#illegalparentnavunodeexception-cce18948ed49)
 
 **Methods**:
 
-- [children()](#children-7d31300d62c3)
-- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](NavuException.md#mk-de1cedfc6ea8) from NavuException
-- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
-- [mk(String, CSNode, NavuList)](#mk-ec0196cd6485)
+- [children\(\)](#children-7d31300d62c3)
+- [getErrorCode\(\)](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](NavuException.md#mk-de1cedfc6ea8) from NavuException
+- [mk\(ConfResponse, ConfPath\)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
+- [mk\(String, CSNode, NavuList\)](#mk-ec0196cd6485)
 
 ## Constructors
 

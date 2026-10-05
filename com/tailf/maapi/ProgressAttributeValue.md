@@ -13,7 +13,7 @@ public abstract class com.tailf.maapi.ProgressAttributeValue
 
 **Constructors**:
 
-- [ProgressAttributeValue()](#progressattributevalue-a4ac928cefaf)
+- [ProgressAttributeValue\(\)](#progressattributevalue-a4ac928cefaf)
 
 **Fields**:
 
@@ -22,7 +22,7 @@ public abstract class com.tailf.maapi.ProgressAttributeValue
 
 **Methods**:
 
-- [toString()](#tostring-e9d48c5503ef)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

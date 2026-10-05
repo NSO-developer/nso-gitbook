@@ -13,14 +13,14 @@ Types: [Entry](QueryResult/Entry.md#entry-8f0de475aa8c), [ResultType](ResultType
 
 **Constructors**:
 
-- [QueryResultIterator(Maapi, ConfELong)](#queryresultiterator-331ff5362a54)
+- [QueryResultIterator\(Maapi, ConfELong\)](#queryresultiterator-331ff5362a54)
 
 **Methods**:
 
-- [hasNext()](#hasnext-93a8c9169964)
-- [next()](#next-9a4cfa383e59)
-- [remove()](#remove-8a10330a964f)
-- [value()](QueryResult/Entry.md#value-9e1512d1a0ce) from Entry
+- [hasNext\(\)](#hasnext-93a8c9169964)
+- [next\(\)](#next-9a4cfa383e59)
+- [remove\(\)](#remove-8a10330a964f)
+- [value\(\)](QueryResult/Entry.md#value-9e1512d1a0ce) from Entry
 
 ## Constructors
 

@@ -13,7 +13,7 @@ This class represents an alarm attribute.
 
 **Constructors**:
 
-- [AlarmAttribute(ConfNamespace, String, ConfValue)](#alarmattribute-2a564e1a8b6f)
+- [AlarmAttribute\(ConfNamespace, String, ConfValue\)](#alarmattribute-2a564e1a8b6f)
 
 **Fields**:
 
@@ -21,10 +21,10 @@ This class represents an alarm attribute.
 
 **Methods**:
 
-- [getId()](Attribute.md#getid-199a349c70ef) from Attribute
-- [getNameSpace()](Attribute.md#getnamespace-e413af21e168) from Attribute
-- [getValue()](Attribute.md#getvalue-d93864668c40) from Attribute
-- [toString()](Attribute.md#tostring-e9d48c5503ef) from Attribute
+- [getId\(\)](Attribute.md#getid-199a349c70ef) from Attribute
+- [getNameSpace\(\)](Attribute.md#getnamespace-e413af21e168) from Attribute
+- [getValue\(\)](Attribute.md#getvalue-d93864668c40) from Attribute
+- [toString\(\)](Attribute.md#tostring-e9d48c5503ef) from Attribute
 
 ## Constructors
 

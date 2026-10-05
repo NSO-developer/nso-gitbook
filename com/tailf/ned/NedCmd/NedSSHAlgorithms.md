@@ -8,18 +8,18 @@ public class com.tailf.ned.NedCmd.NedSSHAlgorithms
 
 **Constructors**:
 
-- [NedSSHAlgorithms(List<String>, List<String>, List<String>, List<String>, List<String>, Long, Long, Long)](#nedsshalgorithms-bd7d94821172)
+- [NedSSHAlgorithms\(List\<String\>, List\<String\>, List\<String\>, List\<String\>, List\<String\>, Long, Long, Long\)](#nedsshalgorithms-bd7d94821172)
 
 **Methods**:
 
-- [getCipher()](#getcipher-d6df3bb3f677)
-- [getCompression()](#getcompression-37ea68461bdc)
-- [getDhGexLimitMax()](#getdhgexlimitmax-b4d0e88a3d9e)
-- [getDhGexLimitMin()](#getdhgexlimitmin-99dbb3a6e7c8)
-- [getDhGexLimitPreferred()](#getdhgexlimitpreferred-4e09d85b2065)
-- [getKex()](#getkex-0fc5b93870ec)
-- [getMac()](#getmac-9ae00b4c1217)
-- [getPublicKey()](#getpublickey-d5ee7d6bb561)
+- [getCipher\(\)](#getcipher-d6df3bb3f677)
+- [getCompression\(\)](#getcompression-37ea68461bdc)
+- [getDhGexLimitMax\(\)](#getdhgexlimitmax-b4d0e88a3d9e)
+- [getDhGexLimitMin\(\)](#getdhgexlimitmin-99dbb3a6e7c8)
+- [getDhGexLimitPreferred\(\)](#getdhgexlimitpreferred-4e09d85b2065)
+- [getKex\(\)](#getkex-0fc5b93870ec)
+- [getMac\(\)](#getmac-9ae00b4c1217)
+- [getPublicKey\(\)](#getpublickey-d5ee7d6bb561)
 
 ## Constructors
 

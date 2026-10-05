@@ -8,13 +8,13 @@ public static class com.tailf.ncs.maapi.Schema.CsValueDQuad
 
 **Constructors**:
 
-- [CsValueDQuad()](#csvaluedquad-700f0f35c5e3)
+- [CsValueDQuad\(\)](#csvaluedquad-700f0f35c5e3)
 
 **Fields**:
 
 - [factory](#factory-1649195a6f6e)
 - [listFactory](#listfactory-b96025f1568b)
-- [STRUCT_SIZE](#struct_size-06830f6b9d3b)
+- [STRUCT\_SIZE](#struct_size-06830f6b9d3b)
 
 **Nested Types**:
 

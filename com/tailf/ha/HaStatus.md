@@ -14,12 +14,12 @@ This class represents a status for an HA node in an HA cluster. First, the
 
 **Constructors**:
 
-- [HaStatus(HaStateType, ConfHaNode[])](#hastatus-e22b8611269d)
+- [HaStatus\(HaStateType, ConfHaNode\[\]\)](#hastatus-e22b8611269d)
 
 **Methods**:
 
-- [getHaState()](#gethastate-2f8260e75c6b)
-- [getNodes()](#getnodes-0d0e9b3adfd1)
+- [getHaState\(\)](#gethastate-2f8260e75c6b)
+- [getNodes\(\)](#getnodes-0d0e9b3adfd1)
 
 ## Constructors
 

@@ -13,22 +13,22 @@ Data structure for Confirmed commit notifications.
 
 **Constructors**:
 
-- [ConfirmNotification(int, int, DpUserInfo)](#confirmnotification-cb060c6a6027)
+- [ConfirmNotification\(int, int, DpUserInfo\)](#confirmnotification-cb060c6a6027)
 
 **Fields**:
 
-- [ABORT_COMMIT](#abort_commit-d43b0e4c5f2b)
-- [CONFIRMED_COMMIT](#confirmed_commit-7160edf150ed)
-- [CONFIRMING_COMMIT](#confirming_commit-49ccfaa64e7f)
+- [ABORT\_COMMIT](#abort_commit-d43b0e4c5f2b)
+- [CONFIRMED\_COMMIT](#confirmed_commit-7160edf150ed)
+- [CONFIRMING\_COMMIT](#confirming_commit-49ccfaa64e7f)
 - [type](Notification.md#type-6ebb3673fbb6) from Notification
 
 **Methods**:
 
-- [getConfirmType()](#getconfirmtype-96b437a16009)
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getTimeout()](#gettimeout-c6606d7f7c00)
-- [getUserInfo()](#getuserinfo-3ecef1f24d3d)
-- [toString()](#tostring-e9d48c5503ef)
+- [getConfirmType\(\)](#getconfirmtype-96b437a16009)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getTimeout\(\)](#gettimeout-c6606d7f7c00)
+- [getUserInfo\(\)](#getuserinfo-3ecef1f24d3d)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

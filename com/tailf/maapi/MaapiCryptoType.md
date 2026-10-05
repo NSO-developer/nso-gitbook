@@ -18,14 +18,14 @@ Data encryption and decryption helper class for each supported
 
 **Methods**:
 
-- [decrypt(byte[], String)](#decrypt-f32031492937)
-- [decrypt(byte[], String, byte[])](#decrypt-b3bea7978720)
-- [encrypt(byte[], String)](#encrypt-1b582cae7f14)
-- [find(String)](#find-e05e0e781b51)
-- [fixedIV(String)](#fixediv-d3170dc48d0b)
-- [isEncrypted(String)](#isencrypted-1e29023d8a65)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [decrypt\(byte\[\], String\)](#decrypt-f32031492937)
+- [decrypt\(byte\[\], String, byte\[\]\)](#decrypt-b3bea7978720)
+- [encrypt\(byte\[\], String\)](#encrypt-1b582cae7f14)
+- [find\(String\)](#find-e05e0e781b51)
+- [fixedIV\(String\)](#fixediv-d3170dc48d0b)
+- [isEncrypted\(String\)](#isencrypted-1e29023d8a65)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

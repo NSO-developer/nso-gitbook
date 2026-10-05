@@ -9,13 +9,13 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeBits.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getBits()](#getbits-032b4694ff31)
-- [getWidth()](#getwidth-aff9ccaa8b54)
-- [hasBits()](#hasbits-3d091966c9f9)
+- [getBits\(\)](#getbits-032b4694ff31)
+- [getWidth\(\)](#getwidth-aff9ccaa8b54)
+- [hasBits\(\)](#hasbits-3d091966c9f9)
 
 ## Constructors
 

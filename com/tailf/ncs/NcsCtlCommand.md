@@ -10,35 +10,35 @@ Ncs Java VM protocol command representation class
 
 **Constructors**:
 
-- [NcsCtlCommand(ConfETuple, Socket)](#ncsctlcommand-2e93c877cc48)
+- [NcsCtlCommand\(ConfETuple, Socket\)](#ncsctlcommand-2e93c877cc48)
 
 **Fields**:
 
-- [ADD_PACKAGES](#add_packages-d5e018d505f0)
-- [CLEAR_MOUNT_ID_CACHE](#clear_mount_id_cache-f072855efe3a)
+- [ADD\_PACKAGES](#add_packages-d5e018d505f0)
+- [CLEAR\_MOUNT\_ID\_CACHE](#clear_mount_id_cache-f072855efe3a)
 - [command](#command-82a38d31596c)
 - [data](#data-4415a4d33c53)
-- [DONE_LOADING](#done_loading-c4da50f7eff6)
-- [INIT_JVM](#init_jvm-a4f53c069c37)
-- [INSTANTIATE_COMPONENT](#instantiate_component-4a49010db382)
-- [LOAD_PACKAGE](#load_package-8d36bfdd569c)
-- [LOAD_SHARED_JARS](#load_shared_jars-0af221fb126a)
-- [REDEPLOY_PACKAGE](#redeploy_package-73aa8e828f1c)
-- [RELOAD_SCHEMA](#reload_schema-20cb49bb632d)
+- [DONE\_LOADING](#done_loading-c4da50f7eff6)
+- [INIT\_JVM](#init_jvm-a4f53c069c37)
+- [INSTANTIATE\_COMPONENT](#instantiate_component-4a49010db382)
+- [LOAD\_PACKAGE](#load_package-8d36bfdd569c)
+- [LOAD\_SHARED\_JARS](#load_shared_jars-0af221fb126a)
+- [REDEPLOY\_PACKAGE](#redeploy_package-73aa8e828f1c)
+- [RELOAD\_SCHEMA](#reload_schema-20cb49bb632d)
 - [requestId](#requestid-4b247ba15f86)
 - [RERUN](#rerun-dc3d68f96819)
 - [SELFTEST](#selftest-40450ef7f9d7)
 - [STATUS](#status-108f5067a231)
-- [STOP_VM](#stop_vm-ff4f9db3ef03)
-- [UNLOAD_ALL](#unload_all-cde8ab4f1717)
-- [UNLOAD_PACKAGE](#unload_package-b38a70e37323)
+- [STOP\_VM](#stop_vm-ff4f9db3ef03)
+- [UNLOAD\_ALL](#unload_all-cde8ab4f1717)
+- [UNLOAD\_PACKAGE](#unload_package-b38a70e37323)
 
 **Methods**:
 
-- [getCommandString()](#getcommandstring-a5d8cbab7e7d)
-- [reply(boolean, ConfETuple)](#reply-af85a8b7a1c5)
-- [reply(boolean, String)](#reply-cf461c3b174d)
-- [toString()](#tostring-e9d48c5503ef)
+- [getCommandString\(\)](#getcommandstring-a5d8cbab7e7d)
+- [reply\(boolean, ConfETuple\)](#reply-af85a8b7a1c5)
+- [reply\(boolean, String\)](#reply-cf461c3b174d)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

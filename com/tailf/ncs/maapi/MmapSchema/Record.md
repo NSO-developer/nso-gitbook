@@ -12,14 +12,14 @@ Pointer to a unique schema record.
 
 **Constructors**:
 
-- [Record(Source, int)](#record-b0cdb48ebc6b)
+- [Record\(Source, int\)](#record-b0cdb48ebc6b)
 
 **Methods**:
 
-- [getCsIdx()](#getcsidx-c6cc07a1d6c3)
-- [getFlags()](#getflags-3c1ca90fd29c)
-- [getOff()](#getoff-578b9943fd00)
-- [read(Source, int)](#read-c048381a08bd)
+- [getCsIdx\(\)](#getcsidx-c6cc07a1d6c3)
+- [getFlags\(\)](#getflags-3c1ca90fd29c)
+- [getOff\(\)](#getoff-578b9943fd00)
+- [read\(Source, int\)](#read-c048381a08bd)
 
 ## Constructors
 

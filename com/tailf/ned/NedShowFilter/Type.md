@@ -11,13 +11,13 @@ Types: [Type](Type.md#type-e2b37c882bf2)
 **Enum Constants**:
 
 - [CONTAINMENT](#containment-6598cb1ae24e)
-- [CONTENT_MATCH](#content_match-06fdf68e0652)
+- [CONTENT\_MATCH](#content_match-06fdf68e0652)
 - [SELECTION](#selection-a773ec0a07ab)
 
 **Methods**:
 
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

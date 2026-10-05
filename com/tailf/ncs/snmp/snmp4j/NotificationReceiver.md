@@ -14,19 +14,19 @@ This class mediated the use of Snmp4j
 
 **Methods**:
 
-- [destroy()](#destroy-c06780cdd1bc)
-- [destroyNotificationReceiver()](#destroynotificationreceiver-fc60e4855559)
-- [getKnownIPAddresses()](#getknownipaddresses-73a59ac83893)
-- [getNotificationReceiver()](#getnotificationreceiver-c83248d8bc1a)
-- [getNotificationReceiver(SocketAddress)](#getnotificationreceiver-3a5397d83b63)
-- [getNotificationReceiver(String, int)](#getnotificationreceiver-62efe28b6fa5)
-- [getRegisteredNotificationHandlers()](#getregisterednotificationhandlers-603e3e7c392b)
-- [isEnabled()](#isenabled-e96410650a37)
-- [isStarted()](#isstarted-5c757faf6088)
-- [register(ArrayList<NotifHandlerInstance>)](#register-f6ca408fb1d6)
-- [register(NotificationHandler, Object)](#register-426f8c48becc)
-- [start()](#start-79e12dafe9f8)
-- [stop()](#stop-a62ecc446f97)
+- [destroy\(\)](#destroy-c06780cdd1bc)
+- [destroyNotificationReceiver\(\)](#destroynotificationreceiver-fc60e4855559)
+- [getKnownIPAddresses\(\)](#getknownipaddresses-73a59ac83893)
+- [getNotificationReceiver\(\)](#getnotificationreceiver-c83248d8bc1a)
+- [getNotificationReceiver\(SocketAddress\)](#getnotificationreceiver-3a5397d83b63)
+- [getNotificationReceiver\(String, int\)](#getnotificationreceiver-62efe28b6fa5)
+- [getRegisteredNotificationHandlers\(\)](#getregisterednotificationhandlers-603e3e7c392b)
+- [isEnabled\(\)](#isenabled-e96410650a37)
+- [isStarted\(\)](#isstarted-5c757faf6088)
+- [register\(ArrayList\<NotifHandlerInstance\>\)](#register-f6ca408fb1d6)
+- [register\(NotificationHandler, Object\)](#register-426f8c48becc)
+- [start\(\)](#start-79e12dafe9f8)
+- [stop\(\)](#stop-a62ecc446f97)
 
 ## Methods
 

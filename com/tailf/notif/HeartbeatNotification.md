@@ -13,7 +13,7 @@ Data structure for Heartbeat notifications.
 
 **Constructors**:
 
-- [HeartbeatNotification()](#heartbeatnotification-dac5c197dc5f)
+- [HeartbeatNotification\(\)](#heartbeatnotification-dac5c197dc5f)
 
 **Fields**:
 
@@ -21,8 +21,8 @@ Data structure for Heartbeat notifications.
 
 **Methods**:
 
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [toString()](Notification.md#tostring-e9d48c5503ef) from Notification
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [toString\(\)](Notification.md#tostring-e9d48c5503ef) from Notification
 
 ## Constructors
 

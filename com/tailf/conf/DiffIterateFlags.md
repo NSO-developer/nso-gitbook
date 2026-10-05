@@ -15,23 +15,23 @@ Enumeration flags us by
 
 **Enum Constants**:
 
-- [ITER_WANT_ANCESTOR_DELETE](#iter_want_ancestor_delete-8aeb50c9a808)
-- [ITER_WANT_ATTR](#iter_want_attr-946a41e3cb08)
-- [ITER_WANT_CLI_STR](#iter_want_cli_str-439533dcd1aa)
-- [ITER_WANT_LEAF_FIRST_ORDER](#iter_want_leaf_first_order-1ef3029f141f)
-- [ITER_WANT_LEAF_LAST_ORDER](#iter_want_leaf_last_order-90156295eb70)
-- [ITER_WANT_PREV](#iter_want_prev-20404d5d1d20)
-- [ITER_WANT_REVERSE](#iter_want_reverse-584e3ca20d2a)
-- [ITER_WANT_SCHEMA_ORDER](#iter_want_schema_order-81f758c281ea)
-- [ITER_WANT_SUPPRESS_CONF_DEFAULTS](#iter_want_suppress_conf_defaults-deb131f01638)
-- [ITER_WANT_SUPPRESS_OPER_DEFAULTS](#iter_want_suppress_oper_defaults-695be9e11ea4)
+- [ITER\_WANT\_ANCESTOR\_DELETE](#iter_want_ancestor_delete-8aeb50c9a808)
+- [ITER\_WANT\_ATTR](#iter_want_attr-946a41e3cb08)
+- [ITER\_WANT\_CLI\_STR](#iter_want_cli_str-439533dcd1aa)
+- [ITER\_WANT\_LEAF\_FIRST\_ORDER](#iter_want_leaf_first_order-1ef3029f141f)
+- [ITER\_WANT\_LEAF\_LAST\_ORDER](#iter_want_leaf_last_order-90156295eb70)
+- [ITER\_WANT\_PREV](#iter_want_prev-20404d5d1d20)
+- [ITER\_WANT\_REVERSE](#iter_want_reverse-584e3ca20d2a)
+- [ITER\_WANT\_SCHEMA\_ORDER](#iter_want_schema_order-81f758c281ea)
+- [ITER\_WANT\_SUPPRESS\_CONF\_DEFAULTS](#iter_want_suppress_conf_defaults-deb131f01638)
+- [ITER\_WANT\_SUPPRESS\_OPER\_DEFAULTS](#iter_want_suppress_oper_defaults-695be9e11ea4)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

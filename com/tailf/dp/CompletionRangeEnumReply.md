@@ -16,17 +16,17 @@ Reply structure container for completion callbacks invoked by a
 
 **Constructors**:
 
-- [CompletionRangeEnumReply(int)](#completionrangeenumreply-0e71c3d85b9e)
+- [CompletionRangeEnumReply\(int\)](#completionrangeenumreply-0e71c3d85b9e)
 
 **Methods**:
 
-- [addEntryKeyValues(List<String>)](#addentrykeyvalues-50f532a0c6fd)
-- [addEntryKeyValues(String[])](#addentrykeyvalues-863ff2f2eb03)
-- [encode()](#encode-fbae522bba37)
-- [newDefaultReply()](Completion.md#newdefaultreply-5583906bcd7c) from Completion
-- [newRangeEnumReply(int)](Completion.md#newrangeenumreply-5c101dba6437) from Completion
-- [newReply()](Completion.md#newreply-15892c4ebb44) from Completion
-- [validate()](#validate-dc7ca5eb97ec)
+- [addEntryKeyValues\(List\<String\>\)](#addentrykeyvalues-50f532a0c6fd)
+- [addEntryKeyValues\(String\[\]\)](#addentrykeyvalues-863ff2f2eb03)
+- [encode\(\)](#encode-fbae522bba37)
+- [newDefaultReply\(\)](Completion.md#newdefaultreply-5583906bcd7c) from Completion
+- [newRangeEnumReply\(int\)](Completion.md#newrangeenumreply-5c101dba6437) from Completion
+- [newReply\(\)](Completion.md#newreply-15892c4ebb44) from Completion
+- [validate\(\)](#validate-dc7ca5eb97ec)
 
 ## Constructors
 

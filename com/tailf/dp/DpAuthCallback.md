@@ -24,7 +24,7 @@ With this interface we can register a callback with ConfDs AAA subsystem, to
 
 **Methods**:
 
-- [auth(DpAuthContext)](#auth-34bd42ec3143)
+- [auth\(DpAuthContext\)](#auth-34bd42ec3143)
 
 ## Methods
 

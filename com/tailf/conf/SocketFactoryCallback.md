@@ -10,11 +10,11 @@ Interface for user defined creation/wrapping of sockets.
 
 **Methods**:
 
-- [getSocket(Object, SocketAddress)](#getsocket-56f7f9efbb5e)
-- [getSocket(SocketAddress)](#getsocket-294002c373e6)
-- [getUnconnectedSocket(Object, ProtocolFamily)](#getunconnectedsocket-4d9322b795e2)
-- [getUnconnectedSocket(ProtocolFamily)](#getunconnectedsocket-2b37476a3a26)
-- [wrapSocket(Socket)](#wrapsocket-52cbce4e91a6)
+- [getSocket\(Object, SocketAddress\)](#getsocket-56f7f9efbb5e)
+- [getSocket\(SocketAddress\)](#getsocket-294002c373e6)
+- [getUnconnectedSocket\(Object, ProtocolFamily\)](#getunconnectedsocket-4d9322b795e2)
+- [getUnconnectedSocket\(ProtocolFamily\)](#getunconnectedsocket-2b37476a3a26)
+- [wrapSocket\(Socket\)](#wrapsocket-52cbce4e91a6)
 
 ## Methods
 

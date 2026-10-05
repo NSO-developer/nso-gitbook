@@ -8,22 +8,22 @@ public static class com.tailf.maapi.MaapiSchemas.CSMNsMap
 
 **Constructors**:
 
-- [CSMNsMap(List<String>)](#csmnsmap-c1764ee15d8f)
+- [CSMNsMap\(List\<String\>\)](#csmnsmap-c1764ee15d8f)
 
 **Methods**:
 
-- [add(String, String, String, String, int)](#add-5d9d8db3f874)
-- [getAllMNs()](#getallmns-4f8a3881acba)
-- [getAllModules()](#getallmodules-977bceea7683)
-- [getAllPrefixes()](#getallprefixes-3223fb389e6b)
-- [getAllXmlNs()](#getallxmlns-9c426a56e891)
-- [getMountId()](#getmountid-c5175827f949)
-- [getNSByModule(String)](#getnsbymodule-52cc099debc8)
-- [getNSByNSHash(Integer)](#getnsbynshash-8fc75d27f21a)
-- [getNSByPrefix(String)](#getnsbyprefix-cd06560cf0a9)
-- [getNSByXmlNs(String)](#getnsbyxmlns-0c87fd4defab)
-- [getPrefixByNS(String)](#getprefixbyns-53c75e018163)
-- [getSize()](#getsize-572b3725211f)
+- [add\(String, String, String, String, int\)](#add-5d9d8db3f874)
+- [getAllMNs\(\)](#getallmns-4f8a3881acba)
+- [getAllModules\(\)](#getallmodules-977bceea7683)
+- [getAllPrefixes\(\)](#getallprefixes-3223fb389e6b)
+- [getAllXmlNs\(\)](#getallxmlns-9c426a56e891)
+- [getMountId\(\)](#getmountid-c5175827f949)
+- [getNSByModule\(String\)](#getnsbymodule-52cc099debc8)
+- [getNSByNSHash\(Integer\)](#getnsbynshash-8fc75d27f21a)
+- [getNSByPrefix\(String\)](#getnsbyprefix-cd06560cf0a9)
+- [getNSByXmlNs\(String\)](#getnsbyxmlns-0c87fd4defab)
+- [getPrefixByNS\(String\)](#getprefixbyns-53c75e018163)
+- [getSize\(\)](#getsize-572b3725211f)
 
 ## Constructors
 

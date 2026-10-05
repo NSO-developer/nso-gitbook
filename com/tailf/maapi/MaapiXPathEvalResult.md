@@ -14,7 +14,7 @@ This interface is used with `xpathEval`
 
 **Methods**:
 
-- [result(ConfObject[], ConfValue, Object)](#result-94a00942459a)
+- [result\(ConfObject\[\], ConfValue, Object\)](#result-94a00942459a)
 
 ## Methods
 
@@ -44,9 +44,9 @@ For each node in the resulting node set evaluated by the xpath
  After each invocation this method (done
  by [xpathEval](Maapi.md#xpatheval-8e8640817c0b) )
  this method should return either
- [ITER_CONTINUE](XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd) to
+ [ITER\_CONTINUE](XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd) to
  tell the xpath evaluator to continue with the
- next resulting node or stop [ITER_STOP](XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd)
+ next resulting node or stop [ITER\_STOP](XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd)
  to stop the iteration.
 
 **Parameters**

@@ -9,18 +9,18 @@ public static final class com.tailf.ncs.maapi.Schema.NameToHash.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getHash()](#gethash-7efe0716cf4b)
-- [getName()](#getname-2634b18b4a25)
-- [hasName()](#hasname-bfe6c334e0d1)
-- [initName(int)](#initname-281e5d2102d4)
-- [setHash(int)](#sethash-e8bf998306ea)
-- [setName(Reader)](#setname-79f9d1263a41)
-- [setName(String)](#setname-c76ccfcb9f18)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getHash\(\)](#gethash-7efe0716cf4b)
+- [getName\(\)](#getname-2634b18b4a25)
+- [hasName\(\)](#hasname-bfe6c334e0d1)
+- [initName\(int\)](#initname-281e5d2102d4)
+- [setHash\(int\)](#sethash-e8bf998306ea)
+- [setName\(Reader\)](#setname-79f9d1263a41)
+- [setName\(String\)](#setname-c76ccfcb9f18)
 
 ## Constructors
 

@@ -12,9 +12,9 @@ SSHCLient file transfer interface
 
 **Methods**:
 
-- [get(String)](#get-e86cd4d90bf3)
-- [put(String, String)](#put-5593beca1d56)
-- [put(String, String, int)](#put-cd56c61d877c)
+- [get\(String\)](#get-e86cd4d90bf3)
+- [put\(String, String\)](#put-5593beca1d56)
+- [put\(String, String, int\)](#put-cd56c61d877c)
 
 ## Methods
 

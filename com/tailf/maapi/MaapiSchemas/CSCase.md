@@ -14,8 +14,8 @@ Class representing a Case for a Choice
 
 **Constructors**:
 
-- [CSCase()](#cscase-038070fbf9a6)
-- [CSCase(int, String, CSSchema, CSChoice, CSCase)](#cscase-2d5825fc873f)
+- [CSCase\(\)](#cscase-038070fbf9a6)
+- [CSCase\(int, String, CSSchema, CSChoice, CSCase\)](#cscase-2d5825fc873f)
 
 **Fields**:
 
@@ -23,15 +23,15 @@ Class representing a Case for a Choice
 
 **Methods**:
 
-- [getChoices()](#getchoices-818fb3fccb86)
-- [getNodes()](#getnodes-0d0e9b3adfd1)
-- [getNS()](#getns-3613c99d8888)
-- [getNSHash()](#getnshash-2129fb8b3cfe)
-- [getParentChoice()](#getparentchoice-4434d9347d10)
-- [getSiblings()](#getsiblings-f467dd8b6a33)
-- [getTag()](#gettag-315f45956d6f)
-- [getTagHash()](#gettaghash-8f057919039c)
-- [toString()](#tostring-e9d48c5503ef)
+- [getChoices\(\)](#getchoices-818fb3fccb86)
+- [getNodes\(\)](#getnodes-0d0e9b3adfd1)
+- [getNS\(\)](#getns-3613c99d8888)
+- [getNSHash\(\)](#getnshash-2129fb8b3cfe)
+- [getParentChoice\(\)](#getparentchoice-4434d9347d10)
+- [getSiblings\(\)](#getsiblings-f467dd8b6a33)
+- [getTag\(\)](#gettag-315f45956d6f)
+- [getTagHash\(\)](#gettaghash-8f057919039c)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

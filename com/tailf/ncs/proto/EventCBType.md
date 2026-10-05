@@ -12,13 +12,13 @@ Enumeration of Event callback methods
 
 **Enum Constants**:
 
-- [NOTIF_RECEIVED](#notif_received-c74c9d30176e)
+- [NOTIF\_RECEIVED](#notif_received-c74c9d30176e)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

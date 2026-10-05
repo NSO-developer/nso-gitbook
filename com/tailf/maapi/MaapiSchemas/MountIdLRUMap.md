@@ -9,11 +9,11 @@ public static class com.tailf.maapi.MaapiSchemas.MountIdLRUMap<K, V>
 
 **Constructors**:
 
-- [MountIdLRUMap(int)](#mountidlrumap-7436757c8be6)
+- [MountIdLRUMap\(int\)](#mountidlrumap-7436757c8be6)
 
 **Methods**:
 
-- [removeEldestEntry(Entry<K,V>)](#removeeldestentry-2ee85ed7aee8)
+- [removeEldestEntry\(Entry\<K,V\>\)](#removeeldestentry-2ee85ed7aee8)
 
 ## Constructors
 

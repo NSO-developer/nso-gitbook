@@ -13,7 +13,7 @@ Data structure for commit progress notifications.
 
 **Constructors**:
 
-- [CommitProgressNotification(NotificationType, ProgressEventType, Long, Long, String, String, String, int, int, int, String, String, String, String, Map<String,ProgressAttributeValue>, List<ProgressLink>)](#commitprogressnotification-b3de8dc0afc0)
+- [CommitProgressNotification\(NotificationType, ProgressEventType, Long, Long, String, String, String, int, int, int, String, String, String, String, Map\<String,ProgressAttributeValue\>, List\<ProgressLink\>\)](#commitprogressnotification-b3de8dc0afc0)
 
 **Fields**:
 
@@ -21,25 +21,25 @@ Data structure for commit progress notifications.
 
 **Methods**:
 
-- [getAnnotation()](ProgressNotification.md#getannotation-f9c803b8d53c) from ProgressNotification
-- [getAttributes()](ProgressNotification.md#getattributes-34824a17bc02) from ProgressNotification
-- [getAttributeValue(String)](ProgressNotification.md#getattributevalue-74e7ac548f72) from ProgressNotification
-- [getContext()](ProgressNotification.md#getcontext-b18d576df5d9) from ProgressNotification
-- [getDatastore()](ProgressNotification.md#getdatastore-90019829a97f) from ProgressNotification
-- [getDatastoreStr()](ProgressNotification.md#getdatastorestr-c8f9783fbc77) from ProgressNotification
-- [getDuration()](ProgressNotification.md#getduration-aee615ea7fe2) from ProgressNotification
-- [getLinks()](ProgressNotification.md#getlinks-4e85332dc1df) from ProgressNotification
-- [getMessage()](ProgressNotification.md#getmessage-77b7dae8469e) from ProgressNotification
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getParentSpanId()](ProgressNotification.md#getparentspanid-d345b2e6a97f) from ProgressNotification
-- [getProgressEventType()](ProgressNotification.md#getprogresseventtype-1fc5b96f8167) from ProgressNotification
-- [getSessionId()](ProgressNotification.md#getsessionid-aba33c116ed5) from ProgressNotification
-- [getSpanId()](ProgressNotification.md#getspanid-155306b8dcae) from ProgressNotification
-- [getSubsystem()](ProgressNotification.md#getsubsystem-04685ed88e54) from ProgressNotification
-- [getTimestamp()](ProgressNotification.md#gettimestamp-a9e0c6b457f8) from ProgressNotification
-- [getTraceId()](ProgressNotification.md#gettraceid-c3a30b94d9ce) from ProgressNotification
-- [getTransactionId()](ProgressNotification.md#gettransactionid-c986b15287a0) from ProgressNotification
-- [toString()](ProgressNotification.md#tostring-e9d48c5503ef) from ProgressNotification
+- [getAnnotation\(\)](ProgressNotification.md#getannotation-f9c803b8d53c) from ProgressNotification
+- [getAttributes\(\)](ProgressNotification.md#getattributes-34824a17bc02) from ProgressNotification
+- [getAttributeValue\(String\)](ProgressNotification.md#getattributevalue-74e7ac548f72) from ProgressNotification
+- [getContext\(\)](ProgressNotification.md#getcontext-b18d576df5d9) from ProgressNotification
+- [getDatastore\(\)](ProgressNotification.md#getdatastore-90019829a97f) from ProgressNotification
+- [getDatastoreStr\(\)](ProgressNotification.md#getdatastorestr-c8f9783fbc77) from ProgressNotification
+- [getDuration\(\)](ProgressNotification.md#getduration-aee615ea7fe2) from ProgressNotification
+- [getLinks\(\)](ProgressNotification.md#getlinks-4e85332dc1df) from ProgressNotification
+- [getMessage\(\)](ProgressNotification.md#getmessage-77b7dae8469e) from ProgressNotification
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getParentSpanId\(\)](ProgressNotification.md#getparentspanid-d345b2e6a97f) from ProgressNotification
+- [getProgressEventType\(\)](ProgressNotification.md#getprogresseventtype-1fc5b96f8167) from ProgressNotification
+- [getSessionId\(\)](ProgressNotification.md#getsessionid-aba33c116ed5) from ProgressNotification
+- [getSpanId\(\)](ProgressNotification.md#getspanid-155306b8dcae) from ProgressNotification
+- [getSubsystem\(\)](ProgressNotification.md#getsubsystem-04685ed88e54) from ProgressNotification
+- [getTimestamp\(\)](ProgressNotification.md#gettimestamp-a9e0c6b457f8) from ProgressNotification
+- [getTraceId\(\)](ProgressNotification.md#gettraceid-c3a30b94d9ce) from ProgressNotification
+- [getTransactionId\(\)](ProgressNotification.md#gettransactionid-c986b15287a0) from ProgressNotification
+- [toString\(\)](ProgressNotification.md#tostring-e9d48c5503ef) from ProgressNotification
 
 ## Constructors
 

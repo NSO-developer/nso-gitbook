@@ -10,15 +10,15 @@ This class contains methods to write service log entries.
 
 **Constructors**:
 
-- [ServiceLog()](#servicelog-e0ce7e0be510)
+- [ServiceLog\(\)](#servicelog-e0ce7e0be510)
 
 **Methods**:
 
-- [debug(NavuNode, String, ConfIdentityRef)](#debug-39896980ab6c)
-- [error(NavuNode, String, ConfIdentityRef)](#error-36ea172332a6)
-- [info(NavuNode, String, ConfIdentityRef)](#info-4b3af861e27b)
-- [trace(NavuNode, String, ConfIdentityRef)](#trace-678d3c696ad3)
-- [warn(NavuNode, String, ConfIdentityRef)](#warn-34f7ad4bc513)
+- [debug\(NavuNode, String, ConfIdentityRef\)](#debug-39896980ab6c)
+- [error\(NavuNode, String, ConfIdentityRef\)](#error-36ea172332a6)
+- [info\(NavuNode, String, ConfIdentityRef\)](#info-4b3af861e27b)
+- [trace\(NavuNode, String, ConfIdentityRef\)](#trace-678d3c696ad3)
+- [warn\(NavuNode, String, ConfIdentityRef\)](#warn-34f7ad4bc513)
 
 ## Constructors
 

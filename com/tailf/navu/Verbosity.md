@@ -10,14 +10,14 @@ Types: [Verbosity](Verbosity.md#verbosity-a9c618ec424f)
 
 **Enum Constants**:
 
-- [SHOW_CHILD](#show_child-e5993c5575c1)
-- [SHOW_PREFIX](#show_prefix-74ac80b5b8de)
-- [SHOW_URI](#show_uri-a982eaf84e8a)
+- [SHOW\_CHILD](#show_child-e5993c5575c1)
+- [SHOW\_PREFIX](#show_prefix-74ac80b5b8de)
+- [SHOW\_URI](#show_uri-a982eaf84e8a)
 
 **Methods**:
 
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

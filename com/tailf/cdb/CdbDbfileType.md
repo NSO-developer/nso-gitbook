@@ -13,15 +13,15 @@ Database file types specified when initiating compaction
 
 **Enum Constants**:
 
-- [CDB_A_CDB](#cdb_a_cdb-b16407b4afb8)
-- [CDB_O_CDB](#cdb_o_cdb-7744e7292c9e)
-- [CDB_S_CDB](#cdb_s_cdb-1139e1b3fa0a)
+- [CDB\_A\_CDB](#cdb_a_cdb-b16407b4afb8)
+- [CDB\_O\_CDB](#cdb_o_cdb-7744e7292c9e)
+- [CDB\_S\_CDB](#cdb_s_cdb-1139e1b3fa0a)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

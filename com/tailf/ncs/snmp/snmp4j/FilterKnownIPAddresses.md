@@ -20,11 +20,11 @@ Standard filter for suppression of notifications
 
 **Constructors**:
 
-- [FilterKnownIPAddresses(Map<InetAddress,ConfKey>)](#filterknownipaddresses-46bfae603127)
+- [FilterKnownIPAddresses\(Map\<InetAddress,ConfKey\>\)](#filterknownipaddresses-46bfae603127)
 
 **Methods**:
 
-- [processPdu(EventContext, CommandResponderEvent, Object)](#processpdu-6c9b32673c38)
+- [processPdu\(EventContext, CommandResponderEvent, Object\)](#processpdu-6c9b32673c38)
 
 ## Constructors
 

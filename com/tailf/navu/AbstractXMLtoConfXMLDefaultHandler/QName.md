@@ -8,12 +8,12 @@ protected class com.tailf.navu.AbstractXMLtoConfXMLDefaultHandler.QName
 
 **Constructors**:
 
-- [QName(String, String)](#qname-6f3d7ee2aef9)
+- [QName\(String, String\)](#qname-6f3d7ee2aef9)
 
 **Methods**:
 
-- [getTagName()](#gettagname-f5dba7c580c9)
-- [getURI()](#geturi-7ec1ffd8cd93)
+- [getTagName\(\)](#gettagname-f5dba7c580c9)
+- [getURI\(\)](#geturi-7ec1ffd8cd93)
 
 ## Constructors
 

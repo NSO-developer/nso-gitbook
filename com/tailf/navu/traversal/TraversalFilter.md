@@ -8,7 +8,7 @@ public interface com.tailf.navu.traversal.TraversalFilter
 
 **Methods**:
 
-- [currentNode(NavuNode)](#currentnode-6c186cdcfd7e)
+- [currentNode\(NavuNode\)](#currentnode-6c186cdcfd7e)
 
 ## Methods
 

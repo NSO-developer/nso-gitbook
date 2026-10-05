@@ -13,16 +13,16 @@ Warning exception base class.
 
 **Constructors**:
 
-- [ConfWarningException(String, ErrorCode, ConfWarning[])](#confwarningexception-05f73704f552)
-- [ConfWarningException(String, int, ConfWarning[])](#confwarningexception-535efc462eac)
+- [ConfWarningException\(String, ErrorCode, ConfWarning\[\]\)](#confwarningexception-05f73704f552)
+- [ConfWarningException\(String, int, ConfWarning\[\]\)](#confwarningexception-535efc462eac)
 
 **Methods**:
 
-- [getErrorCode()](ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [getWarnings()](#getwarnings-875cbe661ca7)
-- [mk(ConfResponse)](ConfException.md#mk-de1cedfc6ea8) from ConfException
-- [mk(ConfResponse, ConfPath)](ConfException.md#mk-79e69ffbc022) from ConfException
+- [getErrorCode\(\)](ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [getWarnings\(\)](#getwarnings-875cbe661ca7)
+- [mk\(ConfResponse\)](ConfException.md#mk-de1cedfc6ea8) from ConfException
+- [mk\(ConfResponse, ConfPath\)](ConfException.md#mk-79e69ffbc022) from ConfException
 
 ## Constructors
 

@@ -10,12 +10,12 @@ Warning messages container. see [`ConfWarningException`](ConfWarningException.md
 
 **Constructors**:
 
-- [ConfWarning(ConfPath, String)](#confwarning-15f6a62287a6)
+- [ConfWarning\(ConfPath, String\)](#confwarning-15f6a62287a6)
 
 **Methods**:
 
-- [getMessage()](#getmessage-77b7dae8469e)
-- [getPath()](#getpath-88fb21895561)
+- [getMessage\(\)](#getmessage-77b7dae8469e)
+- [getPath\(\)](#getpath-88fb21895561)
 
 ## Constructors
 

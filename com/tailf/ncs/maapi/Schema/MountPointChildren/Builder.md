@@ -9,18 +9,18 @@ public static final class com.tailf.ncs.maapi.Schema.MountPointChildren.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getChildren()](#getchildren-fe2038dff10d)
-- [getMountId()](#getmountid-c5175827f949)
-- [hasChildren()](#haschildren-94c463ee6541)
-- [initChildren(int)](#initchildren-d6b9d98b47bb)
-- [initMountId()](#initmountid-43348a54995c)
-- [setChildren(Reader<Reader>)](#setchildren-4b50d7817058)
-- [setMountId(Reader)](#setmountid-39bac54ac962)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getChildren\(\)](#getchildren-fe2038dff10d)
+- [getMountId\(\)](#getmountid-c5175827f949)
+- [hasChildren\(\)](#haschildren-94c463ee6541)
+- [initChildren\(int\)](#initchildren-d6b9d98b47bb)
+- [initMountId\(\)](#initmountid-43348a54995c)
+- [setChildren\(Reader\<Reader\>\)](#setchildren-4b50d7817058)
+- [setMountId\(Reader\)](#setmountid-39bac54ac962)
 
 ## Constructors
 

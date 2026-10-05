@@ -13,16 +13,16 @@ Flags for use in:
 
 **Enum Constants**:
 
-- [DEL_ALL](#del_all-6da46022ffb7)
-- [DEL_EXPORTED](#del_exported-c1133a0a2e13)
-- [DEL_SAFE](#del_safe-d3fc545efed9)
+- [DEL\_ALL](#del_all-6da46022ffb7)
+- [DEL\_EXPORTED](#del_exported-c1133a0a2e13)
+- [DEL\_SAFE](#del_safe-d3fc545efed9)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

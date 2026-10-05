@@ -10,12 +10,12 @@ class com.tailf.ncs.maapi.MmapMaapiSchemas.MountPointKey
 
 **Constructors**:
 
-- [MountPointKey(int, String)](#mountpointkey-b3cfee2f6335)
+- [MountPointKey\(int, String\)](#mountpointkey-b3cfee2f6335)
 
 **Methods**:
 
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [hashCode()](#hashcode-ef797a217903)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [hashCode\(\)](#hashcode-ef797a217903)
 
 ## Constructors
 

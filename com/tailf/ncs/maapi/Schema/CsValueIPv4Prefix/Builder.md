@@ -9,21 +9,21 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getA1()](#geta1-f8b8009a6bc7)
-- [getA2()](#geta2-a28d45466763)
-- [getA3()](#geta3-330abd611894)
-- [getA4()](#geta4-fce3220b7c51)
-- [getPrefix()](#getprefix-9268091e0223)
-- [setA1(byte)](#seta1-32c52405dfad)
-- [setA2(byte)](#seta2-303439b65cb0)
-- [setA3(byte)](#seta3-157e4ab42041)
-- [setA4(byte)](#seta4-45ac97b7d3a4)
-- [setPrefix(byte)](#setprefix-e20c09b64c12)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getA1\(\)](#geta1-f8b8009a6bc7)
+- [getA2\(\)](#geta2-a28d45466763)
+- [getA3\(\)](#geta3-330abd611894)
+- [getA4\(\)](#geta4-fce3220b7c51)
+- [getPrefix\(\)](#getprefix-9268091e0223)
+- [setA1\(byte\)](#seta1-32c52405dfad)
+- [setA2\(byte\)](#seta2-303439b65cb0)
+- [setA3\(byte\)](#seta3-157e4ab42041)
+- [setA4\(byte\)](#seta4-45ac97b7d3a4)
+- [setPrefix\(byte\)](#setprefix-e20c09b64c12)
 
 ## Constructors
 

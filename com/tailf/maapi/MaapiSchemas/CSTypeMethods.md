@@ -28,13 +28,13 @@ Class which contains type specific conversion and validation
 
 **Constructors**:
 
-- [CSTypeMethods()](#cstypemethods-d8284784290b)
+- [CSTypeMethods\(\)](#cstypemethods-d8284784290b)
 
 **Methods**:
 
-- [stringToValue(CSType, String)](#stringtovalue-9fef98be9bb2)
-- [validate(CSType, ConfValue)](#validate-d2696432436e)
-- [valueToString(CSType, ConfValue)](#valuetostring-f281f6b6d7d7)
+- [stringToValue\(CSType, String\)](#stringtovalue-9fef98be9bb2)
+- [validate\(CSType, ConfValue\)](#validate-d2696432436e)
+- [valueToString\(CSType, ConfValue\)](#valuetostring-f281f6b6d7d7)
 
 ## Constructors
 

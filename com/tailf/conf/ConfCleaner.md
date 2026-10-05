@@ -15,8 +15,8 @@ ConfCleaner manages a set of object references and corresponding
 
 **Methods**:
 
-- [register(Object, AutoCloseable, AutoCloseable[])](#register-15a1a2f775a2)
-- [register(Object, Runnable)](#register-2ca26b8e3d14)
+- [register\(Object, AutoCloseable, AutoCloseable\[\]\)](#register-15a1a2f775a2)
+- [register\(Object, Runnable\)](#register-2ca26b8e3d14)
 
 **Nested Types**:
 

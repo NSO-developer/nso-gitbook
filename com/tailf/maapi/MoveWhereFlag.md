@@ -12,17 +12,17 @@ flags us by Maapi.moveOrdered method to control ordered-by user orders
 
 **Enum Constants**:
 
-- [MOVE_AFTER](#move_after-582d0ddace39)
-- [MOVE_BEFORE](#move_before-49aa8d3d3c77)
-- [MOVE_FIRST](#move_first-b29449f31e72)
-- [MOVE_LAST](#move_last-03b1662a5ee0)
+- [MOVE\_AFTER](#move_after-582d0ddace39)
+- [MOVE\_BEFORE](#move_before-49aa8d3d3c77)
+- [MOVE\_FIRST](#move_first-b29449f31e72)
+- [MOVE\_LAST](#move_last-03b1662a5ee0)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

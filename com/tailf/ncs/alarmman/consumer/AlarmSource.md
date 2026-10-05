@@ -13,17 +13,17 @@ This class establishes a listener queue for emitted alarms. It requires the
 
 **Constructors**:
 
-- [AlarmSource()](#alarmsource-d590063b7bb5)
-- [AlarmSource(AlarmSourceCentral)](#alarmsource-cd47470fa7a3)
+- [AlarmSource\(\)](#alarmsource-d590063b7bb5)
+- [AlarmSource\(AlarmSourceCentral\)](#alarmsource-cd47470fa7a3)
 
 **Methods**:
 
-- [close()](#close-8107c6dc012b)
-- [isListening()](#islistening-ad0deb68ad68)
-- [pollAlarm(int, TimeUnit)](#pollalarm-d491d8607d37)
-- [startListening()](#startlistening-a174d71f92d6)
-- [stopListening()](#stoplistening-74b0b8ef5ac2)
-- [takeAlarm()](#takealarm-58b71d3346fe)
+- [close\(\)](#close-8107c6dc012b)
+- [isListening\(\)](#islistening-ad0deb68ad68)
+- [pollAlarm\(int, TimeUnit\)](#pollalarm-d491d8607d37)
+- [startListening\(\)](#startlistening-a174d71f92d6)
+- [stopListening\(\)](#stoplistening-74b0b8ef5ac2)
+- [takeAlarm\(\)](#takealarm-58b71d3346fe)
 
 ## Constructors
 

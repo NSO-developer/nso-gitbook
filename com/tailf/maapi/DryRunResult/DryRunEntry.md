@@ -8,14 +8,14 @@ public static class com.tailf.maapi.DryRunResult.DryRunEntry
 
 **Constructors**:
 
-- [DryRunEntry(String, Type, String)](#dryrunentry-719d1bc10043)
+- [DryRunEntry\(String, Type, String\)](#dryrunentry-719d1bc10043)
 
 **Methods**:
 
-- [getData()](#getdata-8ef0e36ab01b)
-- [getName()](#getname-2634b18b4a25)
-- [getType()](#gettype-5a52f6f0d4c1)
-- [getTypeAsString()](#gettypeasstring-ea437139f174)
+- [getData\(\)](#getdata-8ef0e36ab01b)
+- [getName\(\)](#getname-2634b18b4a25)
+- [getType\(\)](#gettype-5a52f6f0d4c1)
+- [getTypeAsString\(\)](#gettypeasstring-ea437139f174)
 
 **Nested Types**:
 

@@ -13,19 +13,19 @@ This class contains Node context for
 
 **Constructors**:
 
-- [NavuXPathContext()](#navuxpathcontext-522e7c8cb8d3)
+- [NavuXPathContext\(\)](#navuxpathcontext-522e7c8cb8d3)
 
 **Methods**:
 
-- [getNode()](#getnode-52e3d8224b48)
-- [getValue()](#getvalue-d93864668c40)
-- [iterflag()](#iterflag-73a56d0d3999)
-- [nextNode()](#nextnode-1d3dc20cc072)
-- [setNode(NavuNode)](#setnode-512b6bf958bb)
-- [setState(Object)](#setstate-f6716d0f1f89)
-- [setValue(ConfValue)](#setvalue-cda51a6fb391)
-- [state()](#state-54117dea2388)
-- [stopNode()](#stopnode-114945f05435)
+- [getNode\(\)](#getnode-52e3d8224b48)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [iterflag\(\)](#iterflag-73a56d0d3999)
+- [nextNode\(\)](#nextnode-1d3dc20cc072)
+- [setNode\(NavuNode\)](#setnode-512b6bf958bb)
+- [setState\(Object\)](#setstate-f6716d0f1f89)
+- [setValue\(ConfValue\)](#setvalue-cda51a6fb391)
+- [state\(\)](#state-54117dea2388)
+- [stopNode\(\)](#stopnode-114945f05435)
 
 ## Constructors
 

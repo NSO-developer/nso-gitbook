@@ -10,7 +10,7 @@ This class handles YANG presentation and setting of YANG choices.
 
 **Constructors**:
 
-- [NavuChoice(NavuContext, CSChoice, String, Object[])](#navuchoice-f2ceb003f1e5)
+- [NavuChoice\(NavuContext, CSChoice, String, Object\[\]\)](#navuchoice-f2ceb003f1e5)
 
 **Fields**:
 
@@ -18,29 +18,29 @@ This class handles YANG presentation and setting of YANG choices.
 
 **Methods**:
 
-- [containsCase(CSCase)](#containscase-d63d3edc467b)
-- [containsChoice(CSChoice)](#containschoice-417c76bf331d)
-- [containsNode(CSNode)](#containsnode-28ef18f0cd45)
-- [getCase(CSChoice)](#getcase-714ec678c34c)
-- [getCase(CSNode)](#getcase-013bf2ed6869)
-- [getCaseChoices(String)](#getcasechoices-8969ac2420ed)
-- [getCaseNodes(String)](#getcasenodes-00683ec03a66)
-- [getCSCases()](#getcscases-9dfaff709202)
-- [getName()](#getname-2634b18b4a25)
-- [getPreviousCase()](#getpreviouscase-6c933875f8e7)
-- [getSelectedCase()](#getselectedcase-97c467f33244)
-- [isCurrentCase(CSCase)](#iscurrentcase-b34e8a895013)
-- [isEmpty()](#isempty-4dde48126244)
-- [isOper()](#isoper-578628dfb332)
-- [isWritable()](#iswritable-f813255e9b26)
-- [isWritableAll()](#iswritableall-8587e2efc611)
-- [prefixify(int, int, String)](#prefixify-1a9e83400b1c)
-- [prefixify(int, int, String, boolean)](#prefixify-4d8da8937245)
-- [put(CSNode, CSCase)](#put-cb5804b15414)
-- [putAll(Map<? extends CSNode,? extends CSCase>)](#putall-35e2d6a16b17)
-- [size()](#size-c6d8505255fd)
-- [update()](#update-401fc06ab5bd)
-- [values()](#values-406dfe3ca270)
+- [containsCase\(CSCase\)](#containscase-d63d3edc467b)
+- [containsChoice\(CSChoice\)](#containschoice-417c76bf331d)
+- [containsNode\(CSNode\)](#containsnode-28ef18f0cd45)
+- [getCase\(CSChoice\)](#getcase-714ec678c34c)
+- [getCase\(CSNode\)](#getcase-013bf2ed6869)
+- [getCaseChoices\(String\)](#getcasechoices-8969ac2420ed)
+- [getCaseNodes\(String\)](#getcasenodes-00683ec03a66)
+- [getCSCases\(\)](#getcscases-9dfaff709202)
+- [getName\(\)](#getname-2634b18b4a25)
+- [getPreviousCase\(\)](#getpreviouscase-6c933875f8e7)
+- [getSelectedCase\(\)](#getselectedcase-97c467f33244)
+- [isCurrentCase\(CSCase\)](#iscurrentcase-b34e8a895013)
+- [isEmpty\(\)](#isempty-4dde48126244)
+- [isOper\(\)](#isoper-578628dfb332)
+- [isWritable\(\)](#iswritable-f813255e9b26)
+- [isWritableAll\(\)](#iswritableall-8587e2efc611)
+- [prefixify\(int, int, String\)](#prefixify-1a9e83400b1c)
+- [prefixify\(int, int, String, boolean\)](#prefixify-4d8da8937245)
+- [put\(CSNode, CSCase\)](#put-cb5804b15414)
+- [putAll\(Map\<? extends CSNode,? extends CSCase\>\)](#putall-35e2d6a16b17)
+- [size\(\)](#size-c6d8505255fd)
+- [update\(\)](#update-401fc06ab5bd)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Constructors
 

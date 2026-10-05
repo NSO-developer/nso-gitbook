@@ -9,15 +9,15 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeList.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getTypeReferences()](#gettypereferences-ba94c4f34d9c)
-- [hasTypeReferences()](#hastypereferences-8e6b59641fe0)
-- [initTypeReferences(int)](#inittypereferences-13fff3e850b8)
-- [setTypeReferences(Reader<Reader>)](#settypereferences-6e6dc8393c25)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getTypeReferences\(\)](#gettypereferences-ba94c4f34d9c)
+- [hasTypeReferences\(\)](#hastypereferences-8e6b59641fe0)
+- [initTypeReferences\(int\)](#inittypereferences-13fff3e850b8)
+- [setTypeReferences\(Reader\<Reader\>\)](#settypereferences-6e6dc8393c25)
 
 ## Constructors
 

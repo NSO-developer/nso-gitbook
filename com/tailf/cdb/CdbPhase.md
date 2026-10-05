@@ -17,18 +17,18 @@ Represents the start-phase CDB is currently in.
 
 **Constructors**:
 
-- [CdbPhase(int, int)](#cdbphase-5f54e2f87484)
+- [CdbPhase\(int, int\)](#cdbphase-5f54e2f87484)
 
 **Fields**:
 
-- [FLAG_INIT](#flag_init-fb43c5f6fc84)
-- [FLAG_UPGRADE](#flag_upgrade-4218f2511062)
+- [FLAG\_INIT](#flag_init-fb43c5f6fc84)
+- [FLAG\_UPGRADE](#flag_upgrade-4218f2511062)
 
 **Methods**:
 
-- [getCurrentPhase()](#getcurrentphase-32ff5b066755)
-- [getFlag()](#getflag-9cd662045dd4)
-- [toString()](#tostring-e9d48c5503ef)
+- [getCurrentPhase\(\)](#getcurrentphase-32ff5b066755)
+- [getFlag\(\)](#getflag-9cd662045dd4)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

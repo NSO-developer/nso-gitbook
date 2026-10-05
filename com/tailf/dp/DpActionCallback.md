@@ -22,21 +22,21 @@ This interface is used for the user actions callbacks.
 
 **Fields**:
 
-- [M_ABORT](#m_abort-7b4607723e90)
-- [M_ACTION](#m_action-7085cebe5b02)
-- [M_COMMAND](#m_command-7b1086f0f7fa)
-- [M_COMPLETION](#m_completion-25ac3cbe9876)
-- [M_INIT](#m_init-13cacf7e79fd)
+- [M\_ABORT](#m_abort-7b4607723e90)
+- [M\_ACTION](#m_action-7085cebe5b02)
+- [M\_COMMAND](#m_command-7b1086f0f7fa)
+- [M\_COMPLETION](#m_completion-25ac3cbe9876)
+- [M\_INIT](#m_init-13cacf7e79fd)
 
 **Methods**:
 
-- [abort(DpActionTrans)](#abort-cd35d6a916f4)
-- [action(DpActionTrans, ConfTag, ConfObject[], ConfXMLParam[])](#action-80bbec157786)
-- [actionpoint()](#actionpoint-0569c173260f)
-- [command(DpActionTrans, String, String, String[])](#command-cea87613b5a2)
-- [completion(DpActionTrans, char, String, char, ConfObject[], String, String, ConfQname, String)](#completion-2f4ed4ef651b)
-- [init(DpActionTrans)](#init-ea24b0ff3f23)
-- [mask()](#mask-24c2fa29c6af)
+- [abort\(DpActionTrans\)](#abort-cd35d6a916f4)
+- [action\(DpActionTrans, ConfTag, ConfObject\[\], ConfXMLParam\[\]\)](#action-80bbec157786)
+- [actionpoint\(\)](#actionpoint-0569c173260f)
+- [command\(DpActionTrans, String, String, String\[\]\)](#command-cea87613b5a2)
+- [completion\(DpActionTrans, char, String, char, ConfObject\[\], String, String, ConfQname, String\)](#completion-2f4ed4ef651b)
+- [init\(DpActionTrans\)](#init-ea24b0ff3f23)
+- [mask\(\)](#mask-24c2fa29c6af)
 
 ## Fields
 

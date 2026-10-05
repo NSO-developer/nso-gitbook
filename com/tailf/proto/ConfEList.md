@@ -18,12 +18,12 @@ Provides a Java representation of E lists. Lists are created from zero or
 
 **Constructors**:
 
-- [ConfEList()](#confelist-6520e4a2b2b0)
-- [ConfEList(ConfEObject)](#confelist-b47cbbec1eea)
-- [ConfEList(ConfEObject[])](#confelist-d192515762f2)
-- [ConfEList(ConfEObject[], int, int)](#confelist-23ce111a3f2d)
-- [ConfEList(ConfInputStream)](#confelist-4ee5cf06b592)
-- [ConfEList(String)](#confelist-abe60ec15a23)
+- [ConfEList\(\)](#confelist-6520e4a2b2b0)
+- [ConfEList\(ConfEObject\)](#confelist-b47cbbec1eea)
+- [ConfEList\(ConfEObject\[\]\)](#confelist-d192515762f2)
+- [ConfEList\(ConfEObject\[\], int, int\)](#confelist-23ce111a3f2d)
+- [ConfEList\(ConfInputStream\)](#confelist-4ee5cf06b592)
+- [ConfEList\(String\)](#confelist-abe60ec15a23)
 
 **Fields**:
 
@@ -31,19 +31,19 @@ Provides a Java representation of E lists. Lists are created from zero or
 
 **Methods**:
 
-- [arity()](#arity-2e3299329464)
-- [clone()](#clone-164c86c45e9b)
-- [decode(ConfInputStream)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
-- [elementAt(int)](#elementat-7ff98e6e0268)
-- [elements()](#elements-1ac1cabc0e96)
-- [encode(ConfOutputStream)](#encode-cb1ad9eb7771)
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [hashCode()](#hashcode-ef797a217903)
-- [iterator()](#iterator-188aa52d1f86)
-- [proper()](#proper-e327c5f55f3c)
-- [reverse()](#reverse-70d4d279e86c)
-- [setProper(boolean)](#setproper-d2777201f8d3)
-- [toString()](#tostring-e9d48c5503ef)
+- [arity\(\)](#arity-2e3299329464)
+- [clone\(\)](#clone-164c86c45e9b)
+- [decode\(ConfInputStream\)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
+- [elementAt\(int\)](#elementat-7ff98e6e0268)
+- [elements\(\)](#elements-1ac1cabc0e96)
+- [encode\(ConfOutputStream\)](#encode-cb1ad9eb7771)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [iterator\(\)](#iterator-188aa52d1f86)
+- [proper\(\)](#proper-e327c5f55f3c)
+- [reverse\(\)](#reverse-70d4d279e86c)
+- [setProper\(boolean\)](#setproper-d2777201f8d3)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

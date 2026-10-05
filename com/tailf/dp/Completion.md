@@ -62,15 +62,15 @@ Reply structure container for completion callbacks.
 
 **Constructors**:
 
-- [Completion()](#completion-b01cd1890a7a)
+- [Completion\(\)](#completion-b01cd1890a7a)
 
 **Methods**:
 
-- [encode()](#encode-fbae522bba37)
-- [newDefaultReply()](#newdefaultreply-5583906bcd7c)
-- [newRangeEnumReply(int)](#newrangeenumreply-5c101dba6437)
-- [newReply()](#newreply-15892c4ebb44)
-- [validate()](#validate-dc7ca5eb97ec)
+- [encode\(\)](#encode-fbae522bba37)
+- [newDefaultReply\(\)](#newdefaultreply-5583906bcd7c)
+- [newRangeEnumReply\(int\)](#newrangeenumreply-5c101dba6437)
+- [newReply\(\)](#newreply-15892c4ebb44)
+- [validate\(\)](#validate-dc7ca5eb97ec)
 
 ## Constructors
 

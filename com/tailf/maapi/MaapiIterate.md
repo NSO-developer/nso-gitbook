@@ -17,7 +17,7 @@ This interface is used with the Iterate method in Maapi. It allows a way
 
 **Methods**:
 
-- [iterate(ConfObject[], ConfObject, ConfAttributeValue[], Object)](#iterate-638caa8f5a2f)
+- [iterate\(ConfObject\[\], ConfObject, ConfAttributeValue\[\], Object\)](#iterate-638caa8f5a2f)
 
 ## Methods
 

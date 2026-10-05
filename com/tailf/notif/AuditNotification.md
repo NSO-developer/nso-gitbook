@@ -13,7 +13,7 @@ Data structure for Audit events
 
 **Constructors**:
 
-- [AuditNotification(int, String, int, String)](#auditnotification-0d6674fb37d3)
+- [AuditNotification\(int, String, int, String\)](#auditnotification-0d6674fb37d3)
 
 **Fields**:
 
@@ -21,12 +21,12 @@ Data structure for Audit events
 
 **Methods**:
 
-- [getLogNo()](#getlogno-0a53380cc549)
-- [getMessage()](#getmessage-77b7dae8469e)
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getUser()](#getuser-fbcccdd28c7c)
-- [getUserId()](#getuserid-46c2e98d8db7)
-- [toString()](#tostring-e9d48c5503ef)
+- [getLogNo\(\)](#getlogno-0a53380cc549)
+- [getMessage\(\)](#getmessage-77b7dae8469e)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getUser\(\)](#getuser-fbcccdd28c7c)
+- [getUserId\(\)](#getuserid-46c2e98d8db7)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

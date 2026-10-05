@@ -25,7 +25,7 @@ Base class of the E data type classes. This class is used to represent an
 
 **Constructors**:
 
-- [ConfEObject()](#confeobject-316d32c106b3)
+- [ConfEObject\(\)](#confeobject-316d32c106b3)
 
 **Fields**:
 
@@ -33,11 +33,11 @@ Base class of the E data type classes. This class is used to represent an
 
 **Methods**:
 
-- [clone()](#clone-164c86c45e9b)
-- [decode(ConfInputStream)](#decode-e63a2a4cac49)
-- [encode(ConfOutputStream)](#encode-cb1ad9eb7771)
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [toString()](#tostring-e9d48c5503ef)
+- [clone\(\)](#clone-164c86c45e9b)
+- [decode\(ConfInputStream\)](#decode-e63a2a4cac49)
+- [encode\(ConfOutputStream\)](#encode-cb1ad9eb7771)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

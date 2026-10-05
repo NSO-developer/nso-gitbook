@@ -15,14 +15,14 @@ This enum describes the different states a HA node can be in.
 - [NONE](#none-f29411358a7b)
 - [PRIMARY](#primary-b37cfb8b5165)
 - [SECONDARY](#secondary-0ebc1e389638)
-- [SECONDARY_RELAY](#secondary_relay-30883f2fae5b)
+- [SECONDARY\_RELAY](#secondary_relay-30883f2fae5b)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

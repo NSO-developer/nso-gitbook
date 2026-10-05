@@ -9,19 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDQuad.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getD1()](#getd1-1ccbbca0d18f)
-- [getD2()](#getd2-93b8c43fe331)
-- [getD3()](#getd3-1982f3560cd6)
-- [getD4()](#getd4-a7608deae360)
-- [setD1(byte)](#setd1-123e1073562a)
-- [setD2(byte)](#setd2-7e3edbd83eb9)
-- [setD3(byte)](#setd3-304a3b391ac1)
-- [setD4(byte)](#setd4-fad28190aa51)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getD1\(\)](#getd1-1ccbbca0d18f)
+- [getD2\(\)](#getd2-93b8c43fe331)
+- [getD3\(\)](#getd3-1982f3560cd6)
+- [getD4\(\)](#getd4-a7608deae360)
+- [setD1\(byte\)](#setd1-123e1073562a)
+- [setD2\(byte\)](#setd2-7e3edbd83eb9)
+- [setD3\(byte\)](#setd3-304a3b391ac1)
+- [setD4\(byte\)](#setd4-fad28190aa51)
 
 ## Constructors
 

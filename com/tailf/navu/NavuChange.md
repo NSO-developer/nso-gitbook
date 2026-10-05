@@ -12,22 +12,22 @@ This class handles changes on a node. The changes can be CREATE or
 
 **Constructors**:
 
-- [NavuChange(ConfKey)](#navuchange-f9837a9c397b)
+- [NavuChange\(ConfKey\)](#navuchange-f9837a9c397b)
 
 **Methods**:
 
-- [add(NavuNode)](#add-2bf2a742c2a6)
-- [contains(NavuNode)](#contains-d5aea0a3a91f)
-- [get(int)](#get-5bd20d94a8b1)
-- [getChange()](#getchange-6190c59d58da)
-- [getKey()](#getkey-9a8856159458)
-- [isEmpty()](#isempty-4dde48126244)
-- [iterator()](#iterator-188aa52d1f86)
-- [setChange(DiffIterateOperFlag)](#setchange-05fa40d4fa0e)
-- [size()](#size-c6d8505255fd)
-- [subList(int, int)](#sublist-0fe73c4cdfba)
-- [toArray()](#toarray-4819af4b68f9)
-- [toArray(T[])](#toarray-d0a3b39b53fc)
+- [add\(NavuNode\)](#add-2bf2a742c2a6)
+- [contains\(NavuNode\)](#contains-d5aea0a3a91f)
+- [get\(int\)](#get-5bd20d94a8b1)
+- [getChange\(\)](#getchange-6190c59d58da)
+- [getKey\(\)](#getkey-9a8856159458)
+- [isEmpty\(\)](#isempty-4dde48126244)
+- [iterator\(\)](#iterator-188aa52d1f86)
+- [setChange\(DiffIterateOperFlag\)](#setchange-05fa40d4fa0e)
+- [size\(\)](#size-c6d8505255fd)
+- [subList\(int, int\)](#sublist-0fe73c4cdfba)
+- [toArray\(\)](#toarray-4819af4b68f9)
+- [toArray\(T\[\]\)](#toarray-d0a3b39b53fc)
 
 ## Constructors
 

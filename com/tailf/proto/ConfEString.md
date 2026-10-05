@@ -13,8 +13,8 @@ Provides a Java representation of E strings.
 
 **Constructors**:
 
-- [ConfEString(ConfInputStream)](#confestring-56214826ef50)
-- [ConfEString(String)](#confestring-1abe12804412)
+- [ConfEString\(ConfInputStream\)](#confestring-56214826ef50)
+- [ConfEString\(String\)](#confestring-1abe12804412)
 
 **Fields**:
 
@@ -22,13 +22,13 @@ Provides a Java representation of E strings.
 
 **Methods**:
 
-- [clone()](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
-- [decode(ConfInputStream)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
-- [encode(ConfOutputStream)](#encode-cb1ad9eb7771)
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [hashCode()](#hashcode-ef797a217903)
-- [stringValue()](#stringvalue-a6efca13ec08)
-- [toString()](#tostring-e9d48c5503ef)
+- [clone\(\)](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
+- [decode\(ConfInputStream\)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
+- [encode\(ConfOutputStream\)](#encode-cb1ad9eb7771)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [stringValue\(\)](#stringvalue-a6efca13ec08)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

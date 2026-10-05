@@ -15,28 +15,28 @@ Enumeration of Data callback methods
 **Enum Constants**:
 
 - [CREATE](#create-146c3c7e4f65)
-- [EXISTS_OPTIONAL](#exists_optional-f5be923624f4)
-- [GET_ATTRS](#get_attrs-e8030b5dd328)
-- [GET_CASE](#get_case-9ef2ae59c94b)
-- [GET_ELEM](#get_elem-c4bad67e639e)
-- [GET_NEXT](#get_next-6a271635d86e)
-- [GET_NEXT_OBJECT](#get_next_object-9f70b230e968)
-- [GET_NEXT_OBJECT_LIST](#get_next_object_list-b798e83d5f8e)
-- [GET_OBJECT](#get_object-839ff9de9cc4)
+- [EXISTS\_OPTIONAL](#exists_optional-f5be923624f4)
+- [GET\_ATTRS](#get_attrs-e8030b5dd328)
+- [GET\_CASE](#get_case-9ef2ae59c94b)
+- [GET\_ELEM](#get_elem-c4bad67e639e)
+- [GET\_NEXT](#get_next-6a271635d86e)
+- [GET\_NEXT\_OBJECT](#get_next_object-9f70b230e968)
+- [GET\_NEXT\_OBJECT\_LIST](#get_next_object_list-b798e83d5f8e)
+- [GET\_OBJECT](#get_object-839ff9de9cc4)
 - [ITERATOR](#iterator-4246715ba5f0)
-- [MOVE_AFTER](#move_after-582d0ddace39)
-- [NUM_INSTANCES](#num_instances-bc8f1909765f)
+- [MOVE\_AFTER](#move_after-582d0ddace39)
+- [NUM\_INSTANCES](#num_instances-bc8f1909765f)
 - [REMOVE](#remove-954d8c0ae444)
-- [SET_ATTR](#set_attr-8d1502d32197)
-- [SET_CASE](#set_case-bba9ec167799)
-- [SET_ELEM](#set_elem-a932054018d7)
-- [WRITE_ALL](#write_all-16f02b0c53c5)
+- [SET\_ATTR](#set_attr-8d1502d32197)
+- [SET\_CASE](#set_case-bba9ec167799)
+- [SET\_ELEM](#set_elem-a932054018d7)
+- [WRITE\_ALL](#write_all-16f02b0c53c5)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

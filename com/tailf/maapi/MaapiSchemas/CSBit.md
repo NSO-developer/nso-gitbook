@@ -8,15 +8,15 @@ public static class com.tailf.maapi.MaapiSchemas.CSBit
 
 **Constructors**:
 
-- [CSBit(String, long, long)](#csbit-3acef34e16ed)
+- [CSBit\(String, long, long\)](#csbit-3acef34e16ed)
 
 **Methods**:
 
-- [getMask()](#getmask-ae856714ab1b)
-- [getName()](#getname-2634b18b4a25)
-- [getPos()](#getpos-ad2d7b30807f)
-- [makeCSBit(String, int, long)](#makecsbit-4d8c6d0a797c)
-- [toString()](#tostring-e9d48c5503ef)
+- [getMask\(\)](#getmask-ae856714ab1b)
+- [getName\(\)](#getname-2634b18b4a25)
+- [getPos\(\)](#getpos-ad2d7b30807f)
+- [makeCSBit\(String, int, long\)](#makecsbit-4d8c6d0a797c)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

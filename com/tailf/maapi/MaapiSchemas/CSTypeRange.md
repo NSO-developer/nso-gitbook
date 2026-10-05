@@ -8,20 +8,20 @@ public static class com.tailf.maapi.MaapiSchemas.CSTypeRange
 
 **Constructors**:
 
-- [CSTypeRange(ConfObject, ConfObject, int)](#cstyperange-67ad31ef6a41)
+- [CSTypeRange\(ConfObject, ConfObject, int\)](#cstyperange-67ad31ef6a41)
 
 **Fields**:
 
-- [CONFD_RANGE_MAX_EXCLUSIVE](#confd_range_max_exclusive-2890dfee8f22)
-- [CONFD_RANGE_MAX_INCLUSIVE](#confd_range_max_inclusive-f33fbb91799c)
-- [CONFD_RANGE_MIN_EXCLUSIVE](#confd_range_min_exclusive-ce3ab3351f83)
-- [CONFD_RANGE_MIN_INCLUSIVE](#confd_range_min_inclusive-e9e4be7babaa)
+- [CONFD\_RANGE\_MAX\_EXCLUSIVE](#confd_range_max_exclusive-2890dfee8f22)
+- [CONFD\_RANGE\_MAX\_INCLUSIVE](#confd_range_max_inclusive-f33fbb91799c)
+- [CONFD\_RANGE\_MIN\_EXCLUSIVE](#confd_range_min_exclusive-ce3ab3351f83)
+- [CONFD\_RANGE\_MIN\_INCLUSIVE](#confd_range_min_inclusive-e9e4be7babaa)
 
 **Methods**:
 
-- [getFlags()](#getflags-3c1ca90fd29c)
-- [getHigh()](#gethigh-92e6b3d5438b)
-- [getLow()](#getlow-70f61b401781)
+- [getFlags\(\)](#getflags-3c1ca90fd29c)
+- [getHigh\(\)](#gethigh-92e6b3d5438b)
+- [getLow\(\)](#getlow-70f61b401781)
 
 ## Constructors
 

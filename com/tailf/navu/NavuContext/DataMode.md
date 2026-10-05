@@ -10,14 +10,14 @@ Types: [DataMode](DataMode.md#datamode-25b2036cfd59)
 
 **Enum Constants**:
 
-- [DB_OPERATIONAL_TRANS](#db_operational_trans-bf7908061bc2)
-- [DB_RUNNING_TRANS](#db_running_trans-0b9977369c65)
+- [DB\_OPERATIONAL\_TRANS](#db_operational_trans-bf7908061bc2)
+- [DB\_RUNNING\_TRANS](#db_running_trans-0b9977369c65)
 - [NONE](#none-f29411358a7b)
 
 **Methods**:
 
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

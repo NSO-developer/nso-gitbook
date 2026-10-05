@@ -16,8 +16,8 @@ Token Manager.
 
 **Constructors**:
 
-- [PathParserTokenManager(JavaCharStream)](#pathparsertokenmanager-f1d632e41bca)
-- [PathParserTokenManager(JavaCharStream, int)](#pathparsertokenmanager-ab57e84d09f3)
+- [PathParserTokenManager\(JavaCharStream\)](#pathparsertokenmanager-f1d632e41bca)
+- [PathParserTokenManager\(JavaCharStream, int\)](#pathparsertokenmanager-ab57e84d09f3)
 
 **Fields**:
 
@@ -32,9 +32,9 @@ Token Manager.
 - [EOF](PathParserConstants.md#eof-e4ab74e8c3eb) from PathParserConstants
 - [IDENTIFIER](PathParserConstants.md#identifier-73b18fdcf248) from PathParserConstants
 - [IDENTIFIER2](PathParserConstants.md#identifier2-8a04449a942b) from PathParserConstants
-- [input_stream](#input_stream-2a4833575cfa)
-- [INSIDE_BRACES](PathParserConstants.md#inside_braces-126526a96a03) from PathParserConstants
-- [INSIDE_QUOTE](PathParserConstants.md#inside_quote-1a887df059d8) from PathParserConstants
+- [input\_stream](#input_stream-2a4833575cfa)
+- [INSIDE\_BRACES](PathParserConstants.md#inside_braces-126526a96a03) from PathParserConstants
+- [INSIDE\_QUOTE](PathParserConstants.md#inside_quote-1a887df059d8) from PathParserConstants
 - [jjbitVec0](#jjbitvec0-7cc00549bd7f)
 - [jjbitVec2](#jjbitvec2-3e0977c072b2)
 - [jjmatchedKind](#jjmatchedkind-d40cd9e25c29)
@@ -61,15 +61,15 @@ Token Manager.
 
 **Methods**:
 
-- [getNextToken()](#getnexttoken-dc921ada5024)
-- [jjFillToken()](#jjfilltoken-65cab186126c)
-- [MoreLexicalActions()](#morelexicalactions-949853b6331d)
-- [ReInit(JavaCharStream)](#reinit-c114d2c1f7c1)
-- [ReInit(JavaCharStream, int)](#reinit-eaef39c1af93)
-- [setDebugStream(PrintStream)](#setdebugstream-b3ded1375b4f)
-- [SkipLexicalActions(Token)](#skiplexicalactions-64f9393655bf)
-- [SwitchTo(int)](#switchto-11e96339668c)
-- [TokenLexicalActions(Token)](#tokenlexicalactions-f60b6e1bdbf0)
+- [getNextToken\(\)](#getnexttoken-dc921ada5024)
+- [jjFillToken\(\)](#jjfilltoken-65cab186126c)
+- [MoreLexicalActions\(\)](#morelexicalactions-949853b6331d)
+- [ReInit\(JavaCharStream\)](#reinit-c114d2c1f7c1)
+- [ReInit\(JavaCharStream, int\)](#reinit-eaef39c1af93)
+- [setDebugStream\(PrintStream\)](#setdebugstream-b3ded1375b4f)
+- [SkipLexicalActions\(Token\)](#skiplexicalactions-64f9393655bf)
+- [SwitchTo\(int\)](#switchto-11e96339668c)
+- [TokenLexicalActions\(Token\)](#tokenlexicalactions-f60b6e1bdbf0)
 
 ## Constructors
 

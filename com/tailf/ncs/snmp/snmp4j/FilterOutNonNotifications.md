@@ -17,11 +17,11 @@ Standard filter for suppression of received snmp events
 
 **Constructors**:
 
-- [FilterOutNonNotifications()](#filteroutnonnotifications-fdfb3a2ec6cb)
+- [FilterOutNonNotifications\(\)](#filteroutnonnotifications-fdfb3a2ec6cb)
 
 **Methods**:
 
-- [processPdu(EventContext, CommandResponderEvent, Object)](#processpdu-6c9b32673c38)
+- [processPdu\(EventContext, CommandResponderEvent, Object\)](#processpdu-6c9b32673c38)
 
 ## Constructors
 

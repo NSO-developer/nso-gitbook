@@ -6,22 +6,22 @@ public enum com.tailf.maapi.XPathNodeIterateResultFlag
 
 Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd)
 
-The [result(ConfObject[],ConfValue,Object)](MaapiXPathEvalResult.md#maapixpathevalresult-e5a539712098) method
+The [result\(ConfObject\[\],ConfValue,Object\)](MaapiXPathEvalResult.md#maapixpathevalresult-e5a539712098) method
  should return any of the following two constants
 
 ## Members
 
 **Enum Constants**:
 
-- [ITER_CONTINUE](#iter_continue-987b3f3577df)
-- [ITER_STOP](#iter_stop-1b807e9343da)
+- [ITER\_CONTINUE](#iter_continue-987b3f3577df)
+- [ITER\_STOP](#iter_stop-1b807e9343da)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

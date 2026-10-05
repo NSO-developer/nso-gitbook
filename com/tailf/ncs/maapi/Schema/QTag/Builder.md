@@ -9,15 +9,15 @@ public static final class com.tailf.ncs.maapi.Schema.QTag.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getHns()](#gethns-457afaf41ae6)
-- [getHtag()](#gethtag-3a838d71ddf7)
-- [setHns(int)](#sethns-7405e78f40fe)
-- [setHtag(int)](#sethtag-d40f4d76b210)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getHns\(\)](#gethns-457afaf41ae6)
+- [getHtag\(\)](#gethtag-3a838d71ddf7)
+- [setHns\(int\)](#sethns-7405e78f40fe)
+- [setHtag\(int\)](#sethtag-d40f4d76b210)
 
 ## Constructors
 

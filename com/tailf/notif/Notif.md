@@ -175,23 +175,23 @@ This class implements the Notifications API in Java.
 
 **Constructors**:
 
-- [Notif(Socket, EnumSet<NotificationType>)](#notif-ac04d6bc7836)
-- [Notif(Socket, EnumSet<NotificationType>, int)](#notif-fb6a151efdc4)
-- [Notif(Socket, EnumSet<NotificationType>, int, int)](#notif-844954eeba89)
-- [Notif(Socket, EnumSet<NotificationType>, NotificationCfg)](#notif-dae959e25ea9)
-- [Notif(SocketAddress, EnumSet<NotificationType>)](#notif-8cfa65ea4683)
-- [Notif(SocketAddress, EnumSet<NotificationType>, int)](#notif-0d4f132420ca)
-- [Notif(SocketAddress, EnumSet<NotificationType>, int, int)](#notif-5aede5d32ed9)
-- [Notif(SocketAddress, EnumSet<NotificationType>, NotificationCfg)](#notif-9b7386bb0975)
+- [Notif\(Socket, EnumSet\<NotificationType\>\)](#notif-ac04d6bc7836)
+- [Notif\(Socket, EnumSet\<NotificationType\>, int\)](#notif-fb6a151efdc4)
+- [Notif\(Socket, EnumSet\<NotificationType\>, int, int\)](#notif-844954eeba89)
+- [Notif\(Socket, EnumSet\<NotificationType\>, NotificationCfg\)](#notif-dae959e25ea9)
+- [Notif\(SocketAddress, EnumSet\<NotificationType\>\)](#notif-8cfa65ea4683)
+- [Notif\(SocketAddress, EnumSet\<NotificationType\>, int\)](#notif-0d4f132420ca)
+- [Notif\(SocketAddress, EnumSet\<NotificationType\>, int, int\)](#notif-5aede5d32ed9)
+- [Notif\(SocketAddress, EnumSet\<NotificationType\>, NotificationCfg\)](#notif-9b7386bb0975)
 
 **Methods**:
 
-- [close()](#close-8107c6dc012b)
-- [diffNotificationDone(int)](#diffnotificationdone-0053d5ba7865)
-- [read()](#read-b28b830b98d6)
-- [syncAuditNetworkNotification(int)](#syncauditnetworknotification-86a6d4e5bafc)
-- [syncAuditNotification(int)](#syncauditnotification-0078171f2fe7)
-- [syncHaNotification()](#synchanotification-3e08f3cf3c62)
+- [close\(\)](#close-8107c6dc012b)
+- [diffNotificationDone\(int\)](#diffnotificationdone-0053d5ba7865)
+- [read\(\)](#read-b28b830b98d6)
+- [syncAuditNetworkNotification\(int\)](#syncauditnetworknotification-86a6d4e5bafc)
+- [syncAuditNotification\(int\)](#syncauditnotification-0078171f2fe7)
+- [syncHaNotification\(\)](#synchanotification-3e08f3cf3c62)
 
 ## Constructors
 

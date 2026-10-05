@@ -9,17 +9,17 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDuration.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getDays()](#getdays-046356f0d5f0)
-- [getHours()](#gethours-3fa193b38793)
-- [getMicros()](#getmicros-062944cf4511)
-- [getMins()](#getmins-c1eeffb194a4)
-- [getMonths()](#getmonths-980c2a29d103)
-- [getSecs()](#getsecs-460472c1be09)
-- [getYears()](#getyears-04cc2ca752eb)
+- [getDays\(\)](#getdays-046356f0d5f0)
+- [getHours\(\)](#gethours-3fa193b38793)
+- [getMicros\(\)](#getmicros-062944cf4511)
+- [getMins\(\)](#getmins-c1eeffb194a4)
+- [getMonths\(\)](#getmonths-980c2a29d103)
+- [getSecs\(\)](#getsecs-460472c1be09)
+- [getYears\(\)](#getyears-04cc2ca752eb)
 
 ## Constructors
 

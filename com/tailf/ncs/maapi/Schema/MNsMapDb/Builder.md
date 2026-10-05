@@ -9,15 +9,15 @@ public static final class com.tailf.ncs.maapi.Schema.MNsMapDb.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getEntries()](#getentries-f554b7f62e3d)
-- [hasEntries()](#hasentries-ccf5edf194a9)
-- [initEntries(int)](#initentries-f2a53bc0911b)
-- [setEntries(Reader<Reader>)](#setentries-fe9fadec9eeb)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getEntries\(\)](#getentries-f554b7f62e3d)
+- [hasEntries\(\)](#hasentries-ccf5edf194a9)
+- [initEntries\(int\)](#initentries-f2a53bc0911b)
+- [setEntries\(Reader\<Reader\>\)](#setentries-fe9fadec9eeb)
 
 ## Constructors
 

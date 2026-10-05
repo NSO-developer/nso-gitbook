@@ -11,7 +11,7 @@ Types: [ProgressAttributeValue](ProgressAttributeValue.md#progressattributevalue
 
 **Constructors**:
 
-- [ProgressAttributeLiteral(String)](#progressattributeliteral-bf152c82d55f)
+- [ProgressAttributeLiteral\(String\)](#progressattributeliteral-bf152c82d55f)
 
 **Fields**:
 
@@ -20,8 +20,8 @@ Types: [ProgressAttributeValue](ProgressAttributeValue.md#progressattributevalue
 
 **Methods**:
 
-- [stringValue()](#stringvalue-a6efca13ec08)
-- [toString()](#tostring-e9d48c5503ef)
+- [stringValue\(\)](#stringvalue-a6efca13ec08)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

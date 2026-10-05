@@ -97,10 +97,10 @@ This `NavuCdbSessionPoolable` interface should be implemented by
 
 **Methods**:
 
-- [getSession(Cdb, CdbDBType, EnumSet<CdbLockType>)](#getsession-61014dfb12a7)
-- [poolInUse()](#poolinuse-8d190a00726a)
-- [removeAllForCdb(Cdb)](#removeallforcdb-58157efc1de6)
-- [removeAllSessions()](#removeallsessions-211f72fa9478)
+- [getSession\(Cdb, CdbDBType, EnumSet\<CdbLockType\>\)](#getsession-61014dfb12a7)
+- [poolInUse\(\)](#poolinuse-8d190a00726a)
+- [removeAllForCdb\(Cdb\)](#removeallforcdb-58157efc1de6)
+- [removeAllSessions\(\)](#removeallsessions-211f72fa9478)
 
 ## Methods
 

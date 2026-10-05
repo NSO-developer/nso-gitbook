@@ -12,17 +12,17 @@ flags for defining User Session protocol
 
 **Enum Constants**:
 
-- [PROTO_CONSOLE](#proto_console-78051500ad84)
-- [PROTO_SSH](#proto_ssh-cc9a1a228f8c)
-- [PROTO_SSL](#proto_ssl-5514b2e651a4)
-- [PROTO_TCP](#proto_tcp-828eb785fabf)
+- [PROTO\_CONSOLE](#proto_console-78051500ad84)
+- [PROTO\_SSH](#proto_ssh-cc9a1a228f8c)
+- [PROTO\_SSL](#proto_ssl-5514b2e651a4)
+- [PROTO\_TCP](#proto_tcp-828eb785fabf)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

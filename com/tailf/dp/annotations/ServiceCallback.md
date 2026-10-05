@@ -25,8 +25,8 @@ Annotation class for Service Callbacks.
 
 **Methods**:
 
-- [callType()](#calltype-0d0f9b61a036)
-- [servicePoint()](#servicepoint-b277aa382c7d)
+- [callType\(\)](#calltype-0d0f9b61a036)
+- [servicePoint\(\)](#servicepoint-b277aa382c7d)
 
 ## Methods
 

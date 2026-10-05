@@ -8,15 +8,15 @@ public class com.tailf.ncs.ctrl.ApplicationLifeCycle
 
 **Constructors**:
 
-- [ApplicationLifeCycle(NcsMain, ApplicationComponent, String)](#applicationlifecycle-a7cd06963a3f)
+- [ApplicationLifeCycle\(NcsMain, ApplicationComponent, String\)](#applicationlifecycle-a7cd06963a3f)
 
 **Methods**:
 
-- [executeFinish()](#executefinish-948f271cdb79)
-- [executeInit()](#executeinit-90c55b7a9847)
-- [executeRun()](#executerun-bd9fb2d93200)
-- [getFinishThread()](#getfinishthread-cafe0239d0c3)
-- [getInitError()](#getiniterror-db29a0beb4a2)
+- [executeFinish\(\)](#executefinish-948f271cdb79)
+- [executeInit\(\)](#executeinit-90c55b7a9847)
+- [executeRun\(\)](#executerun-bd9fb2d93200)
+- [getFinishThread\(\)](#getfinishthread-cafe0239d0c3)
+- [getInitError\(\)](#getiniterror-db29a0beb4a2)
 
 ## Constructors
 

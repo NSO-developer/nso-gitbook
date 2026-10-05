@@ -13,32 +13,32 @@ Data structure for failing commit notifications.
 
 **Constructors**:
 
-- [CommitFailedNotification(int, int, DpUserInfo, String, InetAddress, ConfObject, int)](#commitfailednotification-83e5ff60e780)
+- [CommitFailedNotification\(int, int, DpUserInfo, String, InetAddress, ConfObject, int\)](#commitfailednotification-83e5ff60e780)
 
 **Fields**:
 
-- [DATABASE_CANDIDATE](#database_candidate-ee8195cef3f3)
-- [DATABASE_NO_DB](#database_no_db-1cc64ed340de)
-- [DATABASE_RUNNING](#database_running-0d20bbf469d7)
-- [DATABASE_STARTUP](#database_startup-8fb31f1f04a2)
-- [DP_CDB](#dp_cdb-c81c7c7903c3)
-- [DP_EXTERNAL](#dp_external-8c510f8bd5c3)
-- [DP_JAVASCRIPT](#dp_javascript-0603146d46a2)
-- [DP_NETCONF](#dp_netconf-cbf8cf2a3cba)
-- [DP_SNMPGW](#dp_snmpgw-d58125586f4c)
+- [DATABASE\_CANDIDATE](#database_candidate-ee8195cef3f3)
+- [DATABASE\_NO\_DB](#database_no_db-1cc64ed340de)
+- [DATABASE\_RUNNING](#database_running-0d20bbf469d7)
+- [DATABASE\_STARTUP](#database_startup-8fb31f1f04a2)
+- [DP\_CDB](#dp_cdb-c81c7c7903c3)
+- [DP\_EXTERNAL](#dp_external-8c510f8bd5c3)
+- [DP\_JAVASCRIPT](#dp_javascript-0603146d46a2)
+- [DP\_NETCONF](#dp_netconf-cbf8cf2a3cba)
+- [DP\_SNMPGW](#dp_snmpgw-d58125586f4c)
 - [type](Notification.md#type-6ebb3673fbb6) from Notification
 
 **Methods**:
 
-- [getDaemonName()](#getdaemonname-ad12d8093443)
-- [getDataProvider()](#getdataprovider-9e4cec2ec805)
-- [getDBName()](#getdbname-65ff0bdb2339)
-- [getIP()](#getip-c2f1d3db411f)
-- [getIPValue()](#getipvalue-7154021b2d96)
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getPort()](#getport-a2225f868a2b)
-- [getUserInfo()](#getuserinfo-3ecef1f24d3d)
-- [toString()](#tostring-e9d48c5503ef)
+- [getDaemonName\(\)](#getdaemonname-ad12d8093443)
+- [getDataProvider\(\)](#getdataprovider-9e4cec2ec805)
+- [getDBName\(\)](#getdbname-65ff0bdb2339)
+- [getIP\(\)](#getip-c2f1d3db411f)
+- [getIPValue\(\)](#getipvalue-7154021b2d96)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getPort\(\)](#getport-a2225f868a2b)
+- [getUserInfo\(\)](#getuserinfo-3ecef1f24d3d)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

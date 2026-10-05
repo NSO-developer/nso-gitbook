@@ -11,16 +11,16 @@ Exception raised from the SSH Session
 
 **Constructors**:
 
-- [SSHSessionException(int, String)](#sshsessionexception-f6a2f2c7feea)
+- [SSHSessionException\(int, String\)](#sshsessionexception-f6a2f2c7feea)
 
 **Fields**:
 
-- [READ_EOF](#read_eof-8c3114d59520)
-- [READ_TIMEOUT](#read_timeout-bf92ad0bc4d2)
+- [READ\_EOF](#read_eof-8c3114d59520)
+- [READ\_TIMEOUT](#read_timeout-bf92ad0bc4d2)
 
 **Methods**:
 
-- [getErrorCode()](#geterrorcode-812152fc083a)
+- [getErrorCode\(\)](#geterrorcode-812152fc083a)
 
 ## Constructors
 

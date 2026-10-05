@@ -12,15 +12,15 @@ flags for controlling cmd to CLI via CLIInteraction class
 
 **Enum Constants**:
 
-- [NO_FULLPATH](#no_fullpath-9780bdb87de8)
-- [NO_HIDDEN](#no_hidden-2e1d61add5d6)
+- [NO\_FULLPATH](#no_fullpath-9780bdb87de8)
+- [NO\_HIDDEN](#no_hidden-2e1d61add5d6)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

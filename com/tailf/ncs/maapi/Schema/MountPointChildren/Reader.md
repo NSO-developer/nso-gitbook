@@ -9,14 +9,14 @@ public static final class com.tailf.ncs.maapi.Schema.MountPointChildren.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getChildren()](#getchildren-fe2038dff10d)
-- [getMountId()](#getmountid-c5175827f949)
-- [hasChildren()](#haschildren-94c463ee6541)
-- [hasMountId()](#hasmountid-cfc15a094ddc)
+- [getChildren\(\)](#getchildren-fe2038dff10d)
+- [getMountId\(\)](#getmountid-c5175827f949)
+- [hasChildren\(\)](#haschildren-94c463ee6541)
+- [hasMountId\(\)](#hasmountid-cfc15a094ddc)
 
 ## Constructors
 

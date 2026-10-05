@@ -15,16 +15,16 @@ Callback proxy for TransValidate Callbacks. Implements the
 
 **Constructors**:
 
-- [TransValidateCallbackProxy(Object)](#transvalidatecallbackproxy-11ae52cb63d7)
+- [TransValidateCallbackProxy\(Object\)](#transvalidatecallbackproxy-11ae52cb63d7)
 
 **Methods**:
 
-- [addActionCapability(TransValidateCBType)](#addactioncapability-0a83c7c765a3)
-- [addActionMethod(String, Method)](#addactionmethod-cf3e43a67fd9)
-- [getBackupObject()](#getbackupobject-a6fb23c24524)
-- [getTransValidateCallbackProxys(Object)](#gettransvalidatecallbackproxys-ea8c2c00799a)
-- [init(DpTrans)](#init-16fe8657859c)
-- [stop(DpTrans)](#stop-1dfe2eb96fb9)
+- [addActionCapability\(TransValidateCBType\)](#addactioncapability-0a83c7c765a3)
+- [addActionMethod\(String, Method\)](#addactionmethod-cf3e43a67fd9)
+- [getBackupObject\(\)](#getbackupobject-a6fb23c24524)
+- [getTransValidateCallbackProxys\(Object\)](#gettransvalidatecallbackproxys-ea8c2c00799a)
+- [init\(DpTrans\)](#init-16fe8657859c)
+- [stop\(DpTrans\)](#stop-1dfe2eb96fb9)
 
 ## Constructors
 

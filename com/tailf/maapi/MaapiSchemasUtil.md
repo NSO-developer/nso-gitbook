@@ -12,14 +12,14 @@ Utility class for MaapiSchemas This class contains tools for making recursive
 
 **Constructors**:
 
-- [MaapiSchemasUtil()](#maapischemasutil-96c7fe9b10ed)
+- [MaapiSchemasUtil\(\)](#maapischemasutil-96c7fe9b10ed)
 
 **Methods**:
 
-- [main(String[])](#main-1503518a8568)
-- [printChildren(int, CSNode)](#printchildren-569289dd47f3)
-- [printNodeFlags(int)](#printnodeflags-82155e1196a9)
-- [printNodeInfo(int, CSNode)](#printnodeinfo-c2705fa59a11)
+- [main\(String\[\]\)](#main-1503518a8568)
+- [printChildren\(int, CSNode\)](#printchildren-569289dd47f3)
+- [printNodeFlags\(int\)](#printnodeflags-82155e1196a9)
+- [printNodeInfo\(int, CSNode\)](#printnodeinfo-c2705fa59a11)
 
 ## Constructors
 

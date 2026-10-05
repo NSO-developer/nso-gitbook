@@ -14,11 +14,11 @@ Utility class to dump MmapSchema content from command line
 
 **Constructors**:
 
-- [MmapSchemaDumper()](#mmapschemadumper-3be5dcb44ba4)
+- [MmapSchemaDumper\(\)](#mmapschemadumper-3be5dcb44ba4)
 
 **Methods**:
 
-- [main(String[])](#main-1503518a8568)
+- [main\(String\[\]\)](#main-1503518a8568)
 
 ## Constructors
 

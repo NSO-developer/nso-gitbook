@@ -9,11 +9,11 @@ public class com.tailf.navu.InternalSAXException
 
 **Constructors**:
 
-- [InternalSAXException(String, Stack<CSNode>)](#internalsaxexception-b166b15685f4)
+- [InternalSAXException\(String, Stack\<CSNode\>\)](#internalsaxexception-b166b15685f4)
 
 **Methods**:
 
-- [getCurrentStack()](#getcurrentstack-c7498012d33b)
+- [getCurrentStack\(\)](#getcurrentstack-c7498012d33b)
 
 ## Constructors
 

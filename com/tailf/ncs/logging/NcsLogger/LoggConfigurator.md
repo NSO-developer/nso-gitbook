@@ -20,13 +20,13 @@ Helper class to map the Ncs YANG enumeration type log-level- type to
 
 **Constructors**:
 
-- [LoggConfigurator(SocketAddress)](#loggconfigurator-6207ae38aa39)
+- [LoggConfigurator\(SocketAddress\)](#loggconfigurator-6207ae38aa39)
 
 **Methods**:
 
-- [getLog4jLevel(ConfEnumeration)](#getlog4jlevel-31ba1eec0be7)
-- [loadLog4JConfig()](#loadlog4jconfig-bb849cf7c185)
-- [printLoggerStatus()](#printloggerstatus-e55794ea0a00)
+- [getLog4jLevel\(ConfEnumeration\)](#getlog4jlevel-31ba1eec0be7)
+- [loadLog4JConfig\(\)](#loadlog4jconfig-bb849cf7c185)
+- [printLoggerStatus\(\)](#printloggerstatus-e55794ea0a00)
 
 ## Constructors
 

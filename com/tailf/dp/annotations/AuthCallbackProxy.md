@@ -15,15 +15,15 @@ Callback proxy for Authorization Callbacks.
 
 **Constructors**:
 
-- [AuthCallbackProxy(Object)](#authcallbackproxy-45ee0efcea28)
+- [AuthCallbackProxy\(Object\)](#authcallbackproxy-45ee0efcea28)
 
 **Methods**:
 
-- [addActionCapability(AuthCBType)](#addactioncapability-833edf722d4a)
-- [addActionMethod(String, Method)](#addactionmethod-cf3e43a67fd9)
-- [auth(DpAuthContext)](#auth-34bd42ec3143)
-- [getAuthCallbackProxys(Object)](#getauthcallbackproxys-4fdb572f55a0)
-- [getBackupObject()](#getbackupobject-a6fb23c24524)
+- [addActionCapability\(AuthCBType\)](#addactioncapability-833edf722d4a)
+- [addActionMethod\(String, Method\)](#addactionmethod-cf3e43a67fd9)
+- [auth\(DpAuthContext\)](#auth-34bd42ec3143)
+- [getAuthCallbackProxys\(Object\)](#getauthcallbackproxys-4fdb572f55a0)
+- [getBackupObject\(\)](#getbackupobject-a6fb23c24524)
 
 ## Constructors
 

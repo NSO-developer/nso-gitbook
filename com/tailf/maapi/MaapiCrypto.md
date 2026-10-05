@@ -16,21 +16,21 @@ Data encryption and decryption utility class.
 
 **Constructors**:
 
-- [MaapiCrypto(Maapi)](#maapicrypto-6616b37056ed)
+- [MaapiCrypto\(Maapi\)](#maapicrypto-6616b37056ed)
 
 **Fields**:
 
-- [UNENCRYPTED_PREFIX](#unencrypted_prefix-2442270a4956)
+- [UNENCRYPTED\_PREFIX](#unencrypted_prefix-2442270a4956)
 
 **Methods**:
 
-- [decrypt(String)](#decrypt-fd5519daae0f)
-- [encrypt(MaapiCryptoType, String)](#encrypt-6816a2fdb1cd)
-- [getAes256Key()](#getaes256key-babe38ca13d3)
-- [getAesIV()](#getaesiv-ff91605b3c80)
-- [getAesKey()](#getaeskey-022277997637)
-- [getDes3IV()](#getdes3iv-d27942e875ec)
-- [getDes3Key()](#getdes3key-5e1f0d13ea47)
+- [decrypt\(String\)](#decrypt-fd5519daae0f)
+- [encrypt\(MaapiCryptoType, String\)](#encrypt-6816a2fdb1cd)
+- [getAes256Key\(\)](#getaes256key-babe38ca13d3)
+- [getAesIV\(\)](#getaesiv-ff91605b3c80)
+- [getAesKey\(\)](#getaeskey-022277997637)
+- [getDes3IV\(\)](#getdes3iv-d27942e875ec)
+- [getDes3Key\(\)](#getdes3key-5e1f0d13ea47)
 
 ## Constructors
 

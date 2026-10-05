@@ -12,18 +12,18 @@ public class com.tailf.progress.Attributes
 
 **Constructors**:
 
-- [Attributes()](#attributes-a6d98204d2be)
-- [Attributes(String, String)](#attributes-d2ef445b0bc4)
+- [Attributes\(\)](#attributes-a6d98204d2be)
+- [Attributes\(String, String\)](#attributes-d2ef445b0bc4)
 
 **Methods**:
 
-- [clear()](#clear-ca3baec040cb)
-- [contains(String)](#contains-e4bc1b0057b7)
-- [fromMap(HashMap<String,String>)](#frommap-0ea45f2e9170)
-- [getValue(String)](#getvalue-9dc706042d5b)
-- [merge(Attributes)](#merge-d3ebdfaf5faf)
-- [set(String, String)](#set-6cacddbc8231)
-- [toMap()](#tomap-36a006e0d56a)
+- [clear\(\)](#clear-ca3baec040cb)
+- [contains\(String\)](#contains-e4bc1b0057b7)
+- [fromMap\(HashMap\<String,String\>\)](#frommap-0ea45f2e9170)
+- [getValue\(String\)](#getvalue-9dc706042d5b)
+- [merge\(Attributes\)](#merge-d3ebdfaf5faf)
+- [set\(String, String\)](#set-6cacddbc8231)
+- [toMap\(\)](#tomap-36a006e0d56a)
 
 ## Constructors
 

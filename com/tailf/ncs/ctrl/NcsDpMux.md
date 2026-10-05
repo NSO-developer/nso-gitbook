@@ -17,19 +17,19 @@ Ncs abstraction layer for Dp class.
 
 **Constructors**:
 
-- [NcsDpMux(NcsMain, String, String)](#ncsdpmux-c6e608d90ef5)
-- [NcsDpMux(NcsMain, String, String, int)](#ncsdpmux-24f0ec39e19a)
+- [NcsDpMux\(NcsMain, String, String\)](#ncsdpmux-c6e608d90ef5)
+- [NcsDpMux\(NcsMain, String, String, int\)](#ncsdpmux-24f0ec39e19a)
 
 **Methods**:
 
-- [finish()](#finish-8c785ae2e6bb)
-- [getDpThread()](#getdpthread-0a74c4d6b35b)
-- [register(Object)](#register-7aae2d334f99)
-- [reportException(Throwable)](#reportexception-f2030dd5aa98)
-- [reRegister(Object)](#reregister-ec513c61f987)
-- [retrieveMountId(Object)](#retrievemountid-c38b7bcdc149)
-- [run()](#run-b6dbda048863)
-- [setReportExceptionsToNcsMain()](#setreportexceptionstoncsmain-2320b0a0719c)
+- [finish\(\)](#finish-8c785ae2e6bb)
+- [getDpThread\(\)](#getdpthread-0a74c4d6b35b)
+- [register\(Object\)](#register-7aae2d334f99)
+- [reportException\(Throwable\)](#reportexception-f2030dd5aa98)
+- [reRegister\(Object\)](#reregister-ec513c61f987)
+- [retrieveMountId\(Object\)](#retrievemountid-c38b7bcdc149)
+- [run\(\)](#run-b6dbda048863)
+- [setReportExceptionsToNcsMain\(\)](#setreportexceptionstoncsmain-2320b0a0719c)
 
 ## Constructors
 

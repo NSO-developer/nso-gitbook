@@ -10,7 +10,7 @@ public @interface com.tailf.conf.IterateFlags
 
 **Methods**:
 
-- [flags()](#flags-edbfa2eca0ea)
+- [flags\(\)](#flags-edbfa2eca0ea)
 
 ## Methods
 

@@ -9,15 +9,15 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeEnum.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getValues()](#getvalues-06542a92d7fa)
-- [hasValues()](#hasvalues-64d4a87b971a)
-- [initValues(int)](#initvalues-28f8d9e6476f)
-- [setValues(Reader<Reader>)](#setvalues-3ba13bd16732)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getValues\(\)](#getvalues-06542a92d7fa)
+- [hasValues\(\)](#hasvalues-64d4a87b971a)
+- [initValues\(int\)](#initvalues-28f8d9e6476f)
+- [setValues\(Reader\<Reader\>\)](#setvalues-3ba13bd16732)
 
 ## Constructors
 

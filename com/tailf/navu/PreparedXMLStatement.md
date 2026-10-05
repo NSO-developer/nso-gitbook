@@ -98,19 +98,19 @@ This class represents a parsed XML-string, optionally with parameterized
 
 **Constructors**:
 
-- [PreparedXMLStatement(ConfXMLParam[], Map<Integer,Object[]>, NavuNode)](#preparedxmlstatement-c488490cc518)
+- [PreparedXMLStatement\(ConfXMLParam\[\], Map\<Integer,Object\[\]\>, NavuNode\)](#preparedxmlstatement-c488490cc518)
 
 **Methods**:
 
-- [put(int, ConfObject)](#put-472f1342b5b7)
-- [put(int, String)](#put-f549d0ea766e)
-- [reset()](#reset-6927918ac70a)
-- [setValues()](#setvalues-da0bc3c468bf)
-- [setValues(NavuContext)](#setvalues-24042b0e5576)
-- [setValues(NavuNode)](#setvalues-5afe5d05dd50)
-- [sharedSetValues()](#sharedsetvalues-d34ed76578b4)
-- [sharedSetValues(NavuContext)](#sharedsetvalues-ccc5cc08315b)
-- [sharedSetValues(NavuNode)](#sharedsetvalues-28aec52d6350)
+- [put\(int, ConfObject\)](#put-472f1342b5b7)
+- [put\(int, String\)](#put-f549d0ea766e)
+- [reset\(\)](#reset-6927918ac70a)
+- [setValues\(\)](#setvalues-da0bc3c468bf)
+- [setValues\(NavuContext\)](#setvalues-24042b0e5576)
+- [setValues\(NavuNode\)](#setvalues-5afe5d05dd50)
+- [sharedSetValues\(\)](#sharedsetvalues-d34ed76578b4)
+- [sharedSetValues\(NavuContext\)](#sharedsetvalues-ccc5cc08315b)
+- [sharedSetValues\(NavuNode\)](#sharedsetvalues-28aec52d6350)
 
 ## Constructors
 

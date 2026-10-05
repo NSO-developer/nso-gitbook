@@ -75,29 +75,29 @@ The NCS resource manager able to create Maapi and Cdb objects
 
 **Constructors**:
 
-- [ResourceManager(NcsMain)](#resourcemanager-c2228d484dd2)
+- [ResourceManager\(NcsMain\)](#resourcemanager-c2228d484dd2)
 
 **Methods**:
 
-- [getCdb(Object, ResourceType, Scope, String)](#getcdb-8c099aecc3b8)
-- [getCdbResource(Object, ResourceType, Scope)](#getcdbresource-4756b4b7eac9)
-- [getCdbResource(Object, ResourceType, Scope, String)](#getcdbresource-819f805f6524)
-- [getMaapi(Object, Scope, String)](#getmaapi-5ce204d2ba92)
-- [getMaapiResource(Object, Scope)](#getmaapiresource-fac30372c33b)
-- [getMaapiResource(Object, Scope, String)](#getmaapiresource-13adc6401ea3)
-- [getResourceManager()](#getresourcemanager-eb64f13b2c87)
-- [register(Object)](#register-7aae2d334f99)
-- [registerResources(Object)](#registerresources-28726aa911f3)
-- [run()](#run-b6dbda048863)
-- [start()](#start-79e12dafe9f8)
-- [status()](#status-f7d72174690b)
-- [stop()](#stop-a62ecc446f97)
-- [unregister()](#unregister-638ca6b88803)
-- [unregister(Object)](#unregister-f05573abc359)
-- [unregister(String)](#unregister-a5b7a2399ff6)
-- [unregisterAllResources()](#unregisterallresources-919993219fa3)
-- [unregisterResources(Object)](#unregisterresources-03a05b7fe478)
-- [unregisterResources(String)](#unregisterresources-8b7efc728279)
+- [getCdb\(Object, ResourceType, Scope, String\)](#getcdb-8c099aecc3b8)
+- [getCdbResource\(Object, ResourceType, Scope\)](#getcdbresource-4756b4b7eac9)
+- [getCdbResource\(Object, ResourceType, Scope, String\)](#getcdbresource-819f805f6524)
+- [getMaapi\(Object, Scope, String\)](#getmaapi-5ce204d2ba92)
+- [getMaapiResource\(Object, Scope\)](#getmaapiresource-fac30372c33b)
+- [getMaapiResource\(Object, Scope, String\)](#getmaapiresource-13adc6401ea3)
+- [getResourceManager\(\)](#getresourcemanager-eb64f13b2c87)
+- [register\(Object\)](#register-7aae2d334f99)
+- [registerResources\(Object\)](#registerresources-28726aa911f3)
+- [run\(\)](#run-b6dbda048863)
+- [start\(\)](#start-79e12dafe9f8)
+- [status\(\)](#status-f7d72174690b)
+- [stop\(\)](#stop-a62ecc446f97)
+- [unregister\(\)](#unregister-638ca6b88803)
+- [unregister\(Object\)](#unregister-f05573abc359)
+- [unregister\(String\)](#unregister-a5b7a2399ff6)
+- [unregisterAllResources\(\)](#unregisterallresources-919993219fa3)
+- [unregisterResources\(Object\)](#unregisterresources-03a05b7fe478)
+- [unregisterResources\(String\)](#unregisterresources-8b7efc728279)
 
 ## Constructors
 

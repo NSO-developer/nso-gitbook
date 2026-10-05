@@ -12,16 +12,16 @@ Subscription Synchronization type used in sync() method
 
 **Enum Constants**:
 
-- [DONE_OPERATIONAL](#done_operational-a27840e105d3)
-- [DONE_PRIORITY](#done_priority-b870590aba34)
-- [DONE_SOCKET](#done_socket-acfefb01e422)
-- [DONE_TRANSACTION](#done_transaction-49dca47f96cf)
+- [DONE\_OPERATIONAL](#done_operational-a27840e105d3)
+- [DONE\_PRIORITY](#done_priority-b870590aba34)
+- [DONE\_SOCKET](#done_socket-acfefb01e422)
+- [DONE\_TRANSACTION](#done_transaction-49dca47f96cf)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

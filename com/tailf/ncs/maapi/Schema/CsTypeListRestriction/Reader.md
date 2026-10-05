@@ -9,12 +9,12 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeListRestriction.Reade
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getRanges()](#getranges-c1cd383e54a0)
-- [hasRanges()](#hasranges-77bc63fe4ea8)
+- [getRanges\(\)](#getranges-c1cd383e54a0)
+- [hasRanges\(\)](#hasranges-77bc63fe4ea8)
 
 ## Constructors
 

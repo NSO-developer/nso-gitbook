@@ -12,11 +12,11 @@ SSHCLient subsystem interface
 
 **Methods**:
 
-- [close()](#close-8107c6dc012b)
-- [getInputStream()](#getinputstream-cb1d1fa14d56)
-- [getOutputStream()](#getoutputstream-b7e39f99be28)
-- [isEof()](#iseof-8742248f0caf)
-- [isOpen()](#isopen-9dae28e82104)
+- [close\(\)](#close-8107c6dc012b)
+- [getInputStream\(\)](#getinputstream-cb1d1fa14d56)
+- [getOutputStream\(\)](#getoutputstream-b7e39f99be28)
+- [isEof\(\)](#iseof-8742248f0caf)
+- [isOpen\(\)](#isopen-9dae28e82104)
 
 ## Methods
 

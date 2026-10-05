@@ -14,7 +14,7 @@ A ConfNamespaceStub can be used in place of a real namespace file when
 
 **Constructors**:
 
-- [ConfNamespaceStub(int, String, String, String)](#confnamespacestub-901e454ed0d8)
+- [ConfNamespaceStub\(int, String, String, String\)](#confnamespacestub-901e454ed0d8)
 
 **Fields**:
 
@@ -25,30 +25,30 @@ A ConfNamespaceStub can be used in place of a real namespace file when
 
 **Methods**:
 
-- [findNamespace(int, List<ConfNamespace>)](ConfNamespace.md#findnamespace-3608c9e64446) from ConfNamespace
-- [findNamespace(String)](ConfNamespace.md#findnamespace-ffbcd6481b17) from ConfNamespace
-- [findNamespace(String, List<ConfNamespace>)](ConfNamespace.md#findnamespace-d388c2984448) from ConfNamespace
-- [findNamespaceFromMountPrefix(List<String>, String)](ConfNamespace.md#findnamespacefrommountprefix-bab7e96778db) from ConfNamespace
-- [findNamespaceFromNsName(ConfPath, MountIdInterface, String)](ConfNamespace.md#findnamespacefromnsname-48eec0922648) from ConfNamespace
-- [findNamespaceFromPrefix(ConfPath, MountIdInterface, String)](ConfNamespace.md#findnamespacefromprefix-6e0581090f53) from ConfNamespace
-- [findNamespaceFromPrefix(String)](ConfNamespace.md#findnamespacefromprefix-869c6d668202) from ConfNamespace
-- [findNamespaceFromPrefix(String, List<ConfNamespace>)](ConfNamespace.md#findnamespacefromprefix-66c7e977c972) from ConfNamespace
-- [findNamespaceFromRootTag(String)](ConfNamespace.md#findnamespacefromroottag-f2df2fa2fc2d) from ConfNamespace
-- [hash()](#hash-88880b48029e)
-- [hashToString(int)](ConfNamespace.md#hashtostring-54eaaef71976) from ConfNamespace
-- [id()](#id-1352448ec267)
-- [isCrunchedNs(String)](ConfNamespace.md#iscrunchedns-360c1c86027d) from ConfNamespace
-- [lookupNamespaceFromHash(int)](ConfNamespace.md#lookupnamespacefromhash-da403ab8aac5) from ConfNamespace
-- [lookupNamespaceFromPrefix(ConfPath, MountIdInterface, String)](ConfNamespace.md#lookupnamespacefromprefix-8f1e7973fb08) from ConfNamespace
-- [lookupNamespaceFromPrefix(String)](ConfNamespace.md#lookupnamespacefromprefix-2c59900bb38b) from ConfNamespace
-- [lookupNamespaceFromURI(String)](ConfNamespace.md#lookupnamespacefromuri-c4f1a0a098c7) from ConfNamespace
-- [prefix()](#prefix-668176aac777)
-- [reinstallRemovedNs(List<ConfNamespace>)](ConfNamespace.md#reinstallremovedns-87cc8747702c) from ConfNamespace
-- [stringToHash(String)](ConfNamespace.md#stringtohash-7c2af24796ac) from ConfNamespace
-- [toString()](ConfNamespace.md#tostring-e9d48c5503ef) from ConfNamespace
-- [truncateToXMLUri(String)](ConfNamespace.md#truncatetoxmluri-601243c5d74e) from ConfNamespace
-- [uri()](#uri-3fbfda96db65)
-- [xmlUri()](#xmluri-e04f3f35f4eb)
+- [findNamespace\(int, List\<ConfNamespace\>\)](ConfNamespace.md#findnamespace-3608c9e64446) from ConfNamespace
+- [findNamespace\(String\)](ConfNamespace.md#findnamespace-ffbcd6481b17) from ConfNamespace
+- [findNamespace\(String, List\<ConfNamespace\>\)](ConfNamespace.md#findnamespace-d388c2984448) from ConfNamespace
+- [findNamespaceFromMountPrefix\(List\<String\>, String\)](ConfNamespace.md#findnamespacefrommountprefix-bab7e96778db) from ConfNamespace
+- [findNamespaceFromNsName\(ConfPath, MountIdInterface, String\)](ConfNamespace.md#findnamespacefromnsname-48eec0922648) from ConfNamespace
+- [findNamespaceFromPrefix\(ConfPath, MountIdInterface, String\)](ConfNamespace.md#findnamespacefromprefix-6e0581090f53) from ConfNamespace
+- [findNamespaceFromPrefix\(String\)](ConfNamespace.md#findnamespacefromprefix-869c6d668202) from ConfNamespace
+- [findNamespaceFromPrefix\(String, List\<ConfNamespace\>\)](ConfNamespace.md#findnamespacefromprefix-66c7e977c972) from ConfNamespace
+- [findNamespaceFromRootTag\(String\)](ConfNamespace.md#findnamespacefromroottag-f2df2fa2fc2d) from ConfNamespace
+- [hash\(\)](#hash-88880b48029e)
+- [hashToString\(int\)](ConfNamespace.md#hashtostring-54eaaef71976) from ConfNamespace
+- [id\(\)](#id-1352448ec267)
+- [isCrunchedNs\(String\)](ConfNamespace.md#iscrunchedns-360c1c86027d) from ConfNamespace
+- [lookupNamespaceFromHash\(int\)](ConfNamespace.md#lookupnamespacefromhash-da403ab8aac5) from ConfNamespace
+- [lookupNamespaceFromPrefix\(ConfPath, MountIdInterface, String\)](ConfNamespace.md#lookupnamespacefromprefix-8f1e7973fb08) from ConfNamespace
+- [lookupNamespaceFromPrefix\(String\)](ConfNamespace.md#lookupnamespacefromprefix-2c59900bb38b) from ConfNamespace
+- [lookupNamespaceFromURI\(String\)](ConfNamespace.md#lookupnamespacefromuri-c4f1a0a098c7) from ConfNamespace
+- [prefix\(\)](#prefix-668176aac777)
+- [reinstallRemovedNs\(List\<ConfNamespace\>\)](ConfNamespace.md#reinstallremovedns-87cc8747702c) from ConfNamespace
+- [stringToHash\(String\)](ConfNamespace.md#stringtohash-7c2af24796ac) from ConfNamespace
+- [toString\(\)](ConfNamespace.md#tostring-e9d48c5503ef) from ConfNamespace
+- [truncateToXMLUri\(String\)](ConfNamespace.md#truncatetoxmluri-601243c5d74e) from ConfNamespace
+- [uri\(\)](#uri-3fbfda96db65)
+- [xmlUri\(\)](#xmluri-e04f3f35f4eb)
 
 ## Constructors
 

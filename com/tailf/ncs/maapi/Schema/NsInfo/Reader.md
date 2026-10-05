@@ -9,23 +9,23 @@ public static final class com.tailf.ncs.maapi.Schema.NsInfo.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getModule()](#getmodule-68694513ccce)
-- [getNshash()](#getnshash-c5a7631eae00)
-- [getPrefix()](#getprefix-9268091e0223)
-- [getRevision()](#getrevision-b0088aa9f0bf)
-- [getRootNodes()](#getrootnodes-63f2b6255095)
-- [getTypes()](#gettypes-cbd0de718034)
-- [getUri()](#geturi-e839fdd3e24c)
-- [hasModule()](#hasmodule-8a9f381a7ff1)
-- [hasPrefix()](#hasprefix-ddbc3bbca9c3)
-- [hasRevision()](#hasrevision-23a5e6a14bd8)
-- [hasRootNodes()](#hasrootnodes-251070d577eb)
-- [hasTypes()](#hastypes-5c6311e6f402)
-- [hasUri()](#hasuri-d455832c8996)
+- [getModule\(\)](#getmodule-68694513ccce)
+- [getNshash\(\)](#getnshash-c5a7631eae00)
+- [getPrefix\(\)](#getprefix-9268091e0223)
+- [getRevision\(\)](#getrevision-b0088aa9f0bf)
+- [getRootNodes\(\)](#getrootnodes-63f2b6255095)
+- [getTypes\(\)](#gettypes-cbd0de718034)
+- [getUri\(\)](#geturi-e839fdd3e24c)
+- [hasModule\(\)](#hasmodule-8a9f381a7ff1)
+- [hasPrefix\(\)](#hasprefix-ddbc3bbca9c3)
+- [hasRevision\(\)](#hasrevision-23a5e6a14bd8)
+- [hasRootNodes\(\)](#hasrootnodes-251070d577eb)
+- [hasTypes\(\)](#hastypes-5c6311e6f402)
+- [hasUri\(\)](#hasuri-d455832c8996)
 
 ## Constructors
 

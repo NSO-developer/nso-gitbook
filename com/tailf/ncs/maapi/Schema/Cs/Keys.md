@@ -8,13 +8,13 @@ public static class com.tailf.ncs.maapi.Schema.Cs.Keys
 
 **Constructors**:
 
-- [Keys()](#keys-e9aa9f160da2)
+- [Keys\(\)](#keys-e9aa9f160da2)
 
 **Fields**:
 
 - [factory](#factory-1649195a6f6e)
 - [listFactory](#listfactory-b96025f1568b)
-- [STRUCT_SIZE](#struct_size-06830f6b9d3b)
+- [STRUCT\_SIZE](#struct_size-06830f6b9d3b)
 
 **Nested Types**:
 

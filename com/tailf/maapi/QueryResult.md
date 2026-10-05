@@ -32,16 +32,16 @@ Represent a result from a XPath query.
 
 **Constructors**:
 
-- [QueryResult(Maapi, ConfELong)](#queryresult-cfa1327eaddc)
+- [QueryResult\(Maapi, ConfELong\)](#queryresult-cfa1327eaddc)
 
 **Methods**:
 
-- [iterator()](#iterator-188aa52d1f86)
-- [reset()](#reset-6927918ac70a)
-- [reset(int)](#reset-0119ff136490)
-- [resultCount()](#resultcount-69149d4d6ac3)
-- [stop()](#stop-a62ecc446f97)
-- [value()](QueryResult/Entry.md#value-9e1512d1a0ce) from Entry
+- [iterator\(\)](#iterator-188aa52d1f86)
+- [reset\(\)](#reset-6927918ac70a)
+- [reset\(int\)](#reset-0119ff136490)
+- [resultCount\(\)](#resultcount-69149d4d6ac3)
+- [stop\(\)](#stop-a62ecc446f97)
+- [value\(\)](QueryResult/Entry.md#value-9e1512d1a0ce) from Entry
 
 **Nested Types**:
 

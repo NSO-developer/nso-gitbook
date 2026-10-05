@@ -9,16 +9,16 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getDisplayHint()](#getdisplayhint-f9cb8b7f487f)
-- [hasDisplayHint()](#hasdisplayhint-a0d050b8aab0)
-- [initDisplayHint(int)](#initdisplayhint-c16e1e013565)
-- [setDisplayHint(byte[])](#setdisplayhint-a6a8c5e2aab1)
-- [setDisplayHint(Reader)](#setdisplayhint-29d7604e3fc3)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getDisplayHint\(\)](#getdisplayhint-f9cb8b7f487f)
+- [hasDisplayHint\(\)](#hasdisplayhint-a0d050b8aab0)
+- [initDisplayHint\(int\)](#initdisplayhint-c16e1e013565)
+- [setDisplayHint\(byte\[\]\)](#setdisplayhint-a6a8c5e2aab1)
+- [setDisplayHint\(Reader\)](#setdisplayhint-29d7604e3fc3)
 
 ## Constructors
 

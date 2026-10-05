@@ -9,21 +9,21 @@ public static final class com.tailf.ncs.maapi.Schema.CsMeta.Value.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getNone()](#getnone-e31bfdbffa7f)
-- [getText()](#gettext-e63d55fcdcbd)
-- [hasText()](#hastext-9f49522a4f5a)
-- [initText(int)](#inittext-6175682972e5)
-- [isNone()](#isnone-e8a993ad0453)
-- [isText()](#istext-98869fdb86ee)
-- [setNone(Void)](#setnone-46764db867d5)
-- [setText(Reader)](#settext-e072baf7bad6)
-- [setText(String)](#settext-bb5093080571)
-- [which()](#which-0b2d23db5ed0)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getNone\(\)](#getnone-e31bfdbffa7f)
+- [getText\(\)](#gettext-e63d55fcdcbd)
+- [hasText\(\)](#hastext-9f49522a4f5a)
+- [initText\(int\)](#inittext-6175682972e5)
+- [isNone\(\)](#isnone-e8a993ad0453)
+- [isText\(\)](#istext-98869fdb86ee)
+- [setNone\(Void\)](#setnone-46764db867d5)
+- [setText\(Reader\)](#settext-e072baf7bad6)
+- [setText\(String\)](#settext-bb5093080571)
+- [which\(\)](#which-0b2d23db5ed0)
 
 ## Constructors
 

@@ -15,17 +15,17 @@ Callback proxy for annotated NavuEventCallback methods This class is used
 
 **Constructors**:
 
-- [EventCallbackProxy(Object, String, String)](#eventcallbackproxy-235200ec6bf0)
+- [EventCallbackProxy\(Object, String, String\)](#eventcallbackproxy-235200ec6bf0)
 
 **Methods**:
 
-- [addActionCapability(EventCBType)](#addactioncapability-471364e7872b)
-- [addActionMethod(String, Method)](#addactionmethod-cf3e43a67fd9)
-- [getBackupObject()](#getbackupobject-a6fb23c24524)
-- [getDeviceName()](#getdevicename-95c72ec0cf27)
-- [getEventCallbackProxys(Object)](#geteventcallbackproxys-76f551eae7e4)
-- [getSubscriptionName()](#getsubscriptionname-b6fdef58df3d)
-- [notifReceived(NavuContainer)](#notifreceived-df06be623526)
+- [addActionCapability\(EventCBType\)](#addactioncapability-471364e7872b)
+- [addActionMethod\(String, Method\)](#addactionmethod-cf3e43a67fd9)
+- [getBackupObject\(\)](#getbackupobject-a6fb23c24524)
+- [getDeviceName\(\)](#getdevicename-95c72ec0cf27)
+- [getEventCallbackProxys\(Object\)](#geteventcallbackproxys-76f551eae7e4)
+- [getSubscriptionName\(\)](#getsubscriptionname-b6fdef58df3d)
+- [notifReceived\(NavuContainer\)](#notifreceived-df06be623526)
 
 ## Constructors
 

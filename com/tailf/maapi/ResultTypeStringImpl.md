@@ -13,11 +13,11 @@ Types: [ResultTypeString](ResultTypeString.md#resulttypestring-6e023ffcb7ea)
 
 **Constructors**:
 
-- [ResultTypeStringImpl(String)](#resulttypestringimpl-76604566947b)
+- [ResultTypeStringImpl\(String\)](#resulttypestringimpl-76604566947b)
 
 **Methods**:
 
-- [stringValue()](#stringvalue-a6efca13ec08)
+- [stringValue\(\)](#stringvalue-a6efca13ec08)
 
 ## Constructors
 

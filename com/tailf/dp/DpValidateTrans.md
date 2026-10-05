@@ -16,7 +16,7 @@ The validate transaction context. Each transaction is running in separate
 
 **Constructors**:
 
-- [DpValidateTrans(Dp, int, int, int, int, DpUserInfo)](#dpvalidatetrans-3745a66aa93e)
+- [DpValidateTrans\(Dp, int, int, int, int, DpUserInfo\)](#dpvalidatetrans-3745a66aa93e)
 
 **Fields**:
 
@@ -34,40 +34,40 @@ The validate transaction context. Each transaction is running in separate
 
 **Methods**:
 
-- [accumulated()](DpTrans.md#accumulated-2f58da3048dd) from DpTrans
-- [dataSetTimeout(int)](DpTrans.md#datasettimeout-8ad3068e3a46) from DpTrans
-- [getDBName()](DpTrans.md#getdbname-65ff0bdb2339) from DpTrans
-- [getDeviceType()](DpTrans.md#getdevicetype-c8eec3b01523) from DpTrans
-- [getDevNo()](DpTrans.md#getdevno-b1169ef876ed) from DpTrans
-- [getDp()](DpTrans.md#getdp-b1462199cc2e) from DpTrans
-- [getMode()](DpTrans.md#getmode-c3dc73476e30) from DpTrans
-- [getNsList()](DpTrans.md#getnslist-0345f486e876) from DpTrans
-- [getOpaque()](DpTrans.md#getopaque-92e4945ec92d) from DpTrans
-- [getSecondaryIndex()](DpTrans.md#getsecondaryindex-8efa1ee57e9c) from DpTrans
-- [getSocket()](DpTrans.md#getsocket-d7da2de81b81) from DpTrans
-- [getTransaction()](DpTrans.md#gettransaction-4f1c72a828a1) from DpTrans
-- [getTransactionUserOpaque()](DpTrans.md#gettransactionuseropaque-87a9bf7a20e1) from DpTrans
-- [getUserInfo()](DpTrans.md#getuserinfo-3ecef1f24d3d) from DpTrans
-- [getValidationUserOpaque()](#getvalidationuseropaque-17a29486bf22)
-- [getWorkerSocket()](DpTrans.md#getworkersocket-ba1472e0f5a7) from DpTrans
-- [honorFilter(boolean)](DpTrans.md#honorfilter-5ff04bbbf2d0) from DpTrans
-- [isHideInactive()](DpTrans.md#ishideinactive-1d32c2838395) from DpTrans
-- [protoReply(boolean)](DpTrans.md#protoreply-e8de0386a2d0) from DpTrans
-- [protoReply(ConfEObject)](DpTrans.md#protoreply-47f22a8227a5) from DpTrans
-- [protoReply(ConfObject)](DpTrans.md#protoreply-3ecaf76eaab8) from DpTrans
-- [protoReply(ConfObject[])](DpTrans.md#protoreply-cee1bb25672e) from DpTrans
-- [protoReplyXMLParam(ConfXMLParam[])](DpTrans.md#protoreplyxmlparam-9dcf8f14a8dc) from DpTrans
-- [replyError(ConfEObject)](DpTrans.md#replyerror-3184cd2ad634) from DpTrans
-- [replyError(String)](DpTrans.md#replyerror-48c78d28e991) from DpTrans
-- [replyError(String, Throwable)](DpTrans.md#replyerror-c4e21f52074d) from DpTrans
-- [replyError(Throwable)](DpTrans.md#replyerror-26f4ce830453) from DpTrans
-- [replyExtendedError(String, DpCallbackExtendedException)](DpTrans.md#replyextendederror-b54351b1555f) from DpTrans
-- [replyOther(boolean, String, String)](DpTrans.md#replyother-c2352ec6bb73) from DpTrans
-- [run()](#run-b6dbda048863)
-- [setSocket(Socket)](DpTrans.md#setsocket-183068848e4c) from DpTrans
-- [setTransactionUserOpaque(Object)](DpTrans.md#settransactionuseropaque-ce392ad59d2e) from DpTrans
-- [setValidationUserOpaque(Object)](#setvalidationuseropaque-1b3063fe7f25)
-- [transReplyOK()](DpTrans.md#transreplyok-92425e2f5c67) from DpTrans
+- [accumulated\(\)](DpTrans.md#accumulated-2f58da3048dd) from DpTrans
+- [dataSetTimeout\(int\)](DpTrans.md#datasettimeout-8ad3068e3a46) from DpTrans
+- [getDBName\(\)](DpTrans.md#getdbname-65ff0bdb2339) from DpTrans
+- [getDeviceType\(\)](DpTrans.md#getdevicetype-c8eec3b01523) from DpTrans
+- [getDevNo\(\)](DpTrans.md#getdevno-b1169ef876ed) from DpTrans
+- [getDp\(\)](DpTrans.md#getdp-b1462199cc2e) from DpTrans
+- [getMode\(\)](DpTrans.md#getmode-c3dc73476e30) from DpTrans
+- [getNsList\(\)](DpTrans.md#getnslist-0345f486e876) from DpTrans
+- [getOpaque\(\)](DpTrans.md#getopaque-92e4945ec92d) from DpTrans
+- [getSecondaryIndex\(\)](DpTrans.md#getsecondaryindex-8efa1ee57e9c) from DpTrans
+- [getSocket\(\)](DpTrans.md#getsocket-d7da2de81b81) from DpTrans
+- [getTransaction\(\)](DpTrans.md#gettransaction-4f1c72a828a1) from DpTrans
+- [getTransactionUserOpaque\(\)](DpTrans.md#gettransactionuseropaque-87a9bf7a20e1) from DpTrans
+- [getUserInfo\(\)](DpTrans.md#getuserinfo-3ecef1f24d3d) from DpTrans
+- [getValidationUserOpaque\(\)](#getvalidationuseropaque-17a29486bf22)
+- [getWorkerSocket\(\)](DpTrans.md#getworkersocket-ba1472e0f5a7) from DpTrans
+- [honorFilter\(boolean\)](DpTrans.md#honorfilter-5ff04bbbf2d0) from DpTrans
+- [isHideInactive\(\)](DpTrans.md#ishideinactive-1d32c2838395) from DpTrans
+- [protoReply\(boolean\)](DpTrans.md#protoreply-e8de0386a2d0) from DpTrans
+- [protoReply\(ConfEObject\)](DpTrans.md#protoreply-47f22a8227a5) from DpTrans
+- [protoReply\(ConfObject\)](DpTrans.md#protoreply-3ecaf76eaab8) from DpTrans
+- [protoReply\(ConfObject\[\]\)](DpTrans.md#protoreply-cee1bb25672e) from DpTrans
+- [protoReplyXMLParam\(ConfXMLParam\[\]\)](DpTrans.md#protoreplyxmlparam-9dcf8f14a8dc) from DpTrans
+- [replyError\(ConfEObject\)](DpTrans.md#replyerror-3184cd2ad634) from DpTrans
+- [replyError\(String\)](DpTrans.md#replyerror-48c78d28e991) from DpTrans
+- [replyError\(String, Throwable\)](DpTrans.md#replyerror-c4e21f52074d) from DpTrans
+- [replyError\(Throwable\)](DpTrans.md#replyerror-26f4ce830453) from DpTrans
+- [replyExtendedError\(String, DpCallbackExtendedException\)](DpTrans.md#replyextendederror-b54351b1555f) from DpTrans
+- [replyOther\(boolean, String, String\)](DpTrans.md#replyother-c2352ec6bb73) from DpTrans
+- [run\(\)](#run-b6dbda048863)
+- [setSocket\(Socket\)](DpTrans.md#setsocket-183068848e4c) from DpTrans
+- [setTransactionUserOpaque\(Object\)](DpTrans.md#settransactionuseropaque-ce392ad59d2e) from DpTrans
+- [setValidationUserOpaque\(Object\)](#setvalidationuseropaque-1b3063fe7f25)
+- [transReplyOK\(\)](DpTrans.md#transreplyok-92425e2f5c67) from DpTrans
 
 ## Constructors
 

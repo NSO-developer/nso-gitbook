@@ -17,11 +17,11 @@ This implements the `NavuTraversalMean` for BFS
 
 **Constructors**:
 
-- [NavuTraversalBfsMean()](#navutraversalbfsmean-c7c973dd9b7d)
+- [NavuTraversalBfsMean\(\)](#navutraversalbfsmean-c7c973dd9b7d)
 
 **Methods**:
 
-- [traverse(NavuNode, List<TraversalFilter>)](#traverse-e72c3ea2612b)
+- [traverse\(NavuNode, List\<TraversalFilter\>\)](#traverse-e72c3ea2612b)
 
 ## Constructors
 

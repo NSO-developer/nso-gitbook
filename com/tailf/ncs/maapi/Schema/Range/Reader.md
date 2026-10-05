@@ -9,15 +9,15 @@ public static final class com.tailf.ncs.maapi.Schema.Range.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getFlags()](#getflags-3c1ca90fd29c)
-- [getHi()](#gethi-f8fa4dcfe431)
-- [getLo()](#getlo-bfe1c987d87a)
-- [hasHi()](#hashi-5d9a1cd214ca)
-- [hasLo()](#haslo-5c413cde5b09)
+- [getFlags\(\)](#getflags-3c1ca90fd29c)
+- [getHi\(\)](#gethi-f8fa4dcfe431)
+- [getLo\(\)](#getlo-bfe1c987d87a)
+- [hasHi\(\)](#hashi-5d9a1cd214ca)
+- [hasLo\(\)](#haslo-5c413cde5b09)
 
 ## Constructors
 

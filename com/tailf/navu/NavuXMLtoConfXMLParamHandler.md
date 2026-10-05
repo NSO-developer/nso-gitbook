@@ -16,7 +16,7 @@ Handler class for SAX Parser. Contains callback methods
 
 **Methods**:
 
-- [confXMLParam()](#confxmlparam-334dac9dee1a)
+- [confXMLParam\(\)](#confxmlparam-334dac9dee1a)
 
 ## Methods
 

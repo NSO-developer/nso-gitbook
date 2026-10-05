@@ -13,8 +13,8 @@ Provides a Java representation of E integral types.
 
 **Constructors**:
 
-- [ConfEChar(char)](#confechar-52e84b3e8fb6)
-- [ConfEChar(ConfInputStream)](#confechar-325c8699be13)
+- [ConfEChar\(char\)](#confechar-52e84b3e8fb6)
+- [ConfEChar\(ConfInputStream\)](#confechar-325c8699be13)
 
 **Fields**:
 
@@ -22,19 +22,19 @@ Provides a Java representation of E integral types.
 
 **Methods**:
 
-- [byteValue()](ConfELong.md#bytevalue-a56aac956c5c) from ConfELong
-- [charValue()](ConfELong.md#charvalue-4b3a6b868fe4) from ConfELong
-- [clone()](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
-- [decode(ConfInputStream)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
-- [encode(ConfOutputStream)](ConfELong.md#encode-cb1ad9eb7771) from ConfELong
-- [equals(Object)](ConfELong.md#equals-fcd6492e0d6c) from ConfELong
-- [hashCode()](ConfELong.md#hashcode-ef797a217903) from ConfELong
-- [intValue()](ConfELong.md#intvalue-2f745d025d8e) from ConfELong
-- [longValue()](ConfELong.md#longvalue-636bfe2d6862) from ConfELong
-- [shortValue()](ConfELong.md#shortvalue-438ff2f827fb) from ConfELong
-- [toString()](ConfELong.md#tostring-e9d48c5503ef) from ConfELong
-- [uIntValue()](ConfELong.md#uintvalue-11d9c2202272) from ConfELong
-- [uShortValue()](ConfELong.md#ushortvalue-5c27a3934662) from ConfELong
+- [byteValue\(\)](ConfELong.md#bytevalue-a56aac956c5c) from ConfELong
+- [charValue\(\)](ConfELong.md#charvalue-4b3a6b868fe4) from ConfELong
+- [clone\(\)](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
+- [decode\(ConfInputStream\)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
+- [encode\(ConfOutputStream\)](ConfELong.md#encode-cb1ad9eb7771) from ConfELong
+- [equals\(Object\)](ConfELong.md#equals-fcd6492e0d6c) from ConfELong
+- [hashCode\(\)](ConfELong.md#hashcode-ef797a217903) from ConfELong
+- [intValue\(\)](ConfELong.md#intvalue-2f745d025d8e) from ConfELong
+- [longValue\(\)](ConfELong.md#longvalue-636bfe2d6862) from ConfELong
+- [shortValue\(\)](ConfELong.md#shortvalue-438ff2f827fb) from ConfELong
+- [toString\(\)](ConfELong.md#tostring-e9d48c5503ef) from ConfELong
+- [uIntValue\(\)](ConfELong.md#uintvalue-11d9c2202272) from ConfELong
+- [uShortValue\(\)](ConfELong.md#ushortvalue-5c27a3934662) from ConfELong
 
 ## Constructors
 

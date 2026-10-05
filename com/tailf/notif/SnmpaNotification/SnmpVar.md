@@ -10,14 +10,14 @@ Class representing a SNMP variable
 
 **Constructors**:
 
-- [SnmpVar(String, long[], String, long[])](#snmpvar-81ac1f12c262)
+- [SnmpVar\(String, long\[\], String, long\[\]\)](#snmpvar-81ac1f12c262)
 
 **Methods**:
 
-- [getColumn()](#getcolumn-d5f8434d3d26)
-- [getName()](#getname-2634b18b4a25)
-- [getOID()](#getoid-5906d09df65a)
-- [getRowIndex()](#getrowindex-7a54ed7b2c63)
+- [getColumn\(\)](#getcolumn-d5f8434d3d26)
+- [getName\(\)](#getname-2634b18b4a25)
+- [getOID\(\)](#getoid-5906d09df65a)
+- [getRowIndex\(\)](#getrowindex-7a54ed7b2c63)
 
 ## Constructors
 

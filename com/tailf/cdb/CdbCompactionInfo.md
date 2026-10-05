@@ -10,15 +10,15 @@ Represents the compaction info for CDB files.
 
 **Constructors**:
 
-- [CdbCompactionInfo(long, long, long, long)](#cdbcompactioninfo-9ab1e9946878)
+- [CdbCompactionInfo\(long, long, long, long\)](#cdbcompactioninfo-9ab1e9946878)
 
 **Methods**:
 
-- [getFsizeCurrent()](#getfsizecurrent-b51a1455aac4)
-- [getFsizePrevious()](#getfsizeprevious-9edb3359500d)
-- [getLastTime()](#getlasttime-8db6c59d0e86)
-- [getNTrans()](#getntrans-2cd88cc47142)
-- [toString()](#tostring-e9d48c5503ef)
+- [getFsizeCurrent\(\)](#getfsizecurrent-b51a1455aac4)
+- [getFsizePrevious\(\)](#getfsizeprevious-9edb3359500d)
+- [getLastTime\(\)](#getlasttime-8db6c59d0e86)
+- [getNTrans\(\)](#getntrans-2cd88cc47142)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

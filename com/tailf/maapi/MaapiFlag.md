@@ -13,19 +13,19 @@ Flags used by `Maapi#setFlags(int,EnumSet)` method to control
 
 **Enum Constants**:
 
-- [CONFIG_ONLY](#config_only-c29f84f4db03)
-- [DELAYED_WHEN](#delayed_when-6f2d6f397786)
-- [HIDE_ALL_HIDEGROUPS](#hide_all_hidegroups-27fac18f1f9d)
-- [HIDE_INACTIVE](#hide_inactive-c1ab6b970578)
-- [HINT_BULK](#hint_bulk-2513a5e315c2)
-- [NO_DEFAULTS](#no_defaults-60bc0f0feb09)
-- [SKIP_SUBSCRIBERS](#skip_subscribers-b6bf396f1398)
+- [CONFIG\_ONLY](#config_only-c29f84f4db03)
+- [DELAYED\_WHEN](#delayed_when-6f2d6f397786)
+- [HIDE\_ALL\_HIDEGROUPS](#hide_all_hidegroups-27fac18f1f9d)
+- [HIDE\_INACTIVE](#hide_inactive-c1ab6b970578)
+- [HINT\_BULK](#hint_bulk-2513a5e315c2)
+- [NO\_DEFAULTS](#no_defaults-60bc0f0feb09)
+- [SKIP\_SUBSCRIBERS](#skip_subscribers-b6bf396f1398)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

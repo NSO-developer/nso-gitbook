@@ -14,17 +14,17 @@ Exception thrown when there are issues with the file that is memory
 
 **Constructors**:
 
-- [MmapSchemaException(String)](#mmapschemaexception-5b836f8a9bea)
-- [MmapSchemaException(String, Exception)](#mmapschemaexception-7bc027194a0d)
-- [MmapSchemaException(String, String)](#mmapschemaexception-075013e40234)
-- [MmapSchemaException(String, String, Exception)](#mmapschemaexception-9e6c1063e9ef)
+- [MmapSchemaException\(String\)](#mmapschemaexception-5b836f8a9bea)
+- [MmapSchemaException\(String, Exception\)](#mmapschemaexception-7bc027194a0d)
+- [MmapSchemaException\(String, String\)](#mmapschemaexception-075013e40234)
+- [MmapSchemaException\(String, String, Exception\)](#mmapschemaexception-9e6c1063e9ef)
 
 **Methods**:
 
-- [getErrorCode()](../../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](../../conf/ConfException.md#mk-de1cedfc6ea8) from ConfException
-- [mk(ConfResponse, ConfPath)](../../conf/ConfException.md#mk-79e69ffbc022) from ConfException
+- [getErrorCode\(\)](../../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](../../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](../../conf/ConfException.md#mk-de1cedfc6ea8) from ConfException
+- [mk\(ConfResponse, ConfPath\)](../../conf/ConfException.md#mk-79e69ffbc022) from ConfException
 
 ## Constructors
 

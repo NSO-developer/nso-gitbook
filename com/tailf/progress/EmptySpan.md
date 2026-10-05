@@ -15,13 +15,13 @@ This `EmptySpan`
 
 **Constructors**:
 
-- [EmptySpan()](#emptyspan-be196e0d11a0)
-- [EmptySpan(String)](#emptyspan-a6a52634dace)
+- [EmptySpan\(\)](#emptyspan-be196e0d11a0)
+- [EmptySpan\(String\)](#emptyspan-a6a52634dace)
 
 **Methods**:
 
-- [getSpanId()](Span.md#getspanid-155306b8dcae) from Span
-- [getTraceId()](Span.md#gettraceid-c3a30b94d9ce) from Span
+- [getSpanId\(\)](Span.md#getspanid-155306b8dcae) from Span
+- [getTraceId\(\)](Span.md#gettraceid-c3a30b94d9ce) from Span
 
 ## Constructors
 

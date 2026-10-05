@@ -9,20 +9,20 @@ public static final class com.tailf.ncs.maapi.Schema.Cs.Keys.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getList()](#getlist-bb3f8cbe83be)
-- [getNone()](#getnone-e31bfdbffa7f)
-- [hasList()](#haslist-3712d7ce73ac)
-- [initList(int)](#initlist-619d59db076f)
-- [isList()](#islist-c36bce63b506)
-- [isNone()](#isnone-e8a993ad0453)
-- [setList(Reader)](#setlist-446c0e535b30)
-- [setNone(Void)](#setnone-46764db867d5)
-- [which()](#which-0b2d23db5ed0)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getList\(\)](#getlist-bb3f8cbe83be)
+- [getNone\(\)](#getnone-e31bfdbffa7f)
+- [hasList\(\)](#haslist-3712d7ce73ac)
+- [initList\(int\)](#initlist-619d59db076f)
+- [isList\(\)](#islist-c36bce63b506)
+- [isNone\(\)](#isnone-e8a993ad0453)
+- [setList\(Reader\)](#setlist-446c0e535b30)
+- [setNone\(Void\)](#setnone-46764db867d5)
+- [which\(\)](#which-0b2d23db5ed0)
 
 ## Constructors
 

@@ -13,7 +13,7 @@ Data structure for HealtCheck notifications.
 
 **Constructors**:
 
-- [HealtCheckNotification()](#healtchecknotification-0730a67c1fa1)
+- [HealtCheckNotification\(\)](#healtchecknotification-0730a67c1fa1)
 
 **Fields**:
 
@@ -21,8 +21,8 @@ Data structure for HealtCheck notifications.
 
 **Methods**:
 
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [toString()](Notification.md#tostring-e9d48c5503ef) from Notification
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [toString\(\)](Notification.md#tostring-e9d48c5503ef) from Notification
 
 ## Constructors
 

@@ -9,25 +9,25 @@ public static final class com.tailf.ncs.maapi.Schema.Cs.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getChoices()](#getchoices-818fb3fccb86)
-- [getCmp()](#getcmp-a9e8116d77d2)
-- [getDefval()](#getdefval-561ad5494c47)
-- [getDocDescription()](#getdocdescription-08369bbe26a9)
-- [getFlags()](#getflags-3c1ca90fd29c)
-- [getHideGroups()](#gethidegroups-d566f1e3343e)
-- [getKeys()](#getkeys-a24b9d377db7)
-- [getMaxOccur()](#getmaxoccur-b4cb09a89559)
-- [getMeta()](#getmeta-33b809b5c0be)
-- [getMinOccur()](#getminoccur-da22ee8b4e31)
-- [getMountId()](#getmountid-c5175827f949)
-- [getPrompt()](#getprompt-6a58866a8699)
-- [getShallowType()](#getshallowtype-2e2b5f294983)
-- [getType()](#gettype-5a52f6f0d4c1)
-- [hasType()](#hastype-61dd7b60aacb)
+- [getChoices\(\)](#getchoices-818fb3fccb86)
+- [getCmp\(\)](#getcmp-a9e8116d77d2)
+- [getDefval\(\)](#getdefval-561ad5494c47)
+- [getDocDescription\(\)](#getdocdescription-08369bbe26a9)
+- [getFlags\(\)](#getflags-3c1ca90fd29c)
+- [getHideGroups\(\)](#gethidegroups-d566f1e3343e)
+- [getKeys\(\)](#getkeys-a24b9d377db7)
+- [getMaxOccur\(\)](#getmaxoccur-b4cb09a89559)
+- [getMeta\(\)](#getmeta-33b809b5c0be)
+- [getMinOccur\(\)](#getminoccur-da22ee8b4e31)
+- [getMountId\(\)](#getmountid-c5175827f949)
+- [getPrompt\(\)](#getprompt-6a58866a8699)
+- [getShallowType\(\)](#getshallowtype-2e2b5f294983)
+- [getType\(\)](#gettype-5a52f6f0d4c1)
+- [hasType\(\)](#hastype-61dd7b60aacb)
 
 ## Constructors
 

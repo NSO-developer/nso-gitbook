@@ -9,17 +9,17 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeBits.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getBits()](#getbits-032b4694ff31)
-- [getWidth()](#getwidth-aff9ccaa8b54)
-- [hasBits()](#hasbits-3d091966c9f9)
-- [initBits(int)](#initbits-88cbf7cad7aa)
-- [setBits(Reader<Reader>)](#setbits-70052b8b274c)
-- [setWidth(byte)](#setwidth-83fbef553fe6)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getBits\(\)](#getbits-032b4694ff31)
+- [getWidth\(\)](#getwidth-aff9ccaa8b54)
+- [hasBits\(\)](#hasbits-3d091966c9f9)
+- [initBits\(int\)](#initbits-88cbf7cad7aa)
+- [setBits\(Reader\<Reader\>\)](#setbits-70052b8b274c)
+- [setWidth\(byte\)](#setwidth-83fbef553fe6)
 
 ## Constructors
 

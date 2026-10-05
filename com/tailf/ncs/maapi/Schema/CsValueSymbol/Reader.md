@@ -9,7 +9,7 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueSymbol.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 ## Constructors
 

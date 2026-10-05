@@ -18,9 +18,9 @@ Progress event type.
 
 **Methods**:
 
-- [fromInt(int)](#fromint-df0c5649c91b)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [fromInt\(int\)](#fromint-df0c5649c91b)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

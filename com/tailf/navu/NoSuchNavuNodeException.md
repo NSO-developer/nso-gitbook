@@ -11,21 +11,21 @@ Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Constructors**:
 
-- [NoSuchNavuNodeException(String, NavuNode, Collection<NavuNode>, String, String, String)](#nosuchnavunodeexception-d5a414a33ff3)
-- [NoSuchNavuNodeException(String, NavuNode, ConfKey)](#nosuchnavunodeexception-430e6f47982c)
+- [NoSuchNavuNodeException\(String, NavuNode, Collection\<NavuNode\>, String, String, String\)](#nosuchnavunodeexception-d5a414a33ff3)
+- [NoSuchNavuNodeException\(String, NavuNode, ConfKey\)](#nosuchnavunodeexception-430e6f47982c)
 
 **Methods**:
 
-- [children()](#children-7d31300d62c3)
-- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](NavuException.md#mk-de1cedfc6ea8) from NavuException
-- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
-- [mk(NavuList, ConfKey)](#mk-d51c83d9d83e)
-- [mk(NavuNode, String)](#mk-860d8e42906c)
-- [mk(NavuNode, String, EnumSet<Verbosity>)](#mk-fcb69a1fb8ec)
-- [mk(NavuNode, String, String)](#mk-ad2e5332a6e1)
-- [mk(NavuNode, String, String, EnumSet<Verbosity>)](#mk-2ec83f2a0045)
+- [children\(\)](#children-7d31300d62c3)
+- [getErrorCode\(\)](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](NavuException.md#mk-de1cedfc6ea8) from NavuException
+- [mk\(ConfResponse, ConfPath\)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
+- [mk\(NavuList, ConfKey\)](#mk-d51c83d9d83e)
+- [mk\(NavuNode, String\)](#mk-860d8e42906c)
+- [mk\(NavuNode, String, EnumSet\<Verbosity\>\)](#mk-fcb69a1fb8ec)
+- [mk\(NavuNode, String, String\)](#mk-ad2e5332a6e1)
+- [mk\(NavuNode, String, String, EnumSet\<Verbosity\>\)](#mk-2ec83f2a0045)
 
 ## Constructors
 

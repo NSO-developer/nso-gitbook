@@ -13,18 +13,18 @@ Manager for callback components
 
 **Constructors**:
 
-- [DpMuxManager(NcsMain)](#dpmuxmanager-b39489c68b51)
+- [DpMuxManager\(NcsMain\)](#dpmuxmanager-b39489c68b51)
 
 **Methods**:
 
-- [addToDeployException(NcsCtrlException, String, Throwable)](MuxManager.md#addtodeployexception-90e2cb8f32b2) from MuxManager
-- [doneLoadingEvent()](#doneloadingevent-b85c1c01738a)
-- [finish()](#finish-8c785ae2e6bb)
-- [getPDEntry(String)](#getpdentry-342c37e0891e)
-- [instantiateComponentAction(String, String, Object)](#instantiatecomponentaction-9e067ecafe91)
-- [instantiateComponentEvent(NcsComponentData)](#instantiatecomponentevent-9050503646b9)
-- [loadPackageEvent(NcsComponentData)](#loadpackageevent-4650a75a851a)
-- [unloadPackageEvent(NcsComponentData)](#unloadpackageevent-f14422e73a47)
+- [addToDeployException\(NcsCtrlException, String, Throwable\)](MuxManager.md#addtodeployexception-90e2cb8f32b2) from MuxManager
+- [doneLoadingEvent\(\)](#doneloadingevent-b85c1c01738a)
+- [finish\(\)](#finish-8c785ae2e6bb)
+- [getPDEntry\(String\)](#getpdentry-342c37e0891e)
+- [instantiateComponentAction\(String, String, Object\)](#instantiatecomponentaction-9e067ecafe91)
+- [instantiateComponentEvent\(NcsComponentData\)](#instantiatecomponentevent-9050503646b9)
+- [loadPackageEvent\(NcsComponentData\)](#loadpackageevent-4650a75a851a)
+- [unloadPackageEvent\(NcsComponentData\)](#unloadpackageevent-f14422e73a47)
 
 ## Constructors
 

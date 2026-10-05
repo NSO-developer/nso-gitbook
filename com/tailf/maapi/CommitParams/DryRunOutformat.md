@@ -11,17 +11,17 @@ Types: [DryRunOutformat](DryRunOutformat.md#dryrunoutformat-41adee760922)
 **Enum Constants**:
 
 - [CLI](#cli-0d593b2cecc2)
-- [CLI_C](#cli_c-c2e13684a7a3)
+- [CLI\_C](#cli_c-c2e13684a7a3)
 - [NATIVE](#native-18aeb3ecd16f)
 - [XML](#xml-b65914d05936)
 
 **Methods**:
 
-- [fromValue(int)](#fromvalue-f24ff0b9d5bf)
-- [getValue()](#getvalue-d93864668c40)
-- [toString()](#tostring-e9d48c5503ef)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [fromValue\(int\)](#fromvalue-f24ff0b9d5bf)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [toString\(\)](#tostring-e9d48c5503ef)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

@@ -10,7 +10,7 @@ This interface describes the context for the notification event
 
 **Methods**:
 
-- [getDeviceName()](#getdevicename-95c72ec0cf27)
+- [getDeviceName\(\)](#getdevicename-95c72ec0cf27)
 
 ## Methods
 

@@ -13,12 +13,12 @@ Types: [ResultTypeKeyPathValue](ResultTypeKeyPathValue.md#resulttypekeypathvalue
 
 **Constructors**:
 
-- [ResultTypeKeyPathValueImpl(ConfObject[], ConfValue)](#resulttypekeypathvalueimpl-451cc5da8f7a)
+- [ResultTypeKeyPathValueImpl\(ConfObject\[\], ConfValue\)](#resulttypekeypathvalueimpl-451cc5da8f7a)
 
 **Methods**:
 
-- [confValue()](#confvalue-baca27cbbecf)
-- [keyPath()](#keypath-df48f9bfdabb)
+- [confValue\(\)](#confvalue-baca27cbbecf)
+- [keyPath\(\)](#keypath-df48f9bfdabb)
 
 ## Constructors
 

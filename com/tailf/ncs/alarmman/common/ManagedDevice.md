@@ -10,15 +10,15 @@ Class representing a device.
 
 **Constructors**:
 
-- [ManagedDevice(ConfValue)](#manageddevice-2f91bc66fd00)
-- [ManagedDevice(String)](#manageddevice-f4f13b82ed51)
+- [ManagedDevice\(ConfValue\)](#manageddevice-2f91bc66fd00)
+- [ManagedDevice\(String\)](#manageddevice-f4f13b82ed51)
 
 **Methods**:
 
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [hashCode()](#hashcode-ef797a217903)
-- [toConfBuf()](#toconfbuf-fb6e7319f302)
-- [toString()](#tostring-e9d48c5503ef)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [toConfBuf\(\)](#toconfbuf-fb6e7319f302)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

@@ -10,15 +10,15 @@ Types: [Which](Which.md#which-92b652653aa7)
 
 **Enum Constants**:
 
-- [_NOT_IN_SCHEMA](#_not_in_schema-515ed8bae617)
+- [\_NOT\_IN\_SCHEMA](#_not_in_schema-515ed8bae617)
 - [BITS](#bits-3d9391d085a7)
 - [DECIMAL64](#decimal64-125c8020c352)
-- [DISPLAY_HINT](#display_hint-781052496056)
+- [DISPLAY\_HINT](#display_hint-781052496056)
 - [ENUM](#enum-87a2d316e8ff)
 - [IDENTITY](#identity-0d281710036b)
 - [IDREF](#idref-c96485d99e19)
 - [LIST](#list-2576ea1fe9a9)
-- [LIST_RESTRICTION](#list_restriction-3dad10cddf63)
+- [LIST\_RESTRICTION](#list_restriction-3dad10cddf63)
 - [NONE](#none-f29411358a7b)
 - [NUMBER](#number-5a145ff03d95)
 - [STRING](#string-161d4f472685)
@@ -26,8 +26,8 @@ Types: [Which](Which.md#which-92b652653aa7)
 
 **Methods**:
 
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

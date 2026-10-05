@@ -11,22 +11,22 @@ Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b24
 
 **Constructors**:
 
-- [Factory()](#factory-0e9f9d7f4e84)
+- [Factory\(\)](#factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#asreader-404ca8020a02)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#constructreader-fbce6f4f912a)
-- [getChildren()](Builder.md#getchildren-fe2038dff10d) from Builder
-- [getMountId()](Builder.md#getmountid-c5175827f949) from Builder
-- [hasChildren()](Builder.md#haschildren-94c463ee6541) from Builder
-- [initChildren(int)](Builder.md#initchildren-d6b9d98b47bb) from Builder
-- [initMountId()](Builder.md#initmountid-43348a54995c) from Builder
-- [setChildren(Reader<Reader>)](Builder.md#setchildren-4b50d7817058) from Builder
-- [setMountId(Reader)](Builder.md#setmountid-39bac54ac962) from Builder
-- [structSize()](#structsize-1fa68dcadd21)
+- [asReader\(\)](Builder.md#asreader-b5c0f2a8d115) from Builder
+- [asReader\(Builder\)](#asreader-404ca8020a02)
+- [constructBuilder\(SegmentBuilder, int, int, int, short\)](#constructbuilder-5a2abf3209f9)
+- [constructReader\(SegmentReader, int, int, int, short, int\)](#constructreader-fbce6f4f912a)
+- [getChildren\(\)](Builder.md#getchildren-fe2038dff10d) from Builder
+- [getMountId\(\)](Builder.md#getmountid-c5175827f949) from Builder
+- [hasChildren\(\)](Builder.md#haschildren-94c463ee6541) from Builder
+- [initChildren\(int\)](Builder.md#initchildren-d6b9d98b47bb) from Builder
+- [initMountId\(\)](Builder.md#initmountid-43348a54995c) from Builder
+- [setChildren\(Reader\<Reader\>\)](Builder.md#setchildren-4b50d7817058) from Builder
+- [setMountId\(Reader\)](Builder.md#setmountid-39bac54ac962) from Builder
+- [structSize\(\)](#structsize-1fa68dcadd21)
 
 ## Constructors
 

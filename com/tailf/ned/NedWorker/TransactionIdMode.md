@@ -14,13 +14,13 @@ Indicates the mode of Transaction ID supported by the NED.
 **Enum Constants**:
 
 - [NONE](#none-f29411358a7b)
-- [UNIQUE_STRING](#unique_string-f175645841dd)
+- [UNIQUE\_STRING](#unique_string-f175645841dd)
 
 **Methods**:
 
-- [toString()](#tostring-e9d48c5503ef)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [toString\(\)](#tostring-e9d48c5503ef)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

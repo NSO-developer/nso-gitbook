@@ -11,14 +11,14 @@ Types: [Format](Format.md#format-7125142f5ce6)
 **Enum Constants**:
 
 - [CLI](#cli-0d593b2cecc2)
-- [CLI_C](#cli_c-c2e13684a7a3)
+- [CLI\_C](#cli_c-c2e13684a7a3)
 - [NATIVE](#native-18aeb3ecd16f)
 - [XML](#xml-b65914d05936)
 
 **Methods**:
 
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

@@ -13,24 +13,24 @@ Data structure for Stream notifications.
 
 **Constructors**:
 
-- [StreamNotification(int, ConfDatetime, ConfXMLParam[], String)](#streamnotification-bd5e6ecc4276)
+- [StreamNotification\(int, ConfDatetime, ConfXMLParam\[\], String\)](#streamnotification-bd5e6ecc4276)
 
 **Fields**:
 
-- [STREAM_NOTIFICATION_COMPLETE](#stream_notification_complete-4d6aaf0cda01)
-- [STREAM_NOTIFICATION_EVENT](#stream_notification_event-3c8329ec2bbc)
-- [STREAM_REPLAY_COMPLETE](#stream_replay_complete-9b615ef73b1a)
-- [STREAM_REPLAY_FAILED](#stream_replay_failed-576b43512df8)
+- [STREAM\_NOTIFICATION\_COMPLETE](#stream_notification_complete-4d6aaf0cda01)
+- [STREAM\_NOTIFICATION\_EVENT](#stream_notification_event-3c8329ec2bbc)
+- [STREAM\_REPLAY\_COMPLETE](#stream_replay_complete-9b615ef73b1a)
+- [STREAM\_REPLAY\_FAILED](#stream_replay_failed-576b43512df8)
 - [type](Notification.md#type-6ebb3673fbb6) from Notification
 
 **Methods**:
 
-- [eventTime()](#eventtime-52f779266f34)
-- [getErrorString()](#geterrorstring-3b4eba00496b)
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getStreamEventType()](#getstreameventtype-396b63149e8b)
-- [getValues()](#getvalues-06542a92d7fa)
-- [toString()](#tostring-e9d48c5503ef)
+- [eventTime\(\)](#eventtime-52f779266f34)
+- [getErrorString\(\)](#geterrorstring-3b4eba00496b)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getStreamEventType\(\)](#getstreameventtype-396b63149e8b)
+- [getValues\(\)](#getvalues-06542a92d7fa)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

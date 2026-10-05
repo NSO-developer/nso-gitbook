@@ -14,28 +14,28 @@ Enumeration of DB callback methods
 
 **Enum Constants**:
 
-- [ACTIVATE_CHECKPOINT_RUNNING](#activate_checkpoint_running-a6100ae5a340)
-- [ADD_CHECKPOINT_RUNNING](#add_checkpoint_running-768e54bdcf2c)
-- [CANDIDATE_CHK_NOT_MODIFIED](#candidate_chk_not_modified-6012c50d33a1)
-- [CANDIDATE_COMMIT](#candidate_commit-971d6b42a25a)
-- [CANDIDATE_CONFIRMING_COMMIT](#candidate_confirming_commit-a4e2d978d491)
-- [CANDIDATE_RESET](#candidate_reset-4c8beeb0d732)
-- [CANDIDATE_ROLLBACK_RUNNING](#candidate_rollback_running-ce29d62e7fa0)
-- [CANDIDATE_VALIDATE](#candidate_validate-88fec4af40ae)
-- [COPY_RUNNING_TO_STARTUP](#copy_running_to_startup-7f29c12e742c)
-- [DEL_CHECKPOINT_RUNNING](#del_checkpoint_running-df7c40981810)
-- [DELETE_CONFIG](#delete_config-bbbb8d87fc7e)
+- [ACTIVATE\_CHECKPOINT\_RUNNING](#activate_checkpoint_running-a6100ae5a340)
+- [ADD\_CHECKPOINT\_RUNNING](#add_checkpoint_running-768e54bdcf2c)
+- [CANDIDATE\_CHK\_NOT\_MODIFIED](#candidate_chk_not_modified-6012c50d33a1)
+- [CANDIDATE\_COMMIT](#candidate_commit-971d6b42a25a)
+- [CANDIDATE\_CONFIRMING\_COMMIT](#candidate_confirming_commit-a4e2d978d491)
+- [CANDIDATE\_RESET](#candidate_reset-4c8beeb0d732)
+- [CANDIDATE\_ROLLBACK\_RUNNING](#candidate_rollback_running-ce29d62e7fa0)
+- [CANDIDATE\_VALIDATE](#candidate_validate-88fec4af40ae)
+- [COPY\_RUNNING\_TO\_STARTUP](#copy_running_to_startup-7f29c12e742c)
+- [DEL\_CHECKPOINT\_RUNNING](#del_checkpoint_running-df7c40981810)
+- [DELETE\_CONFIG](#delete_config-bbbb8d87fc7e)
 - [LOCK](#lock-019de6a65aa2)
-- [LOCK_PARTIAL](#lock_partial-018e4e600871)
-- [RUNNING_CHK_NOT_MODIFIED](#running_chk_not_modified-4e227ccf520e)
+- [LOCK\_PARTIAL](#lock_partial-018e4e600871)
+- [RUNNING\_CHK\_NOT\_MODIFIED](#running_chk_not_modified-4e227ccf520e)
 - [UNLOCK](#unlock-9bc91c84c792)
-- [UNLOCK_PARTIAL](#unlock_partial-7523966be288)
+- [UNLOCK\_PARTIAL](#unlock_partial-7523966be288)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

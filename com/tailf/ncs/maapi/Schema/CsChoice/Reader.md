@@ -9,17 +9,17 @@ public static final class com.tailf.ncs.maapi.Schema.CsChoice.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getCases()](#getcases-42abc2944fb1)
-- [getDefCase()](#getdefcase-593fa181831e)
-- [getHns()](#gethns-457afaf41ae6)
-- [getHtag()](#gethtag-3a838d71ddf7)
-- [getMinOccurs()](#getminoccurs-cac79959dff8)
-- [hasCases()](#hascases-682cbddafe6a)
-- [hasDefCase()](#hasdefcase-417dec2577e2)
+- [getCases\(\)](#getcases-42abc2944fb1)
+- [getDefCase\(\)](#getdefcase-593fa181831e)
+- [getHns\(\)](#gethns-457afaf41ae6)
+- [getHtag\(\)](#gethtag-3a838d71ddf7)
+- [getMinOccurs\(\)](#getminoccurs-cac79959dff8)
+- [hasCases\(\)](#hascases-682cbddafe6a)
+- [hasDefCase\(\)](#hasdefcase-417dec2577e2)
 
 ## Constructors
 

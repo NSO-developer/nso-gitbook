@@ -17,20 +17,20 @@ Cdb package generic exception
 
 **Constructors**:
 
-- [CdbException(String)](#cdbexception-712018a53039)
-- [CdbException(String, ErrorCode)](#cdbexception-aa046b728f43)
-- [CdbException(String, ErrorCode, Throwable)](#cdbexception-f772b12ea6ee)
-- [CdbException(String, int)](#cdbexception-1a95721d5c78)
-- [CdbException(String, int, Throwable)](#cdbexception-9adb758e9e8e)
-- [CdbException(String, Throwable)](#cdbexception-5e6f61025d70)
-- [CdbException(Throwable)](#cdbexception-7a4196d4ccee)
+- [CdbException\(String\)](#cdbexception-712018a53039)
+- [CdbException\(String, ErrorCode\)](#cdbexception-aa046b728f43)
+- [CdbException\(String, ErrorCode, Throwable\)](#cdbexception-f772b12ea6ee)
+- [CdbException\(String, int\)](#cdbexception-1a95721d5c78)
+- [CdbException\(String, int, Throwable\)](#cdbexception-9adb758e9e8e)
+- [CdbException\(String, Throwable\)](#cdbexception-5e6f61025d70)
+- [CdbException\(Throwable\)](#cdbexception-7a4196d4ccee)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](#mk-de1cedfc6ea8)
-- [mk(ConfResponse, ConfPath)](#mk-79e69ffbc022)
+- [getErrorCode\(\)](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](#mk-de1cedfc6ea8)
+- [mk\(ConfResponse, ConfPath\)](#mk-79e69ffbc022)
 
 ## Constructors
 

@@ -8,7 +8,7 @@ public interface com.tailf.dp.DpMountIdInterface
 
 **Methods**:
 
-- [retrieveMountId(Object)](#retrievemountid-c38b7bcdc149)
+- [retrieveMountId\(Object\)](#retrievemountid-c38b7bcdc149)
 
 ## Methods
 

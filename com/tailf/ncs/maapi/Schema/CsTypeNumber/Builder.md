@@ -9,15 +9,15 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeNumber.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getRanges()](#getranges-c1cd383e54a0)
-- [hasRanges()](#hasranges-77bc63fe4ea8)
-- [initRanges(int)](#initranges-d04c09762bd6)
-- [setRanges(Reader<Reader>)](#setranges-69bbcdb47f71)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getRanges\(\)](#getranges-c1cd383e54a0)
+- [hasRanges\(\)](#hasranges-77bc63fe4ea8)
+- [initRanges\(int\)](#initranges-d04c09762bd6)
+- [setRanges\(Reader\<Reader\>\)](#setranges-69bbcdb47f71)
 
 ## Constructors
 

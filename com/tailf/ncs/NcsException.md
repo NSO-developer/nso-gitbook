@@ -17,16 +17,16 @@ Ncs package generic exception
 
 **Constructors**:
 
-- [NcsException(String)](#ncsexception-4c8498b021a1)
-- [NcsException(String, ErrorCode, Throwable)](#ncsexception-4c5d5b8901ed)
-- [NcsException(String, Throwable)](#ncsexception-d4d509601928)
+- [NcsException\(String\)](#ncsexception-4c8498b021a1)
+- [NcsException\(String, ErrorCode, Throwable\)](#ncsexception-4c5d5b8901ed)
+- [NcsException\(String, Throwable\)](#ncsexception-d4d509601928)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [mk(ConfResponse)](../conf/ConfException.md#mk-de1cedfc6ea8) from ConfException
-- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
+- [getErrorCode\(\)](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [mk\(ConfResponse\)](../conf/ConfException.md#mk-de1cedfc6ea8) from ConfException
+- [mk\(ConfResponse, ConfPath\)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
 
 ## Constructors
 

@@ -17,8 +17,8 @@ Exception raised when an attempt is made to create an E term by decoding a
 
 **Constructors**:
 
-- [ConfEDecodeException(String)](#confedecodeexception-be17763994e7)
-- [ConfEDecodeException(String, Throwable)](#confedecodeexception-0e577e411eca)
+- [ConfEDecodeException\(String\)](#confedecodeexception-be17763994e7)
+- [ConfEDecodeException\(String, Throwable\)](#confedecodeexception-0e577e411eca)
 
 ## Constructors
 

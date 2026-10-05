@@ -10,14 +10,14 @@ Types: [Which](Which.md#which-92b652653aa7)
 
 **Enum Constants**:
 
-- [_NOT_IN_SCHEMA](#_not_in_schema-515ed8bae617)
+- [\_NOT\_IN\_SCHEMA](#_not_in_schema-515ed8bae617)
 - [NONE](#none-f29411358a7b)
 - [VALUE](#value-9372855f0c07)
 
 **Methods**:
 
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

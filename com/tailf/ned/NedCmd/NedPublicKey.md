@@ -9,15 +9,15 @@ public class com.tailf.ned.NedCmd.NedPublicKey
 
 **Constructors**:
 
-- [NedPublicKey(String, byte[])](#nedpublickey-dd44fd2a5eb2)
-- [NedPublicKey(String, byte[], int)](#nedpublickey-80765b3cc40a)
+- [NedPublicKey\(String, byte\[\]\)](#nedpublickey-dd44fd2a5eb2)
+- [NedPublicKey\(String, byte\[\], int\)](#nedpublickey-80765b3cc40a)
 
 **Methods**:
 
-- [getAlgName()](#getalgname-d8714870a2c4)
-- [getIdentity(NedWorker)](#getidentity-807a09f805c8)
-- [getPublicKeyBlob()](#getpublickeyblob-7fccff30ba83)
-- [sign(byte[])](#sign-24112ece4f25)
+- [getAlgName\(\)](#getalgname-d8714870a2c4)
+- [getIdentity\(NedWorker\)](#getidentity-807a09f805c8)
+- [getPublicKeyBlob\(\)](#getpublickeyblob-7fccff30ba83)
+- [sign\(byte\[\]\)](#sign-24112ece4f25)
 
 ## Constructors
 

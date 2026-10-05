@@ -11,11 +11,11 @@ Types: [NavuEventCallback](../NavuEventCallback.md#navueventcallback-f83ce6fd0d4
 
 **Constructors**:
 
-- [InternalEventCB(String)](#internaleventcb-e17ccfc19f93)
+- [InternalEventCB\(String\)](#internaleventcb-e17ccfc19f93)
 
 **Methods**:
 
-- [notifReceived(NavuContainer)](#notifreceived-df06be623526)
+- [notifReceived\(NavuContainer\)](#notifreceived-df06be623526)
 
 ## Constructors
 

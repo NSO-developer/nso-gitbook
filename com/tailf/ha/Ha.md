@@ -13,17 +13,17 @@ Main class for the HA cluster management. The HA functionality makes it
 
 **Constructors**:
 
-- [Ha(Socket, String)](#ha-a01ce05f0fc4)
+- [Ha\(Socket, String\)](#ha-a01ce05f0fc4)
 
 **Methods**:
 
-- [beNone()](#benone-d237c0001505)
-- [bePrimary(ConfValue)](#beprimary-53ade4701481)
-- [beRelay()](#berelay-c1ba9a75af6e)
-- [beSecondary(ConfValue, ConfHaNode, boolean)](#besecondary-fdf817eb2bdb)
-- [close()](#close-8107c6dc012b)
-- [secondaryDead(ConfValue)](#secondarydead-138cc5049b31)
-- [status()](#status-f7d72174690b)
+- [beNone\(\)](#benone-d237c0001505)
+- [bePrimary\(ConfValue\)](#beprimary-53ade4701481)
+- [beRelay\(\)](#berelay-c1ba9a75af6e)
+- [beSecondary\(ConfValue, ConfHaNode, boolean\)](#besecondary-fdf817eb2bdb)
+- [close\(\)](#close-8107c6dc012b)
+- [secondaryDead\(ConfValue\)](#secondarydead-138cc5049b31)
+- [status\(\)](#status-f7d72174690b)
 
 ## Constructors
 

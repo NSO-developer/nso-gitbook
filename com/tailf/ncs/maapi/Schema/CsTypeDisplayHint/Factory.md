@@ -11,20 +11,20 @@ Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b24
 
 **Constructors**:
 
-- [Factory()](#factory-0e9f9d7f4e84)
+- [Factory\(\)](#factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#asreader-ae13a30c9383)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#constructreader-fbce6f4f912a)
-- [getDisplayHint()](Builder.md#getdisplayhint-f9cb8b7f487f) from Builder
-- [hasDisplayHint()](Builder.md#hasdisplayhint-a0d050b8aab0) from Builder
-- [initDisplayHint(int)](Builder.md#initdisplayhint-c16e1e013565) from Builder
-- [setDisplayHint(byte[])](Builder.md#setdisplayhint-a6a8c5e2aab1) from Builder
-- [setDisplayHint(Reader)](Builder.md#setdisplayhint-29d7604e3fc3) from Builder
-- [structSize()](#structsize-1fa68dcadd21)
+- [asReader\(\)](Builder.md#asreader-b5c0f2a8d115) from Builder
+- [asReader\(Builder\)](#asreader-ae13a30c9383)
+- [constructBuilder\(SegmentBuilder, int, int, int, short\)](#constructbuilder-5a2abf3209f9)
+- [constructReader\(SegmentReader, int, int, int, short, int\)](#constructreader-fbce6f4f912a)
+- [getDisplayHint\(\)](Builder.md#getdisplayhint-f9cb8b7f487f) from Builder
+- [hasDisplayHint\(\)](Builder.md#hasdisplayhint-a0d050b8aab0) from Builder
+- [initDisplayHint\(int\)](Builder.md#initdisplayhint-c16e1e013565) from Builder
+- [setDisplayHint\(byte\[\]\)](Builder.md#setdisplayhint-a6a8c5e2aab1) from Builder
+- [setDisplayHint\(Reader\)](Builder.md#setdisplayhint-29d7604e3fc3) from Builder
+- [structSize\(\)](#structsize-1fa68dcadd21)
 
 ## Constructors
 

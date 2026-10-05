@@ -8,28 +8,28 @@ public static class com.tailf.maapi.MaapiSchemas.CSStringRestriction
 
 **Constructors**:
 
-- [CSStringRestriction()](#csstringrestriction-3876ae4b99b2)
-- [CSStringRestriction(String, boolean, CSStringLength[])](#csstringrestriction-82ebcca0d9d3)
+- [CSStringRestriction\(\)](#csstringrestriction-3876ae4b99b2)
+- [CSStringRestriction\(String, boolean, CSStringLength\[\]\)](#csstringrestriction-82ebcca0d9d3)
 
 **Fields**:
 
-- [COMPILED_PATTERN](#compiled_pattern-407b0bf7a25d)
-- [TEXT_PATTERN](#text_pattern-9f27c2f91100)
+- [COMPILED\_PATTERN](#compiled_pattern-407b0bf7a25d)
+- [TEXT\_PATTERN](#text_pattern-9f27c2f91100)
 
 **Methods**:
 
-- [getCompiledPattern()](#getcompiledpattern-59c5274d608a)
-- [getInvertMatch()](#getinvertmatch-323126ccbf2f)
-- [getJavaPattern()](#getjavapattern-91c839a1079c)
-- [getLengthArray()](#getlengtharray-9268b7dc6e45)
-- [getPatternType()](#getpatterntype-21a9ae22d96b)
-- [getTextPattern()](#gettextpattern-a7f518cee006)
-- [setCompiledPattern(int)](#setcompiledpattern-3a9c38f879a6)
-- [setInvertMatch(boolean)](#setinvertmatch-e00cbbce7115)
-- [setJavaPattern(Pattern)](#setjavapattern-7222e0b83e1f)
-- [setLengthArray(CSStringLength[])](#setlengtharray-030198126ca6)
-- [setPatternType(int)](#setpatterntype-865c414ccb37)
-- [setTextPattern(String)](#settextpattern-2901f3b12d12)
+- [getCompiledPattern\(\)](#getcompiledpattern-59c5274d608a)
+- [getInvertMatch\(\)](#getinvertmatch-323126ccbf2f)
+- [getJavaPattern\(\)](#getjavapattern-91c839a1079c)
+- [getLengthArray\(\)](#getlengtharray-9268b7dc6e45)
+- [getPatternType\(\)](#getpatterntype-21a9ae22d96b)
+- [getTextPattern\(\)](#gettextpattern-a7f518cee006)
+- [setCompiledPattern\(int\)](#setcompiledpattern-3a9c38f879a6)
+- [setInvertMatch\(boolean\)](#setinvertmatch-e00cbbce7115)
+- [setJavaPattern\(Pattern\)](#setjavapattern-7222e0b83e1f)
+- [setLengthArray\(CSStringLength\[\]\)](#setlengtharray-030198126ca6)
+- [setPatternType\(int\)](#setpatterntype-865c414ccb37)
+- [setTextPattern\(String\)](#settextpattern-2901f3b12d12)
 
 ## Constructors
 

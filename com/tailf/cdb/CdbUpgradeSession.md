@@ -23,9 +23,9 @@ The class `CdbUpgradeSession` represents a session against
 
 **Constructors**:
 
-- [CdbUpgradeSession(Cdb)](#cdbupgradesession-9c7856c35ce4)
-- [CdbUpgradeSession(Cdb, CdbDBType)](#cdbupgradesession-f35d15a5ad7d)
-- [CdbUpgradeSession(Cdb, CdbDBType, EnumSet<CdbLockType>)](#cdbupgradesession-4758cb046786)
+- [CdbUpgradeSession\(Cdb\)](#cdbupgradesession-9c7856c35ce4)
+- [CdbUpgradeSession\(Cdb, CdbDBType\)](#cdbupgradesession-f35d15a5ad7d)
+- [CdbUpgradeSession\(Cdb, CdbDBType, EnumSet\<CdbLockType\>\)](#cdbupgradesession-4758cb046786)
 
 **Fields**:
 
@@ -35,69 +35,69 @@ The class `CdbUpgradeSession` represents a session against
 
 **Methods**:
 
-- [cd(ConfCdbUpgradePath)](#cd-76a3a9996341)
-- [cd(ConfPath)](CdbSession.md#cd-a902c91e6177) from CdbSession
-- [cd(String, Object[])](#cd-751c8b439d16)
-- [create(ConfCdbUpgradePath)](#create-cfb8c64701ae)
-- [create(ConfPath)](CdbSession.md#create-02589a4ee236) from CdbSession
-- [create(String, Object[])](#create-8d8ef9670e7f)
-- [delete(ConfCdbUpgradePath)](#delete-acddec731505)
-- [delete(ConfPath)](CdbSession.md#delete-46ab41293f59) from CdbSession
-- [delete(String, Object[])](#delete-a6dae6a18c6e)
-- [endSession()](CdbSession.md#endsession-1853baeb5d28) from CdbSession
-- [exists(ConfCdbUpgradePath)](#exists-34727aeeaf9c)
-- [exists(ConfPath)](CdbSession.md#exists-afa14dd11748) from CdbSession
-- [exists(String, Object[])](#exists-c95896218534)
-- [getCase(String, ConfCdbUpgradePath)](#getcase-b4fb83cb6c0c)
-- [getCase(String, ConfPath)](CdbSession.md#getcase-db036ac6c713) from CdbSession
-- [getCase(String, String, Object[])](#getcase-9058de2e1364)
-- [getCdb()](CdbSession.md#getcdb-62d7a3429687) from CdbSession
-- [getcwd()](CdbSession.md#getcwd-18c6eed4f1fa) from CdbSession
-- [getcwdPath()](CdbSession.md#getcwdpath-a9fa1536fad1) from CdbSession
-- [getDbType()](CdbSession.md#getdbtype-9503dd2b103d) from CdbSession
-- [getElem(ConfCdbUpgradePath)](#getelem-aaad89e84412)
-- [getElem(ConfPath)](CdbSession.md#getelem-f8219fa65c5d) from CdbSession
-- [getElem(String, Object[])](#getelem-8ec719438ea8)
-- [getNumberOfInstances(ConfCdbUpgradePath)](#getnumberofinstances-3fd583c7908c)
-- [getNumberOfInstances(ConfPath)](CdbSession.md#getnumberofinstances-41d82cec9221) from CdbSession
-- [getNumberOfInstances(String, Object[])](#getnumberofinstances-4ff46f9afb5c)
-- [getObject(int, ConfCdbUpgradePath)](#getobject-d4ec118901b9)
-- [getObject(int, ConfPath)](CdbSession.md#getobject-97126abcba49) from CdbSession
-- [getObject(int, String, Object[])](#getobject-8f535bb4e0e8)
-- [getObjects(int, int, int, ConfCdbUpgradePath)](#getobjects-4f8eeb1cbe3a)
-- [getObjects(int, int, int, ConfPath)](CdbSession.md#getobjects-d25a1860a73f) from CdbSession
-- [getObjects(int, int, int, String, Object[])](#getobjects-9108870a6290)
-- [getValues(ConfXMLParam[], ConfCdbUpgradePath)](#getvalues-fb7bceb4a67a)
-- [getValues(ConfXMLParam[], ConfPath)](CdbSession.md#getvalues-b30d01896278) from CdbSession
-- [getValues(ConfXMLParam[], String, Object[])](#getvalues-f93a502602ef)
-- [index(ConfCdbUpgradePath)](#index-7926a22548c3)
-- [index(ConfPath)](CdbSession.md#index-339d675c9a64) from CdbSession
-- [index(String, Object[])](#index-cae5f09ba6fb)
-- [isDefault(ConfCdbUpgradePath)](#isdefault-d225e5140d47)
-- [isDefault(ConfPath)](CdbSession.md#isdefault-a9229eae64cf) from CdbSession
-- [isDefault(String, Object[])](#isdefault-8c3502a0ab6d)
-- [nextIndex(ConfCdbUpgradePath)](#nextindex-63eeb0d708e6)
-- [nextIndex(ConfPath)](CdbSession.md#nextindex-ceef3a478d50) from CdbSession
-- [nextIndex(String, Object[])](#nextindex-c2b059f89584)
-- [popd()](CdbSession.md#popd-b092d2d9048f) from CdbSession
-- [pushd(ConfCdbUpgradePath)](#pushd-8d23b319b093)
-- [pushd(ConfPath)](CdbSession.md#pushd-d9d906674b7a) from CdbSession
-- [pushd(String, Object[])](#pushd-fd6a4c1b1c8d)
-- [setCase(String, String, ConfCdbUpgradePath)](#setcase-8aa53e83a440)
-- [setCase(String, String, ConfPath)](CdbSession.md#setcase-3792b2775b7f) from CdbSession
-- [setCase(String, String, String, Object[])](#setcase-908203af825d)
-- [setElem(ConfValue, ConfCdbUpgradePath)](#setelem-648e489dcb58)
-- [setElem(ConfValue, ConfPath)](CdbSession.md#setelem-356e5e479e47) from CdbSession
-- [setElem(ConfValue, String, Object[])](#setelem-7fc14a355edc)
-- [setNamespace(ConfNamespace)](CdbSession.md#setnamespace-30316a480cfa) from CdbSession
-- [setObject(ConfValue[], ConfCdbUpgradePath)](#setobject-1f294157790b)
-- [setObject(ConfValue[], ConfPath)](CdbSession.md#setobject-741f2a72045e) from CdbSession
-- [setObject(ConfValue[], String, Object[])](#setobject-5edb7e0ee677)
-- [setValues(ConfXMLParam[], ConfCdbUpgradePath)](#setvalues-c275631d1d78)
-- [setValues(ConfXMLParam[], ConfPath)](CdbSession.md#setvalues-0755e36fbd2c) from CdbSession
-- [setValues(ConfXMLParam[], String, Object[])](#setvalues-824d05856f15)
-- [setValues(List<ConfXMLParam>, ConfPath)](CdbSession.md#setvalues-970140dc0796) from CdbSession
-- [toString()](#tostring-e9d48c5503ef)
+- [cd\(ConfCdbUpgradePath\)](#cd-76a3a9996341)
+- [cd\(ConfPath\)](CdbSession.md#cd-a902c91e6177) from CdbSession
+- [cd\(String, Object\[\]\)](#cd-751c8b439d16)
+- [create\(ConfCdbUpgradePath\)](#create-cfb8c64701ae)
+- [create\(ConfPath\)](CdbSession.md#create-02589a4ee236) from CdbSession
+- [create\(String, Object\[\]\)](#create-8d8ef9670e7f)
+- [delete\(ConfCdbUpgradePath\)](#delete-acddec731505)
+- [delete\(ConfPath\)](CdbSession.md#delete-46ab41293f59) from CdbSession
+- [delete\(String, Object\[\]\)](#delete-a6dae6a18c6e)
+- [endSession\(\)](CdbSession.md#endsession-1853baeb5d28) from CdbSession
+- [exists\(ConfCdbUpgradePath\)](#exists-34727aeeaf9c)
+- [exists\(ConfPath\)](CdbSession.md#exists-afa14dd11748) from CdbSession
+- [exists\(String, Object\[\]\)](#exists-c95896218534)
+- [getCase\(String, ConfCdbUpgradePath\)](#getcase-b4fb83cb6c0c)
+- [getCase\(String, ConfPath\)](CdbSession.md#getcase-db036ac6c713) from CdbSession
+- [getCase\(String, String, Object\[\]\)](#getcase-9058de2e1364)
+- [getCdb\(\)](CdbSession.md#getcdb-62d7a3429687) from CdbSession
+- [getcwd\(\)](CdbSession.md#getcwd-18c6eed4f1fa) from CdbSession
+- [getcwdPath\(\)](CdbSession.md#getcwdpath-a9fa1536fad1) from CdbSession
+- [getDbType\(\)](CdbSession.md#getdbtype-9503dd2b103d) from CdbSession
+- [getElem\(ConfCdbUpgradePath\)](#getelem-aaad89e84412)
+- [getElem\(ConfPath\)](CdbSession.md#getelem-f8219fa65c5d) from CdbSession
+- [getElem\(String, Object\[\]\)](#getelem-8ec719438ea8)
+- [getNumberOfInstances\(ConfCdbUpgradePath\)](#getnumberofinstances-3fd583c7908c)
+- [getNumberOfInstances\(ConfPath\)](CdbSession.md#getnumberofinstances-41d82cec9221) from CdbSession
+- [getNumberOfInstances\(String, Object\[\]\)](#getnumberofinstances-4ff46f9afb5c)
+- [getObject\(int, ConfCdbUpgradePath\)](#getobject-d4ec118901b9)
+- [getObject\(int, ConfPath\)](CdbSession.md#getobject-97126abcba49) from CdbSession
+- [getObject\(int, String, Object\[\]\)](#getobject-8f535bb4e0e8)
+- [getObjects\(int, int, int, ConfCdbUpgradePath\)](#getobjects-4f8eeb1cbe3a)
+- [getObjects\(int, int, int, ConfPath\)](CdbSession.md#getobjects-d25a1860a73f) from CdbSession
+- [getObjects\(int, int, int, String, Object\[\]\)](#getobjects-9108870a6290)
+- [getValues\(ConfXMLParam\[\], ConfCdbUpgradePath\)](#getvalues-fb7bceb4a67a)
+- [getValues\(ConfXMLParam\[\], ConfPath\)](CdbSession.md#getvalues-b30d01896278) from CdbSession
+- [getValues\(ConfXMLParam\[\], String, Object\[\]\)](#getvalues-f93a502602ef)
+- [index\(ConfCdbUpgradePath\)](#index-7926a22548c3)
+- [index\(ConfPath\)](CdbSession.md#index-339d675c9a64) from CdbSession
+- [index\(String, Object\[\]\)](#index-cae5f09ba6fb)
+- [isDefault\(ConfCdbUpgradePath\)](#isdefault-d225e5140d47)
+- [isDefault\(ConfPath\)](CdbSession.md#isdefault-a9229eae64cf) from CdbSession
+- [isDefault\(String, Object\[\]\)](#isdefault-8c3502a0ab6d)
+- [nextIndex\(ConfCdbUpgradePath\)](#nextindex-63eeb0d708e6)
+- [nextIndex\(ConfPath\)](CdbSession.md#nextindex-ceef3a478d50) from CdbSession
+- [nextIndex\(String, Object\[\]\)](#nextindex-c2b059f89584)
+- [popd\(\)](CdbSession.md#popd-b092d2d9048f) from CdbSession
+- [pushd\(ConfCdbUpgradePath\)](#pushd-8d23b319b093)
+- [pushd\(ConfPath\)](CdbSession.md#pushd-d9d906674b7a) from CdbSession
+- [pushd\(String, Object\[\]\)](#pushd-fd6a4c1b1c8d)
+- [setCase\(String, String, ConfCdbUpgradePath\)](#setcase-8aa53e83a440)
+- [setCase\(String, String, ConfPath\)](CdbSession.md#setcase-3792b2775b7f) from CdbSession
+- [setCase\(String, String, String, Object\[\]\)](#setcase-908203af825d)
+- [setElem\(ConfValue, ConfCdbUpgradePath\)](#setelem-648e489dcb58)
+- [setElem\(ConfValue, ConfPath\)](CdbSession.md#setelem-356e5e479e47) from CdbSession
+- [setElem\(ConfValue, String, Object\[\]\)](#setelem-7fc14a355edc)
+- [setNamespace\(ConfNamespace\)](CdbSession.md#setnamespace-30316a480cfa) from CdbSession
+- [setObject\(ConfValue\[\], ConfCdbUpgradePath\)](#setobject-1f294157790b)
+- [setObject\(ConfValue\[\], ConfPath\)](CdbSession.md#setobject-741f2a72045e) from CdbSession
+- [setObject\(ConfValue\[\], String, Object\[\]\)](#setobject-5edb7e0ee677)
+- [setValues\(ConfXMLParam\[\], ConfCdbUpgradePath\)](#setvalues-c275631d1d78)
+- [setValues\(ConfXMLParam\[\], ConfPath\)](CdbSession.md#setvalues-0755e36fbd2c) from CdbSession
+- [setValues\(ConfXMLParam\[\], String, Object\[\]\)](#setvalues-824d05856f15)
+- [setValues\(List\<ConfXMLParam\>, ConfPath\)](CdbSession.md#setvalues-970140dc0796) from CdbSession
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

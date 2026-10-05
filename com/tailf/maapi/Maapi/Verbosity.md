@@ -17,12 +17,12 @@ To be used in:
 - [DEBUG](#debug-51c942f8d798)
 - [NORMAL](#normal-b34e6bc0c9ca)
 - [VERBOSE](#verbose-cb0b793dd2e1)
-- [VERY_VERBOSE](#very_verbose-cb7e3570f916)
+- [VERY\_VERBOSE](#very_verbose-cb7e3570f916)
 
 **Methods**:
 
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

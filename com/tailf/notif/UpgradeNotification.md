@@ -13,22 +13,22 @@ Data structure for upgrade notifications.
 
 **Constructors**:
 
-- [UpgradeNotification(int)](#upgradenotification-774f8693a908)
+- [UpgradeNotification\(int\)](#upgradenotification-774f8693a908)
 
 **Fields**:
 
 - [type](Notification.md#type-6ebb3673fbb6) from Notification
-- [UPGRADE_ABORTED](#upgrade_aborted-71c09d46aad2)
-- [UPGRADE_COMMITED](#upgrade_commited-36d3b51c70ed)
-- [UPGRADE_INIT_STARTED](#upgrade_init_started-b44e3b84ad61)
-- [UPGRADE_INIT_SUCCEEDED](#upgrade_init_succeeded-d68a6ffb3124)
-- [UPGRADE_PERFORMED](#upgrade_performed-a8adb28f5472)
+- [UPGRADE\_ABORTED](#upgrade_aborted-71c09d46aad2)
+- [UPGRADE\_COMMITED](#upgrade_commited-36d3b51c70ed)
+- [UPGRADE\_INIT\_STARTED](#upgrade_init_started-b44e3b84ad61)
+- [UPGRADE\_INIT\_SUCCEEDED](#upgrade_init_succeeded-d68a6ffb3124)
+- [UPGRADE\_PERFORMED](#upgrade_performed-a8adb28f5472)
 
 **Methods**:
 
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getUpgradeType()](#getupgradetype-1f6c86f5dc3e)
-- [toString()](#tostring-e9d48c5503ef)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getUpgradeType\(\)](#getupgradetype-1f6c86f5dc3e)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

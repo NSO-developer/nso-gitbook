@@ -18,14 +18,14 @@ Represents a successful invocation of the
 
 **Constructors**:
 
-- [CommitQueueResult(ConfResponse)](#commitqueueresult-e7caa08c3f55)
+- [CommitQueueResult\(ConfResponse\)](#commitqueueresult-e7caa08c3f55)
 
 **Methods**:
 
-- [getFailedDevices()](#getfaileddevices-70e71b879fad)
-- [getId()](#getid-199a349c70ef)
-- [getStatus()](#getstatus-5037266e52a9)
-- [getStatusAsString()](#getstatusasstring-6ccae2b57156)
+- [getFailedDevices\(\)](#getfaileddevices-70e71b879fad)
+- [getId\(\)](#getid-199a349c70ef)
+- [getStatus\(\)](#getstatus-5037266e52a9)
+- [getStatusAsString\(\)](#getstatusasstring-6ccae2b57156)
 
 **Nested Types**:
 

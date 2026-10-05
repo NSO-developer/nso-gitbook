@@ -17,30 +17,30 @@ Callback proxy for Action Callbacks. Implements the [`DpActionCallback`](../DpAc
 
 **Constructors**:
 
-- [ActionCallbackProxy(Object, String)](#actioncallbackproxy-78f40265dddb)
+- [ActionCallbackProxy\(Object, String\)](#actioncallbackproxy-78f40265dddb)
 
 **Fields**:
 
-- [M_ABORT](../DpActionCallback.md#m_abort-7b4607723e90) from DpActionCallback
-- [M_ACTION](../DpActionCallback.md#m_action-7085cebe5b02) from DpActionCallback
-- [M_COMMAND](../DpActionCallback.md#m_command-7b1086f0f7fa) from DpActionCallback
-- [M_COMPLETION](../DpActionCallback.md#m_completion-25ac3cbe9876) from DpActionCallback
-- [M_INIT](../DpActionCallback.md#m_init-13cacf7e79fd) from DpActionCallback
+- [M\_ABORT](../DpActionCallback.md#m_abort-7b4607723e90) from DpActionCallback
+- [M\_ACTION](../DpActionCallback.md#m_action-7085cebe5b02) from DpActionCallback
+- [M\_COMMAND](../DpActionCallback.md#m_command-7b1086f0f7fa) from DpActionCallback
+- [M\_COMPLETION](../DpActionCallback.md#m_completion-25ac3cbe9876) from DpActionCallback
+- [M\_INIT](../DpActionCallback.md#m_init-13cacf7e79fd) from DpActionCallback
 
 **Methods**:
 
-- [abort(DpActionTrans)](#abort-cd35d6a916f4)
-- [action(DpActionTrans, ConfTag, ConfObject[], ConfXMLParam[])](#action-80bbec157786)
-- [actionpoint()](#actionpoint-0569c173260f)
-- [addActionCapability(ActionCBType)](#addactioncapability-4494e9279e5a)
-- [addActionMethod(String, Method)](#addactionmethod-cf3e43a67fd9)
-- [command(DpActionTrans, String, String, String[])](#command-cea87613b5a2)
-- [completion(DpActionTrans, char, String, char, ConfObject[], String, String, ConfQname, String)](#completion-2f4ed4ef651b)
-- [getActionCallbackProxys(Object)](#getactioncallbackproxys-3c92883debd8)
-- [getBackupObject()](#getbackupobject-a6fb23c24524)
-- [getCallPoint()](#getcallpoint-f816d0a44b26)
-- [init(DpActionTrans)](#init-ea24b0ff3f23)
-- [mask()](#mask-24c2fa29c6af)
+- [abort\(DpActionTrans\)](#abort-cd35d6a916f4)
+- [action\(DpActionTrans, ConfTag, ConfObject\[\], ConfXMLParam\[\]\)](#action-80bbec157786)
+- [actionpoint\(\)](#actionpoint-0569c173260f)
+- [addActionCapability\(ActionCBType\)](#addactioncapability-4494e9279e5a)
+- [addActionMethod\(String, Method\)](#addactionmethod-cf3e43a67fd9)
+- [command\(DpActionTrans, String, String, String\[\]\)](#command-cea87613b5a2)
+- [completion\(DpActionTrans, char, String, char, ConfObject\[\], String, String, ConfQname, String\)](#completion-2f4ed4ef651b)
+- [getActionCallbackProxys\(Object\)](#getactioncallbackproxys-3c92883debd8)
+- [getBackupObject\(\)](#getbackupobject-a6fb23c24524)
+- [getCallPoint\(\)](#getcallpoint-f816d0a44b26)
+- [init\(DpActionTrans\)](#init-ea24b0ff3f23)
+- [mask\(\)](#mask-24c2fa29c6af)
 
 ## Constructors
 

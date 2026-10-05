@@ -19,10 +19,10 @@ Provides a Java representation of E tuples. Tuples are created from one or
 
 **Constructors**:
 
-- [ConfETuple(ConfEObject)](#confetuple-48ebb7dfd41b)
-- [ConfETuple(ConfEObject[])](#confetuple-09ff5654dca7)
-- [ConfETuple(ConfEObject[], int, int)](#confetuple-338ae357f4f3)
-- [ConfETuple(ConfInputStream)](#confetuple-8cbdf89cb4e7)
+- [ConfETuple\(ConfEObject\)](#confetuple-48ebb7dfd41b)
+- [ConfETuple\(ConfEObject\[\]\)](#confetuple-09ff5654dca7)
+- [ConfETuple\(ConfEObject\[\], int, int\)](#confetuple-338ae357f4f3)
+- [ConfETuple\(ConfInputStream\)](#confetuple-8cbdf89cb4e7)
 
 **Fields**:
 
@@ -30,15 +30,15 @@ Provides a Java representation of E tuples. Tuples are created from one or
 
 **Methods**:
 
-- [arity()](#arity-2e3299329464)
-- [clone()](#clone-164c86c45e9b)
-- [decode(ConfInputStream)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
-- [elementAt(int)](#elementat-7ff98e6e0268)
-- [elements()](#elements-1ac1cabc0e96)
-- [encode(ConfOutputStream)](#encode-cb1ad9eb7771)
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [hashCode()](#hashcode-ef797a217903)
-- [toString()](#tostring-e9d48c5503ef)
+- [arity\(\)](#arity-2e3299329464)
+- [clone\(\)](#clone-164c86c45e9b)
+- [decode\(ConfInputStream\)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
+- [elementAt\(int\)](#elementat-7ff98e6e0268)
+- [elements\(\)](#elements-1ac1cabc0e96)
+- [encode\(ConfOutputStream\)](#encode-cb1ad9eb7771)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

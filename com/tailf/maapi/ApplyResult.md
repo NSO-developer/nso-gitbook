@@ -16,7 +16,7 @@ Represents a successful invocation of the
 
 **Constructors**:
 
-- [ApplyResult(ConfResponse)](#applyresult-7b53e46df937)
+- [ApplyResult\(ConfResponse\)](#applyresult-7b53e46df937)
 
 ## Constructors
 

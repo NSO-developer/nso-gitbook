@@ -13,25 +13,25 @@ Data structure for user session start/stop notifications.
 
 **Constructors**:
 
-- [UserSessNotification(int, DpUserInfo, int)](#usersessnotification-4c5eb009d958)
+- [UserSessNotification\(int, DpUserInfo, int\)](#usersessnotification-4c5eb009d958)
 
 **Fields**:
 
 - [type](Notification.md#type-6ebb3673fbb6) from Notification
-- [USER_SESS_LOCK](#user_sess_lock-34c897714a94)
-- [USER_SESS_START](#user_sess_start-d8b438e37824)
-- [USER_SESS_START_TRANS](#user_sess_start_trans-99506d33777a)
-- [USER_SESS_STOP](#user_sess_stop-78fe6cc524c3)
-- [USER_SESS_STOP_TRANS](#user_sess_stop_trans-87c697cda9df)
-- [USER_SESS_UNLOCK](#user_sess_unlock-aa3ec8c61fe5)
+- [USER\_SESS\_LOCK](#user_sess_lock-34c897714a94)
+- [USER\_SESS\_START](#user_sess_start-d8b438e37824)
+- [USER\_SESS\_START\_TRANS](#user_sess_start_trans-99506d33777a)
+- [USER\_SESS\_STOP](#user_sess_stop-78fe6cc524c3)
+- [USER\_SESS\_STOP\_TRANS](#user_sess_stop_trans-87c697cda9df)
+- [USER\_SESS\_UNLOCK](#user_sess_unlock-aa3ec8c61fe5)
 
 **Methods**:
 
-- [getDatabase()](#getdatabase-3c5eb5bcb258)
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getUserInfo()](#getuserinfo-3ecef1f24d3d)
-- [getUserSessionType()](#getusersessiontype-8e4f1d95b050)
-- [toString()](#tostring-e9d48c5503ef)
+- [getDatabase\(\)](#getdatabase-3c5eb5bcb258)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getUserInfo\(\)](#getuserinfo-3ecef1f24d3d)
+- [getUserSessionType\(\)](#getusersessiontype-8e4f1d95b050)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

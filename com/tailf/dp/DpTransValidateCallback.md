@@ -50,8 +50,8 @@ This interface is used for the user validation callbacks.
 
 **Methods**:
 
-- [init(DpTrans)](#init-16fe8657859c)
-- [stop(DpTrans)](#stop-1dfe2eb96fb9)
+- [init\(DpTrans\)](#init-16fe8657859c)
+- [stop\(DpTrans\)](#stop-1dfe2eb96fb9)
 
 ## Methods
 

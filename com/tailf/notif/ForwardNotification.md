@@ -13,22 +13,22 @@ Data structure for Forward agent events.
 
 **Constructors**:
 
-- [ForwardNotification(int, String, DpUserInfo)](#forwardnotification-d8ffcb00b317)
+- [ForwardNotification\(int, String, DpUserInfo\)](#forwardnotification-d8ffcb00b317)
 
 **Fields**:
 
-- [FORWARD_INFO_DOWN](#forward_info_down-50e32f7b843b)
-- [FORWARD_INFO_FAILED](#forward_info_failed-471dfab75a59)
-- [FORWARD_INFO_UP](#forward_info_up-b2e514baf4d4)
+- [FORWARD\_INFO\_DOWN](#forward_info_down-50e32f7b843b)
+- [FORWARD\_INFO\_FAILED](#forward_info_failed-471dfab75a59)
+- [FORWARD\_INFO\_UP](#forward_info_up-b2e514baf4d4)
 - [type](Notification.md#type-6ebb3673fbb6) from Notification
 
 **Methods**:
 
-- [getForwardType()](#getforwardtype-7451db840024)
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getTarget()](#gettarget-c226120ea942)
-- [getUserInfo()](#getuserinfo-3ecef1f24d3d)
-- [toString()](#tostring-e9d48c5503ef)
+- [getForwardType\(\)](#getforwardtype-7451db840024)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getTarget\(\)](#gettarget-c226120ea942)
+- [getUserInfo\(\)](#getuserinfo-3ecef1f24d3d)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

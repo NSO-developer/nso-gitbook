@@ -11,16 +11,16 @@ The NedTTL class is used to pass time-to-live information
 
 **Constructors**:
 
-- [NedTTL(ConfPath, int)](#nedttl-d59ba0f9d8e4)
-- [NedTTL(ConfPath, int, boolean)](#nedttl-16d294d5a6a3)
+- [NedTTL\(ConfPath, int\)](#nedttl-d59ba0f9d8e4)
+- [NedTTL\(ConfPath, int, boolean\)](#nedttl-16d294d5a6a3)
 
 **Methods**:
 
-- [encode()](#encode-fbae522bba37)
-- [getPath()](#getpath-88fb21895561)
-- [getTTL()](#getttl-7693f68ee5b0)
-- [isSubtree()](#issubtree-0d784a2e567c)
-- [toString()](#tostring-e9d48c5503ef)
+- [encode\(\)](#encode-fbae522bba37)
+- [getPath\(\)](#getpath-88fb21895561)
+- [getTTL\(\)](#getttl-7693f68ee5b0)
+- [isSubtree\(\)](#issubtree-0d784a2e567c)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

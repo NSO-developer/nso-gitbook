@@ -13,15 +13,15 @@ Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 **Constructors**:
 
-- [NavuSAXException(String, SAXException)](#navusaxexception-5b8a9661fa1c)
+- [NavuSAXException\(String, SAXException\)](#navusaxexception-5b8a9661fa1c)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
-- [getSAXException()](#getsaxexception-20e1692a4a2c)
-- [mk(ConfResponse)](NavuException.md#mk-de1cedfc6ea8) from NavuException
-- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
+- [getErrorCode\(\)](../conf/ConfException.md#geterrorcode-812152fc083a) from ConfException
+- [getOpaque\(\)](../conf/ConfException.md#getopaque-92e4945ec92d) from ConfException
+- [getSAXException\(\)](#getsaxexception-20e1692a4a2c)
+- [mk\(ConfResponse\)](NavuException.md#mk-de1cedfc6ea8) from NavuException
+- [mk\(ConfResponse, ConfPath\)](../conf/ConfException.md#mk-79e69ffbc022) from ConfException
 
 ## Constructors
 

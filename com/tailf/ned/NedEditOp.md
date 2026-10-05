@@ -11,30 +11,30 @@ NedEditOp represents the edit operations provided to a
 
 **Constructors**:
 
-- [NedEditOp(ConfETuple)](#nededitop-fb5ea191f957)
+- [NedEditOp\(ConfETuple\)](#nededitop-fb5ea191f957)
 
 **Fields**:
 
 - [AFTER](#after-22d3951db1ad)
-- [ATTR_DEL](#attr_del-4a1cc8e2643f)
-- [ATTR_SET](#attr_set-0ae457aadd97)
+- [ATTR\_DEL](#attr_del-4a1cc8e2643f)
+- [ATTR\_SET](#attr_set-0ae457aadd97)
 - [CREATED](#created-fb73349d7fe1)
-- [DEFAULT_SET](#default_set-62669637559e)
+- [DEFAULT\_SET](#default_set-62669637559e)
 - [DELETED](#deleted-c1cbfd27938b)
 - [FIRST](#first-9a16e3379a19)
 - [MODIFIED](#modified-9434b1a4ec58)
 - [MOVED](#moved-4aea31177742)
-- [VALUE_SET](#value_set-04a6e7720356)
+- [VALUE\_SET](#value_set-04a6e7720356)
 
 **Methods**:
 
-- [getMoveDestination()](#getmovedestination-35c9f26a0b8a)
-- [getOpDone()](#getopdone-6611ced4926a)
-- [getOperation()](#getoperation-baf0e4738a2a)
-- [getPath()](#getpath-88fb21895561)
-- [getValue()](#getvalue-d93864668c40)
-- [setOpDone()](#setopdone-2519596437b1)
-- [toString()](#tostring-e9d48c5503ef)
+- [getMoveDestination\(\)](#getmovedestination-35c9f26a0b8a)
+- [getOpDone\(\)](#getopdone-6611ced4926a)
+- [getOperation\(\)](#getoperation-baf0e4738a2a)
+- [getPath\(\)](#getpath-88fb21895561)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [setOpDone\(\)](#setopdone-2519596437b1)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

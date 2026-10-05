@@ -12,14 +12,14 @@ The result of a expect() method invocation. It contains
 
 **Constructors**:
 
-- [NedExpectResult(int, String)](#nedexpectresult-066aa0c6fc6d)
-- [NedExpectResult(int, String, String)](#nedexpectresult-7f02cc765eaa)
+- [NedExpectResult\(int, String\)](#nedexpectresult-066aa0c6fc6d)
+- [NedExpectResult\(int, String, String\)](#nedexpectresult-7f02cc765eaa)
 
 **Methods**:
 
-- [getHit()](#gethit-282efa757bc8)
-- [getMatch()](#getmatch-554153f4610e)
-- [getText()](#gettext-e63d55fcdcbd)
+- [getHit\(\)](#gethit-282efa757bc8)
+- [getMatch\(\)](#getmatch-554153f4610e)
+- [getText\(\)](#gettext-e63d55fcdcbd)
 
 ## Constructors
 

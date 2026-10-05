@@ -48,7 +48,7 @@ XPath Result in string format. This format
 
 **Methods**:
 
-- [stringValue()](#stringvalue-a6efca13ec08)
+- [stringValue\(\)](#stringvalue-a6efca13ec08)
 
 ## Methods
 

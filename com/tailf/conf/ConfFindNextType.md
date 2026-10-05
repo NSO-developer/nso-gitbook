@@ -13,15 +13,15 @@ Enum used in findNext calls to determine if the element extraction
 
 **Enum Constants**:
 
-- [FIND_NEXT](#find_next-1cc7540f85fd)
-- [FIND_SAME_OR_NEXT](#find_same_or_next-759812451f0a)
+- [FIND\_NEXT](#find_next-1cc7540f85fd)
+- [FIND\_SAME\_OR\_NEXT](#find_same_or_next-759812451f0a)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

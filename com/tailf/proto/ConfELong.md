@@ -28,8 +28,8 @@ Provides a Java representation of E integral types. E does not distinguish
 
 **Constructors**:
 
-- [ConfELong(ConfInputStream)](#confelong-14be370f839d)
-- [ConfELong(long)](#confelong-ef6be4714c98)
+- [ConfELong\(ConfInputStream\)](#confelong-14be370f839d)
+- [ConfELong\(long\)](#confelong-ef6be4714c98)
 
 **Fields**:
 
@@ -37,19 +37,19 @@ Provides a Java representation of E integral types. E does not distinguish
 
 **Methods**:
 
-- [byteValue()](#bytevalue-a56aac956c5c)
-- [charValue()](#charvalue-4b3a6b868fe4)
-- [clone()](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
-- [decode(ConfInputStream)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
-- [encode(ConfOutputStream)](#encode-cb1ad9eb7771)
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [hashCode()](#hashcode-ef797a217903)
-- [intValue()](#intvalue-2f745d025d8e)
-- [longValue()](#longvalue-636bfe2d6862)
-- [shortValue()](#shortvalue-438ff2f827fb)
-- [toString()](#tostring-e9d48c5503ef)
-- [uIntValue()](#uintvalue-11d9c2202272)
-- [uShortValue()](#ushortvalue-5c27a3934662)
+- [byteValue\(\)](#bytevalue-a56aac956c5c)
+- [charValue\(\)](#charvalue-4b3a6b868fe4)
+- [clone\(\)](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
+- [decode\(ConfInputStream\)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
+- [encode\(ConfOutputStream\)](#encode-cb1ad9eb7771)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [hashCode\(\)](#hashcode-ef797a217903)
+- [intValue\(\)](#intvalue-2f745d025d8e)
+- [longValue\(\)](#longvalue-636bfe2d6862)
+- [shortValue\(\)](#shortvalue-438ff2f827fb)
+- [toString\(\)](#tostring-e9d48c5503ef)
+- [uIntValue\(\)](#uintvalue-11d9c2202272)
+- [uShortValue\(\)](#ushortvalue-5c27a3934662)
 
 ## Constructors
 

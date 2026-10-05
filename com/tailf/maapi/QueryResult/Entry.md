@@ -25,11 +25,11 @@ Represent result entry in a XPath query.
 
 **Constructors**:
 
-- [Entry(List<E>)](#entry-3c15f85e762c)
+- [Entry\(List\<E\>\)](#entry-3c15f85e762c)
 
 **Methods**:
 
-- [value()](#value-9e1512d1a0ce)
+- [value\(\)](#value-9e1512d1a0ce)
 
 ## Constructors
 

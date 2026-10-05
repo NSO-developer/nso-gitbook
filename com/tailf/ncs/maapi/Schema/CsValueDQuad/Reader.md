@@ -9,14 +9,14 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDQuad.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getD1()](#getd1-1ccbbca0d18f)
-- [getD2()](#getd2-93b8c43fe331)
-- [getD3()](#getd3-1982f3560cd6)
-- [getD4()](#getd4-a7608deae360)
+- [getD1\(\)](#getd1-1ccbbca0d18f)
+- [getD2\(\)](#getd2-93b8c43fe331)
+- [getD3\(\)](#getd3-1982f3560cd6)
+- [getD4\(\)](#getd4-a7608deae360)
 
 ## Constructors
 

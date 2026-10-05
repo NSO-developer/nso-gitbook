@@ -23,19 +23,19 @@ The modification flags supplied by the library to
 
 **Enum Constants**:
 
-- [MOP_ATTR_SET](#mop_attr_set-93d0727524e3)
-- [MOP_CREATED](#mop_created-1b4baba0a9b5)
-- [MOP_DELETED](#mop_deleted-bfb313272589)
-- [MOP_MODIFIED](#mop_modified-04604a9e1f38)
-- [MOP_MOVED_AFTER](#mop_moved_after-a0be8ecb4c10)
-- [MOP_VALUE_SET](#mop_value_set-785b954bac72)
+- [MOP\_ATTR\_SET](#mop_attr_set-93d0727524e3)
+- [MOP\_CREATED](#mop_created-1b4baba0a9b5)
+- [MOP\_DELETED](#mop_deleted-bfb313272589)
+- [MOP\_MODIFIED](#mop_modified-04604a9e1f38)
+- [MOP\_MOVED\_AFTER](#mop_moved_after-a0be8ecb4c10)
+- [MOP\_VALUE\_SET](#mop_value_set-785b954bac72)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

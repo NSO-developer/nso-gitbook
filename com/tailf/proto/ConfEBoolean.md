@@ -15,24 +15,24 @@ Provides a Java representation of E booleans, which are special cases of
 
 **Constructors**:
 
-- [ConfEBoolean(boolean)](#confeboolean-82cee39c0df6)
-- [ConfEBoolean(ConfInputStream)](#confeboolean-0824f505fca3)
+- [ConfEBoolean\(boolean\)](#confeboolean-82cee39c0df6)
+- [ConfEBoolean\(ConfInputStream\)](#confeboolean-0824f505fca3)
 
 **Fields**:
 
-- [MAX_ATOM_LENGTH](ConfEAtom.md#max_atom_length-b3ed4a748361) from ConfEAtom
+- [MAX\_ATOM\_LENGTH](ConfEAtom.md#max_atom_length-b3ed4a748361) from ConfEAtom
 - [serialVersionUID](#serialversionuid-b9f0e1ec001d)
 
 **Methods**:
 
-- [atomValue()](ConfEAtom.md#atomvalue-e1510c85d5fa) from ConfEAtom
-- [booleanValue()](ConfEAtom.md#booleanvalue-8b1662434d74) from ConfEAtom
-- [clone()](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
-- [decode(ConfInputStream)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
-- [encode(ConfOutputStream)](ConfEAtom.md#encode-cb1ad9eb7771) from ConfEAtom
-- [equals(Object)](ConfEAtom.md#equals-fcd6492e0d6c) from ConfEAtom
-- [hashCode()](ConfEAtom.md#hashcode-ef797a217903) from ConfEAtom
-- [toString()](ConfEAtom.md#tostring-e9d48c5503ef) from ConfEAtom
+- [atomValue\(\)](ConfEAtom.md#atomvalue-e1510c85d5fa) from ConfEAtom
+- [booleanValue\(\)](ConfEAtom.md#booleanvalue-8b1662434d74) from ConfEAtom
+- [clone\(\)](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
+- [decode\(ConfInputStream\)](ConfEObject.md#decode-e63a2a4cac49) from ConfEObject
+- [encode\(ConfOutputStream\)](ConfEAtom.md#encode-cb1ad9eb7771) from ConfEAtom
+- [equals\(Object\)](ConfEAtom.md#equals-fcd6492e0d6c) from ConfEAtom
+- [hashCode\(\)](ConfEAtom.md#hashcode-ef797a217903) from ConfEAtom
+- [toString\(\)](ConfEAtom.md#tostring-e9d48c5503ef) from ConfEAtom
 
 ## Constructors
 

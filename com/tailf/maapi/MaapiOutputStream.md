@@ -53,16 +53,16 @@ Configuration data output stream used to upload configurations.
 
 **Constructors**:
 
-- [MaapiOutputStream(Maapi, int, int)](#maapioutputstream-f1083e369c59)
+- [MaapiOutputStream\(Maapi, int, int\)](#maapioutputstream-f1083e369c59)
 
 **Methods**:
 
-- [getErrorCode()](#geterrorcode-812152fc083a)
-- [getErrorString()](#geterrorstring-3b4eba00496b)
-- [getLocalSocket()](#getlocalsocket-d59b3f74caea)
-- [hasWriteAll()](#haswriteall-8546741ca27f)
-- [write(byte[], int, int)](#write-f26dc6393d9b)
-- [write(int)](#write-5c8da46e8b83)
+- [getErrorCode\(\)](#geterrorcode-812152fc083a)
+- [getErrorString\(\)](#geterrorstring-3b4eba00496b)
+- [getLocalSocket\(\)](#getlocalsocket-d59b3f74caea)
+- [hasWriteAll\(\)](#haswriteall-8546741ca27f)
+- [write\(byte\[\], int, int\)](#write-f26dc6393d9b)
+- [write\(int\)](#write-5c8da46e8b83)
 
 ## Constructors
 

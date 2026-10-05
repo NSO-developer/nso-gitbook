@@ -9,8 +9,8 @@ public class com.tailf.ned.NedCliBaseTemplate.ApplyException
 
 **Constructors**:
 
-- [ApplyException(String, boolean, boolean)](#applyexception-7b81fcea900a)
-- [ApplyException(String, String, boolean, boolean)](#applyexception-bbb5076611ee)
+- [ApplyException\(String, boolean, boolean\)](#applyexception-7b81fcea900a)
+- [ApplyException\(String, String, boolean, boolean\)](#applyexception-bbb5076611ee)
 
 **Fields**:
 

@@ -9,12 +9,12 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeEnum.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getValues()](#getvalues-06542a92d7fa)
-- [hasValues()](#hasvalues-64d4a87b971a)
+- [getValues\(\)](#getvalues-06542a92d7fa)
+- [hasValues\(\)](#hasvalues-64d4a87b971a)
 
 ## Constructors
 

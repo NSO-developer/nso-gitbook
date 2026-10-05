@@ -8,7 +8,7 @@ public static class com.tailf.maapi.MaapiSchemas.CSIdref
 
 **Constructors**:
 
-- [CSIdref(String, String, int, int)](#csidref-6752ec689cfb)
+- [CSIdref\(String, String, int, int\)](#csidref-6752ec689cfb)
 
 **Fields**:
 
@@ -19,12 +19,12 @@ public static class com.tailf.maapi.MaapiSchemas.CSIdref
 
 **Methods**:
 
-- [getId()](#getid-199a349c70ef)
-- [getName()](#getname-2634b18b4a25)
-- [getNS()](#getns-3613c99d8888)
-- [getQName()](#getqname-9e09580fbf90)
-- [setName(String)](#setname-c76ccfcb9f18)
-- [setQName(String)](#setqname-62d2dd2eb710)
+- [getId\(\)](#getid-199a349c70ef)
+- [getName\(\)](#getname-2634b18b4a25)
+- [getNS\(\)](#getns-3613c99d8888)
+- [getQName\(\)](#getqname-9e09580fbf90)
+- [setName\(String\)](#setname-c76ccfcb9f18)
+- [setQName\(String\)](#setqname-62d2dd2eb710)
 
 ## Constructors
 

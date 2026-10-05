@@ -12,7 +12,7 @@ Result of [`Maapi#CLICmdToPath(int, String)`](Maapi.md#clicmdtopath-90aed3e422a9
 
 **Constructors**:
 
-- [CLICmdToPathResult(String, String)](#clicmdtopathresult-fc5d482a7477)
+- [CLICmdToPathResult\(String, String\)](#clicmdtopathresult-fc5d482a7477)
 
 **Fields**:
 

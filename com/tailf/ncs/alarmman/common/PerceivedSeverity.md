@@ -21,12 +21,12 @@ Enum representing the possible perceived severities for an alarm
 
 **Methods**:
 
-- [equalsTo(int)](#equalsto-426f9980372b)
-- [getValue()](#getvalue-d93864668c40)
-- [stringValue()](#stringvalue-a6efca13ec08)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [equalsTo\(int\)](#equalsto-426f9980372b)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [stringValue\(\)](#stringvalue-a6efca13ec08)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

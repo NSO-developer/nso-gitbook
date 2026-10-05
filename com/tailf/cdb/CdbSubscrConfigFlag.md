@@ -12,14 +12,14 @@ Distinguish the different types of subscription notifications
 
 **Enum Constants**:
 
-- [CDB_SUB_WANT_ABORT_ON_ABORT](#cdb_sub_want_abort_on_abort-47411eed1a75)
+- [CDB\_SUB\_WANT\_ABORT\_ON\_ABORT](#cdb_sub_want_abort_on_abort-47411eed1a75)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

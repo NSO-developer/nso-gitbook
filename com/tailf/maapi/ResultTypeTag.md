@@ -36,7 +36,7 @@ XPath Result in ConfXMLParam format. This
 
 **Methods**:
 
-- [tag()](#tag-7b2271ab156c)
+- [tag\(\)](#tag-7b2271ab156c)
 
 ## Methods
 

@@ -10,14 +10,14 @@ Types: [CompactionType](CompactionType.md#compactiontype-0d05e41610fa)
 
 **Enum Constants**:
 
-- [COMPACTION_AUTOMATIC](#compaction_automatic-10ae9bcb3ccb)
-- [COMPACTION_MANUAL](#compaction_manual-30ec7b6a78e2)
+- [COMPACTION\_AUTOMATIC](#compaction_automatic-10ae9bcb3ccb)
+- [COMPACTION\_MANUAL](#compaction_manual-30ec7b6a78e2)
 
 **Methods**:
 
-- [fromInt(int)](#fromint-df0c5649c91b)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [fromInt\(int\)](#fromint-df0c5649c91b)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

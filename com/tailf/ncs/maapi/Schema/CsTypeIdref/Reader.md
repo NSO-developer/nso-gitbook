@@ -9,12 +9,12 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeIdref.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getRefs()](#getrefs-b06b91bf4474)
-- [hasRefs()](#hasrefs-1092d9d8bb51)
+- [getRefs\(\)](#getrefs-b06b91bf4474)
+- [hasRefs\(\)](#hasrefs-1092d9d8bb51)
 
 ## Constructors
 

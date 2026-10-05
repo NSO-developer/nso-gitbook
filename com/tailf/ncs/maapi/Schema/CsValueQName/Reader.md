@@ -9,14 +9,14 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueQName.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getName()](#getname-2634b18b4a25)
-- [getPrefix()](#getprefix-9268091e0223)
-- [hasName()](#hasname-bfe6c334e0d1)
-- [hasPrefix()](#hasprefix-ddbc3bbca9c3)
+- [getName\(\)](#getname-2634b18b4a25)
+- [getPrefix\(\)](#getprefix-9268091e0223)
+- [hasName\(\)](#hasname-bfe6c334e0d1)
+- [hasPrefix\(\)](#hasprefix-ddbc3bbca9c3)
 
 ## Constructors
 

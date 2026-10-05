@@ -24,10 +24,10 @@ AuthorizationOperCheck used as argument to authorization callbacks.
 
 **Methods**:
 
-- [getType(int)](#gettype-ea5f2e669127)
-- [getValue()](#getvalue-d93864668c40)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getType\(int\)](#gettype-ea5f2e669127)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

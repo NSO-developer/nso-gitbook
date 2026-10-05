@@ -105,30 +105,30 @@ The application can generate notifications that are sent via the northbound
 
 **Constructors**:
 
-- [DpNotifStream(Dp, String, DpNotifReplayCallback, Socket)](#dpnotifstream-f41aba723331)
-- [DpNotifStream(DpNotifStream)](#dpnotifstream-ed76b956ec92)
+- [DpNotifStream\(Dp, String, DpNotifReplayCallback, Socket\)](#dpnotifstream-f41aba723331)
+- [DpNotifStream\(DpNotifStream\)](#dpnotifstream-ed76b956ec92)
 
 **Methods**:
 
-- [flush()](#flush-a4d76f158943)
-- [getDp()](#getdp-b1462199cc2e)
-- [getFD()](#getfd-e27232a35a70)
-- [getQRef()](#getqref-ee1c8f107982)
-- [getReplayCb()](#getreplaycb-026e257d6bdd)
-- [getSocket()](#getsocket-d7da2de81b81)
-- [getStreamName()](#getstreamname-7146bcdbf461)
-- [getSubId()](#getsubid-eca339b724c5)
-- [replay(ConfDatetime, ConfDatetime)](#replay-594e7925e57b)
-- [send(ConfDatetime, ConfXMLParam)](#send-4e9bbfeb1622)
-- [send(ConfDatetime, ConfXMLParam[])](#send-a45ffafb2f21)
-- [send(ConfDatetime, ConfXMLParam[], ConfPath)](#send-86adc894c9f5)
-- [send(ConfDatetime, ConfXMLParam[], String, Object[])](#send-3fd8e4b13d7a)
-- [sendReplayComplete()](#sendreplaycomplete-4f926d53aa64)
-- [sendReplayFailed(String)](#sendreplayfailed-145017a72637)
-- [setFD(int)](#setfd-501c97b6d464)
-- [setQRef(int)](#setqref-dd8de0c4f29b)
-- [setSocket(Socket)](#setsocket-183068848e4c)
-- [setSubId(int)](#setsubid-b0f01749d8c5)
+- [flush\(\)](#flush-a4d76f158943)
+- [getDp\(\)](#getdp-b1462199cc2e)
+- [getFD\(\)](#getfd-e27232a35a70)
+- [getQRef\(\)](#getqref-ee1c8f107982)
+- [getReplayCb\(\)](#getreplaycb-026e257d6bdd)
+- [getSocket\(\)](#getsocket-d7da2de81b81)
+- [getStreamName\(\)](#getstreamname-7146bcdbf461)
+- [getSubId\(\)](#getsubid-eca339b724c5)
+- [replay\(ConfDatetime, ConfDatetime\)](#replay-594e7925e57b)
+- [send\(ConfDatetime, ConfXMLParam\)](#send-4e9bbfeb1622)
+- [send\(ConfDatetime, ConfXMLParam\[\]\)](#send-a45ffafb2f21)
+- [send\(ConfDatetime, ConfXMLParam\[\], ConfPath\)](#send-86adc894c9f5)
+- [send\(ConfDatetime, ConfXMLParam\[\], String, Object\[\]\)](#send-3fd8e4b13d7a)
+- [sendReplayComplete\(\)](#sendreplaycomplete-4f926d53aa64)
+- [sendReplayFailed\(String\)](#sendreplayfailed-145017a72637)
+- [setFD\(int\)](#setfd-501c97b6d464)
+- [setQRef\(int\)](#setqref-dd8de0c4f29b)
+- [setSocket\(Socket\)](#setsocket-183068848e4c)
+- [setSubId\(int\)](#setsubid-b0f01749d8c5)
 
 ## Constructors
 

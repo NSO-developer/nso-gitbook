@@ -9,14 +9,14 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getHid()](#gethid-34aa6038c623)
-- [getHns()](#gethns-457afaf41ae6)
-- [getQname()](#getqname-022156d42738)
-- [hasQname()](#hasqname-3146e94ee2c2)
+- [getHid\(\)](#gethid-34aa6038c623)
+- [getHns\(\)](#gethns-457afaf41ae6)
+- [getQname\(\)](#getqname-022156d42738)
+- [hasQname\(\)](#hasqname-3146e94ee2c2)
 
 ## Constructors
 

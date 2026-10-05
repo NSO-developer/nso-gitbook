@@ -17,19 +17,19 @@ This class represents a plan component with its states.
 
 **Constructors**:
 
-- [PlanComponent(NavuNode, String, String)](#plancomponent-1b9624e9dad9)
-- [PlanComponent(NavuNode, String, String, ConfObjectRef)](#plancomponent-5e61ba53deeb)
+- [PlanComponent\(NavuNode, String, String\)](#plancomponent-1b9624e9dad9)
+- [PlanComponent\(NavuNode, String, String, ConfObjectRef\)](#plancomponent-5e61ba53deeb)
 
 **Methods**:
 
-- [appendState(String)](#appendstate-45d10d72ab14)
-- [appendState(String, String, String)](#appendstate-5142e7e1bad6)
-- [appendState(String, String, String, String, String)](#appendstate-efbc51e6cfd9)
-- [backTrack()](#backtrack-d3f8df17d7ce)
-- [backTrack(boolean)](#backtrack-9f47a005ed3f)
-- [setFailed(String)](#setfailed-c699ca5438a6)
-- [setNotReached(String)](#setnotreached-9b7c14c0c58a)
-- [setReached(String)](#setreached-d2df729907ae)
+- [appendState\(String\)](#appendstate-45d10d72ab14)
+- [appendState\(String, String, String\)](#appendstate-5142e7e1bad6)
+- [appendState\(String, String, String, String, String\)](#appendstate-efbc51e6cfd9)
+- [backTrack\(\)](#backtrack-d3f8df17d7ce)
+- [backTrack\(boolean\)](#backtrack-9f47a005ed3f)
+- [setFailed\(String\)](#setfailed-c699ca5438a6)
+- [setNotReached\(String\)](#setnotreached-9b7c14c0c58a)
+- [setReached\(String\)](#setreached-d2df729907ae)
 
 ## Constructors
 

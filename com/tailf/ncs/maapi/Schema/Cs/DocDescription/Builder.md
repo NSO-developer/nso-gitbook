@@ -9,21 +9,21 @@ public static final class com.tailf.ncs.maapi.Schema.Cs.DocDescription.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getNone()](#getnone-e31bfdbffa7f)
-- [getValue()](#getvalue-d93864668c40)
-- [hasValue()](#hasvalue-dad92e423e7a)
-- [initValue(int)](#initvalue-a117f5eca48d)
-- [isNone()](#isnone-e8a993ad0453)
-- [isValue()](#isvalue-7280ea8211f4)
-- [setNone(Void)](#setnone-46764db867d5)
-- [setValue(Reader)](#setvalue-6784c0d559f7)
-- [setValue(String)](#setvalue-90771990f0a6)
-- [which()](#which-0b2d23db5ed0)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getNone\(\)](#getnone-e31bfdbffa7f)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [hasValue\(\)](#hasvalue-dad92e423e7a)
+- [initValue\(int\)](#initvalue-a117f5eca48d)
+- [isNone\(\)](#isnone-e8a993ad0453)
+- [isValue\(\)](#isvalue-7280ea8211f4)
+- [setNone\(Void\)](#setnone-46764db867d5)
+- [setValue\(Reader\)](#setvalue-6784c0d559f7)
+- [setValue\(String\)](#setvalue-90771990f0a6)
+- [which\(\)](#which-0b2d23db5ed0)
 
 ## Constructors
 

@@ -8,7 +8,7 @@ public static class com.tailf.conf.gen.PathParser.PathElement
 
 **Constructors**:
 
-- [PathElement()](#pathelement-f49964060be9)
+- [PathElement\(\)](#pathelement-f49964060be9)
 
 **Fields**:
 
@@ -21,8 +21,8 @@ public static class com.tailf.conf.gen.PathParser.PathElement
 
 **Methods**:
 
-- [equals(Object)](#equals-fcd6492e0d6c)
-- [hashCode()](#hashcode-ef797a217903)
+- [equals\(Object\)](#equals-fcd6492e0d6c)
+- [hashCode\(\)](#hashcode-ef797a217903)
 
 ## Constructors
 

@@ -13,7 +13,7 @@ Class representing a status change attribute.
 
 **Constructors**:
 
-- [StatusChangeAttribute(ConfNamespace, String, ConfValue)](#statuschangeattribute-31509a8e3de7)
+- [StatusChangeAttribute\(ConfNamespace, String, ConfValue\)](#statuschangeattribute-31509a8e3de7)
 
 **Fields**:
 
@@ -21,10 +21,10 @@ Class representing a status change attribute.
 
 **Methods**:
 
-- [getId()](Attribute.md#getid-199a349c70ef) from Attribute
-- [getNameSpace()](Attribute.md#getnamespace-e413af21e168) from Attribute
-- [getValue()](Attribute.md#getvalue-d93864668c40) from Attribute
-- [toString()](Attribute.md#tostring-e9d48c5503ef) from Attribute
+- [getId\(\)](Attribute.md#getid-199a349c70ef) from Attribute
+- [getNameSpace\(\)](Attribute.md#getnamespace-e413af21e168) from Attribute
+- [getValue\(\)](Attribute.md#getvalue-d93864668c40) from Attribute
+- [toString\(\)](Attribute.md#tostring-e9d48c5503ef) from Attribute
 
 ## Constructors
 

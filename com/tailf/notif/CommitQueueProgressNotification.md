@@ -13,32 +13,32 @@ Data structure for commit queue progress notifications.
 
 **Constructors**:
 
-- [CommitQueueProgressNotification(int, ConfDatetime, ConfUInt64, String, List<String>, Map<String,String>, Map<String,String>, Map<String,ConfList>, Map<String,ConfList[]>)](#commitqueueprogressnotification-c3a908d74df6)
+- [CommitQueueProgressNotification\(int, ConfDatetime, ConfUInt64, String, List\<String\>, Map\<String,String\>, Map\<String,String\>, Map\<String,ConfList\>, Map\<String,ConfList\[\]\>\)](#commitqueueprogressnotification-c3a908d74df6)
 
 **Fields**:
 
-- [NCS_CQ_ITEM_COMPLETED](#ncs_cq_item_completed-5a52f20ca5b4)
-- [NCS_CQ_ITEM_DELETED](#ncs_cq_item_deleted-bc65719e4d53)
-- [NCS_CQ_ITEM_EXECUTING](#ncs_cq_item_executing-cb9cee847591)
-- [NCS_CQ_ITEM_FAILED](#ncs_cq_item_failed-397c593dc04a)
-- [NCS_CQ_ITEM_LOCKED](#ncs_cq_item_locked-680f05ab0c8e)
-- [NCS_CQ_ITEM_WAITING](#ncs_cq_item_waiting-5f2a79031172)
+- [NCS\_CQ\_ITEM\_COMPLETED](#ncs_cq_item_completed-5a52f20ca5b4)
+- [NCS\_CQ\_ITEM\_DELETED](#ncs_cq_item_deleted-bc65719e4d53)
+- [NCS\_CQ\_ITEM\_EXECUTING](#ncs_cq_item_executing-cb9cee847591)
+- [NCS\_CQ\_ITEM\_FAILED](#ncs_cq_item_failed-397c593dc04a)
+- [NCS\_CQ\_ITEM\_LOCKED](#ncs_cq_item_locked-680f05ab0c8e)
+- [NCS\_CQ\_ITEM\_WAITING](#ncs_cq_item_waiting-5f2a79031172)
 - [type](Notification.md#type-6ebb3673fbb6) from Notification
 
 **Methods**:
 
-- [getCompletedDevices()](#getcompleteddevices-5d4f1d403427)
-- [getCompletedServices()](#getcompletedservices-8efb6940a788)
-- [getCQId()](#getcqid-1138a32e494a)
-- [getCQNotifType()](#getcqnotiftype-9681a75b690a)
-- [getCQNotifTypeStr()](#getcqnotiftypestr-c4898653014c)
-- [getFailedDevices()](#getfaileddevices-70e71b879fad)
-- [getFailedServices()](#getfailedservices-1b83786e5cef)
-- [getLabel()](#getlabel-72bf899bf6f1)
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getTimestamp()](#gettimestamp-a9e0c6b457f8)
-- [getTransientDevices()](#gettransientdevices-780e0b7cff26)
-- [toString()](#tostring-e9d48c5503ef)
+- [getCompletedDevices\(\)](#getcompleteddevices-5d4f1d403427)
+- [getCompletedServices\(\)](#getcompletedservices-8efb6940a788)
+- [getCQId\(\)](#getcqid-1138a32e494a)
+- [getCQNotifType\(\)](#getcqnotiftype-9681a75b690a)
+- [getCQNotifTypeStr\(\)](#getcqnotiftypestr-c4898653014c)
+- [getFailedDevices\(\)](#getfaileddevices-70e71b879fad)
+- [getFailedServices\(\)](#getfailedservices-1b83786e5cef)
+- [getLabel\(\)](#getlabel-72bf899bf6f1)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getTimestamp\(\)](#gettimestamp-a9e0c6b457f8)
+- [getTransientDevices\(\)](#gettransientdevices-780e0b7cff26)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

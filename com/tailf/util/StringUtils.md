@@ -8,11 +8,11 @@ public class com.tailf.util.StringUtils
 
 **Constructors**:
 
-- [StringUtils()](#stringutils-ec5c7ec80bba)
+- [StringUtils\(\)](#stringutils-ec5c7ec80bba)
 
 **Methods**:
 
-- [getBytes(String)](#getbytes-dc2a63683673)
+- [getBytes\(String\)](#getbytes-dc2a63683673)
 
 ## Constructors
 

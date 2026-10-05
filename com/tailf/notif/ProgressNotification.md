@@ -17,7 +17,7 @@ Data structure for progress notifications.
 
 **Constructors**:
 
-- [ProgressNotification(NotificationType, ProgressEventType, Long, Long, String, String, String, int, int, int, String, String, String, String, Map<String,ProgressAttributeValue>, List<ProgressLink>)](#progressnotification-c28e5ec8d49c)
+- [ProgressNotification\(NotificationType, ProgressEventType, Long, Long, String, String, String, int, int, int, String, String, String, String, Map\<String,ProgressAttributeValue\>, List\<ProgressLink\>\)](#progressnotification-c28e5ec8d49c)
 
 **Fields**:
 
@@ -25,25 +25,25 @@ Data structure for progress notifications.
 
 **Methods**:
 
-- [getAnnotation()](#getannotation-f9c803b8d53c)
-- [getAttributes()](#getattributes-34824a17bc02)
-- [getAttributeValue(String)](#getattributevalue-74e7ac548f72)
-- [getContext()](#getcontext-b18d576df5d9)
-- [getDatastore()](#getdatastore-90019829a97f)
-- [getDatastoreStr()](#getdatastorestr-c8f9783fbc77)
-- [getDuration()](#getduration-aee615ea7fe2)
-- [getLinks()](#getlinks-4e85332dc1df)
-- [getMessage()](#getmessage-77b7dae8469e)
-- [getNotificationType()](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
-- [getParentSpanId()](#getparentspanid-d345b2e6a97f)
-- [getProgressEventType()](#getprogresseventtype-1fc5b96f8167)
-- [getSessionId()](#getsessionid-aba33c116ed5)
-- [getSpanId()](#getspanid-155306b8dcae)
-- [getSubsystem()](#getsubsystem-04685ed88e54)
-- [getTimestamp()](#gettimestamp-a9e0c6b457f8)
-- [getTraceId()](#gettraceid-c3a30b94d9ce)
-- [getTransactionId()](#gettransactionid-c986b15287a0)
-- [toString()](#tostring-e9d48c5503ef)
+- [getAnnotation\(\)](#getannotation-f9c803b8d53c)
+- [getAttributes\(\)](#getattributes-34824a17bc02)
+- [getAttributeValue\(String\)](#getattributevalue-74e7ac548f72)
+- [getContext\(\)](#getcontext-b18d576df5d9)
+- [getDatastore\(\)](#getdatastore-90019829a97f)
+- [getDatastoreStr\(\)](#getdatastorestr-c8f9783fbc77)
+- [getDuration\(\)](#getduration-aee615ea7fe2)
+- [getLinks\(\)](#getlinks-4e85332dc1df)
+- [getMessage\(\)](#getmessage-77b7dae8469e)
+- [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
+- [getParentSpanId\(\)](#getparentspanid-d345b2e6a97f)
+- [getProgressEventType\(\)](#getprogresseventtype-1fc5b96f8167)
+- [getSessionId\(\)](#getsessionid-aba33c116ed5)
+- [getSpanId\(\)](#getspanid-155306b8dcae)
+- [getSubsystem\(\)](#getsubsystem-04685ed88e54)
+- [getTimestamp\(\)](#gettimestamp-a9e0c6b457f8)
+- [getTraceId\(\)](#gettraceid-c3a30b94d9ce)
+- [getTransactionId\(\)](#gettransactionid-c986b15287a0)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 **Nested Types**:
 

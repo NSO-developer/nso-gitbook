@@ -16,19 +16,19 @@ Enumeration of attribute types
 - [BACKPOINTER](#backpointer-d19810a6ed25)
 - [INACTIVE](#inactive-e05983904557)
 - [ORIGIN](#origin-ba5b8252647b)
-- [ORIGINAL_VALUE](#original_value-a4542e5c6326)
-- [OUT_OF_BAND](#out_of_band-9f01185dffb9)
+- [ORIGINAL\_VALUE](#original_value-a4542e5c6326)
+- [OUT\_OF\_BAND](#out_of_band-9f01185dffb9)
 - [REFCOUNT](#refcount-a55a58985f6e)
 - [TAGS](#tags-827c8f7775e3)
 - [WHEN](#when-330c898295c5)
 
 **Methods**:
 
-- [getType(long)](#gettype-362221ab6f0b)
-- [getValue()](#getvalue-d93864668c40)
-- [toString()](#tostring-e9d48c5503ef)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getType\(long\)](#gettype-362221ab6f0b)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [toString\(\)](#tostring-e9d48c5503ef)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

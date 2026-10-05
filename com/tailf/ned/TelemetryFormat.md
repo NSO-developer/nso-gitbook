@@ -17,11 +17,11 @@ Enum containing the valid response formats for a telemetry notification.
 
 **Methods**:
 
-- [fromString(String)](#fromstring-5d905e812973)
-- [getValue()](#getvalue-d93864668c40)
-- [toString()](#tostring-e9d48c5503ef)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [fromString\(String\)](#fromstring-5d905e812973)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [toString\(\)](#tostring-e9d48c5503ef)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

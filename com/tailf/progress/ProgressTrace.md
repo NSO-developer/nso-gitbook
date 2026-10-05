@@ -33,21 +33,21 @@ public class com.tailf.progress.ProgressTrace
 
 **Constructors**:
 
-- [ProgressTrace(Maapi, int)](#progresstrace-79427d590b52)
-- [ProgressTrace(Maapi, int, ConfPath)](#progresstrace-95f990b53e34)
+- [ProgressTrace\(Maapi, int\)](#progresstrace-79427d590b52)
+- [ProgressTrace\(Maapi, int, ConfPath\)](#progresstrace-95f990b53e34)
 
 **Methods**:
 
-- [endSpan(Span)](#endspan-832d21f903c3)
-- [endSpan(Span, String)](#endspan-1c44c700da19)
-- [event(String)](#event-35c2a3878e07)
-- [event(Verbosity, String)](#event-9f8a52e74d94)
-- [event(Verbosity, String, Attributes)](#event-cdc8c9e968cd)
-- [getCurrentSpan()](#getcurrentspan-95e59db0f66f)
-- [setServicePath(ConfPath)](#setservicepath-95207665ae57)
-- [startSpan(String)](#startspan-a255151f7145)
-- [startSpan(Verbosity, String)](#startspan-b310d5a59dbf)
-- [startSpan(Verbosity, String, Attributes, Span[])](#startspan-ec78710be35e)
+- [endSpan\(Span\)](#endspan-832d21f903c3)
+- [endSpan\(Span, String\)](#endspan-1c44c700da19)
+- [event\(String\)](#event-35c2a3878e07)
+- [event\(Verbosity, String\)](#event-9f8a52e74d94)
+- [event\(Verbosity, String, Attributes\)](#event-cdc8c9e968cd)
+- [getCurrentSpan\(\)](#getcurrentspan-95e59db0f66f)
+- [setServicePath\(ConfPath\)](#setservicepath-95207665ae57)
+- [startSpan\(String\)](#startspan-a255151f7145)
+- [startSpan\(Verbosity, String\)](#startspan-b310d5a59dbf)
+- [startSpan\(Verbosity, String, Attributes, Span\[\]\)](#startspan-ec78710be35e)
 
 ## Constructors
 

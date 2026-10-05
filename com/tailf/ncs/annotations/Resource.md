@@ -14,9 +14,9 @@ Annotation class for Action Callbacks Attributes are callPoint and callType
 
 **Methods**:
 
-- [qualifier()](#qualifier-53bb0e5b9344)
-- [scope()](#scope-040ece19a368)
-- [type()](#type-7a4a5f26039a)
+- [qualifier\(\)](#qualifier-53bb0e5b9344)
+- [scope\(\)](#scope-040ece19a368)
+- [type\(\)](#type-7a4a5f26039a)
 
 ## Methods
 

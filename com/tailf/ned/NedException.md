@@ -11,12 +11,12 @@ Exception raised from the NED package
 
 **Constructors**:
 
-- [NedException(NedErrorCode, String)](#nedexception-b9f14788dc0a)
-- [NedException(NedErrorCode, String, Throwable)](#nedexception-076b429c0440)
+- [NedException\(NedErrorCode, String\)](#nedexception-b9f14788dc0a)
+- [NedException\(NedErrorCode, String, Throwable\)](#nedexception-076b429c0440)
 
 **Methods**:
 
-- [getNedErrorCode()](#getnederrorcode-452b35680338)
+- [getNedErrorCode\(\)](#getnederrorcode-452b35680338)
 
 ## Constructors
 

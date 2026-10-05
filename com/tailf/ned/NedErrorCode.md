@@ -10,25 +10,25 @@ Types: [NedErrorCode](NedErrorCode.md#nederrorcode-e5f6e08a55a2)
 
 **Enum Constants**:
 
-- [CONNECT_BADAUTH](#connect_badauth-7335ef6f22db)
-- [CONNECT_BADKEY](#connect_badkey-e91f2ec9a06b)
-- [CONNECT_CONNECTION_REFUSED](#connect_connection_refused-2749682d78b8)
-- [CONNECT_HOST_KEY_REJECTED](#connect_host_key_rejected-a0751ad2484d)
-- [CONNECT_HOSTUNREACH](#connect_hostunreach-2e8b49fe247c)
-- [CONNECT_KEX_FAILED](#connect_kex_failed-277147eb318b)
-- [CONNECT_TIMEOUT](#connect_timeout-38526d2fcecb)
-- [CONNECTION_GONE](#connection_gone-fa4baf17f4de)
-- [IN_USE](#in_use-17f334a1bb80)
-- [NED_EXTERNAL_ERROR](#ned_external_error-d7323c5395f7)
-- [NED_INTERNAL_ERROR](#ned_internal_error-ae25a59e68ef)
+- [CONNECT\_BADAUTH](#connect_badauth-7335ef6f22db)
+- [CONNECT\_BADKEY](#connect_badkey-e91f2ec9a06b)
+- [CONNECT\_CONNECTION\_REFUSED](#connect_connection_refused-2749682d78b8)
+- [CONNECT\_HOST\_KEY\_REJECTED](#connect_host_key_rejected-a0751ad2484d)
+- [CONNECT\_HOSTUNREACH](#connect_hostunreach-2e8b49fe247c)
+- [CONNECT\_KEX\_FAILED](#connect_kex_failed-277147eb318b)
+- [CONNECT\_TIMEOUT](#connect_timeout-38526d2fcecb)
+- [CONNECTION\_GONE](#connection_gone-fa4baf17f4de)
+- [IN\_USE](#in_use-17f334a1bb80)
+- [NED\_EXTERNAL\_ERROR](#ned_external_error-d7323c5395f7)
+- [NED\_INTERNAL\_ERROR](#ned_internal_error-ae25a59e68ef)
 
 **Methods**:
 
-- [getValue()](#getvalue-d93864668c40)
-- [toAtomString()](#toatomstring-a89f0452ee0b)
-- [valueOf(int)](#valueof-c0d46d25fc67)
-- [valueOf(String)](#valueof-ac61b3547613)
-- [values()](#values-406dfe3ca270)
+- [getValue\(\)](#getvalue-d93864668c40)
+- [toAtomString\(\)](#toatomstring-a89f0452ee0b)
+- [valueOf\(int\)](#valueof-c0d46d25fc67)
+- [valueOf\(String\)](#valueof-ac61b3547613)
+- [values\(\)](#values-406dfe3ca270)
 
 ## Enum Constants
 

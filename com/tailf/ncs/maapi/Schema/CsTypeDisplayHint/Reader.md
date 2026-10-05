@@ -9,12 +9,12 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getDisplayHint()](#getdisplayhint-f9cb8b7f487f)
-- [hasDisplayHint()](#hasdisplayhint-a0d050b8aab0)
+- [getDisplayHint\(\)](#getdisplayhint-f9cb8b7f487f)
+- [hasDisplayHint\(\)](#hasdisplayhint-a0d050b8aab0)
 
 ## Constructors
 

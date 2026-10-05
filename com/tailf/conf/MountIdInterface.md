@@ -8,8 +8,8 @@ public interface com.tailf.conf.MountIdInterface
 
 **Methods**:
 
-- [acceptTagPath()](#accepttagpath-3efa26ad697b)
-- [getMountId(ConfPath)](#getmountid-83243c09b7c3)
+- [acceptTagPath\(\)](#accepttagpath-3efa26ad697b)
+- [getMountId\(ConfPath\)](#getmountid-83243c09b7c3)
 
 ## Methods
 

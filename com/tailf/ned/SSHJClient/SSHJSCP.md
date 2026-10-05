@@ -15,7 +15,7 @@ SCP client implementation using the net.schmizz.sshj
 
 **Constructors**:
 
-- [SSHJSCP(SCPFileTransfer)](#sshjscp-9973136f9754)
+- [SSHJSCP\(SCPFileTransfer\)](#sshjscp-9973136f9754)
 
 **Fields**:
 
@@ -23,9 +23,9 @@ SCP client implementation using the net.schmizz.sshj
 
 **Methods**:
 
-- [get(String)](#get-e86cd4d90bf3)
-- [put(String, String)](../SSHClient/SecureFileTransfer.md#put-5593beca1d56) from SecureFileTransfer
-- [put(String, String, int)](#put-cd56c61d877c)
+- [get\(String\)](#get-e86cd4d90bf3)
+- [put\(String, String\)](../SSHClient/SecureFileTransfer.md#put-5593beca1d56) from SecureFileTransfer
+- [put\(String, String, int\)](#put-cd56c61d877c)
 
 ## Constructors
 

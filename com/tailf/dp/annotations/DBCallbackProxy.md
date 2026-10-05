@@ -17,51 +17,51 @@ Callback proxy for DB Callbacks. Implements the [`DpDbCallback`](../DpDbCallback
 
 **Constructors**:
 
-- [DBCallbackProxy(Object)](#dbcallbackproxy-2ee018145cda)
+- [DBCallbackProxy\(Object\)](#dbcallbackproxy-2ee018145cda)
 
 **Fields**:
 
-- [M_ACTIVATE_CHECKPOINT_RUNNING](../DpDbCallback.md#m_activate_checkpoint_running-0ebd33a643c3) from DpDbCallback
-- [M_ADD_CHECKPOINT_RUNNING](../DpDbCallback.md#m_add_checkpoint_running-43b65718bdd6) from DpDbCallback
-- [M_ALL](../DpDbCallback.md#m_all-e3844e41e8ee) from DpDbCallback
-- [M_CANDIDATE_CHK_NOT_MODIFIED](../DpDbCallback.md#m_candidate_chk_not_modified-f172de5cec21) from DpDbCallback
-- [M_CANDIDATE_COMMIT](../DpDbCallback.md#m_candidate_commit-484bd03f581b) from DpDbCallback
-- [M_CANDIDATE_CONFIRMING_COMMIT](../DpDbCallback.md#m_candidate_confirming_commit-6299d1509720) from DpDbCallback
-- [M_CANDIDATE_RESET](../DpDbCallback.md#m_candidate_reset-f3acd855e47f) from DpDbCallback
-- [M_CANDIDATE_ROLLBACK_RUNNING](../DpDbCallback.md#m_candidate_rollback_running-a7202b20d951) from DpDbCallback
-- [M_CANDIDATE_VALIDATE](../DpDbCallback.md#m_candidate_validate-87728731434d) from DpDbCallback
-- [M_COPY_RUNNING_TO_STARTUP](../DpDbCallback.md#m_copy_running_to_startup-02d63903fcec) from DpDbCallback
-- [M_DEL_CHECKPOINT_RUNNING](../DpDbCallback.md#m_del_checkpoint_running-3c2efd2f93fb) from DpDbCallback
-- [M_DELETE_CONFIG](../DpDbCallback.md#m_delete_config-61b73fae3b26) from DpDbCallback
-- [M_LOCK](../DpDbCallback.md#m_lock-f8a733783845) from DpDbCallback
-- [M_LOCK_PARTIAL](../DpDbCallback.md#m_lock_partial-aa26abd80f7d) from DpDbCallback
-- [M_RUNNING_CHK_NOT_MODIFIED](../DpDbCallback.md#m_running_chk_not_modified-fea5508dd165) from DpDbCallback
-- [M_UNLOCK](../DpDbCallback.md#m_unlock-58690e51e70c) from DpDbCallback
-- [M_UNLOCK_PARTIAL](../DpDbCallback.md#m_unlock_partial-a67ada980c0d) from DpDbCallback
+- [M\_ACTIVATE\_CHECKPOINT\_RUNNING](../DpDbCallback.md#m_activate_checkpoint_running-0ebd33a643c3) from DpDbCallback
+- [M\_ADD\_CHECKPOINT\_RUNNING](../DpDbCallback.md#m_add_checkpoint_running-43b65718bdd6) from DpDbCallback
+- [M\_ALL](../DpDbCallback.md#m_all-e3844e41e8ee) from DpDbCallback
+- [M\_CANDIDATE\_CHK\_NOT\_MODIFIED](../DpDbCallback.md#m_candidate_chk_not_modified-f172de5cec21) from DpDbCallback
+- [M\_CANDIDATE\_COMMIT](../DpDbCallback.md#m_candidate_commit-484bd03f581b) from DpDbCallback
+- [M\_CANDIDATE\_CONFIRMING\_COMMIT](../DpDbCallback.md#m_candidate_confirming_commit-6299d1509720) from DpDbCallback
+- [M\_CANDIDATE\_RESET](../DpDbCallback.md#m_candidate_reset-f3acd855e47f) from DpDbCallback
+- [M\_CANDIDATE\_ROLLBACK\_RUNNING](../DpDbCallback.md#m_candidate_rollback_running-a7202b20d951) from DpDbCallback
+- [M\_CANDIDATE\_VALIDATE](../DpDbCallback.md#m_candidate_validate-87728731434d) from DpDbCallback
+- [M\_COPY\_RUNNING\_TO\_STARTUP](../DpDbCallback.md#m_copy_running_to_startup-02d63903fcec) from DpDbCallback
+- [M\_DEL\_CHECKPOINT\_RUNNING](../DpDbCallback.md#m_del_checkpoint_running-3c2efd2f93fb) from DpDbCallback
+- [M\_DELETE\_CONFIG](../DpDbCallback.md#m_delete_config-61b73fae3b26) from DpDbCallback
+- [M\_LOCK](../DpDbCallback.md#m_lock-f8a733783845) from DpDbCallback
+- [M\_LOCK\_PARTIAL](../DpDbCallback.md#m_lock_partial-aa26abd80f7d) from DpDbCallback
+- [M\_RUNNING\_CHK\_NOT\_MODIFIED](../DpDbCallback.md#m_running_chk_not_modified-fea5508dd165) from DpDbCallback
+- [M\_UNLOCK](../DpDbCallback.md#m_unlock-58690e51e70c) from DpDbCallback
+- [M\_UNLOCK\_PARTIAL](../DpDbCallback.md#m_unlock_partial-a67ada980c0d) from DpDbCallback
 
 **Methods**:
 
-- [activateCheckpointRunning(DpDbContext)](#activatecheckpointrunning-6d290282dc64)
-- [addActionCapability(DBCBType)](#addactioncapability-3e432bb771dc)
-- [addActionMethod(String, Method)](#addactionmethod-cf3e43a67fd9)
-- [addCheckpointRunning(DpDbContext)](#addcheckpointrunning-e8ef0fad176a)
-- [candidateChkNotModified(DpDbContext)](#candidatechknotmodified-73d415936fab)
-- [candidateCommit(DpDbContext, int)](#candidatecommit-c7c8900fd15e)
-- [candidateConfirmingCommit(DpDbContext)](#candidateconfirmingcommit-e1728f2c501d)
-- [candidateReset(DpDbContext)](#candidatereset-20893cda7340)
-- [candidateRollbackRunning(DpDbContext)](#candidaterollbackrunning-101fc2327941)
-- [candidateValidate(DpDbContext)](#candidatevalidate-c71b01c4e9e6)
-- [copyRunningToStartup(DpDbContext)](#copyrunningtostartup-963b6506a3d3)
-- [delCheckpointRunning(DpDbContext)](#delcheckpointrunning-b03068abbaef)
-- [deleteConfig(DpDbContext, int)](#deleteconfig-bac554ff2a00)
-- [getBackupObject()](#getbackupobject-a6fb23c24524)
-- [getDBCallbackProxys(Object)](#getdbcallbackproxys-f00028fe21f3)
-- [lock(DpDbContext, int)](#lock-ed56d39d3ff0)
-- [lockPartial(DpDbContext, int, int, ConfObject[][])](#lockpartial-cb09f4152af4)
-- [mask()](#mask-24c2fa29c6af)
-- [runningChkNotModified(DpDbContext)](#runningchknotmodified-0cfa3cd55796)
-- [unlock(DpDbContext, int)](#unlock-f30f2fcf978a)
-- [unlockPartial(DpDbContext, int, int)](#unlockpartial-3d1988a4cb5d)
+- [activateCheckpointRunning\(DpDbContext\)](#activatecheckpointrunning-6d290282dc64)
+- [addActionCapability\(DBCBType\)](#addactioncapability-3e432bb771dc)
+- [addActionMethod\(String, Method\)](#addactionmethod-cf3e43a67fd9)
+- [addCheckpointRunning\(DpDbContext\)](#addcheckpointrunning-e8ef0fad176a)
+- [candidateChkNotModified\(DpDbContext\)](#candidatechknotmodified-73d415936fab)
+- [candidateCommit\(DpDbContext, int\)](#candidatecommit-c7c8900fd15e)
+- [candidateConfirmingCommit\(DpDbContext\)](#candidateconfirmingcommit-e1728f2c501d)
+- [candidateReset\(DpDbContext\)](#candidatereset-20893cda7340)
+- [candidateRollbackRunning\(DpDbContext\)](#candidaterollbackrunning-101fc2327941)
+- [candidateValidate\(DpDbContext\)](#candidatevalidate-c71b01c4e9e6)
+- [copyRunningToStartup\(DpDbContext\)](#copyrunningtostartup-963b6506a3d3)
+- [delCheckpointRunning\(DpDbContext\)](#delcheckpointrunning-b03068abbaef)
+- [deleteConfig\(DpDbContext, int\)](#deleteconfig-bac554ff2a00)
+- [getBackupObject\(\)](#getbackupobject-a6fb23c24524)
+- [getDBCallbackProxys\(Object\)](#getdbcallbackproxys-f00028fe21f3)
+- [lock\(DpDbContext, int\)](#lock-ed56d39d3ff0)
+- [lockPartial\(DpDbContext, int, int, ConfObject\[\]\[\]\)](#lockpartial-cb09f4152af4)
+- [mask\(\)](#mask-24c2fa29c6af)
+- [runningChkNotModified\(DpDbContext\)](#runningchknotmodified-0cfa3cd55796)
+- [unlock\(DpDbContext, int\)](#unlock-f30f2fcf978a)
+- [unlockPartial\(DpDbContext, int, int\)](#unlockpartial-3d1988a4cb5d)
 
 ## Constructors
 

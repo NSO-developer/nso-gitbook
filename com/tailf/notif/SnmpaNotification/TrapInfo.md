@@ -10,14 +10,14 @@ Class representing trapinfo for a trap
 
 **Constructors**:
 
-- [TrapInfo(long[], int, int, int)](#trapinfo-8f35ae55a9e3)
+- [TrapInfo\(long\[\], int, int, int\)](#trapinfo-8f35ae55a9e3)
 
 **Methods**:
 
-- [getEnterprise()](#getenterprise-6b30bda2c9a7)
-- [getGenericTrap()](#getgenerictrap-836a3f2b9876)
-- [getSpecificTrap()](#getspecifictrap-b6489092e7e6)
-- [getTimestamp()](#gettimestamp-a9e0c6b457f8)
+- [getEnterprise\(\)](#getenterprise-6b30bda2c9a7)
+- [getGenericTrap\(\)](#getgenerictrap-836a3f2b9876)
+- [getSpecificTrap\(\)](#getspecifictrap-b6489092e7e6)
+- [getTimestamp\(\)](#gettimestamp-a9e0c6b457f8)
 
 ## Constructors
 

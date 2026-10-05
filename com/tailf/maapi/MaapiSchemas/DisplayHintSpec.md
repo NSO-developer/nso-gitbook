@@ -8,7 +8,7 @@ public static class com.tailf.maapi.MaapiSchemas.DisplayHintSpec
 
 **Constructors**:
 
-- [DisplayHintSpec(byte, int, byte, byte, byte)](#displayhintspec-8a54d55c515d)
+- [DisplayHintSpec\(byte, int, byte, byte, byte\)](#displayhintspec-8a54d55c515d)
 
 **Fields**:
 

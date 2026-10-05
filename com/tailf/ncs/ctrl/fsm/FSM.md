@@ -34,17 +34,17 @@ Generic finite state machine
 
 **Constructors**:
 
-- [FSM(String[][], String)](#fsm-a5e2325c2c06)
+- [FSM\(String\[\]\[\], String\)](#fsm-a5e2325c2c06)
 
 **Methods**:
 
-- [addStateAction(String, StateAction)](#addstateaction-c7b6b5eb5062)
-- [addTransAction(String, TransAction)](#addtransaction-fb3cf361b773)
-- [event(String)](#event-35c2a3878e07)
-- [event(String, Object)](#event-c2c97f01bc7c)
-- [getCurrentStateName()](#getcurrentstatename-ca0e5e591731)
-- [isState(String[])](#isstate-fb89c494ed4d)
-- [main(String[])](#main-1503518a8568)
+- [addStateAction\(String, StateAction\)](#addstateaction-c7b6b5eb5062)
+- [addTransAction\(String, TransAction\)](#addtransaction-fb3cf361b773)
+- [event\(String\)](#event-35c2a3878e07)
+- [event\(String, Object\)](#event-c2c97f01bc7c)
+- [getCurrentStateName\(\)](#getcurrentstatename-ca0e5e591731)
+- [isState\(String\[\]\)](#isstate-fb89c494ed4d)
+- [main\(String\[\]\)](#main-1503518a8568)
 
 ## Constructors
 

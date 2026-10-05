@@ -9,19 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.Range.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#builder-179fba5038bd)
+- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#asreader-b5c0f2a8d115)
-- [getFlags()](#getflags-3c1ca90fd29c)
-- [getHi()](#gethi-f8fa4dcfe431)
-- [getLo()](#getlo-bfe1c987d87a)
-- [initHi()](#inithi-2c3dde583bd6)
-- [initLo()](#initlo-62ec30618451)
-- [setFlags(byte)](#setflags-920848b8d655)
-- [setHi(Reader)](#sethi-550fb8729c56)
-- [setLo(Reader)](#setlo-584c3fb11cf5)
+- [asReader\(\)](#asreader-b5c0f2a8d115)
+- [getFlags\(\)](#getflags-3c1ca90fd29c)
+- [getHi\(\)](#gethi-f8fa4dcfe431)
+- [getLo\(\)](#getlo-bfe1c987d87a)
+- [initHi\(\)](#inithi-2c3dde583bd6)
+- [initLo\(\)](#initlo-62ec30618451)
+- [setFlags\(byte\)](#setflags-920848b8d655)
+- [setHi\(Reader\)](#sethi-550fb8729c56)
+- [setLo\(Reader\)](#setlo-584c3fb11cf5)
 
 ## Constructors
 

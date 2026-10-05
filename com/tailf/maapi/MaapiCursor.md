@@ -150,21 +150,21 @@ A cursor for iterating over configuration data elements.
 
 **Constructors**:
 
-- [MaapiCursor(Maapi, int, int, String, ConfPath)](#maapicursor-422cbcc0b1cb)
+- [MaapiCursor\(Maapi, int, int, String, ConfPath\)](#maapicursor-422cbcc0b1cb)
 
 **Methods**:
 
-- [close()](#close-8107c6dc012b)
-- [destroy()](#destroy-c06780cdd1bc)
-- [getFilter()](#getfilter-2b84817e0707)
-- [getId()](#getid-199a349c70ef)
-- [getPath()](#getpath-88fb21895561)
-- [getPrev()](#getprev-f0535db69903)
-- [getSecondaryIndex()](#getsecondaryindex-8efa1ee57e9c)
-- [getTid()](#gettid-df82325d69f8)
-- [setPrev(ConfEObject)](#setprev-ac7a60919bbf)
-- [setSecondaryIndex(String)](#setsecondaryindex-23774a07debb)
-- [toString()](#tostring-e9d48c5503ef)
+- [close\(\)](#close-8107c6dc012b)
+- [destroy\(\)](#destroy-c06780cdd1bc)
+- [getFilter\(\)](#getfilter-2b84817e0707)
+- [getId\(\)](#getid-199a349c70ef)
+- [getPath\(\)](#getpath-88fb21895561)
+- [getPrev\(\)](#getprev-f0535db69903)
+- [getSecondaryIndex\(\)](#getsecondaryindex-8efa1ee57e9c)
+- [getTid\(\)](#gettid-df82325d69f8)
+- [setPrev\(ConfEObject\)](#setprev-ac7a60919bbf)
+- [setSecondaryIndex\(String\)](#setsecondaryindex-23774a07debb)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

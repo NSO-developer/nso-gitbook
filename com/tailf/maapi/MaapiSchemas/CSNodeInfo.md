@@ -10,26 +10,26 @@ Class representing node information for a Schema node
 
 **Constructors**:
 
-- [CSNodeInfo()](#csnodeinfo-68cf9a9fd5a0)
-- [CSNodeInfo(CSNodeInfo, int[], int, int, int, CSType)](#csnodeinfo-afd67fc5b2ab)
-- [CSNodeInfo(int[], int, int, int, CSType, ConfObject, CSChoice, int, HashMap<String,String>, MountId, String, String, String[])](#csnodeinfo-9613813dad32)
+- [CSNodeInfo\(\)](#csnodeinfo-68cf9a9fd5a0)
+- [CSNodeInfo\(CSNodeInfo, int\[\], int, int, int, CSType\)](#csnodeinfo-afd67fc5b2ab)
+- [CSNodeInfo\(int\[\], int, int, int, CSType, ConfObject, CSChoice, int, HashMap\<String,String\>, MountId, String, String, String\[\]\)](#csnodeinfo-9613813dad32)
 
 **Methods**:
 
-- [getChoices()](#getchoices-818fb3fccb86)
-- [getDefval()](#getdefval-561ad5494c47)
-- [getDocDescription()](#getdocdescription-08369bbe26a9)
-- [getFlags()](#getflags-3c1ca90fd29c)
-- [getHideGroups()](#gethidegroups-d566f1e3343e)
-- [getKeys()](#getkeys-a24b9d377db7)
-- [getMaxOccurs()](#getmaxoccurs-365e8c5a408f)
-- [getMetaData()](#getmetadata-15c2d5006ca5)
-- [getMinOccurs()](#getminoccurs-cac79959dff8)
-- [getMountId()](#getmountid-c5175827f949)
-- [getPrompt()](#getprompt-6a58866a8699)
-- [getShallowType()](#getshallowtype-2e2b5f294983)
-- [getType()](#gettype-5a52f6f0d4c1)
-- [toString()](#tostring-e9d48c5503ef)
+- [getChoices\(\)](#getchoices-818fb3fccb86)
+- [getDefval\(\)](#getdefval-561ad5494c47)
+- [getDocDescription\(\)](#getdocdescription-08369bbe26a9)
+- [getFlags\(\)](#getflags-3c1ca90fd29c)
+- [getHideGroups\(\)](#gethidegroups-d566f1e3343e)
+- [getKeys\(\)](#getkeys-a24b9d377db7)
+- [getMaxOccurs\(\)](#getmaxoccurs-365e8c5a408f)
+- [getMetaData\(\)](#getmetadata-15c2d5006ca5)
+- [getMinOccurs\(\)](#getminoccurs-cac79959dff8)
+- [getMountId\(\)](#getmountid-c5175827f949)
+- [getPrompt\(\)](#getprompt-6a58866a8699)
+- [getShallowType\(\)](#getshallowtype-2e2b5f294983)
+- [getType\(\)](#gettype-5a52f6f0d4c1)
+- [toString\(\)](#tostring-e9d48c5503ef)
 
 ## Constructors
 

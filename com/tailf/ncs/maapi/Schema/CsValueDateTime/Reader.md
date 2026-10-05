@@ -9,19 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDateTime.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#reader-cf5e962c3323)
+- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
 
 **Methods**:
 
-- [getDay()](#getday-3b07996cd5f6)
-- [getHour()](#gethour-32c719f425c9)
-- [getMicro()](#getmicro-37aa6b436572)
-- [getMin()](#getmin-8654ceab94db)
-- [getMonth()](#getmonth-3813513d5069)
-- [getSec()](#getsec-c0fe657f6906)
-- [getTimezone()](#gettimezone-9573790f24e6)
-- [getTimezoneMinutes()](#gettimezoneminutes-b20d3de8d152)
-- [getYear()](#getyear-584af4457cda)
+- [getDay\(\)](#getday-3b07996cd5f6)
+- [getHour\(\)](#gethour-32c719f425c9)
+- [getMicro\(\)](#getmicro-37aa6b436572)
+- [getMin\(\)](#getmin-8654ceab94db)
+- [getMonth\(\)](#getmonth-3813513d5069)
+- [getSec\(\)](#getsec-c0fe657f6906)
+- [getTimezone\(\)](#gettimezone-9573790f24e6)
+- [getTimezoneMinutes\(\)](#gettimezoneminutes-b20d3de8d152)
+- [getYear\(\)](#getyear-584af4457cda)
 
 ## Constructors
 
