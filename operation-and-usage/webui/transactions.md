@@ -8,7 +8,7 @@ description: >-
 
 The **Transactions** view lets you view and manage current NSO transactions. It provides a centralized way to inspect and manage configuration changes in your NSO deployment. You can review uncommitted changes, monitor commit queue activity, validate or revert active changes, and work with rollback files.
 
-<figure><img src="../../.gitbook/assets/transactions (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/transactions.png" alt=""><figcaption></figcaption></figure>
 
 The **Transactions** view is further divided into the following tabs:
 
