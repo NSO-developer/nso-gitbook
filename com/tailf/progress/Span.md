@@ -1,4 +1,4 @@
-<a id="s-Span"></a>
+<a id="cls-Span"></a>
 # Span
 
 ```java
@@ -7,28 +7,28 @@ public class com.tailf.progress.Span
 
 Class for `Span` information.
  A Span object is created and returned
- by a [`ProgressTrace`](ProgressTrace.md#s-ProgressTrace)
+ by a `ProgressTrace#startSpan`
  method, and is passed to
- [`ProgressTrace`](ProgressTrace.md#s-ProgressTrace)
+ `ProgressTrace#endSpan`
 
 **Related classes**
 
-- [EmptySpan](EmptySpan.md#s-EmptySpan)
+- [EmptySpan](EmptySpan.md#cls-EmptySpan)
 
 ## Members
 
 **Constructors**:
 
-- [Span(String, String)](#s-Span-1)
+- [Span(String, String)](#m-span-6afbb0648a46)
 
 **Methods**:
 
-- [getSpanId()](#s-getSpanId)
-- [getTraceId()](#s-getTraceId)
+- [getSpanId()](#m-getspanid-155306b8dcae)
+- [getTraceId()](#m-gettraceid-c3a30b94d9ce)
 
 ## Constructors
 
-<a id="s-Span-1"></a>
+<a id="m-span-6afbb0648a46"></a>
 ### Span(String, String)
 
 ```java
@@ -45,7 +45,7 @@ Create a new span object
 
 ## Methods
 
-<a id="s-getSpanId"></a>
+<a id="m-getspanid-155306b8dcae"></a>
 ### getSpanId()
 
 ```java
@@ -54,7 +54,7 @@ public String getSpanId()
 
 **Returns:** the span ID as `String`
 
-<a id="s-getTraceId"></a>
+<a id="m-gettraceid-c3a30b94d9ce"></a>
 ### getTraceId()
 
 ```java

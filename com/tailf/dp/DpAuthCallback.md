@@ -1,4 +1,4 @@
-<a id="s-DpAuthCallback"></a>
+<a id="cls-DpAuthCallback"></a>
 # DpAuthCallback
 
 ```java
@@ -19,24 +19,24 @@ With this interface we can register a callback with ConfDs AAA subsystem, to
  invocation keeps failing for some reason, all authentication attempts will
  fail.
 
-**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#s-registerAnnotatedCallbacks)
+**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
 
 **Methods**:
 
-- [auth(DpAuthContext)](#s-auth)
+- [auth(DpAuthContext)](#m-auth-34bd42ec3143)
 
 ## Methods
 
-<a id="s-auth"></a>
+<a id="m-auth-34bd42ec3143"></a>
 ### auth(DpAuthContext)
 
 ```java
 public abstract boolean auth(com.tailf.dp.DpAuthContext atx) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpAuthContext](DpAuthContext.md#s-DpAuthContext), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpAuthContext](DpAuthContext.md#cls-DpAuthContext), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 The auth() callback is invoked with an instance to an authentication
  context that provides information about the result of the authentication

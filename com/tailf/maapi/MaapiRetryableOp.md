@@ -1,4 +1,4 @@
-<a id="s-MaapiRetryableOp"></a>
+<a id="cls-MaapiRetryableOp"></a>
 # MaapiRetryableOp
 
 ```java
@@ -12,11 +12,11 @@ Maapi retryable operation that will be called repeatadly until no
 
 **Methods**:
 
-- [execute(Maapi, int)](#s-execute)
+- [execute(Maapi, int)](#m-execute-3f0f8a96b258)
 
 ## Methods
 
-<a id="s-execute"></a>
+<a id="m-execute-3f0f8a96b258"></a>
 ### execute(Maapi, int)
 
 ```java
@@ -27,7 +27,7 @@ public abstract boolean execute(
     throws java.io.IOException, com.tailf.conf.ConfException, com.tailf.maapi.MaapiException
 ```
 
-Types: [Maapi](Maapi.md#s-Maapi), [ConfException](../conf/ConfException.md#s-ConfException), [MaapiException](MaapiException.md#s-MaapiException)
+Types: [Maapi](Maapi.md#cls-Maapi), [ConfException](../conf/ConfException.md#cls-ConfException), [MaapiException](MaapiException.md#cls-MaapiException)
 
 **Parameters**
 

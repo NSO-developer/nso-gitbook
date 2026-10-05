@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,34 +6,30 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeString.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getInvertMatch()](#s-getInvertMatch)
-- [getPattern()](#s-getPattern)
-- [getRanges()](#s-getRanges)
-- [hasPattern()](#s-hasPattern)
-- [hasRanges()](#s-hasRanges)
-- [initPattern(int)](#s-initPattern)
-- [initRanges(int)](#s-initRanges)
-- [setInvertMatch(boolean)](#s-setInvertMatch)
-- [setPattern(Reader)](#s-setPattern)
-- [setPattern(String)](#s-setPattern-1)
-- [setRanges(Reader<Reader>)](#s-setRanges)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getInvertMatch()](#m-getinvertmatch-323126ccbf2f)
+- [getPattern()](#m-getpattern-b471c55bbd3b)
+- [getRanges()](#m-getranges-c1cd383e54a0)
+- [hasPattern()](#m-haspattern-e3fe48944019)
+- [hasRanges()](#m-hasranges-77bc63fe4ea8)
+- [initPattern(int)](#m-initpattern-6928d503a051)
+- [initRanges(int)](#m-initranges-d04c09762bd6)
+- [setInvertMatch(boolean)](#m-setinvertmatch-e00cbbce7115)
+- [setPattern(Reader)](#m-setpattern-e1a344734fbf)
+- [setPattern(String)](#m-setpattern-15104080a7b1)
+- [setRanges(Reader<Reader>)](#m-setranges-69bbcdb47f71)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -59,53 +55,53 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeString.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getInvertMatch"></a>
+<a id="m-getinvertmatch-323126ccbf2f"></a>
 ### getInvertMatch()
 
 ```java
 public final boolean getInvertMatch()
 ```
 
-<a id="s-getPattern"></a>
+<a id="m-getpattern-b471c55bbd3b"></a>
 ### getPattern()
 
 ```java
 public final org.capnproto.Text.Builder getPattern()
 ```
 
-<a id="s-getRanges"></a>
+<a id="m-getranges-c1cd383e54a0"></a>
 ### getRanges()
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.Range.Builder> getRanges()
 ```
 
-Types: [Builder](../Range/Builder.md#s-Builder)
+Types: [Builder](../Range/Builder.md#cls-Builder)
 
-<a id="s-hasPattern"></a>
+<a id="m-haspattern-e3fe48944019"></a>
 ### hasPattern()
 
 ```java
 public final boolean hasPattern()
 ```
 
-<a id="s-hasRanges"></a>
+<a id="m-hasranges-77bc63fe4ea8"></a>
 ### hasRanges()
 
 ```java
 public final boolean hasRanges()
 ```
 
-<a id="s-initPattern"></a>
+<a id="m-initpattern-6928d503a051"></a>
 ### initPattern(int)
 
 ```java
@@ -116,7 +112,7 @@ public final org.capnproto.Text.Builder initPattern(int size)
 
 - `int size`
 
-<a id="s-initRanges"></a>
+<a id="m-initranges-d04c09762bd6"></a>
 ### initRanges(int)
 
 ```java
@@ -125,13 +121,13 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.Range.B
 )
 ```
 
-Types: [Builder](../Range/Builder.md#s-Builder)
+Types: [Builder](../Range/Builder.md#cls-Builder)
 
 **Parameters**
 
 - `int size`
 
-<a id="s-setInvertMatch"></a>
+<a id="m-setinvertmatch-e00cbbce7115"></a>
 ### setInvertMatch(boolean)
 
 ```java
@@ -142,7 +138,7 @@ public final void setInvertMatch(boolean value)
 
 - `boolean value`
 
-<a id="s-setPattern"></a>
+<a id="m-setpattern-e1a344734fbf"></a>
 ### setPattern(Reader)
 
 ```java
@@ -153,7 +149,7 @@ public final void setPattern(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="s-setPattern-1"></a>
+<a id="m-setpattern-15104080a7b1"></a>
 ### setPattern(String)
 
 ```java
@@ -164,7 +160,7 @@ public final void setPattern(String value)
 
 - `String value`
 
-<a id="s-setRanges"></a>
+<a id="m-setranges-69bbcdb47f71"></a>
 ### setRanges(Reader<Reader>)
 
 ```java
@@ -173,7 +169,7 @@ public final void setRanges(
 )
 ```
 
-Types: [Reader](../Range/Reader.md#s-Reader)
+Types: [Reader](../Range/Reader.md#cls-Reader)
 
 **Parameters**
 

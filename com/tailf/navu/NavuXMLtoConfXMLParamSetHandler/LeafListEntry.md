@@ -1,4 +1,4 @@
-<a id="s-LeafListEntry"></a>
+<a id="cls-LeafListEntry"></a>
 # LeafListEntry
 
 ```java
@@ -11,30 +11,30 @@ Inner class representing a leaf-list
 
 **Constructors**:
 
-- [LeafListEntry(CSNode)](#s-LeafListEntry-1)
+- [LeafListEntry(CSNode)](#m-leaflistentry-86fab3e87b87)
 
 **Fields**:
 
-- [node](#s-node)
-- [values](#s-values)
+- [node](#m-node)
+- [values](#m-values)
 
 **Methods**:
 
-- [addValue(ConfValue)](#s-addValue)
-- [getNode()](#s-getNode)
-- [getSize()](#s-getSize)
-- [getValue()](#s-getValue)
+- [addValue(ConfValue)](#m-addvalue-abe2bc760531)
+- [getNode()](#m-getnode-52e3d8224b48)
+- [getSize()](#m-getsize-572b3725211f)
+- [getValue()](#m-getvalue-d93864668c40)
 
 ## Constructors
 
-<a id="s-LeafListEntry-1"></a>
+<a id="m-leaflistentry-86fab3e87b87"></a>
 ### LeafListEntry(CSNode)
 
 ```java
 public LeafListEntry(com.tailf.maapi.MaapiSchemas.CSNode node)
 ```
 
-Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#s-CSNode)
+Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
 
 **Parameters**
 
@@ -43,7 +43,7 @@ Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#s-CSNode)
 
 ## Fields
 
-<a id="s-node"></a>
+<a id="m-node"></a>
 ### node
 
 **Package-private**
@@ -52,9 +52,9 @@ Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#s-CSNode)
 com.tailf.maapi.MaapiSchemas.CSNode node = null;
 ```
 
-Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#s-CSNode)
+Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
 
-<a id="s-values"></a>
+<a id="m-values"></a>
 ### values
 
 **Package-private**
@@ -63,45 +63,45 @@ Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#s-CSNode)
 java.util.List<com.tailf.conf.ConfValue> values = null;
 ```
 
-Types: [ConfValue](../../conf/ConfValue.md#s-ConfValue)
+Types: [ConfValue](../../conf/ConfValue.md#cls-ConfValue)
 
 
 ## Methods
 
-<a id="s-addValue"></a>
+<a id="m-addvalue-abe2bc760531"></a>
 ### addValue(ConfValue)
 
 ```java
 public void addValue(com.tailf.conf.ConfValue value)
 ```
 
-Types: [ConfValue](../../conf/ConfValue.md#s-ConfValue)
+Types: [ConfValue](../../conf/ConfValue.md#cls-ConfValue)
 
 **Parameters**
 
 - `com.tailf.conf.ConfValue value`
 
-<a id="s-getNode"></a>
+<a id="m-getnode-52e3d8224b48"></a>
 ### getNode()
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode getNode()
 ```
 
-Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#s-CSNode)
+Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
 
-<a id="s-getSize"></a>
+<a id="m-getsize-572b3725211f"></a>
 ### getSize()
 
 ```java
 public int getSize()
 ```
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
 public com.tailf.conf.ConfList getValue()
 ```
 
-Types: [ConfList](../../conf/ConfList.md#s-ConfList)
+Types: [ConfList](../../conf/ConfList.md#cls-ConfList)

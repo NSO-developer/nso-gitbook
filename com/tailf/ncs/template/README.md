@@ -5,5 +5,5 @@ Package implementing Template processing commands sent to NSO for
 
 ## Types
 
-- [Template](Template.md#s-Template)
-- [TemplateVariables](TemplateVariables.md#s-TemplateVariables)
+- [Template](Template.md#cls-Template)
+- [TemplateVariables](TemplateVariables.md#cls-TemplateVariables)

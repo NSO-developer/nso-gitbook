@@ -1,4 +1,4 @@
-<a id="s-Header"></a>
+<a id="cls-Header"></a>
 # Header
 
 **Package-private**
@@ -18,24 +18,24 @@ Schema header, comes first in the schema file with a magic identifying
 
 **Constructors**:
 
-- [Header(Source, int)](#s-Header-1)
+- [Header(Source, int)](#m-header-7e393d717b0e)
 
 **Fields**:
 
-- [BYTE_ORDER_EXPECTED](#s-BYTE_ORDER_EXPECTED)
-- [BYTE_ORDER_REVERSE](#s-BYTE_ORDER_REVERSE)
-- [EXPECTED_MAGIC](#s-EXPECTED_MAGIC)
+- [BYTE_ORDER_EXPECTED](#m-BYTE_ORDER_EXPECTED)
+- [BYTE_ORDER_REVERSE](#m-BYTE_ORDER_REVERSE)
+- [EXPECTED_MAGIC](#m-EXPECTED_MAGIC)
 
 **Methods**:
 
-- [getTreeLen()](#s-getTreeLen)
-- [getTreeOff()](#s-getTreeOff)
-- [read(Source, int)](#s-read)
-- [toString()](#s-toString)
+- [getTreeLen()](#m-gettreelen-f0ab2ff698f1)
+- [getTreeOff()](#m-gettreeoff-37a8f3ff6546)
+- [read(Source, int)](#m-read-c048381a08bd)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-Header-1"></a>
+<a id="m-header-7e393d717b0e"></a>
 ### Header(Source, int)
 
 **Package-private**
@@ -48,7 +48,7 @@ Header(
     throws com.tailf.ncs.maapi.MmapSchemaException
 ```
 
-Types: [Source](Source.md#s-Source), [MmapSchemaException](../MmapSchemaException.md#s-MmapSchemaException)
+Types: [Source](Source.md#cls-Source), [MmapSchemaException](../MmapSchemaException.md#cls-MmapSchemaException)
 
 **Parameters**
 
@@ -58,7 +58,7 @@ Types: [Source](Source.md#s-Source), [MmapSchemaException](../MmapSchemaExceptio
 
 ## Fields
 
-<a id="s-BYTE_ORDER_EXPECTED"></a>
+<a id="m-BYTE_ORDER_EXPECTED"></a>
 ### BYTE_ORDER_EXPECTED
 
 **Package-private**
@@ -67,7 +67,7 @@ Types: [Source](Source.md#s-Source), [MmapSchemaException](../MmapSchemaExceptio
 static final int BYTE_ORDER_EXPECTED = 1;
 ```
 
-<a id="s-BYTE_ORDER_REVERSE"></a>
+<a id="m-BYTE_ORDER_REVERSE"></a>
 ### BYTE_ORDER_REVERSE
 
 **Package-private**
@@ -76,7 +76,7 @@ static final int BYTE_ORDER_EXPECTED = 1;
 static final int BYTE_ORDER_REVERSE = 16777216;
 ```
 
-<a id="s-EXPECTED_MAGIC"></a>
+<a id="m-EXPECTED_MAGIC"></a>
 ### EXPECTED_MAGIC
 
 **Package-private**
@@ -88,21 +88,21 @@ static final String EXPECTED_MAGIC = "SCHEMA00";
 
 ## Methods
 
-<a id="s-getTreeLen"></a>
+<a id="m-gettreelen-f0ab2ff698f1"></a>
 ### getTreeLen()
 
 ```java
 public int getTreeLen()
 ```
 
-<a id="s-getTreeOff"></a>
+<a id="m-gettreeoff-37a8f3ff6546"></a>
 ### getTreeOff()
 
 ```java
 public int getTreeOff()
 ```
 
-<a id="s-read"></a>
+<a id="m-read-c048381a08bd"></a>
 ### read(Source, int)
 
 **Package-private**
@@ -115,14 +115,14 @@ final void read(
     throws com.tailf.ncs.maapi.MmapSchemaException
 ```
 
-Types: [Source](Source.md#s-Source), [MmapSchemaException](../MmapSchemaException.md#s-MmapSchemaException)
+Types: [Source](Source.md#cls-Source), [MmapSchemaException](../MmapSchemaException.md#cls-MmapSchemaException)
 
 **Parameters**
 
 - `com.tailf.ncs.maapi.MmapSchema.Source src`
 - `int pos0`
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,23 +10,23 @@ public static final class com.tailf.ncs.maapi.Schema.MNsMapEntry.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getModname()](#s-getModname)
-- [getNs()](#s-getNs)
-- [getNsHash()](#s-getNsHash)
-- [getPrefix()](#s-getPrefix)
-- [getXmlns()](#s-getXmlns)
-- [hasModname()](#s-hasModname)
-- [hasNs()](#s-hasNs)
-- [hasPrefix()](#s-hasPrefix)
-- [hasXmlns()](#s-hasXmlns)
+- [getModname()](#m-getmodname-40cd7f77aac9)
+- [getNs()](#m-getns-59b97eae2a4a)
+- [getNsHash()](#m-getnshash-f6f3e3ae1e6b)
+- [getPrefix()](#m-getprefix-9268091e0223)
+- [getXmlns()](#m-getxmlns-e2c0fd08466b)
+- [hasModname()](#m-hasmodname-fdd47b76b94a)
+- [hasNs()](#m-hasns-9cd343037be1)
+- [hasPrefix()](#m-hasprefix-ddbc3bbca9c3)
+- [hasXmlns()](#m-hasxmlns-3eb601ca5705)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -54,63 +54,63 @@ Reader(
 
 ## Methods
 
-<a id="s-getModname"></a>
+<a id="m-getmodname-40cd7f77aac9"></a>
 ### getModname()
 
 ```java
 public org.capnproto.Text.Reader getModname()
 ```
 
-<a id="s-getNs"></a>
+<a id="m-getns-59b97eae2a4a"></a>
 ### getNs()
 
 ```java
 public org.capnproto.Text.Reader getNs()
 ```
 
-<a id="s-getNsHash"></a>
+<a id="m-getnshash-f6f3e3ae1e6b"></a>
 ### getNsHash()
 
 ```java
 public final int getNsHash()
 ```
 
-<a id="s-getPrefix"></a>
+<a id="m-getprefix-9268091e0223"></a>
 ### getPrefix()
 
 ```java
 public org.capnproto.Text.Reader getPrefix()
 ```
 
-<a id="s-getXmlns"></a>
+<a id="m-getxmlns-e2c0fd08466b"></a>
 ### getXmlns()
 
 ```java
 public org.capnproto.Text.Reader getXmlns()
 ```
 
-<a id="s-hasModname"></a>
+<a id="m-hasmodname-fdd47b76b94a"></a>
 ### hasModname()
 
 ```java
 public boolean hasModname()
 ```
 
-<a id="s-hasNs"></a>
+<a id="m-hasns-9cd343037be1"></a>
 ### hasNs()
 
 ```java
 public boolean hasNs()
 ```
 
-<a id="s-hasPrefix"></a>
+<a id="m-hasprefix-ddbc3bbca9c3"></a>
 ### hasPrefix()
 
 ```java
 public boolean hasPrefix()
 ```
 
-<a id="s-hasXmlns"></a>
+<a id="m-hasxmlns-3eb601ca5705"></a>
 ### hasXmlns()
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-Encrypter"></a>
+<a id="cls-Encrypter"></a>
 # Encrypter
 
 ```java
@@ -9,27 +9,27 @@ Base class for encryption algorithm utility classes
 
 **Related classes**
 
-- [AesEncrypter](AesEncrypter.md#s-AesEncrypter)
+- [AesEncrypter](AesEncrypter.md#cls-AesEncrypter)
 
 ## Members
 
 **Constructors**:
 
-- [Encrypter()](#s-Encrypter-1)
+- [Encrypter()](#m-encrypter-3e84936d4906)
 
 **Fields**:
 
-- [dcipher](#s-dcipher)
-- [ecipher](#s-ecipher)
+- [dcipher](#m-dcipher)
+- [ecipher](#m-ecipher)
 
 **Methods**:
 
-- [decrypt(byte[])](#s-decrypt)
-- [encrypt(String)](#s-encrypt)
+- [decrypt(byte[])](#m-decrypt-a219da65e4d1)
+- [encrypt(String)](#m-encrypt-c3e82593a386)
 
 ## Constructors
 
-<a id="s-Encrypter-1"></a>
+<a id="m-encrypter-3e84936d4906"></a>
 ### Encrypter()
 
 ```java
@@ -39,14 +39,14 @@ public Encrypter()
 
 ## Fields
 
-<a id="s-dcipher"></a>
+<a id="m-dcipher"></a>
 ### dcipher
 
 ```java
 protected javax.crypto.Cipher dcipher = null;
 ```
 
-<a id="s-ecipher"></a>
+<a id="m-ecipher"></a>
 ### ecipher
 
 ```java
@@ -56,7 +56,7 @@ protected javax.crypto.Cipher ecipher = null;
 
 ## Methods
 
-<a id="s-decrypt"></a>
+<a id="m-decrypt-a219da65e4d1"></a>
 ### decrypt(byte[])
 
 ```java
@@ -70,7 +70,7 @@ public String decrypt(
 
 - `byte[] decodedString`
 
-<a id="s-encrypt"></a>
+<a id="m-encrypt-c3e82593a386"></a>
 ### encrypt(String)
 
 ```java

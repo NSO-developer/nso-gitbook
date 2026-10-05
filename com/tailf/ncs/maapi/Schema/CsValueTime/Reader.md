@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,20 +10,20 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueTime.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getHour()](#s-getHour)
-- [getMicro()](#s-getMicro)
-- [getMin()](#s-getMin)
-- [getSec()](#s-getSec)
-- [getTimezone()](#s-getTimezone)
-- [getTimezoneMinutes()](#s-getTimezoneMinutes)
+- [getHour()](#m-gethour-32c719f425c9)
+- [getMicro()](#m-getmicro-37aa6b436572)
+- [getMin()](#m-getmin-8654ceab94db)
+- [getSec()](#m-getsec-c0fe657f6906)
+- [getTimezone()](#m-gettimezone-9573790f24e6)
+- [getTimezoneMinutes()](#m-gettimezoneminutes-b20d3de8d152)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -51,42 +51,42 @@ Reader(
 
 ## Methods
 
-<a id="s-getHour"></a>
+<a id="m-gethour-32c719f425c9"></a>
 ### getHour()
 
 ```java
 public final byte getHour()
 ```
 
-<a id="s-getMicro"></a>
+<a id="m-getmicro-37aa6b436572"></a>
 ### getMicro()
 
 ```java
 public final int getMicro()
 ```
 
-<a id="s-getMin"></a>
+<a id="m-getmin-8654ceab94db"></a>
 ### getMin()
 
 ```java
 public final byte getMin()
 ```
 
-<a id="s-getSec"></a>
+<a id="m-getsec-c0fe657f6906"></a>
 ### getSec()
 
 ```java
 public final byte getSec()
 ```
 
-<a id="s-getTimezone"></a>
+<a id="m-gettimezone-9573790f24e6"></a>
 ### getTimezone()
 
 ```java
 public final byte getTimezone()
 ```
 
-<a id="s-getTimezoneMinutes"></a>
+<a id="m-gettimezoneminutes-b20d3de8d152"></a>
 ### getTimezoneMinutes()
 
 ```java

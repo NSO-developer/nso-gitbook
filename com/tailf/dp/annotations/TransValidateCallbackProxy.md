@@ -1,4 +1,4 @@
-<a id="s-TransValidateCallbackProxy"></a>
+<a id="cls-TransValidateCallbackProxy"></a>
 # TransValidateCallbackProxy
 
 ```java
@@ -6,30 +6,30 @@ public class com.tailf.dp.annotations.TransValidateCallbackProxy
     implements com.tailf.dp.DpTransValidateCallback
 ```
 
-Types: [DpTransValidateCallback](../DpTransValidateCallback.md#s-DpTransValidateCallback)
+Types: [DpTransValidateCallback](../DpTransValidateCallback.md#cls-DpTransValidateCallback)
 
 Callback proxy for TransValidate Callbacks. Implements the
- [`DpTransValidateCallback`](../DpTransValidateCallback.md#s-DpTransValidateCallback) interface and delegates calls to the
+ [`DpTransValidateCallback`](../DpTransValidateCallback.md#cls-DpTransValidateCallback) interface and delegates calls to the
  registered callback POJO with annotated methods
 
 ## Members
 
 **Constructors**:
 
-- [TransValidateCallbackProxy(Object)](#s-TransValidateCallbackProxy-1)
+- [TransValidateCallbackProxy(Object)](#m-transvalidatecallbackproxy-11ae52cb63d7)
 
 **Methods**:
 
-- [addActionCapability(TransValidateCBType)](#s-addActionCapability)
-- [addActionMethod(String, Method)](#s-addActionMethod)
-- [getBackupObject()](#s-getBackupObject)
-- [getTransValidateCallbackProxys(Object)](#s-getTransValidateCallbackProxys)
-- [init(DpTrans)](#s-init)
-- [stop(DpTrans)](#s-stop)
+- [addActionCapability(TransValidateCBType)](#m-addactioncapability-0a83c7c765a3)
+- [addActionMethod(String, Method)](#m-addactionmethod-cf3e43a67fd9)
+- [getBackupObject()](#m-getbackupobject-a6fb23c24524)
+- [getTransValidateCallbackProxys(Object)](#m-gettransvalidatecallbackproxys-ea8c2c00799a)
+- [init(DpTrans)](#m-init-16fe8657859c)
+- [stop(DpTrans)](#m-stop-1dfe2eb96fb9)
 
 ## Constructors
 
-<a id="s-TransValidateCallbackProxy-1"></a>
+<a id="m-transvalidatecallbackproxy-11ae52cb63d7"></a>
 ### TransValidateCallbackProxy(Object)
 
 ```java
@@ -45,14 +45,14 @@ Constructor for Callback proxys. Used internally.
 
 ## Methods
 
-<a id="s-addActionCapability"></a>
+<a id="m-addactioncapability-0a83c7c765a3"></a>
 ### addActionCapability(TransValidateCBType)
 
 ```java
 public void addActionCapability(com.tailf.dp.proto.TransValidateCBType transValidCBType)
 ```
 
-Types: [TransValidateCBType](../proto/TransValidateCBType.md#s-TransValidateCBType)
+Types: [TransValidateCBType](../proto/TransValidateCBType.md#cls-TransValidateCBType)
 
 Add action capability from annotated callType used to register
  capabilities on the server
@@ -61,7 +61,7 @@ Add action capability from annotated callType used to register
 
 - `com.tailf.dp.proto.TransValidateCBType transValidCBType` - action type
 
-<a id="s-addActionMethod"></a>
+<a id="m-addactionmethod-cf3e43a67fd9"></a>
 ### addActionMethod(String, Method)
 
 ```java
@@ -75,7 +75,7 @@ Add callback action method to proxy
 - `String name` - canonical action name
 - `java.lang.reflect.Method method` - registered callback method
 
-<a id="s-getBackupObject"></a>
+<a id="m-getbackupobject-a6fb23c24524"></a>
 ### getBackupObject()
 
 ```java
@@ -86,7 +86,7 @@ Retrieve the callback POJO
 
 **Returns:** Object registered callback object
 
-<a id="s-getTransValidateCallbackProxys"></a>
+<a id="m-gettransvalidatecallbackproxys-ea8c2c00799a"></a>
 ### getTransValidateCallbackProxys(Object)
 
 ```java
@@ -96,7 +96,7 @@ public static com.tailf.dp.annotations.TransValidateCallbackProxy[] getTransVali
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [TransValidateCallbackProxy](TransValidateCallbackProxy.md#s-TransValidateCallbackProxy), [DpCallbackException](../DpCallbackException.md#s-DpCallbackException)
+Types: [TransValidateCallbackProxy](TransValidateCallbackProxy.md#cls-TransValidateCallbackProxy), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
 
 Get array of proxy objects from registered POJO callback. Used internally
  at callback registration
@@ -111,27 +111,27 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 - `DpCallbackException`
 
-<a id="s-init"></a>
+<a id="m-init-16fe8657859c"></a>
 ### init(DpTrans)
 
 ```java
 public void init(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](../DpTrans.md#s-DpTrans), [DpCallbackException](../DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](../DpTrans.md#cls-DpTrans), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
 
 **Parameters**
 
 - `com.tailf.dp.DpTrans trans`
 
-<a id="s-stop"></a>
+<a id="m-stop-1dfe2eb96fb9"></a>
 ### stop(DpTrans)
 
 ```java
 public void stop(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](../DpTrans.md#s-DpTrans), [DpCallbackException](../DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](../DpTrans.md#cls-DpTrans), [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
 
 **Parameters**
 

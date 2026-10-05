@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,33 +6,29 @@ public static final class com.tailf.ncs.maapi.Schema.CsMeta.Value.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getNone()](#s-getNone)
-- [getText()](#s-getText)
-- [hasText()](#s-hasText)
-- [initText(int)](#s-initText)
-- [isNone()](#s-isNone)
-- [isText()](#s-isText)
-- [setNone(Void)](#s-setNone)
-- [setText(Reader)](#s-setText)
-- [setText(String)](#s-setText-1)
-- [which()](#s-which)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getNone()](#m-getnone-e31bfdbffa7f)
+- [getText()](#m-gettext-e63d55fcdcbd)
+- [hasText()](#m-hastext-9f49522a4f5a)
+- [initText(int)](#m-inittext-6175682972e5)
+- [isNone()](#m-isnone-e8a993ad0453)
+- [isText()](#m-istext-98869fdb86ee)
+- [setNone(Void)](#m-setnone-46764db867d5)
+- [setText(Reader)](#m-settext-e072baf7bad6)
+- [setText(String)](#m-settext-bb5093080571)
+- [which()](#m-which-0b2d23db5ed0)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -58,37 +54,37 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsMeta.Value.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getNone"></a>
+<a id="m-getnone-e31bfdbffa7f"></a>
 ### getNone()
 
 ```java
 public final org.capnproto.Void getNone()
 ```
 
-<a id="s-getText"></a>
+<a id="m-gettext-e63d55fcdcbd"></a>
 ### getText()
 
 ```java
 public final org.capnproto.Text.Builder getText()
 ```
 
-<a id="s-hasText"></a>
+<a id="m-hastext-9f49522a4f5a"></a>
 ### hasText()
 
 ```java
 public final boolean hasText()
 ```
 
-<a id="s-initText"></a>
+<a id="m-inittext-6175682972e5"></a>
 ### initText(int)
 
 ```java
@@ -99,21 +95,21 @@ public final org.capnproto.Text.Builder initText(int size)
 
 - `int size`
 
-<a id="s-isNone"></a>
+<a id="m-isnone-e8a993ad0453"></a>
 ### isNone()
 
 ```java
 public final boolean isNone()
 ```
 
-<a id="s-isText"></a>
+<a id="m-istext-98869fdb86ee"></a>
 ### isText()
 
 ```java
 public final boolean isText()
 ```
 
-<a id="s-setNone"></a>
+<a id="m-setnone-46764db867d5"></a>
 ### setNone(Void)
 
 ```java
@@ -124,7 +120,7 @@ public final void setNone(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-<a id="s-setText"></a>
+<a id="m-settext-e072baf7bad6"></a>
 ### setText(Reader)
 
 ```java
@@ -135,7 +131,7 @@ public final void setText(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="s-setText-1"></a>
+<a id="m-settext-bb5093080571"></a>
 ### setText(String)
 
 ```java
@@ -146,11 +142,11 @@ public final void setText(String value)
 
 - `String value`
 
-<a id="s-which"></a>
+<a id="m-which-0b2d23db5ed0"></a>
 ### which()
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsMeta.Value.Which which()
 ```
 
-Types: [Which](Which.md#s-Which)
+Types: [Which](Which.md#cls-Which)

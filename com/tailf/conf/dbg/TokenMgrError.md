@@ -1,4 +1,4 @@
-<a id="s-TokenMgrError"></a>
+<a id="cls-TokenMgrError"></a>
 # TokenMgrError
 
 **Package-private**
@@ -15,27 +15,27 @@ Token Manager Error.
 
 **Constructors**:
 
-- [TokenMgrError()](#s-TokenMgrError-1)
-- [TokenMgrError(boolean, int, int, int, String, int, int)](#s-TokenMgrError-2)
-- [TokenMgrError(String, int)](#s-TokenMgrError-3)
+- [TokenMgrError()](#m-tokenmgrerror-effbd6b83fab)
+- [TokenMgrError(boolean, int, int, int, String, int, int)](#m-tokenmgrerror-531c6d946fca)
+- [TokenMgrError(String, int)](#m-tokenmgrerror-e90dda5e1ebf)
 
 **Fields**:
 
-- [errorCode](#s-errorCode)
-- [INVALID_LEXICAL_STATE](#s-INVALID_LEXICAL_STATE)
-- [LEXICAL_ERROR](#s-LEXICAL_ERROR)
-- [LOOP_DETECTED](#s-LOOP_DETECTED)
-- [STATIC_LEXER_ERROR](#s-STATIC_LEXER_ERROR)
+- [errorCode](#m-errorCode)
+- [INVALID_LEXICAL_STATE](#m-INVALID_LEXICAL_STATE)
+- [LEXICAL_ERROR](#m-LEXICAL_ERROR)
+- [LOOP_DETECTED](#m-LOOP_DETECTED)
+- [STATIC_LEXER_ERROR](#m-STATIC_LEXER_ERROR)
 
 **Methods**:
 
-- [addEscapes(String)](#s-addEscapes)
-- [getMessage()](#s-getMessage)
-- [LexicalErr(boolean, int, int, int, String, int)](#s-LexicalErr)
+- [addEscapes(String)](#m-addescapes-83898b501596)
+- [getMessage()](#m-getmessage-77b7dae8469e)
+- [LexicalErr(boolean, int, int, int, String, int)](#m-lexicalerr-369ebacfdb5b)
 
 ## Constructors
 
-<a id="s-TokenMgrError-1"></a>
+<a id="m-tokenmgrerror-effbd6b83fab"></a>
 ### TokenMgrError()
 
 ```java
@@ -44,7 +44,7 @@ public TokenMgrError()
 
 No arg constructor.
 
-<a id="s-TokenMgrError-2"></a>
+<a id="m-tokenmgrerror-531c6d946fca"></a>
 ### TokenMgrError(boolean, int, int, int, String, int, int)
 
 ```java
@@ -71,7 +71,7 @@ Full Constructor.
 - `int curChar`
 - `int reason`
 
-<a id="s-TokenMgrError-3"></a>
+<a id="m-tokenmgrerror-e90dda5e1ebf"></a>
 ### TokenMgrError(String, int)
 
 ```java
@@ -88,7 +88,7 @@ Constructor with message and reason.
 
 ## Fields
 
-<a id="s-errorCode"></a>
+<a id="m-errorCode"></a>
 ### errorCode
 
 **Package-private**
@@ -100,7 +100,7 @@ int errorCode = null;
 Indicates the reason why the exception is thrown. It will have
  one of the above 4 values.
 
-<a id="s-INVALID_LEXICAL_STATE"></a>
+<a id="m-INVALID_LEXICAL_STATE"></a>
 ### INVALID_LEXICAL_STATE
 
 ```java
@@ -109,7 +109,7 @@ public static final int INVALID_LEXICAL_STATE = 2;
 
 Tried to change to an invalid lexical state.
 
-<a id="s-LEXICAL_ERROR"></a>
+<a id="m-LEXICAL_ERROR"></a>
 ### LEXICAL_ERROR
 
 ```java
@@ -118,7 +118,7 @@ public static final int LEXICAL_ERROR = 0;
 
 Lexical error occurred.
 
-<a id="s-LOOP_DETECTED"></a>
+<a id="m-LOOP_DETECTED"></a>
 ### LOOP_DETECTED
 
 ```java
@@ -127,7 +127,7 @@ public static final int LOOP_DETECTED = 3;
 
 Detected (and bailed out of) an infinite loop in the token manager.
 
-<a id="s-STATIC_LEXER_ERROR"></a>
+<a id="m-STATIC_LEXER_ERROR"></a>
 ### STATIC_LEXER_ERROR
 
 ```java
@@ -139,7 +139,7 @@ An attempt was made to create a second instance of a static token manager.
 
 ## Methods
 
-<a id="s-addEscapes"></a>
+<a id="m-addescapes-83898b501596"></a>
 ### addEscapes(String)
 
 ```java
@@ -153,7 +153,7 @@ Replaces unprintable characters by their escaped (or unicode escaped)
 
 - `String str`
 
-<a id="s-getMessage"></a>
+<a id="m-getmessage-77b7dae8469e"></a>
 ### getMessage()
 
 ```java
@@ -168,7 +168,7 @@ You can also modify the body of this method to customize your error messages.
 
  from this method for such cases in the release version of your parser.
 
-<a id="s-LexicalErr"></a>
+<a id="m-lexicalerr-369ebacfdb5b"></a>
 ### LexicalErr(boolean, int, int, int, String, int)
 
 ```java

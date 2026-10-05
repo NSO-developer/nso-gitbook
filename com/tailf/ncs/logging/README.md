@@ -4,4 +4,4 @@ Ncs Logging setup and control
 
 ## Types
 
-- [NcsLogger](NcsLogger.md#s-NcsLogger)
+- [NcsLogger](NcsLogger.md#cls-NcsLogger)

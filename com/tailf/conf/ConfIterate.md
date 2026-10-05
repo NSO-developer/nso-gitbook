@@ -1,4 +1,4 @@
-<a id="s-ConfIterate"></a>
+<a id="cls-ConfIterate"></a>
 # ConfIterate
 
 ```java
@@ -19,7 +19,8 @@ The subinterfaces to this interfaces is used as parameter to various
 
 
  *MAAPI*:
- [`Maapi`](../maapi/Maapi.md#s-Maapi)
+ [`Maapi#diffIterate(
+ int,MaapiDiffIterate,Object,String,Object...)`](../maapi/Maapi.md#m-diffiterate-08cf0eebfc90)
 
 
 
@@ -33,8 +34,8 @@ The subinterfaces to this interfaces is used as parameter to various
 
 
 - *Keypath* - uniquely identifies which element that
- is affected and is a reverted array of [`ConfObject`](ConfObject.md#s-ConfObject) whit each
- element as [`ConfTag`](ConfTag.md#s-ConfTag) or [`ConfKey`](ConfKey.md#s-ConfKey).
+ is affected and is a reverted array of [`ConfObject`](ConfObject.md#cls-ConfObject) whit each
+ element as [`ConfTag`](ConfTag.md#cls-ConfTag) or [`ConfKey`](ConfKey.md#cls-ConfKey).
 - *Operation flag* - uniquely indicates the type of change,
  `MOP_CREATED`, `MOP_DELETED` or
  `MOP_MODIFIED`. If the node is a leaf node, operation flag

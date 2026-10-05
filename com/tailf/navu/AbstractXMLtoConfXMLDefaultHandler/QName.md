@@ -1,4 +1,4 @@
-<a id="s-QName"></a>
+<a id="cls-QName"></a>
 # QName
 
 ```java
@@ -9,16 +9,16 @@ protected class com.tailf.navu.AbstractXMLtoConfXMLDefaultHandler.QName
 
 **Constructors**:
 
-- [QName(String, String)](#s-QName-1)
+- [QName(String, String)](#m-qname-6f3d7ee2aef9)
 
 **Methods**:
 
-- [getTagName()](#s-getTagName)
-- [getURI()](#s-getURI)
+- [getTagName()](#m-gettagname-f5dba7c580c9)
+- [getURI()](#m-geturi-7ec1ffd8cd93)
 
 ## Constructors
 
-<a id="s-QName-1"></a>
+<a id="m-qname-6f3d7ee2aef9"></a>
 ### QName(String, String)
 
 **Package-private**
@@ -35,14 +35,14 @@ QName(String uri, String tagName)
 
 ## Methods
 
-<a id="s-getTagName"></a>
+<a id="m-gettagname-f5dba7c580c9"></a>
 ### getTagName()
 
 ```java
 public String getTagName()
 ```
 
-<a id="s-getURI"></a>
+<a id="m-geturi-7ec1ffd8cd93"></a>
 ### getURI()
 
 ```java

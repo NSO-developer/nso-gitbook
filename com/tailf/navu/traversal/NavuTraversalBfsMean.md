@@ -1,4 +1,4 @@
-<a id="s-NavuTraversalBfsMean"></a>
+<a id="cls-NavuTraversalBfsMean"></a>
 # NavuTraversalBfsMean
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.navu.traversal.NavuTraversalBfsMean
     implements com.tailf.navu.traversal.NavuTraversalMean
 ```
 
-Types: [NavuTraversalMean](NavuTraversalMean.md#s-NavuTraversalMean)
+Types: [NavuTraversalMean](NavuTraversalMean.md#cls-NavuTraversalMean)
 
 This implements the `NavuTraversalMean` for BFS
  (Breath-first traversal). .
@@ -18,15 +18,15 @@ This implements the `NavuTraversalMean` for BFS
 
 **Constructors**:
 
-- [NavuTraversalBfsMean()](#s-NavuTraversalBfsMean-1)
+- [NavuTraversalBfsMean()](#m-navutraversalbfsmean-c7c973dd9b7d)
 
 **Methods**:
 
-- [traverse(NavuNode, List<TraversalFilter>)](#s-traverse)
+- [traverse(NavuNode, List<TraversalFilter>)](#m-traverse-e72c3ea2612b)
 
 ## Constructors
 
-<a id="s-NavuTraversalBfsMean-1"></a>
+<a id="m-navutraversalbfsmean-c7c973dd9b7d"></a>
 ### NavuTraversalBfsMean()
 
 ```java
@@ -36,7 +36,7 @@ public NavuTraversalBfsMean()
 
 ## Methods
 
-<a id="s-traverse"></a>
+<a id="m-traverse-e72c3ea2612b"></a>
 ### traverse(NavuNode, List<TraversalFilter>)
 
 ```java
@@ -47,7 +47,7 @@ public java.util.Set<String> traverse(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](../NavuNode.md#s-NavuNode), [TraversalFilter](TraversalFilter.md#s-TraversalFilter), [NavuException](../NavuException.md#s-NavuException)
+Types: [NavuNode](../NavuNode.md#cls-NavuNode), [TraversalFilter](TraversalFilter.md#cls-TraversalFilter), [NavuException](../NavuException.md#cls-NavuException)
 
 **Parameters**
 

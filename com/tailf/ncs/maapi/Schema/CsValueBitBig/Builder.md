@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,28 +6,24 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueBitBig.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getValue()](#s-getValue)
-- [hasValue()](#s-hasValue)
-- [initValue(int)](#s-initValue)
-- [setValue(byte[])](#s-setValue)
-- [setValue(Reader)](#s-setValue-1)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getValue()](#m-getvalue-d93864668c40)
+- [hasValue()](#m-hasvalue-dad92e423e7a)
+- [initValue(int)](#m-initvalue-a117f5eca48d)
+- [setValue(byte[])](#m-setvalue-da5fdcdbf2b9)
+- [setValue(Reader)](#m-setvalue-f6f6b43d91d8)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -53,30 +49,30 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueBitBig.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
 public final org.capnproto.Data.Builder getValue()
 ```
 
-<a id="s-hasValue"></a>
+<a id="m-hasvalue-dad92e423e7a"></a>
 ### hasValue()
 
 ```java
 public final boolean hasValue()
 ```
 
-<a id="s-initValue"></a>
+<a id="m-initvalue-a117f5eca48d"></a>
 ### initValue(int)
 
 ```java
@@ -87,7 +83,7 @@ public final org.capnproto.Data.Builder initValue(int size)
 
 - `int size`
 
-<a id="s-setValue"></a>
+<a id="m-setvalue-da5fdcdbf2b9"></a>
 ### setValue(byte[])
 
 ```java
@@ -98,7 +94,7 @@ public final void setValue(byte[] value)
 
 - `byte[] value`
 
-<a id="s-setValue-1"></a>
+<a id="m-setvalue-f6f6b43d91d8"></a>
 ### setValue(Reader)
 
 ```java

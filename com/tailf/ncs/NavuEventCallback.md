@@ -1,4 +1,4 @@
-<a id="s-NavuEventCallback"></a>
+<a id="cls-NavuEventCallback"></a>
 # NavuEventCallback
 
 ```java
@@ -14,11 +14,11 @@ NavuEventCallback interface is used to implement callback methods to be used
 
 **Methods**:
 
-- [notifReceived(NavuContainer)](#s-notifReceived)
+- [notifReceived(NavuContainer)](#m-notifreceived-df06be623526)
 
 ## Methods
 
-<a id="s-notifReceived"></a>
+<a id="m-notifreceived-df06be623526"></a>
 ### notifReceived(NavuContainer)
 
 ```java
@@ -28,7 +28,7 @@ public abstract void notifReceived(
     throws com.tailf.ncs.NcsException
 ```
 
-Types: [NavuContainer](../navu/NavuContainer.md#s-NavuContainer), [NcsException](NcsException.md#s-NcsException)
+Types: [NavuContainer](../navu/NavuContainer.md#cls-NavuContainer), [NcsException](NcsException.md#cls-NcsException)
 
 This callback method is received to each cdb notification that correspond
  to the annotated deviceName and subscription name. Note, that a "*" as

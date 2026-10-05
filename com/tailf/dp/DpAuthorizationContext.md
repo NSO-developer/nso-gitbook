@@ -1,4 +1,4 @@
-<a id="s-DpAuthorizationContext"></a>
+<a id="cls-DpAuthorizationContext"></a>
 # DpAuthorizationContext
 
 ```java
@@ -13,17 +13,17 @@ Authorization context class. The DpAuthorizationCallback callback methods
 
 **Constructors**:
 
-- [DpAuthorizationContext(DpUserInfo, String[], int, int, Dp)](#s-DpAuthorizationContext-1)
+- [DpAuthorizationContext(DpUserInfo, String[], int, int, Dp)](#m-dpauthorizationcontext-06f65fd62f1d)
 
 **Methods**:
 
-- [getGroups()](#s-getGroups)
-- [getUserInfo()](#s-getUserInfo)
-- [setAuthorizationTimeout(int)](#s-setAuthorizationTimeout)
+- [getGroups()](#m-getgroups-42a63746c815)
+- [getUserInfo()](#m-getuserinfo-3ecef1f24d3d)
+- [setAuthorizationTimeout(int)](#m-setauthorizationtimeout-b4c17837fa6f)
 
 ## Constructors
 
-<a id="s-DpAuthorizationContext-1"></a>
+<a id="m-dpauthorizationcontext-06f65fd62f1d"></a>
 ### DpAuthorizationContext(DpUserInfo, String[], int, int, Dp)
 
 ```java
@@ -36,7 +36,7 @@ public DpAuthorizationContext(
 )
 ```
 
-Types: [DpUserInfo](DpUserInfo.md#s-DpUserInfo), [Dp](Dp.md#s-Dp)
+Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo), [Dp](Dp.md#cls-Dp)
 
 **Parameters**
 
@@ -49,7 +49,7 @@ Types: [DpUserInfo](DpUserInfo.md#s-DpUserInfo), [Dp](Dp.md#s-Dp)
 
 ## Methods
 
-<a id="s-getGroups"></a>
+<a id="m-getgroups-42a63746c815"></a>
 ### getGroups()
 
 ```java
@@ -64,14 +64,14 @@ If success is true, the AAA authentication succeeded, and groups is an
 
 **Returns:** String[] groups
 
-<a id="s-getUserInfo"></a>
+<a id="m-getuserinfo-3ecef1f24d3d"></a>
 ### getUserInfo()
 
 ```java
 public com.tailf.dp.DpUserInfo getUserInfo()
 ```
 
-Types: [DpUserInfo](DpUserInfo.md#s-DpUserInfo)
+Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
 
 The uinfo contains an instance of DpUserInfo with details about the user
  logging in, specifically user name, password (if used), source IP
@@ -82,7 +82,7 @@ The uinfo contains an instance of DpUserInfo with details about the user
 
 **Returns:** DpUserInfo userinfo
 
-<a id="s-setAuthorizationTimeout"></a>
+<a id="m-setauthorizationtimeout-b4c17837fa6f"></a>
 ### setAuthorizationTimeout(int)
 
 ```java

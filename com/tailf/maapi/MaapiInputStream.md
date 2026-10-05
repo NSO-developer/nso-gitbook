@@ -1,4 +1,4 @@
-<a id="s-MaapiInputStream"></a>
+<a id="cls-MaapiInputStream"></a>
 # MaapiInputStream
 
 ```java
@@ -9,8 +9,8 @@ public class com.tailf.maapi.MaapiInputStream
 Represents configuration data input stream used to download configurations.
 
  This class is returned as result from
- [`Maapi`](Maapi.md#s-Maapi) and
- [`Maapi`](Maapi.md#s-Maapi).
+ `Maapi#saveConfig(int, java.util.EnumSet, String, Object...)` and
+ [`Maapi#rollbackConfig(int, String, String...)`](Maapi.md#m-rollbackconfig-859e41b41c22).
 
  The application is expected to close the
  `MaapiInputStream` after usage, to assure that background socket
@@ -46,18 +46,18 @@ Represents configuration data input stream used to download configurations.
 
 **Constructors**:
 
-- [MaapiInputStream(Maapi, int, int)](#s-MaapiInputStream-1)
+- [MaapiInputStream(Maapi, int, int)](#m-maapiinputstream-5fb25a8abbc7)
 
 **Methods**:
 
-- [getStreamId()](#s-getStreamId)
-- [hasReadAll()](#s-hasReadAll)
-- [read()](#s-read)
-- [read(byte[], int, int)](#s-read-1)
+- [getStreamId()](#m-getstreamid-97befd015dba)
+- [hasReadAll()](#m-hasreadall-90559f69e54d)
+- [read()](#m-read-b28b830b98d6)
+- [read(byte[], int, int)](#m-read-0ea898e534b6)
 
 ## Constructors
 
-<a id="s-MaapiInputStream-1"></a>
+<a id="m-maapiinputstream-5fb25a8abbc7"></a>
 ### MaapiInputStream(Maapi, int, int)
 
 ```java
@@ -69,7 +69,7 @@ protected MaapiInputStream(
     throws java.io.IOException, com.tailf.maapi.MaapiException
 ```
 
-Types: [Maapi](Maapi.md#s-Maapi), [MaapiException](MaapiException.md#s-MaapiException)
+Types: [Maapi](Maapi.md#cls-Maapi), [MaapiException](MaapiException.md#cls-MaapiException)
 
 Protected constructor for MaapiInputStream. Used internally by Maapi
  class.
@@ -88,7 +88,7 @@ Protected constructor for MaapiInputStream. Used internally by Maapi
 
 ## Methods
 
-<a id="s-getStreamId"></a>
+<a id="m-getstreamid-97befd015dba"></a>
 ### getStreamId()
 
 **Package-private**
@@ -97,7 +97,7 @@ Protected constructor for MaapiInputStream. Used internally by Maapi
 int getStreamId()
 ```
 
-<a id="s-hasReadAll"></a>
+<a id="m-hasreadall-90559f69e54d"></a>
 ### hasReadAll()
 
 ```java
@@ -110,7 +110,7 @@ Checks with the server is the complete configuration is downloaded. This
 
 **Returns:** boolean true if complete configuration is downloaded
 
-<a id="s-read"></a>
+<a id="m-read-b28b830b98d6"></a>
 ### read()
 
 ```java
@@ -119,7 +119,7 @@ public synchronized int read() throws java.io.IOException
 
 read a byte from the input stream or -1 if EOF
 
-<a id="s-read-1"></a>
+<a id="m-read-0ea898e534b6"></a>
 ### read(byte[], int, int)
 
 ```java

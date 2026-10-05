@@ -1,4 +1,4 @@
-<a id="s-ResultTypeKeyPath"></a>
+<a id="cls-ResultTypeKeyPath"></a>
 # ResultTypeKeyPath
 
 ```java
@@ -6,13 +6,13 @@ public interface com.tailf.maapi.ResultTypeKeyPath
     extends com.tailf.maapi.ResultType
 ```
 
-Types: [ResultType](ResultType.md#s-ResultType)
+Types: [ResultType](ResultType.md#cls-ResultType)
 
 XPath Result in keypath format.
 
  This format is specified trough `ReslutTypeKeyPath.class`
  as a parameter
- to [`Maapi`](Maapi.md#s-Maapi)
+ to `Maapi#queryStart(int,String,String,int,int,List,Class)`
 
 
  Example:
@@ -39,18 +39,18 @@ XPath Result in keypath format.
 
 **Methods**:
 
-- [keyPath()](#s-keyPath)
+- [keyPath()](#m-keypath-df48f9bfdabb)
 
 ## Methods
 
-<a id="s-keyPath"></a>
+<a id="m-keypath-df48f9bfdabb"></a>
 ### keyPath()
 
 ```java
 public abstract com.tailf.conf.ConfObject[] keyPath()
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject)
 
 Retrieves the result keypath from a query
 

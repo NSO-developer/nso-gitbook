@@ -1,4 +1,4 @@
-<a id="s-MaapiUserSessionId"></a>
+<a id="cls-MaapiUserSessionId"></a>
 # MaapiUserSessionId
 
 ```java
@@ -9,25 +9,25 @@ public class com.tailf.maapi.MaapiUserSessionId
 
 **Constructors**:
 
-- [MaapiUserSessionId(ConfEObject)](#s-MaapiUserSessionId-1)
+- [MaapiUserSessionId(ConfEObject)](#m-maapiusersessionid-25af3d95040e)
 
 **Methods**:
 
-- [getClientId()](#s-getClientId)
-- [getProduct()](#s-getProduct)
-- [getVendor()](#s-getVendor)
-- [getVersion()](#s-getVersion)
+- [getClientId()](#m-getclientid-c217e3b72666)
+- [getProduct()](#m-getproduct-b91c069d055a)
+- [getVendor()](#m-getvendor-0cd0c37b3148)
+- [getVersion()](#m-getversion-bb66b19ad84e)
 
 ## Constructors
 
-<a id="s-MaapiUserSessionId-1"></a>
+<a id="m-maapiusersessionid-25af3d95040e"></a>
 ### MaapiUserSessionId(ConfEObject)
 
 ```java
 public MaapiUserSessionId(com.tailf.proto.ConfEObject o) throws com.tailf.maapi.MaapiException
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [MaapiException](MaapiException.md#s-MaapiException)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [MaapiException](MaapiException.md#cls-MaapiException)
 
 **Parameters**
 
@@ -36,28 +36,28 @@ Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [MaapiException](Ma
 
 ## Methods
 
-<a id="s-getClientId"></a>
+<a id="m-getclientid-c217e3b72666"></a>
 ### getClientId()
 
 ```java
 public String getClientId()
 ```
 
-<a id="s-getProduct"></a>
+<a id="m-getproduct-b91c069d055a"></a>
 ### getProduct()
 
 ```java
 public String getProduct()
 ```
 
-<a id="s-getVendor"></a>
+<a id="m-getvendor-0cd0c37b3148"></a>
 ### getVendor()
 
 ```java
 public String getVendor()
 ```
 
-<a id="s-getVersion"></a>
+<a id="m-getversion-bb66b19ad84e"></a>
 ### getVersion()
 
 ```java

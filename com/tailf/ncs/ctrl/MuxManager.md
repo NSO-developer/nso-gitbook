@@ -1,4 +1,4 @@
-<a id="s-MuxManager"></a>
+<a id="cls-MuxManager"></a>
 # MuxManager
 
 ```java
@@ -9,27 +9,27 @@ Base class for Component Managers
 
 **Related classes**
 
-- [ApplicationMuxManager](ApplicationMuxManager.md#s-ApplicationMuxManager)
-- [DpMuxManager](DpMuxManager.md#s-DpMuxManager)
-- [NedMuxManager](NedMuxManager.md#s-NedMuxManager)
+- [ApplicationMuxManager](ApplicationMuxManager.md#cls-ApplicationMuxManager)
+- [DpMuxManager](DpMuxManager.md#cls-DpMuxManager)
+- [NedMuxManager](NedMuxManager.md#cls-NedMuxManager)
 
 ## Members
 
 **Constructors**:
 
-- [MuxManager(String)](#s-MuxManager-1)
+- [MuxManager(String)](#m-muxmanager-4f412e8b0cf6)
 
 **Methods**:
 
-- [addToDeployException(NcsCtrlException, String, Throwable)](#s-addToDeployException)
-- [doneLoadingEvent()](#s-doneLoadingEvent)
-- [instantiateComponentEvent(NcsComponentData)](#s-instantiateComponentEvent)
-- [loadPackageEvent(NcsComponentData)](#s-loadPackageEvent)
-- [unloadPackageEvent(NcsComponentData)](#s-unloadPackageEvent)
+- [addToDeployException(NcsCtrlException, String, Throwable)](#m-addtodeployexception-90e2cb8f32b2)
+- [doneLoadingEvent()](#m-doneloadingevent-b85c1c01738a)
+- [instantiateComponentEvent(NcsComponentData)](#m-instantiatecomponentevent-9050503646b9)
+- [loadPackageEvent(NcsComponentData)](#m-loadpackageevent-4650a75a851a)
+- [unloadPackageEvent(NcsComponentData)](#m-unloadpackageevent-f14422e73a47)
 
 ## Constructors
 
-<a id="s-MuxManager-1"></a>
+<a id="m-muxmanager-4f412e8b0cf6"></a>
 ### MuxManager(String)
 
 ```java
@@ -43,7 +43,7 @@ public MuxManager(String muxManagerName)
 
 ## Methods
 
-<a id="s-addToDeployException"></a>
+<a id="m-addtodeployexception-90e2cb8f32b2"></a>
 ### addToDeployException(NcsCtrlException, String, Throwable)
 
 ```java
@@ -54,7 +54,7 @@ public static com.tailf.ncs.ctrl.NcsCtrlException addToDeployException(
 )
 ```
 
-Types: [NcsCtrlException](NcsCtrlException.md#s-NcsCtrlException)
+Types: [NcsCtrlException](NcsCtrlException.md#cls-NcsCtrlException)
 
 Convenience method for adding Exception causes in the
  additive NcsCtrlException class
@@ -68,7 +68,7 @@ Convenience method for adding Exception causes in the
 
 **Returns:** NcsCtrlException the modified NcsCtrlException
 
-<a id="s-doneLoadingEvent"></a>
+<a id="m-doneloadingevent-b85c1c01738a"></a>
 ### doneLoadingEvent()
 
 ```java
@@ -84,7 +84,7 @@ Method that should handle doneLoading events received by
 
 - `Exception`
 
-<a id="s-instantiateComponentEvent"></a>
+<a id="m-instantiatecomponentevent-9050503646b9"></a>
 ### instantiateComponentEvent(NcsComponentData)
 
 ```java
@@ -94,7 +94,7 @@ public abstract void instantiateComponentEvent(
     throws Exception
 ```
 
-Types: [NcsComponentData](NcsComponentData.md#s-NcsComponentData)
+Types: [NcsComponentData](NcsComponentData.md#cls-NcsComponentData)
 
 Method that should handle instantiateComponent events received by
  the NcsMain FSM.
@@ -109,14 +109,14 @@ Method that should handle instantiateComponent events received by
 
 - `Exception`
 
-<a id="s-loadPackageEvent"></a>
+<a id="m-loadpackageevent-4650a75a851a"></a>
 ### loadPackageEvent(NcsComponentData)
 
 ```java
 public abstract void loadPackageEvent(com.tailf.ncs.ctrl.NcsComponentData data) throws Exception
 ```
 
-Types: [NcsComponentData](NcsComponentData.md#s-NcsComponentData)
+Types: [NcsComponentData](NcsComponentData.md#cls-NcsComponentData)
 
 Method that should handle loadPackage events received by
  the NcsMain FSM.
@@ -131,14 +131,14 @@ Method that should handle loadPackage events received by
 
 - `Exception`
 
-<a id="s-unloadPackageEvent"></a>
+<a id="m-unloadpackageevent-f14422e73a47"></a>
 ### unloadPackageEvent(NcsComponentData)
 
 ```java
 public abstract void unloadPackageEvent(com.tailf.ncs.ctrl.NcsComponentData data) throws Exception
 ```
 
-Types: [NcsComponentData](NcsComponentData.md#s-NcsComponentData)
+Types: [NcsComponentData](NcsComponentData.md#cls-NcsComponentData)
 
 Method that should handle unloadPackage events received by
  the NcsMain FSM.

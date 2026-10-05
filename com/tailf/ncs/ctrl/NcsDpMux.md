@@ -1,4 +1,4 @@
-<a id="s-NcsDpMux"></a>
+<a id="cls-NcsDpMux"></a>
 # NcsDpMux
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.ncs.ctrl.NcsDpMux
     implements Runnable, com.tailf.dp.DpExceptionReporter, com.tailf.dp.DpMountIdInterface
 ```
 
-Types: [DpExceptionReporter](../../dp/DpExceptionReporter.md#s-DpExceptionReporter), [DpMountIdInterface](../../dp/DpMountIdInterface.md#s-DpMountIdInterface)
+Types: [DpExceptionReporter](../../dp/DpExceptionReporter.md#cls-DpExceptionReporter), [DpMountIdInterface](../../dp/DpMountIdInterface.md#cls-DpMountIdInterface)
 
 Ncs abstraction layer for Dp class.
  Each Package needs its own Dp daemon with own control socket and
@@ -18,30 +18,30 @@ Ncs abstraction layer for Dp class.
 
 **Constructors**:
 
-- [NcsDpMux(NcsMain, String, String)](#s-NcsDpMux-1)
-- [NcsDpMux(NcsMain, String, String, int)](#s-NcsDpMux-2)
+- [NcsDpMux(NcsMain, String, String)](#m-ncsdpmux-c6e608d90ef5)
+- [NcsDpMux(NcsMain, String, String, int)](#m-ncsdpmux-24f0ec39e19a)
 
 **Methods**:
 
-- [finish()](#s-finish)
-- [getDpThread()](#s-getDpThread)
-- [register(Object)](#s-register)
-- [reportException(Throwable)](#s-reportException)
-- [reRegister(Object)](#s-reRegister)
-- [retrieveMountId(Object)](#s-retrieveMountId)
-- [run()](#s-run)
-- [setReportExceptionsToNcsMain()](#s-setReportExceptionsToNcsMain)
+- [finish()](#m-finish-8c785ae2e6bb)
+- [getDpThread()](#m-getdpthread-0a74c4d6b35b)
+- [register(Object)](#m-register-7aae2d334f99)
+- [reportException(Throwable)](#m-reportexception-f2030dd5aa98)
+- [reRegister(Object)](#m-reregister-ec513c61f987)
+- [retrieveMountId(Object)](#m-retrievemountid-c38b7bcdc149)
+- [run()](#m-run-b6dbda048863)
+- [setReportExceptionsToNcsMain()](#m-setreportexceptionstoncsmain-2320b0a0719c)
 
 ## Constructors
 
-<a id="s-NcsDpMux-1"></a>
+<a id="m-ncsdpmux-c6e608d90ef5"></a>
 ### NcsDpMux(NcsMain, String, String)
 
 ```java
 public NcsDpMux(com.tailf.ncs.NcsMain main, String packageName, String componentName)
 ```
 
-Types: [NcsMain](../NcsMain.md#s-NcsMain)
+Types: [NcsMain](../NcsMain.md#cls-NcsMain)
 
 Constructor for NCS Dp abstraction class
 
@@ -51,7 +51,7 @@ Constructor for NCS Dp abstraction class
 - `String packageName` - name of the package for this Dp Daemon
 - `String componentName` - name of the component for this Dp Daemon
 
-<a id="s-NcsDpMux-2"></a>
+<a id="m-ncsdpmux-24f0ec39e19a"></a>
 ### NcsDpMux(NcsMain, String, String, int)
 
 ```java
@@ -63,7 +63,7 @@ public NcsDpMux(
 )
 ```
 
-Types: [NcsMain](../NcsMain.md#s-NcsMain)
+Types: [NcsMain](../NcsMain.md#cls-NcsMain)
 
 Constructor for NCS Dp abstraction class
 
@@ -77,7 +77,7 @@ Constructor for NCS Dp abstraction class
 
 ## Methods
 
-<a id="s-finish"></a>
+<a id="m-finish-8c785ae2e6bb"></a>
 ### finish()
 
 ```java
@@ -86,14 +86,14 @@ public void finish()
 
 stop and clear the Dp and control socket
 
-<a id="s-getDpThread"></a>
+<a id="m-getdpthread-0a74c4d6b35b"></a>
 ### getDpThread()
 
 ```java
 public Thread getDpThread()
 ```
 
-<a id="s-register"></a>
+<a id="m-register-7aae2d334f99"></a>
 ### register(Object)
 
 ```java
@@ -106,7 +106,7 @@ Register a callback into this dp.
 
 - `Object o` - callback instance
 
-<a id="s-reportException"></a>
+<a id="m-reportexception-f2030dd5aa98"></a>
 ### reportException(Throwable)
 
 ```java
@@ -117,7 +117,7 @@ public boolean reportException(Throwable e)
 
 - `Throwable e`
 
-<a id="s-reRegister"></a>
+<a id="m-reregister-ec513c61f987"></a>
 ### reRegister(Object)
 
 ```java
@@ -130,20 +130,20 @@ Register a callback into this dp.
 
 - `Object o` - callback instance
 
-<a id="s-retrieveMountId"></a>
+<a id="m-retrievemountid-c38b7bcdc149"></a>
 ### retrieveMountId(Object)
 
 ```java
 public String retrieveMountId(Object obj) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpCallbackException](../../dp/DpCallbackException.md#s-DpCallbackException)
+Types: [DpCallbackException](../../dp/DpCallbackException.md#cls-DpCallbackException)
 
 **Parameters**
 
 - `Object obj`
 
-<a id="s-run"></a>
+<a id="m-run-b6dbda048863"></a>
 ### run()
 
 ```java
@@ -152,7 +152,7 @@ public void run()
 
 Dp Thread run method
 
-<a id="s-setReportExceptionsToNcsMain"></a>
+<a id="m-setreportexceptionstoncsmain-2320b0a0719c"></a>
 ### setReportExceptionsToNcsMain()
 
 ```java

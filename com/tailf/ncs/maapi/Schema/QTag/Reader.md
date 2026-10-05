@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,16 +10,16 @@ public static final class com.tailf.ncs.maapi.Schema.QTag.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getHns()](#s-getHns)
-- [getHtag()](#s-getHtag)
+- [getHns()](#m-gethns-457afaf41ae6)
+- [getHtag()](#m-gethtag-3a838d71ddf7)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -47,14 +47,14 @@ Reader(
 
 ## Methods
 
-<a id="s-getHns"></a>
+<a id="m-gethns-457afaf41ae6"></a>
 ### getHns()
 
 ```java
 public final int getHns()
 ```
 
-<a id="s-getHtag"></a>
+<a id="m-gethtag-3a838d71ddf7"></a>
 ### getHtag()
 
 ```java

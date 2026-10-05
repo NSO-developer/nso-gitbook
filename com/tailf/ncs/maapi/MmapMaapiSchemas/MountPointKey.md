@@ -1,4 +1,4 @@
-<a id="s-MountPointKey"></a>
+<a id="cls-MountPointKey"></a>
 # MountPointKey
 
 **Package-private**
@@ -11,16 +11,16 @@ class com.tailf.ncs.maapi.MmapMaapiSchemas.MountPointKey
 
 **Constructors**:
 
-- [MountPointKey(int, String)](#s-MountPointKey-1)
+- [MountPointKey(int, String)](#m-mountpointkey-b3cfee2f6335)
 
 **Methods**:
 
-- [equals(Object)](#s-equals)
-- [hashCode()](#s-hashCode)
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [hashCode()](#m-hashcode-ef797a217903)
 
 ## Constructors
 
-<a id="s-MountPointKey-1"></a>
+<a id="m-mountpointkey-b3cfee2f6335"></a>
 ### MountPointKey(int, String)
 
 **Package-private**
@@ -37,7 +37,7 @@ MountPointKey(int pathHash, String mountId)
 
 ## Methods
 
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
@@ -48,7 +48,7 @@ public boolean equals(Object obj)
 
 - `Object obj`
 
-<a id="s-hashCode"></a>
+<a id="m-hashcode-ef797a217903"></a>
 ### hashCode()
 
 ```java

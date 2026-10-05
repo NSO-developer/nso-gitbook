@@ -1,4 +1,4 @@
-<a id="s-ConfEBoolean"></a>
+<a id="cls-ConfEBoolean"></a>
 # ConfEBoolean
 
 ```java
@@ -7,7 +7,7 @@ public class com.tailf.proto.ConfEBoolean
     implements java.io.Serializable, Cloneable
 ```
 
-Types: [ConfEAtom](ConfEAtom.md#s-ConfEAtom)
+Types: [ConfEAtom](ConfEAtom.md#cls-ConfEAtom)
 
 Provides a Java representation of E booleans, which are special cases of
  atoms with values 'true' and 'false'.
@@ -16,28 +16,28 @@ Provides a Java representation of E booleans, which are special cases of
 
 **Constructors**:
 
-- [ConfEBoolean(boolean)](#s-ConfEBoolean-1)
-- [ConfEBoolean(ConfInputStream)](#s-ConfEBoolean-2)
+- [ConfEBoolean(boolean)](#m-confeboolean-82cee39c0df6)
+- [ConfEBoolean(ConfInputStream)](#m-confeboolean-0824f505fca3)
 
 **Fields**:
 
-- [MAX_ATOM_LENGTH](ConfEAtom.md#s-MAX_ATOM_LENGTH) from ConfEAtom
-- [serialVersionUID](#s-serialVersionUID)
+- [MAX_ATOM_LENGTH](ConfEAtom.md#m-MAX_ATOM_LENGTH) from ConfEAtom
+- [serialVersionUID](#m-serialVersionUID)
 
 **Methods**:
 
-- [atomValue()](ConfEAtom.md#s-atomValue) from ConfEAtom
-- [booleanValue()](ConfEAtom.md#s-booleanValue) from ConfEAtom
-- [clone()](ConfEObject.md#s-clone) from ConfEObject
-- [decode(ConfInputStream)](ConfEObject.md#s-decode) from ConfEObject
-- [encode(ConfOutputStream)](ConfEAtom.md#s-encode) from ConfEAtom
-- [equals(Object)](ConfEAtom.md#s-equals) from ConfEAtom
-- [hashCode()](ConfEAtom.md#s-hashCode) from ConfEAtom
-- [toString()](ConfEAtom.md#s-toString) from ConfEAtom
+- [atomValue()](ConfEAtom.md#m-atomvalue-e1510c85d5fa) from ConfEAtom
+- [booleanValue()](ConfEAtom.md#m-booleanvalue-8b1662434d74) from ConfEAtom
+- [clone()](ConfEObject.md#m-clone-164c86c45e9b) from ConfEObject
+- [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
+- [encode(ConfOutputStream)](ConfEAtom.md#m-encode-cb1ad9eb7771) from ConfEAtom
+- [equals(Object)](ConfEAtom.md#m-equals-fcd6492e0d6c) from ConfEAtom
+- [hashCode()](ConfEAtom.md#m-hashcode-ef797a217903) from ConfEAtom
+- [toString()](ConfEAtom.md#m-tostring-e9d48c5503ef) from ConfEAtom
 
 ## Constructors
 
-<a id="s-ConfEBoolean-1"></a>
+<a id="m-confeboolean-82cee39c0df6"></a>
 ### ConfEBoolean(boolean)
 
 ```java
@@ -50,14 +50,14 @@ Create a boolean from the given value
 
 - `boolean t` - the boolean value to represent as an atom.
 
-<a id="s-ConfEBoolean-2"></a>
+<a id="m-confeboolean-0824f505fca3"></a>
 ### ConfEBoolean(ConfInputStream)
 
 ```java
 public ConfEBoolean(com.tailf.proto.ConfInputStream buf) throws com.tailf.proto.ConfEDecodeException
 ```
 
-Types: [ConfInputStream](ConfInputStream.md#s-ConfInputStream), [ConfEDecodeException](ConfEDecodeException.md#s-ConfEDecodeException)
+Types: [ConfInputStream](ConfInputStream.md#cls-ConfInputStream), [ConfEDecodeException](ConfEDecodeException.md#cls-ConfEDecodeException)
 
 Create a boolean from a stream containing an atom encoded in E external
  format. The value of the boolean will be true if the atom represented by
@@ -76,7 +76,7 @@ Create a boolean from a stream containing an atom encoded in E external
 
 ## Fields
 
-<a id="s-serialVersionUID"></a>
+<a id="m-serialVersionUID"></a>
 ### serialVersionUID
 
 **Package-private**

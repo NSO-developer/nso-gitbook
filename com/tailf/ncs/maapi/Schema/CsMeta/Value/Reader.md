@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,20 +10,20 @@ public static final class com.tailf.ncs.maapi.Schema.CsMeta.Value.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getNone()](#s-getNone)
-- [getText()](#s-getText)
-- [hasText()](#s-hasText)
-- [isNone()](#s-isNone)
-- [isText()](#s-isText)
-- [which()](#s-which)
+- [getNone()](#m-getnone-e31bfdbffa7f)
+- [getText()](#m-gettext-e63d55fcdcbd)
+- [hasText()](#m-hastext-9f49522a4f5a)
+- [isNone()](#m-isnone-e8a993ad0453)
+- [isText()](#m-istext-98869fdb86ee)
+- [which()](#m-which-0b2d23db5ed0)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -51,46 +51,46 @@ Reader(
 
 ## Methods
 
-<a id="s-getNone"></a>
+<a id="m-getnone-e31bfdbffa7f"></a>
 ### getNone()
 
 ```java
 public final org.capnproto.Void getNone()
 ```
 
-<a id="s-getText"></a>
+<a id="m-gettext-e63d55fcdcbd"></a>
 ### getText()
 
 ```java
 public org.capnproto.Text.Reader getText()
 ```
 
-<a id="s-hasText"></a>
+<a id="m-hastext-9f49522a4f5a"></a>
 ### hasText()
 
 ```java
 public boolean hasText()
 ```
 
-<a id="s-isNone"></a>
+<a id="m-isnone-e8a993ad0453"></a>
 ### isNone()
 
 ```java
 public final boolean isNone()
 ```
 
-<a id="s-isText"></a>
+<a id="m-istext-98869fdb86ee"></a>
 ### isText()
 
 ```java
 public final boolean isText()
 ```
 
-<a id="s-which"></a>
+<a id="m-which-0b2d23db5ed0"></a>
 ### which()
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsMeta.Value.Which which()
 ```
 
-Types: [Which](Which.md#s-Which)
+Types: [Which](Which.md#cls-Which)

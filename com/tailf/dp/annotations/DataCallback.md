@@ -1,4 +1,4 @@
-<a id="s-DataCallback"></a>
+<a id="cls-DataCallback"></a>
 # DataCallback
 
 ```java
@@ -25,23 +25,23 @@ Annotation class for Data Callbacks Attributes are `callPoint`
 
 **Methods**:
 
-- [callPoint()](#s-callPoint)
-- [callType()](#s-callType)
+- [callPoint()](#m-callpoint-c21f52042879)
+- [callType()](#m-calltype-0d0f9b61a036)
 
 ## Methods
 
-<a id="s-callPoint"></a>
+<a id="m-callpoint-c21f52042879"></a>
 ### callPoint()
 
 ```java
 public abstract String callPoint()
 ```
 
-<a id="s-callType"></a>
+<a id="m-calltype-0d0f9b61a036"></a>
 ### callType()
 
 ```java
 public abstract com.tailf.dp.proto.DataCBType[] callType()
 ```
 
-Types: [DataCBType](../proto/DataCBType.md#s-DataCBType)
+Types: [DataCBType](../proto/DataCBType.md#cls-DataCBType)

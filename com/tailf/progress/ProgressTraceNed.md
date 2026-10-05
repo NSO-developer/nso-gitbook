@@ -1,4 +1,4 @@
-<a id="s-ProgressTraceNed"></a>
+<a id="cls-ProgressTraceNed"></a>
 # ProgressTraceNed
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.progress.ProgressTraceNed
     extends com.tailf.progress.ProgressTrace
 ```
 
-Types: [ProgressTrace](ProgressTrace.md#s-ProgressTrace)
+Types: [ProgressTrace](ProgressTrace.md#cls-ProgressTrace)
 
 The purpose of ` ProgressTraceNed ` class
  is to make it easy for a NED to interact with NSO's
@@ -14,9 +14,9 @@ The purpose of ` ProgressTraceNed ` class
 
  An new event or span requires a device id and a
  device phase. The device id is set in the class constructor
- [`ProgressTraceNed`](ProgressTraceNed.md#s-ProgressTraceNed),
+ [`ProgressTraceNed#ProgressTraceNed(Maapi, String)`](ProgressTraceNed.md#m-progresstracened-035453e18770),
  and the device phase is set using
- [`ProgressTraceNed`](ProgressTraceNed.md#s-ProgressTraceNed) method. For example:
+ [`ProgressTraceNed#setPhase(String)`](ProgressTraceNed.md#m-setphase-06ea7510d166) method. For example:
 
 
 ```
@@ -25,32 +25,32 @@ The purpose of ` ProgressTraceNed ` class
  progress.event("connect");
 ```
 
-**See also:** [`ProgressTrace`](ProgressTrace.md#s-ProgressTrace)
+**See also:** [`ProgressTrace`](ProgressTrace.md#cls-ProgressTrace)
 
 ## Members
 
 **Constructors**:
 
-- [ProgressTraceNed(Maapi, String)](#s-ProgressTraceNed-1)
+- [ProgressTraceNed(Maapi, String)](#m-progresstracened-035453e18770)
 
 **Methods**:
 
-- [endSpan(Span)](ProgressTrace.md#s-endSpan) from ProgressTrace
-- [endSpan(Span, String)](ProgressTrace.md#s-endSpan-1) from ProgressTrace
-- [event(String)](#s-event)
-- [event(Verbosity, String)](#s-event-1)
-- [event(Verbosity, String, Attributes)](#s-event-2)
-- [getCurrentSpan()](ProgressTrace.md#s-getCurrentSpan) from ProgressTrace
-- [setDeviceId(String)](#s-setDeviceId)
-- [setPhase(String)](#s-setPhase)
-- [setServicePath(ConfPath)](ProgressTrace.md#s-setServicePath) from ProgressTrace
-- [startSpan(String)](#s-startSpan)
-- [startSpan(Verbosity, String)](#s-startSpan-1)
-- [startSpan(Verbosity, String, Attributes, Span[])](#s-startSpan-2)
+- [endSpan(Span)](ProgressTrace.md#m-endspan-832d21f903c3) from ProgressTrace
+- [endSpan(Span, String)](ProgressTrace.md#m-endspan-1c44c700da19) from ProgressTrace
+- [event(String)](#m-event-35c2a3878e07)
+- [event(Verbosity, String)](#m-event-9f8a52e74d94)
+- [event(Verbosity, String, Attributes)](#m-event-cdc8c9e968cd)
+- [getCurrentSpan()](ProgressTrace.md#m-getcurrentspan-95e59db0f66f) from ProgressTrace
+- [setDeviceId(String)](#m-setdeviceid-d5a05ed041f8)
+- [setPhase(String)](#m-setphase-06ea7510d166)
+- [setServicePath(ConfPath)](ProgressTrace.md#m-setservicepath-95207665ae57) from ProgressTrace
+- [startSpan(String)](#m-startspan-a255151f7145)
+- [startSpan(Verbosity, String)](#m-startspan-b310d5a59dbf)
+- [startSpan(Verbosity, String, Attributes, Span[])](#m-startspan-ec78710be35e)
 
 ## Constructors
 
-<a id="s-ProgressTraceNed-1"></a>
+<a id="m-progresstracened-035453e18770"></a>
 ### ProgressTraceNed(Maapi, String)
 
 ```java
@@ -61,13 +61,13 @@ public ProgressTraceNed(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [Maapi](../maapi/Maapi.md#s-Maapi), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Maapi](../maapi/Maapi.md#cls-Maapi), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Creates a new instance of `ProgressTraceNed`
 
 **Parameters**
 
-- `com.tailf.maapi.Maapi maapi` - a [MAAPI](../maapi/Maapi.md#s-Maapi) instance
+- `com.tailf.maapi.Maapi maapi` - a [MAAPI](../maapi/Maapi.md#cls-Maapi) instance
 - `String deviceId` - device ID
 
 **Throws**
@@ -78,14 +78,14 @@ Creates a new instance of `ProgressTraceNed`
 
 ## Methods
 
-<a id="s-event"></a>
+<a id="m-event-35c2a3878e07"></a>
 ### event(String)
 
 ```java
 public void event(String message) throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Report an event
 
@@ -99,7 +99,7 @@ Report an event
 - `ConfException`
 - `IOException`
 
-<a id="s-event-1"></a>
+<a id="m-event-9f8a52e74d94"></a>
 ### event(Verbosity, String)
 
 ```java
@@ -110,7 +110,7 @@ public void event(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Verbosity](../maapi/Maapi/Verbosity.md#s-Verbosity), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Verbosity](../maapi/Maapi/Verbosity.md#cls-Verbosity), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Report an event
 
@@ -126,7 +126,7 @@ Report an event
             device Id or device phase is not set.
 - `IOException`
 
-<a id="s-event-2"></a>
+<a id="m-event-cdc8c9e968cd"></a>
 ### event(Verbosity, String, Attributes)
 
 ```java
@@ -138,7 +138,7 @@ public void event(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Verbosity](../maapi/Maapi/Verbosity.md#s-Verbosity), [Attributes](Attributes.md#s-Attributes), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Verbosity](../maapi/Maapi/Verbosity.md#cls-Verbosity), [Attributes](Attributes.md#cls-Attributes), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Report an event
 
@@ -156,7 +156,7 @@ Report an event
             device Id or device phase is not set.
 - `IOException`
 
-<a id="s-setDeviceId"></a>
+<a id="m-setdeviceid-d5a05ed041f8"></a>
 ### setDeviceId(String)
 
 ```java
@@ -169,7 +169,7 @@ Set a device ID
 
 - `String deviceId` - the device ID
 
-<a id="s-setPhase"></a>
+<a id="m-setphase-06ea7510d166"></a>
 ### setPhase(String)
 
 ```java
@@ -182,7 +182,7 @@ Set a NED phase
 
 - `String phase` - the NED phase
 
-<a id="s-startSpan"></a>
+<a id="m-startspan-a255151f7145"></a>
 ### startSpan(String)
 
 ```java
@@ -192,7 +192,7 @@ public com.tailf.progress.Span startSpan(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Span](Span.md#s-Span), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Span](Span.md#cls-Span), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Start a new span
 
@@ -200,7 +200,7 @@ Start a new span
 
 - `String message` - message of the span
 
-**Returns:** a [`Span`](Span.md#s-Span) object that is used
+**Returns:** a [`Span`](Span.md#cls-Span) object that is used
          for `#endSpan`
 
 **Throws**
@@ -209,7 +209,7 @@ Start a new span
             device Id or device phase is not set.
 - `IOException`
 
-<a id="s-startSpan-1"></a>
+<a id="m-startspan-b310d5a59dbf"></a>
 ### startSpan(Verbosity, String)
 
 ```java
@@ -220,7 +220,7 @@ public com.tailf.progress.Span startSpan(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Span](Span.md#s-Span), [Verbosity](../maapi/Maapi/Verbosity.md#s-Verbosity), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Span](Span.md#cls-Span), [Verbosity](../maapi/Maapi/Verbosity.md#cls-Verbosity), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Start a new span
 
@@ -230,7 +230,7 @@ Start a new span
          message should be reported
 - `String message` - message of the span
 
-**Returns:** a [`Span`](Span.md#s-Span) object that can used
+**Returns:** a [`Span`](Span.md#cls-Span) object that can used
          in `#endSpan`
 
 **Throws**
@@ -239,7 +239,7 @@ Start a new span
             device Id or device phase is not set.
 - `IOException`
 
-<a id="s-startSpan-2"></a>
+<a id="m-startspan-ec78710be35e"></a>
 ### startSpan(Verbosity, String, Attributes, Span[])
 
 ```java
@@ -252,7 +252,7 @@ public com.tailf.progress.Span startSpan(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Span](Span.md#s-Span), [Verbosity](../maapi/Maapi/Verbosity.md#s-Verbosity), [Attributes](Attributes.md#s-Attributes), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Span](Span.md#cls-Span), [Verbosity](../maapi/Maapi/Verbosity.md#cls-Verbosity), [Attributes](Attributes.md#cls-Attributes), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Start a new span
 
@@ -266,7 +266,7 @@ Start a new span
 - `com.tailf.progress.Span[] links` - list of linked spans
         This can be `null`.
 
-**Returns:** a [`Span`](Span.md#s-Span) object that can used
+**Returns:** a [`Span`](Span.md#cls-Span) object that can used
          in `#endSpan`
 
 **Throws**

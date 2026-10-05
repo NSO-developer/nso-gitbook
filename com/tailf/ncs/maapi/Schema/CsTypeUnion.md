@@ -1,4 +1,4 @@
-<a id="s-CsTypeUnion"></a>
+<a id="cls-CsTypeUnion"></a>
 # CsTypeUnion
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeUnion
 
 **Constructors**:
 
-- [CsTypeUnion()](#s-CsTypeUnion-1)
+- [CsTypeUnion()](#m-cstypeunion-13eb0cc6db79)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](CsTypeUnion/Builder.md#s-Builder)
-- [Factory](CsTypeUnion/Factory.md#s-Factory)
-- [Reader](CsTypeUnion/Reader.md#s-Reader)
+- [Builder](CsTypeUnion/Builder.md#cls-Builder)
+- [Factory](CsTypeUnion/Factory.md#cls-Factory)
+- [Reader](CsTypeUnion/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-CsTypeUnion-1"></a>
+<a id="m-cstypeunion-13eb0cc6db79"></a>
 ### CsTypeUnion()
 
 ```java
@@ -35,25 +35,25 @@ public CsTypeUnion()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsTypeUnion.Factory factory = null;
 ```
 
-Types: [Factory](CsTypeUnion/Factory.md#s-Factory)
+Types: [Factory](CsTypeUnion/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsTypeUnion.Builder,com.tailf.ncs.maapi.Schema.CsTypeUnion.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsTypeUnion/Builder.md#s-Builder), [Reader](CsTypeUnion/Reader.md#s-Reader)
+Types: [Builder](CsTypeUnion/Builder.md#cls-Builder), [Reader](CsTypeUnion/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsTypeUnion/Builder.md)
-- [Factory](CsTypeUnion/Factory.md)
-- [Reader](CsTypeUnion/Reader.md)
+- [Builder](CsTypeUnion/Builder.md#cls-Builder)
+- [Factory](CsTypeUnion/Factory.md#cls-Factory)
+- [Reader](CsTypeUnion/Reader.md#cls-Reader)

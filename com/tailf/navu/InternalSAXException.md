@@ -1,4 +1,4 @@
-<a id="s-InternalSAXException"></a>
+<a id="cls-InternalSAXException"></a>
 # InternalSAXException
 
 ```java
@@ -10,15 +10,15 @@ public class com.tailf.navu.InternalSAXException
 
 **Constructors**:
 
-- [InternalSAXException(String, Stack<CSNode>)](#s-InternalSAXException-1)
+- [InternalSAXException(String, Stack<CSNode>)](#m-internalsaxexception-b166b15685f4)
 
 **Methods**:
 
-- [getCurrentStack()](#s-getCurrentStack)
+- [getCurrentStack()](#m-getcurrentstack-c7498012d33b)
 
 ## Constructors
 
-<a id="s-InternalSAXException-1"></a>
+<a id="m-internalsaxexception-b166b15685f4"></a>
 ### InternalSAXException(String, Stack<CSNode>)
 
 ```java
@@ -28,7 +28,7 @@ public InternalSAXException(
 )
 ```
 
-Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#s-CSNode)
+Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
 
 **Parameters**
 
@@ -38,11 +38,11 @@ Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#s-CSNode)
 
 ## Methods
 
-<a id="s-getCurrentStack"></a>
+<a id="m-getcurrentstack-c7498012d33b"></a>
 ### getCurrentStack()
 
 ```java
 public java.util.Stack<com.tailf.maapi.MaapiSchemas.CSNode> getCurrentStack()
 ```
 
-Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#s-CSNode)
+Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode)

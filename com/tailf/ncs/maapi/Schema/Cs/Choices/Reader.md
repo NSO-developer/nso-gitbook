@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,20 +10,20 @@ public static final class com.tailf.ncs.maapi.Schema.Cs.Choices.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getList()](#s-getList)
-- [getNone()](#s-getNone)
-- [hasList()](#s-hasList)
-- [isList()](#s-isList)
-- [isNone()](#s-isNone)
-- [which()](#s-which)
+- [getList()](#m-getlist-bb3f8cbe83be)
+- [getNone()](#m-getnone-e31bfdbffa7f)
+- [hasList()](#m-haslist-3712d7ce73ac)
+- [isList()](#m-islist-c36bce63b506)
+- [isNone()](#m-isnone-e8a993ad0453)
+- [which()](#m-which-0b2d23db5ed0)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -51,48 +51,48 @@ Reader(
 
 ## Methods
 
-<a id="s-getList"></a>
+<a id="m-getlist-bb3f8cbe83be"></a>
 ### getList()
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsChoice.Reader> getList()
 ```
 
-Types: [Reader](../../CsChoice/Reader.md#s-Reader)
+Types: [Reader](../../CsChoice/Reader.md#cls-Reader)
 
-<a id="s-getNone"></a>
+<a id="m-getnone-e31bfdbffa7f"></a>
 ### getNone()
 
 ```java
 public final org.capnproto.Void getNone()
 ```
 
-<a id="s-hasList"></a>
+<a id="m-haslist-3712d7ce73ac"></a>
 ### hasList()
 
 ```java
 public final boolean hasList()
 ```
 
-<a id="s-isList"></a>
+<a id="m-islist-c36bce63b506"></a>
 ### isList()
 
 ```java
 public final boolean isList()
 ```
 
-<a id="s-isNone"></a>
+<a id="m-isnone-e8a993ad0453"></a>
 ### isNone()
 
 ```java
 public final boolean isNone()
 ```
 
-<a id="s-which"></a>
+<a id="m-which-0b2d23db5ed0"></a>
 ### which()
 
 ```java
 public com.tailf.ncs.maapi.Schema.Cs.Choices.Which which()
 ```
 
-Types: [Which](Which.md#s-Which)
+Types: [Which](Which.md#cls-Which)

@@ -1,34 +1,30 @@
-<a id="s-NanoServiceCBType"></a>
+<a id="cls-NanoServiceCBType"></a>
 # NanoServiceCBType
 
 ```java
 public enum com.tailf.dp.proto.NanoServiceCBType
 ```
 
-Types: [NanoServiceCBType](NanoServiceCBType.md#s-NanoServiceCBType)
+Types: [NanoServiceCBType](NanoServiceCBType.md#cls-NanoServiceCBType)
 
 Enumeration of Nano Service callback methods
-
-**Related classes**
-
-- [NanoServiceCBType](NanoServiceCBType.md#s-NanoServiceCBType)
 
 ## Members
 
 **Enum Constants**:
 
-- [CREATE](#s-CREATE)
-- [DELETE](#s-DELETE)
+- [CREATE](#m-CREATE)
+- [DELETE](#m-DELETE)
 
 **Methods**:
 
-- [getValue()](#s-getValue)
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [getValue()](#m-getvalue-d93864668c40)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-CREATE"></a>
+<a id="m-CREATE"></a>
 ### CREATE
 
 ```java
@@ -37,9 +33,10 @@ public static final com.tailf.dp.proto.NanoServiceCBType CREATE;
 
 Indicates nano service create callback.
 
- See [`DpNanoServiceCallback`](../DpNanoServiceCallback.md#s-DpNanoServiceCallback)
+ See [`DpNanoServiceCallback#create(NanoServiceContext, NavuNode,
+ NavuNode, Properties, Properties)`](../DpNanoServiceCallback.md#m-create-45a9e9003e1d)
 
-<a id="s-DELETE"></a>
+<a id="m-DELETE"></a>
 ### DELETE
 
 ```java
@@ -48,12 +45,13 @@ public static final com.tailf.dp.proto.NanoServiceCBType DELETE;
 
 Indicates nano service delete callback.
 
- See [`DpNanoServiceCallback`](../DpNanoServiceCallback.md#s-DpNanoServiceCallback)
+ See [`DpNanoServiceCallback#delete(NanoServiceContext, NavuNode,
+ NavuNode, Properties, Properties)`](../DpNanoServiceCallback.md#m-delete-4ba929210861)
 
 
 ## Methods
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
@@ -64,24 +62,24 @@ get integer value for enum
 
 **Returns:** int value
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.dp.proto.NanoServiceCBType valueOf(String name)
 ```
 
-Types: [NanoServiceCBType](NanoServiceCBType.md#s-NanoServiceCBType)
+Types: [NanoServiceCBType](NanoServiceCBType.md#cls-NanoServiceCBType)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.dp.proto.NanoServiceCBType[] values()
 ```
 
-Types: [NanoServiceCBType](NanoServiceCBType.md#s-NanoServiceCBType)
+Types: [NanoServiceCBType](NanoServiceCBType.md#cls-NanoServiceCBType)

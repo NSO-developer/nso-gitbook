@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,23 +6,19 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueSymbol.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
+- [asReader()](#m-asreader-b5c0f2a8d115)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -48,11 +44,11 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueSymbol.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)

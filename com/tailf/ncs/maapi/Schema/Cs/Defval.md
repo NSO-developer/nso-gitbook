@@ -1,4 +1,4 @@
-<a id="s-Defval"></a>
+<a id="cls-Defval"></a>
 # Defval
 
 ```java
@@ -9,24 +9,24 @@ public static class com.tailf.ncs.maapi.Schema.Cs.Defval
 
 **Constructors**:
 
-- [Defval()](#s-Defval-1)
+- [Defval()](#m-defval-093f960aaddf)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](Defval/Builder.md#s-Builder)
-- [Factory](Defval/Factory.md#s-Factory)
-- [Reader](Defval/Reader.md#s-Reader)
-- [Which](Defval/Which.md#s-Which)
+- [Builder](Defval/Builder.md#cls-Builder)
+- [Factory](Defval/Factory.md#cls-Factory)
+- [Reader](Defval/Reader.md#cls-Reader)
+- [Which](Defval/Which.md#cls-Which)
 
 ## Constructors
 
-<a id="s-Defval-1"></a>
+<a id="m-defval-093f960aaddf"></a>
 ### Defval()
 
 ```java
@@ -36,25 +36,25 @@ public Defval()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cs.Defval.Factory factory = null;
 ```
 
-Types: [Factory](Defval/Factory.md#s-Factory)
+Types: [Factory](Defval/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.Cs.Defval.Builder,com.tailf.ncs.maapi.Schema.Cs.Defval.Reader> listFactory = null;
 ```
 
-Types: [Builder](Defval/Builder.md#s-Builder), [Reader](Defval/Reader.md#s-Reader)
+Types: [Builder](Defval/Builder.md#cls-Builder), [Reader](Defval/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -64,7 +64,7 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](Defval/Builder.md)
-- [Factory](Defval/Factory.md)
-- [Reader](Defval/Reader.md)
-- [Which](Defval/Which.md)
+- [Builder](Defval/Builder.md#cls-Builder)
+- [Factory](Defval/Factory.md#cls-Factory)
+- [Reader](Defval/Reader.md#cls-Reader)
+- [Which](Defval/Which.md#cls-Which)

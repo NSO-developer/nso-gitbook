@@ -1,4 +1,4 @@
-<a id="s-Token"></a>
+<a id="cls-Token"></a>
 # Token
 
 **Package-private**
@@ -14,31 +14,31 @@ Describes the input token stream.
 
 **Constructors**:
 
-- [Token()](#s-Token-1)
-- [Token(int)](#s-Token-2)
-- [Token(int, String)](#s-Token-3)
+- [Token()](#m-token-ad1ba4434bc6)
+- [Token(int)](#m-token-9b190fa6121c)
+- [Token(int, String)](#m-token-096b06e2c2ae)
 
 **Fields**:
 
-- [beginColumn](#s-beginColumn)
-- [beginLine](#s-beginLine)
-- [endColumn](#s-endColumn)
-- [endLine](#s-endLine)
-- [image](#s-image)
-- [kind](#s-kind)
-- [next](#s-next)
-- [specialToken](#s-specialToken)
+- [beginColumn](#m-beginColumn)
+- [beginLine](#m-beginLine)
+- [endColumn](#m-endColumn)
+- [endLine](#m-endLine)
+- [image](#m-image)
+- [kind](#m-kind)
+- [next](#m-next)
+- [specialToken](#m-specialToken)
 
 **Methods**:
 
-- [getValue()](#s-getValue)
-- [newToken(int)](#s-newToken)
-- [newToken(int, String)](#s-newToken-1)
-- [toString()](#s-toString)
+- [getValue()](#m-getvalue-d93864668c40)
+- [newToken(int)](#m-newtoken-17fd3841532d)
+- [newToken(int, String)](#m-newtoken-d7f9b13e20a7)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-Token-1"></a>
+<a id="m-token-ad1ba4434bc6"></a>
 ### Token()
 
 ```java
@@ -47,7 +47,7 @@ public Token()
 
 No-argument constructor
 
-<a id="s-Token-2"></a>
+<a id="m-token-9b190fa6121c"></a>
 ### Token(int)
 
 ```java
@@ -60,7 +60,7 @@ Constructs a new token for the specified Image.
 
 - `int kind`
 
-<a id="s-Token-3"></a>
+<a id="m-token-096b06e2c2ae"></a>
 ### Token(int, String)
 
 ```java
@@ -77,7 +77,7 @@ Constructs a new token for the specified Image and Kind.
 
 ## Fields
 
-<a id="s-beginColumn"></a>
+<a id="m-beginColumn"></a>
 ### beginColumn
 
 ```java
@@ -86,7 +86,7 @@ public int beginColumn = null;
 
 The column number of the first character of this Token.
 
-<a id="s-beginLine"></a>
+<a id="m-beginLine"></a>
 ### beginLine
 
 ```java
@@ -95,7 +95,7 @@ public int beginLine = null;
 
 The line number of the first character of this Token.
 
-<a id="s-endColumn"></a>
+<a id="m-endColumn"></a>
 ### endColumn
 
 ```java
@@ -104,7 +104,7 @@ public int endColumn = null;
 
 The column number of the last character of this Token.
 
-<a id="s-endLine"></a>
+<a id="m-endLine"></a>
 ### endLine
 
 ```java
@@ -113,7 +113,7 @@ public int endLine = null;
 
 The line number of the last character of this Token.
 
-<a id="s-image"></a>
+<a id="m-image"></a>
 ### image
 
 ```java
@@ -122,7 +122,7 @@ public String image = null;
 
 The string image of the token.
 
-<a id="s-kind"></a>
+<a id="m-kind"></a>
 ### kind
 
 ```java
@@ -133,14 +133,14 @@ An integer that describes the kind of this token.  This numbering
  system is determined by JavaCCParser, and a table of these numbers is
  stored in the file ...Constants.java.
 
-<a id="s-next"></a>
+<a id="m-next"></a>
 ### next
 
 ```java
 public com.tailf.conf.gen.Token next = null;
 ```
 
-Types: [Token](Token.md#s-Token)
+Types: [Token](Token.md#cls-Token)
 
 A reference to the next regular (non-special) token from the input
  stream.  If this is the last token from the input stream, or if the
@@ -149,14 +149,14 @@ A reference to the next regular (non-special) token from the input
  token.  Otherwise, see below for a description of the contents of
  this field.
 
-<a id="s-specialToken"></a>
+<a id="m-specialToken"></a>
 ### specialToken
 
 ```java
 public com.tailf.conf.gen.Token specialToken = null;
 ```
 
-Types: [Token](Token.md#s-Token)
+Types: [Token](Token.md#cls-Token)
 
 This field is used to access special tokens that occur prior to this
  token, but after the immediately preceding regular (non-special) token.
@@ -172,7 +172,7 @@ This field is used to access special tokens that occur prior to this
 
 ## Methods
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
@@ -186,27 +186,27 @@ An optional attribute value of the Token.
  Any subclass of Token that actually wants to return a non-null value can
  override this method as appropriate.
 
-<a id="s-newToken"></a>
+<a id="m-newtoken-17fd3841532d"></a>
 ### newToken(int)
 
 ```java
 public static com.tailf.conf.gen.Token newToken(int ofKind)
 ```
 
-Types: [Token](Token.md#s-Token)
+Types: [Token](Token.md#cls-Token)
 
 **Parameters**
 
 - `int ofKind`
 
-<a id="s-newToken-1"></a>
+<a id="m-newtoken-d7f9b13e20a7"></a>
 ### newToken(int, String)
 
 ```java
 public static com.tailf.conf.gen.Token newToken(int ofKind, String image)
 ```
 
-Types: [Token](Token.md#s-Token)
+Types: [Token](Token.md#cls-Token)
 
 Returns a new Token object, by default. However, if you want, you
  can create and return subclass objects based on the value of ofKind.
@@ -224,7 +224,7 @@ Returns a new Token object, by default. However, if you want, you
 - `int ofKind`
 - `String image`
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

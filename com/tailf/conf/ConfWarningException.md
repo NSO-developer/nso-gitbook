@@ -1,4 +1,4 @@
-<a id="s-ConfWarningException"></a>
+<a id="cls-ConfWarningException"></a>
 # ConfWarningException
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.conf.ConfWarningException
     extends com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 Warning exception base class.
 
@@ -14,20 +14,20 @@ Warning exception base class.
 
 **Constructors**:
 
-- [ConfWarningException(String, ErrorCode, ConfWarning[])](#s-ConfWarningException-1)
-- [ConfWarningException(String, int, ConfWarning[])](#s-ConfWarningException-2)
+- [ConfWarningException(String, ErrorCode, ConfWarning[])](#m-confwarningexception-05f73704f552)
+- [ConfWarningException(String, int, ConfWarning[])](#m-confwarningexception-535efc462eac)
 
 **Methods**:
 
-- [getErrorCode()](ConfException.md#s-getErrorCode) from ConfException
-- [getOpaque()](ConfException.md#s-getOpaque) from ConfException
-- [getWarnings()](#s-getWarnings)
-- [mk(ConfResponse)](ConfException.md#s-mk) from ConfException
-- [mk(ConfResponse, ConfPath)](ConfException.md#s-mk-1) from ConfException
+- [getErrorCode()](ConfException.md#m-geterrorcode-812152fc083a) from ConfException
+- [getOpaque()](ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [getWarnings()](#m-getwarnings-875cbe661ca7)
+- [mk(ConfResponse)](ConfException.md#m-mk-de1cedfc6ea8) from ConfException
+- [mk(ConfResponse, ConfPath)](ConfException.md#m-mk-79e69ffbc022) from ConfException
 
 ## Constructors
 
-<a id="s-ConfWarningException-1"></a>
+<a id="m-confwarningexception-05f73704f552"></a>
 ### ConfWarningException(String, ErrorCode, ConfWarning[])
 
 ```java
@@ -38,7 +38,7 @@ public ConfWarningException(
 )
 ```
 
-Types: [ErrorCode](ErrorCode.md#s-ErrorCode), [ConfWarning](ConfWarning.md#s-ConfWarning)
+Types: [ErrorCode](ErrorCode.md#cls-ErrorCode), [ConfWarning](ConfWarning.md#cls-ConfWarning)
 
 **Parameters**
 
@@ -46,14 +46,14 @@ Types: [ErrorCode](ErrorCode.md#s-ErrorCode), [ConfWarning](ConfWarning.md#s-Con
 - `com.tailf.conf.ErrorCode code`
 - `com.tailf.conf.ConfWarning[] ws`
 
-<a id="s-ConfWarningException-2"></a>
+<a id="m-confwarningexception-535efc462eac"></a>
 ### ConfWarningException(String, int, ConfWarning[])
 
 ```java
 public ConfWarningException(String msg, int codeInteger, com.tailf.conf.ConfWarning[] ws)
 ```
 
-Types: [ConfWarning](ConfWarning.md#s-ConfWarning)
+Types: [ConfWarning](ConfWarning.md#cls-ConfWarning)
 
 **Parameters**
 
@@ -64,11 +64,11 @@ Types: [ConfWarning](ConfWarning.md#s-ConfWarning)
 
 ## Methods
 
-<a id="s-getWarnings"></a>
+<a id="m-getwarnings-875cbe661ca7"></a>
 ### getWarnings()
 
 ```java
 public com.tailf.conf.ConfWarning[] getWarnings()
 ```
 
-Types: [ConfWarning](ConfWarning.md#s-ConfWarning)
+Types: [ConfWarning](ConfWarning.md#cls-ConfWarning)

@@ -1,4 +1,4 @@
-<a id="s-IterateFlags"></a>
+<a id="cls-IterateFlags"></a>
 # IterateFlags
 
 ```java
@@ -11,15 +11,15 @@ public @interface com.tailf.conf.IterateFlags
 
 **Methods**:
 
-- [flags()](#s-flags)
+- [flags()](#m-flags-edbfa2eca0ea)
 
 ## Methods
 
-<a id="s-flags"></a>
+<a id="m-flags-edbfa2eca0ea"></a>
 ### flags()
 
 ```java
 public abstract com.tailf.conf.DiffIterateFlags[] flags()
 ```
 
-Types: [DiffIterateFlags](DiffIterateFlags.md#s-DiffIterateFlags)
+Types: [DiffIterateFlags](DiffIterateFlags.md#cls-DiffIterateFlags)

@@ -1,4 +1,4 @@
-<a id="s-PathParserConstants"></a>
+<a id="cls-PathParserConstants"></a>
 # PathParserConstants
 
 **Package-private**
@@ -14,28 +14,28 @@ Token literal values and constants.
 
 **Fields**:
 
-- [CHAR](#s-CHAR)
-- [CHAR2](#s-CHAR2)
-- [COLON](#s-COLON)
-- [DEFAULT](#s-DEFAULT)
-- [EOF](#s-EOF)
-- [IDENTIFIER](#s-IDENTIFIER)
-- [IDENTIFIER2](#s-IDENTIFIER2)
-- [INSIDE_BRACES](#s-INSIDE_BRACES)
-- [INSIDE_QUOTE](#s-INSIDE_QUOTE)
-- [LBRACE](#s-LBRACE)
-- [LBRACKET](#s-LBRACKET)
-- [PERCENT](#s-PERCENT)
-- [PERCENT2](#s-PERCENT2)
-- [RBRACE](#s-RBRACE)
-- [RBRACKET](#s-RBRACKET)
-- [SLASH](#s-SLASH)
-- [STRLIT](#s-STRLIT)
-- [tokenImage](#s-tokenImage)
+- [CHAR](#m-CHAR)
+- [CHAR2](#m-CHAR2)
+- [COLON](#m-COLON)
+- [DEFAULT](#m-DEFAULT)
+- [EOF](#m-EOF)
+- [IDENTIFIER](#m-IDENTIFIER)
+- [IDENTIFIER2](#m-IDENTIFIER2)
+- [INSIDE_BRACES](#m-INSIDE_BRACES)
+- [INSIDE_QUOTE](#m-INSIDE_QUOTE)
+- [LBRACE](#m-LBRACE)
+- [LBRACKET](#m-LBRACKET)
+- [PERCENT](#m-PERCENT)
+- [PERCENT2](#m-PERCENT2)
+- [RBRACE](#m-RBRACE)
+- [RBRACKET](#m-RBRACKET)
+- [SLASH](#m-SLASH)
+- [STRLIT](#m-STRLIT)
+- [tokenImage](#m-tokenImage)
 
 ## Fields
 
-<a id="s-CHAR"></a>
+<a id="m-CHAR"></a>
 ### CHAR
 
 ```java
@@ -44,7 +44,7 @@ public static final int CHAR = 7;
 
 RegularExpression Id.
 
-<a id="s-CHAR2"></a>
+<a id="m-CHAR2"></a>
 ### CHAR2
 
 ```java
@@ -53,7 +53,7 @@ public static final int CHAR2 = 19;
 
 RegularExpression Id.
 
-<a id="s-COLON"></a>
+<a id="m-COLON"></a>
 ### COLON
 
 ```java
@@ -62,7 +62,7 @@ public static final int COLON = 9;
 
 RegularExpression Id.
 
-<a id="s-DEFAULT"></a>
+<a id="m-DEFAULT"></a>
 ### DEFAULT
 
 ```java
@@ -71,7 +71,7 @@ public static final int DEFAULT = 0;
 
 Lexical state.
 
-<a id="s-EOF"></a>
+<a id="m-EOF"></a>
 ### EOF
 
 ```java
@@ -80,7 +80,7 @@ public static final int EOF = 0;
 
 End of File.
 
-<a id="s-IDENTIFIER"></a>
+<a id="m-IDENTIFIER"></a>
 ### IDENTIFIER
 
 ```java
@@ -89,7 +89,7 @@ public static final int IDENTIFIER = 6;
 
 RegularExpression Id.
 
-<a id="s-IDENTIFIER2"></a>
+<a id="m-IDENTIFIER2"></a>
 ### IDENTIFIER2
 
 ```java
@@ -98,7 +98,7 @@ public static final int IDENTIFIER2 = 18;
 
 RegularExpression Id.
 
-<a id="s-INSIDE_BRACES"></a>
+<a id="m-INSIDE_BRACES"></a>
 ### INSIDE_BRACES
 
 ```java
@@ -107,7 +107,7 @@ public static final int INSIDE_BRACES = 1;
 
 Lexical state.
 
-<a id="s-INSIDE_QUOTE"></a>
+<a id="m-INSIDE_QUOTE"></a>
 ### INSIDE_QUOTE
 
 ```java
@@ -116,7 +116,7 @@ public static final int INSIDE_QUOTE = 2;
 
 Lexical state.
 
-<a id="s-LBRACE"></a>
+<a id="m-LBRACE"></a>
 ### LBRACE
 
 ```java
@@ -125,7 +125,7 @@ public static final int LBRACE = 11;
 
 RegularExpression Id.
 
-<a id="s-LBRACKET"></a>
+<a id="m-LBRACKET"></a>
 ### LBRACKET
 
 ```java
@@ -134,7 +134,7 @@ public static final int LBRACKET = 12;
 
 RegularExpression Id.
 
-<a id="s-PERCENT"></a>
+<a id="m-PERCENT"></a>
 ### PERCENT
 
 ```java
@@ -143,7 +143,7 @@ public static final int PERCENT = 8;
 
 RegularExpression Id.
 
-<a id="s-PERCENT2"></a>
+<a id="m-PERCENT2"></a>
 ### PERCENT2
 
 ```java
@@ -152,7 +152,7 @@ public static final int PERCENT2 = 20;
 
 RegularExpression Id.
 
-<a id="s-RBRACE"></a>
+<a id="m-RBRACE"></a>
 ### RBRACE
 
 ```java
@@ -161,7 +161,7 @@ public static final int RBRACE = 21;
 
 RegularExpression Id.
 
-<a id="s-RBRACKET"></a>
+<a id="m-RBRACKET"></a>
 ### RBRACKET
 
 ```java
@@ -170,7 +170,7 @@ public static final int RBRACKET = 13;
 
 RegularExpression Id.
 
-<a id="s-SLASH"></a>
+<a id="m-SLASH"></a>
 ### SLASH
 
 ```java
@@ -179,7 +179,7 @@ public static final int SLASH = 10;
 
 RegularExpression Id.
 
-<a id="s-STRLIT"></a>
+<a id="m-STRLIT"></a>
 ### STRLIT
 
 ```java
@@ -188,7 +188,7 @@ public static final int STRLIT = 23;
 
 RegularExpression Id.
 
-<a id="s-tokenImage"></a>
+<a id="m-tokenImage"></a>
 ### tokenImage
 
 ```java

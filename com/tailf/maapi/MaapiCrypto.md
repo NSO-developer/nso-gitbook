@@ -1,4 +1,4 @@
-<a id="s-MaapiCrypto"></a>
+<a id="cls-MaapiCrypto"></a>
 # MaapiCrypto
 
 ```java
@@ -7,42 +7,42 @@ public class com.tailf.maapi.MaapiCrypto
 
 Data encryption and decryption utility class.
 
- This class is instantiated using an existing [`Maapi`](Maapi.md#s-Maapi) object.
+ This class is instantiated using an existing [`Maapi`](Maapi.md#cls-Maapi) object.
 
  Encrypted strings can then be decrypted via the
  `#decrypt(String)` method and encrypted via the
- [`MaapiCryptoType`](MaapiCryptoType.md#s-MaapiCryptoType) method.
+ `MaapiCryptoType#encrypt(MaapiCryptoType, String)` method.
 
 ## Members
 
 **Constructors**:
 
-- [MaapiCrypto(Maapi)](#s-MaapiCrypto-1)
+- [MaapiCrypto(Maapi)](#m-maapicrypto-6616b37056ed)
 
 **Fields**:
 
-- [UNENCRYPTED_PREFIX](#s-UNENCRYPTED_PREFIX)
+- [UNENCRYPTED_PREFIX](#m-UNENCRYPTED_PREFIX)
 
 **Methods**:
 
-- [decrypt(String)](#s-decrypt)
-- [encrypt(MaapiCryptoType, String)](#s-encrypt)
-- [getAes256Key()](#s-getAes256Key)
-- [getAesIV()](#s-getAesIV)
-- [getAesKey()](#s-getAesKey)
-- [getDes3IV()](#s-getDes3IV)
-- [getDes3Key()](#s-getDes3Key)
+- [decrypt(String)](#m-decrypt-fd5519daae0f)
+- [encrypt(MaapiCryptoType, String)](#m-encrypt-6816a2fdb1cd)
+- [getAes256Key()](#m-getaes256key-babe38ca13d3)
+- [getAesIV()](#m-getaesiv-ff91605b3c80)
+- [getAesKey()](#m-getaeskey-022277997637)
+- [getDes3IV()](#m-getdes3iv-d27942e875ec)
+- [getDes3Key()](#m-getdes3key-5e1f0d13ea47)
 
 ## Constructors
 
-<a id="s-MaapiCrypto-1"></a>
+<a id="m-maapicrypto-6616b37056ed"></a>
 ### MaapiCrypto(Maapi)
 
 ```java
 public MaapiCrypto(com.tailf.maapi.Maapi maapi) throws com.tailf.maapi.MaapiException
 ```
 
-Types: [Maapi](Maapi.md#s-Maapi), [MaapiException](MaapiException.md#s-MaapiException)
+Types: [Maapi](Maapi.md#cls-Maapi), [MaapiException](MaapiException.md#cls-MaapiException)
 
 **Parameters**
 
@@ -51,7 +51,7 @@ Types: [Maapi](Maapi.md#s-Maapi), [MaapiException](MaapiException.md#s-MaapiExce
 
 ## Fields
 
-<a id="s-UNENCRYPTED_PREFIX"></a>
+<a id="m-UNENCRYPTED_PREFIX"></a>
 ### UNENCRYPTED_PREFIX
 
 ```java
@@ -61,14 +61,14 @@ public static final String UNENCRYPTED_PREFIX = "$0$";
 
 ## Methods
 
-<a id="s-decrypt"></a>
+<a id="m-decrypt-fd5519daae0f"></a>
 ### decrypt(String)
 
 ```java
 public String decrypt(String encrypted) throws com.tailf.maapi.MaapiException
 ```
 
-Types: [MaapiException](MaapiException.md#s-MaapiException)
+Types: [MaapiException](MaapiException.md#cls-MaapiException)
 
 Decrypt an encrypted string.
 
@@ -82,7 +82,7 @@ Decrypt an encrypted string.
 
 - `MaapiException` - On errors decrypting the encrypted string.
 
-<a id="s-encrypt"></a>
+<a id="m-encrypt-6816a2fdb1cd"></a>
 ### encrypt(MaapiCryptoType, String)
 
 ```java
@@ -93,7 +93,7 @@ public String encrypt(
     throws com.tailf.maapi.MaapiException
 ```
 
-Types: [MaapiCryptoType](MaapiCryptoType.md#s-MaapiCryptoType), [MaapiException](MaapiException.md#s-MaapiException)
+Types: [MaapiCryptoType](MaapiCryptoType.md#cls-MaapiCryptoType), [MaapiException](MaapiException.md#cls-MaapiException)
 
 Encrypt a plaintext string.
 
@@ -108,35 +108,35 @@ Encrypt a plaintext string.
 
 - `MaapiException` - On errors encrypting the plaintext.
 
-<a id="s-getAes256Key"></a>
+<a id="m-getaes256key-babe38ca13d3"></a>
 ### getAes256Key()
 
 ```java
 public byte[] getAes256Key()
 ```
 
-<a id="s-getAesIV"></a>
+<a id="m-getaesiv-ff91605b3c80"></a>
 ### getAesIV()
 
 ```java
 public byte[] getAesIV()
 ```
 
-<a id="s-getAesKey"></a>
+<a id="m-getaeskey-022277997637"></a>
 ### getAesKey()
 
 ```java
 public byte[] getAesKey()
 ```
 
-<a id="s-getDes3IV"></a>
+<a id="m-getdes3iv-d27942e875ec"></a>
 ### getDes3IV()
 
 ```java
 public byte[] getDes3IV()
 ```
 
-<a id="s-getDes3Key"></a>
+<a id="m-getdes3key-5e1f0d13ea47"></a>
 ### getDes3Key()
 
 ```java

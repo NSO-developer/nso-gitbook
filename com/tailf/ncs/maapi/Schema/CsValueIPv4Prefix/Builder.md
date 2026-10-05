@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,33 +6,29 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getA1()](#s-getA1)
-- [getA2()](#s-getA2)
-- [getA3()](#s-getA3)
-- [getA4()](#s-getA4)
-- [getPrefix()](#s-getPrefix)
-- [setA1(byte)](#s-setA1)
-- [setA2(byte)](#s-setA2)
-- [setA3(byte)](#s-setA3)
-- [setA4(byte)](#s-setA4)
-- [setPrefix(byte)](#s-setPrefix)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getA1()](#m-geta1-f8b8009a6bc7)
+- [getA2()](#m-geta2-a28d45466763)
+- [getA3()](#m-geta3-330abd611894)
+- [getA4()](#m-geta4-fce3220b7c51)
+- [getPrefix()](#m-getprefix-9268091e0223)
+- [setA1(byte)](#m-seta1-32c52405dfad)
+- [setA2(byte)](#m-seta2-303439b65cb0)
+- [setA3(byte)](#m-seta3-157e4ab42041)
+- [setA4(byte)](#m-seta4-45ac97b7d3a4)
+- [setPrefix(byte)](#m-setprefix-e20c09b64c12)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -58,51 +54,51 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getA1"></a>
+<a id="m-geta1-f8b8009a6bc7"></a>
 ### getA1()
 
 ```java
 public final byte getA1()
 ```
 
-<a id="s-getA2"></a>
+<a id="m-geta2-a28d45466763"></a>
 ### getA2()
 
 ```java
 public final byte getA2()
 ```
 
-<a id="s-getA3"></a>
+<a id="m-geta3-330abd611894"></a>
 ### getA3()
 
 ```java
 public final byte getA3()
 ```
 
-<a id="s-getA4"></a>
+<a id="m-geta4-fce3220b7c51"></a>
 ### getA4()
 
 ```java
 public final byte getA4()
 ```
 
-<a id="s-getPrefix"></a>
+<a id="m-getprefix-9268091e0223"></a>
 ### getPrefix()
 
 ```java
 public final byte getPrefix()
 ```
 
-<a id="s-setA1"></a>
+<a id="m-seta1-32c52405dfad"></a>
 ### setA1(byte)
 
 ```java
@@ -113,7 +109,7 @@ public final void setA1(byte value)
 
 - `byte value`
 
-<a id="s-setA2"></a>
+<a id="m-seta2-303439b65cb0"></a>
 ### setA2(byte)
 
 ```java
@@ -124,7 +120,7 @@ public final void setA2(byte value)
 
 - `byte value`
 
-<a id="s-setA3"></a>
+<a id="m-seta3-157e4ab42041"></a>
 ### setA3(byte)
 
 ```java
@@ -135,7 +131,7 @@ public final void setA3(byte value)
 
 - `byte value`
 
-<a id="s-setA4"></a>
+<a id="m-seta4-45ac97b7d3a4"></a>
 ### setA4(byte)
 
 ```java
@@ -146,7 +142,7 @@ public final void setA4(byte value)
 
 - `byte value`
 
-<a id="s-setPrefix"></a>
+<a id="m-setprefix-e20c09b64c12"></a>
 ### setPrefix(byte)
 
 ```java

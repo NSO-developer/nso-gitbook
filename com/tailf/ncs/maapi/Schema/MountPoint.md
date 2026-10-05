@@ -1,4 +1,4 @@
-<a id="s-MountPoint"></a>
+<a id="cls-MountPoint"></a>
 # MountPoint
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.MountPoint
 
 **Constructors**:
 
-- [MountPoint()](#s-MountPoint-1)
+- [MountPoint()](#m-mountpoint-af430c6766ae)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](MountPoint/Builder.md#s-Builder)
-- [Factory](MountPoint/Factory.md#s-Factory)
-- [Reader](MountPoint/Reader.md#s-Reader)
+- [Builder](MountPoint/Builder.md#cls-Builder)
+- [Factory](MountPoint/Factory.md#cls-Factory)
+- [Reader](MountPoint/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-MountPoint-1"></a>
+<a id="m-mountpoint-af430c6766ae"></a>
 ### MountPoint()
 
 ```java
@@ -35,25 +35,25 @@ public MountPoint()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.MountPoint.Factory factory = null;
 ```
 
-Types: [Factory](MountPoint/Factory.md#s-Factory)
+Types: [Factory](MountPoint/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.MountPoint.Builder,com.tailf.ncs.maapi.Schema.MountPoint.Reader> listFactory = null;
 ```
 
-Types: [Builder](MountPoint/Builder.md#s-Builder), [Reader](MountPoint/Reader.md#s-Reader)
+Types: [Builder](MountPoint/Builder.md#cls-Builder), [Reader](MountPoint/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](MountPoint/Builder.md)
-- [Factory](MountPoint/Factory.md)
-- [Reader](MountPoint/Reader.md)
+- [Builder](MountPoint/Builder.md#cls-Builder)
+- [Factory](MountPoint/Factory.md#cls-Factory)
+- [Reader](MountPoint/Reader.md#cls-Reader)

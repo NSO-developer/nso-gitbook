@@ -1,4 +1,4 @@
-<a id="s-CliSession"></a>
+<a id="cls-CliSession"></a>
 # CliSession
 
 ```java
@@ -6,7 +6,7 @@ public static interface com.tailf.ned.SSHClient.CliSession
     extends com.tailf.ned.CliSession
 ```
 
-Types: [CliSession](../CliSession.md#s-CliSession)
+Types: [CliSession](../CliSession.md#cls-CliSession)
 
 The SSH CLI session interface.
  Inherited from the old SSHSession implementation.
@@ -15,63 +15,63 @@ The SSH CLI session interface.
 
 **Fields**:
 
-- [MODE_OCRNL](#s-MODE_OCRNL)
-- [MODE_ONLRET](#s-MODE_ONLRET)
-- [MODE_ONOCR](#s-MODE_ONOCR)
+- [MODE_OCRNL](#m-MODE_OCRNL)
+- [MODE_ONLRET](#m-MODE_ONLRET)
+- [MODE_ONOCR](#m-MODE_ONOCR)
 
 **Methods**:
 
-- [close()](../CliSession.md#s-close) from CliSession
-- [expect(Pattern)](#s-expect)
-- [expect(Pattern, boolean, int)](#s-expect-1)
-- [expect(Pattern, boolean, int, NedWorker)](#s-expect-2)
-- [expect(Pattern, NedWorker)](#s-expect-3)
-- [expect(Pattern[])](#s-expect-4)
-- [expect(Pattern[], boolean, int)](#s-expect-5)
-- [expect(Pattern[], boolean, int, boolean)](#s-expect-6)
-- [expect(Pattern[], boolean, int, boolean, NedWorker)](#s-expect-7)
-- [expect(Pattern[], boolean, int, NedWorker)](#s-expect-8)
-- [expect(Pattern[], NedWorker)](#s-expect-9)
-- [expect(String)](#s-expect-10)
-- [expect(String, boolean, boolean, int)](#s-expect-11)
-- [expect(String, boolean, boolean, int, NedWorker)](#s-expect-12)
-- [expect(String, boolean, int)](#s-expect-13)
-- [expect(String, boolean, int, NedWorker)](#s-expect-14)
-- [expect(String, int)](#s-expect-15)
-- [expect(String, int, NedWorker)](#s-expect-16)
-- [expect(String, NedWorker)](#s-expect-17)
-- [expect(String[])](#s-expect-18)
-- [expect(String[], boolean, int)](#s-expect-19)
-- [expect(String[], boolean, int, NedWorker)](#s-expect-20)
-- [expect(String[], NedWorker)](#s-expect-21)
-- [flush()](#s-flush)
-- [getErrorStream()](#s-getErrorStream)
-- [getInputStream()](#s-getInputStream)
-- [getLine()](#s-getLine)
-- [getOutputStream()](#s-getOutputStream)
-- [getReader()](#s-getReader)
-- [getReadTimeout()](#s-getReadTimeout)
-- [getTermPrintlnMode()](#s-getTermPrintlnMode)
-- [getWriter()](#s-getWriter)
-- [logDebug(String)](#s-logDebug)
-- [logInfo(String)](#s-logInfo)
-- [print(int)](#s-print)
-- [print(String)](#s-print-1)
-- [println(int)](#s-println)
-- [println(String)](#s-println-1)
-- [ready()](#s-ready)
-- [ready(int)](#s-ready-1)
-- [serverSideClosed()](../CliSession.md#s-serverSideClosed) from CliSession
-- [setReadTimeout(int)](#s-setReadTimeout)
-- [setTermPrintlnMode(String)](#s-setTermPrintlnMode)
-- [setTracer(NedTracer)](../CliSession.md#s-setTracer) from CliSession
-- [trace(String, String)](#s-trace)
-- [traceInBufAppend(String)](#s-traceInBufAppend)
-- [traceInBufFlush()](#s-traceInBufFlush)
+- [close()](../CliSession.md#m-close-8107c6dc012b) from CliSession
+- [expect(Pattern)](#m-expect-98936155685a)
+- [expect(Pattern, boolean, int)](#m-expect-ae0bda32ace3)
+- [expect(Pattern, boolean, int, NedWorker)](#m-expect-7eb828b58e63)
+- [expect(Pattern, NedWorker)](#m-expect-a363c018c396)
+- [expect(Pattern[])](#m-expect-8149faa90d9d)
+- [expect(Pattern[], boolean, int)](#m-expect-5cc2e4122c7b)
+- [expect(Pattern[], boolean, int, boolean)](#m-expect-7b0546ada421)
+- [expect(Pattern[], boolean, int, boolean, NedWorker)](#m-expect-8367e41003a6)
+- [expect(Pattern[], boolean, int, NedWorker)](#m-expect-6c58bada9cc6)
+- [expect(Pattern[], NedWorker)](#m-expect-b0896c6a7b2a)
+- [expect(String)](#m-expect-5f5d11ad490b)
+- [expect(String, boolean, boolean, int)](#m-expect-b7ee8aa21949)
+- [expect(String, boolean, boolean, int, NedWorker)](#m-expect-a44ee9613d91)
+- [expect(String, boolean, int)](#m-expect-16cd2f682137)
+- [expect(String, boolean, int, NedWorker)](#m-expect-6e2d86346550)
+- [expect(String, int)](#m-expect-37295e1967db)
+- [expect(String, int, NedWorker)](#m-expect-4ba232d952f7)
+- [expect(String, NedWorker)](#m-expect-6426c41e07e7)
+- [expect(String[])](#m-expect-740d81a74e4b)
+- [expect(String[], boolean, int)](#m-expect-f6cb6c02c198)
+- [expect(String[], boolean, int, NedWorker)](#m-expect-90d4e3ee7ac2)
+- [expect(String[], NedWorker)](#m-expect-4485477b99db)
+- [flush()](#m-flush-a4d76f158943)
+- [getErrorStream()](#m-geterrorstream-8577e8676bda)
+- [getInputStream()](#m-getinputstream-cb1d1fa14d56)
+- [getLine()](#m-getline-6cb6167e418b)
+- [getOutputStream()](#m-getoutputstream-b7e39f99be28)
+- [getReader()](#m-getreader-ca9cb7876cc5)
+- [getReadTimeout()](#m-getreadtimeout-640fc089c1de)
+- [getTermPrintlnMode()](#m-gettermprintlnmode-bbc6ff231fae)
+- [getWriter()](#m-getwriter-23ba297ab3e8)
+- [logDebug(String)](#m-logdebug-91653b5096b0)
+- [logInfo(String)](#m-loginfo-32ae00d19c47)
+- [print(int)](#m-print-41f2f1534264)
+- [print(String)](#m-print-b202251f9230)
+- [println(int)](#m-println-4c26ee676efb)
+- [println(String)](#m-println-15aea44318e6)
+- [ready()](#m-ready-92162bd485a2)
+- [ready(int)](#m-ready-c585210c0993)
+- [serverSideClosed()](../CliSession.md#m-serversideclosed-0dfe26b0733e) from CliSession
+- [setReadTimeout(int)](#m-setreadtimeout-4f6742da7687)
+- [setTermPrintlnMode(String)](#m-settermprintlnmode-36c6657337c2)
+- [setTracer(NedTracer)](../CliSession.md#m-settracer-6943f9aadf68) from CliSession
+- [trace(String, String)](#m-trace-684478bdb6cc)
+- [traceInBufAppend(String)](#m-traceinbufappend-948da59d599a)
+- [traceInBufFlush()](#m-traceinbufflush-5f53f59ed390)
 
 ## Fields
 
-<a id="s-MODE_OCRNL"></a>
+<a id="m-MODE_OCRNL"></a>
 ### MODE_OCRNL
 
 ```java
@@ -80,14 +80,14 @@ public static final String MODE_OCRNL = "ocrnl";
 
 Newline modes supported by the CLI session
 
-<a id="s-MODE_ONLRET"></a>
+<a id="m-MODE_ONLRET"></a>
 ### MODE_ONLRET
 
 ```java
 public static final String MODE_ONLRET = "onlret";
 ```
 
-<a id="s-MODE_ONOCR"></a>
+<a id="m-MODE_ONOCR"></a>
 ### MODE_ONOCR
 
 ```java
@@ -97,7 +97,7 @@ public static final String MODE_ONOCR = "onocr";
 
 ## Methods
 
-<a id="s-expect"></a>
+<a id="m-expect-98936155685a"></a>
 ### expect(Pattern)
 
 ```java
@@ -107,13 +107,13 @@ public default String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
 - `java.util.regex.Pattern p`
 
-<a id="s-expect-1"></a>
+<a id="m-expect-ae0bda32ace3"></a>
 ### expect(Pattern, boolean, int)
 
 ```java
@@ -125,7 +125,7 @@ public default String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
@@ -133,7 +133,7 @@ Types: [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
 - `boolean include`
 - `int timeout`
 
-<a id="s-expect-2"></a>
+<a id="m-expect-7eb828b58e63"></a>
 ### expect(Pattern, boolean, int, NedWorker)
 
 ```java
@@ -146,7 +146,7 @@ public default String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedWorker](../NedWorker.md#s-NedWorker), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
@@ -155,7 +155,7 @@ Types: [NedWorker](../NedWorker.md#s-NedWorker), [SSHSessionException](../SSHSes
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="s-expect-3"></a>
+<a id="m-expect-a363c018c396"></a>
 ### expect(Pattern, NedWorker)
 
 ```java
@@ -166,14 +166,14 @@ public default String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedWorker](../NedWorker.md#s-NedWorker), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
 - `java.util.regex.Pattern p`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="s-expect-4"></a>
+<a id="m-expect-8149faa90d9d"></a>
 ### expect(Pattern[])
 
 ```java
@@ -183,13 +183,13 @@ public default com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
 - `java.util.regex.Pattern[] p`
 
-<a id="s-expect-5"></a>
+<a id="m-expect-5cc2e4122c7b"></a>
 ### expect(Pattern[], boolean, int)
 
 ```java
@@ -201,7 +201,7 @@ public default com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
@@ -209,7 +209,7 @@ Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [SSHSessionEx
 - `boolean include`
 - `int timeout`
 
-<a id="s-expect-6"></a>
+<a id="m-expect-7b0546ada421"></a>
 ### expect(Pattern[], boolean, int, boolean)
 
 ```java
@@ -222,7 +222,7 @@ public default com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
@@ -231,7 +231,7 @@ Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [SSHSessionEx
 - `int timeout`
 - `boolean full`
 
-<a id="s-expect-7"></a>
+<a id="m-expect-8367e41003a6"></a>
 ### expect(Pattern[], boolean, int, boolean, NedWorker)
 
 ```java
@@ -245,7 +245,7 @@ public default com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [NedWorker](../NedWorker.md#s-NedWorker), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
@@ -255,7 +255,7 @@ Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [NedWorker](.
 - `boolean full`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="s-expect-8"></a>
+<a id="m-expect-6c58bada9cc6"></a>
 ### expect(Pattern[], boolean, int, NedWorker)
 
 ```java
@@ -268,7 +268,7 @@ public default com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [NedWorker](../NedWorker.md#s-NedWorker), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
@@ -277,7 +277,7 @@ Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [NedWorker](.
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="s-expect-9"></a>
+<a id="m-expect-b0896c6a7b2a"></a>
 ### expect(Pattern[], NedWorker)
 
 ```java
@@ -288,14 +288,14 @@ public default com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [NedWorker](../NedWorker.md#s-NedWorker), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
 - `java.util.regex.Pattern[] p`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="s-expect-10"></a>
+<a id="m-expect-5f5d11ad490b"></a>
 ### expect(String)
 
 ```java
@@ -305,13 +305,13 @@ public default String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
 - `String str`
 
-<a id="s-expect-11"></a>
+<a id="m-expect-b7ee8aa21949"></a>
 ### expect(String, boolean, boolean, int)
 
 ```java
@@ -324,7 +324,7 @@ public default String expect(
     throws java.io.IOException, com.tailf.ned.SSHSessionException
 ```
 
-Types: [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
@@ -333,7 +333,7 @@ Types: [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
 - `boolean full`
 - `int timeout`
 
-<a id="s-expect-12"></a>
+<a id="m-expect-a44ee9613d91"></a>
 ### expect(String, boolean, boolean, int, NedWorker)
 
 ```java
@@ -347,7 +347,7 @@ public default String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedWorker](../NedWorker.md#s-NedWorker), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
@@ -357,7 +357,7 @@ Types: [NedWorker](../NedWorker.md#s-NedWorker), [SSHSessionException](../SSHSes
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="s-expect-13"></a>
+<a id="m-expect-16cd2f682137"></a>
 ### expect(String, boolean, int)
 
 ```java
@@ -369,7 +369,7 @@ public default String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
@@ -377,7 +377,7 @@ Types: [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
 - `boolean include`
 - `int timeout`
 
-<a id="s-expect-14"></a>
+<a id="m-expect-6e2d86346550"></a>
 ### expect(String, boolean, int, NedWorker)
 
 ```java
@@ -390,7 +390,7 @@ public default String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedWorker](../NedWorker.md#s-NedWorker), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
@@ -399,7 +399,7 @@ Types: [NedWorker](../NedWorker.md#s-NedWorker), [SSHSessionException](../SSHSes
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="s-expect-15"></a>
+<a id="m-expect-37295e1967db"></a>
 ### expect(String, int)
 
 ```java
@@ -410,14 +410,14 @@ public default String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
 - `String str`
 - `int timeout`
 
-<a id="s-expect-16"></a>
+<a id="m-expect-4ba232d952f7"></a>
 ### expect(String, int, NedWorker)
 
 ```java
@@ -429,7 +429,7 @@ public default String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedWorker](../NedWorker.md#s-NedWorker), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
@@ -437,7 +437,7 @@ Types: [NedWorker](../NedWorker.md#s-NedWorker), [SSHSessionException](../SSHSes
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="s-expect-17"></a>
+<a id="m-expect-6426c41e07e7"></a>
 ### expect(String, NedWorker)
 
 ```java
@@ -448,14 +448,14 @@ public default String expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedWorker](../NedWorker.md#s-NedWorker), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
 - `String str`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="s-expect-18"></a>
+<a id="m-expect-740d81a74e4b"></a>
 ### expect(String[])
 
 ```java
@@ -465,13 +465,13 @@ public default com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
 - `String[] str`
 
-<a id="s-expect-19"></a>
+<a id="m-expect-f6cb6c02c198"></a>
 ### expect(String[], boolean, int)
 
 ```java
@@ -483,7 +483,7 @@ public default com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
@@ -491,7 +491,7 @@ Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [SSHSessionEx
 - `boolean include`
 - `int timeout`
 
-<a id="s-expect-20"></a>
+<a id="m-expect-90d4e3ee7ac2"></a>
 ### expect(String[], boolean, int, NedWorker)
 
 ```java
@@ -504,7 +504,7 @@ public default com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [NedWorker](../NedWorker.md#s-NedWorker), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
@@ -513,7 +513,7 @@ Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [NedWorker](.
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="s-expect-21"></a>
+<a id="m-expect-4485477b99db"></a>
 ### expect(String[], NedWorker)
 
 ```java
@@ -524,14 +524,14 @@ public default com.tailf.ned.NedExpectResult expect(
     throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
-Types: [NedExpectResult](../NedExpectResult.md#s-NedExpectResult), [NedWorker](../NedWorker.md#s-NedWorker), [SSHSessionException](../SSHSessionException.md#s-SSHSessionException)
+Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 **Parameters**
 
 - `String[] str`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="s-flush"></a>
+<a id="m-flush-a4d76f158943"></a>
 ### flush()
 
 ```java
@@ -542,42 +542,42 @@ Signals that the final chunk of data has to be printed to the output
  transport stream. This method furthermore flushes the transport
  output stream buffer.
 
-<a id="s-getErrorStream"></a>
+<a id="m-geterrorstream-8577e8676bda"></a>
 ### getErrorStream()
 
 ```java
 public abstract java.io.InputStream getErrorStream()
 ```
 
-<a id="s-getInputStream"></a>
+<a id="m-getinputstream-cb1d1fa14d56"></a>
 ### getInputStream()
 
 ```java
 public abstract java.io.InputStream getInputStream()
 ```
 
-<a id="s-getLine"></a>
+<a id="m-getline-6cb6167e418b"></a>
 ### getLine()
 
 ```java
 public abstract StringBuilder getLine()
 ```
 
-<a id="s-getOutputStream"></a>
+<a id="m-getoutputstream-b7e39f99be28"></a>
 ### getOutputStream()
 
 ```java
 public abstract java.io.OutputStream getOutputStream()
 ```
 
-<a id="s-getReader"></a>
+<a id="m-getreader-ca9cb7876cc5"></a>
 ### getReader()
 
 ```java
 public abstract java.io.BufferedReader getReader()
 ```
 
-<a id="s-getReadTimeout"></a>
+<a id="m-getreadtimeout-640fc089c1de"></a>
 ### getReadTimeout()
 
 ```java
@@ -586,21 +586,21 @@ public abstract int getReadTimeout()
 
 Interface methods that must be implemented
 
-<a id="s-getTermPrintlnMode"></a>
+<a id="m-gettermprintlnmode-bbc6ff231fae"></a>
 ### getTermPrintlnMode()
 
 ```java
 public abstract String getTermPrintlnMode()
 ```
 
-<a id="s-getWriter"></a>
+<a id="m-getwriter-23ba297ab3e8"></a>
 ### getWriter()
 
 ```java
 public abstract java.io.PrintWriter getWriter()
 ```
 
-<a id="s-logDebug"></a>
+<a id="m-logdebug-91653b5096b0"></a>
 ### logDebug(String)
 
 ```java
@@ -611,7 +611,7 @@ public abstract void logDebug(String msg)
 
 - `String msg`
 
-<a id="s-logInfo"></a>
+<a id="m-loginfo-32ae00d19c47"></a>
 ### logInfo(String)
 
 ```java
@@ -622,7 +622,7 @@ public abstract void logInfo(String msg)
 
 - `String msg`
 
-<a id="s-print"></a>
+<a id="m-print-41f2f1534264"></a>
 ### print(int)
 
 ```java
@@ -635,7 +635,7 @@ Prints an integer (as text) to the output stream.
 
 - `int iVal` - Text to send to the stream.
 
-<a id="s-print-1"></a>
+<a id="m-print-b202251f9230"></a>
 ### print(String)
 
 ```java
@@ -648,7 +648,7 @@ Prints text to the output stream.
 
 - `String s` - Text to send to the stream.
 
-<a id="s-println"></a>
+<a id="m-println-4c26ee676efb"></a>
 ### println(int)
 
 ```java
@@ -662,7 +662,7 @@ Prints an integer (as text) to the output stream.
 
 - `int iVal` - Text to send to the stream.
 
-<a id="s-println-1"></a>
+<a id="m-println-15aea44318e6"></a>
 ### println(String)
 
 ```java
@@ -676,7 +676,7 @@ Print text to the output stream.
 
 - `String s` - Text to send to the stream.
 
-<a id="s-ready"></a>
+<a id="m-ready-92162bd485a2"></a>
 ### ready()
 
 ```java
@@ -685,7 +685,7 @@ public default boolean ready() throws java.io.IOException
 
 Interface methods with default implementation
 
-<a id="s-ready-1"></a>
+<a id="m-ready-c585210c0993"></a>
 ### ready(int)
 
 ```java
@@ -696,7 +696,7 @@ public abstract boolean ready(int timeout) throws java.io.IOException
 
 - `int timeout`
 
-<a id="s-setReadTimeout"></a>
+<a id="m-setreadtimeout-4f6742da7687"></a>
 ### setReadTimeout(int)
 
 ```java
@@ -707,7 +707,7 @@ public abstract void setReadTimeout(int readTimeout)
 
 - `int readTimeout`
 
-<a id="s-setTermPrintlnMode"></a>
+<a id="m-settermprintlnmode-36c6657337c2"></a>
 ### setTermPrintlnMode(String)
 
 ```java
@@ -718,7 +718,7 @@ public abstract void setTermPrintlnMode(String mode)
 
 - `String mode`
 
-<a id="s-trace"></a>
+<a id="m-trace-684478bdb6cc"></a>
 ### trace(String, String)
 
 ```java
@@ -730,7 +730,7 @@ public abstract void trace(String msg, String direction)
 - `String msg`
 - `String direction`
 
-<a id="s-traceInBufAppend"></a>
+<a id="m-traceinbufappend-948da59d599a"></a>
 ### traceInBufAppend(String)
 
 ```java
@@ -741,7 +741,7 @@ public abstract void traceInBufAppend(String msg)
 
 - `String msg`
 
-<a id="s-traceInBufFlush"></a>
+<a id="m-traceinbufflush-5f53f59ed390"></a>
 ### traceInBufFlush()
 
 ```java

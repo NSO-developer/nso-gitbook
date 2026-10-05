@@ -103,5 +103,5 @@ The Alarm Manager producer package provides support for injection of
 
 ## Types
 
-- [AlarmSink](AlarmSink.md#s-AlarmSink)
-- [AlarmSinkCentral](AlarmSinkCentral.md#s-AlarmSinkCentral)
+- [AlarmSink](AlarmSink.md#cls-AlarmSink)
+- [AlarmSinkCentral](AlarmSinkCentral.md#cls-AlarmSinkCentral)

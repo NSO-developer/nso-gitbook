@@ -1,4 +1,4 @@
-<a id="s-FSM"></a>
+<a id="cls-FSM"></a>
 # FSM
 
 ```java
@@ -35,21 +35,21 @@ Generic finite state machine
 
 **Constructors**:
 
-- [FSM(String[][], String)](#s-FSM-1)
+- [FSM(String[][], String)](#m-fsm-a5e2325c2c06)
 
 **Methods**:
 
-- [addStateAction(String, StateAction)](#s-addStateAction)
-- [addTransAction(String, TransAction)](#s-addTransAction)
-- [event(String)](#s-event)
-- [event(String, Object)](#s-event-1)
-- [getCurrentStateName()](#s-getCurrentStateName)
-- [isState(String[])](#s-isState)
-- [main(String[])](#s-main)
+- [addStateAction(String, StateAction)](#m-addstateaction-c7b6b5eb5062)
+- [addTransAction(String, TransAction)](#m-addtransaction-fb3cf361b773)
+- [event(String)](#m-event-35c2a3878e07)
+- [event(String, Object)](#m-event-c2c97f01bc7c)
+- [getCurrentStateName()](#m-getcurrentstatename-ca0e5e591731)
+- [isState(String[])](#m-isstate-fb89c494ed4d)
+- [main(String[])](#m-main-1503518a8568)
 
 ## Constructors
 
-<a id="s-FSM-1"></a>
+<a id="m-fsm-a5e2325c2c06"></a>
 ### FSM(String[][], String)
 
 ```java
@@ -67,14 +67,14 @@ Constructor for the FSM
 
 ## Methods
 
-<a id="s-addStateAction"></a>
+<a id="m-addstateaction-c7b6b5eb5062"></a>
 ### addStateAction(String, StateAction)
 
 ```java
 public void addStateAction(String stateName, com.tailf.ncs.ctrl.fsm.StateAction action)
 ```
 
-Types: [StateAction](StateAction.md#s-StateAction)
+Types: [StateAction](StateAction.md#cls-StateAction)
 
 Add state action callback
 
@@ -83,14 +83,14 @@ Add state action callback
 - `String stateName` - name of the state for the callback
 - `com.tailf.ncs.ctrl.fsm.StateAction action` - callback interface instance
 
-<a id="s-addTransAction"></a>
+<a id="m-addtransaction-fb3cf361b773"></a>
 ### addTransAction(String, TransAction)
 
 ```java
 public void addTransAction(String transName, com.tailf.ncs.ctrl.fsm.TransAction action)
 ```
 
-Types: [TransAction](TransAction.md#s-TransAction)
+Types: [TransAction](TransAction.md#cls-TransAction)
 
 Add transition event callback
 
@@ -99,7 +99,7 @@ Add transition event callback
 - `String transName` - name of the transition event
 - `com.tailf.ncs.ctrl.fsm.TransAction action` - callback interface instance
 
-<a id="s-event"></a>
+<a id="m-event-35c2a3878e07"></a>
 ### event(String)
 
 ```java
@@ -118,7 +118,7 @@ Sent an transition event to the FSM
 
 - `Exception`
 
-<a id="s-event-1"></a>
+<a id="m-event-c2c97f01bc7c"></a>
 ### event(String, Object)
 
 ```java
@@ -140,7 +140,7 @@ Sent an transition event to the FSM
 
 - `Exception`
 
-<a id="s-getCurrentStateName"></a>
+<a id="m-getcurrentstatename-ca0e5e591731"></a>
 ### getCurrentStateName()
 
 ```java
@@ -151,7 +151,7 @@ Get current state
 
 **Returns:** current stateName
 
-<a id="s-isState"></a>
+<a id="m-isstate-fb89c494ed4d"></a>
 ### isState(String[])
 
 ```java
@@ -166,7 +166,7 @@ Check if current state is one of named states
 
 **Returns:** true if current state is one of named states
 
-<a id="s-main"></a>
+<a id="m-main-1503518a8568"></a>
 ### main(String[])
 
 ```java

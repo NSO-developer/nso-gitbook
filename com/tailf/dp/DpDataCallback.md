@@ -1,4 +1,4 @@
-<a id="s-DpDataCallback"></a>
+<a id="cls-DpDataCallback"></a>
 # DpDataCallback
 
 ```java
@@ -7,58 +7,58 @@ public interface com.tailf.dp.DpDataCallback
 
 This interface is used for the user data callbacks.
 
-**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#s-registerAnnotatedCallbacks)
+**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
 
 **Fields**:
 
-- [M_ALL](#s-M_ALL)
-- [M_CREATE](#s-M_CREATE)
-- [M_EXISTS_OPTIONAL](#s-M_EXISTS_OPTIONAL)
-- [M_GET_ATTRS](#s-M_GET_ATTRS)
-- [M_GET_CASE](#s-M_GET_CASE)
-- [M_GET_ELEM](#s-M_GET_ELEM)
-- [M_GET_NEXT](#s-M_GET_NEXT)
-- [M_GET_NEXT_OBJECT](#s-M_GET_NEXT_OBJECT)
-- [M_GET_OBJECT](#s-M_GET_OBJECT)
-- [M_MOVE_AFTER](#s-M_MOVE_AFTER)
-- [M_NUM_INSTANCES](#s-M_NUM_INSTANCES)
-- [M_REMOVE](#s-M_REMOVE)
-- [M_SET_ATTR](#s-M_SET_ATTR)
-- [M_SET_CASE](#s-M_SET_CASE)
-- [M_SET_ELEM](#s-M_SET_ELEM)
-- [M_WANT_FILTER](#s-M_WANT_FILTER)
-- [M_WRITE_ALL](#s-M_WRITE_ALL)
+- [M_ALL](#m-M_ALL)
+- [M_CREATE](#m-M_CREATE)
+- [M_EXISTS_OPTIONAL](#m-M_EXISTS_OPTIONAL)
+- [M_GET_ATTRS](#m-M_GET_ATTRS)
+- [M_GET_CASE](#m-M_GET_CASE)
+- [M_GET_ELEM](#m-M_GET_ELEM)
+- [M_GET_NEXT](#m-M_GET_NEXT)
+- [M_GET_NEXT_OBJECT](#m-M_GET_NEXT_OBJECT)
+- [M_GET_OBJECT](#m-M_GET_OBJECT)
+- [M_MOVE_AFTER](#m-M_MOVE_AFTER)
+- [M_NUM_INSTANCES](#m-M_NUM_INSTANCES)
+- [M_REMOVE](#m-M_REMOVE)
+- [M_SET_ATTR](#m-M_SET_ATTR)
+- [M_SET_CASE](#m-M_SET_CASE)
+- [M_SET_ELEM](#m-M_SET_ELEM)
+- [M_WANT_FILTER](#m-M_WANT_FILTER)
+- [M_WRITE_ALL](#m-M_WRITE_ALL)
 
 **Methods**:
 
-- [callpoint()](#s-callpoint)
-- [create(DpTrans, ConfObject[])](#s-create)
-- [existsOptional(DpTrans, ConfObject[])](#s-existsOptional)
-- [getAttrs(DpTrans, ConfObject[], List<ConfAttributeValue>)](#s-getAttrs)
-- [getCase(DpTrans, ConfObject[], ConfObject[])](#s-getCase)
-- [getElem(DpTrans, ConfObject[])](#s-getElem)
-- [getIteratorKey(DpTrans, ConfObject[], Object)](#s-getIteratorKey)
-- [getIteratorObject(DpTrans, ConfObject[], Object)](#s-getIteratorObject)
-- [getIteratorObjectList(DpTrans, ConfObject[], Object, Iterator<? extends Object>)](#s-getIteratorObjectList)
-- [getObject(DpTrans, ConfObject[])](#s-getObject)
-- [iterator(DpTrans, ConfObject[])](#s-iterator)
-- [iterator(DpTrans, ConfObject[], ConfFindNextType, ConfKey)](#s-iterator-1)
-- [iterator(DpTrans, ConfObject[], ConfFindNextType, ConfKey, DpListFilter)](#s-iterator-2)
-- [iterator(DpTrans, ConfObject[], DpListFilter)](#s-iterator-3)
-- [mask()](#s-mask)
-- [moveAfter(DpTrans, ConfObject[], ConfKey)](#s-moveAfter)
-- [numInstances(DpTrans, ConfObject[])](#s-numInstances)
-- [remove(DpTrans, ConfObject[])](#s-remove)
-- [setAttr(DpTrans, ConfObject[], ConfAttributeValue)](#s-setAttr)
-- [setCase(DpTrans, ConfObject[], ConfObject[], ConfTag)](#s-setCase)
-- [setElem(DpTrans, ConfObject[], ConfValue)](#s-setElem)
-- [writeAll(DpTrans, ConfObject[])](#s-writeAll)
+- [callpoint()](#m-callpoint-d6336403521b)
+- [create(DpTrans, ConfObject[])](#m-create-b5264b1d26e2)
+- [existsOptional(DpTrans, ConfObject[])](#m-existsoptional-3a4437a2a54a)
+- [getAttrs(DpTrans, ConfObject[], List<ConfAttributeValue>)](#m-getattrs-47ef46821576)
+- [getCase(DpTrans, ConfObject[], ConfObject[])](#m-getcase-24568d257ce7)
+- [getElem(DpTrans, ConfObject[])](#m-getelem-baf9006121df)
+- [getIteratorKey(DpTrans, ConfObject[], Object)](#m-getiteratorkey-6df7c38f65f8)
+- [getIteratorObject(DpTrans, ConfObject[], Object)](#m-getiteratorobject-425632c26c31)
+- [getIteratorObjectList(DpTrans, ConfObject[], Object, Iterator<? extends Object>)](#m-getiteratorobjectlist-17a0707464f1)
+- [getObject(DpTrans, ConfObject[])](#m-getobject-b2d87f9b9270)
+- [iterator(DpTrans, ConfObject[])](#m-iterator-89c62926f3e8)
+- [iterator(DpTrans, ConfObject[], ConfFindNextType, ConfKey)](#m-iterator-5d250fbe6a8b)
+- [iterator(DpTrans, ConfObject[], ConfFindNextType, ConfKey, DpListFilter)](#m-iterator-b1da1a451977)
+- [iterator(DpTrans, ConfObject[], DpListFilter)](#m-iterator-02bb74b2989b)
+- [mask()](#m-mask-24c2fa29c6af)
+- [moveAfter(DpTrans, ConfObject[], ConfKey)](#m-moveafter-023d2bce078c)
+- [numInstances(DpTrans, ConfObject[])](#m-numinstances-71fd723ecab5)
+- [remove(DpTrans, ConfObject[])](#m-remove-93340909c9a0)
+- [setAttr(DpTrans, ConfObject[], ConfAttributeValue)](#m-setattr-656af041deec)
+- [setCase(DpTrans, ConfObject[], ConfObject[], ConfTag)](#m-setcase-430d4dbe7c83)
+- [setElem(DpTrans, ConfObject[], ConfValue)](#m-setelem-8a5e46811f6e)
+- [writeAll(DpTrans, ConfObject[])](#m-writeall-a4604e96718c)
 
 ## Fields
 
-<a id="s-M_ALL"></a>
+<a id="m-M_ALL"></a>
 ### M_ALL
 
 ```java
@@ -67,53 +67,53 @@ public static final int M_ALL = 2047;
 
 Bit flag for all flags
 
-<a id="s-M_CREATE"></a>
+<a id="m-M_CREATE"></a>
 ### M_CREATE
 
 ```java
 public static final int M_CREATE = 16;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#create(DpTrans,ConfObject[])` method.
 
-<a id="s-M_EXISTS_OPTIONAL"></a>
+<a id="m-M_EXISTS_OPTIONAL"></a>
 ### M_EXISTS_OPTIONAL
 
 ```java
 public static final int M_EXISTS_OPTIONAL = 1;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#existsOptional(DpTrans,ConfObject[])` method.
 
-<a id="s-M_GET_ATTRS"></a>
+<a id="m-M_GET_ATTRS"></a>
 ### M_GET_ATTRS
 
 ```java
 public static final int M_GET_ATTRS = 2048;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#getAttrs(DpTrans, ConfObject[], List)` method.
 
-<a id="s-M_GET_CASE"></a>
+<a id="m-M_GET_CASE"></a>
 ### M_GET_CASE
 
 ```java
 public static final int M_GET_CASE = 512;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans)
+Bit flag for the `DpTrans#getCase(DpTrans, ConfObject[], ConfObject[])`
  method.
 
-<a id="s-M_GET_ELEM"></a>
+<a id="m-M_GET_ELEM"></a>
 ### M_GET_ELEM
 
 ```java
 public static final int M_GET_ELEM = 2;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#getElem(DpTrans,ConfObject[])` method.
 
-<a id="s-M_GET_NEXT"></a>
+<a id="m-M_GET_NEXT"></a>
 ### M_GET_NEXT
 
 ```java
@@ -121,11 +121,11 @@ public static final int M_GET_NEXT = 4;
 ```
 
 Bit flag for getting the next key for an element using an iterator
- retrieved from the [`DpTrans`](DpTrans.md#s-DpTrans) method, and
+ retrieved from the `DpTrans#iterator(DpTrans,ConfObject[])` method, and
  converting the Java object into a key with the
- [`DpTrans`](DpTrans.md#s-DpTrans) method.
+ `DpTrans#getIteratorKey(DpTrans, ConfObject[], Object)` method.
 
-<a id="s-M_GET_NEXT_OBJECT"></a>
+<a id="m-M_GET_NEXT_OBJECT"></a>
 ### M_GET_NEXT_OBJECT
 
 ```java
@@ -133,48 +133,48 @@ public static final int M_GET_NEXT_OBJECT = 256;
 ```
 
 Bit flag for getting the next object using an iterator retrieved from the
- [`DpTrans`](DpTrans.md#s-DpTrans) method, and converting the Java
+ `DpTrans#iterator(DpTrans,ConfObject[])` method, and converting the Java
  object into an array of ConfValues with the
- [`DpTrans`](DpTrans.md#s-DpTrans) method.
+ `DpTrans#getIteratorObject(DpTrans, ConfObject[], Object)` method.
 
-<a id="s-M_GET_OBJECT"></a>
+<a id="m-M_GET_OBJECT"></a>
 ### M_GET_OBJECT
 
 ```java
 public static final int M_GET_OBJECT = 128;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#getObject(DpTrans,ConfObject[])` method.
 
-<a id="s-M_MOVE_AFTER"></a>
+<a id="m-M_MOVE_AFTER"></a>
 ### M_MOVE_AFTER
 
 ```java
 public static final int M_MOVE_AFTER = 8192;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans)
+Bit flag for the `DpTrans#moveAfter(DpTrans, ConfObject[], ConfKey)`
  method.
 
-<a id="s-M_NUM_INSTANCES"></a>
+<a id="m-M_NUM_INSTANCES"></a>
 ### M_NUM_INSTANCES
 
 ```java
 public static final int M_NUM_INSTANCES = 64;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#numInstances(DpTrans,ConfObject[])` method.
 
-<a id="s-M_REMOVE"></a>
+<a id="m-M_REMOVE"></a>
 ### M_REMOVE
 
 ```java
 public static final int M_REMOVE = 32;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#remove(DpTrans,ConfObject[])` method.
 
-<a id="s-M_SET_ATTR"></a>
+<a id="m-M_SET_ATTR"></a>
 ### M_SET_ATTR
 
 ```java
@@ -182,9 +182,9 @@ public static final int M_SET_ATTR = 4096;
 ```
 
 Bit flag for the
- [`DpTrans`](DpTrans.md#s-DpTrans) method.
+ `DpTrans#setAttr(DpTrans, ConfObject[], ConfAttributeValue)` method.
 
-<a id="s-M_SET_CASE"></a>
+<a id="m-M_SET_CASE"></a>
 ### M_SET_CASE
 
 ```java
@@ -192,18 +192,18 @@ public static final int M_SET_CASE = 1024;
 ```
 
 Bit flag for the
- [`DpTrans`](DpTrans.md#s-DpTrans) method.
+ `DpTrans#setCase(DpTrans, ConfObject[], ConfObject[], ConfTag)` method.
 
-<a id="s-M_SET_ELEM"></a>
+<a id="m-M_SET_ELEM"></a>
 ### M_SET_ELEM
 
 ```java
 public static final int M_SET_ELEM = 8;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#setElem(DpTrans,ConfObject[],ConfValue)` method.
 
-<a id="s-M_WANT_FILTER"></a>
+<a id="m-M_WANT_FILTER"></a>
 ### M_WANT_FILTER
 
 ```java
@@ -212,19 +212,19 @@ public static final int M_WANT_FILTER = 131072;
 
 Bit flag for indicating that filters are wanted.
 
-<a id="s-M_WRITE_ALL"></a>
+<a id="m-M_WRITE_ALL"></a>
 ### M_WRITE_ALL
 
 ```java
 public static final int M_WRITE_ALL = 16384;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#writeAll(DpTrans, ConfObject[])` method.
 
 
 ## Methods
 
-<a id="s-callpoint"></a>
+<a id="m-callpoint-d6336403521b"></a>
 ### callpoint()
 
 ```java
@@ -233,7 +233,7 @@ public abstract String callpoint()
 
 The name of the callpoint
 
-<a id="s-create"></a>
+<a id="m-create-b5264b1d26e2"></a>
 ### create(DpTrans, ConfObject[])
 
 ```java
@@ -244,7 +244,7 @@ public abstract int create(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback creates a new presence container, list entry or empty leaf.
  In the case of the "servers" data model, this function need to create a
@@ -261,7 +261,7 @@ This callback creates a new presence container, list entry or empty leaf.
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-existsOptional"></a>
+<a id="m-existsoptional-3a4437a2a54a"></a>
 ### existsOptional(DpTrans, ConfObject[])
 
 ```java
@@ -272,7 +272,7 @@ public abstract boolean existsOptional(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 If we have presence containers or optional leafs (empty leafs) without a
  type, we cannot use the getElem() callback to read such a leaf - since
@@ -297,7 +297,7 @@ If we have presence containers or optional leafs (empty leafs) without a
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-getAttrs"></a>
+<a id="m-getattrs-47ef46821576"></a>
 ### getAttrs(DpTrans, ConfObject[], List<ConfAttributeValue>)
 
 ```java
@@ -309,7 +309,7 @@ public abstract int getAttrs(
     throws com.tailf.dp.DpCallbackException, IllegalArgumentException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfAttributeValue](../conf/ConfAttributeValue.md#s-ConfAttributeValue), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfAttributeValue](../conf/ConfAttributeValue.md#cls-ConfAttributeValue), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback only needs to be implemented for callpoints specified for
  configuration data, and only if attributes are enabled in the server
@@ -318,11 +318,11 @@ This callback only needs to be implemented for callpoints specified for
  These are the
  currently supported attributes:
 
- [`ConfAttributeType`](../conf/ConfAttributeType.md#s-ConfAttributeType)
+ [`ConfAttributeType#TAGS`](../conf/ConfAttributeType.md#m-TAGS)
  (values are ConfList of ConfBuf)
- [`ConfAttributeType`](../conf/ConfAttributeType.md#s-ConfAttributeType) (value is ConfBuf)
- [`ConfAttributeType`](../conf/ConfAttributeType.md#s-ConfAttributeType) (not used)
- [`ConfAttributeType`](../conf/ConfAttributeType.md#s-ConfAttributeType)
+ [`ConfAttributeType#ANNOTATION`](../conf/ConfAttributeType.md#m-ANNOTATION) (value is ConfBuf)
+ [`ConfAttributeType#INACTIVE`](../conf/ConfAttributeType.md#m-INACTIVE) (not used)
+ [`ConfAttributeType#ORIGIN`](../conf/ConfAttributeType.md#m-ORIGIN)
  (value is Confidentityref)
 
  The attrs parameter is an list of ConfAttributeValue objects with
@@ -333,10 +333,10 @@ This callback only needs to be implemented for callpoints specified for
  IllegalArgumentException, otherwise it should set values to the elements
  of the attrs list, or even add attributes if the list was empty.
 
- Must return [`Conf`](../conf/Conf.md#s-Conf) on success or
- [`Conf`](../conf/Conf.md#s-Conf).
+ Must return [`Conf#REPLY_OK`](../conf/Conf.md#m-REPLY_OK) on success or
+ [`Conf#REPLY_DELAYED_RESPONSE`](../conf/Conf.md#m-REPLY_DELAYED_RESPONSE).
 
- On error a [`DpCallbackException`](DpCallbackException.md#s-DpCallbackException) should be thrown
+ On error a [`DpCallbackException`](DpCallbackException.md#cls-DpCallbackException) should be thrown
 
 **Parameters**
 
@@ -351,7 +351,7 @@ This callback only needs to be implemented for callpoints specified for
 
 - `DpCallbackException` - on unsuccessful call
 
-<a id="s-getCase"></a>
+<a id="m-getcase-24568d257ce7"></a>
 ### getCase(DpTrans, ConfObject[], ConfObject[])
 
 ```java
@@ -363,7 +363,7 @@ public abstract com.tailf.conf.ConfObject getCase(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [DpTrans](DpTrans.md#s-DpTrans), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback method needs to return the currently chosen 'case' for a
  'choice' construct. The choice construct is an array of ConfTag values.
@@ -387,7 +387,7 @@ This callback method needs to return the currently chosen 'case' for a
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-getElem"></a>
+<a id="m-getelem-baf9006121df"></a>
 ### getElem(DpTrans, ConfObject[])
 
 ```java
@@ -398,11 +398,11 @@ public abstract com.tailf.conf.ConfValue getElem(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback method needs to return a specific leaf value.
 
- The callback  must return a [`ConfValue`](../conf/ConfValue.md#s-ConfValue) on
+ The callback  must return a [`ConfValue`](../conf/ConfValue.md#cls-ConfValue) on
  success. The implementation of `getElem` must
  be prepared to return all the leafs including the key(s).
 
@@ -415,8 +415,8 @@ This callback method needs to return a specific leaf value.
 
 - `com.tailf.dp.DpTrans trans` - Transaction
 - `com.tailf.conf.ConfObject[] kp` - The keypath structured as a reversed array of
-           [`ConfTag`](../conf/ConfTag.md#s-ConfTag) and/or
-           [`ConfKey`](../conf/ConfKey.md#s-ConfKey) objects
+           [`ConfTag`](../conf/ConfTag.md#cls-ConfTag) and/or
+           [`ConfKey`](../conf/ConfKey.md#cls-ConfKey) objects
 
 **Returns:** The value of the element
 
@@ -424,7 +424,7 @@ This callback method needs to return a specific leaf value.
 
 - `DpCallbackException` - Callback method failure.
 
-<a id="s-getIteratorKey"></a>
+<a id="m-getiteratorkey-6df7c38f65f8"></a>
 ### getIteratorKey(DpTrans, ConfObject[], Object)
 
 ```java
@@ -436,7 +436,7 @@ public abstract com.tailf.conf.ConfKey getIteratorKey(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ConfKey](../conf/ConfKey.md#s-ConfKey), [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [ConfKey](../conf/ConfKey.md#cls-ConfKey), [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 The following callback is used with the iterators above. For each object
  returned by the iterator the getKey method will be invoked which must
@@ -454,7 +454,7 @@ The following callback is used with the iterators above. For each object
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-getIteratorObject"></a>
+<a id="m-getiteratorobject-425632c26c31"></a>
 ### getIteratorObject(DpTrans, ConfObject[], Object)
 
 ```java
@@ -466,7 +466,7 @@ public abstract com.tailf.conf.ConfObject[] getIteratorObject(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [DpTrans](DpTrans.md#s-DpTrans), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 The following callback is used with the iterators above.
  For each object returned by the iterator, the
@@ -474,11 +474,11 @@ The following callback is used with the iterators above.
  return either of the following:
 
 
-- An array of [`ConfValue`](../conf/ConfValue.md#s-ConfValue)s describing the object
-    - An array of [`ConfXMLParam`](../conf/ConfXMLParam.md#s-ConfXMLParam)s describing the
+- An array of [`ConfValue`](../conf/ConfValue.md#cls-ConfValue)s describing the object
+    - An array of [`ConfXMLParam`](../conf/ConfXMLParam.md#cls-ConfXMLParam)s describing the
       object
  If a ConfValue array is used, unset values must be represented by a
- [`ConfNoExists`](../conf/ConfNoExists.md#s-ConfNoExists) element. Each list contained within
+ [`ConfNoExists`](../conf/ConfNoExists.md#cls-ConfNoExists) element. Each list contained within
  the object must also be represented by a single ConfNoExists, regardless
  of whether it contains any elements or not. If a ConfXMLParam array is
  used, lists and missing values should simply be omitted from the array.
@@ -495,7 +495,7 @@ The following callback is used with the iterators above.
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-getIteratorObjectList"></a>
+<a id="m-getiteratorobjectlist-17a0707464f1"></a>
 ### getIteratorObjectList(DpTrans, ConfObject[], Object, Iterator<? extends Object>)
 
 ```java
@@ -508,7 +508,7 @@ public abstract java.util.List<com.tailf.conf.ConfObject[]> getIteratorObjectLis
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [DpTrans](DpTrans.md#s-DpTrans), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback is used in place of getIteratorObject when a
  `List` of objects is requested rather than a single instance.
@@ -520,8 +520,8 @@ This callback is used in place of getIteratorObject when a
  first in the list. An arbitrary number of additional objects can then be
  retrieved using the iterator.
 
- The returned list should contain either [`ConfValue`](../conf/ConfValue.md#s-ConfValue) arrays or
- [`ConfXMLParam`](../conf/ConfXMLParam.md#s-ConfXMLParam) arrays. See
+ The returned list should contain either [`ConfValue`](../conf/ConfValue.md#cls-ConfValue) arrays or
+ [`ConfXMLParam`](../conf/ConfXMLParam.md#cls-ConfXMLParam) arrays. See
  `#getIteratorObject` for more information on how to format
  the return values.
 
@@ -529,10 +529,10 @@ This callback is used in place of getIteratorObject when a
  Any item that is retrieved but not returned will be lost.
 
  To override the global object cache timeout for the response, return
- an object of the type [`NextObjectList`](NextObjectList.md#s-NextObjectList)ConfObject[], for
- example an instance of [`NextObjectArrayList`](NextObjectArrayList.md#s-NextObjectArrayList)ConfObject[]
+ an object of the type [`NextObjectList`](NextObjectList.md#cls-NextObjectList)ConfObject[], for
+ example an instance of [`NextObjectArrayList`](NextObjectArrayList.md#cls-NextObjectArrayList)ConfObject[]
  where you have set the desired timeout via the
- [`NextObjectArrayList`](NextObjectArrayList.md#s-NextObjectArrayList) method.
+ [`NextObjectArrayList#setTimeout`](NextObjectArrayList.md#m-settimeout-cbe758ecb5d8) method.
 
 
  For backwards compatibility reasons, you can return a
@@ -541,7 +541,7 @@ This callback is used in place of getIteratorObject when a
  will be in effect for the response.
 
  Also for backwards compatibility reasons, it is acceptable for this
- method to return a List[`ConfValue`](../conf/ConfValue.md#s-ConfValue)[] instead of a
+ method to return a List[`ConfValue`](../conf/ConfValue.md#cls-ConfValue)[] instead of a
  ListConfObject[].
 
 **Parameters**
@@ -558,7 +558,7 @@ This callback is used in place of getIteratorObject when a
 
 - `DpCallbackException` - Callback method fails
 
-<a id="s-getObject"></a>
+<a id="m-getobject-b2d87f9b9270"></a>
 ### getObject(DpTrans, ConfObject[])
 
 ```java
@@ -569,7 +569,7 @@ public abstract com.tailf.conf.ConfObject[] getObject(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [DpTrans](DpTrans.md#s-DpTrans), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 The purpose of the callback is to return an array of values,
  corresponding to a complete list entry in one swoop. The callback will
@@ -609,7 +609,7 @@ The purpose of the callback is to return an array of values,
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-iterator"></a>
+<a id="m-iterator-89c62926f3e8"></a>
 ### iterator(DpTrans, ConfObject[])
 
 ```java
@@ -620,7 +620,7 @@ public abstract java.util.Iterator<? extends Object> iterator(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback makes it possible for ConfD/NCS to traverse a set of list
  entries.
@@ -628,11 +628,11 @@ This callback makes it possible for ConfD/NCS to traverse a set of list
  This method is a specific java construct which is actually not
  registered on the server side. Instead it is a mandatory tool for the
  `GET_NEXT/GET_NEXT_OBJECT` functionality to work. If either the
- [`DpTrans`](DpTrans.md#s-DpTrans)
- or the [`DpTrans`](DpTrans.md#s-DpTrans) is
+ `DpTrans#getIteratorKey(DpTrans, ConfObject[], Object)`
+ or the `DpTrans#getIteratorObject(DpTrans, ConfObject[], Object)` is
  registered this method must also be registered.
 
- The Iterator is stored internally by [`Dp`](Dp.md#s-Dp) and
+ The Iterator is stored internally by [`Dp`](Dp.md#cls-Dp) and
  when a `GET_NEXT/GET_NEXT_OBJECT` request is issued the iterator
  is called to get the next element in the list.
 
@@ -651,7 +651,7 @@ This callback makes it possible for ConfD/NCS to traverse a set of list
 
 - `DpCallbackException` - if Callback method failed.
 
-<a id="s-iterator-1"></a>
+<a id="m-iterator-5d250fbe6a8b"></a>
 ### iterator(DpTrans, ConfObject[], ConfFindNextType, ConfKey)
 
 ```java
@@ -664,15 +664,16 @@ public abstract com.tailf.dp.DpDataFindNextIterator iterator(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDataFindNextIterator](DpDataFindNextIterator.md#s-DpDataFindNextIterator), [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfFindNextType](../conf/ConfFindNextType.md#s-ConfFindNextType), [ConfKey](../conf/ConfKey.md#s-ConfKey), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpDataFindNextIterator](DpDataFindNextIterator.md#cls-DpDataFindNextIterator), [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfFindNextType](../conf/ConfFindNextType.md#cls-ConfFindNextType), [ConfKey](../conf/ConfKey.md#cls-ConfKey), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This iterator method is a specialization of
- [`DpTrans`](DpTrans.md#s-DpTrans)
+ `DpTrans#iterator(DpTrans, ConfObject[])`
  in that it returns an extended iterator i.e. DpFindNextIterator.
 
  This iterator does the same job as the normal Java Iterator
  but it also has a
- [`DpDataFindNextIterator`](DpDataFindNextIterator.md#s-DpDataFindNextIterator)
+ [`DpDataFindNextIterator#findNext(DpTrans,
+         ConfObject[], ConfFindNextType, ConfKey)`](DpDataFindNextIterator.md#m-findnext-76a998cf9bff)
  method that is called if FIND_NEXT/FIND_NEXT_OBJECT is called.
 
  Note that this iterator is expected to be able to traverse using
@@ -683,7 +684,7 @@ This iterator method is a specialization of
 
 - `com.tailf.dp.DpTrans trans` - DpTrans object for current transaction
 - `com.tailf.conf.ConfObject[] kp` - Keypath for the list that is subject for traversal
-- `com.tailf.conf.ConfFindNextType type` - [`ConfFindNextType`](../conf/ConfFindNextType.md#s-ConfFindNextType) describing the findNext behavior
+- `com.tailf.conf.ConfFindNextType type` - [`ConfFindNextType`](../conf/ConfFindNextType.md#cls-ConfFindNextType) describing the findNext behavior
 - `com.tailf.conf.ConfKey key` - ConfKey which constitutes the search criteria
 
 **Returns:** An Java Iterator subclass DpFindNextIterator.
@@ -693,7 +694,7 @@ This iterator method is a specialization of
 - `DpCallbackException` - if Callback method failed.
 - `DpCallbackException`
 
-<a id="s-iterator-2"></a>
+<a id="m-iterator-b1da1a451977"></a>
 ### iterator(DpTrans, ConfObject[], ConfFindNextType, ConfKey, DpListFilter)
 
 ```java
@@ -707,7 +708,7 @@ public abstract com.tailf.dp.DpDataFindNextIterator iterator(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpDataFindNextIterator](DpDataFindNextIterator.md#s-DpDataFindNextIterator), [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfFindNextType](../conf/ConfFindNextType.md#s-ConfFindNextType), [ConfKey](../conf/ConfKey.md#s-ConfKey), [DpListFilter](DpListFilter.md#s-DpListFilter), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpDataFindNextIterator](DpDataFindNextIterator.md#cls-DpDataFindNextIterator), [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfFindNextType](../conf/ConfFindNextType.md#cls-ConfFindNextType), [ConfKey](../conf/ConfKey.md#cls-ConfKey), [DpListFilter](DpListFilter.md#cls-DpListFilter), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 Variant of the DpDataFindNextIterator-returning iterator above that may
  receive a DpListFilter instance which can be used to filter the list.
@@ -722,7 +723,7 @@ Variant of the DpDataFindNextIterator-returning iterator above that may
 
 - `com.tailf.dp.DpTrans trans` - DpTrans object for current transaction
 - `com.tailf.conf.ConfObject[] kp` - Keypath for the list that is subject for traversal
-- `com.tailf.conf.ConfFindNextType type` - [`ConfFindNextType`](../conf/ConfFindNextType.md#s-ConfFindNextType) describing the findNext behavior
+- `com.tailf.conf.ConfFindNextType type` - [`ConfFindNextType`](../conf/ConfFindNextType.md#cls-ConfFindNextType) describing the findNext behavior
 - `com.tailf.conf.ConfKey key` - ConfKey which constitutes the search criteria
 - `com.tailf.dp.DpListFilter filter` - DpListFilter instance for filtering elements, or null
   if no filtering is requested
@@ -734,7 +735,7 @@ Variant of the DpDataFindNextIterator-returning iterator above that may
 - `DpCallbackException` - if Callback method failed.
 - `DpCallbackException`
 
-<a id="s-iterator-3"></a>
+<a id="m-iterator-02bb74b2989b"></a>
 ### iterator(DpTrans, ConfObject[], DpListFilter)
 
 ```java
@@ -746,7 +747,7 @@ public abstract java.util.Iterator<? extends Object> iterator(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [DpListFilter](DpListFilter.md#s-DpListFilter), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DpListFilter](DpListFilter.md#cls-DpListFilter), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 Variant of iterator that may receive a DpListFilter which can be used to
  filter the list. Filtering the list is optional, if it is not done by the
@@ -770,7 +771,7 @@ Variant of iterator that may receive a DpListFilter which can be used to
 
 - `DpCallbackException` - if Callback method failed.
 
-<a id="s-mask"></a>
+<a id="m-mask-24c2fa29c6af"></a>
 ### mask()
 
 ```java
@@ -797,7 +798,7 @@ Mask of flags for each method that is supported by this callback:
                              - `#M_WRITE_ALL`
                                - `#M_WANT_FILTER`
 
-<a id="s-moveAfter"></a>
+<a id="m-moveafter-023d2bce078c"></a>
 ### moveAfter(DpTrans, ConfObject[], ConfKey)
 
 ```java
@@ -809,7 +810,7 @@ public abstract int moveAfter(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfKey](../conf/ConfKey.md#s-ConfKey), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfKey](../conf/ConfKey.md#cls-ConfKey), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback only needs to be implemented if we provide configuration
  data that has YANG lists with a ordered-by user statement. The callback
@@ -834,7 +835,7 @@ This callback only needs to be implemented if we provide configuration
 
 - `DpCallbackException`
 
-<a id="s-numInstances"></a>
+<a id="m-numinstances-71fd723ecab5"></a>
 ### numInstances(DpTrans, ConfObject[])
 
 ```java
@@ -845,7 +846,7 @@ public abstract int numInstances(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback can optionally be implemented. The purpose is to return the
  number of instances of a list. Must return number of list entries on
@@ -862,7 +863,7 @@ This callback can optionally be implemented. The purpose is to return the
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-remove"></a>
+<a id="m-remove-93340909c9a0"></a>
 ### remove(DpTrans, ConfObject[])
 
 ```java
@@ -873,7 +874,7 @@ public abstract int remove(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback is used to remove a presence container, list entry or empty
  leaf and all its sub elements.
@@ -889,7 +890,7 @@ This callback is used to remove a presence container, list entry or empty
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-setAttr"></a>
+<a id="m-setattr-656af041deec"></a>
 ### setAttr(DpTrans, ConfObject[], ConfAttributeValue)
 
 ```java
@@ -901,7 +902,7 @@ public abstract int setAttr(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfAttributeValue](../conf/ConfAttributeValue.md#s-ConfAttributeValue), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfAttributeValue](../conf/ConfAttributeValue.md#cls-ConfAttributeValue), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback also only needs to be implemented for callpoints specified
  for configuration data, and only if attributes are enabled in the server
@@ -929,7 +930,7 @@ This callback also only needs to be implemented for callpoints specified
 
 - `DpCallbackException`
 
-<a id="s-setCase"></a>
+<a id="m-setcase-430d4dbe7c83"></a>
 ### setCase(DpTrans, ConfObject[], ConfObject[], ConfTag)
 
 ```java
@@ -942,7 +943,7 @@ public abstract int setCase(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfTag](../conf/ConfTag.md#s-ConfTag), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfTag](../conf/ConfTag.md#cls-ConfTag), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback method sets the currently chosen 'case' for a 'choice'
  construct. The choice construct is an array of ConfTag values.
@@ -962,7 +963,7 @@ This callback method sets the currently chosen 'case' for a 'choice'
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-setElem"></a>
+<a id="m-setelem-8a5e46811f6e"></a>
 ### setElem(DpTrans, ConfObject[], ConfValue)
 
 ```java
@@ -974,7 +975,7 @@ public abstract int setElem(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfValue](../conf/ConfValue.md#s-ConfValue), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfValue](../conf/ConfValue.md#cls-ConfValue), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback writes a data leaf. Note that an optional leaf (i.e. a leaf
  "type empty;" is created by a call to this method.
@@ -991,7 +992,7 @@ This callback writes a data leaf. Note that an optional leaf (i.e. a leaf
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-writeAll"></a>
+<a id="m-writeall-a4604e96718c"></a>
 ### writeAll(DpTrans, ConfObject[])
 
 ```java
@@ -1002,7 +1003,7 @@ public abstract int writeAll(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback method sets the currently chosen 'case' for a 'choice'
  construct.

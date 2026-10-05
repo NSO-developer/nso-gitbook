@@ -1,4 +1,4 @@
-<a id="s-MaapiMNsMissingException"></a>
+<a id="cls-MaapiMNsMissingException"></a>
 # MaapiMNsMissingException
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.maapi.MaapiMNsMissingException
     extends com.tailf.maapi.MaapiMNsException
 ```
 
-Types: [MaapiMNsException](MaapiMNsException.md#s-MaapiMNsException)
+Types: [MaapiMNsException](MaapiMNsException.md#cls-MaapiMNsException)
 
 Warnings raised from the maapi package
 
@@ -14,18 +14,18 @@ Warnings raised from the maapi package
 
 **Constructors**:
 
-- [MaapiMNsMissingException()](#s-MaapiMNsMissingException-1)
+- [MaapiMNsMissingException()](#m-maapimnsmissingexception-6576102659a7)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#s-getErrorCode) from ConfException
-- [getOpaque()](../conf/ConfException.md#s-getOpaque) from ConfException
-- [mk(ConfResponse)](MaapiException.md#s-mk) from MaapiException
-- [mk(ConfResponse, ConfPath)](MaapiException.md#s-mk-1) from MaapiException
+- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [mk(ConfResponse)](MaapiException.md#m-mk-de1cedfc6ea8) from MaapiException
+- [mk(ConfResponse, ConfPath)](MaapiException.md#m-mk-79e69ffbc022) from MaapiException
 
 ## Constructors
 
-<a id="s-MaapiMNsMissingException-1"></a>
+<a id="m-maapimnsmissingexception-6576102659a7"></a>
 ### MaapiMNsMissingException()
 
 ```java

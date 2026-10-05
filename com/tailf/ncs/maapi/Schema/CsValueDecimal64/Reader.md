@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,16 +10,16 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDecimal64.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getFractionDigits()](#s-getFractionDigits)
-- [getValue()](#s-getValue)
+- [getFractionDigits()](#m-getfractiondigits-57dce19c4ffe)
+- [getValue()](#m-getvalue-d93864668c40)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -47,14 +47,14 @@ Reader(
 
 ## Methods
 
-<a id="s-getFractionDigits"></a>
+<a id="m-getfractiondigits-57dce19c4ffe"></a>
 ### getFractionDigits()
 
 ```java
 public final byte getFractionDigits()
 ```
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java

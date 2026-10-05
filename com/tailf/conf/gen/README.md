@@ -2,10 +2,10 @@
 
 ## Types
 
-- [JavaCharStream](JavaCharStream.md#s-JavaCharStream)
-- [ParseException](ParseException.md#s-ParseException)
-- [PathParser](PathParser.md#s-PathParser)
-- [PathParserConstants](PathParserConstants.md#s-PathParserConstants)
-- [PathParserTokenManager](PathParserTokenManager.md#s-PathParserTokenManager)
-- [Token](Token.md#s-Token)
-- [TokenMgrError](TokenMgrError.md#s-TokenMgrError)
+- [JavaCharStream](JavaCharStream.md#cls-JavaCharStream)
+- [ParseException](ParseException.md#cls-ParseException)
+- [PathParser](PathParser.md#cls-PathParser)
+- [PathParserConstants](PathParserConstants.md#cls-PathParserConstants)
+- [PathParserTokenManager](PathParserTokenManager.md#cls-PathParserTokenManager)
+- [Token](Token.md#cls-Token)
+- [TokenMgrError](TokenMgrError.md#cls-TokenMgrError)

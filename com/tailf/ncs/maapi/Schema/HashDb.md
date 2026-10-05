@@ -1,4 +1,4 @@
-<a id="s-HashDb"></a>
+<a id="cls-HashDb"></a>
 # HashDb
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.HashDb
 
 **Constructors**:
 
-- [HashDb()](#s-HashDb-1)
+- [HashDb()](#m-hashdb-aeae4808dbf5)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](HashDb/Builder.md#s-Builder)
-- [Factory](HashDb/Factory.md#s-Factory)
-- [Reader](HashDb/Reader.md#s-Reader)
+- [Builder](HashDb/Builder.md#cls-Builder)
+- [Factory](HashDb/Factory.md#cls-Factory)
+- [Reader](HashDb/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-HashDb-1"></a>
+<a id="m-hashdb-aeae4808dbf5"></a>
 ### HashDb()
 
 ```java
@@ -35,25 +35,25 @@ public HashDb()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.HashDb.Factory factory = null;
 ```
 
-Types: [Factory](HashDb/Factory.md#s-Factory)
+Types: [Factory](HashDb/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.HashDb.Builder,com.tailf.ncs.maapi.Schema.HashDb.Reader> listFactory = null;
 ```
 
-Types: [Builder](HashDb/Builder.md#s-Builder), [Reader](HashDb/Reader.md#s-Reader)
+Types: [Builder](HashDb/Builder.md#cls-Builder), [Reader](HashDb/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](HashDb/Builder.md)
-- [Factory](HashDb/Factory.md)
-- [Reader](HashDb/Reader.md)
+- [Builder](HashDb/Builder.md#cls-Builder)
+- [Factory](HashDb/Factory.md#cls-Factory)
+- [Reader](HashDb/Reader.md#cls-Reader)

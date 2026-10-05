@@ -1,4 +1,4 @@
-<a id="s-DpNotifReplayCallback"></a>
+<a id="cls-DpNotifReplayCallback"></a>
 # DpNotifReplayCallback
 
 ```java
@@ -7,8 +7,8 @@ public interface com.tailf.dp.DpNotifReplayCallback
 
 This interface is used for the notifications replay callback.
 
- The [`DpNotifStream`](DpNotifStream.md#s-DpNotifStream) and
- [`DpNotifStream`](DpNotifStream.md#s-DpNotifStream) callbacks is called by ConfD/NCS to
+ The `DpNotifStream#getLogStartTime(DpNotifStream)` and
+ `DpNotifStream#getLogAgedTime(DpNotifStream)` callbacks is called by ConfD/NCS to
  find out
 
  a) the creation time of the current log and
@@ -45,19 +45,19 @@ This interface is used for the notifications replay callback.
  the start and stop arguments to determine start and stop positions in the
  log.
 
-**See also:** [`DpNotifStream`](DpNotifStream.md#s-DpNotifStream)
+**See also:** [`DpNotifStream`](DpNotifStream.md#cls-DpNotifStream)
 
 ## Members
 
 **Methods**:
 
-- [getLogAgedTime(DpNotifStream)](#s-getLogAgedTime)
-- [getLogStartTime(DpNotifStream)](#s-getLogStartTime)
-- [replay(DpNotifStream, ConfDatetime, ConfDatetime)](#s-replay)
+- [getLogAgedTime(DpNotifStream)](#m-getlogagedtime-52a6ca6114ae)
+- [getLogStartTime(DpNotifStream)](#m-getlogstarttime-19cd5e71b8f6)
+- [replay(DpNotifStream, ConfDatetime, ConfDatetime)](#m-replay-9189095b66c6)
 
 ## Methods
 
-<a id="s-getLogAgedTime"></a>
+<a id="m-getlogagedtime-52a6ca6114ae"></a>
 ### getLogAgedTime(DpNotifStream)
 
 ```java
@@ -67,7 +67,7 @@ public abstract com.tailf.conf.ConfDatetime getLogAgedTime(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ConfDatetime](../conf/ConfDatetime.md#s-ConfDatetime), [DpNotifStream](DpNotifStream.md#s-DpNotifStream), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime), [DpNotifStream](DpNotifStream.md#cls-DpNotifStream), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 The callback is called by ConfD/NCS to find out the event time of the
  last notification aged out of the log, if any.
@@ -82,7 +82,7 @@ The callback is called by ConfD/NCS to find out the event time of the
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-getLogStartTime"></a>
+<a id="m-getlogstarttime-19cd5e71b8f6"></a>
 ### getLogStartTime(DpNotifStream)
 
 ```java
@@ -92,7 +92,7 @@ public abstract com.tailf.conf.ConfDatetime getLogStartTime(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ConfDatetime](../conf/ConfDatetime.md#s-ConfDatetime), [DpNotifStream](DpNotifStream.md#s-DpNotifStream), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime), [DpNotifStream](DpNotifStream.md#cls-DpNotifStream), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 The callback is called by ConfD/NCS to find out the log's current start
  time, relevant for replay requests.
@@ -107,7 +107,7 @@ The callback is called by ConfD/NCS to find out the log's current start
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-replay"></a>
+<a id="m-replay-9189095b66c6"></a>
 ### replay(DpNotifStream, ConfDatetime, ConfDatetime)
 
 ```java
@@ -119,7 +119,7 @@ public abstract void replay(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpNotifStream](DpNotifStream.md#s-DpNotifStream), [ConfDatetime](../conf/ConfDatetime.md#s-ConfDatetime), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpNotifStream](DpNotifStream.md#cls-DpNotifStream), [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 The replay() callback is called by ConfD/NCS to request replay. The
  stream argument must be saved by the application and used when sending

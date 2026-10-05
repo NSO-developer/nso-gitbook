@@ -1,4 +1,4 @@
-<a id="s-JJCalls"></a>
+<a id="cls-JJCalls"></a>
 # JJCalls
 
 **Package-private**
@@ -11,18 +11,18 @@ static final class com.tailf.conf.dbg.XPathAbrevGrammar.JJCalls
 
 **Constructors**:
 
-- [JJCalls()](#s-JJCalls-1)
+- [JJCalls()](#m-jjcalls-343e844686fb)
 
 **Fields**:
 
-- [arg](#s-arg)
-- [first](#s-first)
-- [gen](#s-gen)
-- [next](#s-next)
+- [arg](#m-arg)
+- [first](#m-first)
+- [gen](#m-gen)
+- [next](#m-next)
 
 ## Constructors
 
-<a id="s-JJCalls-1"></a>
+<a id="m-jjcalls-343e844686fb"></a>
 ### JJCalls()
 
 **Package-private**
@@ -34,7 +34,7 @@ JJCalls()
 
 ## Fields
 
-<a id="s-arg"></a>
+<a id="m-arg"></a>
 ### arg
 
 **Package-private**
@@ -43,7 +43,7 @@ JJCalls()
 int arg = null;
 ```
 
-<a id="s-first"></a>
+<a id="m-first"></a>
 ### first
 
 **Package-private**
@@ -52,9 +52,9 @@ int arg = null;
 com.tailf.conf.dbg.Token first = null;
 ```
 
-Types: [Token](../Token.md#s-Token)
+Types: [Token](../Token.md#cls-Token)
 
-<a id="s-gen"></a>
+<a id="m-gen"></a>
 ### gen
 
 **Package-private**
@@ -63,7 +63,7 @@ Types: [Token](../Token.md#s-Token)
 int gen = null;
 ```
 
-<a id="s-next"></a>
+<a id="m-next"></a>
 ### next
 
 **Package-private**
@@ -72,4 +72,4 @@ int gen = null;
 com.tailf.conf.dbg.XPathAbrevGrammar.JJCalls next = null;
 ```
 
-Types: [JJCalls](JJCalls.md#s-JJCalls)
+Types: [JJCalls](JJCalls.md#cls-JJCalls)

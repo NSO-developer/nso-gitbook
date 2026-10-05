@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,17 +10,17 @@ public static final class com.tailf.ncs.maapi.Schema.NameToHash.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getHash()](#s-getHash)
-- [getName()](#s-getName)
-- [hasName()](#s-hasName)
+- [getHash()](#m-gethash-7efe0716cf4b)
+- [getName()](#m-getname-2634b18b4a25)
+- [hasName()](#m-hasname-bfe6c334e0d1)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -48,21 +48,21 @@ Reader(
 
 ## Methods
 
-<a id="s-getHash"></a>
+<a id="m-gethash-7efe0716cf4b"></a>
 ### getHash()
 
 ```java
 public final int getHash()
 ```
 
-<a id="s-getName"></a>
+<a id="m-getname-2634b18b4a25"></a>
 ### getName()
 
 ```java
 public org.capnproto.Text.Reader getName()
 ```
 
-<a id="s-hasName"></a>
+<a id="m-hasname-bfe6c334e0d1"></a>
 ### hasName()
 
 ```java

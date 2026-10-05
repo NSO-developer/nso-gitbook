@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,23 +10,23 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getA1()](#s-getA1)
-- [getA2()](#s-getA2)
-- [getA3()](#s-getA3)
-- [getA4()](#s-getA4)
-- [getA5()](#s-getA5)
-- [getA6()](#s-getA6)
-- [getA7()](#s-getA7)
-- [getA8()](#s-getA8)
-- [getPrefix()](#s-getPrefix)
+- [getA1()](#m-geta1-f8b8009a6bc7)
+- [getA2()](#m-geta2-a28d45466763)
+- [getA3()](#m-geta3-330abd611894)
+- [getA4()](#m-geta4-fce3220b7c51)
+- [getA5()](#m-geta5-c33c7ae5b8bf)
+- [getA6()](#m-geta6-50491e3e5ce6)
+- [getA7()](#m-geta7-84843d409266)
+- [getA8()](#m-geta8-c03708d8a2bb)
+- [getPrefix()](#m-getprefix-9268091e0223)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -54,63 +54,63 @@ Reader(
 
 ## Methods
 
-<a id="s-getA1"></a>
+<a id="m-geta1-f8b8009a6bc7"></a>
 ### getA1()
 
 ```java
 public final short getA1()
 ```
 
-<a id="s-getA2"></a>
+<a id="m-geta2-a28d45466763"></a>
 ### getA2()
 
 ```java
 public final short getA2()
 ```
 
-<a id="s-getA3"></a>
+<a id="m-geta3-330abd611894"></a>
 ### getA3()
 
 ```java
 public final short getA3()
 ```
 
-<a id="s-getA4"></a>
+<a id="m-geta4-fce3220b7c51"></a>
 ### getA4()
 
 ```java
 public final short getA4()
 ```
 
-<a id="s-getA5"></a>
+<a id="m-geta5-c33c7ae5b8bf"></a>
 ### getA5()
 
 ```java
 public final short getA5()
 ```
 
-<a id="s-getA6"></a>
+<a id="m-geta6-50491e3e5ce6"></a>
 ### getA6()
 
 ```java
 public final short getA6()
 ```
 
-<a id="s-getA7"></a>
+<a id="m-geta7-84843d409266"></a>
 ### getA7()
 
 ```java
 public final short getA7()
 ```
 
-<a id="s-getA8"></a>
+<a id="m-geta8-c03708d8a2bb"></a>
 ### getA8()
 
 ```java
 public final short getA8()
 ```
 
-<a id="s-getPrefix"></a>
+<a id="m-getprefix-9268091e0223"></a>
 ### getPrefix()
 
 ```java

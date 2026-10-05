@@ -1,4 +1,4 @@
-<a id="s-NavuEventHandler"></a>
+<a id="cls-NavuEventHandler"></a>
 # NavuEventHandler
 
 ```java
@@ -79,11 +79,11 @@ This class represents the a running daemon where it provides the means
 
 
 
- A user provided implementation of a [`NavuEventCallback`](NavuEventCallback.md#s-NavuEventCallback) is
+ A user provided implementation of a [`NavuEventCallback`](NavuEventCallback.md#cls-NavuEventCallback) is
  registered with the
- [`NavuEventCallback`](NavuEventCallback.md#s-NavuEventCallback)
+ `NavuEventCallback#registerInterfaceCallback(String,String,NavuEventCallback)`
  method. Optionally a plain java pojo could be annotated
- with the annotation [`EventCallback`](annotations/EventCallback.md#s-EventCallback) and
+ with the annotation [`EventCallback`](annotations/EventCallback.md#cls-EventCallback) and
  registered the annotated instance with
  `#registerAnnotatedCallbacks(Object)`.
 
@@ -97,7 +97,7 @@ This class represents the a running daemon where it provides the means
 
  As soon as the notifications arrives the user implementation of the
  `NavuEventCallback`
- [`NavuEventCallback`](NavuEventCallback.md#s-NavuEventCallback) is invoked
+ [`NavuEventCallback#notifReceived(NavuContainer)`](NavuEventCallback.md#m-notifreceived-df06be623526) is invoked
  by the NavuEventHandler for the device and stream the callback
  is interested in.
 
@@ -110,35 +110,35 @@ This class represents the a running daemon where it provides the means
 
 **Constructors**:
 
-- [NavuEventHandler(SocketAddress, String)](#s-NavuEventHandler-1)
-- [NavuEventHandler(String, int, String)](#s-NavuEventHandler-2)
+- [NavuEventHandler(SocketAddress, String)](#m-navueventhandler-891bd346a2fa)
+- [NavuEventHandler(String, int, String)](#m-navueventhandler-e6148b2b8e5e)
 
 **Fields**:
 
-- [NOTIFICATION_EVENT_PATH](#s-NOTIFICATION_EVENT_PATH)
+- [NOTIFICATION_EVENT_PATH](#m-NOTIFICATION_EVENT_PATH)
 
 **Methods**:
 
-- [awaitStopped()](#s-awaitStopped)
-- [getCallbacks(String, String)](#s-getCallbacks)
-- [invokeNavuEventCallbacks(String, String, NavuNode)](#s-invokeNavuEventCallbacks)
-- [isRunning()](#s-isRunning)
-- [isStopped()](#s-isStopped)
-- [main(String[])](#s-main)
-- [registerAnnotatedCallbacks(Object)](#s-registerAnnotatedCallbacks)
-- [registerInterfaceCallback(String, String, NavuEventCallback)](#s-registerInterfaceCallback)
-- [run()](#s-run)
-- [start()](#s-start)
-- [stop()](#s-stop)
+- [awaitStopped()](#m-awaitstopped-07bdf4883d6b)
+- [getCallbacks(String, String)](#m-getcallbacks-cf69c24d830b)
+- [invokeNavuEventCallbacks(String, String, NavuNode)](#m-invokenavueventcallbacks-d6eb2ab2120a)
+- [isRunning()](#m-isrunning-02db4ec84a8d)
+- [isStopped()](#m-isstopped-9ec54eaf1bc2)
+- [main(String[])](#m-main-1503518a8568)
+- [registerAnnotatedCallbacks(Object)](#m-registerannotatedcallbacks-ffaebadbfc42)
+- [registerInterfaceCallback(String, String, NavuEventCallback)](#m-registerinterfacecallback-266c7a185b0e)
+- [run()](#m-run-b6dbda048863)
+- [start()](#m-start-79e12dafe9f8)
+- [stop()](#m-stop-a62ecc446f97)
 
 **Nested Types**:
 
-- [EventIterator](NavuEventHandler/EventIterator.md#s-EventIterator)
-- [InternalEventCB](NavuEventHandler/InternalEventCB.md#s-InternalEventCB)
+- [EventIterator](NavuEventHandler/EventIterator.md#cls-EventIterator)
+- [InternalEventCB](NavuEventHandler/InternalEventCB.md#cls-InternalEventCB)
 
 ## Constructors
 
-<a id="s-NavuEventHandler-1"></a>
+<a id="m-navueventhandler-891bd346a2fa"></a>
 ### NavuEventHandler(SocketAddress, String)
 
 ```java
@@ -149,7 +149,7 @@ public NavuEventHandler(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Create an instance of the NavuEventHandler with a
  SocketAddress with the address to NCS
@@ -159,7 +159,7 @@ Create an instance of the NavuEventHandler with a
 - `java.net.SocketAddress address` - The addres to NCS
 - `String notifSubscriberName`
 
-<a id="s-NavuEventHandler-2"></a>
+<a id="m-navueventhandler-e6148b2b8e5e"></a>
 ### NavuEventHandler(String, int, String)
 
 ```java
@@ -171,7 +171,7 @@ public NavuEventHandler(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Create an instance of the NavuEventHandler with a
  specified host and port.
@@ -185,7 +185,7 @@ Create an instance of the NavuEventHandler with a
 
 ## Fields
 
-<a id="s-NOTIFICATION_EVENT_PATH"></a>
+<a id="m-NOTIFICATION_EVENT_PATH"></a>
 ### NOTIFICATION_EVENT_PATH
 
 ```java
@@ -200,14 +200,14 @@ This path has been deprecated in the YANG model.
 
 ## Methods
 
-<a id="s-awaitStopped"></a>
+<a id="m-awaitstopped-07bdf4883d6b"></a>
 ### awaitStopped()
 
 ```java
 public void awaitStopped() throws InterruptedException
 ```
 
-<a id="s-getCallbacks"></a>
+<a id="m-getcallbacks-cf69c24d830b"></a>
 ### getCallbacks(String, String)
 
 ```java
@@ -217,14 +217,14 @@ protected java.util.List<com.tailf.ncs.NavuEventCallback> getCallbacks(
 )
 ```
 
-Types: [NavuEventCallback](NavuEventCallback.md#s-NavuEventCallback)
+Types: [NavuEventCallback](NavuEventCallback.md#cls-NavuEventCallback)
 
 **Parameters**
 
 - `String devName`
 - `String subName`
 
-<a id="s-invokeNavuEventCallbacks"></a>
+<a id="m-invokenavueventcallbacks-d6eb2ab2120a"></a>
 ### invokeNavuEventCallbacks(String, String, NavuNode)
 
 ```java
@@ -236,7 +236,7 @@ protected void invokeNavuEventCallbacks(
     throws com.tailf.ncs.NcsException
 ```
 
-Types: [NavuNode](../navu/NavuNode.md#s-NavuNode), [NcsException](NcsException.md#s-NcsException)
+Types: [NavuNode](../navu/NavuNode.md#cls-NavuNode), [NcsException](NcsException.md#cls-NcsException)
 
 **Parameters**
 
@@ -244,21 +244,21 @@ Types: [NavuNode](../navu/NavuNode.md#s-NavuNode), [NcsException](NcsException.m
 - `String subName`
 - `com.tailf.navu.NavuNode recievedNotif`
 
-<a id="s-isRunning"></a>
+<a id="m-isrunning-02db4ec84a8d"></a>
 ### isRunning()
 
 ```java
 public boolean isRunning()
 ```
 
-<a id="s-isStopped"></a>
+<a id="m-isstopped-9ec54eaf1bc2"></a>
 ### isStopped()
 
 ```java
 public boolean isStopped()
 ```
 
-<a id="s-main"></a>
+<a id="m-main-1503518a8568"></a>
 ### main(String[])
 
 ```java
@@ -294,14 +294,14 @@ The main method of the NavuEventHandler is a notification probe that
 
 - `String[] args`
 
-<a id="s-registerAnnotatedCallbacks"></a>
+<a id="m-registerannotatedcallbacks-ffaebadbfc42"></a>
 ### registerAnnotatedCallbacks(Object)
 
 ```java
 public void registerAnnotatedCallbacks(Object obj) throws com.tailf.ncs.NcsException
 ```
 
-Types: [NcsException](NcsException.md#s-NcsException)
+Types: [NcsException](NcsException.md#cls-NcsException)
 
 Method to register pojo classes as notification callbacks. This method
  expects the callback method in the pojo class to be annotated using the
@@ -334,7 +334,7 @@ Method to register pojo classes as notification callbacks. This method
 
 - `NcsException`
 
-<a id="s-registerInterfaceCallback"></a>
+<a id="m-registerinterfacecallback-266c7a185b0e"></a>
 ### registerInterfaceCallback(String, String, NavuEventCallback)
 
 ```java
@@ -345,7 +345,7 @@ public void registerInterfaceCallback(
 )
 ```
 
-Types: [NavuEventCallback](NavuEventCallback.md#s-NavuEventCallback)
+Types: [NavuEventCallback](NavuEventCallback.md#cls-NavuEventCallback)
 
 Method to register classes that implements the `NavuEventHandler`
  interface. This register method requires the `deviceName` and
@@ -362,14 +362,14 @@ Method to register classes that implements the `NavuEventHandler`
 - `com.tailf.ncs.NavuEventCallback callback` - User provided implementation of the
     NavuEventCallback.
 
-<a id="s-run"></a>
+<a id="m-run-b6dbda048863"></a>
 ### run()
 
 ```java
 public void run()
 ```
 
-<a id="s-start"></a>
+<a id="m-start-79e12dafe9f8"></a>
 ### start()
 
 ```java
@@ -387,7 +387,7 @@ Starts this `NavuEventHandler` to receive notifications.
  `CdbSubscriber` asynchronously, if the underlying
  subscriber is not has already started.
 
-<a id="s-stop"></a>
+<a id="m-stop-a62ecc446f97"></a>
 ### stop()
 
 ```java
@@ -412,5 +412,5 @@ Stop the underlying subscriber that this `NavuEventHandler`
 
 ## Nested Types
 
-- [EventIterator](NavuEventHandler/EventIterator.md)
-- [InternalEventCB](NavuEventHandler/InternalEventCB.md)
+- [EventIterator](NavuEventHandler/EventIterator.md#cls-EventIterator)
+- [InternalEventCB](NavuEventHandler/InternalEventCB.md#cls-InternalEventCB)

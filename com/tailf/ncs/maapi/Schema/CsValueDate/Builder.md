@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,33 +6,29 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDate.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getDay()](#s-getDay)
-- [getMonth()](#s-getMonth)
-- [getTimezone()](#s-getTimezone)
-- [getTimezoneMinutes()](#s-getTimezoneMinutes)
-- [getYear()](#s-getYear)
-- [setDay(byte)](#s-setDay)
-- [setMonth(byte)](#s-setMonth)
-- [setTimezone(byte)](#s-setTimezone)
-- [setTimezoneMinutes(byte)](#s-setTimezoneMinutes)
-- [setYear(short)](#s-setYear)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getDay()](#m-getday-3b07996cd5f6)
+- [getMonth()](#m-getmonth-3813513d5069)
+- [getTimezone()](#m-gettimezone-9573790f24e6)
+- [getTimezoneMinutes()](#m-gettimezoneminutes-b20d3de8d152)
+- [getYear()](#m-getyear-584af4457cda)
+- [setDay(byte)](#m-setday-2c873a29eed0)
+- [setMonth(byte)](#m-setmonth-b56a6d48db74)
+- [setTimezone(byte)](#m-settimezone-c58c111fac16)
+- [setTimezoneMinutes(byte)](#m-settimezoneminutes-69e0ed31afd1)
+- [setYear(short)](#m-setyear-ecdf80e7189d)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -58,51 +54,51 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDate.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getDay"></a>
+<a id="m-getday-3b07996cd5f6"></a>
 ### getDay()
 
 ```java
 public final byte getDay()
 ```
 
-<a id="s-getMonth"></a>
+<a id="m-getmonth-3813513d5069"></a>
 ### getMonth()
 
 ```java
 public final byte getMonth()
 ```
 
-<a id="s-getTimezone"></a>
+<a id="m-gettimezone-9573790f24e6"></a>
 ### getTimezone()
 
 ```java
 public final byte getTimezone()
 ```
 
-<a id="s-getTimezoneMinutes"></a>
+<a id="m-gettimezoneminutes-b20d3de8d152"></a>
 ### getTimezoneMinutes()
 
 ```java
 public final byte getTimezoneMinutes()
 ```
 
-<a id="s-getYear"></a>
+<a id="m-getyear-584af4457cda"></a>
 ### getYear()
 
 ```java
 public final short getYear()
 ```
 
-<a id="s-setDay"></a>
+<a id="m-setday-2c873a29eed0"></a>
 ### setDay(byte)
 
 ```java
@@ -113,7 +109,7 @@ public final void setDay(byte value)
 
 - `byte value`
 
-<a id="s-setMonth"></a>
+<a id="m-setmonth-b56a6d48db74"></a>
 ### setMonth(byte)
 
 ```java
@@ -124,7 +120,7 @@ public final void setMonth(byte value)
 
 - `byte value`
 
-<a id="s-setTimezone"></a>
+<a id="m-settimezone-c58c111fac16"></a>
 ### setTimezone(byte)
 
 ```java
@@ -135,7 +131,7 @@ public final void setTimezone(byte value)
 
 - `byte value`
 
-<a id="s-setTimezoneMinutes"></a>
+<a id="m-settimezoneminutes-69e0ed31afd1"></a>
 ### setTimezoneMinutes(byte)
 
 ```java
@@ -146,7 +142,7 @@ public final void setTimezoneMinutes(byte value)
 
 - `byte value`
 
-<a id="s-setYear"></a>
+<a id="m-setyear-ecdf80e7189d"></a>
 ### setYear(short)
 
 ```java

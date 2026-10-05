@@ -1,4 +1,4 @@
-<a id="s-CSChoice"></a>
+<a id="cls-CSChoice"></a>
 # CSChoice
 
 ```java
@@ -9,37 +9,37 @@ Class representing a Schema Choice
 
 **Related classes**
 
-- [MmapCSChoice](../../ncs/maapi/MmapCSChoice.md#s-MmapCSChoice)
+- [MmapCSChoice](../../ncs/maapi/MmapCSChoice.md#cls-MmapCSChoice)
 
 ## Members
 
 **Constructors**:
 
-- [CSChoice()](#s-CSChoice-1)
-- [CSChoice(int, String, CSSchema, int, CSNode, CSCase, CSChoice)](#s-CSChoice-2)
+- [CSChoice()](#m-cschoice-68f5778b1ef7)
+- [CSChoice(int, String, CSSchema, int, CSNode, CSCase, CSChoice)](#m-cschoice-c5a1557367a2)
 
 **Fields**:
 
-- [case0](#s-case0)
-- [defaultCase](#s-defaultCase)
+- [case0](#m-case0)
+- [defaultCase](#m-defaultCase)
 
 **Methods**:
 
-- [getCaseParent()](#s-getCaseParent)
-- [getCases()](#s-getCases)
-- [getDefaultCase()](#s-getDefaultCase)
-- [getMinOccurs()](#s-getMinOccurs)
-- [getNS()](#s-getNS)
-- [getNSHash()](#s-getNSHash)
-- [getParentNode()](#s-getParentNode)
-- [getSiblings()](#s-getSiblings)
-- [getTag()](#s-getTag)
-- [getTagHash()](#s-getTagHash)
-- [toString()](#s-toString)
+- [getCaseParent()](#m-getcaseparent-85381d0de39b)
+- [getCases()](#m-getcases-42abc2944fb1)
+- [getDefaultCase()](#m-getdefaultcase-fa7745cee0b4)
+- [getMinOccurs()](#m-getminoccurs-cac79959dff8)
+- [getNS()](#m-getns-3613c99d8888)
+- [getNSHash()](#m-getnshash-2129fb8b3cfe)
+- [getParentNode()](#m-getparentnode-452921385cc4)
+- [getSiblings()](#m-getsiblings-f467dd8b6a33)
+- [getTag()](#m-gettag-315f45956d6f)
+- [getTagHash()](#m-gettaghash-8f057919039c)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-CSChoice-1"></a>
+<a id="m-cschoice-68f5778b1ef7"></a>
 ### CSChoice()
 
 ```java
@@ -48,7 +48,7 @@ protected CSChoice()
 
 Constructor for CSChoice class
 
-<a id="s-CSChoice-2"></a>
+<a id="m-cschoice-c5a1557367a2"></a>
 ### CSChoice(int, String, CSSchema, int, CSNode, CSCase, CSChoice)
 
 ```java
@@ -63,7 +63,7 @@ public CSChoice(
 )
 ```
 
-Types: [CSSchema](CSSchema.md#s-CSSchema), [CSNode](CSNode.md#s-CSNode), [CSCase](CSCase.md#s-CSCase), [CSChoice](CSChoice.md#s-CSChoice)
+Types: [CSSchema](CSSchema.md#cls-CSSchema), [CSNode](CSNode.md#cls-CSNode), [CSCase](CSCase.md#cls-CSCase), [CSChoice](CSChoice.md#cls-CSChoice)
 
 **Parameters**
 
@@ -78,70 +78,70 @@ Types: [CSSchema](CSSchema.md#s-CSSchema), [CSNode](CSNode.md#s-CSNode), [CSCase
 
 ## Fields
 
-<a id="s-case0"></a>
+<a id="m-case0"></a>
 ### case0
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSCase case0 = null;
 ```
 
-Types: [CSCase](CSCase.md#s-CSCase)
+Types: [CSCase](CSCase.md#cls-CSCase)
 
-<a id="s-defaultCase"></a>
+<a id="m-defaultCase"></a>
 ### defaultCase
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSCase defaultCase = null;
 ```
 
-Types: [CSCase](CSCase.md#s-CSCase)
+Types: [CSCase](CSCase.md#cls-CSCase)
 
 
 ## Methods
 
-<a id="s-getCaseParent"></a>
+<a id="m-getcaseparent-85381d0de39b"></a>
 ### getCaseParent()
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSCase getCaseParent()
 ```
 
-Types: [CSCase](CSCase.md#s-CSCase)
+Types: [CSCase](CSCase.md#cls-CSCase)
 
 If this choice is defined as a case for another choice this method
  returns the case, otherwise null is returned.
 
 **Returns:** CsCase the case parent for this case if any
 
-<a id="s-getCases"></a>
+<a id="m-getcases-42abc2944fb1"></a>
 ### getCases()
 
 ```java
 public java.util.List<com.tailf.maapi.MaapiSchemas.CSCase> getCases()
 ```
 
-Types: [CSCase](CSCase.md#s-CSCase)
+Types: [CSCase](CSCase.md#cls-CSCase)
 
 get List of cases for this choice. Cases are represented by CSCase
  objects and the list is a list of CSCase objects accordingly
 
 **Returns:** List of cases
 
-<a id="s-getDefaultCase"></a>
+<a id="m-getdefaultcase-fa7745cee0b4"></a>
 ### getDefaultCase()
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSCase getDefaultCase()
 ```
 
-Types: [CSCase](CSCase.md#s-CSCase)
+Types: [CSCase](CSCase.md#cls-CSCase)
 
 get default case for the choice. The case is represented by a CSCase
  object
 
 **Returns:** CSCase default case or null if not defined
 
-<a id="s-getMinOccurs"></a>
+<a id="m-getminoccurs-cac79959dff8"></a>
 ### getMinOccurs()
 
 ```java
@@ -152,7 +152,7 @@ get MinOccurs for the choice
 
 **Returns:** int minOccurs
 
-<a id="s-getNS"></a>
+<a id="m-getns-3613c99d8888"></a>
 ### getNS()
 
 ```java
@@ -163,7 +163,7 @@ get namespace represented as string
 
 **Returns:** String namespace
 
-<a id="s-getNSHash"></a>
+<a id="m-getnshash-2129fb8b3cfe"></a>
 ### getNSHash()
 
 ```java
@@ -174,34 +174,34 @@ get namespace represented as hash value
 
 **Returns:** int hashvalue for the namespace
 
-<a id="s-getParentNode"></a>
+<a id="m-getparentnode-452921385cc4"></a>
 ### getParentNode()
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode getParentNode()
 ```
 
-Types: [CSNode](CSNode.md#s-CSNode)
+Types: [CSNode](CSNode.md#cls-CSNode)
 
 get parent node for the choice.
 
 **Returns:** CSNode parent node
 
-<a id="s-getSiblings"></a>
+<a id="m-getsiblings-f467dd8b6a33"></a>
 ### getSiblings()
 
 ```java
 public java.util.List<com.tailf.maapi.MaapiSchemas.CSChoice> getSiblings()
 ```
 
-Types: [CSChoice](CSChoice.md#s-CSChoice)
+Types: [CSChoice](CSChoice.md#cls-CSChoice)
 
 get List of sibling choices with the same parent node. The List is a
  list of CSChoices and includes the current choice.
 
 **Returns:** List of sibling choices
 
-<a id="s-getTag"></a>
+<a id="m-gettag-315f45956d6f"></a>
 ### getTag()
 
 ```java
@@ -212,7 +212,7 @@ get choice tag represented as string
 
 **Returns:** string tag
 
-<a id="s-getTagHash"></a>
+<a id="m-gettaghash-8f057919039c"></a>
 ### getTagHash()
 
 ```java
@@ -223,7 +223,7 @@ get choice tag represented as hash value
 
 **Returns:** int hashvalue for the tag
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

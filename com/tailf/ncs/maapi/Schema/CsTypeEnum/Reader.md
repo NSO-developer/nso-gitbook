@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,16 +10,16 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeEnum.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getValues()](#s-getValues)
-- [hasValues()](#s-hasValues)
+- [getValues()](#m-getvalues-06542a92d7fa)
+- [hasValues()](#m-hasvalues-64d4a87b971a)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -47,16 +47,16 @@ Reader(
 
 ## Methods
 
-<a id="s-getValues"></a>
+<a id="m-getvalues-06542a92d7fa"></a>
 ### getValues()
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.NameToHash.Reader> getValues()
 ```
 
-Types: [Reader](../NameToHash/Reader.md#s-Reader)
+Types: [Reader](../NameToHash/Reader.md#cls-Reader)
 
-<a id="s-hasValues"></a>
+<a id="m-hasvalues-64d4a87b971a"></a>
 ### hasValues()
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-ApplicationLifeCycle"></a>
+<a id="cls-ApplicationLifeCycle"></a>
 # ApplicationLifeCycle
 
 ```java
@@ -9,19 +9,19 @@ public class com.tailf.ncs.ctrl.ApplicationLifeCycle
 
 **Constructors**:
 
-- [ApplicationLifeCycle(NcsMain, ApplicationComponent, String)](#s-ApplicationLifeCycle-1)
+- [ApplicationLifeCycle(NcsMain, ApplicationComponent, String)](#m-applicationlifecycle-a7cd06963a3f)
 
 **Methods**:
 
-- [executeFinish()](#s-executeFinish)
-- [executeInit()](#s-executeInit)
-- [executeRun()](#s-executeRun)
-- [getFinishThread()](#s-getFinishThread)
-- [getInitError()](#s-getInitError)
+- [executeFinish()](#m-executefinish-948f271cdb79)
+- [executeInit()](#m-executeinit-90c55b7a9847)
+- [executeRun()](#m-executerun-bd9fb2d93200)
+- [getFinishThread()](#m-getfinishthread-cafe0239d0c3)
+- [getInitError()](#m-getiniterror-db29a0beb4a2)
 
 ## Constructors
 
-<a id="s-ApplicationLifeCycle-1"></a>
+<a id="m-applicationlifecycle-a7cd06963a3f"></a>
 ### ApplicationLifeCycle(NcsMain, ApplicationComponent, String)
 
 ```java
@@ -32,7 +32,7 @@ public ApplicationLifeCycle(
 )
 ```
 
-Types: [NcsMain](../NcsMain.md#s-NcsMain), [ApplicationComponent](../ApplicationComponent.md#s-ApplicationComponent)
+Types: [NcsMain](../NcsMain.md#cls-NcsMain), [ApplicationComponent](../ApplicationComponent.md#cls-ApplicationComponent)
 
 **Parameters**
 
@@ -45,7 +45,7 @@ Types: [NcsMain](../NcsMain.md#s-NcsMain), [ApplicationComponent](../Application
 
 ## Methods
 
-<a id="s-executeFinish"></a>
+<a id="m-executefinish-948f271cdb79"></a>
 ### executeFinish()
 
 **Package-private**
@@ -60,7 +60,7 @@ Triggers the execution of the ApplicationComponent.finish() method.
  The finish threads purpose is to release the executeThread and also
  calls interrupt on it.
 
-<a id="s-executeInit"></a>
+<a id="m-executeinit-90c55b7a9847"></a>
 ### executeInit()
 
 **Package-private**
@@ -73,7 +73,7 @@ Triggers the execution of the ApplicationComponent init() method
  Creates a "helper-thread" (new thread) and starts it
  in its Thread.run it executes the init method
 
-<a id="s-executeRun"></a>
+<a id="m-executerun-bd9fb2d93200"></a>
 ### executeRun()
 
 ```java
@@ -85,14 +85,14 @@ Triggers the execution of the ApplicationComponent.run() method.
  and execute executeThread.start within that thread i.e
  calls previously created executeThread ( in constructor ) .
 
-<a id="s-getFinishThread"></a>
+<a id="m-getfinishthread-cafe0239d0c3"></a>
 ### getFinishThread()
 
 ```java
 public Thread getFinishThread()
 ```
 
-<a id="s-getInitError"></a>
+<a id="m-getiniterror-db29a0beb4a2"></a>
 ### getInitError()
 
 ```java

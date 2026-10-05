@@ -1,4 +1,4 @@
-<a id="s-CsValueXmlTag"></a>
+<a id="cls-CsValueXmlTag"></a>
 # CsValueXmlTag
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.CsValueXmlTag
 
 **Constructors**:
 
-- [CsValueXmlTag()](#s-CsValueXmlTag-1)
+- [CsValueXmlTag()](#m-csvaluexmltag-9180b8e4fe2a)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](CsValueXmlTag/Builder.md#s-Builder)
-- [Factory](CsValueXmlTag/Factory.md#s-Factory)
-- [Reader](CsValueXmlTag/Reader.md#s-Reader)
+- [Builder](CsValueXmlTag/Builder.md#cls-Builder)
+- [Factory](CsValueXmlTag/Factory.md#cls-Factory)
+- [Reader](CsValueXmlTag/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-CsValueXmlTag-1"></a>
+<a id="m-csvaluexmltag-9180b8e4fe2a"></a>
 ### CsValueXmlTag()
 
 ```java
@@ -35,25 +35,25 @@ public CsValueXmlTag()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValueXmlTag.Factory factory = null;
 ```
 
-Types: [Factory](CsValueXmlTag/Factory.md#s-Factory)
+Types: [Factory](CsValueXmlTag/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueXmlTag.Builder,com.tailf.ncs.maapi.Schema.CsValueXmlTag.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsValueXmlTag/Builder.md#s-Builder), [Reader](CsValueXmlTag/Reader.md#s-Reader)
+Types: [Builder](CsValueXmlTag/Builder.md#cls-Builder), [Reader](CsValueXmlTag/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsValueXmlTag/Builder.md)
-- [Factory](CsValueXmlTag/Factory.md)
-- [Reader](CsValueXmlTag/Reader.md)
+- [Builder](CsValueXmlTag/Builder.md#cls-Builder)
+- [Factory](CsValueXmlTag/Factory.md#cls-Factory)
+- [Reader](CsValueXmlTag/Reader.md#cls-Reader)

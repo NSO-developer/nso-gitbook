@@ -1,4 +1,4 @@
-<a id="s-NotifHandlerInstance"></a>
+<a id="cls-NotifHandlerInstance"></a>
 # NotifHandlerInstance
 
 ```java
@@ -12,23 +12,23 @@ Helper class which holds handler and if applicable
 
 **Constructors**:
 
-- [NotifHandlerInstance(NotificationHandler, Object)](#s-NotifHandlerInstance-1)
+- [NotifHandlerInstance(NotificationHandler, Object)](#m-notifhandlerinstance-b39819cfd174)
 
 **Methods**:
 
-- [getOpaque()](#s-getOpaque)
-- [getSnmpNotificationHandler()](#s-getSnmpNotificationHandler)
+- [getOpaque()](#m-getopaque-92e4945ec92d)
+- [getSnmpNotificationHandler()](#m-getsnmpnotificationhandler-b29e570de0bc)
 
 ## Constructors
 
-<a id="s-NotifHandlerInstance-1"></a>
+<a id="m-notifhandlerinstance-b39819cfd174"></a>
 ### NotifHandlerInstance(NotificationHandler, Object)
 
 ```java
 public NotifHandlerInstance(com.tailf.ncs.snmp.snmp4j.NotificationHandler responder, Object opaque)
 ```
 
-Types: [NotificationHandler](NotificationHandler.md#s-NotificationHandler)
+Types: [NotificationHandler](NotificationHandler.md#cls-NotificationHandler)
 
 Default constructor
 
@@ -41,7 +41,7 @@ Default constructor
 
 ## Methods
 
-<a id="s-getOpaque"></a>
+<a id="m-getopaque-92e4945ec92d"></a>
 ### getOpaque()
 
 ```java
@@ -53,14 +53,14 @@ Retrieves the registered opaque object
 **Returns:** the registered opaque object
  (or null if not applicable)
 
-<a id="s-getSnmpNotificationHandler"></a>
+<a id="m-getsnmpnotificationhandler-b29e570de0bc"></a>
 ### getSnmpNotificationHandler()
 
 ```java
 public com.tailf.ncs.snmp.snmp4j.NotificationHandler getSnmpNotificationHandler()
 ```
 
-Types: [NotificationHandler](NotificationHandler.md#s-NotificationHandler)
+Types: [NotificationHandler](NotificationHandler.md#cls-NotificationHandler)
 
 Retrieves the registered Snmp notification handler
 

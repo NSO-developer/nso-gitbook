@@ -1,4 +1,4 @@
-<a id="s-ConfELong"></a>
+<a id="cls-ConfELong"></a>
 # ConfELong
 
 ```java
@@ -6,62 +6,62 @@ public class com.tailf.proto.ConfELong
     extends com.tailf.proto.ConfEObject
 ```
 
-Types: [ConfEObject](ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](ConfEObject.md#cls-ConfEObject)
 
 Provides a Java representation of E integral types. E does not distinguish
  between different integral types, however this class and its subclasses
- [`ConfEByte`](ConfEByte.md#s-ConfEByte), [`ConfEChar`](ConfEChar.md#s-ConfEChar), [`ConfEInt`](ConfEInt.md#s-ConfEInt), and
- [`ConfEShort`](ConfEShort.md#s-ConfEShort) attempt to map the E types onto the various Java integral
- types. Two additional classes, [`ConfEUInt`](ConfEUInt.md#s-ConfEUInt) and [`ConfEUShort`](ConfEUShort.md#s-ConfEUShort) are
+ [`ConfEByte`](ConfEByte.md#cls-ConfEByte), [`ConfEChar`](ConfEChar.md#cls-ConfEChar), [`ConfEInt`](ConfEInt.md#cls-ConfEInt), and
+ [`ConfEShort`](ConfEShort.md#cls-ConfEShort) attempt to map the E types onto the various Java integral
+ types. Two additional classes, [`ConfEUInt`](ConfEUInt.md#cls-ConfEUInt) and [`ConfEUShort`](ConfEUShort.md#cls-ConfEUShort) are
  provided for Corba compatibility. See the documentation for IC for more
  information.
 
 **Related classes**
 
-- [ConfEByte](ConfEByte.md#s-ConfEByte)
-- [ConfEChar](ConfEChar.md#s-ConfEChar)
-- [ConfEInt](ConfEInt.md#s-ConfEInt)
-- [ConfEShort](ConfEShort.md#s-ConfEShort)
-- [ConfEUInt](ConfEUInt.md#s-ConfEUInt)
-- [ConfEUShort](ConfEUShort.md#s-ConfEUShort)
+- [ConfEByte](ConfEByte.md#cls-ConfEByte)
+- [ConfEChar](ConfEChar.md#cls-ConfEChar)
+- [ConfEInt](ConfEInt.md#cls-ConfEInt)
+- [ConfEShort](ConfEShort.md#cls-ConfEShort)
+- [ConfEUInt](ConfEUInt.md#cls-ConfEUInt)
+- [ConfEUShort](ConfEUShort.md#cls-ConfEUShort)
 
 ## Members
 
 **Constructors**:
 
-- [ConfELong(ConfInputStream)](#s-ConfELong-1)
-- [ConfELong(long)](#s-ConfELong-2)
+- [ConfELong(ConfInputStream)](#m-confelong-14be370f839d)
+- [ConfELong(long)](#m-confelong-ef6be4714c98)
 
 **Fields**:
 
-- [serialVersionUID](#s-serialVersionUID)
+- [serialVersionUID](#m-serialVersionUID)
 
 **Methods**:
 
-- [byteValue()](#s-byteValue)
-- [charValue()](#s-charValue)
-- [clone()](ConfEObject.md#s-clone) from ConfEObject
-- [decode(ConfInputStream)](ConfEObject.md#s-decode) from ConfEObject
-- [encode(ConfOutputStream)](#s-encode)
-- [equals(Object)](#s-equals)
-- [hashCode()](#s-hashCode)
-- [intValue()](#s-intValue)
-- [longValue()](#s-longValue)
-- [shortValue()](#s-shortValue)
-- [toString()](#s-toString)
-- [uIntValue()](#s-uIntValue)
-- [uShortValue()](#s-uShortValue)
+- [byteValue()](#m-bytevalue-a56aac956c5c)
+- [charValue()](#m-charvalue-4b3a6b868fe4)
+- [clone()](ConfEObject.md#m-clone-164c86c45e9b) from ConfEObject
+- [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
+- [encode(ConfOutputStream)](#m-encode-cb1ad9eb7771)
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [hashCode()](#m-hashcode-ef797a217903)
+- [intValue()](#m-intvalue-2f745d025d8e)
+- [longValue()](#m-longvalue-636bfe2d6862)
+- [shortValue()](#m-shortvalue-438ff2f827fb)
+- [toString()](#m-tostring-e9d48c5503ef)
+- [uIntValue()](#m-uintvalue-11d9c2202272)
+- [uShortValue()](#m-ushortvalue-5c27a3934662)
 
 ## Constructors
 
-<a id="s-ConfELong-1"></a>
+<a id="m-confelong-14be370f839d"></a>
 ### ConfELong(ConfInputStream)
 
 ```java
 public ConfELong(com.tailf.proto.ConfInputStream buf) throws com.tailf.proto.ConfEDecodeException
 ```
 
-Types: [ConfInputStream](ConfInputStream.md#s-ConfInputStream), [ConfEDecodeException](ConfEDecodeException.md#s-ConfEDecodeException)
+Types: [ConfInputStream](ConfInputStream.md#cls-ConfInputStream), [ConfEDecodeException](ConfEDecodeException.md#cls-ConfEDecodeException)
 
 Create an E integer from a stream containing an integer encoded in E
  external format.
@@ -75,7 +75,7 @@ Create an E integer from a stream containing an integer encoded in E
 - `ConfEDecodeException` - if the buffer does not contain a valid external
                 representation of an E integer.
 
-<a id="s-ConfELong-2"></a>
+<a id="m-confelong-ef6be4714c98"></a>
 ### ConfELong(long)
 
 ```java
@@ -91,7 +91,7 @@ Create an E integer from the given value.
 
 ## Fields
 
-<a id="s-serialVersionUID"></a>
+<a id="m-serialVersionUID"></a>
 ### serialVersionUID
 
 **Package-private**
@@ -103,14 +103,14 @@ static final long serialVersionUID = 1610466859236755096;
 
 ## Methods
 
-<a id="s-byteValue"></a>
+<a id="m-bytevalue-a56aac956c5c"></a>
 ### byteValue()
 
 ```java
 public byte byteValue() throws com.tailf.proto.ConfERangeException
 ```
 
-Types: [ConfERangeException](ConfERangeException.md#s-ConfERangeException)
+Types: [ConfERangeException](ConfERangeException.md#cls-ConfERangeException)
 
 Get this number as a byte.
 
@@ -120,14 +120,14 @@ Get this number as a byte.
 
 - `ConfERangeException` - if the value is too large to be represented as a byte.
 
-<a id="s-charValue"></a>
+<a id="m-charvalue-4b3a6b868fe4"></a>
 ### charValue()
 
 ```java
 public char charValue() throws com.tailf.proto.ConfERangeException
 ```
 
-Types: [ConfERangeException](ConfERangeException.md#s-ConfERangeException)
+Types: [ConfERangeException](ConfERangeException.md#cls-ConfERangeException)
 
 Get this number as a char.
 
@@ -137,14 +137,14 @@ Get this number as a char.
 
 - `ConfERangeException` - if the value is too large to be represented as a char.
 
-<a id="s-encode"></a>
+<a id="m-encode-cb1ad9eb7771"></a>
 ### encode(ConfOutputStream)
 
 ```java
 public void encode(com.tailf.proto.ConfOutputStream buf)
 ```
 
-Types: [ConfOutputStream](ConfOutputStream.md#s-ConfOutputStream)
+Types: [ConfOutputStream](ConfOutputStream.md#cls-ConfOutputStream)
 
 Convert this number to the equivalent E external representation.
 
@@ -153,7 +153,7 @@ Convert this number to the equivalent E external representation.
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded number should be
             written.
 
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
@@ -169,21 +169,21 @@ Determine if two numbers are equal. Numbers are equal if they contain the
 
 **Returns:** true if the numbers have the same value.
 
-<a id="s-hashCode"></a>
+<a id="m-hashcode-ef797a217903"></a>
 ### hashCode()
 
 ```java
 public int hashCode()
 ```
 
-<a id="s-intValue"></a>
+<a id="m-intvalue-2f745d025d8e"></a>
 ### intValue()
 
 ```java
 public int intValue() throws com.tailf.proto.ConfERangeException
 ```
 
-Types: [ConfERangeException](ConfERangeException.md#s-ConfERangeException)
+Types: [ConfERangeException](ConfERangeException.md#cls-ConfERangeException)
 
 Get this number as an int.
 
@@ -193,7 +193,7 @@ Get this number as an int.
 
 - `ConfERangeException` - if the value is too large to be represented as an int.
 
-<a id="s-longValue"></a>
+<a id="m-longvalue-636bfe2d6862"></a>
 ### longValue()
 
 ```java
@@ -204,14 +204,14 @@ Get this number as a long.
 
 **Returns:** the value of this number, as a long.
 
-<a id="s-shortValue"></a>
+<a id="m-shortvalue-438ff2f827fb"></a>
 ### shortValue()
 
 ```java
 public short shortValue() throws com.tailf.proto.ConfERangeException
 ```
 
-Types: [ConfERangeException](ConfERangeException.md#s-ConfERangeException)
+Types: [ConfERangeException](ConfERangeException.md#cls-ConfERangeException)
 
 Get this number as a short.
 
@@ -221,7 +221,7 @@ Get this number as a short.
 
 - `ConfERangeException` - if the value is too large to be represented as a short.
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java
@@ -232,14 +232,14 @@ Get the string representation of this number.
 
 **Returns:** the string representation of this number.
 
-<a id="s-uIntValue"></a>
+<a id="m-uintvalue-11d9c2202272"></a>
 ### uIntValue()
 
 ```java
 public int uIntValue() throws com.tailf.proto.ConfERangeException
 ```
 
-Types: [ConfERangeException](ConfERangeException.md#s-ConfERangeException)
+Types: [ConfERangeException](ConfERangeException.md#cls-ConfERangeException)
 
 Get this number as a non-negative int.
 
@@ -250,14 +250,14 @@ Get this number as a non-negative int.
 - `ConfERangeException` - if the value is too large to be represented as an int, or
                 if the value is negative.
 
-<a id="s-uShortValue"></a>
+<a id="m-ushortvalue-5c27a3934662"></a>
 ### uShortValue()
 
 ```java
 public short uShortValue() throws com.tailf.proto.ConfERangeException
 ```
 
-Types: [ConfERangeException](ConfERangeException.md#s-ConfERangeException)
+Types: [ConfERangeException](ConfERangeException.md#cls-ConfERangeException)
 
 Get this number as a non-negative short.
 

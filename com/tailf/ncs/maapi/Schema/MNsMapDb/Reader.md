@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,16 +10,16 @@ public static final class com.tailf.ncs.maapi.Schema.MNsMapDb.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getEntries()](#s-getEntries)
-- [hasEntries()](#s-hasEntries)
+- [getEntries()](#m-getentries-f554b7f62e3d)
+- [hasEntries()](#m-hasentries-ccf5edf194a9)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -47,16 +47,16 @@ Reader(
 
 ## Methods
 
-<a id="s-getEntries"></a>
+<a id="m-getentries-f554b7f62e3d"></a>
 ### getEntries()
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.MNsMap.Reader> getEntries()
 ```
 
-Types: [Reader](../MNsMap/Reader.md#s-Reader)
+Types: [Reader](../MNsMap/Reader.md#cls-Reader)
 
-<a id="s-hasEntries"></a>
+<a id="m-hasentries-ccf5edf194a9"></a>
 ### hasEntries()
 
 ```java

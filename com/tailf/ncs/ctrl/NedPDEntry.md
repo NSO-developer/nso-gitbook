@@ -1,4 +1,4 @@
-<a id="s-NedPDEntry"></a>
+<a id="cls-NedPDEntry"></a>
 # NedPDEntry
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.ncs.ctrl.NedPDEntry
     extends com.tailf.ncs.ctrl.AbstractPDEntry
 ```
 
-Types: [AbstractPDEntry](AbstractPDEntry.md#s-AbstractPDEntry)
+Types: [AbstractPDEntry](AbstractPDEntry.md#cls-AbstractPDEntry)
 
 Ned Component metadata
 
@@ -14,28 +14,28 @@ Ned Component metadata
 
 **Constructors**:
 
-- [NedPDEntry(NcsMain, String, String, String, NcsComponentData)](#s-NedPDEntry-1)
+- [NedPDEntry(NcsMain, String, String, String, NcsComponentData)](#m-nedpdentry-3f6123b971b9)
 
 **Methods**:
 
-- [addReplacement(NcsComponentData)](AbstractPDEntry.md#s-addReplacement) from AbstractPDEntry
-- [getComponent()](AbstractPDEntry.md#s-getComponent) from AbstractPDEntry
-- [getFSM()](AbstractPDEntry.md#s-getFSM) from AbstractPDEntry
-- [getInstances()](AbstractPDEntry.md#s-getInstances) from AbstractPDEntry
-- [getNedIdNS()](#s-getNedIdNS)
-- [getNedIdTag()](#s-getNedIdTag)
-- [getNedType()](#s-getNedType)
-- [isRunning()](AbstractPDEntry.md#s-isRunning) from AbstractPDEntry
-- [isStopNedMux()](#s-isStopNedMux)
-- [load(List<Object>)](AbstractPDEntry.md#s-load) from AbstractPDEntry
-- [reload()](AbstractPDEntry.md#s-reload) from AbstractPDEntry
-- [setPendingStopNedMux(boolean)](#s-setPendingStopNedMux)
-- [toString()](#s-toString)
-- [unload(AbstractPDEntry)](AbstractPDEntry.md#s-unload) from AbstractPDEntry
+- [addReplacement(NcsComponentData)](AbstractPDEntry.md#m-addreplacement-afd0844ae705) from AbstractPDEntry
+- [getComponent()](AbstractPDEntry.md#m-getcomponent-f0c33077e458) from AbstractPDEntry
+- [getFSM()](AbstractPDEntry.md#m-getfsm-b0d67a77e6e5) from AbstractPDEntry
+- [getInstances()](AbstractPDEntry.md#m-getinstances-1d7ff49c0f24) from AbstractPDEntry
+- [getNedIdNS()](#m-getnedidns-6d5bc3028343)
+- [getNedIdTag()](#m-getnedidtag-9254c612474d)
+- [getNedType()](#m-getnedtype-0f22e3831af4)
+- [isRunning()](AbstractPDEntry.md#m-isrunning-02db4ec84a8d) from AbstractPDEntry
+- [isStopNedMux()](#m-isstopnedmux-722ddbc26624)
+- [load(List<Object>)](AbstractPDEntry.md#m-load-0a08bc3b9064) from AbstractPDEntry
+- [reload()](AbstractPDEntry.md#m-reload-b0cf67aa2f64) from AbstractPDEntry
+- [setPendingStopNedMux(boolean)](#m-setpendingstopnedmux-3abe713fa588)
+- [toString()](#m-tostring-e9d48c5503ef)
+- [unload(AbstractPDEntry)](AbstractPDEntry.md#m-unload-79ee120e7a8a) from AbstractPDEntry
 
 ## Constructors
 
-<a id="s-NedPDEntry-1"></a>
+<a id="m-nedpdentry-3f6123b971b9"></a>
 ### NedPDEntry(NcsMain, String, String, String, NcsComponentData)
 
 ```java
@@ -48,7 +48,7 @@ public NedPDEntry(
 )
 ```
 
-Types: [NcsMain](../NcsMain.md#s-NcsMain), [NcsComponentData](NcsComponentData.md#s-NcsComponentData)
+Types: [NcsMain](../NcsMain.md#cls-NcsMain), [NcsComponentData](NcsComponentData.md#cls-NcsComponentData)
 
 Metadata Constructor for ned component
 
@@ -63,7 +63,7 @@ Metadata Constructor for ned component
 
 ## Methods
 
-<a id="s-getNedIdNS"></a>
+<a id="m-getnedidns-6d5bc3028343"></a>
 ### getNedIdNS()
 
 ```java
@@ -74,7 +74,7 @@ Get Ned Id Namespace
 
 **Returns:** String Namespace for Ned Id
 
-<a id="s-getNedIdTag"></a>
+<a id="m-getnedidtag-9254c612474d"></a>
 ### getNedIdTag()
 
 ```java
@@ -85,7 +85,7 @@ Get Ned Id Tag
 
 **Returns:** String tag for the Ned Id
 
-<a id="s-getNedType"></a>
+<a id="m-getnedtype-0f22e3831af4"></a>
 ### getNedType()
 
 ```java
@@ -96,14 +96,14 @@ Get Ned Type
 
 **Returns:** String Ned Type
 
-<a id="s-isStopNedMux"></a>
+<a id="m-isstopnedmux-722ddbc26624"></a>
 ### isStopNedMux()
 
 ```java
 public boolean isStopNedMux()
 ```
 
-<a id="s-setPendingStopNedMux"></a>
+<a id="m-setpendingstopnedmux-3abe713fa588"></a>
 ### setPendingStopNedMux(boolean)
 
 ```java
@@ -114,7 +114,7 @@ public void setPendingStopNedMux(boolean shouldStop)
 
 - `boolean shouldStop`
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

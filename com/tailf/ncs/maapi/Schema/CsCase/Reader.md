@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,20 +10,20 @@ public static final class com.tailf.ncs.maapi.Schema.CsCase.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getChoices()](#s-getChoices)
-- [getHns()](#s-getHns)
-- [getHtag()](#s-getHtag)
-- [getNodes()](#s-getNodes)
-- [hasChoices()](#s-hasChoices)
-- [hasNodes()](#s-hasNodes)
+- [getChoices()](#m-getchoices-818fb3fccb86)
+- [getHns()](#m-gethns-457afaf41ae6)
+- [getHtag()](#m-gethtag-3a838d71ddf7)
+- [getNodes()](#m-getnodes-0d0e9b3adfd1)
+- [hasChoices()](#m-haschoices-6534dc5f2f55)
+- [hasNodes()](#m-hasnodes-0c3a4b7d62ab)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -51,46 +51,46 @@ Reader(
 
 ## Methods
 
-<a id="s-getChoices"></a>
+<a id="m-getchoices-818fb3fccb86"></a>
 ### getChoices()
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsChoice.Reader> getChoices()
 ```
 
-Types: [Reader](../CsChoice/Reader.md#s-Reader)
+Types: [Reader](../CsChoice/Reader.md#cls-Reader)
 
-<a id="s-getHns"></a>
+<a id="m-gethns-457afaf41ae6"></a>
 ### getHns()
 
 ```java
 public final int getHns()
 ```
 
-<a id="s-getHtag"></a>
+<a id="m-gethtag-3a838d71ddf7"></a>
 ### getHtag()
 
 ```java
 public final int getHtag()
 ```
 
-<a id="s-getNodes"></a>
+<a id="m-getnodes-0d0e9b3adfd1"></a>
 ### getNodes()
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.QTag.Reader> getNodes()
 ```
 
-Types: [Reader](../QTag/Reader.md#s-Reader)
+Types: [Reader](../QTag/Reader.md#cls-Reader)
 
-<a id="s-hasChoices"></a>
+<a id="m-haschoices-6534dc5f2f55"></a>
 ### hasChoices()
 
 ```java
 public final boolean hasChoices()
 ```
 
-<a id="s-hasNodes"></a>
+<a id="m-hasnodes-0c3a4b7d62ab"></a>
 ### hasNodes()
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-Alarm"></a>
+<a id="cls-Alarm"></a>
 # Alarm
 
 ```java
@@ -8,12 +8,13 @@ public class com.tailf.ncs.alarmman.common.Alarm
 This class is used to represent an alarm instance of an entry in
  `/al:alarms/alarm-list/alarm` list.
  New alarm objects can be created and submitted to NCS using the
- [`AlarmSink`](../producer/AlarmSink.md#s-AlarmSink) methods.
+ [`AlarmSink#submitAlarm(Alarm)`](../producer/AlarmSink.md#m-submitalarm-aff190c46329) methods.
 
 
  Instances of this class could also be returned from
- [`AlarmSource`](../consumer/AlarmSource.md#s-AlarmSource),
- [`AlarmSource`](../consumer/AlarmSource.md#s-AlarmSource).
+ [`AlarmSource#pollAlarm(int,
+ java.util.concurrent.TimeUnit)`](../consumer/AlarmSource.md#m-pollalarm-d491d8607d37),
+ [`AlarmSource#takeAlarm()`](../consumer/AlarmSource.md#m-takealarm-58b71d3346fe).
 
 
  When submitting a new alarm to NCS, NCS matches the new alarm against
@@ -30,17 +31,17 @@ This class is used to represent an alarm instance of an entry in
 
 
 - *** Managed Device***
- - [`ManagedDevice`](ManagedDevice.md#s-ManagedDevice) 
+ - [`ManagedDevice`](ManagedDevice.md#cls-ManagedDevice) 
  This is the device on which the alarm started. It may have come as an event
  from the device, or through detection on the manager side. The YANG type
  is a string.
 - *** Managed Object***
- - [`ManagedObject`](ManagedObject.md#s-ManagedObject) 
+ - [`ManagedObject`](ManagedObject.md#cls-ManagedObject) 
  This is a reference to the 'alarming object' that
  caused the alarm to be raised. In YANG it can be an instance-identifier, an
  object-identifier or a string.
 - *** Alarm type ***
- - [`ConfIdentityRef`](../../../conf/ConfIdentityRef.md#s-ConfIdentityRef) 
+ - [`ConfIdentityRef`](../../../conf/ConfIdentityRef.md#cls-ConfIdentityRef) 
  The Alarm type is a YANG identityref. I.e. a reference to a YANG identity.
  These are extensible and defined in the YANG files.
  It is recommended to have very specific types as possible, and if it is
@@ -48,7 +49,7 @@ This class is used to represent an alarm instance of an entry in
  possible avoid surprises for the operator with alarms that are not defined
  beforehand.
 - *** Specific Problem ***
- - [`ConfBuf`](../../../conf/ConfBuf.md#s-ConfBuf) 
+ - [`ConfBuf`](../../../conf/ConfBuf.md#cls-ConfBuf) 
  This is used when the 'Alarm type' cannot uniquely identify the problem.
  It is recommended to specify the alarm in a presentable text for the user
  here.
@@ -56,7 +57,7 @@ This class is used to represent an alarm instance of an entry in
 
   The `Managed Device`, ` Managed object `
  `Alarm Type` and ` Specific Problem `
- constitutes a [`AlarmId`](AlarmId.md#s-AlarmId).
+ constitutes a [`AlarmId`](AlarmId.md#cls-AlarmId).
 
 
  There are other various information that an alarm has.
@@ -64,11 +65,11 @@ This class is used to represent an alarm instance of an entry in
 
 
 - *** Perceived Severity ***
- - [`PerceivedSeverity`](PerceivedSeverity.md#s-PerceivedSeverity) 
+ - [`PerceivedSeverity`](PerceivedSeverity.md#cls-PerceivedSeverity) 
  This is the typical classification of how severe the problem is from
  the device's or objects point of view.
 - *** Impacted Objects ***
- - [`ManagedObject`](ManagedObject.md#s-ManagedObject) 
+ - [`ManagedObject`](ManagedObject.md#cls-ManagedObject) 
  In NCS it is possible to correlate the ManagedObject that caused the alarm
  with ManagedObjects in Services using the alarming object. These are called
  Impacted Objects. It is up to the implementor to decide if impacted objects
@@ -77,13 +78,13 @@ This class is used to represent an alarm instance of an entry in
  From NCS 2.3 a "Backpointer" attribute is available on objects that have been
  set by services. This can be used here to determine Impacted Objects.
 - *** Related Alarms ***
- - [`AlarmId`](AlarmId.md#s-AlarmId) 
+ - [`AlarmId`](AlarmId.md#cls-AlarmId) 
  Other alarms caused by this alarm, or with some other relation to this alarm
  can be listed here. The YANG Alarm model uses "device", "type", and
  "managed-object" as indexing keys for alarms. Thus AlarmId contains these and
  provide a reference to the YANG list entry.
 - *** Root cause objects ***
- - [`ManagedObject`](ManagedObject.md#s-ManagedObject) 
+ - [`ManagedObject`](ManagedObject.md#cls-ManagedObject) 
  Objects that are candidates for raising the alarm. This is different from
  the "Managed Object" parameter which only indicates the object that raised
  the alarm. If the raising object is in a service, it may have raised the
@@ -93,56 +94,55 @@ This class is used to represent an alarm instance of an entry in
 
 
  The instance of this class is usually submitted in the
- [`AlarmSink`](../producer/AlarmSink.md#s-AlarmSink)
+ [`AlarmSink#submitAlarm(Alarm)`](../producer/AlarmSink.md#m-submitalarm-aff190c46329)
  method to store the alarm representation in NCS.
 
 
   It is also the returned from:
 
 
-- [`AlarmSource`](../consumer/AlarmSource.md#s-AlarmSource)
-- [`AlarmSource`](../consumer/AlarmSource.md#s-AlarmSource)
+- [`AlarmSource#pollAlarm(int,TimeUnit)`](../consumer/AlarmSource.md#m-pollalarm-d491d8607d37)
+- [`AlarmSource#takeAlarm()`](../consumer/AlarmSource.md#m-takealarm-58b71d3346fe)
  on the consumer side
 
 ## Members
 
 **Constructors**:
 
-- [Alarm()](#s-Alarm-1)
-- [Alarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#s-Alarm-2)
-- [Alarm(ManagedDevice, ManagedObject, ConfIdentityRef, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#s-Alarm-3)
+- [Alarm()](#m-alarm-85f095f88654)
+- [Alarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#m-alarm-81c1058677fc)
+- [Alarm(ManagedDevice, ManagedObject, ConfIdentityRef, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#m-alarm-35d516f7889e)
 
 **Methods**:
 
-- [alarmText()](#s-alarmText)
-- [equals(Object)](#s-equals)
-- [getAlarmType()](#s-getAlarmType)
-- [getCustomAttributes()](#s-getCustomAttributes)
-- [getImpactedObjects()](#s-getImpactedObjects)
-- [getManagedDevice()](#s-getManagedDevice)
-- [getManagedObject()](#s-getManagedObject)
-- [getPerceivedSeverity()](#s-getPerceivedSeverity)
-- [getRelatedAlarms()](#s-getRelatedAlarms)
-- [getRootCauseObjects()](#s-getRootCauseObjects)
-- [getSpecificProblem()](#s-getSpecificProblem)
-- [getTimeStamp()](#s-getTimeStamp)
-- [hashCode()](#s-hashCode)
-- [isCleared()](#s-isCleared)
-- [isCleared(boolean)](#s-isCleared-1)
-- [isLastAlarm()](#s-isLastAlarm)
-- [lastAlarm()](#s-lastAlarm)
-- [toString()](#s-toString)
+- [alarmText()](#m-alarmtext-efe8fe4bc726)
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [getAlarmType()](#m-getalarmtype-80d08d07e5c6)
+- [getCustomAttributes()](#m-getcustomattributes-47a1386413e6)
+- [getImpactedObjects()](#m-getimpactedobjects-5bad4ce10c30)
+- [getManagedDevice()](#m-getmanageddevice-a92f8741d02f)
+- [getManagedObject()](#m-getmanagedobject-2257610c0381)
+- [getPerceivedSeverity()](#m-getperceivedseverity-45b453ff90f8)
+- [getRelatedAlarms()](#m-getrelatedalarms-caad0a60b2e2)
+- [getRootCauseObjects()](#m-getrootcauseobjects-73835daf51d9)
+- [getSpecificProblem()](#m-getspecificproblem-236478d10663)
+- [getTimeStamp()](#m-gettimestamp-f6129b80c824)
+- [hashCode()](#m-hashcode-ef797a217903)
+- [isCleared()](#m-iscleared-94f487388947)
+- [isLastAlarm()](#m-islastalarm-45ec5733b904)
+- [lastAlarm()](#m-lastalarm-b867c9cc4a2f)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-Alarm-1"></a>
+<a id="m-alarm-85f095f88654"></a>
 ### Alarm()
 
 ```java
 protected Alarm()
 ```
 
-<a id="s-Alarm-2"></a>
+<a id="m-alarm-81c1058677fc"></a>
 ### Alarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])
 
 ```java
@@ -161,7 +161,7 @@ public Alarm(
 )
 ```
 
-Types: [ManagedDevice](ManagedDevice.md#s-ManagedDevice), [ManagedObject](ManagedObject.md#s-ManagedObject), [ConfIdentityRef](../../../conf/ConfIdentityRef.md#s-ConfIdentityRef), [ConfBuf](../../../conf/ConfBuf.md#s-ConfBuf), [PerceivedSeverity](PerceivedSeverity.md#s-PerceivedSeverity), [AlarmId](AlarmId.md#s-AlarmId), [ConfDatetime](../../../conf/ConfDatetime.md#s-ConfDatetime), [Attribute](Attribute.md#s-Attribute)
+Types: [ManagedDevice](ManagedDevice.md#cls-ManagedDevice), [ManagedObject](ManagedObject.md#cls-ManagedObject), [ConfIdentityRef](../../../conf/ConfIdentityRef.md#cls-ConfIdentityRef), [ConfBuf](../../../conf/ConfBuf.md#cls-ConfBuf), [PerceivedSeverity](PerceivedSeverity.md#cls-PerceivedSeverity), [AlarmId](AlarmId.md#cls-AlarmId), [ConfDatetime](../../../conf/ConfDatetime.md#cls-ConfDatetime), [Attribute](Attribute.md#cls-Attribute)
 
 Creates an alarm
 
@@ -202,7 +202,7 @@ Creates an alarm
 - `com.tailf.conf.ConfDatetime timeStamp` - A date-and-time when this alarm was generated
 - `com.tailf.ncs.alarmman.common.Attribute[] customAttributes`
 
-<a id="s-Alarm-3"></a>
+<a id="m-alarm-35d516f7889e"></a>
 ### Alarm(ManagedDevice, ManagedObject, ConfIdentityRef, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])
 
 ```java
@@ -220,7 +220,7 @@ public Alarm(
 )
 ```
 
-Types: [ManagedDevice](ManagedDevice.md#s-ManagedDevice), [ManagedObject](ManagedObject.md#s-ManagedObject), [ConfIdentityRef](../../../conf/ConfIdentityRef.md#s-ConfIdentityRef), [PerceivedSeverity](PerceivedSeverity.md#s-PerceivedSeverity), [ConfBuf](../../../conf/ConfBuf.md#s-ConfBuf), [AlarmId](AlarmId.md#s-AlarmId), [ConfDatetime](../../../conf/ConfDatetime.md#s-ConfDatetime), [Attribute](Attribute.md#s-Attribute)
+Types: [ManagedDevice](ManagedDevice.md#cls-ManagedDevice), [ManagedObject](ManagedObject.md#cls-ManagedObject), [ConfIdentityRef](../../../conf/ConfIdentityRef.md#cls-ConfIdentityRef), [PerceivedSeverity](PerceivedSeverity.md#cls-PerceivedSeverity), [ConfBuf](../../../conf/ConfBuf.md#cls-ConfBuf), [AlarmId](AlarmId.md#cls-AlarmId), [ConfDatetime](../../../conf/ConfDatetime.md#cls-ConfDatetime), [Attribute](Attribute.md#cls-Attribute)
 
 Creates an alarm
 
@@ -260,149 +260,149 @@ Creates an alarm
 
 ## Methods
 
-<a id="s-alarmText"></a>
+<a id="m-alarmtext-efe8fe4bc726"></a>
 ### alarmText()
 
 ```java
 public com.tailf.conf.ConfBuf alarmText()
 ```
 
-Types: [ConfBuf](../../../conf/ConfBuf.md#s-ConfBuf)
+Types: [ConfBuf](../../../conf/ConfBuf.md#cls-ConfBuf)
 
 **Returns:** alarm text.
 
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
 public boolean equals(Object o)
 ```
 
-A unique Alarm instance is the combination of [`ManagedDevice`](ManagedDevice.md#s-ManagedDevice),
- [`ManagedObject`](ManagedObject.md#s-ManagedObject), (alarmtype)
- [`ConfIdentityRef`](../../../conf/ConfIdentityRef.md#s-ConfIdentityRef) and
- (specific problem)[`ConfBuf`](../../../conf/ConfBuf.md#s-ConfBuf)
+A unique Alarm instance is the combination of [`ManagedDevice`](ManagedDevice.md#cls-ManagedDevice),
+ [`ManagedObject`](ManagedObject.md#cls-ManagedObject), (alarmtype)
+ [`ConfIdentityRef`](../../../conf/ConfIdentityRef.md#cls-ConfIdentityRef) and
+ (specific problem)[`ConfBuf`](../../../conf/ConfBuf.md#cls-ConfBuf)
 
 **Parameters**
 
 - `Object o`
 
-<a id="s-getAlarmType"></a>
+<a id="m-getalarmtype-80d08d07e5c6"></a>
 ### getAlarmType()
 
 ```java
 public com.tailf.conf.ConfIdentityRef getAlarmType()
 ```
 
-Types: [ConfIdentityRef](../../../conf/ConfIdentityRef.md#s-ConfIdentityRef)
+Types: [ConfIdentityRef](../../../conf/ConfIdentityRef.md#cls-ConfIdentityRef)
 
 **Returns:** alarm type
 
-<a id="s-getCustomAttributes"></a>
+<a id="m-getcustomattributes-47a1386413e6"></a>
 ### getCustomAttributes()
 
 ```java
 public com.tailf.ncs.alarmman.common.Attribute[] getCustomAttributes()
 ```
 
-Types: [Attribute](Attribute.md#s-Attribute)
+Types: [Attribute](Attribute.md#cls-Attribute)
 
 **Returns:** custom attributes.
 
-<a id="s-getImpactedObjects"></a>
+<a id="m-getimpactedobjects-5bad4ce10c30"></a>
 ### getImpactedObjects()
 
 ```java
 public java.util.List<com.tailf.ncs.alarmman.common.ManagedObject> getImpactedObjects()
 ```
 
-Types: [ManagedObject](ManagedObject.md#s-ManagedObject)
+Types: [ManagedObject](ManagedObject.md#cls-ManagedObject)
 
 **Returns:** impacted objects.
 
-<a id="s-getManagedDevice"></a>
+<a id="m-getmanageddevice-a92f8741d02f"></a>
 ### getManagedDevice()
 
 ```java
 public com.tailf.ncs.alarmman.common.ManagedDevice getManagedDevice()
 ```
 
-Types: [ManagedDevice](ManagedDevice.md#s-ManagedDevice)
+Types: [ManagedDevice](ManagedDevice.md#cls-ManagedDevice)
 
 **Returns:** managed device.
 
-<a id="s-getManagedObject"></a>
+<a id="m-getmanagedobject-2257610c0381"></a>
 ### getManagedObject()
 
 ```java
 public com.tailf.ncs.alarmman.common.ManagedObject getManagedObject()
 ```
 
-Types: [ManagedObject](ManagedObject.md#s-ManagedObject)
+Types: [ManagedObject](ManagedObject.md#cls-ManagedObject)
 
 **Returns:** managed object.
 
-<a id="s-getPerceivedSeverity"></a>
+<a id="m-getperceivedseverity-45b453ff90f8"></a>
 ### getPerceivedSeverity()
 
 ```java
 public com.tailf.ncs.alarmman.common.PerceivedSeverity getPerceivedSeverity()
 ```
 
-Types: [PerceivedSeverity](PerceivedSeverity.md#s-PerceivedSeverity)
+Types: [PerceivedSeverity](PerceivedSeverity.md#cls-PerceivedSeverity)
 
 **Returns:** perceived severity.
 
-<a id="s-getRelatedAlarms"></a>
+<a id="m-getrelatedalarms-caad0a60b2e2"></a>
 ### getRelatedAlarms()
 
 ```java
 public java.util.List<com.tailf.ncs.alarmman.common.AlarmId> getRelatedAlarms()
 ```
 
-Types: [AlarmId](AlarmId.md#s-AlarmId)
+Types: [AlarmId](AlarmId.md#cls-AlarmId)
 
 **Returns:** related alarms.
 
-<a id="s-getRootCauseObjects"></a>
+<a id="m-getrootcauseobjects-73835daf51d9"></a>
 ### getRootCauseObjects()
 
 ```java
 public java.util.List<com.tailf.ncs.alarmman.common.ManagedObject> getRootCauseObjects()
 ```
 
-Types: [ManagedObject](ManagedObject.md#s-ManagedObject)
+Types: [ManagedObject](ManagedObject.md#cls-ManagedObject)
 
 **Returns:** root cause objects.
 
-<a id="s-getSpecificProblem"></a>
+<a id="m-getspecificproblem-236478d10663"></a>
 ### getSpecificProblem()
 
 ```java
 public com.tailf.conf.ConfBuf getSpecificProblem()
 ```
 
-Types: [ConfBuf](../../../conf/ConfBuf.md#s-ConfBuf)
+Types: [ConfBuf](../../../conf/ConfBuf.md#cls-ConfBuf)
 
-<a id="s-getTimeStamp"></a>
+<a id="m-gettimestamp-f6129b80c824"></a>
 ### getTimeStamp()
 
 ```java
 public com.tailf.conf.ConfDatetime getTimeStamp()
 ```
 
-Types: [ConfDatetime](../../../conf/ConfDatetime.md#s-ConfDatetime)
+Types: [ConfDatetime](../../../conf/ConfDatetime.md#cls-ConfDatetime)
 
 **Returns:** timestamp of the alarm.
 
-<a id="s-hashCode"></a>
+<a id="m-hashcode-ef797a217903"></a>
 ### hashCode()
 
 ```java
 public int hashCode()
 ```
 
-<a id="s-isCleared"></a>
+<a id="m-iscleared-94f487388947"></a>
 ### isCleared()
 
 ```java
@@ -418,34 +418,23 @@ Return `true` if this alarm has been cleared by
 
 **Returns:** true if this alarm has been cleared.
 
-<a id="s-isCleared-1"></a>
-### isCleared(boolean)
-
-```java
-public void isCleared(boolean isCleared)
-```
-
-**Parameters**
-
-- `boolean isCleared`
-
-<a id="s-isLastAlarm"></a>
+<a id="m-islastalarm-45ec5733b904"></a>
 ### isLastAlarm()
 
 ```java
 public boolean isLastAlarm()
 ```
 
-<a id="s-lastAlarm"></a>
+<a id="m-lastalarm-b867c9cc4a2f"></a>
 ### lastAlarm()
 
 ```java
 public static com.tailf.ncs.alarmman.common.Alarm lastAlarm()
 ```
 
-Types: [Alarm](Alarm.md#s-Alarm)
+Types: [Alarm](Alarm.md#cls-Alarm)
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-MaapiCursor"></a>
+<a id="cls-MaapiCursor"></a>
 # MaapiCursor
 
 ```java
@@ -17,8 +17,8 @@ A cursor for iterating over configuration data elements.
 **Basic Usage**
 
 
- Cursors are created via [`Maapi`](Maapi.md#s-Maapi)
- and used with [`Maapi`](Maapi.md#s-Maapi) for iteration.
+ Cursors are created via [`Maapi#newCursor(int, String, Object...)`](Maapi.md#m-newcursor-8f0d3924978a)
+ and used with [`Maapi#getNext(MaapiCursor)`](Maapi.md#m-getnext-94186d85d070) for iteration.
 
 
  For example if we have:
@@ -145,31 +145,31 @@ A cursor for iterating over configuration data elements.
  especially in long-running transactions or when creating many cursors,
  use try-with-resources or explicitly call `#close()` when done.
 
-**See also:** [`Maapi#newCursor(int, String, Object...)`](Maapi.md#s-newCursor-1), [`Maapi#newCursorWithFilter(int, String, String, Object...)`](Maapi.md#s-newCursorWithFilter-1), [`Maapi#getNext(MaapiCursor)`](Maapi.md#s-getNext)
+**See also:** [`Maapi#newCursor(int, String, Object...)`](Maapi.md#m-newcursor-8f0d3924978a), [`Maapi#newCursorWithFilter(int, String, String, Object...)`](Maapi.md#m-newcursorwithfilter-6c2962969949), [`Maapi#getNext(MaapiCursor)`](Maapi.md#m-getnext-94186d85d070)
 
 ## Members
 
 **Constructors**:
 
-- [MaapiCursor(Maapi, int, int, String, ConfPath)](#s-MaapiCursor-1)
+- [MaapiCursor(Maapi, int, int, String, ConfPath)](#m-maapicursor-422cbcc0b1cb)
 
 **Methods**:
 
-- [close()](#s-close)
-- [destroy()](#s-destroy)
-- [getFilter()](#s-getFilter)
-- [getId()](#s-getId)
-- [getPath()](#s-getPath)
-- [getPrev()](#s-getPrev)
-- [getSecondaryIndex()](#s-getSecondaryIndex)
-- [getTid()](#s-getTid)
-- [setPrev(ConfEObject)](#s-setPrev)
-- [setSecondaryIndex(String)](#s-setSecondaryIndex)
-- [toString()](#s-toString)
+- [close()](#m-close-8107c6dc012b)
+- [destroy()](#m-destroy-c06780cdd1bc)
+- [getFilter()](#m-getfilter-2b84817e0707)
+- [getId()](#m-getid-199a349c70ef)
+- [getPath()](#m-getpath-88fb21895561)
+- [getPrev()](#m-getprev-f0535db69903)
+- [getSecondaryIndex()](#m-getsecondaryindex-8efa1ee57e9c)
+- [getTid()](#m-gettid-df82325d69f8)
+- [setPrev(ConfEObject)](#m-setprev-ac7a60919bbf)
+- [setSecondaryIndex(String)](#m-setsecondaryindex-23774a07debb)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-MaapiCursor-1"></a>
+<a id="m-maapicursor-422cbcc0b1cb"></a>
 ### MaapiCursor(Maapi, int, int, String, ConfPath)
 
 **Package-private**
@@ -185,7 +185,7 @@ MaapiCursor(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [Maapi](Maapi.md#s-Maapi), [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Maapi](Maapi.md#cls-Maapi), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -198,7 +198,7 @@ Types: [Maapi](Maapi.md#s-Maapi), [ConfPath](../conf/ConfPath.md#s-ConfPath), [C
 
 ## Methods
 
-<a id="s-close"></a>
+<a id="m-close-8107c6dc012b"></a>
 ### close()
 
 ```java
@@ -219,7 +219,7 @@ Destroy the cursor on the server side.
  iterated to the end, effectively creating a resource leak.
  Calling this function explicitly cleans up resources on the server.
 
-<a id="s-destroy"></a>
+<a id="m-destroy-c06780cdd1bc"></a>
 ### destroy()
 
 ```java
@@ -230,7 +230,7 @@ Destroys the cursor and releases server-side resources.
 
 **Deprecated:** Use `#close()` instead.
 
-<a id="s-getFilter"></a>
+<a id="m-getfilter-2b84817e0707"></a>
 ### getFilter()
 
 ```java
@@ -241,7 +241,7 @@ Returns the XPath filter expression used to constrain cursor iteration.
 
 **Returns:** the XPath filter string, or null if no filter is applied
 
-<a id="s-getId"></a>
+<a id="m-getid-199a349c70ef"></a>
 ### getId()
 
 ```java
@@ -252,34 +252,34 @@ Returns the unique cursor identifier assigned by the server.
 
 **Returns:** the cursor identifier
 
-<a id="s-getPath"></a>
+<a id="m-getpath-88fb21895561"></a>
 ### getPath()
 
 ```java
 public com.tailf.conf.ConfPath getPath()
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath)
 
 Returns the configuration path associated with this cursor.
 
 **Returns:** the ConfPath representing the cursor's location in the
   configuration tree
 
-<a id="s-getPrev"></a>
+<a id="m-getprev-f0535db69903"></a>
 ### getPrev()
 
 ```java
 public com.tailf.proto.ConfEObject getPrev()
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 Returns the previous element retrieved during cursor iteration.
 
 **Returns:** the previous ConfEObject, or "first" if no iteration has occurred
 
-<a id="s-getSecondaryIndex"></a>
+<a id="m-getsecondaryindex-8efa1ee57e9c"></a>
 ### getSecondaryIndex()
 
 ```java
@@ -290,7 +290,7 @@ Returns the name of the currently configured secondary index.
 
 **Returns:** the secondary index name, or null if none is configured
 
-<a id="s-getTid"></a>
+<a id="m-gettid-df82325d69f8"></a>
 ### getTid()
 
 ```java
@@ -301,14 +301,14 @@ Returns the transaction identifier associated with this cursor.
 
 **Returns:** the transaction handle used for this cursor
 
-<a id="s-setPrev"></a>
+<a id="m-setprev-ac7a60919bbf"></a>
 ### setPrev(ConfEObject)
 
 ```java
 public void setPrev(com.tailf.proto.ConfEObject prev)
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 Sets the previous element for cursor iteration tracking.
 
@@ -316,7 +316,7 @@ Sets the previous element for cursor iteration tracking.
 
 - `com.tailf.proto.ConfEObject prev` - the ConfEObject to set as the previous element
 
-<a id="s-setSecondaryIndex"></a>
+<a id="m-setsecondaryindex-23774a07debb"></a>
 ### setSecondaryIndex(String)
 
 ```java
@@ -331,7 +331,7 @@ Configures a secondary index for optimized cursor iteration.
 
 - `String idx` - the name of the secondary index to use for getNext() calls
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

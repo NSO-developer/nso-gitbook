@@ -1,42 +1,38 @@
-<a id="s-AuthorizationOperCheck"></a>
+<a id="cls-AuthorizationOperCheck"></a>
 # AuthorizationOperCheck
 
 ```java
 public enum com.tailf.dp.AuthorizationOperCheck
 ```
 
-Types: [AuthorizationOperCheck](AuthorizationOperCheck.md#s-AuthorizationOperCheck)
+Types: [AuthorizationOperCheck](AuthorizationOperCheck.md#cls-AuthorizationOperCheck)
 
 AuthorizationOperCheck used as argument to authorization callbacks.
  They are also used defined as access filters
-
-**Related classes**
-
-- [AuthorizationOperCheck](AuthorizationOperCheck.md#s-AuthorizationOperCheck)
 
 ## Members
 
 **Enum Constants**:
 
-- [CREATE](#s-CREATE)
-- [DELETE](#s-DELETE)
-- [EXECUTE](#s-EXECUTE)
-- [FINAL](#s-FINAL)
-- [INTERMEDIATE](#s-INTERMEDIATE)
-- [READ](#s-READ)
-- [UPDATE](#s-UPDATE)
-- [WRITE](#s-WRITE)
+- [CREATE](#m-CREATE)
+- [DELETE](#m-DELETE)
+- [EXECUTE](#m-EXECUTE)
+- [FINAL](#m-FINAL)
+- [INTERMEDIATE](#m-INTERMEDIATE)
+- [READ](#m-READ)
+- [UPDATE](#m-UPDATE)
+- [WRITE](#m-WRITE)
 
 **Methods**:
 
-- [getType(int)](#s-getType)
-- [getValue()](#s-getValue)
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [getType(int)](#m-gettype-ea5f2e669127)
+- [getValue()](#m-getvalue-d93864668c40)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-CREATE"></a>
+<a id="m-CREATE"></a>
 ### CREATE
 
 ```java
@@ -45,7 +41,7 @@ public static final com.tailf.dp.AuthorizationOperCheck CREATE;
 
 Create access
 
-<a id="s-DELETE"></a>
+<a id="m-DELETE"></a>
 ### DELETE
 
 ```java
@@ -54,7 +50,7 @@ public static final com.tailf.dp.AuthorizationOperCheck DELETE;
 
 Delete access
 
-<a id="s-EXECUTE"></a>
+<a id="m-EXECUTE"></a>
 ### EXECUTE
 
 ```java
@@ -63,7 +59,7 @@ public static final com.tailf.dp.AuthorizationOperCheck EXECUTE;
 
 Execute access
 
-<a id="s-FINAL"></a>
+<a id="m-FINAL"></a>
 ### FINAL
 
 ```java
@@ -72,7 +68,7 @@ public static final com.tailf.dp.AuthorizationOperCheck FINAL;
 
 "How" parameter, Access to the specific data node is requested.
 
-<a id="s-INTERMEDIATE"></a>
+<a id="m-INTERMEDIATE"></a>
 ### INTERMEDIATE
 
 ```java
@@ -84,7 +80,7 @@ public static final com.tailf.dp.AuthorizationOperCheck INTERMEDIATE;
  This is used e.g. in CLI command completion or processing of a
  NETCONF edit-config
 
-<a id="s-READ"></a>
+<a id="m-READ"></a>
 ### READ
 
 ```java
@@ -93,7 +89,7 @@ public static final com.tailf.dp.AuthorizationOperCheck READ;
 
 Read access.
 
-<a id="s-UPDATE"></a>
+<a id="m-UPDATE"></a>
 ### UPDATE
 
 ```java
@@ -102,7 +98,7 @@ public static final com.tailf.dp.AuthorizationOperCheck UPDATE;
 
 Update access
 
-<a id="s-WRITE"></a>
+<a id="m-WRITE"></a>
 ### WRITE
 
 ```java
@@ -116,14 +112,14 @@ Write access. This is used when the specific write operation
 
 ## Methods
 
-<a id="s-getType"></a>
+<a id="m-gettype-ea5f2e669127"></a>
 ### getType(int)
 
 ```java
 public static com.tailf.dp.AuthorizationOperCheck getType(int l)
 ```
 
-Types: [AuthorizationOperCheck](AuthorizationOperCheck.md#s-AuthorizationOperCheck)
+Types: [AuthorizationOperCheck](AuthorizationOperCheck.md#cls-AuthorizationOperCheck)
 
 Get a AuthorizationOperationCheck for given int value or
  null if the int value does not represent a enum.
@@ -134,7 +130,7 @@ Get a AuthorizationOperationCheck for given int value or
 
 **Returns:** AuthorizationOperationCheck for this int value
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
@@ -145,24 +141,24 @@ Get the int value representation of this authorization operation check
 
 **Returns:** int value
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.dp.AuthorizationOperCheck valueOf(String name)
 ```
 
-Types: [AuthorizationOperCheck](AuthorizationOperCheck.md#s-AuthorizationOperCheck)
+Types: [AuthorizationOperCheck](AuthorizationOperCheck.md#cls-AuthorizationOperCheck)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.dp.AuthorizationOperCheck[] values()
 ```
 
-Types: [AuthorizationOperCheck](AuthorizationOperCheck.md#s-AuthorizationOperCheck)
+Types: [AuthorizationOperCheck](AuthorizationOperCheck.md#cls-AuthorizationOperCheck)

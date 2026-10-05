@@ -1,35 +1,31 @@
-<a id="s-ServiceCBType"></a>
+<a id="cls-ServiceCBType"></a>
 # ServiceCBType
 
 ```java
 public enum com.tailf.dp.proto.ServiceCBType
 ```
 
-Types: [ServiceCBType](ServiceCBType.md#s-ServiceCBType)
+Types: [ServiceCBType](ServiceCBType.md#cls-ServiceCBType)
 
 Enumeration of Service callback methods
-
-**Related classes**
-
-- [ServiceCBType](ServiceCBType.md#s-ServiceCBType)
 
 ## Members
 
 **Enum Constants**:
 
-- [CREATE](#s-CREATE)
-- [POST_MODIFICATION](#s-POST_MODIFICATION)
-- [PRE_MODIFICATION](#s-PRE_MODIFICATION)
+- [CREATE](#m-CREATE)
+- [POST_MODIFICATION](#m-POST_MODIFICATION)
+- [PRE_MODIFICATION](#m-PRE_MODIFICATION)
 
 **Methods**:
 
-- [getValue()](#s-getValue)
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [getValue()](#m-getvalue-d93864668c40)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-CREATE"></a>
+<a id="m-CREATE"></a>
 ### CREATE
 
 ```java
@@ -38,9 +34,10 @@ public static final com.tailf.dp.proto.ServiceCBType CREATE;
 
 Indicates service create callback.
 
- See [`DpServiceCallback`](../DpServiceCallback.md#s-DpServiceCallback)
+ See `DpServiceCallback#create(ServiceContext context,
+ NavuNode service, NavuNode root, Properties opaque)`
 
-<a id="s-POST_MODIFICATION"></a>
+<a id="m-POST_MODIFICATION"></a>
 ### POST_MODIFICATION
 
 ```java
@@ -49,9 +46,10 @@ public static final com.tailf.dp.proto.ServiceCBType POST_MODIFICATION;
 
 Indicates post-modification service callback.
 
- See [`DpServiceCallback`](../DpServiceCallback.md#s-DpServiceCallback)
+ See `DpServiceCallback#postModification(ServiceContext context,
+ ServiceOperationType operation, ConfPath path, Properties opaque)`
 
-<a id="s-PRE_MODIFICATION"></a>
+<a id="m-PRE_MODIFICATION"></a>
 ### PRE_MODIFICATION
 
 ```java
@@ -60,12 +58,13 @@ public static final com.tailf.dp.proto.ServiceCBType PRE_MODIFICATION;
 
 Indicates pre-modification service callback.
 
- See [`DpServiceCallback`](../DpServiceCallback.md#s-DpServiceCallback)
+ See `DpServiceCallback#preModification(ServiceContext context,
+ ServiceOperationType operation, ConfPath path, Properties opaque)`
 
 
 ## Methods
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
@@ -76,24 +75,24 @@ get integer value for enum
 
 **Returns:** int value
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.dp.proto.ServiceCBType valueOf(String name)
 ```
 
-Types: [ServiceCBType](ServiceCBType.md#s-ServiceCBType)
+Types: [ServiceCBType](ServiceCBType.md#cls-ServiceCBType)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.dp.proto.ServiceCBType[] values()
 ```
 
-Types: [ServiceCBType](ServiceCBType.md#s-ServiceCBType)
+Types: [ServiceCBType](ServiceCBType.md#cls-ServiceCBType)

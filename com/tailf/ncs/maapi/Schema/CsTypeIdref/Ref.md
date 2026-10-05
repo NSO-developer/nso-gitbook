@@ -1,4 +1,4 @@
-<a id="s-Ref"></a>
+<a id="cls-Ref"></a>
 # Ref
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref
 
 **Constructors**:
 
-- [Ref()](#s-Ref-1)
+- [Ref()](#m-ref-a9178cbea519)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](Ref/Builder.md#s-Builder)
-- [Factory](Ref/Factory.md#s-Factory)
-- [Reader](Ref/Reader.md#s-Reader)
+- [Builder](Ref/Builder.md#cls-Builder)
+- [Factory](Ref/Factory.md#cls-Factory)
+- [Reader](Ref/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-Ref-1"></a>
+<a id="m-ref-a9178cbea519"></a>
 ### Ref()
 
 ```java
@@ -35,25 +35,25 @@ public Ref()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Factory factory = null;
 ```
 
-Types: [Factory](Ref/Factory.md#s-Factory)
+Types: [Factory](Ref/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Builder,com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Reader> listFactory = null;
 ```
 
-Types: [Builder](Ref/Builder.md#s-Builder), [Reader](Ref/Reader.md#s-Reader)
+Types: [Builder](Ref/Builder.md#cls-Builder), [Reader](Ref/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](Ref/Builder.md)
-- [Factory](Ref/Factory.md)
-- [Reader](Ref/Reader.md)
+- [Builder](Ref/Builder.md#cls-Builder)
+- [Factory](Ref/Factory.md#cls-Factory)
+- [Reader](Ref/Reader.md#cls-Reader)

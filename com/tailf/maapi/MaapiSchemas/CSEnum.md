@@ -1,4 +1,4 @@
-<a id="s-CSEnum"></a>
+<a id="cls-CSEnum"></a>
 # CSEnum
 
 ```java
@@ -9,17 +9,17 @@ public static class com.tailf.maapi.MaapiSchemas.CSEnum
 
 **Constructors**:
 
-- [CSEnum(String, long)](#s-CSEnum-1)
+- [CSEnum(String, long)](#m-csenum-dfd954eec0e1)
 
 **Methods**:
 
-- [getName()](#s-getName)
-- [getValue()](#s-getValue)
-- [toString()](#s-toString)
+- [getName()](#m-getname-2634b18b4a25)
+- [getValue()](#m-getvalue-d93864668c40)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-CSEnum-1"></a>
+<a id="m-csenum-dfd954eec0e1"></a>
 ### CSEnum(String, long)
 
 ```java
@@ -34,21 +34,21 @@ public CSEnum(String name, long value)
 
 ## Methods
 
-<a id="s-getName"></a>
+<a id="m-getname-2634b18b4a25"></a>
 ### getName()
 
 ```java
 public String getName()
 ```
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
 public long getValue()
 ```
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

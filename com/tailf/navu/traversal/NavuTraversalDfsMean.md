@@ -1,4 +1,4 @@
-<a id="s-NavuTraversalDfsMean"></a>
+<a id="cls-NavuTraversalDfsMean"></a>
 # NavuTraversalDfsMean
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.navu.traversal.NavuTraversalDfsMean
     implements com.tailf.navu.traversal.NavuTraversalMean
 ```
 
-Types: [NavuTraversalMean](NavuTraversalMean.md#s-NavuTraversalMean)
+Types: [NavuTraversalMean](NavuTraversalMean.md#cls-NavuTraversalMean)
 
 This implements the `NavuTraversalMean` for DFS
  (Depth-first traversal).
@@ -20,17 +20,17 @@ This implements the `NavuTraversalMean` for DFS
 
 **Constructors**:
 
-- [NavuTraversalDfsMean()](#s-NavuTraversalDfsMean-1)
+- [NavuTraversalDfsMean()](#m-navutraversaldfsmean-123820830c40)
 
 **Methods**:
 
-- [dfs(NavuNode)](#s-dfs)
-- [doDfs(NavuNode, Set<String>)](#s-doDfs)
-- [traverse(NavuNode, List<TraversalFilter>)](#s-traverse)
+- [dfs(NavuNode)](#m-dfs-5b348f76fa8d)
+- [doDfs(NavuNode, Set<String>)](#m-dodfs-ffb6caf3db53)
+- [traverse(NavuNode, List<TraversalFilter>)](#m-traverse-e72c3ea2612b)
 
 ## Constructors
 
-<a id="s-NavuTraversalDfsMean-1"></a>
+<a id="m-navutraversaldfsmean-123820830c40"></a>
 ### NavuTraversalDfsMean()
 
 ```java
@@ -40,7 +40,7 @@ public NavuTraversalDfsMean()
 
 ## Methods
 
-<a id="s-dfs"></a>
+<a id="m-dfs-5b348f76fa8d"></a>
 ### dfs(NavuNode)
 
 ```java
@@ -50,13 +50,13 @@ protected java.util.Set<String> dfs(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](../NavuNode.md#s-NavuNode), [NavuException](../NavuException.md#s-NavuException)
+Types: [NavuNode](../NavuNode.md#cls-NavuNode), [NavuException](../NavuException.md#cls-NavuException)
 
 **Parameters**
 
 - `com.tailf.navu.NavuNode root`
 
-<a id="s-doDfs"></a>
+<a id="m-dodfs-ffb6caf3db53"></a>
 ### doDfs(NavuNode, Set<String>)
 
 ```java
@@ -67,14 +67,14 @@ protected void doDfs(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](../NavuNode.md#s-NavuNode), [NavuException](../NavuException.md#s-NavuException)
+Types: [NavuNode](../NavuNode.md#cls-NavuNode), [NavuException](../NavuException.md#cls-NavuException)
 
 **Parameters**
 
 - `com.tailf.navu.NavuNode root`
 - `java.util.Set<String> visited`
 
-<a id="s-traverse"></a>
+<a id="m-traverse-e72c3ea2612b"></a>
 ### traverse(NavuNode, List<TraversalFilter>)
 
 ```java
@@ -85,7 +85,7 @@ public java.util.Set<String> traverse(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](../NavuNode.md#s-NavuNode), [TraversalFilter](TraversalFilter.md#s-TraversalFilter), [NavuException](../NavuException.md#s-NavuException)
+Types: [NavuNode](../NavuNode.md#cls-NavuNode), [TraversalFilter](TraversalFilter.md#cls-TraversalFilter), [NavuException](../NavuException.md#cls-NavuException)
 
 **Parameters**
 

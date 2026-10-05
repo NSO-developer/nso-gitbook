@@ -1,4 +1,4 @@
-<a id="s-SSHConnection"></a>
+<a id="cls-SSHConnection"></a>
 # SSHConnection
 
 ```java
@@ -18,31 +18,31 @@ Overridden SSH Connection class, that is used to handle
 
 **Constructors**:
 
-- [SSHConnection(NedWorker)](#s-SSHConnection-1)
+- [SSHConnection(NedWorker)](#m-sshconnection-faa636bf3d2e)
 
 **Methods**:
 
-- [authenticateWithAgent(String, AgentProxy)](#s-authenticateWithAgent)
-- [authenticateWithKeyboardInteractive(String, String[], InteractiveCallback)](#s-authenticateWithKeyboardInteractive)
-- [authenticateWithNone(String)](#s-authenticateWithNone)
-- [authenticateWithPassword(String, String)](#s-authenticateWithPassword)
-- [authenticateWithPublicKey(String, char[], String)](#s-authenticateWithPublicKey)
-- [authenticateWithPublicKey(String, File, String)](#s-authenticateWithPublicKey-1)
-- [connect()](#s-connect)
-- [connect(ServerHostKeyVerifier)](#s-connect-1)
-- [connect(ServerHostKeyVerifier, int, int)](#s-connect-2)
-- [getRemainingAuthMethods(String)](#s-getRemainingAuthMethods)
+- [authenticateWithAgent(String, AgentProxy)](#m-authenticatewithagent-5d675c49aad6)
+- [authenticateWithKeyboardInteractive(String, String[], InteractiveCallback)](#m-authenticatewithkeyboardinteractive-24b7ce82bc90)
+- [authenticateWithNone(String)](#m-authenticatewithnone-6c03229e2ca2)
+- [authenticateWithPassword(String, String)](#m-authenticatewithpassword-f09fca8d9fc5)
+- [authenticateWithPublicKey(String, char[], String)](#m-authenticatewithpublickey-160b324ce64a)
+- [authenticateWithPublicKey(String, File, String)](#m-authenticatewithpublickey-0f6791d166c1)
+- [connect()](#m-connect-394043aad7af)
+- [connect(ServerHostKeyVerifier)](#m-connect-9ac6e0295a74)
+- [connect(ServerHostKeyVerifier, int, int)](#m-connect-bedebc7d4ec2)
+- [getRemainingAuthMethods(String)](#m-getremainingauthmethods-3fb72a1c6378)
 
 ## Constructors
 
-<a id="s-SSHConnection-1"></a>
+<a id="m-sshconnection-faa636bf3d2e"></a>
 ### SSHConnection(NedWorker)
 
 ```java
 public SSHConnection(com.tailf.ned.NedWorker worker)
 ```
 
-Types: [NedWorker](NedWorker.md#s-NedWorker)
+Types: [NedWorker](NedWorker.md#cls-NedWorker)
 
 Constructor that uses the current NedWorker to retrieve configuration
  parameters like host, port
@@ -55,7 +55,7 @@ Constructor that uses the current NedWorker to retrieve configuration
 
 ## Methods
 
-<a id="s-authenticateWithAgent"></a>
+<a id="m-authenticatewithagent-5d675c49aad6"></a>
 ### authenticateWithAgent(String, AgentProxy)
 
 ```java
@@ -73,7 +73,7 @@ Overridden authentication method
 - `String user`
 - `ch.ethz.ssh2.auth.AgentProxy proxy`
 
-<a id="s-authenticateWithKeyboardInteractive"></a>
+<a id="m-authenticatewithkeyboardinteractive-24b7ce82bc90"></a>
 ### authenticateWithKeyboardInteractive(String, String[], InteractiveCallback)
 
 ```java
@@ -93,7 +93,7 @@ Overridden authentication method
 - `String[] submethods`
 - `ch.ethz.ssh2.InteractiveCallback cb`
 
-<a id="s-authenticateWithNone"></a>
+<a id="m-authenticatewithnone-6c03229e2ca2"></a>
 ### authenticateWithNone(String)
 
 ```java
@@ -106,7 +106,7 @@ Overridden authentication method
 
 - `String user`
 
-<a id="s-authenticateWithPassword"></a>
+<a id="m-authenticatewithpassword-f09fca8d9fc5"></a>
 ### authenticateWithPassword(String, String)
 
 ```java
@@ -124,7 +124,7 @@ Overridden authentication method
 - `String user`
 - `String password`
 
-<a id="s-authenticateWithPublicKey"></a>
+<a id="m-authenticatewithpublickey-160b324ce64a"></a>
 ### authenticateWithPublicKey(String, char[], String)
 
 ```java
@@ -144,7 +144,7 @@ Overridden authentication method
 - `char[] pemPrivateKey`
 - `String password`
 
-<a id="s-authenticateWithPublicKey-1"></a>
+<a id="m-authenticatewithpublickey-0f6791d166c1"></a>
 ### authenticateWithPublicKey(String, File, String)
 
 ```java
@@ -164,7 +164,7 @@ Overridden authentication method
 - `java.io.File pemFile`
 - `String password`
 
-<a id="s-connect"></a>
+<a id="m-connect-394043aad7af"></a>
 ### connect()
 
 ```java
@@ -176,7 +176,7 @@ Overridden connect method
  Same as
  connect(null, 0, 0).
 
-<a id="s-connect-1"></a>
+<a id="m-connect-9ac6e0295a74"></a>
 ### connect(ServerHostKeyVerifier)
 
 ```java
@@ -196,7 +196,7 @@ Overridden connect method
 
 - `ch.ethz.ssh2.ServerHostKeyVerifier verifier`
 
-<a id="s-connect-2"></a>
+<a id="m-connect-bedebc7d4ec2"></a>
 ### connect(ServerHostKeyVerifier, int, int)
 
 ```java
@@ -230,7 +230,7 @@ Overridden connect method
  isAuthenticationComplete() returns true after connect() has been
  called.
 
-<a id="s-getRemainingAuthMethods"></a>
+<a id="m-getremainingauthmethods-3fb72a1c6378"></a>
 ### getRemainingAuthMethods(String)
 
 ```java

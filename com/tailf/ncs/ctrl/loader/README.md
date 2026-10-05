@@ -2,4 +2,4 @@
 
 ## Types
 
-- [PackageJarLoader](PackageJarLoader.md#s-PackageJarLoader)
+- [PackageJarLoader](PackageJarLoader.md#cls-PackageJarLoader)

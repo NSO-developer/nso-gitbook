@@ -1,4 +1,4 @@
-<a id="s-CsTypeListRestriction"></a>
+<a id="cls-CsTypeListRestriction"></a>
 # CsTypeListRestriction
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeListRestriction
 
 **Constructors**:
 
-- [CsTypeListRestriction()](#s-CsTypeListRestriction-1)
+- [CsTypeListRestriction()](#m-cstypelistrestriction-a51f9dcbaf46)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](CsTypeListRestriction/Builder.md#s-Builder)
-- [Factory](CsTypeListRestriction/Factory.md#s-Factory)
-- [Reader](CsTypeListRestriction/Reader.md#s-Reader)
+- [Builder](CsTypeListRestriction/Builder.md#cls-Builder)
+- [Factory](CsTypeListRestriction/Factory.md#cls-Factory)
+- [Reader](CsTypeListRestriction/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-CsTypeListRestriction-1"></a>
+<a id="m-cstypelistrestriction-a51f9dcbaf46"></a>
 ### CsTypeListRestriction()
 
 ```java
@@ -35,25 +35,25 @@ public CsTypeListRestriction()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsTypeListRestriction.Factory factory = null;
 ```
 
-Types: [Factory](CsTypeListRestriction/Factory.md#s-Factory)
+Types: [Factory](CsTypeListRestriction/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsTypeListRestriction.Builder,com.tailf.ncs.maapi.Schema.CsTypeListRestriction.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsTypeListRestriction/Builder.md#s-Builder), [Reader](CsTypeListRestriction/Reader.md#s-Reader)
+Types: [Builder](CsTypeListRestriction/Builder.md#cls-Builder), [Reader](CsTypeListRestriction/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsTypeListRestriction/Builder.md)
-- [Factory](CsTypeListRestriction/Factory.md)
-- [Reader](CsTypeListRestriction/Reader.md)
+- [Builder](CsTypeListRestriction/Builder.md#cls-Builder)
+- [Factory](CsTypeListRestriction/Factory.md#cls-Factory)
+- [Reader](CsTypeListRestriction/Reader.md#cls-Reader)

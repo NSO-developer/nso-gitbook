@@ -1,4 +1,4 @@
-<a id="s-DpAuthContext"></a>
+<a id="cls-DpAuthContext"></a>
 # DpAuthContext
 
 ```java
@@ -13,23 +13,23 @@ Authentication context class. The DpAuthCallback.auth() callback method is
 
 **Constructors**:
 
-- [DpAuthContext(DpUserInfo, String, boolean, int, String[], int, String, String)](#s-DpAuthContext-1)
+- [DpAuthContext(DpUserInfo, String, boolean, int, String[], int, String, String)](#m-dpauthcontext-fe04319e1322)
 
 **Methods**:
 
-- [getErrorString()](#s-getErrorString)
-- [getGroups()](#s-getGroups)
-- [getLogNo()](#s-getLogNo)
-- [getMethod()](#s-getMethod)
-- [getNumGroups()](#s-getNumGroups)
-- [getReason()](#s-getReason)
-- [getUserInfo()](#s-getUserInfo)
-- [isSuccess()](#s-isSuccess)
-- [setError(String, Object[])](#s-setError)
+- [getErrorString()](#m-geterrorstring-3b4eba00496b)
+- [getGroups()](#m-getgroups-42a63746c815)
+- [getLogNo()](#m-getlogno-0a53380cc549)
+- [getMethod()](#m-getmethod-50f16c317ece)
+- [getNumGroups()](#m-getnumgroups-08bbbf8f5900)
+- [getReason()](#m-getreason-5eb89e7b2733)
+- [getUserInfo()](#m-getuserinfo-3ecef1f24d3d)
+- [isSuccess()](#m-issuccess-92b05032c7ec)
+- [setError(String, Object[])](#m-seterror-3f96aececb3d)
 
 ## Constructors
 
-<a id="s-DpAuthContext-1"></a>
+<a id="m-dpauthcontext-fe04319e1322"></a>
 ### DpAuthContext(DpUserInfo, String, boolean, int, String[], int, String, String)
 
 ```java
@@ -45,7 +45,7 @@ public DpAuthContext(
 )
 ```
 
-Types: [DpUserInfo](DpUserInfo.md#s-DpUserInfo)
+Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
 
 **Parameters**
 
@@ -61,7 +61,7 @@ Types: [DpUserInfo](DpUserInfo.md#s-DpUserInfo)
 
 ## Methods
 
-<a id="s-getErrorString"></a>
+<a id="m-geterrorstring-3b4eba00496b"></a>
 ### getErrorString()
 
 ```java
@@ -74,7 +74,7 @@ errstr is an extended error information that can be set using method
 
 **Returns:** String error string
 
-<a id="s-getGroups"></a>
+<a id="m-getgroups-42a63746c815"></a>
 ### getGroups()
 
 ```java
@@ -89,7 +89,7 @@ If success is true, the AAA authentication succeeded, and groups is an
 
 **Returns:** String[] groups
 
-<a id="s-getLogNo"></a>
+<a id="m-getlogno-0a53380cc549"></a>
 ### getLogNo()
 
 ```java
@@ -103,7 +103,7 @@ If success is false, the AAA authentication failed (with logno set
 
 **Returns:** int logno
 
-<a id="s-getMethod"></a>
+<a id="m-getmethod-50f16c317ece"></a>
 ### getMethod()
 
 ```java
@@ -134,7 +134,7 @@ The method string gives the authentication method used, as follows:
 
 **Returns:** String method
 
-<a id="s-getNumGroups"></a>
+<a id="m-getnumgroups-08bbbf8f5900"></a>
 ### getNumGroups()
 
 ```java
@@ -146,7 +146,7 @@ If success is true, the AAA authentication succeeded, ngroups is the
 
 **Returns:** int number of groups
 
-<a id="s-getReason"></a>
+<a id="m-getreason-5eb89e7b2733"></a>
 ### getReason()
 
 ```java
@@ -160,14 +160,14 @@ If success is false, the AAA authentication failed, reason is a
 
 **Returns:** String reason
 
-<a id="s-getUserInfo"></a>
+<a id="m-getuserinfo-3ecef1f24d3d"></a>
 ### getUserInfo()
 
 ```java
 public com.tailf.dp.DpUserInfo getUserInfo()
 ```
 
-Types: [DpUserInfo](DpUserInfo.md#s-DpUserInfo)
+Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
 
 The uinfo contains an instance of DpUserInfo with details about the user
  logging in, specifically user name, password (if used), source IP
@@ -178,7 +178,7 @@ The uinfo contains an instance of DpUserInfo with details about the user
 
 **Returns:** DpUserInfo userinfo
 
-<a id="s-isSuccess"></a>
+<a id="m-issuccess-92b05032c7ec"></a>
 ### isSuccess()
 
 ```java
@@ -190,7 +190,7 @@ success is true if the user is accepted so far (before call of auth()
 
  return boolean true if success
 
-<a id="s-setError"></a>
+<a id="m-seterror-3f96aececb3d"></a>
 ### setError(String, Object[])
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-JavaCharStream"></a>
+<a id="cls-JavaCharStream"></a>
 # JavaCharStream
 
 **Package-private**
@@ -14,76 +14,76 @@ An implementation of interface CharStream, where the stream is assumed to
 
 **Constructors**:
 
-- [JavaCharStream(InputStream)](#s-JavaCharStream-1)
-- [JavaCharStream(InputStream, int, int)](#s-JavaCharStream-2)
-- [JavaCharStream(InputStream, int, int, int)](#s-JavaCharStream-3)
-- [JavaCharStream(InputStream, String)](#s-JavaCharStream-4)
-- [JavaCharStream(InputStream, String, int, int)](#s-JavaCharStream-5)
-- [JavaCharStream(InputStream, String, int, int, int)](#s-JavaCharStream-6)
-- [JavaCharStream(Reader)](#s-JavaCharStream-7)
-- [JavaCharStream(Reader, int, int)](#s-JavaCharStream-8)
-- [JavaCharStream(Reader, int, int, int)](#s-JavaCharStream-9)
+- [JavaCharStream(InputStream)](#m-javacharstream-03b11f45e76e)
+- [JavaCharStream(InputStream, int, int)](#m-javacharstream-1abe1abeff81)
+- [JavaCharStream(InputStream, int, int, int)](#m-javacharstream-6115ec31926d)
+- [JavaCharStream(InputStream, String)](#m-javacharstream-1e8a1658de9d)
+- [JavaCharStream(InputStream, String, int, int)](#m-javacharstream-6fabfea0d728)
+- [JavaCharStream(InputStream, String, int, int, int)](#m-javacharstream-61734768a680)
+- [JavaCharStream(Reader)](#m-javacharstream-ac019f5a3248)
+- [JavaCharStream(Reader, int, int)](#m-javacharstream-b489a0930918)
+- [JavaCharStream(Reader, int, int, int)](#m-javacharstream-e1ec5eab2d32)
 
 **Fields**:
 
-- [available](#s-available)
-- [bufcolumn](#s-bufcolumn)
-- [buffer](#s-buffer)
-- [bufline](#s-bufline)
-- [bufpos](#s-bufpos)
-- [bufsize](#s-bufsize)
-- [column](#s-column)
-- [inBuf](#s-inBuf)
-- [inputStream](#s-inputStream)
-- [line](#s-line)
-- [maxNextCharInd](#s-maxNextCharInd)
-- [nextCharBuf](#s-nextCharBuf)
-- [nextCharInd](#s-nextCharInd)
-- [prevCharIsCR](#s-prevCharIsCR)
-- [prevCharIsLF](#s-prevCharIsLF)
-- [staticFlag](#s-staticFlag)
-- [tabSize](#s-tabSize)
-- [tokenBegin](#s-tokenBegin)
-- [trackLineColumn](#s-trackLineColumn)
+- [available](#m-available)
+- [bufcolumn](#m-bufcolumn)
+- [buffer](#m-buffer)
+- [bufline](#m-bufline)
+- [bufpos](#m-bufpos)
+- [bufsize](#m-bufsize)
+- [column](#m-column)
+- [inBuf](#m-inBuf)
+- [inputStream](#m-inputStream)
+- [line](#m-line)
+- [maxNextCharInd](#m-maxNextCharInd)
+- [nextCharBuf](#m-nextCharBuf)
+- [nextCharInd](#m-nextCharInd)
+- [prevCharIsCR](#m-prevCharIsCR)
+- [prevCharIsLF](#m-prevCharIsLF)
+- [staticFlag](#m-staticFlag)
+- [tabSize](#m-tabSize)
+- [tokenBegin](#m-tokenBegin)
+- [trackLineColumn](#m-trackLineColumn)
 
 **Methods**:
 
-- [adjustBeginLineColumn(int, int)](#s-adjustBeginLineColumn)
-- [AdjustBuffSize()](#s-AdjustBuffSize)
-- [backup(int)](#s-backup)
-- [BeginToken()](#s-BeginToken)
-- [Done()](#s-Done)
-- [ExpandBuff(boolean)](#s-ExpandBuff)
-- [FillBuff()](#s-FillBuff)
-- [getBeginColumn()](#s-getBeginColumn)
-- [getBeginLine()](#s-getBeginLine)
-- [getColumn()](#s-getColumn)
-- [getEndColumn()](#s-getEndColumn)
-- [getEndLine()](#s-getEndLine)
-- [GetImage()](#s-GetImage)
-- [getLine()](#s-getLine)
-- [GetSuffix(int)](#s-GetSuffix)
-- [getTabSize()](#s-getTabSize)
-- [getTrackLineColumn()](#s-getTrackLineColumn)
-- [hexval(char)](#s-hexval)
-- [ReadByte()](#s-ReadByte)
-- [readChar()](#s-readChar)
-- [ReInit(InputStream)](#s-ReInit)
-- [ReInit(InputStream, int, int)](#s-ReInit-1)
-- [ReInit(InputStream, int, int, int)](#s-ReInit-2)
-- [ReInit(InputStream, String)](#s-ReInit-3)
-- [ReInit(InputStream, String, int, int)](#s-ReInit-4)
-- [ReInit(InputStream, String, int, int, int)](#s-ReInit-5)
-- [ReInit(Reader)](#s-ReInit-6)
-- [ReInit(Reader, int, int)](#s-ReInit-7)
-- [ReInit(Reader, int, int, int)](#s-ReInit-8)
-- [setTabSize(int)](#s-setTabSize)
-- [setTrackLineColumn(boolean)](#s-setTrackLineColumn)
-- [UpdateLineColumn(char)](#s-UpdateLineColumn)
+- [adjustBeginLineColumn(int, int)](#m-adjustbeginlinecolumn-c801c3184566)
+- [AdjustBuffSize()](#m-adjustbuffsize-1677d88bc028)
+- [backup(int)](#m-backup-836a66148d50)
+- [BeginToken()](#m-begintoken-5ad4afb8570c)
+- [Done()](#m-done-c29e8ae89379)
+- [ExpandBuff(boolean)](#m-expandbuff-f0e0eea8edf6)
+- [FillBuff()](#m-fillbuff-55ac2c816918)
+- [getBeginColumn()](#m-getbegincolumn-57cc4a053b54)
+- [getBeginLine()](#m-getbeginline-ad626ebde8d7)
+- [getColumn()](#m-getcolumn-d5f8434d3d26)
+- [getEndColumn()](#m-getendcolumn-c6e9f843adab)
+- [getEndLine()](#m-getendline-68fe642cd927)
+- [GetImage()](#m-getimage-0197a5c17d27)
+- [getLine()](#m-getline-6cb6167e418b)
+- [GetSuffix(int)](#m-getsuffix-7b3a8af159d6)
+- [getTabSize()](#m-gettabsize-078d32ef6745)
+- [getTrackLineColumn()](#m-gettracklinecolumn-a0b86e838bf8)
+- [hexval(char)](#m-hexval-e1e2757cc157)
+- [ReadByte()](#m-readbyte-767d1ca98b33)
+- [readChar()](#m-readchar-a461864752cb)
+- [ReInit(InputStream)](#m-reinit-e03395a4a4ba)
+- [ReInit(InputStream, int, int)](#m-reinit-da459bea1274)
+- [ReInit(InputStream, int, int, int)](#m-reinit-2194eb0cc2c1)
+- [ReInit(InputStream, String)](#m-reinit-330085293cfa)
+- [ReInit(InputStream, String, int, int)](#m-reinit-93d364214350)
+- [ReInit(InputStream, String, int, int, int)](#m-reinit-47e847ed6762)
+- [ReInit(Reader)](#m-reinit-4ce6f3557028)
+- [ReInit(Reader, int, int)](#m-reinit-ab9e0b4d897b)
+- [ReInit(Reader, int, int, int)](#m-reinit-ec4c242b8fe2)
+- [setTabSize(int)](#m-settabsize-cb0051487f7f)
+- [setTrackLineColumn(boolean)](#m-settracklinecolumn-5819bc88a9f7)
+- [UpdateLineColumn(char)](#m-updatelinecolumn-16cd5c192e8f)
 
 ## Constructors
 
-<a id="s-JavaCharStream-1"></a>
+<a id="m-javacharstream-03b11f45e76e"></a>
 ### JavaCharStream(InputStream)
 
 ```java
@@ -96,7 +96,7 @@ Constructor.
 
 - `java.io.InputStream dstream` - the underlying data source.
 
-<a id="s-JavaCharStream-2"></a>
+<a id="m-javacharstream-1abe1abeff81"></a>
 ### JavaCharStream(InputStream, int, int)
 
 ```java
@@ -111,7 +111,7 @@ Constructor.
 - `int startline` - line number of the first character of the stream, mostly for error messages.
 - `int startcolumn` - column number of the first character of the stream.
 
-<a id="s-JavaCharStream-3"></a>
+<a id="m-javacharstream-6115ec31926d"></a>
 ### JavaCharStream(InputStream, int, int, int)
 
 ```java
@@ -127,7 +127,7 @@ Constructor.
 - `int startcolumn` - column number of the first character of the stream.
 - `int buffersize` - size of the buffer
 
-<a id="s-JavaCharStream-4"></a>
+<a id="m-javacharstream-1e8a1658de9d"></a>
 ### JavaCharStream(InputStream, String)
 
 ```java
@@ -149,7 +149,7 @@ Constructor.
 
 - `UnsupportedEncodingException` - encoding is invalid or unsupported.
 
-<a id="s-JavaCharStream-5"></a>
+<a id="m-javacharstream-6fabfea0d728"></a>
 ### JavaCharStream(InputStream, String, int, int)
 
 ```java
@@ -175,7 +175,7 @@ Constructor.
 
 - `UnsupportedEncodingException` - encoding is invalid or unsupported.
 
-<a id="s-JavaCharStream-6"></a>
+<a id="m-javacharstream-61734768a680"></a>
 ### JavaCharStream(InputStream, String, int, int, int)
 
 ```java
@@ -199,7 +199,7 @@ Constructor.
 - `int startcolumn`
 - `int buffersize`
 
-<a id="s-JavaCharStream-7"></a>
+<a id="m-javacharstream-ac019f5a3248"></a>
 ### JavaCharStream(Reader)
 
 ```java
@@ -212,7 +212,7 @@ Constructor.
 
 - `java.io.Reader dstream` - the underlying data source.
 
-<a id="s-JavaCharStream-8"></a>
+<a id="m-javacharstream-b489a0930918"></a>
 ### JavaCharStream(Reader, int, int)
 
 ```java
@@ -227,7 +227,7 @@ Constructor.
 - `int startline` - line number of the first character of the stream, mostly for error messages.
 - `int startcolumn` - column number of the first character of the stream.
 
-<a id="s-JavaCharStream-9"></a>
+<a id="m-javacharstream-e1ec5eab2d32"></a>
 ### JavaCharStream(Reader, int, int, int)
 
 ```java
@@ -246,7 +246,7 @@ Constructor.
 
 ## Fields
 
-<a id="s-available"></a>
+<a id="m-available"></a>
 ### available
 
 **Package-private**
@@ -255,35 +255,35 @@ Constructor.
 int available = null;
 ```
 
-<a id="s-bufcolumn"></a>
+<a id="m-bufcolumn"></a>
 ### bufcolumn
 
 ```java
 protected int[] bufcolumn = null;
 ```
 
-<a id="s-buffer"></a>
+<a id="m-buffer"></a>
 ### buffer
 
 ```java
 protected char[] buffer = null;
 ```
 
-<a id="s-bufline"></a>
+<a id="m-bufline"></a>
 ### bufline
 
 ```java
 protected int[] bufline = null;
 ```
 
-<a id="s-bufpos"></a>
+<a id="m-bufpos"></a>
 ### bufpos
 
 ```java
 public int bufpos = null;
 ```
 
-<a id="s-bufsize"></a>
+<a id="m-bufsize"></a>
 ### bufsize
 
 **Package-private**
@@ -292,70 +292,70 @@ public int bufpos = null;
 int bufsize = null;
 ```
 
-<a id="s-column"></a>
+<a id="m-column"></a>
 ### column
 
 ```java
 protected int column = null;
 ```
 
-<a id="s-inBuf"></a>
+<a id="m-inBuf"></a>
 ### inBuf
 
 ```java
 protected int inBuf = null;
 ```
 
-<a id="s-inputStream"></a>
+<a id="m-inputStream"></a>
 ### inputStream
 
 ```java
 protected java.io.Reader inputStream = null;
 ```
 
-<a id="s-line"></a>
+<a id="m-line"></a>
 ### line
 
 ```java
 protected int line = null;
 ```
 
-<a id="s-maxNextCharInd"></a>
+<a id="m-maxNextCharInd"></a>
 ### maxNextCharInd
 
 ```java
 protected int maxNextCharInd = null;
 ```
 
-<a id="s-nextCharBuf"></a>
+<a id="m-nextCharBuf"></a>
 ### nextCharBuf
 
 ```java
 protected char[] nextCharBuf = null;
 ```
 
-<a id="s-nextCharInd"></a>
+<a id="m-nextCharInd"></a>
 ### nextCharInd
 
 ```java
 protected int nextCharInd = null;
 ```
 
-<a id="s-prevCharIsCR"></a>
+<a id="m-prevCharIsCR"></a>
 ### prevCharIsCR
 
 ```java
 protected boolean prevCharIsCR = null;
 ```
 
-<a id="s-prevCharIsLF"></a>
+<a id="m-prevCharIsLF"></a>
 ### prevCharIsLF
 
 ```java
 protected boolean prevCharIsLF = null;
 ```
 
-<a id="s-staticFlag"></a>
+<a id="m-staticFlag"></a>
 ### staticFlag
 
 ```java
@@ -364,14 +364,14 @@ public static final boolean staticFlag = false;
 
 Whether parser is static.
 
-<a id="s-tabSize"></a>
+<a id="m-tabSize"></a>
 ### tabSize
 
 ```java
 protected int tabSize = null;
 ```
 
-<a id="s-tokenBegin"></a>
+<a id="m-tokenBegin"></a>
 ### tokenBegin
 
 **Package-private**
@@ -380,7 +380,7 @@ protected int tabSize = null;
 int tokenBegin = null;
 ```
 
-<a id="s-trackLineColumn"></a>
+<a id="m-trackLineColumn"></a>
 ### trackLineColumn
 
 ```java
@@ -390,7 +390,7 @@ protected boolean trackLineColumn = null;
 
 ## Methods
 
-<a id="s-adjustBeginLineColumn"></a>
+<a id="m-adjustbeginlinecolumn-c801c3184566"></a>
 ### adjustBeginLineColumn(int, int)
 
 ```java
@@ -404,14 +404,14 @@ Method to adjust line and column numbers for the start of a token.
 - `int newLine` - the new line number.
 - `int newCol` - the new column number.
 
-<a id="s-AdjustBuffSize"></a>
+<a id="m-adjustbuffsize-1677d88bc028"></a>
 ### AdjustBuffSize()
 
 ```java
 protected void AdjustBuffSize()
 ```
 
-<a id="s-backup"></a>
+<a id="m-backup-836a66148d50"></a>
 ### backup(int)
 
 ```java
@@ -424,14 +424,14 @@ Retreat.
 
 - `int amount`
 
-<a id="s-BeginToken"></a>
+<a id="m-begintoken-5ad4afb8570c"></a>
 ### BeginToken()
 
 ```java
 public char BeginToken() throws java.io.IOException
 ```
 
-<a id="s-Done"></a>
+<a id="m-done-c29e8ae89379"></a>
 ### Done()
 
 ```java
@@ -440,7 +440,7 @@ public void Done()
 
 Set buffers back to null when finished.
 
-<a id="s-ExpandBuff"></a>
+<a id="m-expandbuff-f0e0eea8edf6"></a>
 ### ExpandBuff(boolean)
 
 ```java
@@ -451,14 +451,14 @@ protected void ExpandBuff(boolean wrapAround)
 
 - `boolean wrapAround`
 
-<a id="s-FillBuff"></a>
+<a id="m-fillbuff-55ac2c816918"></a>
 ### FillBuff()
 
 ```java
 protected void FillBuff() throws java.io.IOException
 ```
 
-<a id="s-getBeginColumn"></a>
+<a id="m-getbegincolumn-57cc4a053b54"></a>
 ### getBeginColumn()
 
 ```java
@@ -469,7 +469,7 @@ Get the beginning column.
 
 **Returns:** column of token start
 
-<a id="s-getBeginLine"></a>
+<a id="m-getbeginline-ad626ebde8d7"></a>
 ### getBeginLine()
 
 ```java
@@ -478,14 +478,14 @@ public int getBeginLine()
 
 **Returns:** line number of token start
 
-<a id="s-getColumn"></a>
+<a id="m-getcolumn-d5f8434d3d26"></a>
 ### getColumn()
 
 ```java
 public int getColumn()
 ```
 
-<a id="s-getEndColumn"></a>
+<a id="m-getendcolumn-c6e9f843adab"></a>
 ### getEndColumn()
 
 ```java
@@ -496,7 +496,7 @@ Get end column.
 
 **Returns:** the end column or -1
 
-<a id="s-getEndLine"></a>
+<a id="m-getendline-68fe642cd927"></a>
 ### getEndLine()
 
 ```java
@@ -507,7 +507,7 @@ Get end line.
 
 **Returns:** the end line number or -1
 
-<a id="s-GetImage"></a>
+<a id="m-getimage-0197a5c17d27"></a>
 ### GetImage()
 
 ```java
@@ -518,14 +518,14 @@ Get the token timage.
 
 **Returns:** token image as String
 
-<a id="s-getLine"></a>
+<a id="m-getline-6cb6167e418b"></a>
 ### getLine()
 
 ```java
 public int getLine()
 ```
 
-<a id="s-GetSuffix"></a>
+<a id="m-getsuffix-7b3a8af159d6"></a>
 ### GetSuffix(int)
 
 ```java
@@ -540,14 +540,14 @@ Get the suffix as an array of characters.
 
 **Returns:** suffix
 
-<a id="s-getTabSize"></a>
+<a id="m-gettabsize-078d32ef6745"></a>
 ### getTabSize()
 
 ```java
 public int getTabSize()
 ```
 
-<a id="s-getTrackLineColumn"></a>
+<a id="m-gettracklinecolumn-a0b86e838bf8"></a>
 ### getTrackLineColumn()
 
 **Package-private**
@@ -556,7 +556,7 @@ public int getTabSize()
 boolean getTrackLineColumn()
 ```
 
-<a id="s-hexval"></a>
+<a id="m-hexval-e1e2757cc157"></a>
 ### hexval(char)
 
 **Package-private**
@@ -569,21 +569,21 @@ static final int hexval(char c) throws java.io.IOException
 
 - `char c`
 
-<a id="s-ReadByte"></a>
+<a id="m-readbyte-767d1ca98b33"></a>
 ### ReadByte()
 
 ```java
 protected char ReadByte() throws java.io.IOException
 ```
 
-<a id="s-readChar"></a>
+<a id="m-readchar-a461864752cb"></a>
 ### readChar()
 
 ```java
 public char readChar() throws java.io.IOException
 ```
 
-<a id="s-ReInit"></a>
+<a id="m-reinit-e03395a4a4ba"></a>
 ### ReInit(InputStream)
 
 ```java
@@ -596,7 +596,7 @@ Reinitialise.
 
 - `java.io.InputStream dstream` - the underlying data source.
 
-<a id="s-ReInit-1"></a>
+<a id="m-reinit-da459bea1274"></a>
 ### ReInit(InputStream, int, int)
 
 ```java
@@ -611,7 +611,7 @@ Reinitialise.
 - `int startline` - line number of the first character of the stream, mostly for error messages.
 - `int startcolumn` - column number of the first character of the stream.
 
-<a id="s-ReInit-2"></a>
+<a id="m-reinit-2194eb0cc2c1"></a>
 ### ReInit(InputStream, int, int, int)
 
 ```java
@@ -627,7 +627,7 @@ Reinitialise.
 - `int startcolumn` - column number of the first character of the stream.
 - `int buffersize` - size of the buffer
 
-<a id="s-ReInit-3"></a>
+<a id="m-reinit-330085293cfa"></a>
 ### ReInit(InputStream, String)
 
 ```java
@@ -649,7 +649,7 @@ Reinitialise.
 
 - `UnsupportedEncodingException` - encoding is invalid or unsupported.
 
-<a id="s-ReInit-4"></a>
+<a id="m-reinit-93d364214350"></a>
 ### ReInit(InputStream, String, int, int)
 
 ```java
@@ -675,7 +675,7 @@ Reinitialise.
 
 - `UnsupportedEncodingException` - encoding is invalid or unsupported.
 
-<a id="s-ReInit-5"></a>
+<a id="m-reinit-47e847ed6762"></a>
 ### ReInit(InputStream, String, int, int, int)
 
 ```java
@@ -699,7 +699,7 @@ Reinitialise.
 - `int startcolumn` - column number of the first character of the stream.
 - `int buffersize` - size of the buffer
 
-<a id="s-ReInit-6"></a>
+<a id="m-reinit-4ce6f3557028"></a>
 ### ReInit(Reader)
 
 ```java
@@ -710,7 +710,7 @@ public void ReInit(java.io.Reader dstream)
 
 - `java.io.Reader dstream`
 
-<a id="s-ReInit-7"></a>
+<a id="m-reinit-ab9e0b4d897b"></a>
 ### ReInit(Reader, int, int)
 
 ```java
@@ -723,7 +723,7 @@ public void ReInit(java.io.Reader dstream, int startline, int startcolumn)
 - `int startline`
 - `int startcolumn`
 
-<a id="s-ReInit-8"></a>
+<a id="m-reinit-ec4c242b8fe2"></a>
 ### ReInit(Reader, int, int, int)
 
 ```java
@@ -737,7 +737,7 @@ public void ReInit(java.io.Reader dstream, int startline, int startcolumn, int b
 - `int startcolumn`
 - `int buffersize`
 
-<a id="s-setTabSize"></a>
+<a id="m-settabsize-cb0051487f7f"></a>
 ### setTabSize(int)
 
 ```java
@@ -748,7 +748,7 @@ public void setTabSize(int i)
 
 - `int i`
 
-<a id="s-setTrackLineColumn"></a>
+<a id="m-settracklinecolumn-5819bc88a9f7"></a>
 ### setTrackLineColumn(boolean)
 
 **Package-private**
@@ -761,7 +761,7 @@ void setTrackLineColumn(boolean tlc)
 
 - `boolean tlc`
 
-<a id="s-UpdateLineColumn"></a>
+<a id="m-updatelinecolumn-16cd5c192e8f"></a>
 ### UpdateLineColumn(char)
 
 ```java

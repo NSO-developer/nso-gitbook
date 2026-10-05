@@ -1,4 +1,4 @@
-<a id="s-NcsThread"></a>
+<a id="cls-NcsThread"></a>
 # NcsThread
 
 ```java
@@ -13,20 +13,20 @@ NcsThread is a subclass of Thread with the ability to log more info about
 
 **Constructors**:
 
-- [NcsThread(Runnable)](#s-NcsThread-1)
-- [NcsThread(Runnable, String)](#s-NcsThread-2)
+- [NcsThread(Runnable)](#m-ncsthread-2da10fc87e4c)
+- [NcsThread(Runnable, String)](#m-ncsthread-ff60b8717078)
 
 **Fields**:
 
-- [DEFAULT_NAME](#s-DEFAULT_NAME)
+- [DEFAULT_NAME](#m-DEFAULT_NAME)
 
 **Methods**:
 
-- [run()](#s-run)
+- [run()](#m-run-b6dbda048863)
 
 ## Constructors
 
-<a id="s-NcsThread-1"></a>
+<a id="m-ncsthread-2da10fc87e4c"></a>
 ### NcsThread(Runnable)
 
 ```java
@@ -37,7 +37,7 @@ public NcsThread(Runnable r)
 
 - `Runnable r`
 
-<a id="s-NcsThread-2"></a>
+<a id="m-ncsthread-ff60b8717078"></a>
 ### NcsThread(Runnable, String)
 
 ```java
@@ -52,7 +52,7 @@ public NcsThread(Runnable r, String name)
 
 ## Fields
 
-<a id="s-DEFAULT_NAME"></a>
+<a id="m-DEFAULT_NAME"></a>
 ### DEFAULT_NAME
 
 ```java
@@ -62,7 +62,7 @@ public static final String DEFAULT_NAME = "NcsWorkerPoolThread";
 
 ## Methods
 
-<a id="s-run"></a>
+<a id="m-run-b6dbda048863"></a>
 ### run()
 
 ```java

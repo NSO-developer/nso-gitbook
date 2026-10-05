@@ -1,4 +1,4 @@
-<a id="s-DpSnmpInformResponseCallback"></a>
+<a id="cls-DpSnmpInformResponseCallback"></a>
 # DpSnmpInformResponseCallback
 
 ```java
@@ -9,20 +9,20 @@ This interface is used for the SNMP notifier callbacks.
 
 **Since:** 3.2.0
 
-**See also:** [`Dp#createSnmpNotifier(String, String, Object)`](Dp.md#s-createSnmpNotifier-1)
+**See also:** [`Dp#createSnmpNotifier(String, String, Object)`](Dp.md#m-createsnmpnotifier-89f0d186fc8f)
 
 ## Members
 
 **Methods**:
 
-- [id()](#s-id)
-- [mask()](#s-mask)
-- [result(Integer, ConfETuple, Boolean)](#s-result)
-- [targets(Integer, ConfETuple[])](#s-targets)
+- [id()](#m-id-1352448ec267)
+- [mask()](#m-mask-24c2fa29c6af)
+- [result(Integer, ConfETuple, Boolean)](#m-result-633f0f760c10)
+- [targets(Integer, ConfETuple[])](#m-targets-aaa64a3aa8f3)
 
 ## Methods
 
-<a id="s-id"></a>
+<a id="m-id-1352448ec267"></a>
 ### id()
 
 ```java
@@ -31,14 +31,14 @@ public abstract String id()
 
 The id of the SNMP inform callback.
 
-<a id="s-mask"></a>
+<a id="m-mask-24c2fa29c6af"></a>
 ### mask()
 
 ```java
 public abstract int mask()
 ```
 
-<a id="s-result"></a>
+<a id="m-result-633f0f760c10"></a>
 ### result(Integer, ConfETuple, Boolean)
 
 ```java
@@ -50,7 +50,7 @@ public abstract void result(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ConfETuple](../proto/ConfETuple.md#s-ConfETuple), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [ConfETuple](../proto/ConfETuple.md#cls-ConfETuple), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback provides the application with possibility to to take
  actions based on the result of an inform request for a specific receiver.
@@ -58,7 +58,8 @@ This callback provides the application with possibility to to take
 **Parameters**
 
 - `Integer ref` - A reference assigned by the caller of the SNMP inform request
-            see [`DpSnmpNotifier`](DpSnmpNotifier.md#s-DpSnmpNotifier)
+            see [`DpSnmpNotifier#send(
+            String, com.tailf.conf.SnmpVarbind[], Integer)`](DpSnmpNotifier.md#m-send-616c3e8b0825)
 - `com.tailf.proto.ConfETuple target` - the receiver returning the result.
 - `Boolean gotResponse` - if we got a response or not from the target.
 
@@ -66,7 +67,7 @@ This callback provides the application with possibility to to take
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-targets"></a>
+<a id="m-targets-aaa64a3aa8f3"></a>
 ### targets(Integer, ConfETuple[])
 
 ```java
@@ -77,7 +78,7 @@ public abstract void targets(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ConfETuple](../proto/ConfETuple.md#s-ConfETuple), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [ConfETuple](../proto/ConfETuple.md#cls-ConfETuple), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback provides the application with possibility to to take
  actions based on the intended targets of an inform request.

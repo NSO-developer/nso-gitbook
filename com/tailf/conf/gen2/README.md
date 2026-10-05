@@ -2,10 +2,10 @@
 
 ## Types
 
-- [JavaCharStream](JavaCharStream.md#s-JavaCharStream)
-- [ParseException](ParseException.md#s-ParseException)
-- [Token](Token.md#s-Token)
-- [TokenMgrError](TokenMgrError.md#s-TokenMgrError)
-- [XPathAbrev1](XPathAbrev1.md#s-XPathAbrev1)
-- [XPathAbrev1Constants](XPathAbrev1Constants.md#s-XPathAbrev1Constants)
-- [XPathAbrev1TokenManager](XPathAbrev1TokenManager.md#s-XPathAbrev1TokenManager)
+- [JavaCharStream](JavaCharStream.md#cls-JavaCharStream)
+- [ParseException](ParseException.md#cls-ParseException)
+- [Token](Token.md#cls-Token)
+- [TokenMgrError](TokenMgrError.md#cls-TokenMgrError)
+- [XPathAbrev1](XPathAbrev1.md#cls-XPathAbrev1)
+- [XPathAbrev1Constants](XPathAbrev1Constants.md#cls-XPathAbrev1Constants)
+- [XPathAbrev1TokenManager](XPathAbrev1TokenManager.md#cls-XPathAbrev1TokenManager)

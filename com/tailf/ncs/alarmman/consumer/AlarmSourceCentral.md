@@ -1,4 +1,4 @@
-<a id="s-AlarmSourceCentral"></a>
+<a id="cls-AlarmSourceCentral"></a>
 # AlarmSourceCentral
 
 ```java
@@ -9,22 +9,22 @@ public class com.tailf.ncs.alarmman.consumer.AlarmSourceCentral
 The consuming part of the *Alarm API*.
 
  This class acts as a proxy where incoming alarms are dispatched or
- forwarded to all registered [`AlarmSource`](AlarmSource.md#s-AlarmSource) attached to it.
+ forwarded to all registered [`AlarmSource`](AlarmSource.md#cls-AlarmSource) attached to it.
 
   One `AlarmSourceCentral ` (and corresponding
- [`AlarmSinkCentral`](../producer/AlarmSinkCentral.md#s-AlarmSinkCentral)) is always present
+ [`AlarmSinkCentral`](../producer/AlarmSinkCentral.md#cls-AlarmSinkCentral)) is always present
  in the *NCS JVM* and it is started when *NCS JVM* is started.
 
  It is also possible to start `AlarmSourceCentral`
  outside the *NCS JVM*.
 
- Each client [`AlarmSource`](AlarmSource.md#s-AlarmSource) that is attached to
+ Each client [`AlarmSource`](AlarmSource.md#cls-AlarmSource) that is attached to
  a `AlarmSourceCentral` gets its own queue to
  check for incoming alarms.
 
  The `AlarmSourceCentral` maintains or handles
  the client queues, for each incoming alarm to *CDB*
- it creates a new instance of [`Alarm`](../common/Alarm.md#s-Alarm) and puts the
+ it creates a new instance of [`Alarm`](../common/Alarm.md#cls-Alarm) and puts the
  new instance into all the client queues that are attached to this
  `AlarmSourceCentral`.
 
@@ -32,27 +32,27 @@ The consuming part of the *Alarm API*.
 
 **Constructors**:
 
-- [AlarmSourceCentral(int, Cdb)](#s-AlarmSourceCentral-1)
+- [AlarmSourceCentral(int, Cdb)](#m-alarmsourcecentral-d1b13ad77707)
 
 **Methods**:
 
-- [getAlarmQueue()](#s-getAlarmQueue)
-- [getAlarmSource(int, Cdb)](#s-getAlarmSource)
-- [getQueue()](#s-getQueue)
-- [isAlive()](#s-isAlive)
-- [returnAlarmQueue(ArrayBlockingQueue<Alarm>)](#s-returnAlarmQueue)
-- [returnQueue(ArrayBlockingQueue<Alarm>)](#s-returnQueue)
-- [run()](#s-run)
-- [start()](#s-start)
-- [stop()](#s-stop)
+- [getAlarmQueue()](#m-getalarmqueue-86ea427127cc)
+- [getAlarmSource(int, Cdb)](#m-getalarmsource-3dbc04cb0fba)
+- [getQueue()](#m-getqueue-d349d0a1f2e7)
+- [isAlive()](#m-isalive-264918864856)
+- [returnAlarmQueue(ArrayBlockingQueue<Alarm>)](#m-returnalarmqueue-4561d0dee1d9)
+- [returnQueue(ArrayBlockingQueue<Alarm>)](#m-returnqueue-87db70115c92)
+- [run()](#m-run-b6dbda048863)
+- [start()](#m-start-79e12dafe9f8)
+- [stop()](#m-stop-a62ecc446f97)
 
 **Nested Types**:
 
-- [AlarmDispatcher](AlarmSourceCentral/AlarmDispatcher.md#s-AlarmDispatcher)
+- [AlarmDispatcher](AlarmSourceCentral/AlarmDispatcher.md#cls-AlarmDispatcher)
 
 ## Constructors
 
-<a id="s-AlarmSourceCentral-1"></a>
+<a id="m-alarmsourcecentral-d1b13ad77707"></a>
 ### AlarmSourceCentral(int, Cdb)
 
 ```java
@@ -63,7 +63,7 @@ public AlarmSourceCentral(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Cdb](../../../cdb/Cdb.md#s-Cdb), [ConfException](../../../conf/ConfException.md#s-ConfException)
+Types: [Cdb](../../../cdb/Cdb.md#cls-Cdb), [ConfException](../../../conf/ConfException.md#cls-ConfException)
 
 Creates a new AlarmSourceCentral object.
 
@@ -81,14 +81,14 @@ Creates a new AlarmSourceCentral object.
 
 ## Methods
 
-<a id="s-getAlarmQueue"></a>
+<a id="m-getalarmqueue-86ea427127cc"></a>
 ### getAlarmQueue()
 
 ```java
 public static java.util.concurrent.ArrayBlockingQueue<com.tailf.ncs.alarmman.common.Alarm> getAlarmQueue()
 ```
 
-Types: [Alarm](../common/Alarm.md#s-Alarm)
+Types: [Alarm](../common/Alarm.md#cls-Alarm)
 
 Returns a new alarm queue.
 
@@ -96,7 +96,7 @@ Returns a new alarm queue.
 
 **Deprecated:** Use `#getQueue()` instead.
 
-<a id="s-getAlarmSource"></a>
+<a id="m-getalarmsource-3dbc04cb0fba"></a>
 ### getAlarmSource(int, Cdb)
 
 ```java
@@ -107,7 +107,7 @@ public static synchronized com.tailf.ncs.alarmman.consumer.AlarmSourceCentral ge
     throws java.io.IOException, com.tailf.navu.NavuException, com.tailf.conf.ConfException
 ```
 
-Types: [AlarmSourceCentral](AlarmSourceCentral.md#s-AlarmSourceCentral), [Cdb](../../../cdb/Cdb.md#s-Cdb), [NavuException](../../../navu/NavuException.md#s-NavuException), [ConfException](../../../conf/ConfException.md#s-ConfException)
+Types: [AlarmSourceCentral](AlarmSourceCentral.md#cls-AlarmSourceCentral), [Cdb](../../../cdb/Cdb.md#cls-Cdb), [NavuException](../../../navu/NavuException.md#cls-NavuException), [ConfException](../../../conf/ConfException.md#cls-ConfException)
 
 Retrieves the alarm source central object.
 
@@ -124,22 +124,22 @@ Retrieves the alarm source central object.
 - `NavuException` - if there is a Navu error
 - `ConfException` - if there is a protocol error
 
-**Deprecated:** Use [`NcsMain`](../../NcsMain.md#s-NcsMain) instead.
+**Deprecated:** Use [`NcsMain#getSourceCentral()`](../../NcsMain.md#m-getsourcecentral-0714ef465cc3) instead.
 
-<a id="s-getQueue"></a>
+<a id="m-getqueue-d349d0a1f2e7"></a>
 ### getQueue()
 
 ```java
 protected synchronized java.util.concurrent.ArrayBlockingQueue<com.tailf.ncs.alarmman.common.Alarm> getQueue()
 ```
 
-Types: [Alarm](../common/Alarm.md#s-Alarm)
+Types: [Alarm](../common/Alarm.md#cls-Alarm)
 
 Creates a new queue and adds it to the AlarmSource.
 
 **Returns:** ArrayBlockingQueue
 
-<a id="s-isAlive"></a>
+<a id="m-isalive-264918864856"></a>
 ### isAlive()
 
 ```java
@@ -150,7 +150,7 @@ Returns true if the AlarmSourceCentral is running.
 
 **Returns:** true if the AlarmSourceCentral is running, else false.
 
-<a id="s-returnAlarmQueue"></a>
+<a id="m-returnalarmqueue-4561d0dee1d9"></a>
 ### returnAlarmQueue(ArrayBlockingQueue<Alarm>)
 
 ```java
@@ -159,7 +159,7 @@ public static void returnAlarmQueue(
 )
 ```
 
-Types: [Alarm](../common/Alarm.md#s-Alarm)
+Types: [Alarm](../common/Alarm.md#cls-Alarm)
 
 Returns the queue.
 
@@ -167,9 +167,9 @@ Returns the queue.
 
 - `java.util.concurrent.ArrayBlockingQueue<com.tailf.ncs.alarmman.common.Alarm> queue` - the queue to return.
 
-**Deprecated:** Use [`Alarm`](../common/Alarm.md#s-Alarm) instead.
+**Deprecated:** Use `Alarm#returnQueue(ArrayBlockingQueue<Alarm>)` instead.
 
-<a id="s-returnQueue"></a>
+<a id="m-returnqueue-87db70115c92"></a>
 ### returnQueue(ArrayBlockingQueue<Alarm>)
 
 ```java
@@ -178,7 +178,7 @@ protected void returnQueue(
 )
 ```
 
-Types: [Alarm](../common/Alarm.md#s-Alarm)
+Types: [Alarm](../common/Alarm.md#cls-Alarm)
 
 Removes the queue from the list of
  queues.
@@ -187,14 +187,14 @@ Removes the queue from the list of
 
 - `java.util.concurrent.ArrayBlockingQueue<com.tailf.ncs.alarmman.common.Alarm> queue`
 
-<a id="s-run"></a>
+<a id="m-run-b6dbda048863"></a>
 ### run()
 
 ```java
 public void run()
 ```
 
-<a id="s-start"></a>
+<a id="m-start-79e12dafe9f8"></a>
 ### start()
 
 ```java
@@ -205,7 +205,7 @@ Start the AlarmSourceCentral which makes
  it possible for AlarmSource's to attach to this
  `AlarmSourceCentral ` and receive notifications.
 
-<a id="s-stop"></a>
+<a id="m-stop-a62ecc446f97"></a>
 ### stop()
 
 ```java
@@ -217,4 +217,4 @@ Stops the AlarmSourceCentral.
 
 ## Nested Types
 
-- [AlarmDispatcher](AlarmSourceCentral/AlarmDispatcher.md)
+- [AlarmDispatcher](AlarmSourceCentral/AlarmDispatcher.md#cls-AlarmDispatcher)

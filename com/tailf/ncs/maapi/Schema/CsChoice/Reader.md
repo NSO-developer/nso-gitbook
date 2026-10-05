@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,21 +10,21 @@ public static final class com.tailf.ncs.maapi.Schema.CsChoice.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getCases()](#s-getCases)
-- [getDefCase()](#s-getDefCase)
-- [getHns()](#s-getHns)
-- [getHtag()](#s-getHtag)
-- [getMinOccurs()](#s-getMinOccurs)
-- [hasCases()](#s-hasCases)
-- [hasDefCase()](#s-hasDefCase)
+- [getCases()](#m-getcases-42abc2944fb1)
+- [getDefCase()](#m-getdefcase-593fa181831e)
+- [getHns()](#m-gethns-457afaf41ae6)
+- [getHtag()](#m-gethtag-3a838d71ddf7)
+- [getMinOccurs()](#m-getminoccurs-cac79959dff8)
+- [hasCases()](#m-hascases-682cbddafe6a)
+- [hasDefCase()](#m-hasdefcase-417dec2577e2)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -52,53 +52,53 @@ Reader(
 
 ## Methods
 
-<a id="s-getCases"></a>
+<a id="m-getcases-42abc2944fb1"></a>
 ### getCases()
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsCase.Reader> getCases()
 ```
 
-Types: [Reader](../CsCase/Reader.md#s-Reader)
+Types: [Reader](../CsCase/Reader.md#cls-Reader)
 
-<a id="s-getDefCase"></a>
+<a id="m-getdefcase-593fa181831e"></a>
 ### getDefCase()
 
 ```java
 public com.tailf.ncs.maapi.Schema.QTag.Reader getDefCase()
 ```
 
-Types: [Reader](../QTag/Reader.md#s-Reader)
+Types: [Reader](../QTag/Reader.md#cls-Reader)
 
-<a id="s-getHns"></a>
+<a id="m-gethns-457afaf41ae6"></a>
 ### getHns()
 
 ```java
 public final int getHns()
 ```
 
-<a id="s-getHtag"></a>
+<a id="m-gethtag-3a838d71ddf7"></a>
 ### getHtag()
 
 ```java
 public final int getHtag()
 ```
 
-<a id="s-getMinOccurs"></a>
+<a id="m-getminoccurs-cac79959dff8"></a>
 ### getMinOccurs()
 
 ```java
 public final int getMinOccurs()
 ```
 
-<a id="s-hasCases"></a>
+<a id="m-hascases-682cbddafe6a"></a>
 ### hasCases()
 
 ```java
 public final boolean hasCases()
 ```
 
-<a id="s-hasDefCase"></a>
+<a id="m-hasdefcase-417dec2577e2"></a>
 ### hasDefCase()
 
 ```java

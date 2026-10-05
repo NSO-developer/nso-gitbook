@@ -1,4 +1,4 @@
-<a id="s-DpValpointCallback"></a>
+<a id="cls-DpValpointCallback"></a>
 # DpValpointCallback
 
 ```java
@@ -7,18 +7,18 @@ public interface com.tailf.dp.DpValpointCallback
 
 This interface is used for the user valpoint callbacks.
 
-**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#s-registerAnnotatedCallbacks)
+**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
 
 **Methods**:
 
-- [validate(DpTrans, ConfObject[], ConfValue)](#s-validate)
-- [valpoint()](#s-valpoint)
+- [validate(DpTrans, ConfObject[], ConfValue)](#m-validate-1a546d06dca5)
+- [valpoint()](#m-valpoint-a064c4954648)
 
 ## Methods
 
-<a id="s-validate"></a>
+<a id="m-validate-1a546d06dca5"></a>
 ### validate(DpTrans, ConfObject[], ConfValue)
 
 ```java
@@ -30,7 +30,7 @@ public abstract void validate(
     throws com.tailf.dp.DpCallbackException, com.tailf.dp.DpCallbackWarningException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfValue](../conf/ConfValue.md#s-ConfValue), [DpCallbackException](DpCallbackException.md#s-DpCallbackException), [DpCallbackWarningException](DpCallbackWarningException.md#s-DpCallbackWarningException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfValue](../conf/ConfValue.md#cls-ConfValue), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException), [DpCallbackWarningException](DpCallbackWarningException.md#cls-DpCallbackWarningException)
 
 The validate() callback should validate the values and throw a
  `DpCallbackException` if the validation fails. There is also a
@@ -60,7 +60,7 @@ The validate() callback should validate the values and throw a
 - `DpCallbackWarningException` - If a warning should be propagated to the originator of the
              transaction.
 
-<a id="s-valpoint"></a>
+<a id="m-valpoint-a064c4954648"></a>
 ### valpoint()
 
 ```java

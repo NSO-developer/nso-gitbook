@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,17 +10,17 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeBits.Bit.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getName()](#s-getName)
-- [getPos()](#s-getPos)
-- [hasName()](#s-hasName)
+- [getName()](#m-getname-2634b18b4a25)
+- [getPos()](#m-getpos-ad2d7b30807f)
+- [hasName()](#m-hasname-bfe6c334e0d1)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -48,21 +48,21 @@ Reader(
 
 ## Methods
 
-<a id="s-getName"></a>
+<a id="m-getname-2634b18b4a25"></a>
 ### getName()
 
 ```java
 public org.capnproto.Text.Reader getName()
 ```
 
-<a id="s-getPos"></a>
+<a id="m-getpos-ad2d7b30807f"></a>
 ### getPos()
 
 ```java
 public final int getPos()
 ```
 
-<a id="s-hasName"></a>
+<a id="m-hasname-bfe6c334e0d1"></a>
 ### hasName()
 
 ```java

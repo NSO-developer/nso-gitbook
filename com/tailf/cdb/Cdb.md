@@ -1,4 +1,4 @@
-<a id="s-Cdb"></a>
+<a id="cls-Cdb"></a>
 # Cdb
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.cdb.Cdb
     implements com.tailf.conf.MountIdInterface, AutoCloseable
 ```
 
-Types: [MountIdInterface](../conf/MountIdInterface.md#s-MountIdInterface)
+Types: [MountIdInterface](../conf/MountIdInterface.md#cls-MountIdInterface)
 
 This class represents a connection to `ConfD/NCS` built in
  XML database.
@@ -25,7 +25,7 @@ This class represents a connection to `ConfD/NCS` built in
  configuration data, or read/write operational data. These are short-lived
  sessions that are established though a call to `#startSession()`.
  The entire configuration part of CDB is locked for writing while any
- CDB read session is active. Use the [`CdbDBType`](CdbDBType.md#s-CdbDBType)
+ CDB read session is active. Use the `CdbDBType#startSession(CdbDBType)`
  method to create a new session to
  read configuration data and read and write operational data.
 
@@ -59,56 +59,56 @@ This class represents a connection to `ConfD/NCS` built in
  `#newSubscription()` method to create a new Cdb subscription to
  subscribe on CDB configuration changes.
 
-**See also:** [`CdbSession`](CdbSession.md#s-CdbSession), [`CdbSubscription`](CdbSubscription.md#s-CdbSubscription)
+**See also:** [`CdbSession`](CdbSession.md#cls-CdbSession), [`CdbSubscription`](CdbSubscription.md#cls-CdbSubscription)
 
 ## Members
 
 **Constructors**:
 
-- [Cdb(String, Socket)](#s-Cdb-1)
-- [Cdb(String, SocketAddress)](#s-Cdb-2)
+- [Cdb(String, Socket)](#m-cdb-21f829a256dd)
+- [Cdb(String, SocketAddress)](#m-cdb-d6bb494b3f32)
 
 **Methods**:
 
-- [acceptTagPath()](#s-acceptTagPath)
-- [bufWrite(int, byte[])](#s-bufWrite)
-- [close()](#s-close)
-- [endSession()](#s-endSession)
-- [getCompactionInfo(CdbDbfileType)](#s-getCompactionInfo)
-- [getCurrentSession()](#s-getCurrentSession)
-- [getMountId(ConfPath)](#s-getMountId)
-- [getName()](#s-getName)
-- [getPhase()](#s-getPhase)
-- [getSocket()](#s-getSocket)
-- [getTxId()](#s-getTxId)
-- [initiateCompaction()](#s-initiateCompaction)
-- [initiateDbfileCompaction(CdbDbfileType)](#s-initiateDbfileCompaction)
-- [isUseHTags()](#s-isUseHTags)
-- [newSubscription()](#s-newSubscription)
-- [requestTerm(int)](#s-requestTerm)
-- [requestTerm(int, boolean, ConfEObject)](#s-requestTerm-1)
-- [requestTerm(int, ConfEObject)](#s-requestTerm-2)
-- [setTimeout(int)](#s-setTimeout)
-- [setUseForCdbUpgrade()](#s-setUseForCdbUpgrade)
-- [setUseForCdbUpgrade(List<ConfNamespace>)](#s-setUseForCdbUpgrade-1)
-- [setUseHTags(boolean)](#s-setUseHTags)
-- [startSession()](#s-startSession)
-- [startSession(CdbDBType)](#s-startSession-1)
-- [startSession(CdbDBType, EnumSet<CdbLockType>)](#s-startSession-2)
-- [startUpgradeSession()](#s-startUpgradeSession)
-- [startUpgradeSession(CdbDBType)](#s-startUpgradeSession-1)
-- [startUpgradeSession(CdbDBType, EnumSet<CdbLockType>)](#s-startUpgradeSession-2)
-- [termRead(int)](#s-termRead)
-- [termWrite(int, ConfEObject)](#s-termWrite)
-- [toString()](#s-toString)
-- [triggerOperSubscriptions(int[])](#s-triggerOperSubscriptions)
-- [triggerOperSubscriptions(int[], EnumSet<CdbLockType>)](#s-triggerOperSubscriptions-1)
-- [triggerSubscriptions(int[])](#s-triggerSubscriptions)
-- [waitStart()](#s-waitStart)
+- [acceptTagPath()](#m-accepttagpath-3efa26ad697b)
+- [bufWrite(int, byte[])](#m-bufwrite-08cae6911f4c)
+- [close()](#m-close-8107c6dc012b)
+- [endSession()](#m-endsession-1853baeb5d28)
+- [getCompactionInfo(CdbDbfileType)](#m-getcompactioninfo-7f8cce00653a)
+- [getCurrentSession()](#m-getcurrentsession-2d75e562d728)
+- [getMountId(ConfPath)](#m-getmountid-83243c09b7c3)
+- [getName()](#m-getname-2634b18b4a25)
+- [getPhase()](#m-getphase-5492112b72e7)
+- [getSocket()](#m-getsocket-d7da2de81b81)
+- [getTxId()](#m-gettxid-1817ce3409ba)
+- [initiateCompaction()](#m-initiatecompaction-2acf1b3661eb)
+- [initiateDbfileCompaction(CdbDbfileType)](#m-initiatedbfilecompaction-324563a7582a)
+- [isUseHTags()](#m-isusehtags-9ad9d9c20c62)
+- [newSubscription()](#m-newsubscription-6053c3ae88bb)
+- [requestTerm(int)](#m-requestterm-f568e63b5414)
+- [requestTerm(int, boolean, ConfEObject)](#m-requestterm-79e4f0cddbef)
+- [requestTerm(int, ConfEObject)](#m-requestterm-a8fce80da6f1)
+- [setTimeout(int)](#m-settimeout-cbe758ecb5d8)
+- [setUseForCdbUpgrade()](#m-setuseforcdbupgrade-381558675127)
+- [setUseForCdbUpgrade(List<ConfNamespace>)](#m-setuseforcdbupgrade-2a9450800b18)
+- [setUseHTags(boolean)](#m-setusehtags-468584ecfc93)
+- [startSession()](#m-startsession-ee121903dcfa)
+- [startSession(CdbDBType)](#m-startsession-6f137bd83c44)
+- [startSession(CdbDBType, EnumSet<CdbLockType>)](#m-startsession-5269b0eb8b16)
+- [startUpgradeSession()](#m-startupgradesession-d9903213d87a)
+- [startUpgradeSession(CdbDBType)](#m-startupgradesession-7352cb5553ec)
+- [startUpgradeSession(CdbDBType, EnumSet<CdbLockType>)](#m-startupgradesession-8358fca8dbd6)
+- [termRead(int)](#m-termread-0a27f7f4c68c)
+- [termWrite(int, ConfEObject)](#m-termwrite-e14731c35ead)
+- [toString()](#m-tostring-e9d48c5503ef)
+- [triggerOperSubscriptions(int[])](#m-triggeropersubscriptions-975402006348)
+- [triggerOperSubscriptions(int[], EnumSet<CdbLockType>)](#m-triggeropersubscriptions-e7869fd4a9dd)
+- [triggerSubscriptions(int[])](#m-triggersubscriptions-b7a5ff565df7)
+- [waitStart()](#m-waitstart-b5e7e06c0c83)
 
 ## Constructors
 
-<a id="s-Cdb-1"></a>
+<a id="m-cdb-21f829a256dd"></a>
 ### Cdb(String, Socket)
 
 ```java
@@ -119,7 +119,7 @@ public Cdb(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Creates a new instance of a `Cdb` socket supplying a
  established open socket to ConfD/NCS daemon.
@@ -129,7 +129,7 @@ Creates a new instance of a `Cdb` socket supplying a
  the *devel.log*.
 
  When establishing a connection to ConfD/NCS the
- [`MaapiSchemas`](../maapi/MaapiSchemas.md#s-MaapiSchemas) will be loaded once automatically
+ [`MaapiSchemas`](../maapi/MaapiSchemas.md#cls-MaapiSchemas) will be loaded once automatically
  by the library.
 
  If encrypted communication towards ConfD/NCS is desired,
@@ -150,10 +150,10 @@ Creates a new instance of a `Cdb` socket supplying a
 
 - `ConfException` - If ConfD/NCS refuses to establish
          connection the reason could be obtained through
-         [`ConfException`](../conf/ConfException.md#s-ConfException)
+         `ConfException#getMessage()`
 - `IOException` - signals I/O exception on the underlying socket
 
-<a id="s-Cdb-2"></a>
+<a id="m-cdb-d6bb494b3f32"></a>
 ### Cdb(String, SocketAddress)
 
 ```java
@@ -164,7 +164,7 @@ public Cdb(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Creates a new instance of a `Cdb` socket supplying an
  address to the ConfD/NCS server.
@@ -174,7 +174,7 @@ Creates a new instance of a `Cdb` socket supplying an
  the *devel.log*.
 
  When establishing a connection to ConfD/NCS the
- [`MaapiSchemas`](../maapi/MaapiSchemas.md#s-MaapiSchemas) will be loaded once automatically
+ [`MaapiSchemas`](../maapi/MaapiSchemas.md#cls-MaapiSchemas) will be loaded once automatically
  by the library.
 
  If encrypted communication towards ConfD/NCS is desired,
@@ -195,13 +195,13 @@ Creates a new instance of a `Cdb` socket supplying an
 
 - `ConfException` - If ConfD/NCS refuses to establish
          connection the reason could be obtained through
-         [`ConfException`](../conf/ConfException.md#s-ConfException)
+         `ConfException#getMessage()`
 - `IOException` - signals I/O exception on the underlying socket
 
 
 ## Methods
 
-<a id="s-acceptTagPath"></a>
+<a id="m-accepttagpath-3efa26ad697b"></a>
 ### acceptTagPath()
 
 ```java
@@ -212,7 +212,7 @@ Whether tag paths are accepted (always false for Cdb implementation).
 
 **Returns:** false
 
-<a id="s-bufWrite"></a>
+<a id="m-bufwrite-08cae6911f4c"></a>
 ### bufWrite(int, byte[])
 
 ```java
@@ -223,7 +223,7 @@ protected synchronized void bufWrite(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Write raw bytes for an opcode.
 
@@ -237,7 +237,7 @@ Write raw bytes for an opcode.
 - `ConfException` - Protocol error
 - `IOException` - I/O error
 
-<a id="s-close"></a>
+<a id="m-close-8107c6dc012b"></a>
 ### close()
 
 ```java
@@ -251,14 +251,14 @@ Closes the resources held by this `Cdb` socket.
 - `IOException` - If I/O Error when closing resources
  held by this `Cdb` socket
 
-<a id="s-endSession"></a>
+<a id="m-endsession-1853baeb5d28"></a>
 ### endSession()
 
 ```java
 protected void endSession()
 ```
 
-<a id="s-getCompactionInfo"></a>
+<a id="m-getcompactioninfo-7f8cce00653a"></a>
 ### getCompactionInfo(CdbDbfileType)
 
 ```java
@@ -268,7 +268,7 @@ public synchronized com.tailf.cdb.CdbCompactionInfo getCompactionInfo(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [CdbCompactionInfo](CdbCompactionInfo.md#s-CdbCompactionInfo), [CdbDbfileType](CdbDbfileType.md#s-CdbDbfileType), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [CdbCompactionInfo](CdbCompactionInfo.md#cls-CdbCompactionInfo), [CdbDbfileType](CdbDbfileType.md#cls-CdbDbfileType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Retrieves compaction information on a CDB file
 
@@ -279,21 +279,21 @@ Retrieves compaction information on a CDB file
 
 - `com.tailf.cdb.CdbDbfileType dbfile` - CDB file to collect info
 
-**Returns:** [`CdbCompactionInfo`](CdbCompactionInfo.md#s-CdbCompactionInfo) containing size and timing data
+**Returns:** [`CdbCompactionInfo`](CdbCompactionInfo.md#cls-CdbCompactionInfo) containing size and timing data
 
 **Throws**
 
 - `CdbException` - Failed to get compaction info
 - `IOException` - Failed to read/write on the cdb socket
 
-<a id="s-getCurrentSession"></a>
+<a id="m-getcurrentsession-2d75e562d728"></a>
 ### getCurrentSession()
 
 ```java
 public com.tailf.cdb.CdbSession getCurrentSession()
 ```
 
-Types: [CdbSession](CdbSession.md#s-CdbSession)
+Types: [CdbSession](CdbSession.md#cls-CdbSession)
 
 Retrieve the current `CdbSession` started on this
   `Cdb` socket.
@@ -301,7 +301,7 @@ Retrieve the current `CdbSession` started on this
 **Returns:** The current CdbSession started on this Cdb, null
        if no current CdbSession is started on this Cdb Socket.
 
-<a id="s-getMountId"></a>
+<a id="m-getmountid-83243c09b7c3"></a>
 ### getMountId(ConfPath)
 
 ```java
@@ -311,7 +311,7 @@ public synchronized java.util.List<String> getMountId(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Retrieve mount identifiers for a path.
 
@@ -325,7 +325,7 @@ Retrieve mount identifiers for a path.
 
 - `ConfException` - On retrieval error
 
-<a id="s-getName"></a>
+<a id="m-getname-2634b18b4a25"></a>
 ### getName()
 
 ```java
@@ -336,7 +336,7 @@ Retrieve the name of this `Cdb` socket.
 
 **Returns:** The name of this Cdb socket instance
 
-<a id="s-getPhase"></a>
+<a id="m-getphase-5492112b72e7"></a>
 ### getPhase()
 
 ```java
@@ -344,22 +344,22 @@ public synchronized com.tailf.cdb.CdbPhase getPhase() throws com.tailf.conf.Conf
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [CdbPhase](CdbPhase.md#s-CdbPhase), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [CdbPhase](CdbPhase.md#cls-CdbPhase), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Returns the start-phase CDB database is currently in.
  Also if CDB is in *phase 0*
  and has initiated an init transaction (to load any init files) the flag
- [`CdbPhase`](CdbPhase.md#s-CdbPhase) is set in the flags field correspondingly if
- an upgrade session is started the [`CdbPhase`](CdbPhase.md#s-CdbPhase) is set.
+ [`CdbPhase#FLAG_INIT`](CdbPhase.md#m-FLAG_INIT) is set in the flags field correspondingly if
+ an upgrade session is started the [`CdbPhase#FLAG_UPGRADE`](CdbPhase.md#m-FLAG_UPGRADE) is set.
 
-**Returns:** The current [`CdbPhase`](CdbPhase.md#s-CdbPhase)
+**Returns:** The current [`CdbPhase`](CdbPhase.md#cls-CdbPhase)
 
 **Throws**
 
 - `CdbException` - Failed to get phase
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-getSocket"></a>
+<a id="m-getsocket-d7da2de81b81"></a>
 ### getSocket()
 
 ```java
@@ -370,7 +370,7 @@ Retrieve the underlying socket used by this `Cdb` instance
 
 **Returns:** The underlying socket
 
-<a id="s-getTxId"></a>
+<a id="m-gettxid-1817ce3409ba"></a>
 ### getTxId()
 
 ```java
@@ -378,7 +378,7 @@ public synchronized com.tailf.cdb.CdbTxId getTxId() throws com.tailf.conf.ConfEx
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [CdbTxId](CdbTxId.md#s-CdbTxId), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [CdbTxId](CdbTxId.md#cls-CdbTxId), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Returns a *CdbTxid* object which represents the last transaction
  id from *CDB*.
@@ -396,7 +396,7 @@ Returns a *CdbTxid* object which represents the last transaction
 - `CdbException` - Failed to get the last transaction id
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-initiateCompaction"></a>
+<a id="m-initiatecompaction-2acf1b3661eb"></a>
 ### initiateCompaction()
 
 ```java
@@ -404,7 +404,7 @@ public synchronized void initiateCompaction() throws com.tailf.conf.ConfExceptio
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Initiates compaction on CDB files:
 
@@ -416,7 +416,7 @@ Initiates compaction on CDB files:
 - `CdbException` - Failed to initiate the compaction
 - `IOException` - Failed to read/write on the cdb socket
 
-<a id="s-initiateDbfileCompaction"></a>
+<a id="m-initiatedbfilecompaction-324563a7582a"></a>
 ### initiateDbfileCompaction(CdbDbfileType)
 
 ```java
@@ -426,7 +426,7 @@ public synchronized void initiateDbfileCompaction(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [CdbDbfileType](CdbDbfileType.md#s-CdbDbfileType), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [CdbDbfileType](CdbDbfileType.md#cls-CdbDbfileType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Initiates compaction on a CDB file.
 
@@ -442,7 +442,7 @@ Initiates compaction on a CDB file.
 - `CdbException` - Failed to initiate the compaction
 - `IOException` - Failed to read/write on the cdb socket
 
-<a id="s-isUseHTags"></a>
+<a id="m-isusehtags-9ad9d9c20c62"></a>
 ### isUseHTags()
 
 ```java
@@ -453,20 +453,20 @@ Is this Cdb configured to use HKeyPath
 
 **Returns:** true if HKeyPaths are used
 
-<a id="s-newSubscription"></a>
+<a id="m-newsubscription-6053c3ae88bb"></a>
 ### newSubscription()
 
 ```java
 public com.tailf.cdb.CdbSubscription newSubscription()
 ```
 
-Types: [CdbSubscription](CdbSubscription.md#s-CdbSubscription)
+Types: [CdbSubscription](CdbSubscription.md#cls-CdbSubscription)
 
 Creates a new *CDB Subscription*.
 
-**Returns:** the created [`CdbSubscription`](CdbSubscription.md#s-CdbSubscription)
+**Returns:** the created [`CdbSubscription`](CdbSubscription.md#cls-CdbSubscription)
 
-<a id="s-requestTerm"></a>
+<a id="m-requestterm-f568e63b5414"></a>
 ### requestTerm(int)
 
 ```java
@@ -476,10 +476,10 @@ protected synchronized com.tailf.conf.ConfResponse requestTerm(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfResponse](../conf/ConfResponse.md#s-ConfResponse), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfResponse](../conf/ConfResponse.md#cls-ConfResponse), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Send a request. This is the same as
- [`ConfEObject`](../proto/ConfEObject.md#s-ConfEObject) but with no arguments
+ `ConfEObject#requestTerm(int, boolean, ConfEObject)` but with no arguments
  and with isRel set to false (this is done in ConfInternal).
 
 **Parameters**
@@ -493,7 +493,7 @@ Send a request. This is the same as
 - `ConfException` - Protocol/Server error
 - `IOException` - I/O error
 
-<a id="s-requestTerm-1"></a>
+<a id="m-requestterm-79e4f0cddbef"></a>
 ### requestTerm(int, boolean, ConfEObject)
 
 ```java
@@ -505,7 +505,7 @@ protected synchronized com.tailf.conf.ConfResponse requestTerm(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfResponse](../conf/ConfResponse.md#s-ConfResponse), [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfResponse](../conf/ConfResponse.md#cls-ConfResponse), [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Send a request with a term argument specifying relative/absolute path
  context.
@@ -523,7 +523,7 @@ Send a request with a term argument specifying relative/absolute path
 - `ConfException` - Protocol/Server error
 - `IOException` - I/O error
 
-<a id="s-requestTerm-2"></a>
+<a id="m-requestterm-a8fce80da6f1"></a>
 ### requestTerm(int, ConfEObject)
 
 ```java
@@ -534,7 +534,7 @@ protected synchronized com.tailf.conf.ConfResponse requestTerm(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfResponse](../conf/ConfResponse.md#s-ConfResponse), [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfResponse](../conf/ConfResponse.md#cls-ConfResponse), [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Send a request with a single term argument.
 
@@ -550,14 +550,14 @@ Send a request with a single term argument.
 - `ConfException` - Protocol/ConfD error
 - `IOException` - I/O error
 
-<a id="s-setTimeout"></a>
+<a id="m-settimeout-cbe758ecb5d8"></a>
 ### setTimeout(int)
 
 ```java
 public void setTimeout(int timeoutSecs) throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 A timeout for cdb client actions can be specified via the config file.
  This function can be used to dynamically extend (or shorten) the timeout
@@ -585,7 +585,7 @@ A timeout for cdb client actions can be specified via the config file.
 - `IOException` - if an I/O error occurs while sending the request or
          receiving the response
 
-<a id="s-setUseForCdbUpgrade"></a>
+<a id="m-setuseforcdbupgrade-381558675127"></a>
 ### setUseForCdbUpgrade()
 
 ```java
@@ -595,14 +595,14 @@ public void setUseForCdbUpgrade()
 Sets this Cdb and the session it creates to be used for Cdb data
  upgrades. This is a specific startphase 0 use case.
 
-<a id="s-setUseForCdbUpgrade-1"></a>
+<a id="m-setuseforcdbupgrade-2a9450800b18"></a>
 ### setUseForCdbUpgrade(List<ConfNamespace>)
 
 ```java
 public synchronized void setUseForCdbUpgrade(java.util.List<com.tailf.conf.ConfNamespace> removedNs)
 ```
 
-Types: [ConfNamespace](../conf/ConfNamespace.md#s-ConfNamespace)
+Types: [ConfNamespace](../conf/ConfNamespace.md#cls-ConfNamespace)
 
 Sets this Cdb and the session it creates to be used for Cdb data
  upgrades. This is a specific startphase 0 use case.
@@ -613,7 +613,7 @@ Sets this Cdb and the session it creates to be used for Cdb data
 
 - `java.util.List<com.tailf.conf.ConfNamespace> removedNs` - List of removed ConfNamespace used earlier
 
-<a id="s-setUseHTags"></a>
+<a id="m-setusehtags-468584ecfc93"></a>
 ### setUseHTags(boolean)
 
 ```java
@@ -626,7 +626,7 @@ Set this Cdb to use HKeyPath
 
 - `boolean useHTags` - true to use HKeyPath tags, false otherwise
 
-<a id="s-startSession"></a>
+<a id="m-startsession-ee121903dcfa"></a>
 ### startSession()
 
 ```java
@@ -634,13 +634,13 @@ public com.tailf.cdb.CdbSession startSession() throws com.tailf.conf.ConfExcepti
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [CdbSession](CdbSession.md#s-CdbSession), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [CdbSession](CdbSession.md#cls-CdbSession), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Starts a new *CDB Session* on an already
- established `Cdb` against [`CdbDBType`](CdbDBType.md#s-CdbDBType)
- datastore with [`CdbLockType`](CdbLockType.md#s-CdbLockType) lock.
+ established `Cdb` against [`CdbDBType#CDB_RUNNING`](CdbDBType.md#m-CDB_RUNNING)
+ datastore with [`CdbLockType#LOCK_SESSION`](CdbLockType.md#m-LOCK_SESSION) lock.
 
-**Returns:** The started [`CdbSession`](CdbSession.md#s-CdbSession) instance
+**Returns:** The started [`CdbSession`](CdbSession.md#cls-CdbSession) instance
 
 **Throws**
 
@@ -649,7 +649,7 @@ Starts a new *CDB Session* on an already
 - `ConfException` - If ConfD/NCS rejects or fails to create the
          session.
 
-<a id="s-startSession-1"></a>
+<a id="m-startsession-6f137bd83c44"></a>
 ### startSession(CdbDBType)
 
 ```java
@@ -659,7 +659,7 @@ public com.tailf.cdb.CdbSession startSession(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [CdbSession](CdbSession.md#s-CdbSession), [CdbDBType](CdbDBType.md#s-CdbDBType), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [CdbSession](CdbSession.md#cls-CdbSession), [CdbDBType](CdbDBType.md#cls-CdbDBType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Starts a new *CDB Session* on an already
  established `Cdb`.
@@ -671,7 +671,7 @@ Starts a new *CDB Session* on an already
 
 - `com.tailf.cdb.CdbDBType dbtype` - Datastore to establish session to
 
-**Returns:** The started [`CdbSession`](CdbSession.md#s-CdbSession) instance
+**Returns:** The started [`CdbSession`](CdbSession.md#cls-CdbSession) instance
 
 **Throws**
 
@@ -680,7 +680,7 @@ Starts a new *CDB Session* on an already
 - `ConfException` - If ConfD/NCS rejects or fails to create the
          session.
 
-<a id="s-startSession-2"></a>
+<a id="m-startsession-5269b0eb8b16"></a>
 ### startSession(CdbDBType, EnumSet<CdbLockType>)
 
 ```java
@@ -691,7 +691,7 @@ public com.tailf.cdb.CdbSession startSession(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [CdbSession](CdbSession.md#s-CdbSession), [CdbDBType](CdbDBType.md#s-CdbDBType), [CdbLockType](CdbLockType.md#s-CdbLockType), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [CdbSession](CdbSession.md#cls-CdbSession), [CdbDBType](CdbDBType.md#cls-CdbDBType), [CdbLockType](CdbLockType.md#cls-CdbLockType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Starts a new *CDB Session* on an already
  established `Cdb`.
@@ -717,7 +717,7 @@ Starts a new *CDB Session* on an already
 - `com.tailf.cdb.CdbDBType dbtype` - Datastore to establish session to
 - `java.util.EnumSet<com.tailf.cdb.CdbLockType> lockflags` - EnumSet of CdbLockType flags
 
-**Returns:** The started [`CdbSession`](CdbSession.md#s-CdbSession)
+**Returns:** The started [`CdbSession`](CdbSession.md#cls-CdbSession)
 
 **Throws**
 
@@ -726,7 +726,7 @@ Starts a new *CDB Session* on an already
 - `ConfException` - If ConfD/NCS rejects or fails to create the
          session.
 
-<a id="s-startUpgradeSession"></a>
+<a id="m-startupgradesession-d9903213d87a"></a>
 ### startUpgradeSession()
 
 ```java
@@ -734,12 +734,12 @@ public com.tailf.cdb.CdbUpgradeSession startUpgradeSession() throws com.tailf.co
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [CdbUpgradeSession](CdbUpgradeSession.md#s-CdbUpgradeSession), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [CdbUpgradeSession](CdbUpgradeSession.md#cls-CdbUpgradeSession), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Similar to `#startSession()` but always returns
  a CdbUpgradeSession.
 
-**Returns:** The started [`CdbUpgradeSession`](CdbUpgradeSession.md#s-CdbUpgradeSession)
+**Returns:** The started [`CdbUpgradeSession`](CdbUpgradeSession.md#cls-CdbUpgradeSession)
 
 **Throws**
 
@@ -748,7 +748,7 @@ Similar to `#startSession()` but always returns
 - `ConfException` - If ConfD/NCS rejects or fails to create the
          session.
 
-<a id="s-startUpgradeSession-1"></a>
+<a id="m-startupgradesession-7352cb5553ec"></a>
 ### startUpgradeSession(CdbDBType)
 
 ```java
@@ -758,16 +758,16 @@ public com.tailf.cdb.CdbUpgradeSession startUpgradeSession(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [CdbUpgradeSession](CdbUpgradeSession.md#s-CdbUpgradeSession), [CdbDBType](CdbDBType.md#s-CdbDBType), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [CdbUpgradeSession](CdbUpgradeSession.md#cls-CdbUpgradeSession), [CdbDBType](CdbDBType.md#cls-CdbDBType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-Similar to [`CdbDBType`](CdbDBType.md#s-CdbDBType) but always returns
+Similar to `CdbDBType#startSession(CdbDBType)` but always returns
  a CdbUpgradeSession.
 
 **Parameters**
 
 - `com.tailf.cdb.CdbDBType dbtype` - Datastore to establish session to
 
-**Returns:** The started [`CdbUpgradeSession`](CdbUpgradeSession.md#s-CdbUpgradeSession)
+**Returns:** The started [`CdbUpgradeSession`](CdbUpgradeSession.md#cls-CdbUpgradeSession)
 
 **Throws**
 
@@ -776,7 +776,7 @@ Similar to [`CdbDBType`](CdbDBType.md#s-CdbDBType) but always returns
 - `ConfException` - If ConfD/NCS rejects or fails to create the
          session.
 
-<a id="s-startUpgradeSession-2"></a>
+<a id="m-startupgradesession-8358fca8dbd6"></a>
 ### startUpgradeSession(CdbDBType, EnumSet<CdbLockType>)
 
 ```java
@@ -787,9 +787,9 @@ public com.tailf.cdb.CdbUpgradeSession startUpgradeSession(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [CdbUpgradeSession](CdbUpgradeSession.md#s-CdbUpgradeSession), [CdbDBType](CdbDBType.md#s-CdbDBType), [CdbLockType](CdbLockType.md#s-CdbLockType), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [CdbUpgradeSession](CdbUpgradeSession.md#cls-CdbUpgradeSession), [CdbDBType](CdbDBType.md#cls-CdbDBType), [CdbLockType](CdbLockType.md#cls-CdbLockType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-Similar to [`CdbDBType`](CdbDBType.md#s-CdbDBType) but always returns
+Similar to `CdbDBType#startSession(CdbDBType, EnumSet)` but always returns
  a CdbUpgradeSession.
 
 **Parameters**
@@ -797,7 +797,7 @@ Similar to [`CdbDBType`](CdbDBType.md#s-CdbDBType) but always returns
 - `com.tailf.cdb.CdbDBType dbtype` - Datastore to establish session to
 - `java.util.EnumSet<com.tailf.cdb.CdbLockType> lockflags` - EnumSet of CdbLockType flags
 
-**Returns:** The started [`CdbUpgradeSession`](CdbUpgradeSession.md#s-CdbUpgradeSession)
+**Returns:** The started [`CdbUpgradeSession`](CdbUpgradeSession.md#cls-CdbUpgradeSession)
 
 **Throws**
 
@@ -806,7 +806,7 @@ Similar to [`CdbDBType`](CdbDBType.md#s-CdbDBType) but always returns
 - `ConfException` - If ConfD/NCS rejects or fails to create the
          session.
 
-<a id="s-termRead"></a>
+<a id="m-termread-0a27f7f4c68c"></a>
 ### termRead(int)
 
 ```java
@@ -816,7 +816,7 @@ protected synchronized com.tailf.conf.ConfResponse termRead(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfResponse](../conf/ConfResponse.md#s-ConfResponse), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfResponse](../conf/ConfResponse.md#cls-ConfResponse), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Read a term response for a prior write.
 
@@ -831,7 +831,7 @@ Read a term response for a prior write.
 - `ConfException` - Protocol/ConfD error
 - `IOException` - I/O error
 
-<a id="s-termWrite"></a>
+<a id="m-termwrite-e14731c35ead"></a>
 ### termWrite(int, ConfEObject)
 
 ```java
@@ -842,7 +842,7 @@ protected synchronized void termWrite(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Write a term.
 
@@ -856,7 +856,7 @@ Write a term.
 - `ConfException` - Protocol/ConfD error
 - `IOException` - I/O error
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java
@@ -867,7 +867,7 @@ Returns a concise string with name, socket and current session if any.
 
 **Returns:** The string representation
 
-<a id="s-triggerOperSubscriptions"></a>
+<a id="m-triggeropersubscriptions-975402006348"></a>
 ### triggerOperSubscriptions(int[])
 
 ```java
@@ -877,7 +877,7 @@ public synchronized void triggerOperSubscriptions(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Function similar to `#triggerOperSubscriptions(int[], EnumSet)`
  with the difference that this function will never wait to acquire a lock
@@ -894,7 +894,7 @@ Function similar to `#triggerOperSubscriptions(int[], EnumSet)`
 - `IOException` - if an I/O error occurs while communicating with the
          server
 
-<a id="s-triggerOperSubscriptions-1"></a>
+<a id="m-triggeropersubscriptions-e7869fd4a9dd"></a>
 ### triggerOperSubscriptions(int[], EnumSet<CdbLockType>)
 
 ```java
@@ -905,7 +905,7 @@ public synchronized void triggerOperSubscriptions(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [CdbLockType](CdbLockType.md#s-CdbLockType), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [CdbLockType](CdbLockType.md#cls-CdbLockType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Function to trigger operational subscriptions in similar to
   `#triggerSubscriptions(int[])`.
@@ -913,7 +913,7 @@ Function to trigger operational subscriptions in similar to
   The caller will trigger all subscription points passed in the
   spointArray (or all operational data subscribers if this array is null),
   and the call will not return until the last subscriber has called
-  [`CdbSubscription`](CdbSubscription.md#s-CdbSubscription).
+  [`CdbSubscription#sync(CdbSubscriptionSyncType)`](CdbSubscription.md#m-sync-e4ae9cc34a8a).
 
   Since the generation of subscription notifications for operational data
   requires that the subscription lock is taken, this function implicitly
@@ -935,7 +935,7 @@ Function to trigger operational subscriptions in similar to
 - `IOException` - if an I/O error occurs while communicating with the
          server
 
-<a id="s-triggerSubscriptions"></a>
+<a id="m-triggersubscriptions-b7a5ff565df7"></a>
 ### triggerSubscriptions(int[])
 
 ```java
@@ -945,7 +945,7 @@ public synchronized void triggerSubscriptions(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Triggers Cdb subscription for configuration data.
 
@@ -957,7 +957,7 @@ Triggers Cdb subscription for configuration data.
  `spointArray` array (or all subscribers if the array is
  of zero length) in priority
  order, and the call will not return until the last subscriber has called
- [`CdbSubscription`](CdbSubscription.md#s-CdbSubscription).
+ [`CdbSubscription#sync(CdbSubscriptionSyncType)`](CdbSubscription.md#m-sync-e4ae9cc34a8a).
 
   The call is blocking and doesn't return until all subscribers have
   acknowledged the notification. That means that it is not possible
@@ -999,14 +999,14 @@ Triggers Cdb subscription for configuration data.
  will be returned and no subscriptions will be triggered
 - `IOException` - On I/O error.
 
-<a id="s-waitStart"></a>
+<a id="m-waitstart-b5e7e06c0c83"></a>
 ### waitStart()
 
 ```java
 public synchronized void waitStart() throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 This call waits until start-phase 1 is completed and *CDB*
  is available.

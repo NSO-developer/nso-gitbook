@@ -1,4 +1,4 @@
-<a id="s-ManagedObject"></a>
+<a id="cls-ManagedObject"></a>
 # ManagedObject
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.ncs.alarmman.common.ManagedObject
 ```
 
 The Managed object is the object within a managed device that is
- a component of an [`Alarm`](Alarm.md#s-Alarm).
+ a component of an [`Alarm`](Alarm.md#cls-Alarm).
 
 
  Managed object represents one element in the key:
@@ -49,31 +49,31 @@ The Managed object is the object within a managed device that is
 
 **Constructors**:
 
-- [ManagedObject(ConfBuf)](#s-ManagedObject-1)
-- [ManagedObject(ConfObjectRef)](#s-ManagedObject-2)
-- [ManagedObject(ConfOID)](#s-ManagedObject-3)
-- [ManagedObject(ConfPath)](#s-ManagedObject-4)
-- [ManagedObject(ConfValue)](#s-ManagedObject-5)
-- [ManagedObject(String)](#s-ManagedObject-6)
-- [ManagedObject(String, MountIdInterface)](#s-ManagedObject-7)
+- [ManagedObject(ConfBuf)](#m-managedobject-efd4fa3079cc)
+- [ManagedObject(ConfObjectRef)](#m-managedobject-2308f0fca056)
+- [ManagedObject(ConfOID)](#m-managedobject-fb037f79e02d)
+- [ManagedObject(ConfPath)](#m-managedobject-ed89c5578582)
+- [ManagedObject(ConfValue)](#m-managedobject-994d60b828f1)
+- [ManagedObject(String)](#m-managedobject-de2707ffa6da)
+- [ManagedObject(String, MountIdInterface)](#m-managedobject-531f3424d0f3)
 
 **Methods**:
 
-- [equals(Object)](#s-equals)
-- [getAsConfValue()](#s-getAsConfValue)
-- [hashCode()](#s-hashCode)
-- [toString()](#s-toString)
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [getAsConfValue()](#m-getasconfvalue-7d0bad95ad00)
+- [hashCode()](#m-hashcode-ef797a217903)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-ManagedObject-1"></a>
+<a id="m-managedobject-efd4fa3079cc"></a>
 ### ManagedObject(ConfBuf)
 
 ```java
 public ManagedObject(com.tailf.conf.ConfBuf value)
 ```
 
-Types: [ConfBuf](../../../conf/ConfBuf.md#s-ConfBuf)
+Types: [ConfBuf](../../../conf/ConfBuf.md#cls-ConfBuf)
 
 Creates a ManagedObject as a general string.
 
@@ -81,14 +81,14 @@ Creates a ManagedObject as a general string.
 
 - `com.tailf.conf.ConfBuf value` - the ConfBuf representing the ManagedObject
 
-<a id="s-ManagedObject-2"></a>
+<a id="m-managedobject-2308f0fca056"></a>
 ### ManagedObject(ConfObjectRef)
 
 ```java
 public ManagedObject(com.tailf.conf.ConfObjectRef value)
 ```
 
-Types: [ConfObjectRef](../../../conf/ConfObjectRef.md#s-ConfObjectRef)
+Types: [ConfObjectRef](../../../conf/ConfObjectRef.md#cls-ConfObjectRef)
 
 Creates a ManagedObject as a ConfObjectRef.
 
@@ -96,14 +96,14 @@ Creates a ManagedObject as a ConfObjectRef.
 
 - `com.tailf.conf.ConfObjectRef value` - the ConfObjectRef representing the ManagedObject
 
-<a id="s-ManagedObject-3"></a>
+<a id="m-managedobject-fb037f79e02d"></a>
 ### ManagedObject(ConfOID)
 
 ```java
 public ManagedObject(com.tailf.conf.ConfOID value)
 ```
 
-Types: [ConfOID](../../../conf/ConfOID.md#s-ConfOID)
+Types: [ConfOID](../../../conf/ConfOID.md#cls-ConfOID)
 
 Creates a ManagedObject as a ConfOID.
 
@@ -111,14 +111,14 @@ Creates a ManagedObject as a ConfOID.
 
 - `com.tailf.conf.ConfOID value` - the ConfOID representing the ManagedObject
 
-<a id="s-ManagedObject-4"></a>
+<a id="m-managedobject-ed89c5578582"></a>
 ### ManagedObject(ConfPath)
 
 ```java
 public ManagedObject(com.tailf.conf.ConfPath value) throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfPath](../../../conf/ConfPath.md#s-ConfPath), [ConfException](../../../conf/ConfException.md#s-ConfException)
+Types: [ConfPath](../../../conf/ConfPath.md#cls-ConfPath), [ConfException](../../../conf/ConfException.md#cls-ConfException)
 
 Creates a ManagedObject as a ConfObjectRef defined from a ConfPath.
 
@@ -126,30 +126,30 @@ Creates a ManagedObject as a ConfObjectRef defined from a ConfPath.
 
 - `com.tailf.conf.ConfPath value` - the ConfPath representing the ManagedObject
 
-<a id="s-ManagedObject-5"></a>
+<a id="m-managedobject-994d60b828f1"></a>
 ### ManagedObject(ConfValue)
 
 ```java
 public ManagedObject(com.tailf.conf.ConfValue value)
 ```
 
-Types: [ConfValue](../../../conf/ConfValue.md#s-ConfValue)
+Types: [ConfValue](../../../conf/ConfValue.md#cls-ConfValue)
 
 **Parameters**
 
 - `com.tailf.conf.ConfValue value` - A value matching the typedef managed-object-t
               in tailf-ncs-alarms.yang. Specifically,
               the value can have one of the following types:
-              [`ConfBuf`](../../../conf/ConfBuf.md#s-ConfBuf),
-              [`ConfObjectRef`](../../../conf/ConfObjectRef.md#s-ConfObjectRef),
-              [`ConfOID`](../../../conf/ConfOID.md#s-ConfOID)
+              [`ConfBuf`](../../../conf/ConfBuf.md#cls-ConfBuf),
+              [`ConfObjectRef`](../../../conf/ConfObjectRef.md#cls-ConfObjectRef),
+              [`ConfOID`](../../../conf/ConfOID.md#cls-ConfOID)
 
 **Throws**
 
 - `IllegalArgumentException` - If the supplied value
          is not of one of the types listed above
 
-<a id="s-ManagedObject-6"></a>
+<a id="m-managedobject-de2707ffa6da"></a>
 ### ManagedObject(String)
 
 ```java
@@ -167,18 +167,18 @@ Constructor that takes a string representation of one of the below
 - `String value` - String representation of typedef managed-object-t
               in tailf-ncs-alarms.yang. Specifically, the value can be
               a string representation of one of the following types:
-              [`ConfBuf`](../../../conf/ConfBuf.md#s-ConfBuf),
-              [`ConfObjectRef`](../../../conf/ConfObjectRef.md#s-ConfObjectRef),
-              [`ConfOID`](../../../conf/ConfOID.md#s-ConfOID)
+              [`ConfBuf`](../../../conf/ConfBuf.md#cls-ConfBuf),
+              [`ConfObjectRef`](../../../conf/ConfObjectRef.md#cls-ConfObjectRef),
+              [`ConfOID`](../../../conf/ConfOID.md#cls-ConfOID)
 
-<a id="s-ManagedObject-7"></a>
+<a id="m-managedobject-531f3424d0f3"></a>
 ### ManagedObject(String, MountIdInterface)
 
 ```java
 public ManagedObject(String value, com.tailf.conf.MountIdInterface mountGetter)
 ```
 
-Types: [MountIdInterface](../../../conf/MountIdInterface.md#s-MountIdInterface)
+Types: [MountIdInterface](../../../conf/MountIdInterface.md#cls-MountIdInterface)
 
 **Parameters**
 
@@ -188,7 +188,7 @@ Types: [MountIdInterface](../../../conf/MountIdInterface.md#s-MountIdInterface)
 
 ## Methods
 
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
@@ -199,14 +199,14 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="s-getAsConfValue"></a>
+<a id="m-getasconfvalue-7d0bad95ad00"></a>
 ### getAsConfValue()
 
 ```java
 public com.tailf.conf.ConfValue getAsConfValue()
 ```
 
-Types: [ConfValue](../../../conf/ConfValue.md#s-ConfValue)
+Types: [ConfValue](../../../conf/ConfValue.md#cls-ConfValue)
 
 Get the ConfValue representation of this managedObject.
  Since the modeled managedObject is a union of ConfBuf,
@@ -215,18 +215,18 @@ Get the ConfValue representation of this managedObject.
 
 **Returns:** ConfValue the ConfValue representation of this ManagedObject
 
-<a id="s-hashCode"></a>
+<a id="m-hashcode-ef797a217903"></a>
 ### hashCode()
 
 ```java
 public int hashCode()
 ```
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java
 public String toString()
 ```
 
-**See also:** [`ManagedObject#toString()`](ManagedObject.md#s-toString)
+**See also:** [`ManagedObject#toString()`](ManagedObject.md#m-tostring-e9d48c5503ef)

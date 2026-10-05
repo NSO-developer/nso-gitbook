@@ -1,4 +1,4 @@
-<a id="s-NavuTraversalMean"></a>
+<a id="cls-NavuTraversalMean"></a>
 # NavuTraversalMean
 
 ```java
@@ -9,11 +9,11 @@ public interface com.tailf.navu.traversal.NavuTraversalMean
 
 **Methods**:
 
-- [traverse(NavuNode, List<TraversalFilter>)](#s-traverse)
+- [traverse(NavuNode, List<TraversalFilter>)](#m-traverse-e72c3ea2612b)
 
 ## Methods
 
-<a id="s-traverse"></a>
+<a id="m-traverse-e72c3ea2612b"></a>
 ### traverse(NavuNode, List<TraversalFilter>)
 
 ```java
@@ -24,7 +24,7 @@ public abstract java.util.Set<String> traverse(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](../NavuNode.md#s-NavuNode), [TraversalFilter](TraversalFilter.md#s-TraversalFilter), [NavuException](../NavuException.md#s-NavuException)
+Types: [NavuNode](../NavuNode.md#cls-NavuNode), [TraversalFilter](TraversalFilter.md#cls-TraversalFilter), [NavuException](../NavuException.md#cls-NavuException)
 
 **Parameters**
 

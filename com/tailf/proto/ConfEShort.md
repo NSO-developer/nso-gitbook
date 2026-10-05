@@ -1,4 +1,4 @@
-<a id="s-ConfEShort"></a>
+<a id="cls-ConfEShort"></a>
 # ConfEShort
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.proto.ConfEShort
     extends com.tailf.proto.ConfELong
 ```
 
-Types: [ConfELong](ConfELong.md#s-ConfELong)
+Types: [ConfELong](ConfELong.md#cls-ConfELong)
 
 Provides a Java representation of E integral types.
 
@@ -14,32 +14,32 @@ Provides a Java representation of E integral types.
 
 **Constructors**:
 
-- [ConfEShort(ConfInputStream)](#s-ConfEShort-1)
-- [ConfEShort(short)](#s-ConfEShort-2)
+- [ConfEShort(ConfInputStream)](#m-confeshort-9b2f8ff9c5b9)
+- [ConfEShort(short)](#m-confeshort-ca5228fbbb9a)
 
 **Fields**:
 
-- [serialVersionUID](#s-serialVersionUID)
+- [serialVersionUID](#m-serialVersionUID)
 
 **Methods**:
 
-- [byteValue()](ConfELong.md#s-byteValue) from ConfELong
-- [charValue()](ConfELong.md#s-charValue) from ConfELong
-- [clone()](ConfEObject.md#s-clone) from ConfEObject
-- [decode(ConfInputStream)](ConfEObject.md#s-decode) from ConfEObject
-- [encode(ConfOutputStream)](ConfELong.md#s-encode) from ConfELong
-- [equals(Object)](ConfELong.md#s-equals) from ConfELong
-- [hashCode()](ConfELong.md#s-hashCode) from ConfELong
-- [intValue()](ConfELong.md#s-intValue) from ConfELong
-- [longValue()](ConfELong.md#s-longValue) from ConfELong
-- [shortValue()](ConfELong.md#s-shortValue) from ConfELong
-- [toString()](ConfELong.md#s-toString) from ConfELong
-- [uIntValue()](ConfELong.md#s-uIntValue) from ConfELong
-- [uShortValue()](ConfELong.md#s-uShortValue) from ConfELong
+- [byteValue()](ConfELong.md#m-bytevalue-a56aac956c5c) from ConfELong
+- [charValue()](ConfELong.md#m-charvalue-4b3a6b868fe4) from ConfELong
+- [clone()](ConfEObject.md#m-clone-164c86c45e9b) from ConfEObject
+- [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
+- [encode(ConfOutputStream)](ConfELong.md#m-encode-cb1ad9eb7771) from ConfELong
+- [equals(Object)](ConfELong.md#m-equals-fcd6492e0d6c) from ConfELong
+- [hashCode()](ConfELong.md#m-hashcode-ef797a217903) from ConfELong
+- [intValue()](ConfELong.md#m-intvalue-2f745d025d8e) from ConfELong
+- [longValue()](ConfELong.md#m-longvalue-636bfe2d6862) from ConfELong
+- [shortValue()](ConfELong.md#m-shortvalue-438ff2f827fb) from ConfELong
+- [toString()](ConfELong.md#m-tostring-e9d48c5503ef) from ConfELong
+- [uIntValue()](ConfELong.md#m-uintvalue-11d9c2202272) from ConfELong
+- [uShortValue()](ConfELong.md#m-ushortvalue-5c27a3934662) from ConfELong
 
 ## Constructors
 
-<a id="s-ConfEShort-1"></a>
+<a id="m-confeshort-9b2f8ff9c5b9"></a>
 ### ConfEShort(ConfInputStream)
 
 ```java
@@ -49,7 +49,7 @@ public ConfEShort(
     throws com.tailf.proto.ConfERangeException, com.tailf.proto.ConfEDecodeException
 ```
 
-Types: [ConfInputStream](ConfInputStream.md#s-ConfInputStream), [ConfERangeException](ConfERangeException.md#s-ConfERangeException), [ConfEDecodeException](ConfEDecodeException.md#s-ConfEDecodeException)
+Types: [ConfInputStream](ConfInputStream.md#cls-ConfInputStream), [ConfERangeException](ConfERangeException.md#cls-ConfERangeException), [ConfEDecodeException](ConfEDecodeException.md#cls-ConfEDecodeException)
 
 Create an E integer from a stream containing an integer encoded in E
  external format.
@@ -64,7 +64,7 @@ Create an E integer from a stream containing an integer encoded in E
                 representation of an E integer.
 - `ConfERangeException` - if the value is too large to be represented as a short.
 
-<a id="s-ConfEShort-2"></a>
+<a id="m-confeshort-ca5228fbbb9a"></a>
 ### ConfEShort(short)
 
 ```java
@@ -80,7 +80,7 @@ Create an E integer from the given value.
 
 ## Fields
 
-<a id="s-serialVersionUID"></a>
+<a id="m-serialVersionUID"></a>
 ### serialVersionUID
 
 **Package-private**

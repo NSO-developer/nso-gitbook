@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,28 +6,24 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getDisplayHint()](#s-getDisplayHint)
-- [hasDisplayHint()](#s-hasDisplayHint)
-- [initDisplayHint(int)](#s-initDisplayHint)
-- [setDisplayHint(byte[])](#s-setDisplayHint)
-- [setDisplayHint(Reader)](#s-setDisplayHint-1)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getDisplayHint()](#m-getdisplayhint-f9cb8b7f487f)
+- [hasDisplayHint()](#m-hasdisplayhint-a0d050b8aab0)
+- [initDisplayHint(int)](#m-initdisplayhint-c16e1e013565)
+- [setDisplayHint(byte[])](#m-setdisplayhint-a6a8c5e2aab1)
+- [setDisplayHint(Reader)](#m-setdisplayhint-29d7604e3fc3)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -53,30 +49,30 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getDisplayHint"></a>
+<a id="m-getdisplayhint-f9cb8b7f487f"></a>
 ### getDisplayHint()
 
 ```java
 public final org.capnproto.Data.Builder getDisplayHint()
 ```
 
-<a id="s-hasDisplayHint"></a>
+<a id="m-hasdisplayhint-a0d050b8aab0"></a>
 ### hasDisplayHint()
 
 ```java
 public final boolean hasDisplayHint()
 ```
 
-<a id="s-initDisplayHint"></a>
+<a id="m-initdisplayhint-c16e1e013565"></a>
 ### initDisplayHint(int)
 
 ```java
@@ -87,7 +83,7 @@ public final org.capnproto.Data.Builder initDisplayHint(int size)
 
 - `int size`
 
-<a id="s-setDisplayHint"></a>
+<a id="m-setdisplayhint-a6a8c5e2aab1"></a>
 ### setDisplayHint(byte[])
 
 ```java
@@ -98,7 +94,7 @@ public final void setDisplayHint(byte[] value)
 
 - `byte[] value`
 
-<a id="s-setDisplayHint-1"></a>
+<a id="m-setdisplayhint-29d7604e3fc3"></a>
 ### setDisplayHint(Reader)
 
 ```java

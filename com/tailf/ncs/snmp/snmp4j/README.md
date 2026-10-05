@@ -81,13 +81,13 @@ NCS snmp4j support package
 
 ## Types
 
-- [CommandResponderImpl](CommandResponderImpl.md#s-CommandResponderImpl)
-- [EventContext](EventContext.md#s-EventContext)
-- [EventContextImpl](EventContextImpl.md#s-EventContextImpl)
-- [FilterAckInforms](FilterAckInforms.md#s-FilterAckInforms)
-- [FilterKnownIPAddresses](FilterKnownIPAddresses.md#s-FilterKnownIPAddresses)
-- [FilterOutNonNotifications](FilterOutNonNotifications.md#s-FilterOutNonNotifications)
-- [HandlerResponse](HandlerResponse.md#s-HandlerResponse)
-- [NotifHandlerInstance](NotifHandlerInstance.md#s-NotifHandlerInstance)
-- [NotificationHandler](NotificationHandler.md#s-NotificationHandler)
-- [NotificationReceiver](NotificationReceiver.md#s-NotificationReceiver)
+- [CommandResponderImpl](CommandResponderImpl.md#cls-CommandResponderImpl)
+- [EventContext](EventContext.md#cls-EventContext)
+- [EventContextImpl](EventContextImpl.md#cls-EventContextImpl)
+- [FilterAckInforms](FilterAckInforms.md#cls-FilterAckInforms)
+- [FilterKnownIPAddresses](FilterKnownIPAddresses.md#cls-FilterKnownIPAddresses)
+- [FilterOutNonNotifications](FilterOutNonNotifications.md#cls-FilterOutNonNotifications)
+- [HandlerResponse](HandlerResponse.md#cls-HandlerResponse)
+- [NotifHandlerInstance](NotifHandlerInstance.md#cls-NotifHandlerInstance)
+- [NotificationHandler](NotificationHandler.md#cls-NotificationHandler)
+- [NotificationReceiver](NotificationReceiver.md#cls-NotificationReceiver)

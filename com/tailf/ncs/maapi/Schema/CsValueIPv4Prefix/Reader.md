@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,19 +10,19 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getA1()](#s-getA1)
-- [getA2()](#s-getA2)
-- [getA3()](#s-getA3)
-- [getA4()](#s-getA4)
-- [getPrefix()](#s-getPrefix)
+- [getA1()](#m-geta1-f8b8009a6bc7)
+- [getA2()](#m-geta2-a28d45466763)
+- [getA3()](#m-geta3-330abd611894)
+- [getA4()](#m-geta4-fce3220b7c51)
+- [getPrefix()](#m-getprefix-9268091e0223)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -50,35 +50,35 @@ Reader(
 
 ## Methods
 
-<a id="s-getA1"></a>
+<a id="m-geta1-f8b8009a6bc7"></a>
 ### getA1()
 
 ```java
 public final byte getA1()
 ```
 
-<a id="s-getA2"></a>
+<a id="m-geta2-a28d45466763"></a>
 ### getA2()
 
 ```java
 public final byte getA2()
 ```
 
-<a id="s-getA3"></a>
+<a id="m-geta3-330abd611894"></a>
 ### getA3()
 
 ```java
 public final byte getA3()
 ```
 
-<a id="s-getA4"></a>
+<a id="m-geta4-fce3220b7c51"></a>
 ### getA4()
 
 ```java
 public final byte getA4()
 ```
 
-<a id="s-getPrefix"></a>
+<a id="m-getprefix-9268091e0223"></a>
 ### getPrefix()
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-CdbPhase"></a>
+<a id="cls-CdbPhase"></a>
 # CdbPhase
 
 ```java
@@ -18,22 +18,22 @@ Represents the start-phase CDB is currently in.
 
 **Constructors**:
 
-- [CdbPhase(int, int)](#s-CdbPhase-1)
+- [CdbPhase(int, int)](#m-cdbphase-5f54e2f87484)
 
 **Fields**:
 
-- [FLAG_INIT](#s-FLAG_INIT)
-- [FLAG_UPGRADE](#s-FLAG_UPGRADE)
+- [FLAG_INIT](#m-FLAG_INIT)
+- [FLAG_UPGRADE](#m-FLAG_UPGRADE)
 
 **Methods**:
 
-- [getCurrentPhase()](#s-getCurrentPhase)
-- [getFlag()](#s-getFlag)
-- [toString()](#s-toString)
+- [getCurrentPhase()](#m-getcurrentphase-32ff5b066755)
+- [getFlag()](#m-getflag-9cd662045dd4)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-CdbPhase-1"></a>
+<a id="m-cdbphase-5f54e2f87484"></a>
 ### CdbPhase(int, int)
 
 **Package-private**
@@ -50,7 +50,7 @@ CdbPhase(int phase, int flag)
 
 ## Fields
 
-<a id="s-FLAG_INIT"></a>
+<a id="m-FLAG_INIT"></a>
 ### FLAG_INIT
 
 ```java
@@ -59,7 +59,7 @@ public static final int FLAG_INIT = 1;
 
 CDB has an init transaction , when phase 0
 
-<a id="s-FLAG_UPGRADE"></a>
+<a id="m-FLAG_UPGRADE"></a>
 ### FLAG_UPGRADE
 
 ```java
@@ -71,7 +71,7 @@ CDB has an upgrade transaction , when phase 0
 
 ## Methods
 
-<a id="s-getCurrentPhase"></a>
+<a id="m-getcurrentphase-32ff5b066755"></a>
 ### getCurrentPhase()
 
 ```java
@@ -80,7 +80,7 @@ public int getCurrentPhase()
 
 The phase CDB is currently in.
 
-<a id="s-getFlag"></a>
+<a id="m-getflag-9cd662045dd4"></a>
 ### getFlag()
 
 ```java
@@ -93,7 +93,7 @@ The flag is set if CDB is in phase 0 to any of the values:
 - `#FLAG_INIT`
    - `#FLAG_UPGRADE`
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

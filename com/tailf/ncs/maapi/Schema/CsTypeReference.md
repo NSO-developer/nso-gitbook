@@ -1,4 +1,4 @@
-<a id="s-CsTypeReference"></a>
+<a id="cls-CsTypeReference"></a>
 # CsTypeReference
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeReference
 
 **Constructors**:
 
-- [CsTypeReference()](#s-CsTypeReference-1)
+- [CsTypeReference()](#m-cstypereference-864bcc178013)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](CsTypeReference/Builder.md#s-Builder)
-- [Factory](CsTypeReference/Factory.md#s-Factory)
-- [Reader](CsTypeReference/Reader.md#s-Reader)
+- [Builder](CsTypeReference/Builder.md#cls-Builder)
+- [Factory](CsTypeReference/Factory.md#cls-Factory)
+- [Reader](CsTypeReference/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-CsTypeReference-1"></a>
+<a id="m-cstypereference-864bcc178013"></a>
 ### CsTypeReference()
 
 ```java
@@ -35,25 +35,25 @@ public CsTypeReference()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsTypeReference.Factory factory = null;
 ```
 
-Types: [Factory](CsTypeReference/Factory.md#s-Factory)
+Types: [Factory](CsTypeReference/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsTypeReference.Builder,com.tailf.ncs.maapi.Schema.CsTypeReference.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsTypeReference/Builder.md#s-Builder), [Reader](CsTypeReference/Reader.md#s-Reader)
+Types: [Builder](CsTypeReference/Builder.md#cls-Builder), [Reader](CsTypeReference/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsTypeReference/Builder.md)
-- [Factory](CsTypeReference/Factory.md)
-- [Reader](CsTypeReference/Reader.md)
+- [Builder](CsTypeReference/Builder.md#cls-Builder)
+- [Factory](CsTypeReference/Factory.md#cls-Factory)
+- [Reader](CsTypeReference/Reader.md#cls-Reader)

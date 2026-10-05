@@ -1,4 +1,4 @@
-<a id="s-CommitDiffNotification"></a>
+<a id="cls-CommitDiffNotification"></a>
 # CommitDiffNotification
 
 ```java
@@ -6,14 +6,14 @@ public class com.tailf.notif.CommitDiffNotification
     extends com.tailf.notif.Notification
 ```
 
-Types: [Notification](Notification.md#s-Notification)
+Types: [Notification](Notification.md#cls-Notification)
 
 Data structure for CommitDiff notifications.
  Complete diff between before and after commit.
 
  If this type of notifications are received it is
  important to call
- [`Notif`](Notif.md#s-Notif)
+ `Notif#diffNotificationDone(int thandle)`
  with the received transaction handle or the transaction
  will hang indefinitely
 
@@ -21,25 +21,25 @@ Data structure for CommitDiff notifications.
 
 **Constructors**:
 
-- [CommitDiffNotification(int, DpUserInfo, int, String, String)](#s-CommitDiffNotification-1)
+- [CommitDiffNotification(int, DpUserInfo, int, String, String)](#m-commitdiffnotification-b085d6f75e0f)
 
 **Fields**:
 
-- [type](Notification.md#s-type) from Notification
+- [type](Notification.md#m-type) from Notification
 
 **Methods**:
 
-- [getComment()](#s-getComment)
-- [getDatabase()](#s-getDatabase)
-- [getLabel()](#s-getLabel)
-- [getNotificationType()](Notification.md#s-getNotificationType) from Notification
-- [getTransaction()](#s-getTransaction)
-- [getUserInfo()](#s-getUserInfo)
-- [toString()](#s-toString)
+- [getComment()](#m-getcomment-a5625f95afef)
+- [getDatabase()](#m-getdatabase-3c5eb5bcb258)
+- [getLabel()](#m-getlabel-72bf899bf6f1)
+- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
+- [getTransaction()](#m-gettransaction-4f1c72a828a1)
+- [getUserInfo()](#m-getuserinfo-3ecef1f24d3d)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-CommitDiffNotification-1"></a>
+<a id="m-commitdiffnotification-b085d6f75e0f"></a>
 ### CommitDiffNotification(int, DpUserInfo, int, String, String)
 
 ```java
@@ -52,7 +52,7 @@ public CommitDiffNotification(
 )
 ```
 
-Types: [DpUserInfo](../dp/DpUserInfo.md#s-DpUserInfo)
+Types: [DpUserInfo](../dp/DpUserInfo.md#cls-DpUserInfo)
 
 **Parameters**
 
@@ -65,7 +65,7 @@ Types: [DpUserInfo](../dp/DpUserInfo.md#s-DpUserInfo)
 
 ## Methods
 
-<a id="s-getComment"></a>
+<a id="m-getcomment-a5625f95afef"></a>
 ### getComment()
 
 ```java
@@ -74,7 +74,7 @@ public String getComment()
 
 Commit comment - null if no comment
 
-<a id="s-getDatabase"></a>
+<a id="m-getdatabase-3c5eb5bcb258"></a>
 ### getDatabase()
 
 ```java
@@ -84,12 +84,12 @@ public int getDatabase()
 Database type:
 
 
-- [`Conf`](../conf/Conf.md#s-Conf)
-   - [`Conf`](../conf/Conf.md#s-Conf)
-     - [`Conf`](../conf/Conf.md#s-Conf)
-       - [`Conf`](../conf/Conf.md#s-Conf)
+- [`Conf#DB_NONE`](../conf/Conf.md#m-DB_NONE)
+   - [`Conf#DB_CANDIDATE`](../conf/Conf.md#m-DB_CANDIDATE)
+     - [`Conf#DB_RUNNING`](../conf/Conf.md#m-DB_RUNNING)
+       - [`Conf#DB_STARTUP`](../conf/Conf.md#m-DB_STARTUP)
 
-<a id="s-getLabel"></a>
+<a id="m-getlabel-72bf899bf6f1"></a>
 ### getLabel()
 
 ```java
@@ -98,7 +98,7 @@ public String getLabel()
 
 Commit label - null if no label
 
-<a id="s-getTransaction"></a>
+<a id="m-gettransaction-4f1c72a828a1"></a>
 ### getTransaction()
 
 ```java
@@ -107,18 +107,18 @@ public int getTransaction()
 
 Transaction handle
 
-<a id="s-getUserInfo"></a>
+<a id="m-getuserinfo-3ecef1f24d3d"></a>
 ### getUserInfo()
 
 ```java
 public com.tailf.dp.DpUserInfo getUserInfo()
 ```
 
-Types: [DpUserInfo](../dp/DpUserInfo.md#s-DpUserInfo)
+Types: [DpUserInfo](../dp/DpUserInfo.md#cls-DpUserInfo)
 
 User information
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

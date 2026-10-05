@@ -1,4 +1,4 @@
-<a id="s-UTF8"></a>
+<a id="cls-UTF8"></a>
 # UTF8
 
 ```java
@@ -9,18 +9,18 @@ public class com.tailf.util.UTF8
 
 **Constructors**:
 
-- [UTF8()](#s-UTF8-1)
+- [UTF8()](#m-utf8-276b1ee131b3)
 
 **Methods**:
 
-- [getBytes(String)](#s-getBytes)
-- [isEncoding(String, byte[])](#s-isEncoding)
-- [isUTF8(byte[])](#s-isUTF8)
-- [toString(byte[])](#s-toString)
+- [getBytes(String)](#m-getbytes-dc2a63683673)
+- [isEncoding(String, byte[])](#m-isencoding-d2f8137f1dd6)
+- [isUTF8(byte[])](#m-isutf8-69f5acf4ead8)
+- [toString(byte[])](#m-tostring-5d65abc8eb30)
 
 ## Constructors
 
-<a id="s-UTF8-1"></a>
+<a id="m-utf8-276b1ee131b3"></a>
 ### UTF8()
 
 ```java
@@ -30,7 +30,7 @@ public UTF8()
 
 ## Methods
 
-<a id="s-getBytes"></a>
+<a id="m-getbytes-dc2a63683673"></a>
 ### getBytes(String)
 
 ```java
@@ -41,7 +41,7 @@ public static byte[] getBytes(String str)
 
 - `String str`
 
-<a id="s-isEncoding"></a>
+<a id="m-isencoding-d2f8137f1dd6"></a>
 ### isEncoding(String, byte[])
 
 ```java
@@ -53,7 +53,7 @@ public static boolean isEncoding(String encoding, byte[] input)
 - `String encoding`
 - `byte[] input`
 
-<a id="s-isUTF8"></a>
+<a id="m-isutf8-69f5acf4ead8"></a>
 ### isUTF8(byte[])
 
 ```java
@@ -64,7 +64,7 @@ public static boolean isUTF8(byte[] input)
 
 - `byte[] input`
 
-<a id="s-toString"></a>
+<a id="m-tostring-5d65abc8eb30"></a>
 ### toString(byte[])
 
 ```java

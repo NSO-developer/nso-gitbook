@@ -1,4 +1,4 @@
-<a id="s-NedIdIter"></a>
+<a id="cls-NedIdIter"></a>
 # NedIdIter
 
 **Package-private**
@@ -8,21 +8,21 @@ static class com.tailf.ncs.logging.NcsLogger.NedIdIter
     implements com.tailf.cdb.CdbDiffIterate
 ```
 
-Types: [CdbDiffIterate](../../../cdb/CdbDiffIterate.md#s-CdbDiffIterate)
+Types: [CdbDiffIterate](../../../cdb/CdbDiffIterate.md#cls-CdbDiffIterate)
 
 ## Members
 
 **Constructors**:
 
-- [NedIdIter()](#s-NedIdIter-1)
+- [NedIdIter()](#m-nediditer-97d6da7077c5)
 
 **Methods**:
 
-- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#s-iterate)
+- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#m-iterate-d80a566b7e0a)
 
 ## Constructors
 
-<a id="s-NedIdIter-1"></a>
+<a id="m-nediditer-97d6da7077c5"></a>
 ### NedIdIter()
 
 **Package-private**
@@ -34,7 +34,7 @@ NedIdIter()
 
 ## Methods
 
-<a id="s-iterate"></a>
+<a id="m-iterate-d80a566b7e0a"></a>
 ### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)
 
 ```java
@@ -47,7 +47,7 @@ public com.tailf.conf.DiffIterateResultFlag iterate(
 )
 ```
 
-Types: [DiffIterateResultFlag](../../../conf/DiffIterateResultFlag.md#s-DiffIterateResultFlag), [ConfObject](../../../conf/ConfObject.md#s-ConfObject), [DiffIterateOperFlag](../../../conf/DiffIterateOperFlag.md#s-DiffIterateOperFlag)
+Types: [DiffIterateResultFlag](../../../conf/DiffIterateResultFlag.md#cls-DiffIterateResultFlag), [ConfObject](../../../conf/ConfObject.md#cls-ConfObject), [DiffIterateOperFlag](../../../conf/DiffIterateOperFlag.md#cls-DiffIterateOperFlag)
 
 **Parameters**
 

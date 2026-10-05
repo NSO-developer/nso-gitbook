@@ -1,4 +1,4 @@
-<a id="s-ConfEObject"></a>
+<a id="cls-ConfEObject"></a>
 # ConfEObject
 
 ```java
@@ -11,38 +11,38 @@ Base class of the E data type classes. This class is used to represent an
 
 **Related classes**
 
-- [ConfEAtom](ConfEAtom.md#s-ConfEAtom)
-- [ConfEBig](ConfEBig.md#s-ConfEBig)
-- [ConfEBinary](ConfEBinary.md#s-ConfEBinary)
-- [ConfEDouble](ConfEDouble.md#s-ConfEDouble)
-- [ConfEList](ConfEList.md#s-ConfEList)
-- [ConfELong](ConfELong.md#s-ConfELong)
-- [ConfEPid](ConfEPid.md#s-ConfEPid)
-- [ConfERef](ConfERef.md#s-ConfERef)
-- [ConfEString](ConfEString.md#s-ConfEString)
-- [ConfETuple](ConfETuple.md#s-ConfETuple)
+- [ConfEAtom](ConfEAtom.md#cls-ConfEAtom)
+- [ConfEBig](ConfEBig.md#cls-ConfEBig)
+- [ConfEBinary](ConfEBinary.md#cls-ConfEBinary)
+- [ConfEDouble](ConfEDouble.md#cls-ConfEDouble)
+- [ConfEList](ConfEList.md#cls-ConfEList)
+- [ConfELong](ConfELong.md#cls-ConfELong)
+- [ConfEPid](ConfEPid.md#cls-ConfEPid)
+- [ConfERef](ConfERef.md#cls-ConfERef)
+- [ConfEString](ConfEString.md#cls-ConfEString)
+- [ConfETuple](ConfETuple.md#cls-ConfETuple)
 
 ## Members
 
 **Constructors**:
 
-- [ConfEObject()](#s-ConfEObject-1)
+- [ConfEObject()](#m-confeobject-316d32c106b3)
 
 **Fields**:
 
-- [serialVersionUID](#s-serialVersionUID)
+- [serialVersionUID](#m-serialVersionUID)
 
 **Methods**:
 
-- [clone()](#s-clone)
-- [decode(ConfInputStream)](#s-decode)
-- [encode(ConfOutputStream)](#s-encode)
-- [equals(Object)](#s-equals)
-- [toString()](#s-toString)
+- [clone()](#m-clone-164c86c45e9b)
+- [decode(ConfInputStream)](#m-decode-e63a2a4cac49)
+- [encode(ConfOutputStream)](#m-encode-cb1ad9eb7771)
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-ConfEObject-1"></a>
+<a id="m-confeobject-316d32c106b3"></a>
 ### ConfEObject()
 
 ```java
@@ -52,7 +52,7 @@ public ConfEObject()
 
 ## Fields
 
-<a id="s-serialVersionUID"></a>
+<a id="m-serialVersionUID"></a>
 ### serialVersionUID
 
 **Package-private**
@@ -64,14 +64,14 @@ static final long serialVersionUID = -8435938572339430044;
 
 ## Methods
 
-<a id="s-clone"></a>
+<a id="m-clone-164c86c45e9b"></a>
 ### clone()
 
 ```java
 public Object clone()
 ```
 
-<a id="s-decode"></a>
+<a id="m-decode-e63a2a4cac49"></a>
 ### decode(ConfInputStream)
 
 ```java
@@ -81,7 +81,7 @@ public static com.tailf.proto.ConfEObject decode(
     throws com.tailf.proto.ConfEDecodeException
 ```
 
-Types: [ConfEObject](ConfEObject.md#s-ConfEObject), [ConfInputStream](ConfInputStream.md#s-ConfInputStream), [ConfEDecodeException](ConfEDecodeException.md#s-ConfEDecodeException)
+Types: [ConfEObject](ConfEObject.md#cls-ConfEObject), [ConfInputStream](ConfInputStream.md#cls-ConfInputStream), [ConfEDecodeException](ConfEDecodeException.md#cls-ConfEDecodeException)
 
 Read binary data in the E external format, and produce a corresponding E
  data type object. This method is normally used when E terms are received
@@ -98,14 +98,14 @@ Read binary data in the E external format, and produce a corresponding E
 - `ConfEDecodeException` - if the stream does not contain a valid representation of
                 an E term.
 
-<a id="s-encode"></a>
+<a id="m-encode-cb1ad9eb7771"></a>
 ### encode(ConfOutputStream)
 
 ```java
 public abstract void encode(com.tailf.proto.ConfOutputStream buf)
 ```
 
-Types: [ConfOutputStream](ConfOutputStream.md#s-ConfOutputStream)
+Types: [ConfOutputStream](ConfOutputStream.md#cls-ConfOutputStream)
 
 Convert the object according to the rules of the E external format. This
  is mainly used for sending E terms in messages, however it can also be
@@ -115,7 +115,7 @@ Convert the object according to the rules of the E external format. This
 
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded term should be written.
 
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
@@ -131,7 +131,7 @@ Determine if two E objects are equal. In general, E objects are equal if
 
 **Returns:** true if the objects are identical.
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

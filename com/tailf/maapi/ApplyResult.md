@@ -1,4 +1,4 @@
-<a id="s-ApplyResult"></a>
+<a id="cls-ApplyResult"></a>
 # ApplyResult
 
 ```java
@@ -6,22 +6,22 @@ public class com.tailf.maapi.ApplyResult
 ```
 
 Represents a successful invocation of the
- [`Maapi`](Maapi.md#s-Maapi) method.
+ [`Maapi#applyTransParams(int, boolean, CommitParams)`](Maapi.md#m-applytransparams-6c20b7896663) method.
 
 **Related classes**
 
-- [CommitQueueResult](CommitQueueResult.md#s-CommitQueueResult)
-- [DryRunResult](DryRunResult.md#s-DryRunResult)
+- [CommitQueueResult](CommitQueueResult.md#cls-CommitQueueResult)
+- [DryRunResult](DryRunResult.md#cls-DryRunResult)
 
 ## Members
 
 **Constructors**:
 
-- [ApplyResult(ConfResponse)](#s-ApplyResult-1)
+- [ApplyResult(ConfResponse)](#m-applyresult-7b53e46df937)
 
 ## Constructors
 
-<a id="s-ApplyResult-1"></a>
+<a id="m-applyresult-7b53e46df937"></a>
 ### ApplyResult(ConfResponse)
 
 ```java
@@ -31,7 +31,7 @@ public ApplyResult(
     throws com.tailf.maapi.MaapiException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfResponse](../conf/ConfResponse.md#s-ConfResponse), [MaapiException](MaapiException.md#s-MaapiException), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfResponse](../conf/ConfResponse.md#cls-ConfResponse), [MaapiException](MaapiException.md#cls-MaapiException), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 

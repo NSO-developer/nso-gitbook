@@ -1,4 +1,4 @@
-<a id="s-NcsComponentData"></a>
+<a id="cls-NcsComponentData"></a>
 # NcsComponentData
 
 ```java
@@ -11,25 +11,25 @@ Parsed command Component data
 
 **Constructors**:
 
-- [NcsComponentData(NcsPDData, String, String, String, String, String, String[])](#s-NcsComponentData-1)
+- [NcsComponentData(NcsPDData, String, String, String, String, String, String[])](#m-ncscomponentdata-2d0c349d77e7)
 
 **Methods**:
 
-- [getClasses()](#s-getClasses)
-- [getComponentName()](#s-getComponentName)
-- [getComponentType()](#s-getComponentType)
-- [getNedIdNS()](#s-getNedIdNS)
-- [getNedIdTag()](#s-getNedIdTag)
-- [getNedType()](#s-getNedType)
-- [getParentPackage()](#s-getParentPackage)
-- [getUniqueName()](#s-getUniqueName)
-- [isPendingStop()](#s-isPendingStop)
-- [setPendingStop(boolean)](#s-setPendingStop)
-- [toString()](#s-toString)
+- [getClasses()](#m-getclasses-af3620c8cef5)
+- [getComponentName()](#m-getcomponentname-7c7a8acb1be7)
+- [getComponentType()](#m-getcomponenttype-8cb31666621f)
+- [getNedIdNS()](#m-getnedidns-6d5bc3028343)
+- [getNedIdTag()](#m-getnedidtag-9254c612474d)
+- [getNedType()](#m-getnedtype-0f22e3831af4)
+- [getParentPackage()](#m-getparentpackage-8f854d27b434)
+- [getUniqueName()](#m-getuniquename-f814f98e3025)
+- [isPendingStop()](#m-ispendingstop-eeb09cbcc411)
+- [setPendingStop(boolean)](#m-setpendingstop-6efd01c6ce11)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-NcsComponentData-1"></a>
+<a id="m-ncscomponentdata-2d0c349d77e7"></a>
 ### NcsComponentData(NcsPDData, String, String, String, String, String, String[])
 
 ```java
@@ -44,7 +44,7 @@ public NcsComponentData(
 )
 ```
 
-Types: [NcsPDData](NcsPDData.md#s-NcsPDData)
+Types: [NcsPDData](NcsPDData.md#cls-NcsPDData)
 
 **Parameters**
 
@@ -59,72 +59,72 @@ Types: [NcsPDData](NcsPDData.md#s-NcsPDData)
 
 ## Methods
 
-<a id="s-getClasses"></a>
+<a id="m-getclasses-af3620c8cef5"></a>
 ### getClasses()
 
 ```java
 public String[] getClasses()
 ```
 
-<a id="s-getComponentName"></a>
+<a id="m-getcomponentname-7c7a8acb1be7"></a>
 ### getComponentName()
 
 ```java
 public String getComponentName()
 ```
 
-<a id="s-getComponentType"></a>
+<a id="m-getcomponenttype-8cb31666621f"></a>
 ### getComponentType()
 
 ```java
 public String getComponentType()
 ```
 
-<a id="s-getNedIdNS"></a>
+<a id="m-getnedidns-6d5bc3028343"></a>
 ### getNedIdNS()
 
 ```java
 public String getNedIdNS()
 ```
 
-<a id="s-getNedIdTag"></a>
+<a id="m-getnedidtag-9254c612474d"></a>
 ### getNedIdTag()
 
 ```java
 public String getNedIdTag()
 ```
 
-<a id="s-getNedType"></a>
+<a id="m-getnedtype-0f22e3831af4"></a>
 ### getNedType()
 
 ```java
 public String getNedType()
 ```
 
-<a id="s-getParentPackage"></a>
+<a id="m-getparentpackage-8f854d27b434"></a>
 ### getParentPackage()
 
 ```java
 public com.tailf.ncs.ctrl.NcsPDData getParentPackage()
 ```
 
-Types: [NcsPDData](NcsPDData.md#s-NcsPDData)
+Types: [NcsPDData](NcsPDData.md#cls-NcsPDData)
 
-<a id="s-getUniqueName"></a>
+<a id="m-getuniquename-f814f98e3025"></a>
 ### getUniqueName()
 
 ```java
 public String getUniqueName()
 ```
 
-<a id="s-isPendingStop"></a>
+<a id="m-ispendingstop-eeb09cbcc411"></a>
 ### isPendingStop()
 
 ```java
 public boolean isPendingStop()
 ```
 
-<a id="s-setPendingStop"></a>
+<a id="m-setpendingstop-6efd01c6ce11"></a>
 ### setPendingStop(boolean)
 
 ```java
@@ -135,7 +135,7 @@ public void setPendingStop(boolean shouldStop)
 
 - `boolean shouldStop`
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-DryRunEntry"></a>
+<a id="cls-DryRunEntry"></a>
 # DryRunEntry
 
 ```java
@@ -9,22 +9,22 @@ public static class com.tailf.maapi.DryRunResult.DryRunEntry
 
 **Constructors**:
 
-- [DryRunEntry(String, Type, String)](#s-DryRunEntry-1)
+- [DryRunEntry(String, Type, String)](#m-dryrunentry-719d1bc10043)
 
 **Methods**:
 
-- [getData()](#s-getData)
-- [getName()](#s-getName)
-- [getType()](#s-getType)
-- [getTypeAsString()](#s-getTypeAsString)
+- [getData()](#m-getdata-8ef0e36ab01b)
+- [getName()](#m-getname-2634b18b4a25)
+- [getType()](#m-gettype-5a52f6f0d4c1)
+- [getTypeAsString()](#m-gettypeasstring-ea437139f174)
 
 **Nested Types**:
 
-- [Type](DryRunEntry/Type.md#s-Type)
+- [Type](DryRunEntry/Type.md#cls-Type)
 
 ## Constructors
 
-<a id="s-DryRunEntry-1"></a>
+<a id="m-dryrunentry-719d1bc10043"></a>
 ### DryRunEntry(String, Type, String)
 
 **Package-private**
@@ -33,7 +33,7 @@ public static class com.tailf.maapi.DryRunResult.DryRunEntry
 DryRunEntry(String name, com.tailf.maapi.DryRunResult.DryRunEntry.Type type, String data)
 ```
 
-Types: [Type](DryRunEntry/Type.md#s-Type)
+Types: [Type](DryRunEntry/Type.md#cls-Type)
 
 **Parameters**
 
@@ -44,7 +44,7 @@ Types: [Type](DryRunEntry/Type.md#s-Type)
 
 ## Methods
 
-<a id="s-getData"></a>
+<a id="m-getdata-8ef0e36ab01b"></a>
 ### getData()
 
 ```java
@@ -53,7 +53,7 @@ public String getData()
 
 Return the data of the dry-run result.
 
-<a id="s-getName"></a>
+<a id="m-getname-2634b18b4a25"></a>
 ### getName()
 
 ```java
@@ -62,14 +62,14 @@ public String getName()
 
 Return the name of the device/node.
 
-<a id="s-getType"></a>
+<a id="m-gettype-5a52f6f0d4c1"></a>
 ### getType()
 
 ```java
 public com.tailf.maapi.DryRunResult.DryRunEntry.Type getType()
 ```
 
-Types: [Type](DryRunEntry/Type.md#s-Type)
+Types: [Type](DryRunEntry/Type.md#cls-Type)
 
 Return whether the result is for a device/node.
 
@@ -83,7 +83,7 @@ Return whether the result is for a device/node.
  `Type#LSA_NODE` means that the data is for the
  lsa-node.
 
-<a id="s-getTypeAsString"></a>
+<a id="m-gettypeasstring-ea437139f174"></a>
 ### getTypeAsString()
 
 ```java
@@ -95,4 +95,4 @@ Return the type as a string.
 
 ## Nested Types
 
-- [Type](DryRunEntry/Type.md)
+- [Type](DryRunEntry/Type.md#cls-Type)

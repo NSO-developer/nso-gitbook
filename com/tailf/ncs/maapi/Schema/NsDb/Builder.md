@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,27 +6,23 @@ public static final class com.tailf.ncs.maapi.Schema.NsDb.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getEntries()](#s-getEntries)
-- [hasEntries()](#s-hasEntries)
-- [initEntries(int)](#s-initEntries)
-- [setEntries(Reader<Reader>)](#s-setEntries)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getEntries()](#m-getentries-f554b7f62e3d)
+- [hasEntries()](#m-hasentries-ccf5edf194a9)
+- [initEntries(int)](#m-initentries-f2a53bc0911b)
+- [setEntries(Reader<Reader>)](#m-setentries-6549377e8c73)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -52,32 +48,32 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.NsDb.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getEntries"></a>
+<a id="m-getentries-f554b7f62e3d"></a>
 ### getEntries()
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.NsInfo.Builder> getEntries()
 ```
 
-Types: [Builder](../NsInfo/Builder.md#s-Builder)
+Types: [Builder](../NsInfo/Builder.md#cls-Builder)
 
-<a id="s-hasEntries"></a>
+<a id="m-hasentries-ccf5edf194a9"></a>
 ### hasEntries()
 
 ```java
 public final boolean hasEntries()
 ```
 
-<a id="s-initEntries"></a>
+<a id="m-initentries-f2a53bc0911b"></a>
 ### initEntries(int)
 
 ```java
@@ -86,13 +82,13 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.NsInfo.
 )
 ```
 
-Types: [Builder](../NsInfo/Builder.md#s-Builder)
+Types: [Builder](../NsInfo/Builder.md#cls-Builder)
 
 **Parameters**
 
 - `int size`
 
-<a id="s-setEntries"></a>
+<a id="m-setentries-6549377e8c73"></a>
 ### setEntries(Reader<Reader>)
 
 ```java
@@ -101,7 +97,7 @@ public final void setEntries(
 )
 ```
 
-Types: [Reader](../NsInfo/Reader.md#s-Reader)
+Types: [Reader](../NsInfo/Reader.md#cls-Reader)
 
 **Parameters**
 

@@ -1,4 +1,4 @@
-<a id="s-MountId"></a>
+<a id="cls-MountId"></a>
 # MountId
 
 ```java
@@ -9,24 +9,24 @@ public static class com.tailf.ncs.maapi.Schema.Cs.MountId
 
 **Constructors**:
 
-- [MountId()](#s-MountId-1)
+- [MountId()](#m-mountid-29f1110d7bf8)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](MountId/Builder.md#s-Builder)
-- [Factory](MountId/Factory.md#s-Factory)
-- [Reader](MountId/Reader.md#s-Reader)
-- [Which](MountId/Which.md#s-Which)
+- [Builder](MountId/Builder.md#cls-Builder)
+- [Factory](MountId/Factory.md#cls-Factory)
+- [Reader](MountId/Reader.md#cls-Reader)
+- [Which](MountId/Which.md#cls-Which)
 
 ## Constructors
 
-<a id="s-MountId-1"></a>
+<a id="m-mountid-29f1110d7bf8"></a>
 ### MountId()
 
 ```java
@@ -36,25 +36,25 @@ public MountId()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cs.MountId.Factory factory = null;
 ```
 
-Types: [Factory](MountId/Factory.md#s-Factory)
+Types: [Factory](MountId/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.Cs.MountId.Builder,com.tailf.ncs.maapi.Schema.Cs.MountId.Reader> listFactory = null;
 ```
 
-Types: [Builder](MountId/Builder.md#s-Builder), [Reader](MountId/Reader.md#s-Reader)
+Types: [Builder](MountId/Builder.md#cls-Builder), [Reader](MountId/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -64,7 +64,7 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](MountId/Builder.md)
-- [Factory](MountId/Factory.md)
-- [Reader](MountId/Reader.md)
-- [Which](MountId/Which.md)
+- [Builder](MountId/Builder.md#cls-Builder)
+- [Factory](MountId/Factory.md#cls-Factory)
+- [Reader](MountId/Reader.md#cls-Reader)
+- [Which](MountId/Which.md#cls-Which)

@@ -1,54 +1,50 @@
-<a id="s-WhereTo"></a>
+<a id="cls-WhereTo"></a>
 # WhereTo
 
 ```java
 public static enum com.tailf.navu.NavuList.WhereTo
 ```
 
-Types: [WhereTo](WhereTo.md#s-WhereTo)
-
-**Related classes**
-
-- [WhereTo](WhereTo.md#s-WhereTo)
+Types: [WhereTo](WhereTo.md#cls-WhereTo)
 
 ## Members
 
 **Enum Constants**:
 
-- [AFTER](#s-AFTER)
-- [BEFORE](#s-BEFORE)
-- [FIRST](#s-FIRST)
-- [LAST](#s-LAST)
+- [AFTER](#m-AFTER)
+- [BEFORE](#m-BEFORE)
+- [FIRST](#m-FIRST)
+- [LAST](#m-LAST)
 
 **Methods**:
 
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-AFTER"></a>
+<a id="m-AFTER"></a>
 ### AFTER
 
 ```java
 public static final com.tailf.navu.NavuList.WhereTo AFTER;
 ```
 
-<a id="s-BEFORE"></a>
+<a id="m-BEFORE"></a>
 ### BEFORE
 
 ```java
 public static final com.tailf.navu.NavuList.WhereTo BEFORE;
 ```
 
-<a id="s-FIRST"></a>
+<a id="m-FIRST"></a>
 ### FIRST
 
 ```java
 public static final com.tailf.navu.NavuList.WhereTo FIRST;
 ```
 
-<a id="s-LAST"></a>
+<a id="m-LAST"></a>
 ### LAST
 
 ```java
@@ -58,24 +54,24 @@ public static final com.tailf.navu.NavuList.WhereTo LAST;
 
 ## Methods
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.navu.NavuList.WhereTo valueOf(String name)
 ```
 
-Types: [WhereTo](WhereTo.md#s-WhereTo)
+Types: [WhereTo](WhereTo.md#cls-WhereTo)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.navu.NavuList.WhereTo[] values()
 ```
 
-Types: [WhereTo](WhereTo.md#s-WhereTo)
+Types: [WhereTo](WhereTo.md#cls-WhereTo)

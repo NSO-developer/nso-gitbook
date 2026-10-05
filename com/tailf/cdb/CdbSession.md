@@ -1,4 +1,4 @@
-<a id="s-CdbSession"></a>
+<a id="cls-CdbSession"></a>
 # CdbSession
 
 ```java
@@ -23,7 +23,7 @@ The class `CdbSession` represents a session against
 
  If it is considered necessary to have more
  detailed control over some aspects of the
- CDB session use the method [`Cdb`](Cdb.md#s-Cdb)
+ CDB session use the method `Cdb#startSession(CdbDBType,EnumSet)`
  where the `EnumSet` contains a set of lock flags for this method.
 
 
@@ -34,14 +34,14 @@ The class `CdbSession` represents a session against
 - ***CDB_RUNNING*** -
  `LOCK_SESSION` obtains a read lock for the complete
  session, i.e. using this flag alone is equivalent to calling
- [`Cdb`](Cdb.md#s-Cdb) or [`Cdb`](Cdb.md#s-Cdb).
+ [`Cdb#startSession()`](Cdb.md#m-startsession-ee121903dcfa) or [`Cdb#startSession(CdbDBType)`](Cdb.md#m-startsession-6f137bd83c44).
 
 
  `LOCK_REQUEST` obtains a read lock only for the
  duration of each read request. This means that values of
  elements read in different requests may be inconsistent with each other,
  and the consequences of this must be carefully considered.
- In particular, the use of [`ConfPath`](../conf/ConfPath.md#s-ConfPath) and the [n]
+ In particular, the use of `ConfPath#getNumberOfInstances(ConfPath)` and the [n]
  "integer index" notation in  keypaths is inherently unsafe in this mode.
 
 
@@ -120,80 +120,80 @@ The class `CdbSession` represents a session against
 
 **Related classes**
 
-- [CdbUpgradeSession](CdbUpgradeSession.md#s-CdbUpgradeSession)
+- [CdbUpgradeSession](CdbUpgradeSession.md#cls-CdbUpgradeSession)
 
 ## Members
 
 **Constructors**:
 
-- [CdbSession(Cdb)](#s-CdbSession-1)
-- [CdbSession(Cdb, CdbDBType)](#s-CdbSession-2)
-- [CdbSession(Cdb, CdbDBType, EnumSet<CdbLockType>)](#s-CdbSession-3)
+- [CdbSession(Cdb)](#m-cdbsession-1c19a6f495f3)
+- [CdbSession(Cdb, CdbDBType)](#m-cdbsession-5164f17f6a96)
+- [CdbSession(Cdb, CdbDBType, EnumSet<CdbLockType>)](#m-cdbsession-82f45cd9e50f)
 
 **Fields**:
 
-- [cdb](#s-cdb)
-- [dbType](#s-dbType)
-- [lockflags](#s-lockflags)
+- [cdb](#m-cdb)
+- [dbType](#m-dbType)
+- [lockflags](#m-lockflags)
 
 **Methods**:
 
-- [cd(ConfPath)](#s-cd)
-- [cd(String, Object[])](#s-cd-1)
-- [create(ConfPath)](#s-create)
-- [create(String, Object[])](#s-create-1)
-- [delete(ConfPath)](#s-delete)
-- [delete(String, Object[])](#s-delete-1)
-- [endSession()](#s-endSession)
-- [exists(ConfPath)](#s-exists)
-- [exists(String, Object[])](#s-exists-1)
-- [getCase(String, ConfPath)](#s-getCase)
-- [getCase(String, String, Object[])](#s-getCase-1)
-- [getCdb()](#s-getCdb)
-- [getcwd()](#s-getcwd)
-- [getcwdPath()](#s-getcwdPath)
-- [getDbType()](#s-getDbType)
-- [getElem(ConfPath)](#s-getElem)
-- [getElem(String, Object[])](#s-getElem-1)
-- [getNumberOfInstances(ConfPath)](#s-getNumberOfInstances)
-- [getNumberOfInstances(String, Object[])](#s-getNumberOfInstances-1)
-- [getObject(int, ConfPath)](#s-getObject)
-- [getObject(int, String, Object[])](#s-getObject-1)
-- [getObjects(int, int, int, ConfPath)](#s-getObjects)
-- [getObjects(int, int, int, String, Object[])](#s-getObjects-1)
-- [getValues(ConfXMLParam[], ConfPath)](#s-getValues)
-- [getValues(ConfXMLParam[], String, Object[])](#s-getValues-1)
-- [index(ConfPath)](#s-index)
-- [index(String, Object[])](#s-index-1)
-- [isDefault(ConfPath)](#s-isDefault)
-- [isDefault(String, Object[])](#s-isDefault-1)
-- [nextIndex(ConfPath)](#s-nextIndex)
-- [nextIndex(String, Object[])](#s-nextIndex-1)
-- [popd()](#s-popd)
-- [pushd(ConfPath)](#s-pushd)
-- [pushd(String, Object[])](#s-pushd-1)
-- [setCase(String, String, ConfPath)](#s-setCase)
-- [setCase(String, String, String, Object[])](#s-setCase-1)
-- [setElem(ConfValue, ConfPath)](#s-setElem)
-- [setElem(ConfValue, String, Object[])](#s-setElem-1)
-- [setNamespace(ConfNamespace)](#s-setNamespace)
-- [setObject(ConfValue[], ConfPath)](#s-setObject)
-- [setObject(ConfValue[], String, Object[])](#s-setObject-1)
-- [setValues(ConfXMLParam[], ConfPath)](#s-setValues)
-- [setValues(ConfXMLParam[], String, Object[])](#s-setValues-1)
-- [setValues(List<ConfXMLParam>, ConfPath)](#s-setValues-2)
-- [toString()](#s-toString)
+- [cd(ConfPath)](#m-cd-a902c91e6177)
+- [cd(String, Object[])](#m-cd-751c8b439d16)
+- [create(ConfPath)](#m-create-02589a4ee236)
+- [create(String, Object[])](#m-create-8d8ef9670e7f)
+- [delete(ConfPath)](#m-delete-46ab41293f59)
+- [delete(String, Object[])](#m-delete-a6dae6a18c6e)
+- [endSession()](#m-endsession-1853baeb5d28)
+- [exists(ConfPath)](#m-exists-afa14dd11748)
+- [exists(String, Object[])](#m-exists-c95896218534)
+- [getCase(String, ConfPath)](#m-getcase-db036ac6c713)
+- [getCase(String, String, Object[])](#m-getcase-9058de2e1364)
+- [getCdb()](#m-getcdb-62d7a3429687)
+- [getcwd()](#m-getcwd-18c6eed4f1fa)
+- [getcwdPath()](#m-getcwdpath-a9fa1536fad1)
+- [getDbType()](#m-getdbtype-9503dd2b103d)
+- [getElem(ConfPath)](#m-getelem-f8219fa65c5d)
+- [getElem(String, Object[])](#m-getelem-8ec719438ea8)
+- [getNumberOfInstances(ConfPath)](#m-getnumberofinstances-41d82cec9221)
+- [getNumberOfInstances(String, Object[])](#m-getnumberofinstances-4ff46f9afb5c)
+- [getObject(int, ConfPath)](#m-getobject-97126abcba49)
+- [getObject(int, String, Object[])](#m-getobject-8f535bb4e0e8)
+- [getObjects(int, int, int, ConfPath)](#m-getobjects-d25a1860a73f)
+- [getObjects(int, int, int, String, Object[])](#m-getobjects-9108870a6290)
+- [getValues(ConfXMLParam[], ConfPath)](#m-getvalues-b30d01896278)
+- [getValues(ConfXMLParam[], String, Object[])](#m-getvalues-f93a502602ef)
+- [index(ConfPath)](#m-index-339d675c9a64)
+- [index(String, Object[])](#m-index-cae5f09ba6fb)
+- [isDefault(ConfPath)](#m-isdefault-a9229eae64cf)
+- [isDefault(String, Object[])](#m-isdefault-8c3502a0ab6d)
+- [nextIndex(ConfPath)](#m-nextindex-ceef3a478d50)
+- [nextIndex(String, Object[])](#m-nextindex-c2b059f89584)
+- [popd()](#m-popd-b092d2d9048f)
+- [pushd(ConfPath)](#m-pushd-d9d906674b7a)
+- [pushd(String, Object[])](#m-pushd-fd6a4c1b1c8d)
+- [setCase(String, String, ConfPath)](#m-setcase-3792b2775b7f)
+- [setCase(String, String, String, Object[])](#m-setcase-908203af825d)
+- [setElem(ConfValue, ConfPath)](#m-setelem-356e5e479e47)
+- [setElem(ConfValue, String, Object[])](#m-setelem-7fc14a355edc)
+- [setNamespace(ConfNamespace)](#m-setnamespace-30316a480cfa)
+- [setObject(ConfValue[], ConfPath)](#m-setobject-741f2a72045e)
+- [setObject(ConfValue[], String, Object[])](#m-setobject-5edb7e0ee677)
+- [setValues(ConfXMLParam[], ConfPath)](#m-setvalues-0755e36fbd2c)
+- [setValues(ConfXMLParam[], String, Object[])](#m-setvalues-824d05856f15)
+- [setValues(List<ConfXMLParam>, ConfPath)](#m-setvalues-970140dc0796)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-CdbSession-1"></a>
+<a id="m-cdbsession-1c19a6f495f3"></a>
 ### CdbSession(Cdb)
 
 ```java
 public CdbSession(com.tailf.cdb.Cdb cdb) throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Cdb](Cdb.md#s-Cdb), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Cdb](Cdb.md#cls-Cdb), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Creates a new *CDB session*
  instance against the running database. (dbtype
@@ -203,7 +203,7 @@ Creates a new *CDB session*
 
 - `com.tailf.cdb.Cdb cdb` - The CDB instance the session belongs to
 
-<a id="s-CdbSession-2"></a>
+<a id="m-cdbsession-5164f17f6a96"></a>
 ### CdbSession(Cdb, CdbDBType)
 
 ```java
@@ -214,21 +214,21 @@ public CdbSession(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [Cdb](Cdb.md#s-Cdb), [CdbDBType](CdbDBType.md#s-CdbDBType), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Cdb](Cdb.md#cls-Cdb), [CdbDBType](CdbDBType.md#cls-CdbDBType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Starts a new session on an already connected *Cdb* instance.
 
 **Parameters**
 
 - `com.tailf.cdb.Cdb cdb` - The CDB instance with a socket connected to ConfD/NCS.
-- `com.tailf.cdb.CdbDBType dbtype` - see [`CdbDBType`](CdbDBType.md#s-CdbDBType)
+- `com.tailf.cdb.CdbDBType dbtype` - see [`CdbDBType`](CdbDBType.md#cls-CdbDBType)
 
 **Throws**
 
 - `CdbException` - Failed to start session
 - `IOException` - Failed to read/write socket
 
-<a id="s-CdbSession-3"></a>
+<a id="m-cdbsession-82f45cd9e50f"></a>
 ### CdbSession(Cdb, CdbDBType, EnumSet<CdbLockType>)
 
 ```java
@@ -240,7 +240,7 @@ public CdbSession(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [Cdb](Cdb.md#s-Cdb), [CdbDBType](CdbDBType.md#s-CdbDBType), [CdbLockType](CdbLockType.md#s-CdbLockType), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Cdb](Cdb.md#cls-Cdb), [CdbDBType](CdbDBType.md#cls-CdbDBType), [CdbLockType](CdbLockType.md#cls-CdbLockType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Starts a new session on an already established Cdb with
  explicitly given lockflags.
@@ -248,8 +248,8 @@ Starts a new session on an already established Cdb with
 **Parameters**
 
 - `com.tailf.cdb.Cdb cdb`
-- `com.tailf.cdb.CdbDBType dbtype` - see [`CdbDBType`](CdbDBType.md#s-CdbDBType)
-- `java.util.EnumSet<com.tailf.cdb.CdbLockType> lockflags` - [`CdbLockType`](CdbLockType.md#s-CdbLockType)
+- `com.tailf.cdb.CdbDBType dbtype` - see [`CdbDBType`](CdbDBType.md#cls-CdbDBType)
+- `java.util.EnumSet<com.tailf.cdb.CdbLockType> lockflags` - [`CdbLockType`](CdbLockType.md#cls-CdbLockType)
 
 **Throws**
 
@@ -259,37 +259,37 @@ Starts a new session on an already established Cdb with
 
 ## Fields
 
-<a id="s-cdb"></a>
+<a id="m-cdb"></a>
 ### cdb
 
 ```java
 protected com.tailf.cdb.Cdb cdb = null;
 ```
 
-Types: [Cdb](Cdb.md#s-Cdb)
+Types: [Cdb](Cdb.md#cls-Cdb)
 
-<a id="s-dbType"></a>
+<a id="m-dbType"></a>
 ### dbType
 
 ```java
 protected com.tailf.cdb.CdbDBType dbType = null;
 ```
 
-Types: [CdbDBType](CdbDBType.md#s-CdbDBType)
+Types: [CdbDBType](CdbDBType.md#cls-CdbDBType)
 
-<a id="s-lockflags"></a>
+<a id="m-lockflags"></a>
 ### lockflags
 
 ```java
 protected java.util.EnumSet<com.tailf.cdb.CdbLockType> lockflags = null;
 ```
 
-Types: [CdbLockType](CdbLockType.md#s-CdbLockType)
+Types: [CdbLockType](CdbLockType.md#cls-CdbLockType)
 
 
 ## Methods
 
-<a id="s-cd"></a>
+<a id="m-cd-a902c91e6177"></a>
 ### cd(ConfPath)
 
 ```java
@@ -299,7 +299,7 @@ public synchronized void cd(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Changes the working directory.
 
@@ -312,7 +312,7 @@ Changes the working directory.
 - `CdbException` - Failed to 'cd'
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-cd-1"></a>
+<a id="m-cd-751c8b439d16"></a>
 ### cd(String, Object[])
 
 ```java
@@ -323,7 +323,7 @@ public synchronized void cd(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Change working directory to container specified by path string
 
@@ -337,7 +337,7 @@ Change working directory to container specified by path string
 - `ConfException`
 - `IOException`
 
-<a id="s-create"></a>
+<a id="m-create-02589a4ee236"></a>
 ### create(ConfPath)
 
 ```java
@@ -347,13 +347,13 @@ public synchronized void create(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Create a new optional element or list entry. Note that for container
  elements, sub-elements will not exist until created or set via some of
  the other functions, thus doing implicit create via
- [`ConfValue`](../conf/ConfValue.md#s-ConfValue) or
- [`ConfXMLParam`](../conf/ConfXMLParam.md#s-ConfXMLParam) may be preferred in this
+ `ConfValue#setObject(ConfValue[], ConfPath)` or
+ `ConfXMLParam#setValues(ConfXMLParam[], ConfPath)` may be preferred in this
  case.
 
 **Parameters**
@@ -365,7 +365,7 @@ Create a new optional element or list entry. Note that for container
 - `CdbException` - Failed to create
 - `IOException` - Failed to write to cdb socket
 
-<a id="s-create-1"></a>
+<a id="m-create-8d8ef9670e7f"></a>
 ### create(String, Object[])
 
 ```java
@@ -376,9 +376,9 @@ public synchronized void create(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
-similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies element using path
+similar to `ConfPath#create(ConfPath)` but specifies element using path
  string
 
 **Parameters**
@@ -391,7 +391,7 @@ similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies element us
 - `ConfException`
 - `IOException`
 
-<a id="s-delete"></a>
+<a id="m-delete-46ab41293f59"></a>
 ### delete(ConfPath)
 
 ```java
@@ -401,7 +401,7 @@ public synchronized void delete(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Delete an optional element or list entry and all its child elements.
 
@@ -414,7 +414,7 @@ Delete an optional element or list entry and all its child elements.
 - `CdbException` - Failed to delete element
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-delete-1"></a>
+<a id="m-delete-a6dae6a18c6e"></a>
 ### delete(String, Object[])
 
 ```java
@@ -425,9 +425,9 @@ public synchronized void delete(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
-similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies element using path
+similar to `ConfPath#delete(ConfPath)` but specifies element using path
  string
 
 **Parameters**
@@ -440,14 +440,14 @@ similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies element us
 - `IOException`
 - `ConfException`
 
-<a id="s-endSession"></a>
+<a id="m-endsession-1853baeb5d28"></a>
 ### endSession()
 
 ```java
 public synchronized void endSession() throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Ends the data session
 
@@ -456,7 +456,7 @@ Ends the data session
 - `CdbException` - Failed to end session
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-exists"></a>
+<a id="m-exists-afa14dd11748"></a>
 ### exists(ConfPath)
 
 ```java
@@ -466,7 +466,7 @@ public synchronized boolean exists(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Containers and leafs in a YANG model may be optional. This function
  checks whether an element exists in the configuration. Returns true or
@@ -481,7 +481,7 @@ Containers and leafs in a YANG model may be optional. This function
 - `CdbException` - Failed to check exists
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-exists-1"></a>
+<a id="m-exists-c95896218534"></a>
 ### exists(String, Object[])
 
 ```java
@@ -492,7 +492,7 @@ public synchronized boolean exists(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Checks whether an element exists. The element is specified using a path
  string and optionally string substitution parameters
@@ -509,7 +509,7 @@ Checks whether an element exists. The element is specified using a path
 - `ConfException`
 - `IOException`
 
-<a id="s-getCase"></a>
+<a id="m-getcase-db036ac6c713"></a>
 ### getCase(String, ConfPath)
 
 ```java
@@ -520,7 +520,7 @@ public synchronized com.tailf.conf.ConfObject getCase(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Retrieve the currently selected case.
 
@@ -541,7 +541,7 @@ Retrieve the currently selected case.
 - `IOException`
 - `ConfException`
 
-<a id="s-getCase-1"></a>
+<a id="m-getcase-9058de2e1364"></a>
 ### getCase(String, String, Object[])
 
 ```java
@@ -553,14 +553,14 @@ public synchronized com.tailf.conf.ConfObject getCase(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Retrieve the currently selected case.
 
 
  When we use the YANG choice construct in the data model, this method
  can be used to find the currently selected case, avoiding useless
- [`ConfPath`](../conf/ConfPath.md#s-ConfPath) etc requests for elements
+ `ConfPath#getElem(ConfPath)` etc requests for elements
  that belong to other
  cases.
 
@@ -592,33 +592,33 @@ Retrieve the currently selected case.
 - `IOException`
 - `ConfException`
 
-<a id="s-getCdb"></a>
+<a id="m-getcdb-62d7a3429687"></a>
 ### getCdb()
 
 ```java
 public com.tailf.cdb.Cdb getCdb()
 ```
 
-Types: [Cdb](Cdb.md#s-Cdb)
+Types: [Cdb](Cdb.md#cls-Cdb)
 
-<a id="s-getcwd"></a>
+<a id="m-getcwd-18c6eed4f1fa"></a>
 ### getcwd()
 
 ```java
 public synchronized String getcwd() throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
-Returns the current position as previously set by [`ConfPath`](../conf/ConfPath.md#s-ConfPath),
- [`ConfPath`](../conf/ConfPath.md#s-ConfPath), or `#popd()` as a string.
+Returns the current position as previously set by `ConfPath#cd(ConfPath)`,
+ `ConfPath#pushd(ConfPath)`, or `#popd()` as a string.
 
 **Throws**
 
 - `CdbException` - Failed to 'getcwd'
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-getcwdPath"></a>
+<a id="m-getcwdpath-a9fa1536fad1"></a>
 ### getcwdPath()
 
 ```java
@@ -626,10 +626,10 @@ public synchronized com.tailf.conf.ConfObject[] getcwdPath() throws com.tailf.co
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-Returns the current position as previously set by [`ConfPath`](../conf/ConfPath.md#s-ConfPath),
- [`ConfPath`](../conf/ConfPath.md#s-ConfPath), or `#popd()` as a
+Returns the current position as previously set by `ConfPath#cd(ConfPath)`,
+ `ConfPath#pushd(ConfPath)`, or `#popd()` as a
  `ConfObject` array.
 
 **Throws**
@@ -637,20 +637,20 @@ Returns the current position as previously set by [`ConfPath`](../conf/ConfPath.
 - `CdbException` - Failed to 'getcwd'
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-getDbType"></a>
+<a id="m-getdbtype-9503dd2b103d"></a>
 ### getDbType()
 
 ```java
 public com.tailf.cdb.CdbDBType getDbType()
 ```
 
-Types: [CdbDBType](CdbDBType.md#s-CdbDBType)
+Types: [CdbDBType](CdbDBType.md#cls-CdbDBType)
 
 retrieve the dbType for this session.
 
 **Returns:** CdbDBType
 
-<a id="s-getElem"></a>
+<a id="m-getelem-f8219fa65c5d"></a>
 ### getElem(ConfPath)
 
 ```java
@@ -660,7 +660,7 @@ public synchronized com.tailf.conf.ConfValue getElem(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 This reads a a value from the path. The path must lead to a leaf element
  in the XML data tree.
@@ -674,7 +674,7 @@ This reads a a value from the path. The path must lead to a leaf element
 - `CdbException` - Failed to get element
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-getElem-1"></a>
+<a id="m-getelem-8ec719438ea8"></a>
 ### getElem(String, Object[])
 
 ```java
@@ -685,9 +685,9 @@ public synchronized com.tailf.conf.ConfValue getElem(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies element using path
+similar to `ConfPath#getElem(ConfPath)` but specifies element using path
  string
 
 **Parameters**
@@ -702,7 +702,7 @@ similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies element us
 - `ConfException`
 - `IOException`
 
-<a id="s-getNumberOfInstances"></a>
+<a id="m-getnumberofinstances-41d82cec9221"></a>
 ### getNumberOfInstances(ConfPath)
 
 ```java
@@ -712,7 +712,7 @@ public synchronized int getNumberOfInstances(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Returns the number of elements of a container type.
 
@@ -725,7 +725,7 @@ Returns the number of elements of a container type.
 - `CdbException` - Failed to get number of instances
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-getNumberOfInstances-1"></a>
+<a id="m-getnumberofinstances-4ff46f9afb5c"></a>
 ### getNumberOfInstances(String, Object[])
 
 ```java
@@ -736,9 +736,9 @@ public synchronized int getNumberOfInstances(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
-similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies element
+similar to `ConfPath#getNumberOfInstances(ConfPath)` but specifies element
   using path string
 
 **Parameters**
@@ -753,7 +753,7 @@ similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies element
 - `ConfException`
 - `IOException`
 
-<a id="s-getObject"></a>
+<a id="m-getobject-97126abcba49"></a>
 ### getObject(int, ConfPath)
 
 ```java
@@ -764,7 +764,7 @@ public synchronized com.tailf.conf.ConfObject[] getObject(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Same functionality as getObject(numOfObjects, fmt, arguments) but takes a
  already constructed ConfPath object as argument instead of fmt,
@@ -782,7 +782,7 @@ Same functionality as getObject(numOfObjects, fmt, arguments) but takes a
 - `IOException`
 - `ConfException`
 
-<a id="s-getObject-1"></a>
+<a id="m-getobject-8f535bb4e0e8"></a>
 ### getObject(int, String, Object[])
 
 ```java
@@ -794,7 +794,7 @@ public synchronized com.tailf.conf.ConfObject[] getObject(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 In some cases it can be motivated to read multiple values in one request
  - this will be more efficient since it only incurs a single round trip to
@@ -845,7 +845,7 @@ In some cases it can be motivated to read multiple values in one request
 - `IOException`
 - `ConfException`
 
-<a id="s-getObjects"></a>
+<a id="m-getobjects-d25a1860a73f"></a>
 ### getObjects(int, int, int, ConfPath)
 
 ```java
@@ -858,7 +858,7 @@ public synchronized java.util.List<com.tailf.conf.ConfObject[]> getObjects(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Same functionality as getObjects(numOfObjects, instance, fmt, arguments)
  but takes a already constructed ConfPath object as argument instead of
@@ -878,7 +878,7 @@ Same functionality as getObjects(numOfObjects, instance, fmt, arguments)
 - `IOException`
 - `ConfException`
 
-<a id="s-getObjects-1"></a>
+<a id="m-getobjects-9108870a6290"></a>
 ### getObjects(int, int, int, String, Object[])
 
 ```java
@@ -892,7 +892,7 @@ public synchronized java.util.List<com.tailf.conf.ConfObject[]> getObjects(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Similar to cdb.getObject(), but reads multiple instances of a dynamic
  container based on the "instance integer" otherwise given within square
@@ -942,7 +942,7 @@ Similar to cdb.getObject(), but reads multiple instances of a dynamic
 - `IOException`
 - `ConfException`
 
-<a id="s-getValues"></a>
+<a id="m-getvalues-b30d01896278"></a>
 ### getValues(ConfXMLParam[], ConfPath)
 
 ```java
@@ -953,7 +953,7 @@ public synchronized com.tailf.conf.ConfXMLParam[] getValues(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Same functionality as getValues(params, fmt, arguments) but takes a
  already constructed ConfPath object as argument instead of fmt,
@@ -971,7 +971,7 @@ Same functionality as getValues(params, fmt, arguments) but takes a
 - `IOException`
 - `ConfException`
 
-<a id="s-getValues-1"></a>
+<a id="m-getvalues-f93a502602ef"></a>
 ### getValues(ConfXMLParam[], String, Object[])
 
 ```java
@@ -983,7 +983,7 @@ public synchronized com.tailf.conf.ConfXMLParam[] getValues(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Read an arbitrary set of sub-elements of a container element. The values
  array must be pre-populated with ConfXMLParam with or without an subArray
@@ -1071,7 +1071,7 @@ Read an arbitrary set of sub-elements of a container element. The values
 - `IOException`
 - `ConfException`
 
-<a id="s-index"></a>
+<a id="m-index-339d675c9a64"></a>
 ### index(ConfPath)
 
 ```java
@@ -1081,7 +1081,7 @@ public synchronized int index(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Returns the position of a key
 
@@ -1094,7 +1094,7 @@ Returns the position of a key
 - `CdbException` - Failed to get position
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-index-1"></a>
+<a id="m-index-cae5f09ba6fb"></a>
 ### index(String, Object[])
 
 ```java
@@ -1105,9 +1105,9 @@ public synchronized int index(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
-similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies element using path
+similar to `ConfPath#index(ConfPath)` but specifies element using path
  string
 
 **Parameters**
@@ -1122,7 +1122,7 @@ similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies element us
 - `ConfException`
 - `IOException`
 
-<a id="s-isDefault"></a>
+<a id="m-isdefault-a9229eae64cf"></a>
 ### isDefault(ConfPath)
 
 ```java
@@ -1132,7 +1132,7 @@ public synchronized boolean isDefault(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 This method returns true for a leaf which has a default value defined
  in the data model when no value has been set, i.e. when the default value
@@ -1151,7 +1151,7 @@ This method returns true for a leaf which has a default value defined
 - `ConfException`
 - `IOException`
 
-<a id="s-isDefault-1"></a>
+<a id="m-isdefault-8c3502a0ab6d"></a>
 ### isDefault(String, Object[])
 
 ```java
@@ -1162,9 +1162,9 @@ public synchronized boolean isDefault(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
-similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies element using path
+similar to `ConfPath#isDefault(ConfPath)` but specifies element using path
  string
 
 **Parameters**
@@ -1179,7 +1179,7 @@ similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies element us
 - `ConfException`
 - `IOException`
 
-<a id="s-nextIndex"></a>
+<a id="m-nextindex-ceef3a478d50"></a>
 ### nextIndex(ConfPath)
 
 ```java
@@ -1189,7 +1189,7 @@ public synchronized int nextIndex(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Returns the position of the next key
 
@@ -1202,7 +1202,7 @@ Returns the position of the next key
 - `CdbException` - Failed to get next position
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-nextIndex-1"></a>
+<a id="m-nextindex-c2b059f89584"></a>
 ### nextIndex(String, Object[])
 
 ```java
@@ -1213,9 +1213,9 @@ public synchronized int nextIndex(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
-similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies element using path
+similar to `ConfPath#nextIndex(ConfPath)` but specifies element using path
  string
 
 **Parameters**
@@ -1230,14 +1230,14 @@ similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies element us
 - `ConfException`
 - `IOException`
 
-<a id="s-popd"></a>
+<a id="m-popd-b092d2d9048f"></a>
 ### popd()
 
 ```java
 public synchronized void popd() throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Pops the top element from the directory stack and changes directory to
  previous directory.
@@ -1247,7 +1247,7 @@ Pops the top element from the directory stack and changes directory to
 - `CdbException` - Failed to 'popd'
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-pushd"></a>
+<a id="m-pushd-d9d906674b7a"></a>
 ### pushd(ConfPath)
 
 ```java
@@ -1257,9 +1257,9 @@ public synchronized void pushd(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-Similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but pushes the previous current
+Similar to `ConfPath#cd(ConfPath)` but pushes the previous current
  directory on a stack.
 
 **Parameters**
@@ -1271,7 +1271,7 @@ Similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but pushes the previous 
 - `CdbException` - Failed to 'pushd'
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-pushd-1"></a>
+<a id="m-pushd-fd6a4c1b1c8d"></a>
 ### pushd(String, Object[])
 
 ```java
@@ -1282,9 +1282,9 @@ public synchronized void pushd(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
-similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies position using path
+similar to `ConfPath#pushd(ConfPath)` but specifies position using path
  string
 
 **Parameters**
@@ -1297,7 +1297,7 @@ similar to [`ConfPath`](../conf/ConfPath.md#s-ConfPath) but specifies position u
 - `ConfException`
 - `IOException`
 
-<a id="s-setCase"></a>
+<a id="m-setcase-3792b2775b7f"></a>
 ### setCase(String, String, ConfPath)
 
 ```java
@@ -1309,7 +1309,7 @@ public synchronized void setCase(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Same functionality as setCase(choice, scase, fmt, arguments) but takes a
  already constructed ConfPath object as argument instead of fmt,
@@ -1326,7 +1326,7 @@ Same functionality as setCase(choice, scase, fmt, arguments) but takes a
 - `IOException`
 - `ConfException`
 
-<a id="s-setCase-1"></a>
+<a id="m-setcase-908203af825d"></a>
 ### setCase(String, String, String, Object[])
 
 ```java
@@ -1339,7 +1339,7 @@ public synchronized void setCase(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 When we use the YANG choice construct in the data model, this function
  can be used to select the current case.
@@ -1372,7 +1372,7 @@ When we use the YANG choice construct in the data model, this function
 - `IOException`
 - `ConfException`
 
-<a id="s-setElem"></a>
+<a id="m-setelem-356e5e479e47"></a>
 ### setElem(ConfValue, ConfPath)
 
 ```java
@@ -1383,7 +1383,7 @@ public synchronized void setElem(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Sets an element in operational data.
 
@@ -1401,7 +1401,7 @@ Sets an element in operational data.
 
 
  To establish a session for operational data, the application
- must use [`Cdb`](Cdb.md#s-Cdb) with
+ must use `Cdb#startSession(CdbDBType,EnumSet)` with
  `CdbDBType` set to `CDB_OPERATIONAL`.
 
 
@@ -1423,7 +1423,7 @@ Sets an element in operational data.
 - `CdbException` - Failed to set element
 - `IOException` - Failed to read/write to underlying socket
 
-<a id="s-setElem-1"></a>
+<a id="m-setelem-7fc14a355edc"></a>
 ### setElem(ConfValue, String, Object[])
 
 ```java
@@ -1435,9 +1435,9 @@ public synchronized void setElem(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-similar to [`ConfValue`](../conf/ConfValue.md#s-ConfValue) but specifies element
+similar to `ConfValue#setElem(ConfValue, ConfPath)` but specifies element
  using path string
 
 **Parameters**
@@ -1451,7 +1451,7 @@ similar to [`ConfValue`](../conf/ConfValue.md#s-ConfValue) but specifies element
 - `ConfException`
 - `IOException`
 
-<a id="s-setNamespace"></a>
+<a id="m-setnamespace-30316a480cfa"></a>
 ### setNamespace(ConfNamespace)
 
 ```java
@@ -1461,7 +1461,7 @@ public synchronized void setNamespace(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfNamespace](../conf/ConfNamespace.md#s-ConfNamespace), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfNamespace](../conf/ConfNamespace.md#cls-ConfNamespace), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Before we start to read data from CDB we need to set the namespace. We
  are reading data related to a specific .fxs file. confdc can be used to
@@ -1477,7 +1477,7 @@ Before we start to read data from CDB we need to set the namespace. We
 - `CdbException` - Failed to set namespace
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-setObject"></a>
+<a id="m-setobject-741f2a72045e"></a>
 ### setObject(ConfValue[], ConfPath)
 
 ```java
@@ -1488,7 +1488,7 @@ public synchronized void setObject(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Set all elements corresponding to the complete contents of a container
  element, except for list entry sub-elements.
@@ -1509,7 +1509,7 @@ Set all elements corresponding to the complete contents of a container
 - `CdbException` - Failed to set object
 - `IOException` - Failed to read/write cdb socket
 
-<a id="s-setObject-1"></a>
+<a id="m-setobject-5edb7e0ee677"></a>
 ### setObject(ConfValue[], String, Object[])
 
 ```java
@@ -1521,9 +1521,9 @@ public synchronized void setObject(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-similar to [`ConfValue`](../conf/ConfValue.md#s-ConfValue) but specifies
+similar to `ConfValue#setObject(ConfValue[], ConfPath)` but specifies
  element using path string
 
 **Parameters**
@@ -1537,7 +1537,7 @@ similar to [`ConfValue`](../conf/ConfValue.md#s-ConfValue) but specifies
 - `IOException`
 - `ConfException`
 
-<a id="s-setValues"></a>
+<a id="m-setvalues-0755e36fbd2c"></a>
 ### setValues(ConfXMLParam[], ConfPath)
 
 ```java
@@ -1548,7 +1548,7 @@ public synchronized void setValues(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Set arbitrary sub-elements of a container element.
 
@@ -1568,7 +1568,7 @@ Set arbitrary sub-elements of a container element.
 - `IOException`
 - `ConfException`
 
-<a id="s-setValues-1"></a>
+<a id="m-setvalues-824d05856f15"></a>
 ### setValues(ConfXMLParam[], String, Object[])
 
 ```java
@@ -1580,9 +1580,9 @@ public synchronized void setValues(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-similar to [`ConfXMLParam`](../conf/ConfXMLParam.md#s-ConfXMLParam) but specifies
+similar to `ConfXMLParam#setValues(ConfXMLParam[], ConfPath)` but specifies
  element using path string
 
 **Parameters**
@@ -1596,7 +1596,7 @@ similar to [`ConfXMLParam`](../conf/ConfXMLParam.md#s-ConfXMLParam) but specifie
 - `IOException`
 - `ConfException`
 
-<a id="s-setValues-2"></a>
+<a id="m-setvalues-970140dc0796"></a>
 ### setValues(List<ConfXMLParam>, ConfPath)
 
 ```java
@@ -1607,14 +1607,14 @@ public synchronized void setValues(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `java.util.List<com.tailf.conf.ConfXMLParam> params`
 - `com.tailf.conf.ConfPath path`
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

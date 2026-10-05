@@ -1,38 +1,34 @@
-<a id="s-ConfirmNetworkStateMode"></a>
+<a id="cls-ConfirmNetworkStateMode"></a>
 # ConfirmNetworkStateMode
 
 ```java
 public static enum com.tailf.maapi.CommitParams.ConfirmNetworkStateMode
 ```
 
-Types: [ConfirmNetworkStateMode](ConfirmNetworkStateMode.md#s-ConfirmNetworkStateMode)
-
-**Related classes**
-
-- [ConfirmNetworkStateMode](ConfirmNetworkStateMode.md#s-ConfirmNetworkStateMode)
+Types: [ConfirmNetworkStateMode](ConfirmNetworkStateMode.md#cls-ConfirmNetworkStateMode)
 
 ## Members
 
 **Enum Constants**:
 
-- [NORMAL](#s-NORMAL)
-- [RE_EVALUATE_POLICIES](#s-RE_EVALUATE_POLICIES)
+- [NORMAL](#m-NORMAL)
+- [RE_EVALUATE_POLICIES](#m-RE_EVALUATE_POLICIES)
 
 **Methods**:
 
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-NORMAL"></a>
+<a id="m-NORMAL"></a>
 ### NORMAL
 
 ```java
 public static final com.tailf.maapi.CommitParams.ConfirmNetworkStateMode NORMAL;
 ```
 
-<a id="s-RE_EVALUATE_POLICIES"></a>
+<a id="m-RE_EVALUATE_POLICIES"></a>
 ### RE_EVALUATE_POLICIES
 
 ```java
@@ -42,24 +38,24 @@ public static final com.tailf.maapi.CommitParams.ConfirmNetworkStateMode RE_EVAL
 
 ## Methods
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.maapi.CommitParams.ConfirmNetworkStateMode valueOf(String name)
 ```
 
-Types: [ConfirmNetworkStateMode](ConfirmNetworkStateMode.md#s-ConfirmNetworkStateMode)
+Types: [ConfirmNetworkStateMode](ConfirmNetworkStateMode.md#cls-ConfirmNetworkStateMode)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.maapi.CommitParams.ConfirmNetworkStateMode[] values()
 ```
 
-Types: [ConfirmNetworkStateMode](ConfirmNetworkStateMode.md#s-ConfirmNetworkStateMode)
+Types: [ConfirmNetworkStateMode](ConfirmNetworkStateMode.md#cls-ConfirmNetworkStateMode)

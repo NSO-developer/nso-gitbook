@@ -1,4 +1,4 @@
-<a id="s-DpServiceCallback"></a>
+<a id="cls-DpServiceCallback"></a>
 # DpServiceCallback
 
 ```java
@@ -7,27 +7,27 @@ public interface com.tailf.dp.DpServiceCallback
 
 This interface is used for the service callbacks.
 
-**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#s-registerAnnotatedCallbacks)
+**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
 
 **Fields**:
 
-- [M_CREATE](#s-M_CREATE)
-- [M_POST_MODIFICATION](#s-M_POST_MODIFICATION)
-- [M_PRE_MODIFICATION](#s-M_PRE_MODIFICATION)
+- [M_CREATE](#m-M_CREATE)
+- [M_POST_MODIFICATION](#m-M_POST_MODIFICATION)
+- [M_PRE_MODIFICATION](#m-M_PRE_MODIFICATION)
 
 **Methods**:
 
-- [create(ServiceContext, NavuNode, NavuNode, Properties)](#s-create)
-- [mask()](#s-mask)
-- [postModification(ServiceContext, ServiceOperationType, ConfPath, Properties)](#s-postModification)
-- [preModification(ServiceContext, ServiceOperationType, ConfPath, Properties)](#s-preModification)
-- [servicepoint()](#s-servicepoint)
+- [create(ServiceContext, NavuNode, NavuNode, Properties)](#m-create-4ddbd09c0e51)
+- [mask()](#m-mask-24c2fa29c6af)
+- [postModification(ServiceContext, ServiceOperationType, ConfPath, Properties)](#m-postmodification-271e17afdb57)
+- [preModification(ServiceContext, ServiceOperationType, ConfPath, Properties)](#m-premodification-92ab0a35864a)
+- [servicepoint()](#m-servicepoint-33fbd1d46c70)
 
 ## Fields
 
-<a id="s-M_CREATE"></a>
+<a id="m-M_CREATE"></a>
 ### M_CREATE
 
 ```java
@@ -36,14 +36,14 @@ public static final int M_CREATE = 4;
 
 Flags for the mask
 
-<a id="s-M_POST_MODIFICATION"></a>
+<a id="m-M_POST_MODIFICATION"></a>
 ### M_POST_MODIFICATION
 
 ```java
 public static final int M_POST_MODIFICATION = 2;
 ```
 
-<a id="s-M_PRE_MODIFICATION"></a>
+<a id="m-M_PRE_MODIFICATION"></a>
 ### M_PRE_MODIFICATION
 
 ```java
@@ -53,7 +53,7 @@ public static final int M_PRE_MODIFICATION = 1;
 
 ## Methods
 
-<a id="s-create"></a>
+<a id="m-create-4ddbd09c0e51"></a>
 ### create(ServiceContext, NavuNode, NavuNode, Properties)
 
 ```java
@@ -66,7 +66,7 @@ public abstract java.util.Properties create(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ServiceContext](services/ServiceContext.md#s-ServiceContext), [NavuNode](../navu/NavuNode.md#s-NavuNode), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [ServiceContext](services/ServiceContext.md#cls-ServiceContext), [NavuNode](../navu/NavuNode.md#cls-NavuNode), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 Create callback method.
  This method is called when a service instance committed due to a create
@@ -97,7 +97,7 @@ Create callback method.
 
 - `DpCallbackException`
 
-<a id="s-mask"></a>
+<a id="m-mask-24c2fa29c6af"></a>
 ### mask()
 
 ```java
@@ -111,7 +111,7 @@ Mask of flags for each method that is supported by this callback:
    - `#M_PRE_MODIFICATION`
      - `#M_POST_MODIFICATION`
 
-<a id="s-postModification"></a>
+<a id="m-postmodification-271e17afdb57"></a>
 ### postModification(ServiceContext, ServiceOperationType, ConfPath, Properties)
 
 ```java
@@ -124,7 +124,7 @@ public abstract java.util.Properties postModification(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ServiceContext](services/ServiceContext.md#s-ServiceContext), [ServiceOperationType](services/ServiceOperationType.md#s-ServiceOperationType), [ConfPath](../conf/ConfPath.md#s-ConfPath), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [ServiceContext](services/ServiceContext.md#cls-ServiceContext), [ServiceOperationType](services/ServiceOperationType.md#cls-ServiceOperationType), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 Post modification callback
  If registered this method will be called after a CREATE, UPDATE or
@@ -154,7 +154,7 @@ Post modification callback
 
 - `DpCallbackException`
 
-<a id="s-preModification"></a>
+<a id="m-premodification-92ab0a35864a"></a>
 ### preModification(ServiceContext, ServiceOperationType, ConfPath, Properties)
 
 ```java
@@ -167,7 +167,7 @@ public abstract java.util.Properties preModification(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [ServiceContext](services/ServiceContext.md#s-ServiceContext), [ServiceOperationType](services/ServiceOperationType.md#s-ServiceOperationType), [ConfPath](../conf/ConfPath.md#s-ConfPath), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [ServiceContext](services/ServiceContext.md#cls-ServiceContext), [ServiceOperationType](services/ServiceOperationType.md#cls-ServiceOperationType), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 Pre modification callback
  If registered this method will be called before a CREATE, UPDATE or
@@ -197,7 +197,7 @@ Pre modification callback
 
 - `DpCallbackException`
 
-<a id="s-servicepoint"></a>
+<a id="m-servicepoint-33fbd1d46c70"></a>
 ### servicepoint()
 
 ```java

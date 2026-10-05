@@ -1,11 +1,11 @@
-<a id="s-CdbTxId"></a>
+<a id="cls-CdbTxId"></a>
 # CdbTxId
 
 ```java
 public class com.tailf.cdb.CdbTxId
 ```
 
-Data structure received from [`Cdb`](Cdb.md#s-Cdb) method. Represents the
+Data structure received from [`Cdb#getTxId()`](Cdb.md#m-gettxid-1817ce3409ba) method. Represents the
  last known transaction that CDB did. This can be used to compare states for a
  managed object. If configuration needs to be re-read or not, in case of
  restarts.
@@ -14,21 +14,21 @@ Data structure received from [`Cdb`](Cdb.md#s-Cdb) method. Represents the
 
 **Constructors**:
 
-- [CdbTxId(String, int, int, int)](#s-CdbTxId-1)
+- [CdbTxId(String, int, int, int)](#m-cdbtxid-e81c281fc8c1)
 
 **Methods**:
 
-- [equals(Object)](#s-equals)
-- [getNode()](#s-getNode)
-- [getS1()](#s-getS1)
-- [getS2()](#s-getS2)
-- [getS3()](#s-getS3)
-- [hashCode()](#s-hashCode)
-- [toString()](#s-toString)
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [getNode()](#m-getnode-52e3d8224b48)
+- [getS1()](#m-gets1-50b10751fabb)
+- [getS2()](#m-gets2-1443594bd6f7)
+- [getS3()](#m-gets3-2ee1ddf494a1)
+- [hashCode()](#m-hashcode-ef797a217903)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-CdbTxId-1"></a>
+<a id="m-cdbtxid-e81c281fc8c1"></a>
 ### CdbTxId(String, int, int, int)
 
 **Package-private**
@@ -49,7 +49,7 @@ Constructor
 
 ## Methods
 
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
@@ -64,7 +64,7 @@ Compares this CdbTxId to the specified object. The result is true if and
 
 - `Object anObject` - Object to compare against
 
-<a id="s-getNode"></a>
+<a id="m-getnode-52e3d8224b48"></a>
 ### getNode()
 
 ```java
@@ -75,7 +75,7 @@ Get the host node;
 
 **Returns:** String the host node
 
-<a id="s-getS1"></a>
+<a id="m-gets1-50b10751fabb"></a>
 ### getS1()
 
 ```java
@@ -86,7 +86,7 @@ Get the s1 part of timestamp
 
 **Returns:** int s1 part of timestamp
 
-<a id="s-getS2"></a>
+<a id="m-gets2-1443594bd6f7"></a>
 ### getS2()
 
 ```java
@@ -97,7 +97,7 @@ Get the s2 part of timestamp
 
 **Returns:** int s2 part of timestamp
 
-<a id="s-getS3"></a>
+<a id="m-gets3-2ee1ddf494a1"></a>
 ### getS3()
 
 ```java
@@ -108,14 +108,14 @@ Get the s3 part of timestamp
 
 **Returns:** int s3 part of timestamp
 
-<a id="s-hashCode"></a>
+<a id="m-hashcode-ef797a217903"></a>
 ### hashCode()
 
 ```java
 public int hashCode()
 ```
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

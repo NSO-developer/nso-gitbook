@@ -1,4 +1,4 @@
-<a id="s-DpTrans"></a>
+<a id="cls-DpTrans"></a>
 # DpTrans
 
 ```java
@@ -11,71 +11,71 @@ The transaction context.
 
 **Related classes**
 
-- [DpActionTrans](DpActionTrans.md#s-DpActionTrans)
-- [DpValidateTrans](DpValidateTrans.md#s-DpValidateTrans)
+- [DpActionTrans](DpActionTrans.md#cls-DpActionTrans)
+- [DpValidateTrans](DpValidateTrans.md#cls-DpValidateTrans)
 
-**See also:** [`DpTransCallback`](DpTransCallback.md#s-DpTransCallback), [`DpDataCallback`](DpDataCallback.md#s-DpDataCallback)
+**See also:** [`DpTransCallback`](DpTransCallback.md#cls-DpTransCallback), [`DpDataCallback`](DpDataCallback.md#cls-DpDataCallback)
 
 ## Members
 
 **Constructors**:
 
-- [DpTrans()](#s-DpTrans-1)
-- [DpTrans(Dp, int, int, int, int, int, DpUserInfo)](#s-DpTrans-2)
-- [DpTrans(Dp, int, int, int, int, int, DpUserInfo, boolean)](#s-DpTrans-3)
+- [DpTrans()](#m-dptrans-e828adde331b)
+- [DpTrans(Dp, int, int, int, int, int, DpUserInfo)](#m-dptrans-d3592aa18486)
+- [DpTrans(Dp, int, int, int, int, int, DpUserInfo, boolean)](#m-dptrans-f65e37999f51)
 
 **Fields**:
 
-- [dp](#s-dp)
-- [index](#s-index)
-- [lastDid](#s-lastDid)
-- [lastOp](#s-lastOp)
-- [lastProtoOp](#s-lastProtoOp)
-- [lastQref](#s-lastQref)
-- [opaque](#s-opaque)
-- [socket](#s-socket)
-- [stop](#s-stop)
-- [thandle](#s-thandle)
-- [uinfo](#s-uinfo)
+- [dp](#m-dp)
+- [index](#m-index)
+- [lastDid](#m-lastDid)
+- [lastOp](#m-lastOp)
+- [lastProtoOp](#m-lastProtoOp)
+- [lastQref](#m-lastQref)
+- [opaque](#m-opaque)
+- [socket](#m-socket)
+- [stop](#m-stop)
+- [thandle](#m-thandle)
+- [uinfo](#m-uinfo)
 
 **Methods**:
 
-- [accumulated()](#s-accumulated)
-- [dataSetTimeout(int)](#s-dataSetTimeout)
-- [getDBName()](#s-getDBName)
-- [getDeviceType()](#s-getDeviceType)
-- [getDevNo()](#s-getDevNo)
-- [getDp()](#s-getDp)
-- [getMode()](#s-getMode)
-- [getNsList()](#s-getNsList)
-- [getOpaque()](#s-getOpaque)
-- [getSecondaryIndex()](#s-getSecondaryIndex)
-- [getSocket()](#s-getSocket)
-- [getTransaction()](#s-getTransaction)
-- [getTransactionUserOpaque()](#s-getTransactionUserOpaque)
-- [getUserInfo()](#s-getUserInfo)
-- [getWorkerSocket()](#s-getWorkerSocket)
-- [honorFilter(boolean)](#s-honorFilter)
-- [isHideInactive()](#s-isHideInactive)
-- [protoReply(boolean)](#s-protoReply)
-- [protoReply(ConfEObject)](#s-protoReply-1)
-- [protoReply(ConfObject)](#s-protoReply-2)
-- [protoReply(ConfObject[])](#s-protoReply-3)
-- [protoReplyXMLParam(ConfXMLParam[])](#s-protoReplyXMLParam)
-- [replyError(ConfEObject)](#s-replyError)
-- [replyError(String)](#s-replyError-1)
-- [replyError(String, Throwable)](#s-replyError-2)
-- [replyError(Throwable)](#s-replyError-3)
-- [replyExtendedError(String, DpCallbackExtendedException)](#s-replyExtendedError)
-- [replyOther(boolean, String, String)](#s-replyOther)
-- [run()](#s-run)
-- [setSocket(Socket)](#s-setSocket)
-- [setTransactionUserOpaque(Object)](#s-setTransactionUserOpaque)
-- [transReplyOK()](#s-transReplyOK)
+- [accumulated()](#m-accumulated-2f58da3048dd)
+- [dataSetTimeout(int)](#m-datasettimeout-8ad3068e3a46)
+- [getDBName()](#m-getdbname-65ff0bdb2339)
+- [getDeviceType()](#m-getdevicetype-c8eec3b01523)
+- [getDevNo()](#m-getdevno-b1169ef876ed)
+- [getDp()](#m-getdp-b1462199cc2e)
+- [getMode()](#m-getmode-c3dc73476e30)
+- [getNsList()](#m-getnslist-0345f486e876)
+- [getOpaque()](#m-getopaque-92e4945ec92d)
+- [getSecondaryIndex()](#m-getsecondaryindex-8efa1ee57e9c)
+- [getSocket()](#m-getsocket-d7da2de81b81)
+- [getTransaction()](#m-gettransaction-4f1c72a828a1)
+- [getTransactionUserOpaque()](#m-gettransactionuseropaque-87a9bf7a20e1)
+- [getUserInfo()](#m-getuserinfo-3ecef1f24d3d)
+- [getWorkerSocket()](#m-getworkersocket-ba1472e0f5a7)
+- [honorFilter(boolean)](#m-honorfilter-5ff04bbbf2d0)
+- [isHideInactive()](#m-ishideinactive-1d32c2838395)
+- [protoReply(boolean)](#m-protoreply-e8de0386a2d0)
+- [protoReply(ConfEObject)](#m-protoreply-47f22a8227a5)
+- [protoReply(ConfObject)](#m-protoreply-3ecaf76eaab8)
+- [protoReply(ConfObject[])](#m-protoreply-cee1bb25672e)
+- [protoReplyXMLParam(ConfXMLParam[])](#m-protoreplyxmlparam-9dcf8f14a8dc)
+- [replyError(ConfEObject)](#m-replyerror-3184cd2ad634)
+- [replyError(String)](#m-replyerror-48c78d28e991)
+- [replyError(String, Throwable)](#m-replyerror-c4e21f52074d)
+- [replyError(Throwable)](#m-replyerror-26f4ce830453)
+- [replyExtendedError(String, DpCallbackExtendedException)](#m-replyextendederror-b54351b1555f)
+- [replyOther(boolean, String, String)](#m-replyother-c2352ec6bb73)
+- [run()](#m-run-b6dbda048863)
+- [setSocket(Socket)](#m-setsocket-183068848e4c)
+- [setTransactionUserOpaque(Object)](#m-settransactionuseropaque-ce392ad59d2e)
+- [transReplyOK()](#m-transreplyok-92425e2f5c67)
 
 ## Constructors
 
-<a id="s-DpTrans-1"></a>
+<a id="m-dptrans-e828adde331b"></a>
 ### DpTrans()
 
 **Package-private**
@@ -86,7 +86,7 @@ DpTrans()
 
 Constructor.
 
-<a id="s-DpTrans-2"></a>
+<a id="m-dptrans-d3592aa18486"></a>
 ### DpTrans(Dp, int, int, int, int, int, DpUserInfo)
 
 **Package-private**
@@ -103,7 +103,7 @@ DpTrans(
 )
 ```
 
-Types: [Dp](Dp.md#s-Dp), [DpUserInfo](DpUserInfo.md#s-DpUserInfo)
+Types: [Dp](Dp.md#cls-Dp), [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
 
 Lots of parameters here. But since only Dp should be allowed to
  create the transaction there's no need to do anything about it.
@@ -118,7 +118,7 @@ Lots of parameters here. But since only Dp should be allowed to
 - `int op`
 - `com.tailf.dp.DpUserInfo uinfo`
 
-<a id="s-DpTrans-3"></a>
+<a id="m-dptrans-f65e37999f51"></a>
 ### DpTrans(Dp, int, int, int, int, int, DpUserInfo, boolean)
 
 **Package-private**
@@ -136,7 +136,7 @@ DpTrans(
 )
 ```
 
-Types: [Dp](Dp.md#s-Dp), [DpUserInfo](DpUserInfo.md#s-DpUserInfo)
+Types: [Dp](Dp.md#cls-Dp), [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
 
 **Parameters**
 
@@ -152,103 +152,103 @@ Types: [Dp](Dp.md#s-Dp), [DpUserInfo](DpUserInfo.md#s-DpUserInfo)
 
 ## Fields
 
-<a id="s-dp"></a>
+<a id="m-dp"></a>
 ### dp
 
 ```java
 protected com.tailf.dp.Dp dp = null;
 ```
 
-Types: [Dp](Dp.md#s-Dp)
+Types: [Dp](Dp.md#cls-Dp)
 
-<a id="s-index"></a>
+<a id="m-index"></a>
 ### index
 
 ```java
 protected int index = null;
 ```
 
-<a id="s-lastDid"></a>
+<a id="m-lastDid"></a>
 ### lastDid
 
 ```java
 protected int lastDid = null;
 ```
 
-<a id="s-lastOp"></a>
+<a id="m-lastOp"></a>
 ### lastOp
 
 ```java
 protected int lastOp = null;
 ```
 
-<a id="s-lastProtoOp"></a>
+<a id="m-lastProtoOp"></a>
 ### lastProtoOp
 
 ```java
 protected int lastProtoOp = null;
 ```
 
-<a id="s-lastQref"></a>
+<a id="m-lastQref"></a>
 ### lastQref
 
 ```java
 protected int lastQref = null;
 ```
 
-<a id="s-opaque"></a>
+<a id="m-opaque"></a>
 ### opaque
 
 ```java
 protected String opaque = null;
 ```
 
-<a id="s-socket"></a>
+<a id="m-socket"></a>
 ### socket
 
 ```java
 protected java.net.Socket socket = null;
 ```
 
-<a id="s-stop"></a>
+<a id="m-stop"></a>
 ### stop
 
 ```java
 protected boolean stop = null;
 ```
 
-<a id="s-thandle"></a>
+<a id="m-thandle"></a>
 ### thandle
 
 ```java
 protected int thandle = null;
 ```
 
-<a id="s-uinfo"></a>
+<a id="m-uinfo"></a>
 ### uinfo
 
 ```java
 protected com.tailf.dp.DpUserInfo uinfo = null;
 ```
 
-Types: [DpUserInfo](DpUserInfo.md#s-DpUserInfo)
+Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
 
 
 ## Methods
 
-<a id="s-accumulated"></a>
+<a id="m-accumulated-2f58da3048dd"></a>
 ### accumulated()
 
 ```java
 public java.util.Iterator<com.tailf.dp.DpAccumulate> accumulated()
 ```
 
-Types: [DpAccumulate](DpAccumulate.md#s-DpAccumulate)
+Types: [DpAccumulate](DpAccumulate.md#cls-DpAccumulate)
 
 Returns an iterator for the accumulated
  objects.
 
-<a id="s-dataSetTimeout"></a>
+<a id="m-datasettimeout-8ad3068e3a46"></a>
 ### dataSetTimeout(int)
 
 ```java
@@ -258,7 +258,7 @@ public void dataSetTimeout(
     throws java.io.IOException, com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 A data callback should normally complete "quickly", since e.g. the
  execution of a show command in the CLI may require many data callback
@@ -279,7 +279,7 @@ A data callback should normally complete "quickly", since e.g. the
 - `IOException`
 - `DpCallbackException`
 
-<a id="s-getDBName"></a>
+<a id="m-getdbname-65ff0bdb2339"></a>
 ### getDBName()
 
 ```java
@@ -291,12 +291,12 @@ The database name.
  Is always either of:
 
 
-- [`Conf`](../conf/Conf.md#s-Conf) -
-    - [`Conf`](../conf/Conf.md#s-Conf) -
-      - [`Conf`](../conf/Conf.md#s-Conf) -
-        - [`Conf`](../conf/Conf.md#s-Conf) -
+- [`Conf#DB_RUNNING`](../conf/Conf.md#m-DB_RUNNING) -
+    - [`Conf#DB_STARTUP`](../conf/Conf.md#m-DB_STARTUP) -
+      - [`Conf#DB_CANDIDATE`](../conf/Conf.md#m-DB_CANDIDATE) -
+        - [`Conf#DB_NONE`](../conf/Conf.md#m-DB_NONE) -
 
-<a id="s-getDeviceType"></a>
+<a id="m-getdevicetype-c8eec3b01523"></a>
 ### getDeviceType()
 
 ```java
@@ -307,7 +307,7 @@ for ConfM
  The device type
  (needs to be public since access from Maapi package)
 
-<a id="s-getDevNo"></a>
+<a id="m-getdevno-b1169ef876ed"></a>
 ### getDevNo()
 
 ```java
@@ -318,21 +318,21 @@ for ConfM
  The device number
  (needs to be public since access from Maapi package)
 
-<a id="s-getDp"></a>
+<a id="m-getdp-b1462199cc2e"></a>
 ### getDp()
 
 ```java
 public com.tailf.dp.Dp getDp()
 ```
 
-Types: [Dp](Dp.md#s-Dp)
+Types: [Dp](Dp.md#cls-Dp)
 
 Return the data provider (DP) instance that this transaction
  belongs to.
 
 **Returns:** Data provider instance
 
-<a id="s-getMode"></a>
+<a id="m-getmode-c3dc73476e30"></a>
 ### getMode()
 
 ```java
@@ -342,18 +342,18 @@ public int getMode()
 The mode.  Is always either Conf.MODE_READ or
   Conf.MODE_READ_WRITE
 
-<a id="s-getNsList"></a>
+<a id="m-getnslist-0345f486e876"></a>
 ### getNsList()
 
 ```java
 public java.util.ArrayList<com.tailf.conf.ConfNamespace> getNsList()
 ```
 
-Types: [ConfNamespace](../conf/ConfNamespace.md#s-ConfNamespace)
+Types: [ConfNamespace](../conf/ConfNamespace.md#cls-ConfNamespace)
 
 Returns the namespace list stored by the data provider.
 
-<a id="s-getOpaque"></a>
+<a id="m-getopaque-92e4945ec92d"></a>
 ### getOpaque()
 
 ```java
@@ -364,7 +364,7 @@ If the tailf:opaque substatement has been used with the tailf:callpoint
  statement in the data model, the argument string is made available to
  the callbacks via this method
 
-<a id="s-getSecondaryIndex"></a>
+<a id="m-getsecondaryindex-8efa1ee57e9c"></a>
 ### getSecondaryIndex()
 
 ```java
@@ -375,7 +375,7 @@ Secondary index.
  When specified in get-next operations the provider needs to
  sort objects on this named secondary-index.
 
-<a id="s-getSocket"></a>
+<a id="m-getsocket-d7da2de81b81"></a>
 ### getSocket()
 
 ```java
@@ -388,7 +388,7 @@ Return the worker socket `socket`.
   this can be changed with setSocket from
   the init callback (e.g before the socket is connected to Conf)
 
-<a id="s-getTransaction"></a>
+<a id="m-gettransaction-4f1c72a828a1"></a>
 ### getTransaction()
 
 ```java
@@ -399,7 +399,7 @@ Return the current transaction handle.
 
 **Returns:** transaction handle
 
-<a id="s-getTransactionUserOpaque"></a>
+<a id="m-gettransactionuseropaque-87a9bf7a20e1"></a>
 ### getTransactionUserOpaque()
 
 ```java
@@ -414,25 +414,25 @@ Get method for User owned opaque data.
  used by the various DataProvider callbacks such as getElem()
  and setElem()
 
-<a id="s-getUserInfo"></a>
+<a id="m-getuserinfo-3ecef1f24d3d"></a>
 ### getUserInfo()
 
 ```java
 public com.tailf.dp.DpUserInfo getUserInfo()
 ```
 
-Types: [DpUserInfo](DpUserInfo.md#s-DpUserInfo)
+Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
 
 The user information.
 
-<a id="s-getWorkerSocket"></a>
+<a id="m-getworkersocket-ba1472e0f5a7"></a>
 ### getWorkerSocket()
 
 ```java
 public java.net.Socket getWorkerSocket()
 ```
 
-<a id="s-honorFilter"></a>
+<a id="m-honorfilter-5ff04bbbf2d0"></a>
 ### honorFilter(boolean)
 
 ```java
@@ -449,7 +449,7 @@ Tell the server whether the currently requested filtering is being
 
 - `boolean h` - whether or not the filter is being honored
 
-<a id="s-isHideInactive"></a>
+<a id="m-ishideinactive-1d32c2838395"></a>
 ### isHideInactive()
 
 ```java
@@ -459,7 +459,7 @@ public boolean isHideInactive()
 hideInactive flag.
  Set to true if inactive element is not present.
 
-<a id="s-protoReply"></a>
+<a id="m-protoreply-e8de0386a2d0"></a>
 ### protoReply(boolean)
 
 ```java
@@ -470,27 +470,27 @@ protected void protoReply(boolean val) throws java.io.IOException
 
 - `boolean val`
 
-<a id="s-protoReply-1"></a>
+<a id="m-protoreply-47f22a8227a5"></a>
 ### protoReply(ConfEObject)
 
 ```java
 protected void protoReply(com.tailf.proto.ConfEObject term) throws java.io.IOException
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 **Parameters**
 
 - `com.tailf.proto.ConfEObject term`
 
-<a id="s-protoReply-2"></a>
+<a id="m-protoreply-3ecaf76eaab8"></a>
 ### protoReply(ConfObject)
 
 ```java
 protected void protoReply(com.tailf.conf.ConfObject val) throws java.io.IOException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject)
 
 Send back a valid reply to ConfD/NCS.
 
@@ -498,46 +498,46 @@ Send back a valid reply to ConfD/NCS.
 
 - `com.tailf.conf.ConfObject val`
 
-<a id="s-protoReply-3"></a>
+<a id="m-protoreply-cee1bb25672e"></a>
 ### protoReply(ConfObject[])
 
 ```java
 protected void protoReply(com.tailf.conf.ConfObject[] vals) throws java.io.IOException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject)
 
 **Parameters**
 
 - `com.tailf.conf.ConfObject[] vals`
 
-<a id="s-protoReplyXMLParam"></a>
+<a id="m-protoreplyxmlparam-9dcf8f14a8dc"></a>
 ### protoReplyXMLParam(ConfXMLParam[])
 
 ```java
 protected void protoReplyXMLParam(com.tailf.conf.ConfXMLParam[] params) throws java.io.IOException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam)
 
 **Parameters**
 
 - `com.tailf.conf.ConfXMLParam[] params`
 
-<a id="s-replyError"></a>
+<a id="m-replyerror-3184cd2ad634"></a>
 ### replyError(ConfEObject)
 
 ```java
 protected void replyError(com.tailf.proto.ConfEObject errEObj) throws java.io.IOException
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 **Parameters**
 
 - `com.tailf.proto.ConfEObject errEObj`
 
-<a id="s-replyError-1"></a>
+<a id="m-replyerror-48c78d28e991"></a>
 ### replyError(String)
 
 ```java
@@ -548,7 +548,7 @@ protected void replyError(String errStr) throws java.io.IOException
 
 - `String errStr`
 
-<a id="s-replyError-2"></a>
+<a id="m-replyerror-c4e21f52074d"></a>
 ### replyError(String, Throwable)
 
 ```java
@@ -560,7 +560,7 @@ protected void replyError(String errStr, Throwable e) throws java.io.IOException
 - `String errStr`
 - `Throwable e`
 
-<a id="s-replyError-3"></a>
+<a id="m-replyerror-26f4ce830453"></a>
 ### replyError(Throwable)
 
 ```java
@@ -573,7 +573,7 @@ Send back an error to ConfD/NCS.
 
 - `Throwable e`
 
-<a id="s-replyExtendedError"></a>
+<a id="m-replyextendederror-b54351b1555f"></a>
 ### replyExtendedError(String, DpCallbackExtendedException)
 
 ```java
@@ -584,14 +584,14 @@ protected void replyExtendedError(
     throws java.io.IOException
 ```
 
-Types: [DpCallbackExtendedException](DpCallbackExtendedException.md#s-DpCallbackExtendedException)
+Types: [DpCallbackExtendedException](DpCallbackExtendedException.md#cls-DpCallbackExtendedException)
 
 **Parameters**
 
 - `String errStr`
 - `com.tailf.dp.DpCallbackExtendedException e`
 
-<a id="s-replyOther"></a>
+<a id="m-replyother-c2352ec6bb73"></a>
 ### replyOther(boolean, String, String)
 
 ```java
@@ -604,7 +604,7 @@ protected void replyOther(boolean retstr, String atom, String errStr) throws jav
 - `String atom`
 - `String errStr`
 
-<a id="s-run"></a>
+<a id="m-run-b6dbda048863"></a>
 ### run()
 
 ```java
@@ -613,7 +613,7 @@ public void run()
 
 Runs the thread.
 
-<a id="s-setSocket"></a>
+<a id="m-setsocket-183068848e4c"></a>
 ### setSocket(Socket)
 
 ```java
@@ -633,7 +633,7 @@ A possibility to give a specified worker socket
 
 - `java.net.Socket sock` - A socket connected to ConfD/NCS.
 
-<a id="s-setTransactionUserOpaque"></a>
+<a id="m-settransactionuseropaque-ce392ad59d2e"></a>
 ### setTransactionUserOpaque(Object)
 
 ```java
@@ -652,11 +652,11 @@ Set method for User owned opaque data.
 
 - `Object opaque`
 
-<a id="s-transReplyOK"></a>
+<a id="m-transreplyok-92425e2f5c67"></a>
 ### transReplyOK()
 
 ```java
 protected void transReplyOK() throws java.io.IOException, com.tailf.dp.DpException
 ```
 
-Types: [DpException](DpException.md#s-DpException)
+Types: [DpException](DpException.md#cls-DpException)

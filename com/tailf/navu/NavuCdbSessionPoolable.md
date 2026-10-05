@@ -1,4 +1,4 @@
-<a id="s-NavuCdbSessionPoolable"></a>
+<a id="cls-NavuCdbSessionPoolable"></a>
 # NavuCdbSessionPoolable
 
 ```java
@@ -98,14 +98,14 @@ This `NavuCdbSessionPoolable` interface should be implemented by
 
 **Methods**:
 
-- [getSession(Cdb, CdbDBType, EnumSet<CdbLockType>)](#s-getSession)
-- [poolInUse()](#s-poolInUse)
-- [removeAllForCdb(Cdb)](#s-removeAllForCdb)
-- [removeAllSessions()](#s-removeAllSessions)
+- [getSession(Cdb, CdbDBType, EnumSet<CdbLockType>)](#m-getsession-61014dfb12a7)
+- [poolInUse()](#m-poolinuse-8d190a00726a)
+- [removeAllForCdb(Cdb)](#m-removeallforcdb-58157efc1de6)
+- [removeAllSessions()](#m-removeallsessions-211f72fa9478)
 
 ## Methods
 
-<a id="s-getSession"></a>
+<a id="m-getsession-61014dfb12a7"></a>
 ### getSession(Cdb, CdbDBType, EnumSet<CdbLockType>)
 
 ```java
@@ -117,7 +117,7 @@ public abstract com.tailf.cdb.CdbSession getSession(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [CdbSession](../cdb/CdbSession.md#s-CdbSession), [Cdb](../cdb/Cdb.md#s-Cdb), [CdbDBType](../cdb/CdbDBType.md#s-CdbDBType), [CdbLockType](../cdb/CdbLockType.md#s-CdbLockType), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [CdbSession](../cdb/CdbSession.md#cls-CdbSession), [Cdb](../cdb/Cdb.md#cls-Cdb), [CdbDBType](../cdb/CdbDBType.md#cls-CdbDBType), [CdbLockType](../cdb/CdbLockType.md#cls-CdbLockType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Returns a Cdb session to `dbType` datastore with
  the locks `locks` associated with the given Cdb.
@@ -135,7 +135,7 @@ Returns a Cdb session to `dbType` datastore with
 - `IOException` - on I/O failure
 - `ConfException` - on protocol error
 
-<a id="s-poolInUse"></a>
+<a id="m-poolinuse-8d190a00726a"></a>
 ### poolInUse()
 
 ```java
@@ -148,7 +148,7 @@ Returns true if the implementation pool is in use.
 
 **Returns:** true/false whether the implementation pool is in use
 
-<a id="s-removeAllForCdb"></a>
+<a id="m-removeallforcdb-58157efc1de6"></a>
 ### removeAllForCdb(Cdb)
 
 ```java
@@ -158,7 +158,7 @@ public abstract void removeAllForCdb(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Cdb](../cdb/Cdb.md#s-Cdb), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Cdb](../cdb/Cdb.md#cls-Cdb), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Removes or closes all CdbSession associated with the supplied Cdb.
 
@@ -179,14 +179,14 @@ Removes or closes all CdbSession associated with the supplied Cdb.
 - `IOException` - on I/O failure
 - `ConfException` - on protocol error
 
-<a id="s-removeAllSessions"></a>
+<a id="m-removeallsessions-211f72fa9478"></a>
 ### removeAllSessions()
 
 ```java
 public abstract void removeAllSessions() throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Removes all established session held by any Cdb.
   A remove on started sessions does not necessarily means

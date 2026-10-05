@@ -1,4 +1,4 @@
-<a id="s-StringTypeMethodsImpl"></a>
+<a id="cls-StringTypeMethodsImpl"></a>
 # StringTypeMethodsImpl
 
 ```java
@@ -6,23 +6,23 @@ public static class com.tailf.maapi.MaapiSchemas.StringTypeMethodsImpl
     extends com.tailf.maapi.MaapiSchemas.CSTypeMethods
 ```
 
-Types: [CSTypeMethods](CSTypeMethods.md#s-CSTypeMethods)
+Types: [CSTypeMethods](CSTypeMethods.md#cls-CSTypeMethods)
 
 ## Members
 
 **Constructors**:
 
-- [StringTypeMethodsImpl()](#s-StringTypeMethodsImpl-1)
+- [StringTypeMethodsImpl()](#m-stringtypemethodsimpl-ccc6c0c16707)
 
 **Methods**:
 
-- [stringToValue(CSType, String)](CSTypeMethods.md#s-stringToValue) from CSTypeMethods
-- [validate(CSType, ConfValue)](#s-validate)
-- [valueToString(CSType, ConfValue)](CSTypeMethods.md#s-valueToString) from CSTypeMethods
+- [stringToValue(CSType, String)](CSTypeMethods.md#m-stringtovalue-9fef98be9bb2) from CSTypeMethods
+- [validate(CSType, ConfValue)](#m-validate-d2696432436e)
+- [valueToString(CSType, ConfValue)](CSTypeMethods.md#m-valuetostring-f281f6b6d7d7) from CSTypeMethods
 
 ## Constructors
 
-<a id="s-StringTypeMethodsImpl-1"></a>
+<a id="m-stringtypemethodsimpl-ccc6c0c16707"></a>
 ### StringTypeMethodsImpl()
 
 ```java
@@ -32,7 +32,7 @@ public StringTypeMethodsImpl()
 
 ## Methods
 
-<a id="s-validate"></a>
+<a id="m-validate-d2696432436e"></a>
 ### validate(CSType, ConfValue)
 
 ```java
@@ -43,7 +43,7 @@ public boolean validate(
     throws com.tailf.maapi.MaapiException
 ```
 
-Types: [CSType](CSType.md#s-CSType), [ConfValue](../../conf/ConfValue.md#s-ConfValue), [MaapiException](../MaapiException.md#s-MaapiException)
+Types: [CSType](CSType.md#cls-CSType), [ConfValue](../../conf/ConfValue.md#cls-ConfValue), [MaapiException](../MaapiException.md#cls-MaapiException)
 
 **Parameters**
 

@@ -1,4 +1,4 @@
-<a id="s-CSCase"></a>
+<a id="cls-CSCase"></a>
 # CSCase
 
 ```java
@@ -9,34 +9,34 @@ Class representing a Case for a Choice
 
 **Related classes**
 
-- [MmapCSCase](../../ncs/maapi/MmapCSCase.md#s-MmapCSCase)
+- [MmapCSCase](../../ncs/maapi/MmapCSCase.md#cls-MmapCSCase)
 
 ## Members
 
 **Constructors**:
 
-- [CSCase()](#s-CSCase-1)
-- [CSCase(int, String, CSSchema, CSChoice, CSCase)](#s-CSCase-2)
+- [CSCase()](#m-cscase-038070fbf9a6)
+- [CSCase(int, String, CSSchema, CSChoice, CSCase)](#m-cscase-2d5825fc873f)
 
 **Fields**:
 
-- [firstChoice](#s-firstChoice)
+- [firstChoice](#m-firstChoice)
 
 **Methods**:
 
-- [getChoices()](#s-getChoices)
-- [getNodes()](#s-getNodes)
-- [getNS()](#s-getNS)
-- [getNSHash()](#s-getNSHash)
-- [getParentChoice()](#s-getParentChoice)
-- [getSiblings()](#s-getSiblings)
-- [getTag()](#s-getTag)
-- [getTagHash()](#s-getTagHash)
-- [toString()](#s-toString)
+- [getChoices()](#m-getchoices-818fb3fccb86)
+- [getNodes()](#m-getnodes-0d0e9b3adfd1)
+- [getNS()](#m-getns-3613c99d8888)
+- [getNSHash()](#m-getnshash-2129fb8b3cfe)
+- [getParentChoice()](#m-getparentchoice-4434d9347d10)
+- [getSiblings()](#m-getsiblings-f467dd8b6a33)
+- [getTag()](#m-gettag-315f45956d6f)
+- [getTagHash()](#m-gettaghash-8f057919039c)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-CSCase-1"></a>
+<a id="m-cscase-038070fbf9a6"></a>
 ### CSCase()
 
 ```java
@@ -45,7 +45,7 @@ protected CSCase()
 
 Constructor for CSCase class
 
-<a id="s-CSCase-2"></a>
+<a id="m-cscase-2d5825fc873f"></a>
 ### CSCase(int, String, CSSchema, CSChoice, CSCase)
 
 ```java
@@ -58,7 +58,7 @@ protected CSCase(
 )
 ```
 
-Types: [CSSchema](CSSchema.md#s-CSSchema), [CSChoice](CSChoice.md#s-CSChoice), [CSCase](CSCase.md#s-CSCase)
+Types: [CSSchema](CSSchema.md#cls-CSSchema), [CSChoice](CSChoice.md#cls-CSChoice), [CSCase](CSCase.md#cls-CSCase)
 
 **Parameters**
 
@@ -71,47 +71,47 @@ Types: [CSSchema](CSSchema.md#s-CSSchema), [CSChoice](CSChoice.md#s-CSChoice), [
 
 ## Fields
 
-<a id="s-firstChoice"></a>
+<a id="m-firstChoice"></a>
 ### firstChoice
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSChoice firstChoice = null;
 ```
 
-Types: [CSChoice](CSChoice.md#s-CSChoice)
+Types: [CSChoice](CSChoice.md#cls-CSChoice)
 
 
 ## Methods
 
-<a id="s-getChoices"></a>
+<a id="m-getchoices-818fb3fccb86"></a>
 ### getChoices()
 
 ```java
 public java.util.List<com.tailf.maapi.MaapiSchemas.CSChoice> getChoices()
 ```
 
-Types: [CSChoice](CSChoice.md#s-CSChoice)
+Types: [CSChoice](CSChoice.md#cls-CSChoice)
 
 get List of choices defined in this Case. The list is a list of
  CSChoice objects.
 
 **Returns:** List of nodes
 
-<a id="s-getNodes"></a>
+<a id="m-getnodes-0d0e9b3adfd1"></a>
 ### getNodes()
 
 ```java
 public java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> getNodes()
 ```
 
-Types: [CSNode](CSNode.md#s-CSNode)
+Types: [CSNode](CSNode.md#cls-CSNode)
 
 get List of the nodes defined in this Case. The list is a list of
  CSNode objects.
 
 **Returns:** List of nodes
 
-<a id="s-getNS"></a>
+<a id="m-getns-3613c99d8888"></a>
 ### getNS()
 
 ```java
@@ -122,7 +122,7 @@ get namespace represented as string
 
 **Returns:** String namespace
 
-<a id="s-getNSHash"></a>
+<a id="m-getnshash-2129fb8b3cfe"></a>
 ### getNSHash()
 
 ```java
@@ -133,34 +133,34 @@ get namespace represented as hash value
 
 **Returns:** int hashvalue for the namespace
 
-<a id="s-getParentChoice"></a>
+<a id="m-getparentchoice-4434d9347d10"></a>
 ### getParentChoice()
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSChoice getParentChoice()
 ```
 
-Types: [CSChoice](CSChoice.md#s-CSChoice)
+Types: [CSChoice](CSChoice.md#cls-CSChoice)
 
 get the parent choice defining this case.
 
 **Returns:** CSChoice parent choice
 
-<a id="s-getSiblings"></a>
+<a id="m-getsiblings-f467dd8b6a33"></a>
 ### getSiblings()
 
 ```java
 public java.util.List<com.tailf.maapi.MaapiSchemas.CSCase> getSiblings()
 ```
 
-Types: [CSCase](CSCase.md#s-CSCase)
+Types: [CSCase](CSCase.md#cls-CSCase)
 
 get List of sibling cases for this case. The List is a list of CSCase
  objects and current case is included.
 
 **Returns:** List of sibling cases
 
-<a id="s-getTag"></a>
+<a id="m-gettag-315f45956d6f"></a>
 ### getTag()
 
 ```java
@@ -171,7 +171,7 @@ get case tag represented as string
 
 **Returns:** string tag
 
-<a id="s-getTagHash"></a>
+<a id="m-gettaghash-8f057919039c"></a>
 ### getTagHash()
 
 ```java
@@ -182,7 +182,7 @@ get case tag represented as hash value
 
 **Returns:** int hashvalue for the tag
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

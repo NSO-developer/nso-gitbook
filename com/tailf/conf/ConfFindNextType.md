@@ -1,36 +1,32 @@
-<a id="s-ConfFindNextType"></a>
+<a id="cls-ConfFindNextType"></a>
 # ConfFindNextType
 
 ```java
 public enum com.tailf.conf.ConfFindNextType
 ```
 
-Types: [ConfFindNextType](ConfFindNextType.md#s-ConfFindNextType)
+Types: [ConfFindNextType](ConfFindNextType.md#cls-ConfFindNextType)
 
 Enum used in findNext calls to determine if the element extraction
  should start at indicated element or the element after that
-
-**Related classes**
-
-- [ConfFindNextType](ConfFindNextType.md#s-ConfFindNextType)
 
 ## Members
 
 **Enum Constants**:
 
-- [FIND_NEXT](#s-FIND_NEXT)
-- [FIND_SAME_OR_NEXT](#s-FIND_SAME_OR_NEXT)
+- [FIND_NEXT](#m-FIND_NEXT)
+- [FIND_SAME_OR_NEXT](#m-FIND_SAME_OR_NEXT)
 
 **Methods**:
 
-- [getValue()](#s-getValue)
-- [valueOf(int)](#s-valueOf)
-- [valueOf(String)](#s-valueOf-1)
-- [values()](#s-values)
+- [getValue()](#m-getvalue-d93864668c40)
+- [valueOf(int)](#m-valueof-c0d46d25fc67)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-FIND_NEXT"></a>
+<a id="m-FIND_NEXT"></a>
 ### FIND_NEXT
 
 ```java
@@ -39,7 +35,7 @@ public static final com.tailf.conf.ConfFindNextType FIND_NEXT;
 
 Find should start after the indicated element
 
-<a id="s-FIND_SAME_OR_NEXT"></a>
+<a id="m-FIND_SAME_OR_NEXT"></a>
 ### FIND_SAME_OR_NEXT
 
 ```java
@@ -52,7 +48,7 @@ Find should start with indicated element or the
 
 ## Methods
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
@@ -63,14 +59,14 @@ get the ordinal value for the enumeration
 
 **Returns:** ordinal value
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-c0d46d25fc67"></a>
 ### valueOf(int)
 
 ```java
 public static com.tailf.conf.ConfFindNextType valueOf(int i)
 ```
 
-Types: [ConfFindNextType](ConfFindNextType.md#s-ConfFindNextType)
+Types: [ConfFindNextType](ConfFindNextType.md#cls-ConfFindNextType)
 
 Static method that creates an enum from an integer
  ordinal value. Should be 0 or 1 for FIND_NEXT or
@@ -82,24 +78,24 @@ Static method that creates an enum from an integer
 
 **Returns:** ConfFindNextType enumeration
 
-<a id="s-valueOf-1"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.conf.ConfFindNextType valueOf(String name)
 ```
 
-Types: [ConfFindNextType](ConfFindNextType.md#s-ConfFindNextType)
+Types: [ConfFindNextType](ConfFindNextType.md#cls-ConfFindNextType)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.conf.ConfFindNextType[] values()
 ```
 
-Types: [ConfFindNextType](ConfFindNextType.md#s-ConfFindNextType)
+Types: [ConfFindNextType](ConfFindNextType.md#cls-ConfFindNextType)

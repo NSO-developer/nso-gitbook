@@ -1,4 +1,4 @@
-<a id="s-DpExceptionReporter"></a>
+<a id="cls-DpExceptionReporter"></a>
 # DpExceptionReporter
 
 ```java
@@ -12,11 +12,11 @@ Interface for the user of the Dp deamon to handle catched exceptions
 
 **Methods**:
 
-- [reportException(Throwable)](#s-reportException)
+- [reportException(Throwable)](#m-reportexception-f2030dd5aa98)
 
 ## Methods
 
-<a id="s-reportException"></a>
+<a id="m-reportexception-f2030dd5aa98"></a>
 ### reportException(Throwable)
 
 ```java

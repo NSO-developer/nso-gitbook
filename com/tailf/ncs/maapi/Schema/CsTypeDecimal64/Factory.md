@@ -1,4 +1,4 @@
-<a id="s-Factory"></a>
+<a id="cls-Factory"></a>
 # Factory
 
 ```java
@@ -6,31 +6,31 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Factory
     extends org.capnproto.StructFactory<com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Builder,com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Reader>
 ```
 
-Types: [Builder](Builder.md#s-Builder), [Reader](Reader.md#s-Reader)
+Types: [Builder](Builder.md#cls-Builder), [Reader](Reader.md#cls-Reader)
 
 ## Members
 
 **Constructors**:
 
-- [Factory()](#s-Factory-1)
+- [Factory()](#m-factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#s-asReader) from Builder
-- [asReader(Builder)](#s-asReader)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#s-constructBuilder)
-- [constructReader(SegmentReader, int, int, int, short, int)](#s-constructReader)
-- [getFractionDigits()](Builder.md#s-getFractionDigits) from Builder
-- [getRanges()](Builder.md#s-getRanges) from Builder
-- [hasRanges()](Builder.md#s-hasRanges) from Builder
-- [initRanges(int)](Builder.md#s-initRanges) from Builder
-- [setFractionDigits(byte)](Builder.md#s-setFractionDigits) from Builder
-- [setRanges(Reader<Reader>)](Builder.md#s-setRanges) from Builder
-- [structSize()](#s-structSize)
+- [asReader()](Builder.md#m-asreader-b5c0f2a8d115) from Builder
+- [asReader(Builder)](#m-asreader-92d126e4aad4)
+- [constructBuilder(SegmentBuilder, int, int, int, short)](#m-constructbuilder-5a2abf3209f9)
+- [constructReader(SegmentReader, int, int, int, short, int)](#m-constructreader-fbce6f4f912a)
+- [getFractionDigits()](Builder.md#m-getfractiondigits-57dce19c4ffe) from Builder
+- [getRanges()](Builder.md#m-getranges-c1cd383e54a0) from Builder
+- [hasRanges()](Builder.md#m-hasranges-77bc63fe4ea8) from Builder
+- [initRanges(int)](Builder.md#m-initranges-d04c09762bd6) from Builder
+- [setFractionDigits(byte)](Builder.md#m-setfractiondigits-4268b060f4fc) from Builder
+- [setRanges(Reader<Reader>)](Builder.md#m-setranges-69bbcdb47f71) from Builder
+- [structSize()](#m-structsize-1fa68dcadd21)
 
 ## Constructors
 
-<a id="s-Factory-1"></a>
+<a id="m-factory-0e9f9d7f4e84"></a>
 ### Factory()
 
 ```java
@@ -40,7 +40,7 @@ public Factory()
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-92d126e4aad4"></a>
 ### asReader(Builder)
 
 ```java
@@ -49,13 +49,13 @@ public final com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Reader asReader(
 )
 ```
 
-Types: [Reader](Reader.md#s-Reader), [Builder](Builder.md#s-Builder)
+Types: [Reader](Reader.md#cls-Reader), [Builder](Builder.md#cls-Builder)
 
 **Parameters**
 
 - `com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Builder builder`
 
-<a id="s-constructBuilder"></a>
+<a id="m-constructbuilder-5a2abf3209f9"></a>
 ### constructBuilder(SegmentBuilder, int, int, int, short)
 
 ```java
@@ -68,7 +68,7 @@ public final com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Builder constructBuilder
 )
 ```
 
-Types: [Builder](Builder.md#s-Builder)
+Types: [Builder](Builder.md#cls-Builder)
 
 **Parameters**
 
@@ -78,7 +78,7 @@ Types: [Builder](Builder.md#s-Builder)
 - `int dataSize`
 - `short pointerCount`
 
-<a id="s-constructReader"></a>
+<a id="m-constructreader-fbce6f4f912a"></a>
 ### constructReader(SegmentReader, int, int, int, short, int)
 
 ```java
@@ -92,7 +92,7 @@ public final com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Reader constructReader(
 )
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
 **Parameters**
 
@@ -103,7 +103,7 @@ Types: [Reader](Reader.md#s-Reader)
 - `short pointerCount`
 - `int nestingLimit`
 
-<a id="s-structSize"></a>
+<a id="m-structsize-1fa68dcadd21"></a>
 ### structSize()
 
 ```java

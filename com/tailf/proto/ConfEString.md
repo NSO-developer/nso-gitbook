@@ -1,4 +1,4 @@
-<a id="s-ConfEString"></a>
+<a id="cls-ConfEString"></a>
 # ConfEString
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.proto.ConfEString
     extends com.tailf.proto.ConfEObject
 ```
 
-Types: [ConfEObject](ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](ConfEObject.md#cls-ConfEObject)
 
 Provides a Java representation of E strings.
 
@@ -14,33 +14,33 @@ Provides a Java representation of E strings.
 
 **Constructors**:
 
-- [ConfEString(ConfInputStream)](#s-ConfEString-1)
-- [ConfEString(String)](#s-ConfEString-2)
+- [ConfEString(ConfInputStream)](#m-confestring-56214826ef50)
+- [ConfEString(String)](#m-confestring-1abe12804412)
 
 **Fields**:
 
-- [serialVersionUID](#s-serialVersionUID)
+- [serialVersionUID](#m-serialVersionUID)
 
 **Methods**:
 
-- [clone()](ConfEObject.md#s-clone) from ConfEObject
-- [decode(ConfInputStream)](ConfEObject.md#s-decode) from ConfEObject
-- [encode(ConfOutputStream)](#s-encode)
-- [equals(Object)](#s-equals)
-- [hashCode()](#s-hashCode)
-- [stringValue()](#s-stringValue)
-- [toString()](#s-toString)
+- [clone()](ConfEObject.md#m-clone-164c86c45e9b) from ConfEObject
+- [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
+- [encode(ConfOutputStream)](#m-encode-cb1ad9eb7771)
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [hashCode()](#m-hashcode-ef797a217903)
+- [stringValue()](#m-stringvalue-a6efca13ec08)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-ConfEString-1"></a>
+<a id="m-confestring-56214826ef50"></a>
 ### ConfEString(ConfInputStream)
 
 ```java
 public ConfEString(com.tailf.proto.ConfInputStream buf) throws com.tailf.proto.ConfEDecodeException
 ```
 
-Types: [ConfInputStream](ConfInputStream.md#s-ConfInputStream), [ConfEDecodeException](ConfEDecodeException.md#s-ConfEDecodeException)
+Types: [ConfInputStream](ConfInputStream.md#cls-ConfInputStream), [ConfEDecodeException](ConfEDecodeException.md#cls-ConfEDecodeException)
 
 Create an E string from a stream containing a string encoded in E
  external format.
@@ -54,7 +54,7 @@ Create an E string from a stream containing a string encoded in E
 - `ConfEDecodeException` - if the buffer does not contain a valid external
                 representation of an E string.
 
-<a id="s-ConfEString-2"></a>
+<a id="m-confestring-1abe12804412"></a>
 ### ConfEString(String)
 
 ```java
@@ -70,7 +70,7 @@ Create an E string from the given string.
 
 ## Fields
 
-<a id="s-serialVersionUID"></a>
+<a id="m-serialVersionUID"></a>
 ### serialVersionUID
 
 **Package-private**
@@ -82,14 +82,14 @@ static final long serialVersionUID = -7053595217604929233;
 
 ## Methods
 
-<a id="s-encode"></a>
+<a id="m-encode-cb1ad9eb7771"></a>
 ### encode(ConfOutputStream)
 
 ```java
 public void encode(com.tailf.proto.ConfOutputStream buf)
 ```
 
-Types: [ConfOutputStream](ConfOutputStream.md#s-ConfOutputStream)
+Types: [ConfOutputStream](ConfOutputStream.md#cls-ConfOutputStream)
 
 Convert this string to the equivalent E external representation.
 
@@ -98,7 +98,7 @@ Convert this string to the equivalent E external representation.
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded string should be
             written.
 
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
@@ -116,14 +116,14 @@ Determine if two strings are equal. They are equal if they represent the
 **Returns:** true if the strings consist of the same sequence of characters,
          false otherwise.
 
-<a id="s-hashCode"></a>
+<a id="m-hashcode-ef797a217903"></a>
 ### hashCode()
 
 ```java
 public int hashCode()
 ```
 
-<a id="s-stringValue"></a>
+<a id="m-stringvalue-a6efca13ec08"></a>
 ### stringValue()
 
 ```java
@@ -135,9 +135,9 @@ Get the actual string contained in this object.
 **Returns:** the raw string contained in this object, without regard to E
          quoting rules.
 
-**See also:** [`toString`](ConfEString.md#s-toString)
+**See also:** [`toString`](ConfEString.md#m-tostring-e9d48c5503ef)
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java
@@ -148,4 +148,4 @@ Get the printable version of the string contained in this object.
 
 **Returns:** the string contained in this object, quoted.
 
-**See also:** [`stringValue`](ConfEString.md#s-stringValue)
+**See also:** [`stringValue`](ConfEString.md#m-stringvalue-a6efca13ec08)

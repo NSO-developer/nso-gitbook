@@ -1,4 +1,4 @@
-<a id="s-NedCapability"></a>
+<a id="cls-NedCapability"></a>
 # NedCapability
 
 ```java
@@ -13,24 +13,24 @@ NedCapability is used to communicate the capabilities (supported
 
 **Constructors**:
 
-- [NedCapability(String, String)](#s-NedCapability-1)
-- [NedCapability(String, String, List<String>, String, List<String>)](#s-NedCapability-2)
-- [NedCapability(String, String, String, List<String>, String, List<String>)](#s-NedCapability-3)
+- [NedCapability(String, String)](#m-nedcapability-cbee6d94f26b)
+- [NedCapability(String, String, List<String>, String, List<String>)](#m-nedcapability-0618acf74952)
+- [NedCapability(String, String, String, List<String>, String, List<String>)](#m-nedcapability-a0ce331f8ac0)
 
 **Methods**:
 
-- [encode()](#s-encode)
-- [getDeviations()](#s-getDeviations)
-- [getFeatures()](#s-getFeatures)
-- [getModule()](#s-getModule)
-- [getName()](#s-getName)
-- [getRevision()](#s-getRevision)
-- [getURI()](#s-getURI)
-- [toString()](#s-toString)
+- [encode()](#m-encode-fbae522bba37)
+- [getDeviations()](#m-getdeviations-635611da0c3c)
+- [getFeatures()](#m-getfeatures-2b82b997b3cb)
+- [getModule()](#m-getmodule-68694513ccce)
+- [getName()](#m-getname-2634b18b4a25)
+- [getRevision()](#m-getrevision-b0088aa9f0bf)
+- [getURI()](#m-geturi-7ec1ffd8cd93)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-NedCapability-1"></a>
+<a id="m-nedcapability-cbee6d94f26b"></a>
 ### NedCapability(String, String)
 
 ```java
@@ -42,7 +42,7 @@ public NedCapability(String uri, String module)
 - `String uri`
 - `String module`
 
-<a id="s-NedCapability-2"></a>
+<a id="m-nedcapability-0618acf74952"></a>
 ### NedCapability(String, String, List<String>, String, List<String>)
 
 ```java
@@ -63,7 +63,7 @@ public NedCapability(
 - `String revision`
 - `java.util.List<String> deviations`
 
-<a id="s-NedCapability-3"></a>
+<a id="m-nedcapability-a0ce331f8ac0"></a>
 ### NedCapability(String, String, String, List<String>, String, List<String>)
 
 ```java
@@ -104,58 +104,58 @@ This class mimics a capability as returned by a NETCONF agent
 
 ## Methods
 
-<a id="s-encode"></a>
+<a id="m-encode-fbae522bba37"></a>
 ### encode()
 
 ```java
 public com.tailf.proto.ConfEObject encode()
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="s-getDeviations"></a>
+<a id="m-getdeviations-635611da0c3c"></a>
 ### getDeviations()
 
 ```java
 public java.util.List<String> getDeviations()
 ```
 
-<a id="s-getFeatures"></a>
+<a id="m-getfeatures-2b82b997b3cb"></a>
 ### getFeatures()
 
 ```java
 public java.util.List<String> getFeatures()
 ```
 
-<a id="s-getModule"></a>
+<a id="m-getmodule-68694513ccce"></a>
 ### getModule()
 
 ```java
 public String getModule()
 ```
 
-<a id="s-getName"></a>
+<a id="m-getname-2634b18b4a25"></a>
 ### getName()
 
 ```java
 public String getName()
 ```
 
-<a id="s-getRevision"></a>
+<a id="m-getrevision-b0088aa9f0bf"></a>
 ### getRevision()
 
 ```java
 public String getRevision()
 ```
 
-<a id="s-getURI"></a>
+<a id="m-geturi-7ec1ffd8cd93"></a>
 ### getURI()
 
 ```java
 public String getURI()
 ```
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

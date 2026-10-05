@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,32 +6,28 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getHid()](#s-getHid)
-- [getHns()](#s-getHns)
-- [getQname()](#s-getQname)
-- [hasQname()](#s-hasQname)
-- [initQname(int)](#s-initQname)
-- [setHid(int)](#s-setHid)
-- [setHns(int)](#s-setHns)
-- [setQname(Reader)](#s-setQname)
-- [setQname(String)](#s-setQname-1)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getHid()](#m-gethid-34aa6038c623)
+- [getHns()](#m-gethns-457afaf41ae6)
+- [getQname()](#m-getqname-022156d42738)
+- [hasQname()](#m-hasqname-3146e94ee2c2)
+- [initQname(int)](#m-initqname-070346dcfd2a)
+- [setHid(int)](#m-sethid-628b88f6c037)
+- [setHns(int)](#m-sethns-7405e78f40fe)
+- [setQname(Reader)](#m-setqname-5263707f5f9e)
+- [setQname(String)](#m-setqname-d55a4e375433)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -57,44 +53,44 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getHid"></a>
+<a id="m-gethid-34aa6038c623"></a>
 ### getHid()
 
 ```java
 public final int getHid()
 ```
 
-<a id="s-getHns"></a>
+<a id="m-gethns-457afaf41ae6"></a>
 ### getHns()
 
 ```java
 public final int getHns()
 ```
 
-<a id="s-getQname"></a>
+<a id="m-getqname-022156d42738"></a>
 ### getQname()
 
 ```java
 public final org.capnproto.Text.Builder getQname()
 ```
 
-<a id="s-hasQname"></a>
+<a id="m-hasqname-3146e94ee2c2"></a>
 ### hasQname()
 
 ```java
 public final boolean hasQname()
 ```
 
-<a id="s-initQname"></a>
+<a id="m-initqname-070346dcfd2a"></a>
 ### initQname(int)
 
 ```java
@@ -105,7 +101,7 @@ public final org.capnproto.Text.Builder initQname(int size)
 
 - `int size`
 
-<a id="s-setHid"></a>
+<a id="m-sethid-628b88f6c037"></a>
 ### setHid(int)
 
 ```java
@@ -116,7 +112,7 @@ public final void setHid(int value)
 
 - `int value`
 
-<a id="s-setHns"></a>
+<a id="m-sethns-7405e78f40fe"></a>
 ### setHns(int)
 
 ```java
@@ -127,7 +123,7 @@ public final void setHns(int value)
 
 - `int value`
 
-<a id="s-setQname"></a>
+<a id="m-setqname-5263707f5f9e"></a>
 ### setQname(Reader)
 
 ```java
@@ -138,7 +134,7 @@ public final void setQname(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="s-setQname-1"></a>
+<a id="m-setqname-d55a4e375433"></a>
 ### setQname(String)
 
 ```java

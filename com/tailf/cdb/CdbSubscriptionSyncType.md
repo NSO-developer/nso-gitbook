@@ -1,36 +1,32 @@
-<a id="s-CdbSubscriptionSyncType"></a>
+<a id="cls-CdbSubscriptionSyncType"></a>
 # CdbSubscriptionSyncType
 
 ```java
 public enum com.tailf.cdb.CdbSubscriptionSyncType
 ```
 
-Types: [CdbSubscriptionSyncType](CdbSubscriptionSyncType.md#s-CdbSubscriptionSyncType)
+Types: [CdbSubscriptionSyncType](CdbSubscriptionSyncType.md#cls-CdbSubscriptionSyncType)
 
 Subscription Synchronization type used in sync() method
-
-**Related classes**
-
-- [CdbSubscriptionSyncType](CdbSubscriptionSyncType.md#s-CdbSubscriptionSyncType)
 
 ## Members
 
 **Enum Constants**:
 
-- [DONE_OPERATIONAL](#s-DONE_OPERATIONAL)
-- [DONE_PRIORITY](#s-DONE_PRIORITY)
-- [DONE_SOCKET](#s-DONE_SOCKET)
-- [DONE_TRANSACTION](#s-DONE_TRANSACTION)
+- [DONE_OPERATIONAL](#m-DONE_OPERATIONAL)
+- [DONE_PRIORITY](#m-DONE_PRIORITY)
+- [DONE_SOCKET](#m-DONE_SOCKET)
+- [DONE_TRANSACTION](#m-DONE_TRANSACTION)
 
 **Methods**:
 
-- [getValue()](#s-getValue)
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [getValue()](#m-getvalue-d93864668c40)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-DONE_OPERATIONAL"></a>
+<a id="m-DONE_OPERATIONAL"></a>
 ### DONE_OPERATIONAL
 
 ```java
@@ -42,7 +38,7 @@ This should be used when a subscription notification for
   should be used in this case, since the operational data does not
   have transactions and the notifications do not have priorities.
 
-<a id="s-DONE_PRIORITY"></a>
+<a id="m-DONE_PRIORITY"></a>
 ### DONE_PRIORITY
 
 ```java
@@ -53,7 +49,7 @@ This means that application has
  acted on the subscription notification and CDB
  can continue to deliver further notifications.
 
-<a id="s-DONE_SOCKET"></a>
+<a id="m-DONE_SOCKET"></a>
 ### DONE_SOCKET
 
 ```java
@@ -64,7 +60,7 @@ This means that we are done. But regardless of priority,
  CDB shall not send any further notifications to us on our
  socket that are related to the currently executing transaction.
 
-<a id="s-DONE_TRANSACTION"></a>
+<a id="m-DONE_TRANSACTION"></a>
 ### DONE_TRANSACTION
 
 ```java
@@ -79,31 +75,31 @@ This means that CDB should not send any further notifications
 
 ## Methods
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
 public int getValue()
 ```
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.cdb.CdbSubscriptionSyncType valueOf(String name)
 ```
 
-Types: [CdbSubscriptionSyncType](CdbSubscriptionSyncType.md#s-CdbSubscriptionSyncType)
+Types: [CdbSubscriptionSyncType](CdbSubscriptionSyncType.md#cls-CdbSubscriptionSyncType)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.cdb.CdbSubscriptionSyncType[] values()
 ```
 
-Types: [CdbSubscriptionSyncType](CdbSubscriptionSyncType.md#s-CdbSubscriptionSyncType)
+Types: [CdbSubscriptionSyncType](CdbSubscriptionSyncType.md#cls-CdbSubscriptionSyncType)

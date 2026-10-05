@@ -1,4 +1,4 @@
-<a id="s-HideGroups"></a>
+<a id="cls-HideGroups"></a>
 # HideGroups
 
 ```java
@@ -9,24 +9,24 @@ public static class com.tailf.ncs.maapi.Schema.Cs.HideGroups
 
 **Constructors**:
 
-- [HideGroups()](#s-HideGroups-1)
+- [HideGroups()](#m-hidegroups-55a7d1ce86d4)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](HideGroups/Builder.md#s-Builder)
-- [Factory](HideGroups/Factory.md#s-Factory)
-- [Reader](HideGroups/Reader.md#s-Reader)
-- [Which](HideGroups/Which.md#s-Which)
+- [Builder](HideGroups/Builder.md#cls-Builder)
+- [Factory](HideGroups/Factory.md#cls-Factory)
+- [Reader](HideGroups/Reader.md#cls-Reader)
+- [Which](HideGroups/Which.md#cls-Which)
 
 ## Constructors
 
-<a id="s-HideGroups-1"></a>
+<a id="m-hidegroups-55a7d1ce86d4"></a>
 ### HideGroups()
 
 ```java
@@ -36,25 +36,25 @@ public HideGroups()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cs.HideGroups.Factory factory = null;
 ```
 
-Types: [Factory](HideGroups/Factory.md#s-Factory)
+Types: [Factory](HideGroups/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.Cs.HideGroups.Builder,com.tailf.ncs.maapi.Schema.Cs.HideGroups.Reader> listFactory = null;
 ```
 
-Types: [Builder](HideGroups/Builder.md#s-Builder), [Reader](HideGroups/Reader.md#s-Reader)
+Types: [Builder](HideGroups/Builder.md#cls-Builder), [Reader](HideGroups/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -64,7 +64,7 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](HideGroups/Builder.md)
-- [Factory](HideGroups/Factory.md)
-- [Reader](HideGroups/Reader.md)
-- [Which](HideGroups/Which.md)
+- [Builder](HideGroups/Builder.md#cls-Builder)
+- [Factory](HideGroups/Factory.md#cls-Factory)
+- [Reader](HideGroups/Reader.md#cls-Reader)
+- [Which](HideGroups/Which.md#cls-Which)

@@ -1,4 +1,4 @@
-<a id="s-ResultTypeString"></a>
+<a id="cls-ResultTypeString"></a>
 # ResultTypeString
 
 ```java
@@ -6,11 +6,11 @@ public interface com.tailf.maapi.ResultTypeString
     extends com.tailf.maapi.ResultType
 ```
 
-Types: [ResultType](ResultType.md#s-ResultType)
+Types: [ResultType](ResultType.md#cls-ResultType)
 
 XPath Result in string format. This format
  is specified trough `ReslutTypeString.class` as a parameter
- to [`Maapi`](Maapi.md#s-Maapi)
+ to `Maapi#queryStart(int,String,String,int,int,List,Class)`
 
 
  Example:
@@ -49,11 +49,11 @@ XPath Result in string format. This format
 
 **Methods**:
 
-- [stringValue()](#s-stringValue)
+- [stringValue()](#m-stringvalue-a6efca13ec08)
 
 ## Methods
 
-<a id="s-stringValue"></a>
+<a id="m-stringvalue-a6efca13ec08"></a>
 ### stringValue()
 
 ```java

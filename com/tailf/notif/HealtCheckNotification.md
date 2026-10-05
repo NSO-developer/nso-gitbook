@@ -1,4 +1,4 @@
-<a id="s-HealtCheckNotification"></a>
+<a id="cls-HealtCheckNotification"></a>
 # HealtCheckNotification
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.notif.HealtCheckNotification
     extends com.tailf.notif.Notification
 ```
 
-Types: [Notification](Notification.md#s-Notification)
+Types: [Notification](Notification.md#cls-Notification)
 
 Data structure for HealtCheck notifications.
 
@@ -14,20 +14,20 @@ Data structure for HealtCheck notifications.
 
 **Constructors**:
 
-- [HealtCheckNotification()](#s-HealtCheckNotification-1)
+- [HealtCheckNotification()](#m-healtchecknotification-0730a67c1fa1)
 
 **Fields**:
 
-- [type](Notification.md#s-type) from Notification
+- [type](Notification.md#m-type) from Notification
 
 **Methods**:
 
-- [getNotificationType()](Notification.md#s-getNotificationType) from Notification
-- [toString()](Notification.md#s-toString) from Notification
+- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
+- [toString()](Notification.md#m-tostring-e9d48c5503ef) from Notification
 
 ## Constructors
 
-<a id="s-HealtCheckNotification-1"></a>
+<a id="m-healtchecknotification-0730a67c1fa1"></a>
 ### HealtCheckNotification()
 
 ```java

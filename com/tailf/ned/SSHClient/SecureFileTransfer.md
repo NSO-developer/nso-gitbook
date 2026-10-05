@@ -1,4 +1,4 @@
-<a id="s-SecureFileTransfer"></a>
+<a id="cls-SecureFileTransfer"></a>
 # SecureFileTransfer
 
 ```java
@@ -13,13 +13,13 @@ SSHCLient file transfer interface
 
 **Methods**:
 
-- [get(String)](#s-get)
-- [put(String, String)](#s-put)
-- [put(String, String, int)](#s-put-1)
+- [get(String)](#m-get-e86cd4d90bf3)
+- [put(String, String)](#m-put-5593beca1d56)
+- [put(String, String, int)](#m-put-cd56c61d877c)
 
 ## Methods
 
-<a id="s-get"></a>
+<a id="m-get-e86cd4d90bf3"></a>
 ### get(String)
 
 ```java
@@ -38,7 +38,7 @@ Get a file from a remote peer.
 
 - `IOException`
 
-<a id="s-put"></a>
+<a id="m-put-5593beca1d56"></a>
 ### put(String, String)
 
 ```java
@@ -56,7 +56,7 @@ Put a file with default permissions on a remote peer.
 
 - `IOException`
 
-<a id="s-put-1"></a>
+<a id="m-put-cd56c61d877c"></a>
 ### put(String, String, int)
 
 ```java

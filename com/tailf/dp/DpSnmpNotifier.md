@@ -1,4 +1,4 @@
-<a id="s-DpSnmpNotifier"></a>
+<a id="cls-DpSnmpNotifier"></a>
 # DpSnmpNotifier
 
 ```java
@@ -85,24 +85,24 @@ The application can send SNMP notifications and inform requests.
 
 **Constructors**:
 
-- [DpSnmpNotifier(String, String, DpSnmpInformResponseCallback, Socket)](#s-DpSnmpNotifier-1)
+- [DpSnmpNotifier(String, String, DpSnmpInformResponseCallback, Socket)](#m-dpsnmpnotifier-d883475eb7e7)
 
 **Methods**:
 
-- [getContextName()](#s-getContextName)
-- [getFD()](#s-getFD)
-- [getInformCb()](#s-getInformCb)
-- [getNotifyName()](#s-getNotifyName)
-- [getSocket()](#s-getSocket)
-- [send(String, SnmpVarbind[])](#s-send)
-- [send(String, SnmpVarbind[], Integer)](#s-send-1)
-- [setFD(int)](#s-setFD)
-- [setSocket(Socket)](#s-setSocket)
-- [setSourceAddress(ConfIP)](#s-setSourceAddress)
+- [getContextName()](#m-getcontextname-cf9cc7a52502)
+- [getFD()](#m-getfd-e27232a35a70)
+- [getInformCb()](#m-getinformcb-40ebe64ec412)
+- [getNotifyName()](#m-getnotifyname-1cb2918a2d12)
+- [getSocket()](#m-getsocket-d7da2de81b81)
+- [send(String, SnmpVarbind[])](#m-send-4c2d30df8160)
+- [send(String, SnmpVarbind[], Integer)](#m-send-616c3e8b0825)
+- [setFD(int)](#m-setfd-501c97b6d464)
+- [setSocket(Socket)](#m-setsocket-183068848e4c)
+- [setSourceAddress(ConfIP)](#m-setsourceaddress-a903bc69b65e)
 
 ## Constructors
 
-<a id="s-DpSnmpNotifier-1"></a>
+<a id="m-dpsnmpnotifier-d883475eb7e7"></a>
 ### DpSnmpNotifier(String, String, DpSnmpInformResponseCallback, Socket)
 
 **Package-private**
@@ -116,7 +116,7 @@ DpSnmpNotifier(
 )
 ```
 
-Types: [DpSnmpInformResponseCallback](DpSnmpInformResponseCallback.md#s-DpSnmpInformResponseCallback)
+Types: [DpSnmpInformResponseCallback](DpSnmpInformResponseCallback.md#cls-DpSnmpInformResponseCallback)
 
 This constructor will initialize the DpSnmpNotifier class.
 
@@ -133,14 +133,14 @@ This constructor will initialize the DpSnmpNotifier class.
 
 ## Methods
 
-<a id="s-getContextName"></a>
+<a id="m-getcontextname-cf9cc7a52502"></a>
 ### getContextName()
 
 ```java
 public String getContextName()
 ```
 
-<a id="s-getFD"></a>
+<a id="m-getfd-e27232a35a70"></a>
 ### getFD()
 
 ```java
@@ -149,18 +149,18 @@ public int getFD()
 
 file descriptor
 
-<a id="s-getInformCb"></a>
+<a id="m-getinformcb-40ebe64ec412"></a>
 ### getInformCb()
 
 ```java
 public com.tailf.dp.DpSnmpInformResponseCallback getInformCb()
 ```
 
-Types: [DpSnmpInformResponseCallback](DpSnmpInformResponseCallback.md#s-DpSnmpInformResponseCallback)
+Types: [DpSnmpInformResponseCallback](DpSnmpInformResponseCallback.md#cls-DpSnmpInformResponseCallback)
 
 The inform callback. null means no callback.
 
-<a id="s-getNotifyName"></a>
+<a id="m-getnotifyname-1cb2918a2d12"></a>
 ### getNotifyName()
 
 ```java
@@ -169,7 +169,7 @@ public String getNotifyName()
 
 The notify_init.xml notify name.
 
-<a id="s-getSocket"></a>
+<a id="m-getsocket-d7da2de81b81"></a>
 ### getSocket()
 
 ```java
@@ -179,10 +179,10 @@ public java.net.Socket getSocket()
 The worker socket which is connected to ConfD/NCS. This socket will be
  used for sending SNMP notifications to ConfD/NCS. Set when allocated by
  Dp through
- [`Dp`](Dp.md#s-Dp)
+ [`Dp#createSnmpNotifier(String, String, Object)`](Dp.md#m-createsnmpnotifier-89f0d186fc8f)
  .
 
-<a id="s-send"></a>
+<a id="m-send-4c2d30df8160"></a>
 ### send(String, SnmpVarbind[])
 
 ```java
@@ -193,7 +193,7 @@ public void send(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [SnmpVarbind](../conf/SnmpVarbind.md#s-SnmpVarbind), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [SnmpVarbind](../conf/SnmpVarbind.md#cls-SnmpVarbind), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Send SNMP notification. Sends a notification to the management targets
  defined for 'notifyTarget' in the snmpNotifyTable in
@@ -212,7 +212,7 @@ Send SNMP notification. Sends a notification to the management targets
 
 **Since:** 3.2.0
 
-<a id="s-send-1"></a>
+<a id="m-send-616c3e8b0825"></a>
 ### send(String, SnmpVarbind[], Integer)
 
 ```java
@@ -224,7 +224,7 @@ public void send(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [SnmpVarbind](../conf/SnmpVarbind.md#s-SnmpVarbind), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [SnmpVarbind](../conf/SnmpVarbind.md#cls-SnmpVarbind), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Send SNMP notification with the option to receive an Inform Response.
  Sends a notification to the management targets defined for 'notifyTarget'
@@ -243,11 +243,11 @@ Send SNMP notification with the option to receive an Inform Response.
 - `com.tailf.conf.SnmpVarbind[] varbinds` - an array of variable bindings
 - `Integer ref` - a reference provided by the caller. This reference is provided
             provided in the callback methods on
-            [`DpSnmpInformResponseCallback`](DpSnmpInformResponseCallback.md#s-DpSnmpInformResponseCallback)
+            [`DpSnmpInformResponseCallback`](DpSnmpInformResponseCallback.md#cls-DpSnmpInformResponseCallback)
 
 **Since:** 3.2.0
 
-<a id="s-setFD"></a>
+<a id="m-setfd-501c97b6d464"></a>
 ### setFD(int)
 
 ```java
@@ -258,7 +258,7 @@ public void setFD(int fd)
 
 - `int fd`
 
-<a id="s-setSocket"></a>
+<a id="m-setsocket-183068848e4c"></a>
 ### setSocket(Socket)
 
 ```java
@@ -269,14 +269,14 @@ public void setSocket(java.net.Socket socket)
 
 - `java.net.Socket socket`
 
-<a id="s-setSourceAddress"></a>
+<a id="m-setsourceaddress-a903bc69b65e"></a>
 ### setSourceAddress(ConfIP)
 
 ```java
 public void setSourceAddress(com.tailf.conf.ConfIP sourceIP)
 ```
 
-Types: [ConfIP](../conf/ConfIP.md#s-ConfIP)
+Types: [ConfIP](../conf/ConfIP.md#cls-ConfIP)
 
 Set the source IP address to be bound when sending notifications using
  the send() method.

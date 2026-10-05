@@ -1,4 +1,4 @@
-<a id="s-Completion"></a>
+<a id="cls-Completion"></a>
 # Completion
 
 ```java
@@ -55,27 +55,27 @@ Reply structure container for completion callbacks.
 
 **Related classes**
 
-- [CompletionDefaultReply](CompletionDefaultReply.md#s-CompletionDefaultReply)
-- [CompletionRangeEnumReply](CompletionRangeEnumReply.md#s-CompletionRangeEnumReply)
-- [CompletionReply](CompletionReply.md#s-CompletionReply)
+- [CompletionDefaultReply](CompletionDefaultReply.md#cls-CompletionDefaultReply)
+- [CompletionRangeEnumReply](CompletionRangeEnumReply.md#cls-CompletionRangeEnumReply)
+- [CompletionReply](CompletionReply.md#cls-CompletionReply)
 
 ## Members
 
 **Constructors**:
 
-- [Completion()](#s-Completion-1)
+- [Completion()](#m-completion-b01cd1890a7a)
 
 **Methods**:
 
-- [encode()](#s-encode)
-- [newDefaultReply()](#s-newDefaultReply)
-- [newRangeEnumReply(int)](#s-newRangeEnumReply)
-- [newReply()](#s-newReply)
-- [validate()](#s-validate)
+- [encode()](#m-encode-fbae522bba37)
+- [newDefaultReply()](#m-newdefaultreply-5583906bcd7c)
+- [newRangeEnumReply(int)](#m-newrangeenumreply-5c101dba6437)
+- [newReply()](#m-newreply-15892c4ebb44)
+- [validate()](#m-validate-dc7ca5eb97ec)
 
 ## Constructors
 
-<a id="s-Completion-1"></a>
+<a id="m-completion-b01cd1890a7a"></a>
 ### Completion()
 
 ```java
@@ -85,25 +85,25 @@ public Completion()
 
 ## Methods
 
-<a id="s-encode"></a>
+<a id="m-encode-fbae522bba37"></a>
 ### encode()
 
 ```java
 protected abstract com.tailf.proto.ConfEList encode()
 ```
 
-Types: [ConfEList](../proto/ConfEList.md#s-ConfEList)
+Types: [ConfEList](../proto/ConfEList.md#cls-ConfEList)
 
-<a id="s-newDefaultReply"></a>
+<a id="m-newdefaultreply-5583906bcd7c"></a>
 ### newDefaultReply()
 
 ```java
 public static com.tailf.dp.CompletionDefaultReply newDefaultReply()
 ```
 
-Types: [CompletionDefaultReply](CompletionDefaultReply.md#s-CompletionDefaultReply)
+Types: [CompletionDefaultReply](CompletionDefaultReply.md#cls-CompletionDefaultReply)
 
-The [`CompletionDefaultReply`](CompletionDefaultReply.md#s-CompletionDefaultReply) instance is the possible response
+The [`CompletionDefaultReply`](CompletionDefaultReply.md#cls-CompletionDefaultReply) instance is the possible response
  for a tailf:cli-completion-actionpoint or a
  tailf:cli-custom-range-actionpoint directive.
 
@@ -115,16 +115,16 @@ The [`CompletionDefaultReply`](CompletionDefaultReply.md#s-CompletionDefaultRepl
 
 **Returns:** CompletionDefaultReply
 
-<a id="s-newRangeEnumReply"></a>
+<a id="m-newrangeenumreply-5c101dba6437"></a>
 ### newRangeEnumReply(int)
 
 ```java
 public static com.tailf.dp.CompletionRangeEnumReply newRangeEnumReply(int keySize)
 ```
 
-Types: [CompletionRangeEnumReply](CompletionRangeEnumReply.md#s-CompletionRangeEnumReply)
+Types: [CompletionRangeEnumReply](CompletionRangeEnumReply.md#cls-CompletionRangeEnumReply)
 
-The [`CompletionRangeEnumReply`](CompletionRangeEnumReply.md#s-CompletionRangeEnumReply) instance is the expected response
+The [`CompletionRangeEnumReply`](CompletionRangeEnumReply.md#cls-CompletionRangeEnumReply) instance is the expected response
  for a tailf:cli-custom-range-enumerator actionpoint.
 
  The instantiated reply needs to be assembled using its class
@@ -139,16 +139,16 @@ The [`CompletionRangeEnumReply`](CompletionRangeEnumReply.md#s-CompletionRangeEn
 
 **Returns:** CompletionRangeEnumReply
 
-<a id="s-newReply"></a>
+<a id="m-newreply-15892c4ebb44"></a>
 ### newReply()
 
 ```java
 public static com.tailf.dp.CompletionReply newReply()
 ```
 
-Types: [CompletionReply](CompletionReply.md#s-CompletionReply)
+Types: [CompletionReply](CompletionReply.md#cls-CompletionReply)
 
-The [`CompletionReply`](CompletionReply.md#s-CompletionReply) instance is the possible response for a
+The [`CompletionReply`](CompletionReply.md#cls-CompletionReply) instance is the possible response for a
  tailf:cli-completion-actionpoint or a
  tailf:cli-custom-range-actionpoint directive.
 
@@ -157,7 +157,7 @@ The [`CompletionReply`](CompletionReply.md#s-CompletionReply) instance is the po
 
 **Returns:** CompletionReply
 
-<a id="s-validate"></a>
+<a id="m-validate-dc7ca5eb97ec"></a>
 ### validate()
 
 **Package-private**
@@ -166,4 +166,4 @@ The [`CompletionReply`](CompletionReply.md#s-CompletionReply) instance is the po
 abstract void validate() throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)

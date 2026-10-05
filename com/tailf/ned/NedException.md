@@ -1,4 +1,4 @@
-<a id="s-NedException"></a>
+<a id="cls-NedException"></a>
 # NedException
 
 ```java
@@ -12,37 +12,37 @@ Exception raised from the NED package
 
 **Constructors**:
 
-- [NedException(NedErrorCode, String)](#s-NedException-1)
-- [NedException(NedErrorCode, String, Throwable)](#s-NedException-2)
+- [NedException(NedErrorCode, String)](#m-nedexception-b9f14788dc0a)
+- [NedException(NedErrorCode, String, Throwable)](#m-nedexception-076b429c0440)
 
 **Methods**:
 
-- [getNedErrorCode()](#s-getNedErrorCode)
+- [getNedErrorCode()](#m-getnederrorcode-452b35680338)
 
 ## Constructors
 
-<a id="s-NedException-1"></a>
+<a id="m-nedexception-b9f14788dc0a"></a>
 ### NedException(NedErrorCode, String)
 
 ```java
 public NedException(com.tailf.ned.NedErrorCode aCode, String msg)
 ```
 
-Types: [NedErrorCode](NedErrorCode.md#s-NedErrorCode)
+Types: [NedErrorCode](NedErrorCode.md#cls-NedErrorCode)
 
 **Parameters**
 
 - `com.tailf.ned.NedErrorCode aCode`
 - `String msg`
 
-<a id="s-NedException-2"></a>
+<a id="m-nedexception-076b429c0440"></a>
 ### NedException(NedErrorCode, String, Throwable)
 
 ```java
 public NedException(com.tailf.ned.NedErrorCode aCode, String msg, Throwable cause)
 ```
 
-Types: [NedErrorCode](NedErrorCode.md#s-NedErrorCode)
+Types: [NedErrorCode](NedErrorCode.md#cls-NedErrorCode)
 
 **Parameters**
 
@@ -53,11 +53,11 @@ Types: [NedErrorCode](NedErrorCode.md#s-NedErrorCode)
 
 ## Methods
 
-<a id="s-getNedErrorCode"></a>
+<a id="m-getnederrorcode-452b35680338"></a>
 ### getNedErrorCode()
 
 ```java
 public com.tailf.ned.NedErrorCode getNedErrorCode()
 ```
 
-Types: [NedErrorCode](NedErrorCode.md#s-NedErrorCode)
+Types: [NedErrorCode](NedErrorCode.md#cls-NedErrorCode)

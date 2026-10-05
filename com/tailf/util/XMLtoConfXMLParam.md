@@ -1,4 +1,4 @@
-<a id="s-XMLtoConfXMLParam"></a>
+<a id="cls-XMLtoConfXMLParam"></a>
 # XMLtoConfXMLParam
 
 ```java
@@ -18,43 +18,23 @@ Convenience utility class for transformation from
 
 **Constructors**:
 
-- [XMLtoConfXMLParam(InputStream, ConfPath)](#s-XMLtoConfXMLParam-1)
-- [XMLtoConfXMLParam(String, ConfPath)](#s-XMLtoConfXMLParam-2)
+- [XMLtoConfXMLParam(String, ConfPath)](#m-xmltoconfxmlparam-c8c5db7811e2)
 
 **Fields**:
 
-- [MODE_GET](#s-MODE_GET)
-- [MODE_SET](#s-MODE_SET)
-- [MODE_SET_ACTION_PARAM](#s-MODE_SET_ACTION_PARAM)
-- [MODE_SET_ACTION_RESULT](#s-MODE_SET_ACTION_RESULT)
+- [MODE_GET](#m-MODE_GET)
+- [MODE_SET](#m-MODE_SET)
+- [MODE_SET_ACTION_PARAM](#m-MODE_SET_ACTION_PARAM)
+- [MODE_SET_ACTION_RESULT](#m-MODE_SET_ACTION_RESULT)
 
 **Methods**:
 
-- [toXMLParam()](#s-toXMLParam)
-- [toXMLParam(int)](#s-toXMLParam-1)
+- [toXMLParam()](#m-toxmlparam-035915632f19)
+- [toXMLParam(int)](#m-toxmlparam-cfa4dab14cf4)
 
 ## Constructors
 
-<a id="s-XMLtoConfXMLParam-1"></a>
-### XMLtoConfXMLParam(InputStream, ConfPath)
-
-```java
-public XMLtoConfXMLParam(
-    java.io.InputStream xml,
-    com.tailf.conf.ConfPath path
-)
-    throws com.tailf.conf.ConfException
-```
-
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
-
-**Parameters**
-
-- `java.io.InputStream xml` - InputStream that produces well formed
-   XML representing a instance document rooted by the path.
-- `com.tailf.conf.ConfPath path` - Start node (or root path) of the XML document
-
-<a id="s-XMLtoConfXMLParam-2"></a>
+<a id="m-xmltoconfxmlparam-c8c5db7811e2"></a>
 ### XMLtoConfXMLParam(String, ConfPath)
 
 ```java
@@ -65,7 +45,7 @@ public XMLtoConfXMLParam(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Main constructor for initializing the xml parser.
 
@@ -78,7 +58,7 @@ Main constructor for initializing the xml parser.
 
 ## Fields
 
-<a id="s-MODE_GET"></a>
+<a id="m-MODE_GET"></a>
 ### MODE_GET
 
 ```java
@@ -87,7 +67,7 @@ public static final int MODE_GET = 1;
 
 parse xml as preparation for a getValues() call
 
-<a id="s-MODE_SET"></a>
+<a id="m-MODE_SET"></a>
 ### MODE_SET
 
 ```java
@@ -96,7 +76,7 @@ public static final int MODE_SET = 2;
 
 parse xml as preparation for a setValues() call
 
-<a id="s-MODE_SET_ACTION_PARAM"></a>
+<a id="m-MODE_SET_ACTION_PARAM"></a>
 ### MODE_SET_ACTION_PARAM
 
 ```java
@@ -106,7 +86,7 @@ public static final int MODE_SET_ACTION_PARAM = 4;
 parse xml as preparation for a setValues() call
  for action's or rpc's parameters
 
-<a id="s-MODE_SET_ACTION_RESULT"></a>
+<a id="m-MODE_SET_ACTION_RESULT"></a>
 ### MODE_SET_ACTION_RESULT
 
 ```java
@@ -119,14 +99,14 @@ parse xml as preparation for a setValues() call
 
 ## Methods
 
-<a id="s-toXMLParam"></a>
+<a id="m-toxmlparam-035915632f19"></a>
 ### toXMLParam()
 
 ```java
 public com.tailf.conf.ConfXMLParam[] toXMLParam() throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Converts the xml to corresponding ConfXMLParam[]
  The resulting ConfXMLParam[] is prepared for a getValues() call.
@@ -137,14 +117,14 @@ Converts the xml to corresponding ConfXMLParam[]
 
 - `ConfException`
 
-<a id="s-toXMLParam-1"></a>
+<a id="m-toxmlparam-cfa4dab14cf4"></a>
 ### toXMLParam(int)
 
 ```java
 public com.tailf.conf.ConfXMLParam[] toXMLParam(int mode) throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Converts the xml to corresponding ConfXMLParam[]
  The mode parameter controls whether this ConfXMLParam[] should be

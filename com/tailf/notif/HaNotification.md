@@ -1,4 +1,4 @@
-<a id="s-HaNotification"></a>
+<a id="cls-HaNotification"></a>
 # HaNotification
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.notif.HaNotification
     extends com.tailf.notif.Notification
 ```
 
-Types: [Notification](Notification.md#s-Notification)
+Types: [Notification](Notification.md#cls-Notification)
 
 Data structure for High Availability notifications.
 
@@ -14,32 +14,32 @@ Data structure for High Availability notifications.
 
 **Constructors**:
 
-- [HaNotification(int, int, ConfHaNode, boolean, int)](#s-HaNotification-1)
+- [HaNotification(int, int, ConfHaNode, boolean, int)](#m-hanotification-7e618c9a58ab)
 
 **Fields**:
 
-- [HA_INFO_BESECONDARY_RESULT](#s-HA_INFO_BESECONDARY_RESULT)
-- [HA_INFO_IS_NONE](#s-HA_INFO_IS_NONE)
-- [HA_INFO_IS_PRIMARY](#s-HA_INFO_IS_PRIMARY)
-- [HA_INFO_NOPRIMARY](#s-HA_INFO_NOPRIMARY)
-- [HA_INFO_SECONDARY_ARRIVED](#s-HA_INFO_SECONDARY_ARRIVED)
-- [HA_INFO_SECONDARY_DIED](#s-HA_INFO_SECONDARY_DIED)
-- [HA_INFO_SECONDARY_INITIALIZED](#s-HA_INFO_SECONDARY_INITIALIZED)
-- [type](Notification.md#s-type) from Notification
+- [HA_INFO_BESECONDARY_RESULT](#m-HA_INFO_BESECONDARY_RESULT)
+- [HA_INFO_IS_NONE](#m-HA_INFO_IS_NONE)
+- [HA_INFO_IS_PRIMARY](#m-HA_INFO_IS_PRIMARY)
+- [HA_INFO_NOPRIMARY](#m-HA_INFO_NOPRIMARY)
+- [HA_INFO_SECONDARY_ARRIVED](#m-HA_INFO_SECONDARY_ARRIVED)
+- [HA_INFO_SECONDARY_DIED](#m-HA_INFO_SECONDARY_DIED)
+- [HA_INFO_SECONDARY_INITIALIZED](#m-HA_INFO_SECONDARY_INITIALIZED)
+- [type](Notification.md#m-type) from Notification
 
 **Methods**:
 
-- [beSecondaryResult()](#s-beSecondaryResult)
-- [getHAInfoType()](#s-getHAInfoType)
-- [getHANode()](#s-getHANode)
-- [getNotificationType()](Notification.md#s-getNotificationType) from Notification
-- [isCdbInitializedByCopy()](#s-isCdbInitializedByCopy)
-- [noPrimaryError()](#s-noPrimaryError)
-- [toString()](#s-toString)
+- [beSecondaryResult()](#m-besecondaryresult-4d03e9a6c1b0)
+- [getHAInfoType()](#m-gethainfotype-726331ca6854)
+- [getHANode()](#m-gethanode-71f215e50750)
+- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
+- [isCdbInitializedByCopy()](#m-iscdbinitializedbycopy-57e3c0fa65e3)
+- [noPrimaryError()](#m-noprimaryerror-069bbf8e6194)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-HaNotification-1"></a>
+<a id="m-hanotification-7e618c9a58ab"></a>
 ### HaNotification(int, int, ConfHaNode, boolean, int)
 
 ```java
@@ -52,7 +52,7 @@ public HaNotification(
 )
 ```
 
-Types: [ConfHaNode](../conf/ConfHaNode.md#s-ConfHaNode)
+Types: [ConfHaNode](../conf/ConfHaNode.md#cls-ConfHaNode)
 
 **Parameters**
 
@@ -65,49 +65,49 @@ Types: [ConfHaNode](../conf/ConfHaNode.md#s-ConfHaNode)
 
 ## Fields
 
-<a id="s-HA_INFO_BESECONDARY_RESULT"></a>
+<a id="m-HA_INFO_BESECONDARY_RESULT"></a>
 ### HA_INFO_BESECONDARY_RESULT
 
 ```java
 public static final int HA_INFO_BESECONDARY_RESULT = 7;
 ```
 
-<a id="s-HA_INFO_IS_NONE"></a>
+<a id="m-HA_INFO_IS_NONE"></a>
 ### HA_INFO_IS_NONE
 
 ```java
 public static final int HA_INFO_IS_NONE = 6;
 ```
 
-<a id="s-HA_INFO_IS_PRIMARY"></a>
+<a id="m-HA_INFO_IS_PRIMARY"></a>
 ### HA_INFO_IS_PRIMARY
 
 ```java
 public static final int HA_INFO_IS_PRIMARY = 5;
 ```
 
-<a id="s-HA_INFO_NOPRIMARY"></a>
+<a id="m-HA_INFO_NOPRIMARY"></a>
 ### HA_INFO_NOPRIMARY
 
 ```java
 public static final int HA_INFO_NOPRIMARY = 1;
 ```
 
-<a id="s-HA_INFO_SECONDARY_ARRIVED"></a>
+<a id="m-HA_INFO_SECONDARY_ARRIVED"></a>
 ### HA_INFO_SECONDARY_ARRIVED
 
 ```java
 public static final int HA_INFO_SECONDARY_ARRIVED = 3;
 ```
 
-<a id="s-HA_INFO_SECONDARY_DIED"></a>
+<a id="m-HA_INFO_SECONDARY_DIED"></a>
 ### HA_INFO_SECONDARY_DIED
 
 ```java
 public static final int HA_INFO_SECONDARY_DIED = 2;
 ```
 
-<a id="s-HA_INFO_SECONDARY_INITIALIZED"></a>
+<a id="m-HA_INFO_SECONDARY_INITIALIZED"></a>
 ### HA_INFO_SECONDARY_INITIALIZED
 
 ```java
@@ -117,14 +117,14 @@ public static final int HA_INFO_SECONDARY_INITIALIZED = 4;
 
 ## Methods
 
-<a id="s-beSecondaryResult"></a>
+<a id="m-besecondaryresult-4d03e9a6c1b0"></a>
 ### beSecondaryResult()
 
 ```java
 public int beSecondaryResult()
 ```
 
-<a id="s-getHAInfoType"></a>
+<a id="m-gethainfotype-726331ca6854"></a>
 ### getHAInfoType()
 
 ```java
@@ -142,30 +142,30 @@ HA information type.
            - `#HA_INFO_IS_NONE`
              - `#HA_INFO_BESECONDARY_RESULT`
 
-<a id="s-getHANode"></a>
+<a id="m-gethanode-71f215e50750"></a>
 ### getHANode()
 
 ```java
 public com.tailf.conf.ConfHaNode getHANode()
 ```
 
-Types: [ConfHaNode](../conf/ConfHaNode.md#s-ConfHaNode)
+Types: [ConfHaNode](../conf/ConfHaNode.md#cls-ConfHaNode)
 
-<a id="s-isCdbInitializedByCopy"></a>
+<a id="m-iscdbinitializedbycopy-57e3c0fa65e3"></a>
 ### isCdbInitializedByCopy()
 
 ```java
 public boolean isCdbInitializedByCopy()
 ```
 
-<a id="s-noPrimaryError"></a>
+<a id="m-noprimaryerror-069bbf8e6194"></a>
 ### noPrimaryError()
 
 ```java
 public int noPrimaryError()
 ```
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

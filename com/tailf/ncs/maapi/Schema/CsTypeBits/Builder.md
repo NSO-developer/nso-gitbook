@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,29 +6,25 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeBits.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getBits()](#s-getBits)
-- [getWidth()](#s-getWidth)
-- [hasBits()](#s-hasBits)
-- [initBits(int)](#s-initBits)
-- [setBits(Reader<Reader>)](#s-setBits)
-- [setWidth(byte)](#s-setWidth)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getBits()](#m-getbits-032b4694ff31)
+- [getWidth()](#m-getwidth-aff9ccaa8b54)
+- [hasBits()](#m-hasbits-3d091966c9f9)
+- [initBits(int)](#m-initbits-88cbf7cad7aa)
+- [setBits(Reader<Reader>)](#m-setbits-70052b8b274c)
+- [setWidth(byte)](#m-setwidth-83fbef553fe6)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -54,39 +50,39 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeBits.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getBits"></a>
+<a id="m-getbits-032b4694ff31"></a>
 ### getBits()
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsTypeBits.Bit.Builder> getBits()
 ```
 
-Types: [Builder](Bit/Builder.md#s-Builder)
+Types: [Builder](Bit/Builder.md#cls-Builder)
 
-<a id="s-getWidth"></a>
+<a id="m-getwidth-aff9ccaa8b54"></a>
 ### getWidth()
 
 ```java
 public final byte getWidth()
 ```
 
-<a id="s-hasBits"></a>
+<a id="m-hasbits-3d091966c9f9"></a>
 ### hasBits()
 
 ```java
 public final boolean hasBits()
 ```
 
-<a id="s-initBits"></a>
+<a id="m-initbits-88cbf7cad7aa"></a>
 ### initBits(int)
 
 ```java
@@ -95,13 +91,13 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsTypeB
 )
 ```
 
-Types: [Builder](Bit/Builder.md#s-Builder)
+Types: [Builder](Bit/Builder.md#cls-Builder)
 
 **Parameters**
 
 - `int size`
 
-<a id="s-setBits"></a>
+<a id="m-setbits-70052b8b274c"></a>
 ### setBits(Reader<Reader>)
 
 ```java
@@ -110,13 +106,13 @@ public final void setBits(
 )
 ```
 
-Types: [Reader](Bit/Reader.md#s-Reader)
+Types: [Reader](Bit/Reader.md#cls-Reader)
 
 **Parameters**
 
 - `org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsTypeBits.Bit.Reader> value`
 
-<a id="s-setWidth"></a>
+<a id="m-setwidth-83fbef553fe6"></a>
 ### setWidth(byte)
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-AmbiguousNamespaceException"></a>
+<a id="cls-AmbiguousNamespaceException"></a>
 # AmbiguousNamespaceException
 
 ```java
@@ -12,12 +12,12 @@ Exception thrown when protocol data is malformed.
 
 **Constructors**:
 
-- [AmbiguousNamespaceException(String)](#s-AmbiguousNamespaceException-1)
-- [AmbiguousNamespaceException(String, Throwable)](#s-AmbiguousNamespaceException-2)
+- [AmbiguousNamespaceException(String)](#m-ambiguousnamespaceexception-b6dffc54393a)
+- [AmbiguousNamespaceException(String, Throwable)](#m-ambiguousnamespaceexception-4bae7267e4c3)
 
 ## Constructors
 
-<a id="s-AmbiguousNamespaceException-1"></a>
+<a id="m-ambiguousnamespaceexception-b6dffc54393a"></a>
 ### AmbiguousNamespaceException(String)
 
 ```java
@@ -30,7 +30,7 @@ Exception thrown when protocol data is malformed, message only.
 
 - `String msg` - The message describing the exception
 
-<a id="s-AmbiguousNamespaceException-2"></a>
+<a id="m-ambiguousnamespaceexception-4bae7267e4c3"></a>
 ### AmbiguousNamespaceException(String, Throwable)
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-CsValueBitBig"></a>
+<a id="cls-CsValueBitBig"></a>
 # CsValueBitBig
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.CsValueBitBig
 
 **Constructors**:
 
-- [CsValueBitBig()](#s-CsValueBitBig-1)
+- [CsValueBitBig()](#m-csvaluebitbig-b13645f44024)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](CsValueBitBig/Builder.md#s-Builder)
-- [Factory](CsValueBitBig/Factory.md#s-Factory)
-- [Reader](CsValueBitBig/Reader.md#s-Reader)
+- [Builder](CsValueBitBig/Builder.md#cls-Builder)
+- [Factory](CsValueBitBig/Factory.md#cls-Factory)
+- [Reader](CsValueBitBig/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-CsValueBitBig-1"></a>
+<a id="m-csvaluebitbig-b13645f44024"></a>
 ### CsValueBitBig()
 
 ```java
@@ -35,25 +35,25 @@ public CsValueBitBig()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValueBitBig.Factory factory = null;
 ```
 
-Types: [Factory](CsValueBitBig/Factory.md#s-Factory)
+Types: [Factory](CsValueBitBig/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueBitBig.Builder,com.tailf.ncs.maapi.Schema.CsValueBitBig.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsValueBitBig/Builder.md#s-Builder), [Reader](CsValueBitBig/Reader.md#s-Reader)
+Types: [Builder](CsValueBitBig/Builder.md#cls-Builder), [Reader](CsValueBitBig/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsValueBitBig/Builder.md)
-- [Factory](CsValueBitBig/Factory.md)
-- [Reader](CsValueBitBig/Reader.md)
+- [Builder](CsValueBitBig/Builder.md#cls-Builder)
+- [Factory](CsValueBitBig/Factory.md#cls-Factory)
+- [Reader](CsValueBitBig/Reader.md#cls-Reader)

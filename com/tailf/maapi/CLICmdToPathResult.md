@@ -1,11 +1,11 @@
-<a id="s-CLICmdToPathResult"></a>
+<a id="cls-CLICmdToPathResult"></a>
 # CLICmdToPathResult
 
 ```java
 public class com.tailf.maapi.CLICmdToPathResult
 ```
 
-Result of [`Maapi`](Maapi.md#s-Maapi)
+Result of [`Maapi#CLICmdToPath(int, String)`](Maapi.md#m-clicmdtopath-90aed3e422a9)
  An object containing two string fields containing the resulting
  namespace and path
 
@@ -13,16 +13,16 @@ Result of [`Maapi`](Maapi.md#s-Maapi)
 
 **Constructors**:
 
-- [CLICmdToPathResult(String, String)](#s-CLICmdToPathResult-1)
+- [CLICmdToPathResult(String, String)](#m-clicmdtopathresult-fc5d482a7477)
 
 **Fields**:
 
-- [ns](#s-ns)
-- [path](#s-path)
+- [ns](#m-ns)
+- [path](#m-path)
 
 ## Constructors
 
-<a id="s-CLICmdToPathResult-1"></a>
+<a id="m-clicmdtopathresult-fc5d482a7477"></a>
 ### CLICmdToPathResult(String, String)
 
 ```java
@@ -37,14 +37,14 @@ public CLICmdToPathResult(String ns, String path)
 
 ## Fields
 
-<a id="s-ns"></a>
+<a id="m-ns"></a>
 ### ns
 
 ```java
 public String ns = null;
 ```
 
-<a id="s-path"></a>
+<a id="m-path"></a>
 ### path
 
 ```java

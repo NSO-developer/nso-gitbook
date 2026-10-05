@@ -1,4 +1,4 @@
-<a id="s-ApplicationComponent"></a>
+<a id="cls-ApplicationComponent"></a>
 # ApplicationComponent
 
 ```java
@@ -20,12 +20,12 @@ User defined Applications should implement this interface that
 
 **Methods**:
 
-- [finish()](#s-finish)
-- [init()](#s-init)
+- [finish()](#m-finish-8c785ae2e6bb)
+- [init()](#m-init-e3919b885d98)
 
 ## Methods
 
-<a id="s-finish"></a>
+<a id="m-finish-8c785ae2e6bb"></a>
 ### finish()
 
 ```java
@@ -40,7 +40,7 @@ This method is called by the Ncs Java vm when the thread
 
 - `Exception` - if the finish operation fails
 
-<a id="s-init"></a>
+<a id="m-init-e3919b885d98"></a>
 ### init()
 
 ```java

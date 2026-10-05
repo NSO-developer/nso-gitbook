@@ -1,4 +1,4 @@
-<a id="s-CSIdref"></a>
+<a id="cls-CSIdref"></a>
 # CSIdref
 
 ```java
@@ -9,27 +9,27 @@ public static class com.tailf.maapi.MaapiSchemas.CSIdref
 
 **Constructors**:
 
-- [CSIdref(String, String, int, int)](#s-CSIdref-1)
+- [CSIdref(String, String, int, int)](#m-csidref-6752ec689cfb)
 
 **Fields**:
 
-- [id](#s-id)
-- [name](#s-name)
-- [ns](#s-ns)
-- [qName](#s-qName)
+- [id](#m-id)
+- [name](#m-name)
+- [ns](#m-ns)
+- [qName](#m-qName)
 
 **Methods**:
 
-- [getId()](#s-getId)
-- [getName()](#s-getName)
-- [getNS()](#s-getNS)
-- [getQName()](#s-getQName)
-- [setName(String)](#s-setName)
-- [setQName(String)](#s-setQName)
+- [getId()](#m-getid-199a349c70ef)
+- [getName()](#m-getname-2634b18b4a25)
+- [getNS()](#m-getns-3613c99d8888)
+- [getQName()](#m-getqname-9e09580fbf90)
+- [setName(String)](#m-setname-c76ccfcb9f18)
+- [setQName(String)](#m-setqname-62d2dd2eb710)
 
 ## Constructors
 
-<a id="s-CSIdref-1"></a>
+<a id="m-csidref-6752ec689cfb"></a>
 ### CSIdref(String, String, int, int)
 
 ```java
@@ -46,7 +46,7 @@ public CSIdref(String qname, String name, int ns, int id)
 
 ## Fields
 
-<a id="s-id"></a>
+<a id="m-id"></a>
 ### id
 
 **Package-private**
@@ -55,7 +55,7 @@ public CSIdref(String qname, String name, int ns, int id)
 int id = null;
 ```
 
-<a id="s-name"></a>
+<a id="m-name"></a>
 ### name
 
 **Package-private**
@@ -64,7 +64,7 @@ int id = null;
 String name = null;
 ```
 
-<a id="s-ns"></a>
+<a id="m-ns"></a>
 ### ns
 
 **Package-private**
@@ -73,7 +73,7 @@ String name = null;
 int ns = null;
 ```
 
-<a id="s-qName"></a>
+<a id="m-qName"></a>
 ### qName
 
 **Package-private**
@@ -85,28 +85,28 @@ String qName = null;
 
 ## Methods
 
-<a id="s-getId"></a>
+<a id="m-getid-199a349c70ef"></a>
 ### getId()
 
 ```java
 public int getId()
 ```
 
-<a id="s-getName"></a>
+<a id="m-getname-2634b18b4a25"></a>
 ### getName()
 
 ```java
 public String getName()
 ```
 
-<a id="s-getNS"></a>
+<a id="m-getns-3613c99d8888"></a>
 ### getNS()
 
 ```java
 public int getNS()
 ```
 
-<a id="s-getQName"></a>
+<a id="m-getqname-9e09580fbf90"></a>
 ### getQName()
 
 ```java
@@ -116,7 +116,7 @@ public String getQName()
 Return the string "prefix:name"
  of a identity
 
-<a id="s-setName"></a>
+<a id="m-setname-c76ccfcb9f18"></a>
 ### setName(String)
 
 ```java
@@ -127,7 +127,7 @@ public void setName(String name)
 
 - `String name`
 
-<a id="s-setQName"></a>
+<a id="m-setqname-62d2dd2eb710"></a>
 ### setQName(String)
 
 **Package-private**

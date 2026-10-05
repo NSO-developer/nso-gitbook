@@ -1,4 +1,4 @@
-<a id="s-NotificationReceiver"></a>
+<a id="cls-NotificationReceiver"></a>
 # NotificationReceiver
 
 ```java
@@ -15,30 +15,30 @@ This class mediated the use of Snmp4j
 
 **Methods**:
 
-- [destroy()](#s-destroy)
-- [destroyNotificationReceiver()](#s-destroyNotificationReceiver)
-- [getKnownIPAddresses()](#s-getKnownIPAddresses)
-- [getNotificationReceiver()](#s-getNotificationReceiver)
-- [getNotificationReceiver(SocketAddress)](#s-getNotificationReceiver-1)
-- [getNotificationReceiver(String, int)](#s-getNotificationReceiver-2)
-- [getRegisteredNotificationHandlers()](#s-getRegisteredNotificationHandlers)
-- [isEnabled()](#s-isEnabled)
-- [isStarted()](#s-isStarted)
-- [register(ArrayList<NotifHandlerInstance>)](#s-register)
-- [register(NotificationHandler, Object)](#s-register-1)
-- [start()](#s-start)
-- [stop()](#s-stop)
+- [destroy()](#m-destroy-c06780cdd1bc)
+- [destroyNotificationReceiver()](#m-destroynotificationreceiver-fc60e4855559)
+- [getKnownIPAddresses()](#m-getknownipaddresses-73a59ac83893)
+- [getNotificationReceiver()](#m-getnotificationreceiver-c83248d8bc1a)
+- [getNotificationReceiver(SocketAddress)](#m-getnotificationreceiver-3a5397d83b63)
+- [getNotificationReceiver(String, int)](#m-getnotificationreceiver-62efe28b6fa5)
+- [getRegisteredNotificationHandlers()](#m-getregisterednotificationhandlers-603e3e7c392b)
+- [isEnabled()](#m-isenabled-e96410650a37)
+- [isStarted()](#m-isstarted-5c757faf6088)
+- [register(ArrayList<NotifHandlerInstance>)](#m-register-f6ca408fb1d6)
+- [register(NotificationHandler, Object)](#m-register-426f8c48becc)
+- [start()](#m-start-79e12dafe9f8)
+- [stop()](#m-stop-a62ecc446f97)
 
 ## Methods
 
-<a id="s-destroy"></a>
+<a id="m-destroy-c06780cdd1bc"></a>
 ### destroy()
 
 ```java
 public void destroy()
 ```
 
-<a id="s-destroyNotificationReceiver"></a>
+<a id="m-destroynotificationreceiver-fc60e4855559"></a>
 ### destroyNotificationReceiver()
 
 ```java
@@ -47,14 +47,14 @@ public static synchronized void destroyNotificationReceiver()
 
 **Deprecated:** Use `#destroy()` instead.
 
-<a id="s-getKnownIPAddresses"></a>
+<a id="m-getknownipaddresses-73a59ac83893"></a>
 ### getKnownIPAddresses()
 
 ```java
 public java.util.Map<java.net.InetAddress,com.tailf.conf.ConfKey> getKnownIPAddresses()
 ```
 
-Types: [ConfKey](../../../conf/ConfKey.md#s-ConfKey)
+Types: [ConfKey](../../../conf/ConfKey.md#cls-ConfKey)
 
 Returns the set of snmp peer ip addresses
  for registered managed devices.
@@ -62,7 +62,7 @@ Returns the set of snmp peer ip addresses
 **Returns:** set of ConfValue where the values are either of type
          ConfIPv4 or ConfIPv6
 
-<a id="s-getNotificationReceiver"></a>
+<a id="m-getnotificationreceiver-c83248d8bc1a"></a>
 ### getNotificationReceiver()
 
 ```java
@@ -70,7 +70,7 @@ public static com.tailf.ncs.snmp.snmp4j.NotificationReceiver getNotificationRece
     throws com.tailf.ncs.NcsException
 ```
 
-Types: [NotificationReceiver](NotificationReceiver.md#s-NotificationReceiver), [NcsException](../../NcsException.md#s-NcsException)
+Types: [NotificationReceiver](NotificationReceiver.md#cls-NotificationReceiver), [NcsException](../../NcsException.md#cls-NcsException)
 
 Factory method to get a NotificationReceiver instance.
  The NotificationReceiver is a singleton i.e. there an only be
@@ -78,7 +78,7 @@ Factory method to get a NotificationReceiver instance.
 
 **Deprecated:** Use `#getNotificationReceiver(SocketAddress)` instead.
 
-<a id="s-getNotificationReceiver-1"></a>
+<a id="m-getnotificationreceiver-3a5397d83b63"></a>
 ### getNotificationReceiver(SocketAddress)
 
 ```java
@@ -88,7 +88,7 @@ public static synchronized com.tailf.ncs.snmp.snmp4j.NotificationReceiver getNot
     throws com.tailf.ncs.NcsException
 ```
 
-Types: [NotificationReceiver](NotificationReceiver.md#s-NotificationReceiver), [NcsException](../../NcsException.md#s-NcsException)
+Types: [NotificationReceiver](NotificationReceiver.md#cls-NotificationReceiver), [NcsException](../../NcsException.md#cls-NcsException)
 
 Factory method to get a NotificationReceiver instance.
  The NotificationReceiver is a singleton i.e. there an only be
@@ -100,7 +100,7 @@ Factory method to get a NotificationReceiver instance.
 
 **Returns:** NotificationReceiver
 
-<a id="s-getNotificationReceiver-2"></a>
+<a id="m-getnotificationreceiver-62efe28b6fa5"></a>
 ### getNotificationReceiver(String, int)
 
 ```java
@@ -111,7 +111,7 @@ public static com.tailf.ncs.snmp.snmp4j.NotificationReceiver getNotificationRece
     throws com.tailf.ncs.NcsException
 ```
 
-Types: [NotificationReceiver](NotificationReceiver.md#s-NotificationReceiver), [NcsException](../../NcsException.md#s-NcsException)
+Types: [NotificationReceiver](NotificationReceiver.md#cls-NotificationReceiver), [NcsException](../../NcsException.md#cls-NcsException)
 
 Factory method to get a NotificationReceiver instance.
  The NotificationReceiver is a singleton i.e. there an only be
@@ -126,14 +126,14 @@ Factory method to get a NotificationReceiver instance.
 
 **Deprecated:** Use `#getNotificationReceiver(SocketAddress)` instead.
 
-<a id="s-getRegisteredNotificationHandlers"></a>
+<a id="m-getregisterednotificationhandlers-603e3e7c392b"></a>
 ### getRegisteredNotificationHandlers()
 
 ```java
 public java.util.ArrayList<com.tailf.ncs.snmp.snmp4j.NotifHandlerInstance> getRegisteredNotificationHandlers()
 ```
 
-Types: [NotifHandlerInstance](NotifHandlerInstance.md#s-NotifHandlerInstance)
+Types: [NotifHandlerInstance](NotifHandlerInstance.md#cls-NotifHandlerInstance)
 
 Get a copy of the registered chain of NotificationHandlerInstances
  An NotificationHandlerInstance is an NotificationHandler together
@@ -141,7 +141,7 @@ Get a copy of the registered chain of NotificationHandlerInstances
 
 **Returns:** ArrayList of NotificationHandlerInstances
 
-<a id="s-isEnabled"></a>
+<a id="m-isenabled-e96410650a37"></a>
 ### isEnabled()
 
 ```java
@@ -153,7 +153,7 @@ Check it the NotificationReceiver is enabled
 
 **Returns:** true if enabled
 
-<a id="s-isStarted"></a>
+<a id="m-isstarted-5c757faf6088"></a>
 ### isStarted()
 
 ```java
@@ -164,7 +164,7 @@ Check it the NotificationReceiver has started
 
 **Returns:** true if started
 
-<a id="s-register"></a>
+<a id="m-register-f6ca408fb1d6"></a>
 ### register(ArrayList<NotifHandlerInstance>)
 
 ```java
@@ -174,7 +174,7 @@ public void register(
     throws com.tailf.ncs.NcsException
 ```
 
-Types: [NotifHandlerInstance](NotifHandlerInstance.md#s-NotifHandlerInstance), [NcsException](../../NcsException.md#s-NcsException)
+Types: [NotifHandlerInstance](NotifHandlerInstance.md#cls-NotifHandlerInstance), [NcsException](../../NcsException.md#cls-NcsException)
 
 This register method takes an ArrayList of NotificationHandlerInstances
  and registers these. Any old registration will be swept away.
@@ -189,7 +189,7 @@ This register method takes an ArrayList of NotificationHandlerInstances
 
 - `NcsException`
 
-<a id="s-register-1"></a>
+<a id="m-register-426f8c48becc"></a>
 ### register(NotificationHandler, Object)
 
 ```java
@@ -200,7 +200,7 @@ public void register(
     throws com.tailf.ncs.NcsException
 ```
 
-Types: [NotificationHandler](NotificationHandler.md#s-NotificationHandler), [NcsException](../../NcsException.md#s-NcsException)
+Types: [NotificationHandler](NotificationHandler.md#cls-NotificationHandler), [NcsException](../../NcsException.md#cls-NcsException)
 
 This method is used to register handler callback classes to the
  notification receiver.
@@ -219,7 +219,7 @@ This method is used to register handler callback classes to the
 - `com.tailf.ncs.snmp.snmp4j.NotificationHandler responder` - - handler class to process notifications
 - `Object opaque` - - object to pass to the handler at execution
 
-<a id="s-start"></a>
+<a id="m-start-79e12dafe9f8"></a>
 ### start()
 
 ```java
@@ -232,7 +232,7 @@ This method is called to start subscription on notifications
 
 - `IOException`
 
-<a id="s-stop"></a>
+<a id="m-stop-a62ecc446f97"></a>
 ### stop()
 
 ```java

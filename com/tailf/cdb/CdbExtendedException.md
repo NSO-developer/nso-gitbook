@@ -1,4 +1,4 @@
-<a id="s-CdbExtendedException"></a>
+<a id="cls-CdbExtendedException"></a>
 # CdbExtendedException
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.cdb.CdbExtendedException
     extends com.tailf.cdb.CdbException
 ```
 
-Types: [CdbException](CdbException.md#s-CdbException)
+Types: [CdbException](CdbException.md#cls-CdbException)
 
 This exception is used by clients of CdbSubscription that needs to report
  errors. As such it can is required to hold an extendedErrorCode and an
@@ -22,38 +22,38 @@ This exception is used by clients of CdbSubscription that needs to report
 
 **Constructors**:
 
-- [CdbExtendedException(int, ConfNamespace, String, ConfException)](#s-CdbExtendedException-1)
-- [CdbExtendedException(int, ConfNamespace, String, String)](#s-CdbExtendedException-2)
-- [CdbExtendedException(int, String)](#s-CdbExtendedException-3)
+- [CdbExtendedException(int, ConfNamespace, String, ConfException)](#m-cdbextendedexception-d4627df609d2)
+- [CdbExtendedException(int, ConfNamespace, String, String)](#m-cdbextendedexception-dcf45499af32)
+- [CdbExtendedException(int, String)](#m-cdbextendedexception-03279c6b0750)
 
 **Fields**:
 
-- [ERRCODE_ACCESS_DENIED](#s-ERRCODE_ACCESS_DENIED)
-- [ERRCODE_APPLICATION](#s-ERRCODE_APPLICATION)
-- [ERRCODE_APPLICATION_INTERNAL](#s-ERRCODE_APPLICATION_INTERNAL)
-- [ERRCODE_DATA_MISSING](#s-ERRCODE_DATA_MISSING)
-- [ERRCODE_IN_USE](#s-ERRCODE_IN_USE)
-- [ERRCODE_INCONSISTENT_VALUE](#s-ERRCODE_INCONSISTENT_VALUE)
-- [ERRCODE_INTERNAL](#s-ERRCODE_INTERNAL)
-- [ERRCODE_INTERRUPT](#s-ERRCODE_INTERRUPT)
-- [ERRCODE_PROTO_USAGE](#s-ERRCODE_PROTO_USAGE)
-- [ERRCODE_RESOURCE_DENIED](#s-ERRCODE_RESOURCE_DENIED)
-- [extendedErrorCode](#s-extendedErrorCode)
+- [ERRCODE_ACCESS_DENIED](#m-ERRCODE_ACCESS_DENIED)
+- [ERRCODE_APPLICATION](#m-ERRCODE_APPLICATION)
+- [ERRCODE_APPLICATION_INTERNAL](#m-ERRCODE_APPLICATION_INTERNAL)
+- [ERRCODE_DATA_MISSING](#m-ERRCODE_DATA_MISSING)
+- [ERRCODE_IN_USE](#m-ERRCODE_IN_USE)
+- [ERRCODE_INCONSISTENT_VALUE](#m-ERRCODE_INCONSISTENT_VALUE)
+- [ERRCODE_INTERNAL](#m-ERRCODE_INTERNAL)
+- [ERRCODE_INTERRUPT](#m-ERRCODE_INTERRUPT)
+- [ERRCODE_PROTO_USAGE](#m-ERRCODE_PROTO_USAGE)
+- [ERRCODE_RESOURCE_DENIED](#m-ERRCODE_RESOURCE_DENIED)
+- [extendedErrorCode](#m-extendedErrorCode)
 
 **Methods**:
 
-- [getAppNS()](#s-getAppNS)
-- [getAppTag()](#s-getAppTag)
-- [getErrorCode()](../conf/ConfException.md#s-getErrorCode) from ConfException
-- [getExtendedErrorCodeString()](#s-getExtendedErrorCodeString)
-- [getOpaque()](../conf/ConfException.md#s-getOpaque) from ConfException
-- [mk(ConfResponse)](CdbException.md#s-mk) from CdbException
-- [mk(ConfResponse, ConfPath)](CdbException.md#s-mk-1) from CdbException
-- [mk(int, ConfNamespace, String, ConfResponse)](#s-mk)
+- [getAppNS()](#m-getappns-7c6fc85ea70b)
+- [getAppTag()](#m-getapptag-9f85f05c1736)
+- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
+- [getExtendedErrorCodeString()](#m-getextendederrorcodestring-522ef11dd66a)
+- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [mk(ConfResponse)](CdbException.md#m-mk-de1cedfc6ea8) from CdbException
+- [mk(ConfResponse, ConfPath)](CdbException.md#m-mk-79e69ffbc022) from CdbException
+- [mk(int, ConfNamespace, String, ConfResponse)](#m-mk-45b8f9041391)
 
 ## Constructors
 
-<a id="s-CdbExtendedException-1"></a>
+<a id="m-cdbextendedexception-d4627df609d2"></a>
 ### CdbExtendedException(int, ConfNamespace, String, ConfException)
 
 ```java
@@ -65,7 +65,7 @@ public CdbExtendedException(
 )
 ```
 
-Types: [ConfNamespace](../conf/ConfNamespace.md#s-ConfNamespace), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfNamespace](../conf/ConfNamespace.md#cls-ConfNamespace), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -81,7 +81,7 @@ Types: [ConfNamespace](../conf/ConfNamespace.md#s-ConfNamespace), [ConfException
 - `String appTag` - - not implemented, should be null
 - `com.tailf.conf.ConfException ex` - - cause exception
 
-<a id="s-CdbExtendedException-2"></a>
+<a id="m-cdbextendedexception-dcf45499af32"></a>
 ### CdbExtendedException(int, ConfNamespace, String, String)
 
 ```java
@@ -93,7 +93,7 @@ public CdbExtendedException(
 )
 ```
 
-Types: [ConfNamespace](../conf/ConfNamespace.md#s-ConfNamespace)
+Types: [ConfNamespace](../conf/ConfNamespace.md#cls-ConfNamespace)
 
 **Parameters**
 
@@ -109,7 +109,7 @@ Types: [ConfNamespace](../conf/ConfNamespace.md#s-ConfNamespace)
 - `String appTag` - - not implemented, should be null
 - `String msg` - - informative text describing this exception
 
-<a id="s-CdbExtendedException-3"></a>
+<a id="m-cdbextendedexception-03279c6b0750"></a>
 ### CdbExtendedException(int, String)
 
 ```java
@@ -131,77 +131,77 @@ public CdbExtendedException(int extendedErrorCode, String msg)
 
 ## Fields
 
-<a id="s-ERRCODE_ACCESS_DENIED"></a>
+<a id="m-ERRCODE_ACCESS_DENIED"></a>
 ### ERRCODE_ACCESS_DENIED
 
 ```java
 public static final int ERRCODE_ACCESS_DENIED = 3;
 ```
 
-<a id="s-ERRCODE_APPLICATION"></a>
+<a id="m-ERRCODE_APPLICATION"></a>
 ### ERRCODE_APPLICATION
 
 ```java
 public static final int ERRCODE_APPLICATION = 4;
 ```
 
-<a id="s-ERRCODE_APPLICATION_INTERNAL"></a>
+<a id="m-ERRCODE_APPLICATION_INTERNAL"></a>
 ### ERRCODE_APPLICATION_INTERNAL
 
 ```java
 public static final int ERRCODE_APPLICATION_INTERNAL = 5;
 ```
 
-<a id="s-ERRCODE_DATA_MISSING"></a>
+<a id="m-ERRCODE_DATA_MISSING"></a>
 ### ERRCODE_DATA_MISSING
 
 ```java
 public static final int ERRCODE_DATA_MISSING = 8;
 ```
 
-<a id="s-ERRCODE_IN_USE"></a>
+<a id="m-ERRCODE_IN_USE"></a>
 ### ERRCODE_IN_USE
 
 ```java
 public static final int ERRCODE_IN_USE = 0;
 ```
 
-<a id="s-ERRCODE_INCONSISTENT_VALUE"></a>
+<a id="m-ERRCODE_INCONSISTENT_VALUE"></a>
 ### ERRCODE_INCONSISTENT_VALUE
 
 ```java
 public static final int ERRCODE_INCONSISTENT_VALUE = 2;
 ```
 
-<a id="s-ERRCODE_INTERNAL"></a>
+<a id="m-ERRCODE_INTERNAL"></a>
 ### ERRCODE_INTERNAL
 
 ```java
 protected static final int ERRCODE_INTERNAL = 7;
 ```
 
-<a id="s-ERRCODE_INTERRUPT"></a>
+<a id="m-ERRCODE_INTERRUPT"></a>
 ### ERRCODE_INTERRUPT
 
 ```java
 public static final int ERRCODE_INTERRUPT = 9;
 ```
 
-<a id="s-ERRCODE_PROTO_USAGE"></a>
+<a id="m-ERRCODE_PROTO_USAGE"></a>
 ### ERRCODE_PROTO_USAGE
 
 ```java
 protected static final int ERRCODE_PROTO_USAGE = 6;
 ```
 
-<a id="s-ERRCODE_RESOURCE_DENIED"></a>
+<a id="m-ERRCODE_RESOURCE_DENIED"></a>
 ### ERRCODE_RESOURCE_DENIED
 
 ```java
 public static final int ERRCODE_RESOURCE_DENIED = 1;
 ```
 
-<a id="s-extendedErrorCode"></a>
+<a id="m-extendedErrorCode"></a>
 ### extendedErrorCode
 
 ```java
@@ -211,18 +211,18 @@ public int extendedErrorCode = null;
 
 ## Methods
 
-<a id="s-getAppNS"></a>
+<a id="m-getappns-7c6fc85ea70b"></a>
 ### getAppNS()
 
 ```java
 public com.tailf.conf.ConfNamespace getAppNS()
 ```
 
-Types: [ConfNamespace](../conf/ConfNamespace.md#s-ConfNamespace)
+Types: [ConfNamespace](../conf/ConfNamespace.md#cls-ConfNamespace)
 
 **Returns:** ConfNamespace for this extended exception
 
-<a id="s-getAppTag"></a>
+<a id="m-getapptag-9f85f05c1736"></a>
 ### getAppTag()
 
 ```java
@@ -231,7 +231,7 @@ public String getAppTag()
 
 **Returns:** appTag for the extended exception
 
-<a id="s-getExtendedErrorCodeString"></a>
+<a id="m-getextendederrorcodestring-522ef11dd66a"></a>
 ### getExtendedErrorCodeString()
 
 ```java
@@ -243,7 +243,7 @@ Get string representation of this exception error code.
 **Returns:** String representation of the errorcode for this extended
          exception
 
-<a id="s-mk"></a>
+<a id="m-mk-45b8f9041391"></a>
 ### mk(int, ConfNamespace, String, ConfResponse)
 
 ```java
@@ -255,7 +255,7 @@ public static com.tailf.conf.ConfException mk(
 )
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException), [ConfNamespace](../conf/ConfNamespace.md#s-ConfNamespace), [ConfResponse](../conf/ConfResponse.md#s-ConfResponse)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException), [ConfNamespace](../conf/ConfNamespace.md#cls-ConfNamespace), [ConfResponse](../conf/ConfResponse.md#cls-ConfResponse)
 
 **Parameters**
 

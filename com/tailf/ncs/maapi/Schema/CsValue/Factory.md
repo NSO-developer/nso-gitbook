@@ -1,4 +1,4 @@
-<a id="s-Factory"></a>
+<a id="cls-Factory"></a>
 # Factory
 
 ```java
@@ -6,211 +6,211 @@ public static final class com.tailf.ncs.maapi.Schema.CsValue.Factory
     extends org.capnproto.StructFactory<com.tailf.ncs.maapi.Schema.CsValue.Builder,com.tailf.ncs.maapi.Schema.CsValue.Reader>
 ```
 
-Types: [Builder](Builder.md#s-Builder), [Reader](Reader.md#s-Reader)
+Types: [Builder](Builder.md#cls-Builder), [Reader](Reader.md#cls-Reader)
 
 ## Members
 
 **Constructors**:
 
-- [Factory()](#s-Factory-1)
+- [Factory()](#m-factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#s-asReader) from Builder
-- [asReader(Builder)](#s-asReader)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#s-constructBuilder)
-- [constructReader(SegmentReader, int, int, int, short, int)](#s-constructReader)
-- [getBinary()](Builder.md#s-getBinary) from Builder
-- [getBit32()](Builder.md#s-getBit32) from Builder
-- [getBit64()](Builder.md#s-getBit64) from Builder
-- [getBitbig()](Builder.md#s-getBitbig) from Builder
-- [getBool()](Builder.md#s-getBool) from Builder
-- [getBuf()](Builder.md#s-getBuf) from Builder
-- [getCdbBegin()](Builder.md#s-getCdbBegin) from Builder
-- [getDate()](Builder.md#s-getDate) from Builder
-- [getDatetime()](Builder.md#s-getDatetime) from Builder
-- [getDecimal64()](Builder.md#s-getDecimal64) from Builder
-- [getDefault()](Builder.md#s-getDefault) from Builder
-- [getDouble()](Builder.md#s-getDouble) from Builder
-- [getDquad()](Builder.md#s-getDquad) from Builder
-- [getDuration()](Builder.md#s-getDuration) from Builder
-- [getEmpty()](Builder.md#s-getEmpty) from Builder
-- [getEnumValue()](Builder.md#s-getEnumValue) from Builder
-- [getHexstr()](Builder.md#s-getHexstr) from Builder
-- [getIdentityref()](Builder.md#s-getIdentityref) from Builder
-- [getInt16()](Builder.md#s-getInt16) from Builder
-- [getInt32()](Builder.md#s-getInt32) from Builder
-- [getInt64()](Builder.md#s-getInt64) from Builder
-- [getInt8()](Builder.md#s-getInt8) from Builder
-- [getIpv4()](Builder.md#s-getIpv4) from Builder
-- [getIpv4AndPlen()](Builder.md#s-getIpv4AndPlen) from Builder
-- [getIpv4prefix()](Builder.md#s-getIpv4prefix) from Builder
-- [getIpv6()](Builder.md#s-getIpv6) from Builder
-- [getIpv6AndPlen()](Builder.md#s-getIpv6AndPlen) from Builder
-- [getIpv6prefix()](Builder.md#s-getIpv6prefix) from Builder
-- [getList()](Builder.md#s-getList) from Builder
-- [getNoexists()](Builder.md#s-getNoexists) from Builder
-- [getObjectref()](Builder.md#s-getObjectref) from Builder
-- [getOid()](Builder.md#s-getOid) from Builder
-- [getPtr()](Builder.md#s-getPtr) from Builder
-- [getQname()](Builder.md#s-getQname) from Builder
-- [getShallowType()](Builder.md#s-getShallowType) from Builder
-- [getStr()](Builder.md#s-getStr) from Builder
-- [getSymbol()](Builder.md#s-getSymbol) from Builder
-- [getTime()](Builder.md#s-getTime) from Builder
-- [getUint16()](Builder.md#s-getUint16) from Builder
-- [getUint32()](Builder.md#s-getUint32) from Builder
-- [getUint64()](Builder.md#s-getUint64) from Builder
-- [getUint8()](Builder.md#s-getUint8) from Builder
-- [getUnion()](Builder.md#s-getUnion) from Builder
-- [getUnknown()](Builder.md#s-getUnknown) from Builder
-- [getXmlbegin()](Builder.md#s-getXmlbegin) from Builder
-- [getXmlbegindel()](Builder.md#s-getXmlbegindel) from Builder
-- [getXmlend()](Builder.md#s-getXmlend) from Builder
-- [getXmlMoveEnd()](Builder.md#s-getXmlMoveEnd) from Builder
-- [getXmlMoveFirst()](Builder.md#s-getXmlMoveFirst) from Builder
-- [getXmltag()](Builder.md#s-getXmltag) from Builder
-- [hasBinary()](Builder.md#s-hasBinary) from Builder
-- [hasBuf()](Builder.md#s-hasBuf) from Builder
-- [hasHexstr()](Builder.md#s-hasHexstr) from Builder
-- [hasList()](Builder.md#s-hasList) from Builder
-- [hasObjectref()](Builder.md#s-hasObjectref) from Builder
-- [hasOid()](Builder.md#s-hasOid) from Builder
-- [hasStr()](Builder.md#s-hasStr) from Builder
-- [initBinary(int)](Builder.md#s-initBinary) from Builder
-- [initBitbig()](Builder.md#s-initBitbig) from Builder
-- [initBuf(int)](Builder.md#s-initBuf) from Builder
-- [initDate()](Builder.md#s-initDate) from Builder
-- [initDatetime()](Builder.md#s-initDatetime) from Builder
-- [initDecimal64()](Builder.md#s-initDecimal64) from Builder
-- [initDquad()](Builder.md#s-initDquad) from Builder
-- [initDuration()](Builder.md#s-initDuration) from Builder
-- [initHexstr(int)](Builder.md#s-initHexstr) from Builder
-- [initIdentityref()](Builder.md#s-initIdentityref) from Builder
-- [initIpv4()](Builder.md#s-initIpv4) from Builder
-- [initIpv4AndPlen()](Builder.md#s-initIpv4AndPlen) from Builder
-- [initIpv4prefix()](Builder.md#s-initIpv4prefix) from Builder
-- [initIpv6()](Builder.md#s-initIpv6) from Builder
-- [initIpv6AndPlen()](Builder.md#s-initIpv6AndPlen) from Builder
-- [initIpv6prefix()](Builder.md#s-initIpv6prefix) from Builder
-- [initList(int)](Builder.md#s-initList) from Builder
-- [initObjectref(int)](Builder.md#s-initObjectref) from Builder
-- [initOid(int)](Builder.md#s-initOid) from Builder
-- [initQname()](Builder.md#s-initQname) from Builder
-- [initStr(int)](Builder.md#s-initStr) from Builder
-- [initSymbol()](Builder.md#s-initSymbol) from Builder
-- [initTime()](Builder.md#s-initTime) from Builder
-- [initUnion()](Builder.md#s-initUnion) from Builder
-- [initXmltag()](Builder.md#s-initXmltag) from Builder
-- [isBinary()](Builder.md#s-isBinary) from Builder
-- [isBit32()](Builder.md#s-isBit32) from Builder
-- [isBit64()](Builder.md#s-isBit64) from Builder
-- [isBitbig()](Builder.md#s-isBitbig) from Builder
-- [isBool()](Builder.md#s-isBool) from Builder
-- [isBuf()](Builder.md#s-isBuf) from Builder
-- [isCdbBegin()](Builder.md#s-isCdbBegin) from Builder
-- [isDate()](Builder.md#s-isDate) from Builder
-- [isDatetime()](Builder.md#s-isDatetime) from Builder
-- [isDecimal64()](Builder.md#s-isDecimal64) from Builder
-- [isDefault()](Builder.md#s-isDefault) from Builder
-- [isDouble()](Builder.md#s-isDouble) from Builder
-- [isDquad()](Builder.md#s-isDquad) from Builder
-- [isDuration()](Builder.md#s-isDuration) from Builder
-- [isEmpty()](Builder.md#s-isEmpty) from Builder
-- [isEnumValue()](Builder.md#s-isEnumValue) from Builder
-- [isHexstr()](Builder.md#s-isHexstr) from Builder
-- [isIdentityref()](Builder.md#s-isIdentityref) from Builder
-- [isInt16()](Builder.md#s-isInt16) from Builder
-- [isInt32()](Builder.md#s-isInt32) from Builder
-- [isInt64()](Builder.md#s-isInt64) from Builder
-- [isInt8()](Builder.md#s-isInt8) from Builder
-- [isIpv4()](Builder.md#s-isIpv4) from Builder
-- [isIpv4AndPlen()](Builder.md#s-isIpv4AndPlen) from Builder
-- [isIpv4prefix()](Builder.md#s-isIpv4prefix) from Builder
-- [isIpv6()](Builder.md#s-isIpv6) from Builder
-- [isIpv6AndPlen()](Builder.md#s-isIpv6AndPlen) from Builder
-- [isIpv6prefix()](Builder.md#s-isIpv6prefix) from Builder
-- [isList()](Builder.md#s-isList) from Builder
-- [isNoexists()](Builder.md#s-isNoexists) from Builder
-- [isObjectref()](Builder.md#s-isObjectref) from Builder
-- [isOid()](Builder.md#s-isOid) from Builder
-- [isPtr()](Builder.md#s-isPtr) from Builder
-- [isQname()](Builder.md#s-isQname) from Builder
-- [isStr()](Builder.md#s-isStr) from Builder
-- [isSymbol()](Builder.md#s-isSymbol) from Builder
-- [isTime()](Builder.md#s-isTime) from Builder
-- [isUint16()](Builder.md#s-isUint16) from Builder
-- [isUint32()](Builder.md#s-isUint32) from Builder
-- [isUint64()](Builder.md#s-isUint64) from Builder
-- [isUint8()](Builder.md#s-isUint8) from Builder
-- [isUnion()](Builder.md#s-isUnion) from Builder
-- [isUnknown()](Builder.md#s-isUnknown) from Builder
-- [isXmlbegin()](Builder.md#s-isXmlbegin) from Builder
-- [isXmlbegindel()](Builder.md#s-isXmlbegindel) from Builder
-- [isXmlend()](Builder.md#s-isXmlend) from Builder
-- [isXmlMoveEnd()](Builder.md#s-isXmlMoveEnd) from Builder
-- [isXmlMoveFirst()](Builder.md#s-isXmlMoveFirst) from Builder
-- [isXmltag()](Builder.md#s-isXmltag) from Builder
-- [setBinary(byte[])](Builder.md#s-setBinary) from Builder
-- [setBinary(Reader)](Builder.md#s-setBinary-1) from Builder
-- [setBit32(int)](Builder.md#s-setBit32) from Builder
-- [setBit64(long)](Builder.md#s-setBit64) from Builder
-- [setBitbig(Reader)](Builder.md#s-setBitbig) from Builder
-- [setBool(boolean)](Builder.md#s-setBool) from Builder
-- [setBuf(byte[])](Builder.md#s-setBuf) from Builder
-- [setBuf(Reader)](Builder.md#s-setBuf-1) from Builder
-- [setCdbBegin(Void)](Builder.md#s-setCdbBegin) from Builder
-- [setDate(Reader)](Builder.md#s-setDate) from Builder
-- [setDatetime(Reader)](Builder.md#s-setDatetime) from Builder
-- [setDecimal64(Reader)](Builder.md#s-setDecimal64) from Builder
-- [setDefault(Void)](Builder.md#s-setDefault) from Builder
-- [setDouble(double)](Builder.md#s-setDouble) from Builder
-- [setDquad(Reader)](Builder.md#s-setDquad) from Builder
-- [setDuration(Reader)](Builder.md#s-setDuration) from Builder
-- [setEmpty(Void)](Builder.md#s-setEmpty) from Builder
-- [setEnumValue(int)](Builder.md#s-setEnumValue) from Builder
-- [setHexstr(byte[])](Builder.md#s-setHexstr) from Builder
-- [setHexstr(Reader)](Builder.md#s-setHexstr-1) from Builder
-- [setIdentityref(Reader)](Builder.md#s-setIdentityref) from Builder
-- [setInt16(short)](Builder.md#s-setInt16) from Builder
-- [setInt32(int)](Builder.md#s-setInt32) from Builder
-- [setInt64(long)](Builder.md#s-setInt64) from Builder
-- [setInt8(byte)](Builder.md#s-setInt8) from Builder
-- [setIpv4(Reader)](Builder.md#s-setIpv4) from Builder
-- [setIpv4AndPlen(Reader)](Builder.md#s-setIpv4AndPlen) from Builder
-- [setIpv4prefix(Reader)](Builder.md#s-setIpv4prefix) from Builder
-- [setIpv6(Reader)](Builder.md#s-setIpv6) from Builder
-- [setIpv6AndPlen(Reader)](Builder.md#s-setIpv6AndPlen) from Builder
-- [setIpv6prefix(Reader)](Builder.md#s-setIpv6prefix) from Builder
-- [setList(Reader<Reader>)](Builder.md#s-setList) from Builder
-- [setNoexists(Void)](Builder.md#s-setNoexists) from Builder
-- [setObjectref(Reader<Reader>)](Builder.md#s-setObjectref) from Builder
-- [setOid(Reader)](Builder.md#s-setOid) from Builder
-- [setPtr(Void)](Builder.md#s-setPtr) from Builder
-- [setQname(Reader)](Builder.md#s-setQname) from Builder
-- [setShallowType(ShallowType)](Builder.md#s-setShallowType) from Builder
-- [setStr(Reader)](Builder.md#s-setStr) from Builder
-- [setStr(String)](Builder.md#s-setStr-1) from Builder
-- [setSymbol(Reader)](Builder.md#s-setSymbol) from Builder
-- [setTime(Reader)](Builder.md#s-setTime) from Builder
-- [setUint16(short)](Builder.md#s-setUint16) from Builder
-- [setUint32(int)](Builder.md#s-setUint32) from Builder
-- [setUint64(long)](Builder.md#s-setUint64) from Builder
-- [setUint8(byte)](Builder.md#s-setUint8) from Builder
-- [setUnion(Reader)](Builder.md#s-setUnion) from Builder
-- [setUnknown(Void)](Builder.md#s-setUnknown) from Builder
-- [setXmlbegin(Void)](Builder.md#s-setXmlbegin) from Builder
-- [setXmlbegindel(Void)](Builder.md#s-setXmlbegindel) from Builder
-- [setXmlend(Void)](Builder.md#s-setXmlend) from Builder
-- [setXmlMoveEnd(Void)](Builder.md#s-setXmlMoveEnd) from Builder
-- [setXmlMoveFirst(Void)](Builder.md#s-setXmlMoveFirst) from Builder
-- [setXmltag(Reader)](Builder.md#s-setXmltag) from Builder
-- [structSize()](#s-structSize)
-- [which()](Builder.md#s-which) from Builder
+- [asReader()](Builder.md#m-asreader-b5c0f2a8d115) from Builder
+- [asReader(Builder)](#m-asreader-053f932dbd84)
+- [constructBuilder(SegmentBuilder, int, int, int, short)](#m-constructbuilder-5a2abf3209f9)
+- [constructReader(SegmentReader, int, int, int, short, int)](#m-constructreader-fbce6f4f912a)
+- [getBinary()](Builder.md#m-getbinary-f332a896a1bb) from Builder
+- [getBit32()](Builder.md#m-getbit32-27693f0a3df1) from Builder
+- [getBit64()](Builder.md#m-getbit64-51ba19e6036e) from Builder
+- [getBitbig()](Builder.md#m-getbitbig-ce729847bcfd) from Builder
+- [getBool()](Builder.md#m-getbool-bfc6de52d8c0) from Builder
+- [getBuf()](Builder.md#m-getbuf-3beb55b0999e) from Builder
+- [getCdbBegin()](Builder.md#m-getcdbbegin-de343abd3d60) from Builder
+- [getDate()](Builder.md#m-getdate-835e7d70e8d1) from Builder
+- [getDatetime()](Builder.md#m-getdatetime-388189505619) from Builder
+- [getDecimal64()](Builder.md#m-getdecimal64-193bb466ba33) from Builder
+- [getDefault()](Builder.md#m-getdefault-3b99fa7321e2) from Builder
+- [getDouble()](Builder.md#m-getdouble-2f3cdb03174e) from Builder
+- [getDquad()](Builder.md#m-getdquad-4a29a8e328e2) from Builder
+- [getDuration()](Builder.md#m-getduration-aee615ea7fe2) from Builder
+- [getEmpty()](Builder.md#m-getempty-500b00e51161) from Builder
+- [getEnumValue()](Builder.md#m-getenumvalue-5222f58810c9) from Builder
+- [getHexstr()](Builder.md#m-gethexstr-7bdee4ec31cf) from Builder
+- [getIdentityref()](Builder.md#m-getidentityref-da99f3e4419f) from Builder
+- [getInt16()](Builder.md#m-getint16-5744ecc89efb) from Builder
+- [getInt32()](Builder.md#m-getint32-81084bf6c564) from Builder
+- [getInt64()](Builder.md#m-getint64-12855180ebd0) from Builder
+- [getInt8()](Builder.md#m-getint8-f88ea0bcdca8) from Builder
+- [getIpv4()](Builder.md#m-getipv4-9ce1b70400a4) from Builder
+- [getIpv4AndPlen()](Builder.md#m-getipv4andplen-6283b58ee146) from Builder
+- [getIpv4prefix()](Builder.md#m-getipv4prefix-01000113e705) from Builder
+- [getIpv6()](Builder.md#m-getipv6-075bb9cd9153) from Builder
+- [getIpv6AndPlen()](Builder.md#m-getipv6andplen-de70a17471a3) from Builder
+- [getIpv6prefix()](Builder.md#m-getipv6prefix-474193492c1a) from Builder
+- [getList()](Builder.md#m-getlist-bb3f8cbe83be) from Builder
+- [getNoexists()](Builder.md#m-getnoexists-f692a7fc16f3) from Builder
+- [getObjectref()](Builder.md#m-getobjectref-eb216e093ad4) from Builder
+- [getOid()](Builder.md#m-getoid-2faa98066d96) from Builder
+- [getPtr()](Builder.md#m-getptr-9b1702eaedfe) from Builder
+- [getQname()](Builder.md#m-getqname-022156d42738) from Builder
+- [getShallowType()](Builder.md#m-getshallowtype-2e2b5f294983) from Builder
+- [getStr()](Builder.md#m-getstr-52d1ecf4d92e) from Builder
+- [getSymbol()](Builder.md#m-getsymbol-702f4641963e) from Builder
+- [getTime()](Builder.md#m-gettime-1429b351f3a0) from Builder
+- [getUint16()](Builder.md#m-getuint16-2c1ad5a64222) from Builder
+- [getUint32()](Builder.md#m-getuint32-fa11eb2e5b91) from Builder
+- [getUint64()](Builder.md#m-getuint64-f84c3cc8734c) from Builder
+- [getUint8()](Builder.md#m-getuint8-35a48ed7f6a6) from Builder
+- [getUnion()](Builder.md#m-getunion-09a450ad6ddb) from Builder
+- [getUnknown()](Builder.md#m-getunknown-70adb8ae54c3) from Builder
+- [getXmlbegin()](Builder.md#m-getxmlbegin-d03e242d4096) from Builder
+- [getXmlbegindel()](Builder.md#m-getxmlbegindel-920a8ac89e37) from Builder
+- [getXmlend()](Builder.md#m-getxmlend-ae3cef179327) from Builder
+- [getXmlMoveEnd()](Builder.md#m-getxmlmoveend-9e767f8514b2) from Builder
+- [getXmlMoveFirst()](Builder.md#m-getxmlmovefirst-580a69a9f9d8) from Builder
+- [getXmltag()](Builder.md#m-getxmltag-15a59d5d02ef) from Builder
+- [hasBinary()](Builder.md#m-hasbinary-ca7a9e4bd9ff) from Builder
+- [hasBuf()](Builder.md#m-hasbuf-89f2325600ad) from Builder
+- [hasHexstr()](Builder.md#m-hashexstr-dcb9d92bfaa7) from Builder
+- [hasList()](Builder.md#m-haslist-3712d7ce73ac) from Builder
+- [hasObjectref()](Builder.md#m-hasobjectref-a79354acdb9f) from Builder
+- [hasOid()](Builder.md#m-hasoid-64b45096c850) from Builder
+- [hasStr()](Builder.md#m-hasstr-4da753ffd6f2) from Builder
+- [initBinary(int)](Builder.md#m-initbinary-da8376321dd1) from Builder
+- [initBitbig()](Builder.md#m-initbitbig-fd6227122084) from Builder
+- [initBuf(int)](Builder.md#m-initbuf-283316a1539d) from Builder
+- [initDate()](Builder.md#m-initdate-0d1ab510efb2) from Builder
+- [initDatetime()](Builder.md#m-initdatetime-e2839d63f272) from Builder
+- [initDecimal64()](Builder.md#m-initdecimal64-beda8ac08084) from Builder
+- [initDquad()](Builder.md#m-initdquad-27bd6cd9a9ed) from Builder
+- [initDuration()](Builder.md#m-initduration-21d0c79353af) from Builder
+- [initHexstr(int)](Builder.md#m-inithexstr-547aec4d26f3) from Builder
+- [initIdentityref()](Builder.md#m-initidentityref-1b5ab2bb6330) from Builder
+- [initIpv4()](Builder.md#m-initipv4-17f92309b472) from Builder
+- [initIpv4AndPlen()](Builder.md#m-initipv4andplen-9c9e2cd3eaa1) from Builder
+- [initIpv4prefix()](Builder.md#m-initipv4prefix-b565b6b79384) from Builder
+- [initIpv6()](Builder.md#m-initipv6-36bf15e539f7) from Builder
+- [initIpv6AndPlen()](Builder.md#m-initipv6andplen-a9fe90c6f7de) from Builder
+- [initIpv6prefix()](Builder.md#m-initipv6prefix-a2792366b617) from Builder
+- [initList(int)](Builder.md#m-initlist-619d59db076f) from Builder
+- [initObjectref(int)](Builder.md#m-initobjectref-935e26a90e6e) from Builder
+- [initOid(int)](Builder.md#m-initoid-715b58cbb921) from Builder
+- [initQname()](Builder.md#m-initqname-748564905228) from Builder
+- [initStr(int)](Builder.md#m-initstr-af52d7d08f9f) from Builder
+- [initSymbol()](Builder.md#m-initsymbol-df0c748a0655) from Builder
+- [initTime()](Builder.md#m-inittime-eeed5ea5f00a) from Builder
+- [initUnion()](Builder.md#m-initunion-8c18e3f27de0) from Builder
+- [initXmltag()](Builder.md#m-initxmltag-bb2742edf9eb) from Builder
+- [isBinary()](Builder.md#m-isbinary-d92620e842a5) from Builder
+- [isBit32()](Builder.md#m-isbit32-ae0f1c3885a6) from Builder
+- [isBit64()](Builder.md#m-isbit64-2ec3459ff82c) from Builder
+- [isBitbig()](Builder.md#m-isbitbig-84cd2f0ebaeb) from Builder
+- [isBool()](Builder.md#m-isbool-e771ae3d3e55) from Builder
+- [isBuf()](Builder.md#m-isbuf-254af72d81f0) from Builder
+- [isCdbBegin()](Builder.md#m-iscdbbegin-aeff9465850d) from Builder
+- [isDate()](Builder.md#m-isdate-c423781b293a) from Builder
+- [isDatetime()](Builder.md#m-isdatetime-4e79c97b2bd5) from Builder
+- [isDecimal64()](Builder.md#m-isdecimal64-fbfc5a5de098) from Builder
+- [isDefault()](Builder.md#m-isdefault-9a6b81cd55f6) from Builder
+- [isDouble()](Builder.md#m-isdouble-47da85f502c9) from Builder
+- [isDquad()](Builder.md#m-isdquad-1986dbac6f44) from Builder
+- [isDuration()](Builder.md#m-isduration-7960407492db) from Builder
+- [isEmpty()](Builder.md#m-isempty-4dde48126244) from Builder
+- [isEnumValue()](Builder.md#m-isenumvalue-b6e22d09884f) from Builder
+- [isHexstr()](Builder.md#m-ishexstr-b866520006d5) from Builder
+- [isIdentityref()](Builder.md#m-isidentityref-975db106a225) from Builder
+- [isInt16()](Builder.md#m-isint16-7462eecb083e) from Builder
+- [isInt32()](Builder.md#m-isint32-3341e7603763) from Builder
+- [isInt64()](Builder.md#m-isint64-c54b20486cbe) from Builder
+- [isInt8()](Builder.md#m-isint8-908482a868e0) from Builder
+- [isIpv4()](Builder.md#m-isipv4-f769f8c600b5) from Builder
+- [isIpv4AndPlen()](Builder.md#m-isipv4andplen-e1536a127f9e) from Builder
+- [isIpv4prefix()](Builder.md#m-isipv4prefix-7b973eaefa1d) from Builder
+- [isIpv6()](Builder.md#m-isipv6-a32651632b39) from Builder
+- [isIpv6AndPlen()](Builder.md#m-isipv6andplen-1963093ce68a) from Builder
+- [isIpv6prefix()](Builder.md#m-isipv6prefix-6dce0b40b9d7) from Builder
+- [isList()](Builder.md#m-islist-c36bce63b506) from Builder
+- [isNoexists()](Builder.md#m-isnoexists-a1ec13d21a56) from Builder
+- [isObjectref()](Builder.md#m-isobjectref-2120317a92dd) from Builder
+- [isOid()](Builder.md#m-isoid-368ae9c713d1) from Builder
+- [isPtr()](Builder.md#m-isptr-276f1553635d) from Builder
+- [isQname()](Builder.md#m-isqname-79c1cbb01029) from Builder
+- [isStr()](Builder.md#m-isstr-81c3840f26d4) from Builder
+- [isSymbol()](Builder.md#m-issymbol-d7206a92c0eb) from Builder
+- [isTime()](Builder.md#m-istime-250a56dbdac5) from Builder
+- [isUint16()](Builder.md#m-isuint16-d8c251a40ead) from Builder
+- [isUint32()](Builder.md#m-isuint32-fd3a00ffba15) from Builder
+- [isUint64()](Builder.md#m-isuint64-ce4ee69a295b) from Builder
+- [isUint8()](Builder.md#m-isuint8-9f400b8116f3) from Builder
+- [isUnion()](Builder.md#m-isunion-6183f968c3e8) from Builder
+- [isUnknown()](Builder.md#m-isunknown-88a5b80751a0) from Builder
+- [isXmlbegin()](Builder.md#m-isxmlbegin-3a07f5fed3da) from Builder
+- [isXmlbegindel()](Builder.md#m-isxmlbegindel-4e1966d82109) from Builder
+- [isXmlend()](Builder.md#m-isxmlend-9111f39d186c) from Builder
+- [isXmlMoveEnd()](Builder.md#m-isxmlmoveend-45ed9b27d7cf) from Builder
+- [isXmlMoveFirst()](Builder.md#m-isxmlmovefirst-7c07b98bd060) from Builder
+- [isXmltag()](Builder.md#m-isxmltag-da0707b0ae43) from Builder
+- [setBinary(byte[])](Builder.md#m-setbinary-b01c99e75889) from Builder
+- [setBinary(Reader)](Builder.md#m-setbinary-8a1cf4ce84a9) from Builder
+- [setBit32(int)](Builder.md#m-setbit32-1316fc224e19) from Builder
+- [setBit64(long)](Builder.md#m-setbit64-a3a27f6ef6d2) from Builder
+- [setBitbig(Reader)](Builder.md#m-setbitbig-a514b9d55ab1) from Builder
+- [setBool(boolean)](Builder.md#m-setbool-88160242dcf7) from Builder
+- [setBuf(byte[])](Builder.md#m-setbuf-881fa0552479) from Builder
+- [setBuf(Reader)](Builder.md#m-setbuf-610948d9381a) from Builder
+- [setCdbBegin(Void)](Builder.md#m-setcdbbegin-902391c8a14e) from Builder
+- [setDate(Reader)](Builder.md#m-setdate-3bcb9c346567) from Builder
+- [setDatetime(Reader)](Builder.md#m-setdatetime-6dc599e86f6a) from Builder
+- [setDecimal64(Reader)](Builder.md#m-setdecimal64-7a6a8717701c) from Builder
+- [setDefault(Void)](Builder.md#m-setdefault-298bc2ea4f4c) from Builder
+- [setDouble(double)](Builder.md#m-setdouble-00357c17ab3e) from Builder
+- [setDquad(Reader)](Builder.md#m-setdquad-0ea8faa4deab) from Builder
+- [setDuration(Reader)](Builder.md#m-setduration-c6226971f7aa) from Builder
+- [setEmpty(Void)](Builder.md#m-setempty-02e106b89f69) from Builder
+- [setEnumValue(int)](Builder.md#m-setenumvalue-b69852580f08) from Builder
+- [setHexstr(byte[])](Builder.md#m-sethexstr-f501765c9de4) from Builder
+- [setHexstr(Reader)](Builder.md#m-sethexstr-d236864650dc) from Builder
+- [setIdentityref(Reader)](Builder.md#m-setidentityref-8c7c2d7f9e09) from Builder
+- [setInt16(short)](Builder.md#m-setint16-50cfe70769f2) from Builder
+- [setInt32(int)](Builder.md#m-setint32-92c50824ef51) from Builder
+- [setInt64(long)](Builder.md#m-setint64-f17f1ec8e04c) from Builder
+- [setInt8(byte)](Builder.md#m-setint8-2ac62944aabe) from Builder
+- [setIpv4(Reader)](Builder.md#m-setipv4-619e62fbc436) from Builder
+- [setIpv4AndPlen(Reader)](Builder.md#m-setipv4andplen-93f3be1ab458) from Builder
+- [setIpv4prefix(Reader)](Builder.md#m-setipv4prefix-91794916e9c8) from Builder
+- [setIpv6(Reader)](Builder.md#m-setipv6-5b31d658aa62) from Builder
+- [setIpv6AndPlen(Reader)](Builder.md#m-setipv6andplen-99b5b9880429) from Builder
+- [setIpv6prefix(Reader)](Builder.md#m-setipv6prefix-691f4193aeb7) from Builder
+- [setList(Reader<Reader>)](Builder.md#m-setlist-6e8e469cc90d) from Builder
+- [setNoexists(Void)](Builder.md#m-setnoexists-168255f46871) from Builder
+- [setObjectref(Reader<Reader>)](Builder.md#m-setobjectref-c835e9918173) from Builder
+- [setOid(Reader)](Builder.md#m-setoid-543cdf0a3811) from Builder
+- [setPtr(Void)](Builder.md#m-setptr-3ef5da141ca3) from Builder
+- [setQname(Reader)](Builder.md#m-setqname-a6726111b988) from Builder
+- [setShallowType(ShallowType)](Builder.md#m-setshallowtype-d21ce22018e7) from Builder
+- [setStr(Reader)](Builder.md#m-setstr-6d57a5d11cf3) from Builder
+- [setStr(String)](Builder.md#m-setstr-21fe97a65221) from Builder
+- [setSymbol(Reader)](Builder.md#m-setsymbol-4da320ce2606) from Builder
+- [setTime(Reader)](Builder.md#m-settime-fc6f93bd991e) from Builder
+- [setUint16(short)](Builder.md#m-setuint16-043282128543) from Builder
+- [setUint32(int)](Builder.md#m-setuint32-0f4bc4823456) from Builder
+- [setUint64(long)](Builder.md#m-setuint64-14de0afc3c33) from Builder
+- [setUint8(byte)](Builder.md#m-setuint8-a2e25ee00758) from Builder
+- [setUnion(Reader)](Builder.md#m-setunion-f269d70e4284) from Builder
+- [setUnknown(Void)](Builder.md#m-setunknown-6d434acf5507) from Builder
+- [setXmlbegin(Void)](Builder.md#m-setxmlbegin-299c46b694bb) from Builder
+- [setXmlbegindel(Void)](Builder.md#m-setxmlbegindel-c87f2fa20081) from Builder
+- [setXmlend(Void)](Builder.md#m-setxmlend-24c58d6147d3) from Builder
+- [setXmlMoveEnd(Void)](Builder.md#m-setxmlmoveend-e11b6c17145f) from Builder
+- [setXmlMoveFirst(Void)](Builder.md#m-setxmlmovefirst-3d1233316007) from Builder
+- [setXmltag(Reader)](Builder.md#m-setxmltag-b5877e9f93d5) from Builder
+- [structSize()](#m-structsize-1fa68dcadd21)
+- [which()](Builder.md#m-which-0b2d23db5ed0) from Builder
 
 ## Constructors
 
-<a id="s-Factory-1"></a>
+<a id="m-factory-0e9f9d7f4e84"></a>
 ### Factory()
 
 ```java
@@ -220,7 +220,7 @@ public Factory()
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-053f932dbd84"></a>
 ### asReader(Builder)
 
 ```java
@@ -229,13 +229,13 @@ public final com.tailf.ncs.maapi.Schema.CsValue.Reader asReader(
 )
 ```
 
-Types: [Reader](Reader.md#s-Reader), [Builder](Builder.md#s-Builder)
+Types: [Reader](Reader.md#cls-Reader), [Builder](Builder.md#cls-Builder)
 
 **Parameters**
 
 - `com.tailf.ncs.maapi.Schema.CsValue.Builder builder`
 
-<a id="s-constructBuilder"></a>
+<a id="m-constructbuilder-5a2abf3209f9"></a>
 ### constructBuilder(SegmentBuilder, int, int, int, short)
 
 ```java
@@ -248,7 +248,7 @@ public final com.tailf.ncs.maapi.Schema.CsValue.Builder constructBuilder(
 )
 ```
 
-Types: [Builder](Builder.md#s-Builder)
+Types: [Builder](Builder.md#cls-Builder)
 
 **Parameters**
 
@@ -258,7 +258,7 @@ Types: [Builder](Builder.md#s-Builder)
 - `int dataSize`
 - `short pointerCount`
 
-<a id="s-constructReader"></a>
+<a id="m-constructreader-fbce6f4f912a"></a>
 ### constructReader(SegmentReader, int, int, int, short, int)
 
 ```java
@@ -272,7 +272,7 @@ public final com.tailf.ncs.maapi.Schema.CsValue.Reader constructReader(
 )
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
 **Parameters**
 
@@ -283,7 +283,7 @@ Types: [Reader](Reader.md#s-Reader)
 - `short pointerCount`
 - `int nestingLimit`
 
-<a id="s-structSize"></a>
+<a id="m-structsize-1fa68dcadd21"></a>
 ### structSize()
 
 ```java

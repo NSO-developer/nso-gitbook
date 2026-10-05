@@ -1,4 +1,4 @@
-<a id="s-ConfEBinary"></a>
+<a id="cls-ConfEBinary"></a>
 # ConfEBinary
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.proto.ConfEBinary
     extends com.tailf.proto.ConfEObject
 ```
 
-Types: [ConfEObject](ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](ConfEObject.md#cls-ConfEObject)
 
 Provides a Java representation of E binaries. Anything that can be
  represented as a sequence of bytes can be made into an E binary.
@@ -15,31 +15,31 @@ Provides a Java representation of E binaries. Anything that can be
 
 **Constructors**:
 
-- [ConfEBinary(byte[])](#s-ConfEBinary-1)
-- [ConfEBinary(ConfInputStream)](#s-ConfEBinary-2)
-- [ConfEBinary(Object)](#s-ConfEBinary-3)
-- [ConfEBinary(String)](#s-ConfEBinary-4)
+- [ConfEBinary(byte[])](#m-confebinary-506aed111f96)
+- [ConfEBinary(ConfInputStream)](#m-confebinary-d94a11feacbc)
+- [ConfEBinary(Object)](#m-confebinary-879efbf3bf5f)
+- [ConfEBinary(String)](#m-confebinary-d6e30703f244)
 
 **Fields**:
 
-- [serialVersionUID](#s-serialVersionUID)
+- [serialVersionUID](#m-serialVersionUID)
 
 **Methods**:
 
-- [binaryValue()](#s-binaryValue)
-- [clone()](#s-clone)
-- [decode(ConfInputStream)](ConfEObject.md#s-decode) from ConfEObject
-- [encode(ConfOutputStream)](#s-encode)
-- [equals(Object)](#s-equals)
-- [getObject()](#s-getObject)
-- [hashCode()](#s-hashCode)
-- [size()](#s-size)
-- [stringValue()](#s-stringValue)
-- [toString()](#s-toString)
+- [binaryValue()](#m-binaryvalue-33c968bac7b6)
+- [clone()](#m-clone-164c86c45e9b)
+- [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
+- [encode(ConfOutputStream)](#m-encode-cb1ad9eb7771)
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [getObject()](#m-getobject-723a0ba5640e)
+- [hashCode()](#m-hashcode-ef797a217903)
+- [size()](#m-size-c6d8505255fd)
+- [stringValue()](#m-stringvalue-a6efca13ec08)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-ConfEBinary-1"></a>
+<a id="m-confebinary-506aed111f96"></a>
 ### ConfEBinary(byte[])
 
 ```java
@@ -52,14 +52,14 @@ Create a binary from a byte array
 
 - `byte[] bin` - the array of bytes from which to create the binary.
 
-<a id="s-ConfEBinary-2"></a>
+<a id="m-confebinary-d94a11feacbc"></a>
 ### ConfEBinary(ConfInputStream)
 
 ```java
 public ConfEBinary(com.tailf.proto.ConfInputStream buf) throws com.tailf.proto.ConfEDecodeException
 ```
 
-Types: [ConfInputStream](ConfInputStream.md#s-ConfInputStream), [ConfEDecodeException](ConfEDecodeException.md#s-ConfEDecodeException)
+Types: [ConfInputStream](ConfInputStream.md#cls-ConfInputStream), [ConfEDecodeException](ConfEDecodeException.md#cls-ConfEDecodeException)
 
 Create a binary from a stream containing a binary encoded in E external
  format.
@@ -73,7 +73,7 @@ Create a binary from a stream containing a binary encoded in E external
 - `ConfEDecodeException` - if the buffer does not contain a valid external
                 representation of an E binary.
 
-<a id="s-ConfEBinary-3"></a>
+<a id="m-confebinary-879efbf3bf5f"></a>
 ### ConfEBinary(Object)
 
 ```java
@@ -87,7 +87,7 @@ Create a binary from an arbitrary Java Object. The object must implement
 
 - `Object o` - the object to serialize and create this binary from.
 
-<a id="s-ConfEBinary-4"></a>
+<a id="m-confebinary-d6e30703f244"></a>
 ### ConfEBinary(String)
 
 ```java
@@ -101,7 +101,7 @@ public ConfEBinary(String s)
 
 ## Fields
 
-<a id="s-serialVersionUID"></a>
+<a id="m-serialVersionUID"></a>
 ### serialVersionUID
 
 **Package-private**
@@ -113,7 +113,7 @@ static final long serialVersionUID = -3781009633593609217;
 
 ## Methods
 
-<a id="s-binaryValue"></a>
+<a id="m-binaryvalue-33c968bac7b6"></a>
 ### binaryValue()
 
 ```java
@@ -124,21 +124,21 @@ Get the byte array from a binary.
 
 **Returns:** the byte array containing the bytes for this binary.
 
-<a id="s-clone"></a>
+<a id="m-clone-164c86c45e9b"></a>
 ### clone()
 
 ```java
 public Object clone()
 ```
 
-<a id="s-encode"></a>
+<a id="m-encode-cb1ad9eb7771"></a>
 ### encode(ConfOutputStream)
 
 ```java
 public void encode(com.tailf.proto.ConfOutputStream buf)
 ```
 
-Types: [ConfOutputStream](ConfOutputStream.md#s-ConfOutputStream)
+Types: [ConfOutputStream](ConfOutputStream.md#cls-ConfOutputStream)
 
 Convert this binary to the equivalent E external representation.
 
@@ -147,7 +147,7 @@ Convert this binary to the equivalent E external representation.
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded binary should be
             written.
 
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
@@ -163,7 +163,7 @@ Determine if two binaries are equal. Binaries are equal if they have the
 
 **Returns:** true if the byte arrays contain the same bytes, false otherwise.
 
-<a id="s-getObject"></a>
+<a id="m-getobject-723a0ba5640e"></a>
 ### getObject()
 
 ```java
@@ -176,14 +176,14 @@ Get the java Object from the binary. If the binary contains a serialized
 **Returns:** the java Object represented by this binary, or null if the binary
          does not represent a Java Object.
 
-<a id="s-hashCode"></a>
+<a id="m-hashcode-ef797a217903"></a>
 ### hashCode()
 
 ```java
 public int hashCode()
 ```
 
-<a id="s-size"></a>
+<a id="m-size-c6d8505255fd"></a>
 ### size()
 
 ```java
@@ -194,7 +194,7 @@ Get the size of the binary.
 
 **Returns:** the number of bytes contained in the binary.
 
-<a id="s-stringValue"></a>
+<a id="m-stringvalue-a6efca13ec08"></a>
 ### stringValue()
 
 ```java
@@ -205,7 +205,7 @@ Get the string representation of binary
 
 **Returns:** a string object containing the bytes for this binary.
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

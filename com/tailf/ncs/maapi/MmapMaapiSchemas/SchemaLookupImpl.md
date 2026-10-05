@@ -1,4 +1,4 @@
-<a id="s-SchemaLookupImpl"></a>
+<a id="cls-SchemaLookupImpl"></a>
 # SchemaLookupImpl
 
 ```java
@@ -6,31 +6,31 @@ public class com.tailf.ncs.maapi.MmapMaapiSchemas.SchemaLookupImpl
     implements com.tailf.ncs.maapi.MmapMaapiSchemas.SchemaLookup
 ```
 
-Types: [SchemaLookup](SchemaLookup.md#s-SchemaLookup)
+Types: [SchemaLookup](SchemaLookup.md#cls-SchemaLookup)
 
 ## Members
 
 **Constructors**:
 
-- [SchemaLookupImpl(Map<Integer,CSSchema>, Map<Integer,String>)](#s-SchemaLookupImpl-1)
+- [SchemaLookupImpl(Map<Integer,CSSchema>, Map<Integer,String>)](#m-schemalookupimpl-f665290474b5)
 
 **Fields**:
 
-- [hashToStringTab](#s-hashToStringTab)
-- [schemas](#s-schemas)
+- [hashToStringTab](#m-hashToStringTab)
+- [schemas](#m-schemas)
 
 **Methods**:
 
-- [addMountPointChildren(int, String, List<CSNode>)](#s-addMountPointChildren)
-- [cachedFallbackChildren(int, List<String>, Supplier<List<CSNode>>)](#s-cachedFallbackChildren)
-- [hashToString(int)](#s-hashToString)
-- [lookupMountId(int, int)](#s-lookupMountId)
-- [lookupSchema(int)](#s-lookupSchema)
-- [lookupType(String, int)](#s-lookupType)
+- [addMountPointChildren(int, String, List<CSNode>)](#m-addmountpointchildren-fd0424d46be4)
+- [cachedFallbackChildren(int, List<String>, Supplier<List<CSNode>>)](#m-cachedfallbackchildren-86535d1081d1)
+- [hashToString(int)](#m-hashtostring-54eaaef71976)
+- [lookupMountId(int, int)](#m-lookupmountid-648b4c864458)
+- [lookupSchema(int)](#m-lookupschema-dfd8e305c928)
+- [lookupType(String, int)](#m-lookuptype-542dca0e8ea5)
 
 ## Constructors
 
-<a id="s-SchemaLookupImpl-1"></a>
+<a id="m-schemalookupimpl-f665290474b5"></a>
 ### SchemaLookupImpl(Map<Integer,CSSchema>, Map<Integer,String>)
 
 ```java
@@ -40,7 +40,7 @@ public SchemaLookupImpl(
 )
 ```
 
-Types: [CSSchema](../../../maapi/MaapiSchemas/CSSchema.md#s-CSSchema)
+Types: [CSSchema](../../../maapi/MaapiSchemas/CSSchema.md#cls-CSSchema)
 
 **Parameters**
 
@@ -50,7 +50,7 @@ Types: [CSSchema](../../../maapi/MaapiSchemas/CSSchema.md#s-CSSchema)
 
 ## Fields
 
-<a id="s-hashToStringTab"></a>
+<a id="m-hashToStringTab"></a>
 ### hashToStringTab
 
 **Package-private**
@@ -59,7 +59,7 @@ Types: [CSSchema](../../../maapi/MaapiSchemas/CSSchema.md#s-CSSchema)
 java.util.Map<Integer,String> hashToStringTab = null;
 ```
 
-<a id="s-schemas"></a>
+<a id="m-schemas"></a>
 ### schemas
 
 **Package-private**
@@ -68,12 +68,12 @@ java.util.Map<Integer,String> hashToStringTab = null;
 java.util.Map<Integer,com.tailf.maapi.MaapiSchemas.CSSchema> schemas = null;
 ```
 
-Types: [CSSchema](../../../maapi/MaapiSchemas/CSSchema.md#s-CSSchema)
+Types: [CSSchema](../../../maapi/MaapiSchemas/CSSchema.md#cls-CSSchema)
 
 
 ## Methods
 
-<a id="s-addMountPointChildren"></a>
+<a id="m-addmountpointchildren-fd0424d46be4"></a>
 ### addMountPointChildren(int, String, List<CSNode>)
 
 ```java
@@ -84,7 +84,7 @@ public boolean addMountPointChildren(
 )
 ```
 
-Types: [CSNode](../../../maapi/MaapiSchemas/CSNode.md#s-CSNode)
+Types: [CSNode](../../../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
 
 **Parameters**
 
@@ -92,7 +92,7 @@ Types: [CSNode](../../../maapi/MaapiSchemas/CSNode.md#s-CSNode)
 - `String mountId`
 - `java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> children`
 
-<a id="s-cachedFallbackChildren"></a>
+<a id="m-cachedfallbackchildren-86535d1081d1"></a>
 ### cachedFallbackChildren(int, List<String>, Supplier<List<CSNode>>)
 
 ```java
@@ -103,7 +103,7 @@ public java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> cachedFallbackChildre
 )
 ```
 
-Types: [CSNode](../../../maapi/MaapiSchemas/CSNode.md#s-CSNode)
+Types: [CSNode](../../../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
 
 **Parameters**
 
@@ -111,7 +111,7 @@ Types: [CSNode](../../../maapi/MaapiSchemas/CSNode.md#s-CSNode)
 - `java.util.List<String> mountIds`
 - `java.util.function.Supplier<java.util.List<com.tailf.maapi.MaapiSchemas.CSNode>> compute`
 
-<a id="s-hashToString"></a>
+<a id="m-hashtostring-54eaaef71976"></a>
 ### hashToString(int)
 
 ```java
@@ -122,41 +122,41 @@ public String hashToString(int hash)
 
 - `int hash`
 
-<a id="s-lookupMountId"></a>
+<a id="m-lookupmountid-648b4c864458"></a>
 ### lookupMountId(int, int)
 
 ```java
 public com.tailf.maapi.MaapiSchemas.MountId lookupMountId(int nsHash, int tagHash)
 ```
 
-Types: [MountId](../../../maapi/MaapiSchemas/MountId.md#s-MountId)
+Types: [MountId](../../../maapi/MaapiSchemas/MountId.md#cls-MountId)
 
 **Parameters**
 
 - `int nsHash`
 - `int tagHash`
 
-<a id="s-lookupSchema"></a>
+<a id="m-lookupschema-dfd8e305c928"></a>
 ### lookupSchema(int)
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSSchema lookupSchema(int nsHash)
 ```
 
-Types: [CSSchema](../../../maapi/MaapiSchemas/CSSchema.md#s-CSSchema)
+Types: [CSSchema](../../../maapi/MaapiSchemas/CSSchema.md#cls-CSSchema)
 
 **Parameters**
 
 - `int nsHash`
 
-<a id="s-lookupType"></a>
+<a id="m-lookuptype-542dca0e8ea5"></a>
 ### lookupType(String, int)
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSType lookupType(String name, int nsHash)
 ```
 
-Types: [CSType](../../../maapi/MaapiSchemas/CSType.md#s-CSType)
+Types: [CSType](../../../maapi/MaapiSchemas/CSType.md#cls-CSType)
 
 **Parameters**
 

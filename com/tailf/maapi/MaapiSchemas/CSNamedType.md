@@ -1,4 +1,4 @@
-<a id="s-CSNamedType"></a>
+<a id="cls-CSNamedType"></a>
 # CSNamedType
 
 ```java
@@ -13,18 +13,18 @@ Class representing a named type. A named type is represented as a
 
 **Constructors**:
 
-- [CSNamedType()](#s-CSNamedType-1)
-- [CSNamedType(String, CSType)](#s-CSNamedType-2)
+- [CSNamedType()](#m-csnamedtype-f49a833ba022)
+- [CSNamedType(String, CSType)](#m-csnamedtype-456f42d9d5af)
 
 **Methods**:
 
-- [getName()](#s-getName)
-- [getType()](#s-getType)
-- [toString()](#s-toString)
+- [getName()](#m-getname-2634b18b4a25)
+- [getType()](#m-gettype-5a52f6f0d4c1)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-CSNamedType-1"></a>
+<a id="m-csnamedtype-f49a833ba022"></a>
 ### CSNamedType()
 
 ```java
@@ -33,14 +33,14 @@ protected CSNamedType()
 
 Constructor for CSNamedType class
 
-<a id="s-CSNamedType-2"></a>
+<a id="m-csnamedtype-456f42d9d5af"></a>
 ### CSNamedType(String, CSType)
 
 ```java
 public CSNamedType(String name, com.tailf.maapi.MaapiSchemas.CSType type)
 ```
 
-Types: [CSType](CSType.md#s-CSType)
+Types: [CSType](CSType.md#cls-CSType)
 
 **Parameters**
 
@@ -50,7 +50,7 @@ Types: [CSType](CSType.md#s-CSType)
 
 ## Methods
 
-<a id="s-getName"></a>
+<a id="m-getname-2634b18b4a25"></a>
 ### getName()
 
 ```java
@@ -61,20 +61,20 @@ get the type name
 
 **Returns:** String name
 
-<a id="s-getType"></a>
+<a id="m-gettype-5a52f6f0d4c1"></a>
 ### getType()
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSType getType()
 ```
 
-Types: [CSType](CSType.md#s-CSType)
+Types: [CSType](CSType.md#cls-CSType)
 
 get the type represented by an instance of CSType
 
 **Returns:** CSType
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

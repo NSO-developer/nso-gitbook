@@ -1,4 +1,4 @@
-<a id="s-W3CRegex"></a>
+<a id="cls-W3CRegex"></a>
 # W3CRegex
 
 ```java
@@ -9,11 +9,11 @@ public final class com.tailf.util.W3CRegex
 
 **Methods**:
 
-- [validate(String, String)](#s-validate)
+- [validate(String, String)](#m-validate-9990930fde53)
 
 ## Methods
 
-<a id="s-validate"></a>
+<a id="m-validate-9990930fde53"></a>
 ### validate(String, String)
 
 ```java

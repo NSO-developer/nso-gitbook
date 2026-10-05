@@ -1,4 +1,4 @@
-<a id="s-NedTracer"></a>
+<a id="cls-NedTracer"></a>
 # NedTracer
 
 ```java
@@ -9,11 +9,11 @@ public interface com.tailf.ned.NedTracer
 
 **Methods**:
 
-- [trace(String, String, String)](#s-trace)
+- [trace(String, String, String)](#m-trace-4c88f986a203)
 
 ## Methods
 
-<a id="s-trace"></a>
+<a id="m-trace-4c88f986a203"></a>
 ### trace(String, String, String)
 
 ```java

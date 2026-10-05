@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,35 +6,31 @@ public static final class com.tailf.ncs.maapi.Schema.CsType.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getName()](#s-getName)
-- [getNs()](#s-getNs)
-- [getParent()](#s-getParent)
-- [getValue()](#s-getValue)
-- [hasName()](#s-hasName)
-- [initName(int)](#s-initName)
-- [initParent()](#s-initParent)
-- [initValue()](#s-initValue)
-- [setName(Reader)](#s-setName)
-- [setName(String)](#s-setName-1)
-- [setNs(int)](#s-setNs)
-- [setParent(Reader)](#s-setParent)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getName()](#m-getname-2634b18b4a25)
+- [getNs()](#m-getns-59b97eae2a4a)
+- [getParent()](#m-getparent-45c1b196ed70)
+- [getValue()](#m-getvalue-d93864668c40)
+- [hasName()](#m-hasname-bfe6c334e0d1)
+- [initName(int)](#m-initname-281e5d2102d4)
+- [initParent()](#m-initparent-42003b75a7dd)
+- [initValue()](#m-initvalue-a7755fffc529)
+- [setName(Reader)](#m-setname-79f9d1263a41)
+- [setName(String)](#m-setname-c76ccfcb9f18)
+- [setNs(int)](#m-setns-3c6980dbfd35)
+- [setParent(Reader)](#m-setparent-9ed68f47e1db)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -60,55 +56,55 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsType.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getName"></a>
+<a id="m-getname-2634b18b4a25"></a>
 ### getName()
 
 ```java
 public final org.capnproto.Text.Builder getName()
 ```
 
-<a id="s-getNs"></a>
+<a id="m-getns-59b97eae2a4a"></a>
 ### getNs()
 
 ```java
 public final int getNs()
 ```
 
-<a id="s-getParent"></a>
+<a id="m-getparent-45c1b196ed70"></a>
 ### getParent()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeReference.Builder getParent()
 ```
 
-Types: [Builder](../CsTypeReference/Builder.md#s-Builder)
+Types: [Builder](../CsTypeReference/Builder.md#cls-Builder)
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsType.Value.Builder getValue()
 ```
 
-Types: [Builder](Value/Builder.md#s-Builder)
+Types: [Builder](Value/Builder.md#cls-Builder)
 
-<a id="s-hasName"></a>
+<a id="m-hasname-bfe6c334e0d1"></a>
 ### hasName()
 
 ```java
 public final boolean hasName()
 ```
 
-<a id="s-initName"></a>
+<a id="m-initname-281e5d2102d4"></a>
 ### initName(int)
 
 ```java
@@ -119,25 +115,25 @@ public final org.capnproto.Text.Builder initName(int size)
 
 - `int size`
 
-<a id="s-initParent"></a>
+<a id="m-initparent-42003b75a7dd"></a>
 ### initParent()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeReference.Builder initParent()
 ```
 
-Types: [Builder](../CsTypeReference/Builder.md#s-Builder)
+Types: [Builder](../CsTypeReference/Builder.md#cls-Builder)
 
-<a id="s-initValue"></a>
+<a id="m-initvalue-a7755fffc529"></a>
 ### initValue()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsType.Value.Builder initValue()
 ```
 
-Types: [Builder](Value/Builder.md#s-Builder)
+Types: [Builder](Value/Builder.md#cls-Builder)
 
-<a id="s-setName"></a>
+<a id="m-setname-79f9d1263a41"></a>
 ### setName(Reader)
 
 ```java
@@ -148,7 +144,7 @@ public final void setName(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="s-setName-1"></a>
+<a id="m-setname-c76ccfcb9f18"></a>
 ### setName(String)
 
 ```java
@@ -159,7 +155,7 @@ public final void setName(String value)
 
 - `String value`
 
-<a id="s-setNs"></a>
+<a id="m-setns-3c6980dbfd35"></a>
 ### setNs(int)
 
 ```java
@@ -170,14 +166,14 @@ public final void setNs(int value)
 
 - `int value`
 
-<a id="s-setParent"></a>
+<a id="m-setparent-9ed68f47e1db"></a>
 ### setParent(Reader)
 
 ```java
 public final void setParent(com.tailf.ncs.maapi.Schema.CsTypeReference.Reader value)
 ```
 
-Types: [Reader](../CsTypeReference/Reader.md#s-Reader)
+Types: [Reader](../CsTypeReference/Reader.md#cls-Reader)
 
 **Parameters**
 

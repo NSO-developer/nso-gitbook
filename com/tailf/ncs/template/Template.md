@@ -1,4 +1,4 @@
-<a id="s-Template"></a>
+<a id="cls-Template"></a>
 # Template
 
 ```java
@@ -12,33 +12,33 @@ public class com.tailf.ncs.template.Template
 
 **Constructors**:
 
-- [Template(Maapi, String)](#s-Template-1)
-- [Template(NavuContext, String)](#s-Template-2)
-- [Template(ServiceContext, String)](#s-Template-3)
+- [Template(Maapi, String)](#m-template-b9516245ebda)
+- [Template(NavuContext, String)](#m-template-feaf74f200fb)
+- [Template(ServiceContext, String)](#m-template-0d1b4c642e2d)
 
 **Fields**:
 
-- [createShared](#s-createShared)
-- [maapi](#s-maapi)
-- [tid](#s-tid)
+- [createShared](#m-createShared)
+- [maapi](#m-maapi)
+- [tid](#m-tid)
 
 **Methods**:
 
-- [apply(Maapi, int, ConfPath, TemplateVariables)](#s-apply)
-- [apply(NavuNode, TemplateVariables)](#s-apply-1)
-- [exists(Maapi, String)](#s-exists)
-- [exists(NavuContext, String)](#s-exists-1)
-- [exists(ServiceContext, String)](#s-exists-2)
-- [getCreateShared()](#s-getCreateShared)
-- [getTemplates(Maapi)](#s-getTemplates)
-- [getTemplates(NavuContext)](#s-getTemplates-1)
-- [getTemplates(ServiceContext)](#s-getTemplates-2)
-- [getVariables()](#s-getVariables)
-- [setCreateShared(boolean)](#s-setCreateShared)
+- [apply(Maapi, int, ConfPath, TemplateVariables)](#m-apply-4c072cad4101)
+- [apply(NavuNode, TemplateVariables)](#m-apply-ea8ea18a91df)
+- [exists(Maapi, String)](#m-exists-1e9581ff660e)
+- [exists(NavuContext, String)](#m-exists-a77fd90bdc9b)
+- [exists(ServiceContext, String)](#m-exists-c68e459f4029)
+- [getCreateShared()](#m-getcreateshared-5dab242fc9a3)
+- [getTemplates(Maapi)](#m-gettemplates-7e8250894e0f)
+- [getTemplates(NavuContext)](#m-gettemplates-1025fddc1c4f)
+- [getTemplates(ServiceContext)](#m-gettemplates-d75e5ab7a744)
+- [getVariables()](#m-getvariables-94c6f2182e29)
+- [setCreateShared(boolean)](#m-setcreateshared-745f84731eb7)
 
 ## Constructors
 
-<a id="s-Template-1"></a>
+<a id="m-template-b9516245ebda"></a>
 ### Template(Maapi, String)
 
 ```java
@@ -49,14 +49,14 @@ public Template(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [Maapi](../../maapi/Maapi.md#s-Maapi), [ConfException](../../conf/ConfException.md#s-ConfException)
+Types: [Maapi](../../maapi/Maapi.md#cls-Maapi), [ConfException](../../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.maapi.Maapi aMaapi`
 - `String aTemplateName`
 
-<a id="s-Template-2"></a>
+<a id="m-template-feaf74f200fb"></a>
 ### Template(NavuContext, String)
 
 ```java
@@ -67,14 +67,14 @@ public Template(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [NavuContext](../../navu/NavuContext.md#s-NavuContext), [ConfException](../../conf/ConfException.md#s-ConfException)
+Types: [NavuContext](../../navu/NavuContext.md#cls-NavuContext), [ConfException](../../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.navu.NavuContext aContext`
 - `String aTemplateName`
 
-<a id="s-Template-3"></a>
+<a id="m-template-0d1b4c642e2d"></a>
 ### Template(ServiceContext, String)
 
 ```java
@@ -85,7 +85,7 @@ public Template(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ServiceContext](../../dp/services/ServiceContext.md#s-ServiceContext), [ConfException](../../conf/ConfException.md#s-ConfException)
+Types: [ServiceContext](../../dp/services/ServiceContext.md#cls-ServiceContext), [ConfException](../../conf/ConfException.md#cls-ConfException)
 
 Construct a Template. Note that the template has to have already been
  loaded by NCS, otherwise an exception is thrown.
@@ -98,7 +98,7 @@ Construct a Template. Note that the template has to have already been
 
 ## Fields
 
-<a id="s-createShared"></a>
+<a id="m-createShared"></a>
 ### createShared
 
 **Package-private**
@@ -107,7 +107,7 @@ Construct a Template. Note that the template has to have already been
 boolean createShared = null;
 ```
 
-<a id="s-maapi"></a>
+<a id="m-maapi"></a>
 ### maapi
 
 **Package-private**
@@ -116,9 +116,9 @@ boolean createShared = null;
 com.tailf.maapi.Maapi maapi = null;
 ```
 
-Types: [Maapi](../../maapi/Maapi.md#s-Maapi)
+Types: [Maapi](../../maapi/Maapi.md#cls-Maapi)
 
-<a id="s-tid"></a>
+<a id="m-tid"></a>
 ### tid
 
 **Package-private**
@@ -130,7 +130,7 @@ int tid = null;
 
 ## Methods
 
-<a id="s-apply"></a>
+<a id="m-apply-4c072cad4101"></a>
 ### apply(Maapi, int, ConfPath, TemplateVariables)
 
 ```java
@@ -143,7 +143,7 @@ public void apply(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [Maapi](../../maapi/Maapi.md#s-Maapi), [ConfPath](../../conf/ConfPath.md#s-ConfPath), [TemplateVariables](TemplateVariables.md#s-TemplateVariables), [ConfException](../../conf/ConfException.md#s-ConfException)
+Types: [Maapi](../../maapi/Maapi.md#cls-Maapi), [ConfPath](../../conf/ConfPath.md#cls-ConfPath), [TemplateVariables](TemplateVariables.md#cls-TemplateVariables), [ConfException](../../conf/ConfException.md#cls-ConfException)
 
 Apply a template in the specified context
 
@@ -157,7 +157,7 @@ Apply a template in the specified context
 - `com.tailf.ncs.template.TemplateVariables variables` - a set of key value pairs where each key will be
                   an XPath variable.
 
-<a id="s-apply-1"></a>
+<a id="m-apply-ea8ea18a91df"></a>
 ### apply(NavuNode, TemplateVariables)
 
 ```java
@@ -168,7 +168,7 @@ public void apply(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [NavuNode](../../navu/NavuNode.md#s-NavuNode), [TemplateVariables](TemplateVariables.md#s-TemplateVariables), [ConfException](../../conf/ConfException.md#s-ConfException)
+Types: [NavuNode](../../navu/NavuNode.md#cls-NavuNode), [TemplateVariables](TemplateVariables.md#cls-TemplateVariables), [ConfException](../../conf/ConfException.md#cls-ConfException)
 
 Apply a template in the specified context
 
@@ -179,7 +179,7 @@ Apply a template in the specified context
 - `com.tailf.ncs.template.TemplateVariables variables` - a set of key value pairs where each key will be
                   an XPath variable.
 
-<a id="s-exists"></a>
+<a id="m-exists-1e9581ff660e"></a>
 ### exists(Maapi, String)
 
 ```java
@@ -190,14 +190,14 @@ public static boolean exists(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [Maapi](../../maapi/Maapi.md#s-Maapi), [ConfException](../../conf/ConfException.md#s-ConfException)
+Types: [Maapi](../../maapi/Maapi.md#cls-Maapi), [ConfException](../../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.maapi.Maapi maapi`
 - `String template`
 
-<a id="s-exists-1"></a>
+<a id="m-exists-a77fd90bdc9b"></a>
 ### exists(NavuContext, String)
 
 ```java
@@ -208,14 +208,14 @@ public static boolean exists(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [NavuContext](../../navu/NavuContext.md#s-NavuContext), [ConfException](../../conf/ConfException.md#s-ConfException)
+Types: [NavuContext](../../navu/NavuContext.md#cls-NavuContext), [ConfException](../../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.navu.NavuContext context`
 - `String template`
 
-<a id="s-exists-2"></a>
+<a id="m-exists-c68e459f4029"></a>
 ### exists(ServiceContext, String)
 
 ```java
@@ -226,7 +226,7 @@ public static boolean exists(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ServiceContext](../../dp/services/ServiceContext.md#s-ServiceContext), [ConfException](../../conf/ConfException.md#s-ConfException)
+Types: [ServiceContext](../../dp/services/ServiceContext.md#cls-ServiceContext), [ConfException](../../conf/ConfException.md#cls-ConfException)
 
 Tests for existence of a template.
 
@@ -238,7 +238,7 @@ Tests for existence of a template.
 **Returns:** `true` or `false` depending on whether the
          template is loaded or not.
 
-<a id="s-getCreateShared"></a>
+<a id="m-getcreateshared-5dab242fc9a3"></a>
 ### getCreateShared()
 
 **Package-private**
@@ -251,7 +251,7 @@ Returns the setting of the createShared flag
 
 **Returns:** `true` or `false`.
 
-<a id="s-getTemplates"></a>
+<a id="m-gettemplates-7e8250894e0f"></a>
 ### getTemplates(Maapi)
 
 ```java
@@ -261,13 +261,13 @@ public static java.util.Set<String> getTemplates(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [Maapi](../../maapi/Maapi.md#s-Maapi), [ConfException](../../conf/ConfException.md#s-ConfException)
+Types: [Maapi](../../maapi/Maapi.md#cls-Maapi), [ConfException](../../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.maapi.Maapi maapi`
 
-<a id="s-getTemplates-1"></a>
+<a id="m-gettemplates-1025fddc1c4f"></a>
 ### getTemplates(NavuContext)
 
 ```java
@@ -277,13 +277,13 @@ public static java.util.Set<String> getTemplates(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [NavuContext](../../navu/NavuContext.md#s-NavuContext), [ConfException](../../conf/ConfException.md#s-ConfException)
+Types: [NavuContext](../../navu/NavuContext.md#cls-NavuContext), [ConfException](../../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.navu.NavuContext context`
 
-<a id="s-getTemplates-2"></a>
+<a id="m-gettemplates-d75e5ab7a744"></a>
 ### getTemplates(ServiceContext)
 
 ```java
@@ -293,7 +293,7 @@ public static java.util.Set<String> getTemplates(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ServiceContext](../../dp/services/ServiceContext.md#s-ServiceContext), [ConfException](../../conf/ConfException.md#s-ConfException)
+Types: [ServiceContext](../../dp/services/ServiceContext.md#cls-ServiceContext), [ConfException](../../conf/ConfException.md#cls-ConfException)
 
 Returns a set consisting of the loaded templates.
 
@@ -303,16 +303,16 @@ Returns a set consisting of the loaded templates.
 
 **Returns:** `Set` of loaded templates.
 
-<a id="s-getVariables"></a>
+<a id="m-getvariables-94c6f2182e29"></a>
 ### getVariables()
 
 ```java
 public String[] getVariables() throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../../conf/ConfException.md#cls-ConfException)
 
-<a id="s-setCreateShared"></a>
+<a id="m-setcreateshared-745f84731eb7"></a>
 ### setCreateShared(boolean)
 
 **Package-private**

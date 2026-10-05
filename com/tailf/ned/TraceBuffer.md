@@ -1,4 +1,4 @@
-<a id="s-TraceBuffer"></a>
+<a id="cls-TraceBuffer"></a>
 # TraceBuffer
 
 ```java
@@ -9,17 +9,17 @@ public class com.tailf.ned.TraceBuffer
 
 **Constructors**:
 
-- [TraceBuffer(int, String, String)](#s-TraceBuffer-1)
+- [TraceBuffer(int, String, String)](#m-tracebuffer-39991147aa5b)
 
 **Methods**:
 
-- [append(NedTracer, String)](#s-append)
-- [flush(NedTracer)](#s-flush)
-- [setLength(int)](#s-setLength)
+- [append(NedTracer, String)](#m-append-793a73e659d8)
+- [flush(NedTracer)](#m-flush-a415364e52f6)
+- [setLength(int)](#m-setlength-bb1c41009d62)
 
 ## Constructors
 
-<a id="s-TraceBuffer-1"></a>
+<a id="m-tracebuffer-39991147aa5b"></a>
 ### TraceBuffer(int, String, String)
 
 ```java
@@ -35,34 +35,34 @@ public TraceBuffer(int autoCapacity, String direction, String deviceId)
 
 ## Methods
 
-<a id="s-append"></a>
+<a id="m-append-793a73e659d8"></a>
 ### append(NedTracer, String)
 
 ```java
 public StringBuffer append(com.tailf.ned.NedTracer tracer, String line)
 ```
 
-Types: [NedTracer](NedTracer.md#s-NedTracer)
+Types: [NedTracer](NedTracer.md#cls-NedTracer)
 
 **Parameters**
 
 - `com.tailf.ned.NedTracer tracer`
 - `String line`
 
-<a id="s-flush"></a>
+<a id="m-flush-a415364e52f6"></a>
 ### flush(NedTracer)
 
 ```java
 public void flush(com.tailf.ned.NedTracer tracer)
 ```
 
-Types: [NedTracer](NedTracer.md#s-NedTracer)
+Types: [NedTracer](NedTracer.md#cls-NedTracer)
 
 **Parameters**
 
 - `com.tailf.ned.NedTracer tracer`
 
-<a id="s-setLength"></a>
+<a id="m-setlength-bb1c41009d62"></a>
 ### setLength(int)
 
 ```java

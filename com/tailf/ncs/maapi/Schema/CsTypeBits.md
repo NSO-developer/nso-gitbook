@@ -1,4 +1,4 @@
-<a id="s-CsTypeBits"></a>
+<a id="cls-CsTypeBits"></a>
 # CsTypeBits
 
 ```java
@@ -9,24 +9,24 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeBits
 
 **Constructors**:
 
-- [CsTypeBits()](#s-CsTypeBits-1)
+- [CsTypeBits()](#m-cstypebits-1db3251a56d2)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Bit](CsTypeBits/Bit.md#s-Bit)
-- [Builder](CsTypeBits/Builder.md#s-Builder)
-- [Factory](CsTypeBits/Factory.md#s-Factory)
-- [Reader](CsTypeBits/Reader.md#s-Reader)
+- [Bit](CsTypeBits/Bit.md#cls-Bit)
+- [Builder](CsTypeBits/Builder.md#cls-Builder)
+- [Factory](CsTypeBits/Factory.md#cls-Factory)
+- [Reader](CsTypeBits/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-CsTypeBits-1"></a>
+<a id="m-cstypebits-1db3251a56d2"></a>
 ### CsTypeBits()
 
 ```java
@@ -36,25 +36,25 @@ public CsTypeBits()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsTypeBits.Factory factory = null;
 ```
 
-Types: [Factory](CsTypeBits/Factory.md#s-Factory)
+Types: [Factory](CsTypeBits/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsTypeBits.Builder,com.tailf.ncs.maapi.Schema.CsTypeBits.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsTypeBits/Builder.md#s-Builder), [Reader](CsTypeBits/Reader.md#s-Reader)
+Types: [Builder](CsTypeBits/Builder.md#cls-Builder), [Reader](CsTypeBits/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -64,7 +64,7 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Bit](CsTypeBits/Bit.md)
-- [Builder](CsTypeBits/Builder.md)
-- [Factory](CsTypeBits/Factory.md)
-- [Reader](CsTypeBits/Reader.md)
+- [Bit](CsTypeBits/Bit.md#cls-Bit)
+- [Builder](CsTypeBits/Builder.md#cls-Builder)
+- [Factory](CsTypeBits/Factory.md#cls-Factory)
+- [Reader](CsTypeBits/Reader.md#cls-Reader)

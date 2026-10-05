@@ -1,4 +1,4 @@
-<a id="s-MountPointDb"></a>
+<a id="cls-MountPointDb"></a>
 # MountPointDb
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.MountPointDb
 
 **Constructors**:
 
-- [MountPointDb()](#s-MountPointDb-1)
+- [MountPointDb()](#m-mountpointdb-8146613a8197)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](MountPointDb/Builder.md#s-Builder)
-- [Factory](MountPointDb/Factory.md#s-Factory)
-- [Reader](MountPointDb/Reader.md#s-Reader)
+- [Builder](MountPointDb/Builder.md#cls-Builder)
+- [Factory](MountPointDb/Factory.md#cls-Factory)
+- [Reader](MountPointDb/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-MountPointDb-1"></a>
+<a id="m-mountpointdb-8146613a8197"></a>
 ### MountPointDb()
 
 ```java
@@ -35,25 +35,25 @@ public MountPointDb()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.MountPointDb.Factory factory = null;
 ```
 
-Types: [Factory](MountPointDb/Factory.md#s-Factory)
+Types: [Factory](MountPointDb/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.MountPointDb.Builder,com.tailf.ncs.maapi.Schema.MountPointDb.Reader> listFactory = null;
 ```
 
-Types: [Builder](MountPointDb/Builder.md#s-Builder), [Reader](MountPointDb/Reader.md#s-Reader)
+Types: [Builder](MountPointDb/Builder.md#cls-Builder), [Reader](MountPointDb/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](MountPointDb/Builder.md)
-- [Factory](MountPointDb/Factory.md)
-- [Reader](MountPointDb/Reader.md)
+- [Builder](MountPointDb/Builder.md#cls-Builder)
+- [Factory](MountPointDb/Factory.md#cls-Factory)
+- [Reader](MountPointDb/Reader.md#cls-Reader)

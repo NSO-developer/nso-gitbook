@@ -1,4 +1,4 @@
-<a id="s-SSHJClient"></a>
+<a id="cls-SSHJClient"></a>
 # SSHJClient
 
 **Package-private**
@@ -8,7 +8,7 @@ class com.tailf.ned.SSHJClient
     implements net.schmizz.sshj.transport.verification.HostKeyVerifier, net.schmizz.sshj.transport.verification.AlgorithmsVerifier, com.tailf.ned.SSHClient
 ```
 
-Types: [SSHClient](SSHClient.md#s-SSHClient)
+Types: [SSHClient](SSHClient.md#cls-SSHClient)
 
 SSH Client implementation using the net.schmizz.sshj
  framework.
@@ -19,72 +19,72 @@ SSH Client implementation using the net.schmizz.sshj
 
 **Constructors**:
 
-- [SSHJClient(NedWorker, NedConnectionBase)](#s-SSHJClient-1)
-- [SSHJClient(SSHJClient)](#s-SSHJClient-2)
+- [SSHJClient(NedWorker, NedConnectionBase)](#m-sshjclient-bcd20512cdc1)
+- [SSHJClient(SSHJClient)](#m-sshjclient-518171fafb24)
 
 **Fields**:
 
-- [address](#s-address)
-- [AUTH_HOSTBASED](SSHClient.md#s-AUTH_HOSTBASED) from SSHClient
-- [AUTH_KEYBOARD_INTERACTIVE](SSHClient.md#s-AUTH_KEYBOARD_INTERACTIVE) from SSHClient
-- [AUTH_NONE](SSHClient.md#s-AUTH_NONE) from SSHClient
-- [AUTH_PASSWORD](SSHClient.md#s-AUTH_PASSWORD) from SSHClient
-- [AUTH_PUBLIC_KEY](SSHClient.md#s-AUTH_PUBLIC_KEY) from SSHClient
-- [authOrder](#s-authOrder)
-- [connectTimeout](#s-connectTimeout)
-- [hostKeys](#s-hostKeys)
-- [hostKeyVerifyApproach](#s-hostKeyVerifyApproach)
-- [idleTimeout](#s-idleTimeout)
-- [isKeyboardInteractive](#s-isKeyboardInteractive)
-- [mfaExecutable](#s-mfaExecutable)
-- [mfaOpaque](#s-mfaOpaque)
-- [ned](#s-ned)
-- [negotiated](#s-negotiated)
-- [password](#s-password)
-- [port](#s-port)
-- [publicKeys](#s-publicKeys)
-- [readTimeout](#s-readTimeout)
-- [sourceAddress](#s-sourceAddress)
-- [sshClient](#s-sshClient)
-- [sshConfig](#s-sshConfig)
-- [user](#s-user)
-- [worker](#s-worker)
+- [address](#m-address)
+- [AUTH_HOSTBASED](SSHClient.md#m-AUTH_HOSTBASED) from SSHClient
+- [AUTH_KEYBOARD_INTERACTIVE](SSHClient.md#m-AUTH_KEYBOARD_INTERACTIVE) from SSHClient
+- [AUTH_NONE](SSHClient.md#m-AUTH_NONE) from SSHClient
+- [AUTH_PASSWORD](SSHClient.md#m-AUTH_PASSWORD) from SSHClient
+- [AUTH_PUBLIC_KEY](SSHClient.md#m-AUTH_PUBLIC_KEY) from SSHClient
+- [authOrder](#m-authOrder)
+- [connectTimeout](#m-connectTimeout)
+- [hostKeys](#m-hostKeys)
+- [hostKeyVerifyApproach](#m-hostKeyVerifyApproach)
+- [idleTimeout](#m-idleTimeout)
+- [isKeyboardInteractive](#m-isKeyboardInteractive)
+- [mfaExecutable](#m-mfaExecutable)
+- [mfaOpaque](#m-mfaOpaque)
+- [ned](#m-ned)
+- [negotiated](#m-negotiated)
+- [password](#m-password)
+- [port](#m-port)
+- [publicKeys](#m-publicKeys)
+- [readTimeout](#m-readTimeout)
+- [sourceAddress](#m-sourceAddress)
+- [sshClient](#m-sshClient)
+- [sshConfig](#m-sshConfig)
+- [user](#m-user)
+- [worker](#m-worker)
 
 **Methods**:
 
-- [authenticate()](#s-authenticate)
-- [authenticate(String[])](#s-authenticate-1)
-- [authenticate(String[], String, String)](#s-authenticate-2)
-- [close()](#s-close)
-- [connect()](#s-connect)
-- [connect(int, int)](#s-connect-1)
-- [connect(int, int, InetAddress, int)](#s-connect-2)
-- [createSCP()](#s-createSCP)
-- [createSession()](#s-createSession)
-- [createSession(int, int)](#s-createSession-1)
-- [createSFTP()](#s-createSFTP)
-- [createSubsystem(String)](#s-createSubsystem)
-- [disableHostKeyVerification()](#s-disableHostKeyVerification)
-- [findExistingAlgorithms(String, int)](#s-findExistingAlgorithms)
-- [getConnectionInfo()](#s-getConnectionInfo)
-- [getProviderName()](#s-getProviderName)
-- [isAuthenticated()](#s-isAuthenticated)
-- [isConnected()](#s-isConnected)
-- [setRemoteCharset(Charset)](#s-setRemoteCharset)
-- [setTrafficClass(int)](#s-setTrafficClass)
-- [startSession()](#s-startSession)
-- [useCompression()](#s-useCompression)
-- [verify(NegotiatedAlgorithms)](#s-verify)
-- [verify(String, int, PublicKey)](#s-verify-1)
+- [authenticate()](#m-authenticate-41c0007ddd8b)
+- [authenticate(String[])](#m-authenticate-0a5a44636e08)
+- [authenticate(String[], String, String)](#m-authenticate-cf9e8fb6d459)
+- [close()](#m-close-8107c6dc012b)
+- [connect()](#m-connect-394043aad7af)
+- [connect(int, int)](#m-connect-28d2385bf1c0)
+- [connect(int, int, InetAddress, int)](#m-connect-3ed6ad461bcf)
+- [createSCP()](#m-createscp-ac5423466997)
+- [createSession()](#m-createsession-57f0b0e31f12)
+- [createSession(int, int)](#m-createsession-b35d82f6e733)
+- [createSFTP()](#m-createsftp-222ee1678abc)
+- [createSubsystem(String)](#m-createsubsystem-2f3a0d6c84f0)
+- [disableHostKeyVerification()](#m-disablehostkeyverification-6d21c174124b)
+- [findExistingAlgorithms(String, int)](#m-findexistingalgorithms-3e5f1494ab6d)
+- [getConnectionInfo()](#m-getconnectioninfo-72b270c75b17)
+- [getProviderName()](#m-getprovidername-e8ad7190e853)
+- [isAuthenticated()](#m-isauthenticated-11159d3d38a6)
+- [isConnected()](#m-isconnected-c00395001a3e)
+- [setRemoteCharset(Charset)](#m-setremotecharset-6f11114c7330)
+- [setTrafficClass(int)](#m-settrafficclass-6ef3381655c9)
+- [startSession()](#m-startsession-ee121903dcfa)
+- [useCompression()](#m-usecompression-2016e4bae05f)
+- [verify(NegotiatedAlgorithms)](#m-verify-b1784ca71c10)
+- [verify(String, int, PublicKey)](#m-verify-afddadb2ee00)
 
 **Nested Types**:
 
-- [SSHJSCP](SSHJClient/SSHJSCP.md#s-SSHJSCP)
-- [SSHJSFTP](SSHJClient/SSHJSFTP.md#s-SSHJSFTP)
+- [SSHJSCP](SSHJClient/SSHJSCP.md#cls-SSHJSCP)
+- [SSHJSFTP](SSHJClient/SSHJSFTP.md#cls-SSHJSFTP)
 
 ## Constructors
 
-<a id="s-SSHJClient-1"></a>
+<a id="m-sshjclient-bcd20512cdc1"></a>
 ### SSHJClient(NedWorker, NedConnectionBase)
 
 **Package-private**
@@ -97,7 +97,7 @@ SSHJClient(
     throws java.io.IOException
 ```
 
-Types: [NedWorker](NedWorker.md#s-NedWorker), [NedConnectionBase](NedConnectionBase.md#s-NedConnectionBase)
+Types: [NedWorker](NedWorker.md#cls-NedWorker), [NedConnectionBase](NedConnectionBase.md#cls-NedConnectionBase)
 
 Constructor
 
@@ -110,7 +110,7 @@ Constructor
 
 - `IOException`
 
-<a id="s-SSHJClient-2"></a>
+<a id="m-sshjclient-518171fafb24"></a>
 ### SSHJClient(SSHJClient)
 
 **Package-private**
@@ -119,7 +119,7 @@ Constructor
 SSHJClient(com.tailf.ned.SSHJClient original) throws java.io.IOException
 ```
 
-Types: [SSHJClient](SSHJClient.md#s-SSHJClient)
+Types: [SSHJClient](SSHJClient.md#cls-SSHJClient)
 
 Constructor. Clone instance from another SSHJClient;
 
@@ -134,154 +134,154 @@ Constructor. Clone instance from another SSHJClient;
 
 ## Fields
 
-<a id="s-address"></a>
+<a id="m-address"></a>
 ### address
 
 ```java
 protected java.net.InetAddress address = null;
 ```
 
-<a id="s-authOrder"></a>
+<a id="m-authOrder"></a>
 ### authOrder
 
 ```java
 protected String[] authOrder = null;
 ```
 
-<a id="s-connectTimeout"></a>
+<a id="m-connectTimeout"></a>
 ### connectTimeout
 
 ```java
 protected int connectTimeout = null;
 ```
 
-<a id="s-hostKeys"></a>
+<a id="m-hostKeys"></a>
 ### hostKeys
 
 ```java
 protected java.util.Set<com.tailf.ned.SSHJClient.SSHJKeyProvider> hostKeys = null;
 ```
 
-<a id="s-hostKeyVerifyApproach"></a>
+<a id="m-hostKeyVerifyApproach"></a>
 ### hostKeyVerifyApproach
 
 ```java
 protected String hostKeyVerifyApproach = null;
 ```
 
-<a id="s-idleTimeout"></a>
+<a id="m-idleTimeout"></a>
 ### idleTimeout
 
 ```java
 protected int idleTimeout = null;
 ```
 
-<a id="s-isKeyboardInteractive"></a>
+<a id="m-isKeyboardInteractive"></a>
 ### isKeyboardInteractive
 
 ```java
 protected boolean isKeyboardInteractive = null;
 ```
 
-<a id="s-mfaExecutable"></a>
+<a id="m-mfaExecutable"></a>
 ### mfaExecutable
 
 ```java
 protected String mfaExecutable = null;
 ```
 
-<a id="s-mfaOpaque"></a>
+<a id="m-mfaOpaque"></a>
 ### mfaOpaque
 
 ```java
 protected String mfaOpaque = null;
 ```
 
-<a id="s-ned"></a>
+<a id="m-ned"></a>
 ### ned
 
 ```java
 protected com.tailf.ned.NedConnectionBase ned = null;
 ```
 
-Types: [NedConnectionBase](NedConnectionBase.md#s-NedConnectionBase)
+Types: [NedConnectionBase](NedConnectionBase.md#cls-NedConnectionBase)
 
-<a id="s-negotiated"></a>
+<a id="m-negotiated"></a>
 ### negotiated
 
 ```java
 protected StringBuilder negotiated = null;
 ```
 
-<a id="s-password"></a>
+<a id="m-password"></a>
 ### password
 
 ```java
 protected String password = null;
 ```
 
-<a id="s-port"></a>
+<a id="m-port"></a>
 ### port
 
 ```java
 protected int port = null;
 ```
 
-<a id="s-publicKeys"></a>
+<a id="m-publicKeys"></a>
 ### publicKeys
 
 ```java
 protected java.util.Set<com.tailf.ned.SSHJClient.SSHJKeyProvider> publicKeys = null;
 ```
 
-<a id="s-readTimeout"></a>
+<a id="m-readTimeout"></a>
 ### readTimeout
 
 ```java
 protected int readTimeout = null;
 ```
 
-<a id="s-sourceAddress"></a>
+<a id="m-sourceAddress"></a>
 ### sourceAddress
 
 ```java
 protected java.net.InetSocketAddress sourceAddress = null;
 ```
 
-<a id="s-sshClient"></a>
+<a id="m-sshClient"></a>
 ### sshClient
 
 ```java
 protected net.schmizz.sshj.SSHClient sshClient = null;
 ```
 
-<a id="s-sshConfig"></a>
+<a id="m-sshConfig"></a>
 ### sshConfig
 
 ```java
 protected net.schmizz.sshj.Config sshConfig = null;
 ```
 
-<a id="s-user"></a>
+<a id="m-user"></a>
 ### user
 
 ```java
 protected String user = null;
 ```
 
-<a id="s-worker"></a>
+<a id="m-worker"></a>
 ### worker
 
 ```java
 protected com.tailf.ned.NedWorker worker = null;
 ```
 
-Types: [NedWorker](NedWorker.md#s-NedWorker)
+Types: [NedWorker](NedWorker.md#cls-NedWorker)
 
 
 ## Methods
 
-<a id="s-authenticate"></a>
+<a id="m-authenticate-41c0007ddd8b"></a>
 ### authenticate()
 
 ```java
@@ -290,7 +290,7 @@ public void authenticate() throws java.io.IOException
 
 Authenticate using a list with authentications methods provided by NSO.
 
-<a id="s-authenticate-1"></a>
+<a id="m-authenticate-0a5a44636e08"></a>
 ### authenticate(String[])
 
 ```java
@@ -303,7 +303,7 @@ Authenticate using a provided list of authentication methods
 
 - `String[] methods`
 
-<a id="s-authenticate-2"></a>
+<a id="m-authenticate-cf9e8fb6d459"></a>
 ### authenticate(String[], String, String)
 
 ```java
@@ -318,7 +318,7 @@ Authenticate using a list with authentications methods provided by NSO.
 - `String user`
 - `String password`
 
-<a id="s-close"></a>
+<a id="m-close-8107c6dc012b"></a>
 ### close()
 
 ```java
@@ -327,7 +327,7 @@ public synchronized void close() throws java.io.IOException
 
 Close the SSH connection
 
-<a id="s-connect"></a>
+<a id="m-connect-394043aad7af"></a>
 ### connect()
 
 ```java
@@ -336,7 +336,7 @@ public synchronized void connect() throws java.io.IOException
 
 Establish the SSH connection.
 
-<a id="s-connect-1"></a>
+<a id="m-connect-28d2385bf1c0"></a>
 ### connect(int, int)
 
 ```java
@@ -350,7 +350,7 @@ Establish the SSH connection.
 - `int connectTimeout` - - connection timeout
 - `int idleTimeout` - - idle timeout
 
-<a id="s-connect-2"></a>
+<a id="m-connect-3ed6ad461bcf"></a>
 ### connect(int, int, InetAddress, int)
 
 ```java
@@ -372,29 +372,29 @@ Establish the SSH connection.
 - `java.net.InetAddress address` - - remote address to connect to
 - `int port` - - remote port to use
 
-<a id="s-createSCP"></a>
+<a id="m-createscp-ac5423466997"></a>
 ### createSCP()
 
 ```java
 public com.tailf.ned.SSHClient.SecureFileTransfer createSCP()
 ```
 
-Types: [SecureFileTransfer](SSHClient/SecureFileTransfer.md#s-SecureFileTransfer)
+Types: [SecureFileTransfer](SSHClient/SecureFileTransfer.md#cls-SecureFileTransfer)
 
 Instantiate a SCP client
 
-<a id="s-createSession"></a>
+<a id="m-createsession-57f0b0e31f12"></a>
 ### createSession()
 
 ```java
 public com.tailf.ned.SSHClient.CliSession createSession() throws java.io.IOException
 ```
 
-Types: [CliSession](SSHClient/CliSession.md#s-CliSession)
+Types: [CliSession](SSHClient/CliSession.md#cls-CliSession)
 
 Instantiate a new SSH session, default settings
 
-<a id="s-createSession-1"></a>
+<a id="m-createsession-b35d82f6e733"></a>
 ### createSession(int, int)
 
 ```java
@@ -405,7 +405,7 @@ public com.tailf.ned.SSHClient.CliSession createSession(
     throws java.io.IOException
 ```
 
-Types: [CliSession](SSHClient/CliSession.md#s-CliSession)
+Types: [CliSession](SSHClient/CliSession.md#cls-CliSession)
 
 Instantiate a new SSH session
 
@@ -414,25 +414,25 @@ Instantiate a new SSH session
 - `int width`
 - `int height`
 
-<a id="s-createSFTP"></a>
+<a id="m-createsftp-222ee1678abc"></a>
 ### createSFTP()
 
 ```java
 public com.tailf.ned.SSHClient.SecureFileTransfer createSFTP() throws java.io.IOException
 ```
 
-Types: [SecureFileTransfer](SSHClient/SecureFileTransfer.md#s-SecureFileTransfer)
+Types: [SecureFileTransfer](SSHClient/SecureFileTransfer.md#cls-SecureFileTransfer)
 
 Instantiate a SFTP client
 
-<a id="s-createSubsystem"></a>
+<a id="m-createsubsystem-2f3a0d6c84f0"></a>
 ### createSubsystem(String)
 
 ```java
 public com.tailf.ned.SSHClient.Subsystem createSubsystem(String name) throws java.io.IOException
 ```
 
-Types: [Subsystem](SSHClient/Subsystem.md#s-Subsystem)
+Types: [Subsystem](SSHClient/Subsystem.md#cls-Subsystem)
 
 Instantiate a SSH subsystem, for instance 'netconf'
 
@@ -440,7 +440,7 @@ Instantiate a SSH subsystem, for instance 'netconf'
 
 - `String name`
 
-<a id="s-disableHostKeyVerification"></a>
+<a id="m-disablehostkeyverification-6d21c174124b"></a>
 ### disableHostKeyVerification()
 
 ```java
@@ -449,7 +449,7 @@ public void disableHostKeyVerification()
 
 Disable host key verification on this SSH connection
 
-<a id="s-findExistingAlgorithms"></a>
+<a id="m-findexistingalgorithms-3e5f1494ab6d"></a>
 ### findExistingAlgorithms(String, int)
 
 ```java
@@ -467,7 +467,7 @@ It is necessary to connect with the type of algorithm that matches an
 
 **Returns:** existing key types or empty list if no keys known for hostname
 
-<a id="s-getConnectionInfo"></a>
+<a id="m-getconnectioninfo-72b270c75b17"></a>
 ### getConnectionInfo()
 
 ```java
@@ -477,7 +477,7 @@ public String getConnectionInfo()
 Get info about what algos that were negotiated
  during connect.
 
-<a id="s-getProviderName"></a>
+<a id="m-getprovidername-e8ad7190e853"></a>
 ### getProviderName()
 
 ```java
@@ -486,7 +486,7 @@ public String getProviderName()
 
 Get name and version of underlying SSH client.
 
-<a id="s-isAuthenticated"></a>
+<a id="m-isauthenticated-11159d3d38a6"></a>
 ### isAuthenticated()
 
 ```java
@@ -495,7 +495,7 @@ public boolean isAuthenticated()
 
 Get authentication status
 
-<a id="s-isConnected"></a>
+<a id="m-isconnected-c00395001a3e"></a>
 ### isConnected()
 
 ```java
@@ -504,7 +504,7 @@ public boolean isConnected()
 
 Get connection status
 
-<a id="s-setRemoteCharset"></a>
+<a id="m-setremotecharset-6f11114c7330"></a>
 ### setRemoteCharset(Charset)
 
 ```java
@@ -519,7 +519,7 @@ Set remote charset to be used on sessions
 
 - `java.nio.charset.Charset remoteCharset`
 
-<a id="s-setTrafficClass"></a>
+<a id="m-settrafficclass-6ef3381655c9"></a>
 ### setTrafficClass(int)
 
 ```java
@@ -532,7 +532,7 @@ Set traffic class on socket
 
 - `int tc`
 
-<a id="s-startSession"></a>
+<a id="m-startsession-ee121903dcfa"></a>
 ### startSession()
 
 **Package-private**
@@ -547,7 +547,7 @@ Start the SSH session
 
 - `IOException`
 
-<a id="s-useCompression"></a>
+<a id="m-usecompression-2016e4bae05f"></a>
 ### useCompression()
 
 ```java
@@ -556,7 +556,7 @@ public void useCompression() throws java.io.IOException
 
 Enable compression on the SSH channel
 
-<a id="s-verify"></a>
+<a id="m-verify-b1784ca71c10"></a>
 ### verify(NegotiatedAlgorithms)
 
 ```java
@@ -571,7 +571,7 @@ Algorithm verification method implementing the SSHJ AlgorithmVerifier
 
 - `net.schmizz.sshj.transport.NegotiatedAlgorithms a`
 
-<a id="s-verify-1"></a>
+<a id="m-verify-afddadb2ee00"></a>
 ### verify(String, int, PublicKey)
 
 ```java
@@ -590,5 +590,5 @@ Host key verification method implementing the SSHJ HostKeyVerifier
 
 ## Nested Types
 
-- [SSHJSCP](SSHJClient/SSHJSCP.md)
-- [SSHJSFTP](SSHJClient/SSHJSFTP.md)
+- [SSHJSCP](SSHJClient/SSHJSCP.md#cls-SSHJSCP)
+- [SSHJSFTP](SSHJClient/SSHJSFTP.md#cls-SSHJSFTP)

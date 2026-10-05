@@ -1,4 +1,4 @@
-<a id="s-MaapiOutputStream"></a>
+<a id="cls-MaapiOutputStream"></a>
 # MaapiOutputStream
 
 ```java
@@ -8,7 +8,7 @@ public class com.tailf.maapi.MaapiOutputStream
 
 Configuration data output stream used to upload configurations.
  This class is returned as result from
- [`Maapi`](Maapi.md#s-Maapi).
+ `Maapi#loadConfigStream(int, java.util.EnumSet)`.
 
  The application is expected to close the underlying stream socket
  after usage to assure that background socket is closed use
@@ -54,20 +54,20 @@ Configuration data output stream used to upload configurations.
 
 **Constructors**:
 
-- [MaapiOutputStream(Maapi, int, int)](#s-MaapiOutputStream-1)
+- [MaapiOutputStream(Maapi, int, int)](#m-maapioutputstream-f1083e369c59)
 
 **Methods**:
 
-- [getErrorCode()](#s-getErrorCode)
-- [getErrorString()](#s-getErrorString)
-- [getLocalSocket()](#s-getLocalSocket)
-- [hasWriteAll()](#s-hasWriteAll)
-- [write(byte[], int, int)](#s-write)
-- [write(int)](#s-write-1)
+- [getErrorCode()](#m-geterrorcode-812152fc083a)
+- [getErrorString()](#m-geterrorstring-3b4eba00496b)
+- [getLocalSocket()](#m-getlocalsocket-d59b3f74caea)
+- [hasWriteAll()](#m-haswriteall-8546741ca27f)
+- [write(byte[], int, int)](#m-write-f26dc6393d9b)
+- [write(int)](#m-write-5c8da46e8b83)
 
 ## Constructors
 
-<a id="s-MaapiOutputStream-1"></a>
+<a id="m-maapioutputstream-f1083e369c59"></a>
 ### MaapiOutputStream(Maapi, int, int)
 
 ```java
@@ -79,7 +79,7 @@ protected MaapiOutputStream(
     throws java.io.IOException, com.tailf.maapi.MaapiException
 ```
 
-Types: [Maapi](Maapi.md#s-Maapi), [MaapiException](MaapiException.md#s-MaapiException)
+Types: [Maapi](Maapi.md#cls-Maapi), [MaapiException](MaapiException.md#cls-MaapiException)
 
 Protected constructor for MaapiOutputStream. Used internally by Maapi
  class.
@@ -98,14 +98,14 @@ Protected constructor for MaapiOutputStream. Used internally by Maapi
 
 ## Methods
 
-<a id="s-getErrorCode"></a>
+<a id="m-geterrorcode-812152fc083a"></a>
 ### getErrorCode()
 
 ```java
 public com.tailf.conf.ErrorCode getErrorCode()
 ```
 
-Types: [ErrorCode](../conf/ErrorCode.md#s-ErrorCode)
+Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 
 This method can be called after a call to
  `#hasWriteAll()` to get the error code in case
@@ -117,7 +117,7 @@ This method can be called after a call to
 **Returns:** the error code in case of an error when writing to the output
  stream
 
-<a id="s-getErrorString"></a>
+<a id="m-geterrorstring-3b4eba00496b"></a>
 ### getErrorString()
 
 ```java
@@ -134,7 +134,7 @@ This method can be called after a call to
 **Returns:** the error string in case of an error when writing to the output
  stream
 
-<a id="s-getLocalSocket"></a>
+<a id="m-getlocalsocket-d59b3f74caea"></a>
 ### getLocalSocket()
 
 ```java
@@ -147,7 +147,7 @@ This method is intended to retrieve reference to the underlying
 
 **Returns:** The Stream socket that this MaapiOutputStream uses.
 
-<a id="s-hasWriteAll"></a>
+<a id="m-haswriteall-8546741ca27f"></a>
 ### hasWriteAll()
 
 ```java
@@ -168,7 +168,7 @@ Checks with the server if the complete configuration is uploaded. This
 
 **Returns:** boolean true if complete configuration is downloaded
 
-<a id="s-write"></a>
+<a id="m-write-f26dc6393d9b"></a>
 ### write(byte[], int, int)
 
 ```java
@@ -183,7 +183,7 @@ Write a portion of an array of bytes.
 - `int off` - Offset from which to start writing bytes
 - `int len` - Number of characters to write
 
-<a id="s-write-1"></a>
+<a id="m-write-5c8da46e8b83"></a>
 ### write(int)
 
 ```java

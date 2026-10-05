@@ -1,4 +1,4 @@
-<a id="s-ProxyUtils"></a>
+<a id="cls-ProxyUtils"></a>
 # ProxyUtils
 
 ```java
@@ -11,16 +11,16 @@ Helper class for callback proxys
 
 **Constructors**:
 
-- [ProxyUtils()](#s-ProxyUtils-1)
+- [ProxyUtils()](#m-proxyutils-58dca161942d)
 
 **Methods**:
 
-- [compareMethods(Method, Method)](#s-compareMethods)
-- [invocationTargetCheck(InvocationTargetException)](#s-invocationTargetCheck)
+- [compareMethods(Method, Method)](#m-comparemethods-ffc443ede70d)
+- [invocationTargetCheck(InvocationTargetException)](#m-invocationtargetcheck-20a147521b60)
 
 ## Constructors
 
-<a id="s-ProxyUtils-1"></a>
+<a id="m-proxyutils-58dca161942d"></a>
 ### ProxyUtils()
 
 ```java
@@ -30,7 +30,7 @@ public ProxyUtils()
 
 ## Methods
 
-<a id="s-compareMethods"></a>
+<a id="m-comparemethods-ffc443ede70d"></a>
 ### compareMethods(Method, Method)
 
 ```java
@@ -50,7 +50,7 @@ Comparison of method signatures. Compares arguments and return types but
 
 **Returns:** true if arguments and return type of methods coincide
 
-<a id="s-invocationTargetCheck"></a>
+<a id="m-invocationtargetcheck-20a147521b60"></a>
 ### invocationTargetCheck(InvocationTargetException)
 
 ```java
@@ -59,7 +59,7 @@ public static com.tailf.dp.DpCallbackException invocationTargetCheck(
 )
 ```
 
-Types: [DpCallbackException](../DpCallbackException.md#s-DpCallbackException)
+Types: [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
 
 **Parameters**
 

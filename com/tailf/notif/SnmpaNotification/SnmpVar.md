@@ -1,4 +1,4 @@
-<a id="s-SnmpVar"></a>
+<a id="cls-SnmpVar"></a>
 # SnmpVar
 
 ```java
@@ -11,18 +11,18 @@ Class representing a SNMP variable
 
 **Constructors**:
 
-- [SnmpVar(String, long[], String, long[])](#s-SnmpVar-1)
+- [SnmpVar(String, long[], String, long[])](#m-snmpvar-81ac1f12c262)
 
 **Methods**:
 
-- [getColumn()](#s-getColumn)
-- [getName()](#s-getName)
-- [getOID()](#s-getOID)
-- [getRowIndex()](#s-getRowIndex)
+- [getColumn()](#m-getcolumn-d5f8434d3d26)
+- [getName()](#m-getname-2634b18b4a25)
+- [getOID()](#m-getoid-5906d09df65a)
+- [getRowIndex()](#m-getrowindex-7a54ed7b2c63)
 
 ## Constructors
 
-<a id="s-SnmpVar-1"></a>
+<a id="m-snmpvar-81ac1f12c262"></a>
 ### SnmpVar(String, long[], String, long[])
 
 ```java
@@ -39,28 +39,28 @@ public SnmpVar(String name, long[] oid, String column, long[] rowindex)
 
 ## Methods
 
-<a id="s-getColumn"></a>
+<a id="m-getcolumn-d5f8434d3d26"></a>
 ### getColumn()
 
 ```java
 public String getColumn()
 ```
 
-<a id="s-getName"></a>
+<a id="m-getname-2634b18b4a25"></a>
 ### getName()
 
 ```java
 public String getName()
 ```
 
-<a id="s-getOID"></a>
+<a id="m-getoid-5906d09df65a"></a>
 ### getOID()
 
 ```java
 public long[] getOID()
 ```
 
-<a id="s-getRowIndex"></a>
+<a id="m-getrowindex-7a54ed7b2c63"></a>
 ### getRowIndex()
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-CsValueDQuad"></a>
+<a id="cls-CsValueDQuad"></a>
 # CsValueDQuad
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.CsValueDQuad
 
 **Constructors**:
 
-- [CsValueDQuad()](#s-CsValueDQuad-1)
+- [CsValueDQuad()](#m-csvaluedquad-700f0f35c5e3)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](CsValueDQuad/Builder.md#s-Builder)
-- [Factory](CsValueDQuad/Factory.md#s-Factory)
-- [Reader](CsValueDQuad/Reader.md#s-Reader)
+- [Builder](CsValueDQuad/Builder.md#cls-Builder)
+- [Factory](CsValueDQuad/Factory.md#cls-Factory)
+- [Reader](CsValueDQuad/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-CsValueDQuad-1"></a>
+<a id="m-csvaluedquad-700f0f35c5e3"></a>
 ### CsValueDQuad()
 
 ```java
@@ -35,25 +35,25 @@ public CsValueDQuad()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValueDQuad.Factory factory = null;
 ```
 
-Types: [Factory](CsValueDQuad/Factory.md#s-Factory)
+Types: [Factory](CsValueDQuad/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueDQuad.Builder,com.tailf.ncs.maapi.Schema.CsValueDQuad.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsValueDQuad/Builder.md#s-Builder), [Reader](CsValueDQuad/Reader.md#s-Reader)
+Types: [Builder](CsValueDQuad/Builder.md#cls-Builder), [Reader](CsValueDQuad/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsValueDQuad/Builder.md)
-- [Factory](CsValueDQuad/Factory.md)
-- [Reader](CsValueDQuad/Reader.md)
+- [Builder](CsValueDQuad/Builder.md#cls-Builder)
+- [Factory](CsValueDQuad/Factory.md#cls-Factory)
+- [Reader](CsValueDQuad/Reader.md#cls-Reader)

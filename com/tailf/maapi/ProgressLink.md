@@ -1,4 +1,4 @@
-<a id="s-ProgressLink"></a>
+<a id="cls-ProgressLink"></a>
 # ProgressLink
 
 ```java
@@ -9,16 +9,16 @@ public class com.tailf.maapi.ProgressLink
 
 **Constructors**:
 
-- [ProgressLink(String, String)](#s-ProgressLink-1)
+- [ProgressLink(String, String)](#m-progresslink-0a58cee8778f)
 
 **Methods**:
 
-- [getSpanId()](#s-getSpanId)
-- [getTraceId()](#s-getTraceId)
+- [getSpanId()](#m-getspanid-155306b8dcae)
+- [getTraceId()](#m-gettraceid-c3a30b94d9ce)
 
 ## Constructors
 
-<a id="s-ProgressLink-1"></a>
+<a id="m-progresslink-0a58cee8778f"></a>
 ### ProgressLink(String, String)
 
 ```java
@@ -33,14 +33,14 @@ public ProgressLink(String traceId, String spanId)
 
 ## Methods
 
-<a id="s-getSpanId"></a>
+<a id="m-getspanid-155306b8dcae"></a>
 ### getSpanId()
 
 ```java
 public String getSpanId()
 ```
 
-<a id="s-getTraceId"></a>
+<a id="m-gettraceid-c3a30b94d9ce"></a>
 ### getTraceId()
 
 ```java

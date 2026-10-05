@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,27 +6,23 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeIdref.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getRefs()](#s-getRefs)
-- [hasRefs()](#s-hasRefs)
-- [initRefs(int)](#s-initRefs)
-- [setRefs(Reader<Reader>)](#s-setRefs)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getRefs()](#m-getrefs-b06b91bf4474)
+- [hasRefs()](#m-hasrefs-1092d9d8bb51)
+- [initRefs(int)](#m-initrefs-ba28b74a20d7)
+- [setRefs(Reader<Reader>)](#m-setrefs-be4e2cc42754)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -52,32 +48,32 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeIdref.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getRefs"></a>
+<a id="m-getrefs-b06b91bf4474"></a>
 ### getRefs()
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Builder> getRefs()
 ```
 
-Types: [Builder](Ref/Builder.md#s-Builder)
+Types: [Builder](Ref/Builder.md#cls-Builder)
 
-<a id="s-hasRefs"></a>
+<a id="m-hasrefs-1092d9d8bb51"></a>
 ### hasRefs()
 
 ```java
 public final boolean hasRefs()
 ```
 
-<a id="s-initRefs"></a>
+<a id="m-initrefs-ba28b74a20d7"></a>
 ### initRefs(int)
 
 ```java
@@ -86,13 +82,13 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsTypeI
 )
 ```
 
-Types: [Builder](Ref/Builder.md#s-Builder)
+Types: [Builder](Ref/Builder.md#cls-Builder)
 
 **Parameters**
 
 - `int size`
 
-<a id="s-setRefs"></a>
+<a id="m-setrefs-be4e2cc42754"></a>
 ### setRefs(Reader<Reader>)
 
 ```java
@@ -101,7 +97,7 @@ public final void setRefs(
 )
 ```
 
-Types: [Reader](Ref/Reader.md#s-Reader)
+Types: [Reader](Ref/Reader.md#cls-Reader)
 
 **Parameters**
 

@@ -1,4 +1,4 @@
-<a id="s-AlarmSink"></a>
+<a id="cls-AlarmSink"></a>
 # AlarmSink
 
 ```java
@@ -30,20 +30,20 @@ The class `AlarmSink` represents a "sink" where
 
 **Constructors**:
 
-- [AlarmSink()](#s-AlarmSink-1)
-- [AlarmSink(AlarmSinkCentral)](#s-AlarmSink-2)
-- [AlarmSink(Maapi)](#s-AlarmSink-3)
+- [AlarmSink()](#m-alarmsink-bfafeb8b3d91)
+- [AlarmSink(AlarmSinkCentral)](#m-alarmsink-b39f3967d739)
+- [AlarmSink(Maapi)](#m-alarmsink-bec483a98b11)
 
 **Methods**:
 
-- [submitAlarm(Alarm)](#s-submitAlarm)
-- [submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#s-submitAlarm-1)
-- [submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, String, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#s-submitAlarm-2)
-- [submitAlarmList(List<Alarm>)](#s-submitAlarmList)
+- [submitAlarm(Alarm)](#m-submitalarm-aff190c46329)
+- [submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#m-submitalarm-00b8df4003d0)
+- [submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, String, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#m-submitalarm-99f8171f0795)
+- [submitAlarmList(List<Alarm>)](#m-submitalarmlist-a59c291d1268)
 
 ## Constructors
 
-<a id="s-AlarmSink-1"></a>
+<a id="m-alarmsink-bfafeb8b3d91"></a>
 ### AlarmSink()
 
 ```java
@@ -59,14 +59,14 @@ Constructs an `AlarmSink`. This sink
  used if you are writing alarms inside the NCS JVM i.e
  in a package component.
 
-<a id="s-AlarmSink-2"></a>
+<a id="m-alarmsink-b39f3967d739"></a>
 ### AlarmSink(AlarmSinkCentral)
 
 ```java
 public AlarmSink(com.tailf.ncs.alarmman.producer.AlarmSinkCentral central)
 ```
 
-Types: [AlarmSinkCentral](AlarmSinkCentral.md#s-AlarmSinkCentral)
+Types: [AlarmSinkCentral](AlarmSinkCentral.md#cls-AlarmSinkCentral)
 
 Construct an `AlarmSink` using the given
  `AlarmSinkCentral` object for writing alarms
@@ -79,14 +79,14 @@ Construct an `AlarmSink` using the given
 
 - `com.tailf.ncs.alarmman.producer.AlarmSinkCentral central` - object to be used for writing alarms
 
-<a id="s-AlarmSink-3"></a>
+<a id="m-alarmsink-bec483a98b11"></a>
 ### AlarmSink(Maapi)
 
 ```java
 public AlarmSink(com.tailf.maapi.Maapi maapi) throws com.tailf.navu.NavuException
 ```
 
-Types: [Maapi](../../../maapi/Maapi.md#s-Maapi), [NavuException](../../../navu/NavuException.md#s-NavuException)
+Types: [Maapi](../../../maapi/Maapi.md#cls-Maapi), [NavuException](../../../navu/NavuException.md#cls-NavuException)
 
 Construct an `AlarmSink` using the given `Maapi`
  object for writing alarms directly to the alarm list.
@@ -101,7 +101,7 @@ Construct an `AlarmSink` using the given `Maapi`
 
 ## Methods
 
-<a id="s-submitAlarm"></a>
+<a id="m-submitalarm-aff190c46329"></a>
 ### submitAlarm(Alarm)
 
 ```java
@@ -111,7 +111,7 @@ public void submitAlarm(
     throws com.tailf.navu.NavuException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [Alarm](../common/Alarm.md#s-Alarm), [NavuException](../../../navu/NavuException.md#s-NavuException), [ConfException](../../../conf/ConfException.md#s-ConfException)
+Types: [Alarm](../common/Alarm.md#cls-Alarm), [NavuException](../../../navu/NavuException.md#cls-NavuException), [ConfException](../../../conf/ConfException.md#cls-ConfException)
 
 Submits the specified `Alarm` into the alarm list.
  If the alarm's key
@@ -129,7 +129,7 @@ Submits the specified `Alarm` into the alarm list.
 - `ConfException`
 - `IOException`
 
-<a id="s-submitAlarm-1"></a>
+<a id="m-submitalarm-00b8df4003d0"></a>
 ### submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])
 
 ```java
@@ -149,7 +149,7 @@ public synchronized boolean submitAlarm(
     throws com.tailf.navu.NavuException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ManagedDevice](../common/ManagedDevice.md#s-ManagedDevice), [ManagedObject](../common/ManagedObject.md#s-ManagedObject), [ConfIdentityRef](../../../conf/ConfIdentityRef.md#s-ConfIdentityRef), [ConfBuf](../../../conf/ConfBuf.md#s-ConfBuf), [PerceivedSeverity](../common/PerceivedSeverity.md#s-PerceivedSeverity), [AlarmId](../common/AlarmId.md#s-AlarmId), [ConfDatetime](../../../conf/ConfDatetime.md#s-ConfDatetime), [Attribute](../common/Attribute.md#s-Attribute), [NavuException](../../../navu/NavuException.md#s-NavuException), [ConfException](../../../conf/ConfException.md#s-ConfException)
+Types: [ManagedDevice](../common/ManagedDevice.md#cls-ManagedDevice), [ManagedObject](../common/ManagedObject.md#cls-ManagedObject), [ConfIdentityRef](../../../conf/ConfIdentityRef.md#cls-ConfIdentityRef), [ConfBuf](../../../conf/ConfBuf.md#cls-ConfBuf), [PerceivedSeverity](../common/PerceivedSeverity.md#cls-PerceivedSeverity), [AlarmId](../common/AlarmId.md#cls-AlarmId), [ConfDatetime](../../../conf/ConfDatetime.md#cls-ConfDatetime), [Attribute](../common/Attribute.md#cls-Attribute), [NavuException](../../../navu/NavuException.md#cls-NavuException), [ConfException](../../../conf/ConfException.md#cls-ConfException)
 
 Submits the specified `Alarm` into the alarm list.
  If the alarms key
@@ -188,7 +188,7 @@ Submits the specified `Alarm` into the alarm list.
 - `ConfException`
 - `NavuException`
 
-<a id="s-submitAlarm-2"></a>
+<a id="m-submitalarm-99f8171f0795"></a>
 ### submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, String, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])
 
 ```java
@@ -208,7 +208,7 @@ public synchronized boolean submitAlarm(
     throws com.tailf.navu.NavuException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ManagedDevice](../common/ManagedDevice.md#s-ManagedDevice), [ManagedObject](../common/ManagedObject.md#s-ManagedObject), [ConfIdentityRef](../../../conf/ConfIdentityRef.md#s-ConfIdentityRef), [ConfBuf](../../../conf/ConfBuf.md#s-ConfBuf), [PerceivedSeverity](../common/PerceivedSeverity.md#s-PerceivedSeverity), [AlarmId](../common/AlarmId.md#s-AlarmId), [ConfDatetime](../../../conf/ConfDatetime.md#s-ConfDatetime), [Attribute](../common/Attribute.md#s-Attribute), [NavuException](../../../navu/NavuException.md#s-NavuException), [ConfException](../../../conf/ConfException.md#s-ConfException)
+Types: [ManagedDevice](../common/ManagedDevice.md#cls-ManagedDevice), [ManagedObject](../common/ManagedObject.md#cls-ManagedObject), [ConfIdentityRef](../../../conf/ConfIdentityRef.md#cls-ConfIdentityRef), [ConfBuf](../../../conf/ConfBuf.md#cls-ConfBuf), [PerceivedSeverity](../common/PerceivedSeverity.md#cls-PerceivedSeverity), [AlarmId](../common/AlarmId.md#cls-AlarmId), [ConfDatetime](../../../conf/ConfDatetime.md#cls-ConfDatetime), [Attribute](../common/Attribute.md#cls-Attribute), [NavuException](../../../navu/NavuException.md#cls-NavuException), [ConfException](../../../conf/ConfException.md#cls-ConfException)
 
 Submits the specified `Alarm` into the alarm list.
  If the alarm's key
@@ -247,7 +247,7 @@ Submits the specified `Alarm` into the alarm list.
 - `ConfException`
 - `NavuException`
 
-<a id="s-submitAlarmList"></a>
+<a id="m-submitalarmlist-a59c291d1268"></a>
 ### submitAlarmList(List<Alarm>)
 
 ```java
@@ -257,7 +257,7 @@ protected boolean submitAlarmList(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [Alarm](../common/Alarm.md#s-Alarm), [ConfException](../../../conf/ConfException.md#s-ConfException)
+Types: [Alarm](../common/Alarm.md#cls-Alarm), [ConfException](../../../conf/ConfException.md#cls-ConfException)
 
 Submits a list of alarms
 

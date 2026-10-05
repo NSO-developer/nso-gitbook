@@ -1,4 +1,4 @@
-<a id="s-ConfERef"></a>
+<a id="cls-ConfERef"></a>
 # ConfERef
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.proto.ConfERef
     extends com.tailf.proto.ConfEObject
 ```
 
-Types: [ConfEObject](ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](ConfEObject.md#cls-ConfEObject)
 
 Provides a Java representation of E refs. There are two styles of E refs, old
  style (one id value) and new style (array of id values). This class manages
@@ -16,38 +16,38 @@ Provides a Java representation of E refs. There are two styles of E refs, old
 
 **Constructors**:
 
-- [ConfERef(ConfInputStream)](#s-ConfERef-1)
-- [ConfERef(String, int, int)](#s-ConfERef-2)
-- [ConfERef(String, int[], int)](#s-ConfERef-3)
+- [ConfERef(ConfInputStream)](#m-conferef-ef452c652e20)
+- [ConfERef(String, int, int)](#m-conferef-8d974ce14696)
+- [ConfERef(String, int[], int)](#m-conferef-c26fc44f32e1)
 
 **Fields**:
 
-- [serialVersionUID](#s-serialVersionUID)
+- [serialVersionUID](#m-serialVersionUID)
 
 **Methods**:
 
-- [clone()](#s-clone)
-- [creation()](#s-creation)
-- [decode(ConfInputStream)](ConfEObject.md#s-decode) from ConfEObject
-- [encode(ConfOutputStream)](#s-encode)
-- [equals(Object)](#s-equals)
-- [hashCode()](#s-hashCode)
-- [id()](#s-id)
-- [ids()](#s-ids)
-- [isNewRef()](#s-isNewRef)
-- [node()](#s-node)
-- [toString()](#s-toString)
+- [clone()](#m-clone-164c86c45e9b)
+- [creation()](#m-creation-46181b4a88a5)
+- [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
+- [encode(ConfOutputStream)](#m-encode-cb1ad9eb7771)
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [hashCode()](#m-hashcode-ef797a217903)
+- [id()](#m-id-1352448ec267)
+- [ids()](#m-ids-ffb689fcb456)
+- [isNewRef()](#m-isnewref-e4f4038aefac)
+- [node()](#m-node-1fe382dfa2c3)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-ConfERef-1"></a>
+<a id="m-conferef-ef452c652e20"></a>
 ### ConfERef(ConfInputStream)
 
 ```java
 public ConfERef(com.tailf.proto.ConfInputStream buf) throws com.tailf.proto.ConfEDecodeException
 ```
 
-Types: [ConfInputStream](ConfInputStream.md#s-ConfInputStream), [ConfEDecodeException](ConfEDecodeException.md#s-ConfEDecodeException)
+Types: [ConfInputStream](ConfInputStream.md#cls-ConfInputStream), [ConfEDecodeException](ConfEDecodeException.md#cls-ConfEDecodeException)
 
 Create an E ref from a stream containing a ref encoded in E external
  format.
@@ -61,7 +61,7 @@ Create an E ref from a stream containing a ref encoded in E external
 - `ConfEDecodeException` - if the buffer does not contain a valid external
                 representation of an E ref.
 
-<a id="s-ConfERef-2"></a>
+<a id="m-conferef-8d974ce14696"></a>
 ### ConfERef(String, int, int)
 
 ```java
@@ -77,7 +77,7 @@ Create an old style E ref from its components.
 - `int creation` - another arbitrary number. Only the low order 2 bits will be
             used.
 
-<a id="s-ConfERef-3"></a>
+<a id="m-conferef-c26fc44f32e1"></a>
 ### ConfERef(String, int[], int)
 
 ```java
@@ -99,7 +99,7 @@ Create a new style E ref from its components.
 
 ## Fields
 
-<a id="s-serialVersionUID"></a>
+<a id="m-serialVersionUID"></a>
 ### serialVersionUID
 
 **Package-private**
@@ -111,14 +111,14 @@ static final long serialVersionUID = -7022666480768586521;
 
 ## Methods
 
-<a id="s-clone"></a>
+<a id="m-clone-164c86c45e9b"></a>
 ### clone()
 
 ```java
 public Object clone()
 ```
 
-<a id="s-creation"></a>
+<a id="m-creation-46181b4a88a5"></a>
 ### creation()
 
 ```java
@@ -129,14 +129,14 @@ Get the creation number from the ref.
 
 **Returns:** the creation number from the ref.
 
-<a id="s-encode"></a>
+<a id="m-encode-cb1ad9eb7771"></a>
 ### encode(ConfOutputStream)
 
 ```java
 public void encode(com.tailf.proto.ConfOutputStream buf)
 ```
 
-Types: [ConfOutputStream](ConfOutputStream.md#s-ConfOutputStream)
+Types: [ConfOutputStream](ConfOutputStream.md#cls-ConfOutputStream)
 
 Convert this ref to the equivalent E external representation.
 
@@ -144,7 +144,7 @@ Convert this ref to the equivalent E external representation.
 
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded ref should be written.
 
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
@@ -161,14 +161,14 @@ Determine if two refs are equal. Refs are equal if their components are
 
 **Returns:** true if the refs are equal, false otherwise.
 
-<a id="s-hashCode"></a>
+<a id="m-hashcode-ef797a217903"></a>
 ### hashCode()
 
 ```java
 public int hashCode()
 ```
 
-<a id="s-id"></a>
+<a id="m-id-1352448ec267"></a>
 ### id()
 
 ```java
@@ -180,7 +180,7 @@ Get the id number from the ref. Old style refs have only one id number.
 
 **Returns:** the id number from the ref.
 
-<a id="s-ids"></a>
+<a id="m-ids-ffb689fcb456"></a>
 ### ids()
 
 ```java
@@ -193,7 +193,7 @@ Get the array of id numbers from the ref. If this is an old style ref,
 
 **Returns:** the array of id numbers from the ref.
 
-<a id="s-isNewRef"></a>
+<a id="m-isnewref-e4f4038aefac"></a>
 ### isNewRef()
 
 ```java
@@ -204,7 +204,7 @@ Determine whether this is a new style ref.
 
 **Returns:** true if this ref is a new style ref, false otherwise.
 
-<a id="s-node"></a>
+<a id="m-node-1fe382dfa2c3"></a>
 ### node()
 
 ```java
@@ -215,7 +215,7 @@ Get the node name from the ref.
 
 **Returns:** the node name from the ref.
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

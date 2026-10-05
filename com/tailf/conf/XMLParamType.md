@@ -1,65 +1,61 @@
-<a id="s-XMLParamType"></a>
+<a id="cls-XMLParamType"></a>
 # XMLParamType
 
 ```java
 public enum com.tailf.conf.XMLParamType
 ```
 
-Types: [XMLParamType](XMLParamType.md#s-XMLParamType)
+Types: [XMLParamType](XMLParamType.md#cls-XMLParamType)
 
 Enum identifying type of ConfXMLParam subclass.
- see [`ConfXMLParam`](ConfXMLParam.md#s-ConfXMLParam)
-
-**Related classes**
-
-- [XMLParamType](XMLParamType.md#s-XMLParamType)
+ see [`ConfXMLParam`](ConfXMLParam.md#cls-ConfXMLParam)
 
 ## Members
 
 **Enum Constants**:
 
-- [DELETE](#s-DELETE)
-- [LEAF](#s-LEAF)
-- [START](#s-START)
-- [STOP](#s-STOP)
-- [VALUE](#s-VALUE)
+- [DELETE](#m-DELETE)
+- [LEAF](#m-LEAF)
+- [START](#m-START)
+- [STOP](#m-STOP)
+- [VALUE](#m-VALUE)
 
 **Methods**:
 
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-DELETE"></a>
+<a id="m-DELETE"></a>
 ### DELETE
 
 ```java
 public static final com.tailf.conf.XMLParamType DELETE;
 ```
 
-<a id="s-LEAF"></a>
+<a id="m-LEAF"></a>
 ### LEAF
 
 ```java
 public static final com.tailf.conf.XMLParamType LEAF;
 ```
 
-<a id="s-START"></a>
+<a id="m-START"></a>
 ### START
 
 ```java
 public static final com.tailf.conf.XMLParamType START;
 ```
 
-<a id="s-STOP"></a>
+<a id="m-STOP"></a>
 ### STOP
 
 ```java
 public static final com.tailf.conf.XMLParamType STOP;
 ```
 
-<a id="s-VALUE"></a>
+<a id="m-VALUE"></a>
 ### VALUE
 
 ```java
@@ -69,24 +65,24 @@ public static final com.tailf.conf.XMLParamType VALUE;
 
 ## Methods
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.conf.XMLParamType valueOf(String name)
 ```
 
-Types: [XMLParamType](XMLParamType.md#s-XMLParamType)
+Types: [XMLParamType](XMLParamType.md#cls-XMLParamType)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.conf.XMLParamType[] values()
 ```
 
-Types: [XMLParamType](XMLParamType.md#s-XMLParamType)
+Types: [XMLParamType](XMLParamType.md#cls-XMLParamType)

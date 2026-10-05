@@ -1,4 +1,4 @@
-<a id="s-CdbUpgradeSession"></a>
+<a id="cls-CdbUpgradeSession"></a>
 # CdbUpgradeSession
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.cdb.CdbUpgradeSession
     extends com.tailf.cdb.CdbSession
 ```
 
-Types: [CdbSession](CdbSession.md#s-CdbSession)
+Types: [CdbSession](CdbSession.md#cls-CdbSession)
 
 The class `CdbUpgradeSession` represents a session against
  the Cdb database that can be used for accessing data models that are
@@ -18,91 +18,91 @@ The class `CdbUpgradeSession` represents a session against
  rather than ConfPaths.
 
  For information on specific methods, refer to the
- [`CdbSession`](CdbSession.md#s-CdbSession) documentation.
+ [`CdbSession`](CdbSession.md#cls-CdbSession) documentation.
 
 ## Members
 
 **Constructors**:
 
-- [CdbUpgradeSession(Cdb)](#s-CdbUpgradeSession-1)
-- [CdbUpgradeSession(Cdb, CdbDBType)](#s-CdbUpgradeSession-2)
-- [CdbUpgradeSession(Cdb, CdbDBType, EnumSet<CdbLockType>)](#s-CdbUpgradeSession-3)
+- [CdbUpgradeSession(Cdb)](#m-cdbupgradesession-9c7856c35ce4)
+- [CdbUpgradeSession(Cdb, CdbDBType)](#m-cdbupgradesession-f35d15a5ad7d)
+- [CdbUpgradeSession(Cdb, CdbDBType, EnumSet<CdbLockType>)](#m-cdbupgradesession-4758cb046786)
 
 **Fields**:
 
-- [cdb](CdbSession.md#s-cdb) from CdbSession
-- [dbType](CdbSession.md#s-dbType) from CdbSession
-- [lockflags](CdbSession.md#s-lockflags) from CdbSession
+- [cdb](CdbSession.md#m-cdb) from CdbSession
+- [dbType](CdbSession.md#m-dbType) from CdbSession
+- [lockflags](CdbSession.md#m-lockflags) from CdbSession
 
 **Methods**:
 
-- [cd(ConfCdbUpgradePath)](#s-cd)
-- [cd(ConfPath)](CdbSession.md#s-cd) from CdbSession
-- [cd(String, Object[])](#s-cd-1)
-- [create(ConfCdbUpgradePath)](#s-create)
-- [create(ConfPath)](CdbSession.md#s-create) from CdbSession
-- [create(String, Object[])](#s-create-1)
-- [delete(ConfCdbUpgradePath)](#s-delete)
-- [delete(ConfPath)](CdbSession.md#s-delete) from CdbSession
-- [delete(String, Object[])](#s-delete-1)
-- [endSession()](CdbSession.md#s-endSession) from CdbSession
-- [exists(ConfCdbUpgradePath)](#s-exists)
-- [exists(ConfPath)](CdbSession.md#s-exists) from CdbSession
-- [exists(String, Object[])](#s-exists-1)
-- [getCase(String, ConfCdbUpgradePath)](#s-getCase)
-- [getCase(String, ConfPath)](CdbSession.md#s-getCase) from CdbSession
-- [getCase(String, String, Object[])](#s-getCase-1)
-- [getCdb()](CdbSession.md#s-getCdb) from CdbSession
-- [getcwd()](CdbSession.md#s-getcwd) from CdbSession
-- [getcwdPath()](CdbSession.md#s-getcwdPath) from CdbSession
-- [getDbType()](CdbSession.md#s-getDbType) from CdbSession
-- [getElem(ConfCdbUpgradePath)](#s-getElem)
-- [getElem(ConfPath)](CdbSession.md#s-getElem) from CdbSession
-- [getElem(String, Object[])](#s-getElem-1)
-- [getNumberOfInstances(ConfCdbUpgradePath)](#s-getNumberOfInstances)
-- [getNumberOfInstances(ConfPath)](CdbSession.md#s-getNumberOfInstances) from CdbSession
-- [getNumberOfInstances(String, Object[])](#s-getNumberOfInstances-1)
-- [getObject(int, ConfCdbUpgradePath)](#s-getObject)
-- [getObject(int, ConfPath)](CdbSession.md#s-getObject) from CdbSession
-- [getObject(int, String, Object[])](#s-getObject-1)
-- [getObjects(int, int, int, ConfCdbUpgradePath)](#s-getObjects)
-- [getObjects(int, int, int, ConfPath)](CdbSession.md#s-getObjects) from CdbSession
-- [getObjects(int, int, int, String, Object[])](#s-getObjects-1)
-- [getValues(ConfXMLParam[], ConfCdbUpgradePath)](#s-getValues)
-- [getValues(ConfXMLParam[], ConfPath)](CdbSession.md#s-getValues) from CdbSession
-- [getValues(ConfXMLParam[], String, Object[])](#s-getValues-1)
-- [index(ConfCdbUpgradePath)](#s-index)
-- [index(ConfPath)](CdbSession.md#s-index) from CdbSession
-- [index(String, Object[])](#s-index-1)
-- [isDefault(ConfCdbUpgradePath)](#s-isDefault)
-- [isDefault(ConfPath)](CdbSession.md#s-isDefault) from CdbSession
-- [isDefault(String, Object[])](#s-isDefault-1)
-- [nextIndex(ConfCdbUpgradePath)](#s-nextIndex)
-- [nextIndex(ConfPath)](CdbSession.md#s-nextIndex) from CdbSession
-- [nextIndex(String, Object[])](#s-nextIndex-1)
-- [popd()](CdbSession.md#s-popd) from CdbSession
-- [pushd(ConfCdbUpgradePath)](#s-pushd)
-- [pushd(ConfPath)](CdbSession.md#s-pushd) from CdbSession
-- [pushd(String, Object[])](#s-pushd-1)
-- [setCase(String, String, ConfCdbUpgradePath)](#s-setCase)
-- [setCase(String, String, ConfPath)](CdbSession.md#s-setCase) from CdbSession
-- [setCase(String, String, String, Object[])](#s-setCase-1)
-- [setElem(ConfValue, ConfCdbUpgradePath)](#s-setElem)
-- [setElem(ConfValue, ConfPath)](CdbSession.md#s-setElem) from CdbSession
-- [setElem(ConfValue, String, Object[])](#s-setElem-1)
-- [setNamespace(ConfNamespace)](CdbSession.md#s-setNamespace) from CdbSession
-- [setObject(ConfValue[], ConfCdbUpgradePath)](#s-setObject)
-- [setObject(ConfValue[], ConfPath)](CdbSession.md#s-setObject) from CdbSession
-- [setObject(ConfValue[], String, Object[])](#s-setObject-1)
-- [setValues(ConfXMLParam[], ConfCdbUpgradePath)](#s-setValues)
-- [setValues(ConfXMLParam[], ConfPath)](CdbSession.md#s-setValues) from CdbSession
-- [setValues(ConfXMLParam[], String, Object[])](#s-setValues-1)
-- [setValues(List<ConfXMLParam>, ConfPath)](CdbSession.md#s-setValues-2) from CdbSession
-- [toString()](#s-toString)
+- [cd(ConfCdbUpgradePath)](#m-cd-76a3a9996341)
+- [cd(ConfPath)](CdbSession.md#m-cd-a902c91e6177) from CdbSession
+- [cd(String, Object[])](#m-cd-751c8b439d16)
+- [create(ConfCdbUpgradePath)](#m-create-cfb8c64701ae)
+- [create(ConfPath)](CdbSession.md#m-create-02589a4ee236) from CdbSession
+- [create(String, Object[])](#m-create-8d8ef9670e7f)
+- [delete(ConfCdbUpgradePath)](#m-delete-acddec731505)
+- [delete(ConfPath)](CdbSession.md#m-delete-46ab41293f59) from CdbSession
+- [delete(String, Object[])](#m-delete-a6dae6a18c6e)
+- [endSession()](CdbSession.md#m-endsession-1853baeb5d28) from CdbSession
+- [exists(ConfCdbUpgradePath)](#m-exists-34727aeeaf9c)
+- [exists(ConfPath)](CdbSession.md#m-exists-afa14dd11748) from CdbSession
+- [exists(String, Object[])](#m-exists-c95896218534)
+- [getCase(String, ConfCdbUpgradePath)](#m-getcase-b4fb83cb6c0c)
+- [getCase(String, ConfPath)](CdbSession.md#m-getcase-db036ac6c713) from CdbSession
+- [getCase(String, String, Object[])](#m-getcase-9058de2e1364)
+- [getCdb()](CdbSession.md#m-getcdb-62d7a3429687) from CdbSession
+- [getcwd()](CdbSession.md#m-getcwd-18c6eed4f1fa) from CdbSession
+- [getcwdPath()](CdbSession.md#m-getcwdpath-a9fa1536fad1) from CdbSession
+- [getDbType()](CdbSession.md#m-getdbtype-9503dd2b103d) from CdbSession
+- [getElem(ConfCdbUpgradePath)](#m-getelem-aaad89e84412)
+- [getElem(ConfPath)](CdbSession.md#m-getelem-f8219fa65c5d) from CdbSession
+- [getElem(String, Object[])](#m-getelem-8ec719438ea8)
+- [getNumberOfInstances(ConfCdbUpgradePath)](#m-getnumberofinstances-3fd583c7908c)
+- [getNumberOfInstances(ConfPath)](CdbSession.md#m-getnumberofinstances-41d82cec9221) from CdbSession
+- [getNumberOfInstances(String, Object[])](#m-getnumberofinstances-4ff46f9afb5c)
+- [getObject(int, ConfCdbUpgradePath)](#m-getobject-d4ec118901b9)
+- [getObject(int, ConfPath)](CdbSession.md#m-getobject-97126abcba49) from CdbSession
+- [getObject(int, String, Object[])](#m-getobject-8f535bb4e0e8)
+- [getObjects(int, int, int, ConfCdbUpgradePath)](#m-getobjects-4f8eeb1cbe3a)
+- [getObjects(int, int, int, ConfPath)](CdbSession.md#m-getobjects-d25a1860a73f) from CdbSession
+- [getObjects(int, int, int, String, Object[])](#m-getobjects-9108870a6290)
+- [getValues(ConfXMLParam[], ConfCdbUpgradePath)](#m-getvalues-fb7bceb4a67a)
+- [getValues(ConfXMLParam[], ConfPath)](CdbSession.md#m-getvalues-b30d01896278) from CdbSession
+- [getValues(ConfXMLParam[], String, Object[])](#m-getvalues-f93a502602ef)
+- [index(ConfCdbUpgradePath)](#m-index-7926a22548c3)
+- [index(ConfPath)](CdbSession.md#m-index-339d675c9a64) from CdbSession
+- [index(String, Object[])](#m-index-cae5f09ba6fb)
+- [isDefault(ConfCdbUpgradePath)](#m-isdefault-d225e5140d47)
+- [isDefault(ConfPath)](CdbSession.md#m-isdefault-a9229eae64cf) from CdbSession
+- [isDefault(String, Object[])](#m-isdefault-8c3502a0ab6d)
+- [nextIndex(ConfCdbUpgradePath)](#m-nextindex-63eeb0d708e6)
+- [nextIndex(ConfPath)](CdbSession.md#m-nextindex-ceef3a478d50) from CdbSession
+- [nextIndex(String, Object[])](#m-nextindex-c2b059f89584)
+- [popd()](CdbSession.md#m-popd-b092d2d9048f) from CdbSession
+- [pushd(ConfCdbUpgradePath)](#m-pushd-8d23b319b093)
+- [pushd(ConfPath)](CdbSession.md#m-pushd-d9d906674b7a) from CdbSession
+- [pushd(String, Object[])](#m-pushd-fd6a4c1b1c8d)
+- [setCase(String, String, ConfCdbUpgradePath)](#m-setcase-8aa53e83a440)
+- [setCase(String, String, ConfPath)](CdbSession.md#m-setcase-3792b2775b7f) from CdbSession
+- [setCase(String, String, String, Object[])](#m-setcase-908203af825d)
+- [setElem(ConfValue, ConfCdbUpgradePath)](#m-setelem-648e489dcb58)
+- [setElem(ConfValue, ConfPath)](CdbSession.md#m-setelem-356e5e479e47) from CdbSession
+- [setElem(ConfValue, String, Object[])](#m-setelem-7fc14a355edc)
+- [setNamespace(ConfNamespace)](CdbSession.md#m-setnamespace-30316a480cfa) from CdbSession
+- [setObject(ConfValue[], ConfCdbUpgradePath)](#m-setobject-1f294157790b)
+- [setObject(ConfValue[], ConfPath)](CdbSession.md#m-setobject-741f2a72045e) from CdbSession
+- [setObject(ConfValue[], String, Object[])](#m-setobject-5edb7e0ee677)
+- [setValues(ConfXMLParam[], ConfCdbUpgradePath)](#m-setvalues-c275631d1d78)
+- [setValues(ConfXMLParam[], ConfPath)](CdbSession.md#m-setvalues-0755e36fbd2c) from CdbSession
+- [setValues(ConfXMLParam[], String, Object[])](#m-setvalues-824d05856f15)
+- [setValues(List<ConfXMLParam>, ConfPath)](CdbSession.md#m-setvalues-970140dc0796) from CdbSession
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-CdbUpgradeSession-1"></a>
+<a id="m-cdbupgradesession-9c7856c35ce4"></a>
 ### CdbUpgradeSession(Cdb)
 
 ```java
@@ -112,13 +112,13 @@ public CdbUpgradeSession(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Cdb](Cdb.md#s-Cdb), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Cdb](Cdb.md#cls-Cdb), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.cdb.Cdb cdb`
 
-<a id="s-CdbUpgradeSession-2"></a>
+<a id="m-cdbupgradesession-f35d15a5ad7d"></a>
 ### CdbUpgradeSession(Cdb, CdbDBType)
 
 ```java
@@ -129,14 +129,14 @@ public CdbUpgradeSession(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [Cdb](Cdb.md#s-Cdb), [CdbDBType](CdbDBType.md#s-CdbDBType), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Cdb](Cdb.md#cls-Cdb), [CdbDBType](CdbDBType.md#cls-CdbDBType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.cdb.Cdb cdb`
 - `com.tailf.cdb.CdbDBType dbtype`
 
-<a id="s-CdbUpgradeSession-3"></a>
+<a id="m-cdbupgradesession-4758cb046786"></a>
 ### CdbUpgradeSession(Cdb, CdbDBType, EnumSet<CdbLockType>)
 
 ```java
@@ -148,7 +148,7 @@ public CdbUpgradeSession(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [Cdb](Cdb.md#s-Cdb), [CdbDBType](CdbDBType.md#s-CdbDBType), [CdbLockType](CdbLockType.md#s-CdbLockType), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Cdb](Cdb.md#cls-Cdb), [CdbDBType](CdbDBType.md#cls-CdbDBType), [CdbLockType](CdbLockType.md#cls-CdbLockType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -159,7 +159,7 @@ Types: [Cdb](Cdb.md#s-Cdb), [CdbDBType](CdbDBType.md#s-CdbDBType), [CdbLockType]
 
 ## Methods
 
-<a id="s-cd"></a>
+<a id="m-cd-76a3a9996341"></a>
 ### cd(ConfCdbUpgradePath)
 
 ```java
@@ -169,13 +169,13 @@ public synchronized void cd(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-cd-1"></a>
+<a id="m-cd-751c8b439d16"></a>
 ### cd(String, Object[])
 
 ```java
@@ -186,14 +186,14 @@ public synchronized void cd(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-create"></a>
+<a id="m-create-cfb8c64701ae"></a>
 ### create(ConfCdbUpgradePath)
 
 ```java
@@ -203,13 +203,13 @@ public synchronized void create(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-create-1"></a>
+<a id="m-create-8d8ef9670e7f"></a>
 ### create(String, Object[])
 
 ```java
@@ -220,14 +220,14 @@ public synchronized void create(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-delete"></a>
+<a id="m-delete-acddec731505"></a>
 ### delete(ConfCdbUpgradePath)
 
 ```java
@@ -237,13 +237,13 @@ public synchronized void delete(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-delete-1"></a>
+<a id="m-delete-a6dae6a18c6e"></a>
 ### delete(String, Object[])
 
 ```java
@@ -254,14 +254,14 @@ public synchronized void delete(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-exists"></a>
+<a id="m-exists-34727aeeaf9c"></a>
 ### exists(ConfCdbUpgradePath)
 
 ```java
@@ -271,13 +271,13 @@ public synchronized boolean exists(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-exists-1"></a>
+<a id="m-exists-c95896218534"></a>
 ### exists(String, Object[])
 
 ```java
@@ -288,14 +288,14 @@ public synchronized boolean exists(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-getCase"></a>
+<a id="m-getcase-b4fb83cb6c0c"></a>
 ### getCase(String, ConfCdbUpgradePath)
 
 ```java
@@ -306,14 +306,14 @@ public synchronized com.tailf.conf.ConfObject getCase(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `String choice`
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-getCase-1"></a>
+<a id="m-getcase-9058de2e1364"></a>
 ### getCase(String, String, Object[])
 
 ```java
@@ -325,7 +325,7 @@ public synchronized com.tailf.conf.ConfObject getCase(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -333,7 +333,7 @@ Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfException](../conf
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-getElem"></a>
+<a id="m-getelem-aaad89e84412"></a>
 ### getElem(ConfCdbUpgradePath)
 
 ```java
@@ -343,13 +343,13 @@ public synchronized com.tailf.conf.ConfValue getElem(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-getElem-1"></a>
+<a id="m-getelem-8ec719438ea8"></a>
 ### getElem(String, Object[])
 
 ```java
@@ -360,14 +360,14 @@ public synchronized com.tailf.conf.ConfValue getElem(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-getNumberOfInstances"></a>
+<a id="m-getnumberofinstances-3fd583c7908c"></a>
 ### getNumberOfInstances(ConfCdbUpgradePath)
 
 ```java
@@ -377,13 +377,13 @@ public synchronized int getNumberOfInstances(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-getNumberOfInstances-1"></a>
+<a id="m-getnumberofinstances-4ff46f9afb5c"></a>
 ### getNumberOfInstances(String, Object[])
 
 ```java
@@ -394,14 +394,14 @@ public synchronized int getNumberOfInstances(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-getObject"></a>
+<a id="m-getobject-d4ec118901b9"></a>
 ### getObject(int, ConfCdbUpgradePath)
 
 ```java
@@ -412,14 +412,14 @@ public synchronized com.tailf.conf.ConfObject[] getObject(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `int numOfObjects`
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-getObject-1"></a>
+<a id="m-getobject-8f535bb4e0e8"></a>
 ### getObject(int, String, Object[])
 
 ```java
@@ -431,7 +431,7 @@ public synchronized com.tailf.conf.ConfObject[] getObject(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -439,7 +439,7 @@ Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfException](../conf
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-getObjects"></a>
+<a id="m-getobjects-4f8eeb1cbe3a"></a>
 ### getObjects(int, int, int, ConfCdbUpgradePath)
 
 ```java
@@ -452,7 +452,7 @@ public synchronized java.util.List<com.tailf.conf.ConfObject[]> getObjects(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -461,7 +461,7 @@ Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfCdbUpgradePath](..
 - `int numOfInstances`
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-getObjects-1"></a>
+<a id="m-getobjects-9108870a6290"></a>
 ### getObjects(int, int, int, String, Object[])
 
 ```java
@@ -475,7 +475,7 @@ public synchronized java.util.List<com.tailf.conf.ConfObject[]> getObjects(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -485,7 +485,7 @@ Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfException](../conf
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-getValues"></a>
+<a id="m-getvalues-fb7bceb4a67a"></a>
 ### getValues(ConfXMLParam[], ConfCdbUpgradePath)
 
 ```java
@@ -496,14 +496,14 @@ public synchronized com.tailf.conf.ConfXMLParam[] getValues(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfXMLParam[] params`
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-getValues-1"></a>
+<a id="m-getvalues-f93a502602ef"></a>
 ### getValues(ConfXMLParam[], String, Object[])
 
 ```java
@@ -515,7 +515,7 @@ public synchronized com.tailf.conf.ConfXMLParam[] getValues(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -523,7 +523,7 @@ Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfException](.
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-index"></a>
+<a id="m-index-7926a22548c3"></a>
 ### index(ConfCdbUpgradePath)
 
 ```java
@@ -533,13 +533,13 @@ public synchronized int index(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-index-1"></a>
+<a id="m-index-cae5f09ba6fb"></a>
 ### index(String, Object[])
 
 ```java
@@ -550,14 +550,14 @@ public synchronized int index(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-isDefault"></a>
+<a id="m-isdefault-d225e5140d47"></a>
 ### isDefault(ConfCdbUpgradePath)
 
 ```java
@@ -567,13 +567,13 @@ public synchronized boolean isDefault(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-isDefault-1"></a>
+<a id="m-isdefault-8c3502a0ab6d"></a>
 ### isDefault(String, Object[])
 
 ```java
@@ -584,14 +584,14 @@ public synchronized boolean isDefault(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-nextIndex"></a>
+<a id="m-nextindex-63eeb0d708e6"></a>
 ### nextIndex(ConfCdbUpgradePath)
 
 ```java
@@ -601,13 +601,13 @@ public synchronized int nextIndex(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-nextIndex-1"></a>
+<a id="m-nextindex-c2b059f89584"></a>
 ### nextIndex(String, Object[])
 
 ```java
@@ -618,14 +618,14 @@ public synchronized int nextIndex(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-pushd"></a>
+<a id="m-pushd-8d23b319b093"></a>
 ### pushd(ConfCdbUpgradePath)
 
 ```java
@@ -635,13 +635,13 @@ public synchronized void pushd(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-pushd-1"></a>
+<a id="m-pushd-fd6a4c1b1c8d"></a>
 ### pushd(String, Object[])
 
 ```java
@@ -652,14 +652,14 @@ public synchronized void pushd(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-setCase"></a>
+<a id="m-setcase-8aa53e83a440"></a>
 ### setCase(String, String, ConfCdbUpgradePath)
 
 ```java
@@ -671,7 +671,7 @@ public synchronized void setCase(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -679,7 +679,7 @@ Types: [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath),
 - `String scase`
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-setCase-1"></a>
+<a id="m-setcase-908203af825d"></a>
 ### setCase(String, String, String, Object[])
 
 ```java
@@ -692,7 +692,7 @@ public synchronized void setCase(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -701,7 +701,7 @@ Types: [ConfException](../conf/ConfException.md#s-ConfException)
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-setElem"></a>
+<a id="m-setelem-648e489dcb58"></a>
 ### setElem(ConfValue, ConfCdbUpgradePath)
 
 ```java
@@ -712,14 +712,14 @@ public synchronized void setElem(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfValue value`
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-setElem-1"></a>
+<a id="m-setelem-7fc14a355edc"></a>
 ### setElem(ConfValue, String, Object[])
 
 ```java
@@ -731,7 +731,7 @@ public synchronized void setElem(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -739,7 +739,7 @@ Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfException](../conf/Co
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-setObject"></a>
+<a id="m-setobject-1f294157790b"></a>
 ### setObject(ConfValue[], ConfCdbUpgradePath)
 
 ```java
@@ -750,14 +750,14 @@ public synchronized void setObject(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfValue[] values`
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-setObject-1"></a>
+<a id="m-setobject-5edb7e0ee677"></a>
 ### setObject(ConfValue[], String, Object[])
 
 ```java
@@ -769,7 +769,7 @@ public synchronized void setObject(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -777,7 +777,7 @@ Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfException](../conf/Co
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-setValues"></a>
+<a id="m-setvalues-c275631d1d78"></a>
 ### setValues(ConfXMLParam[], ConfCdbUpgradePath)
 
 ```java
@@ -788,14 +788,14 @@ public synchronized void setValues(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#s-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfCdbUpgradePath](../conf/ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfXMLParam[] params`
 - `com.tailf.conf.ConfCdbUpgradePath path`
 
-<a id="s-setValues-1"></a>
+<a id="m-setvalues-824d05856f15"></a>
 ### setValues(ConfXMLParam[], String, Object[])
 
 ```java
@@ -807,7 +807,7 @@ public synchronized void setValues(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -815,7 +815,7 @@ Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfException](.
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

@@ -1,33 +1,29 @@
-<a id="s-HandlerResponse"></a>
+<a id="cls-HandlerResponse"></a>
 # HandlerResponse
 
 ```java
 public enum com.tailf.ncs.snmp.snmp4j.HandlerResponse
 ```
 
-Types: [HandlerResponse](HandlerResponse.md#s-HandlerResponse)
+Types: [HandlerResponse](HandlerResponse.md#cls-HandlerResponse)
 
 Response enums controlling the execution of the handler chain
-
-**Related classes**
-
-- [HandlerResponse](HandlerResponse.md#s-HandlerResponse)
 
 ## Members
 
 **Enum Constants**:
 
-- [CONTINUE](#s-CONTINUE)
-- [SUPPRESS](#s-SUPPRESS)
+- [CONTINUE](#m-CONTINUE)
+- [SUPPRESS](#m-SUPPRESS)
 
 **Methods**:
 
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-CONTINUE"></a>
+<a id="m-CONTINUE"></a>
 ### CONTINUE
 
 ```java
@@ -37,7 +33,7 @@ public static final com.tailf.ncs.snmp.snmp4j.HandlerResponse CONTINUE;
 Value indicating that a notification should be passed to
  the next handler in the handler chain
 
-<a id="s-SUPPRESS"></a>
+<a id="m-SUPPRESS"></a>
 ### SUPPRESS
 
 ```java
@@ -50,24 +46,24 @@ Value indicating that processing for this notification
 
 ## Methods
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.ncs.snmp.snmp4j.HandlerResponse valueOf(String name)
 ```
 
-Types: [HandlerResponse](HandlerResponse.md#s-HandlerResponse)
+Types: [HandlerResponse](HandlerResponse.md#cls-HandlerResponse)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.ncs.snmp.snmp4j.HandlerResponse[] values()
 ```
 
-Types: [HandlerResponse](HandlerResponse.md#s-HandlerResponse)
+Types: [HandlerResponse](HandlerResponse.md#cls-HandlerResponse)

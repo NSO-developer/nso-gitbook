@@ -1,4 +1,4 @@
-<a id="s-SnmpVarbind"></a>
+<a id="cls-SnmpVarbind"></a>
 # SnmpVarbind
 
 ```java
@@ -17,41 +17,41 @@ The SnmpVarbind is a data structure for holding an SNMP variable binding
 
 **Constructors**:
 
-- [SnmpVarbind(long[], ConfValue)](#s-SnmpVarbind-1)
-- [SnmpVarbind(String, ConfValue)](#s-SnmpVarbind-2)
-- [SnmpVarbind(String, int[], ConfValue)](#s-SnmpVarbind-3)
+- [SnmpVarbind(long[], ConfValue)](#m-snmpvarbind-622bbf39c7f7)
+- [SnmpVarbind(String, ConfValue)](#m-snmpvarbind-2cb6509a0e9e)
+- [SnmpVarbind(String, int[], ConfValue)](#m-snmpvarbind-14ee5cde09f9)
 
 **Fields**:
 
-- [COLUMN_ROW](#s-COLUMN_ROW)
-- [OID](#s-OID)
-- [VARIABLE](#s-VARIABLE)
+- [COLUMN_ROW](#m-COLUMN_ROW)
+- [OID](#m-OID)
+- [VARIABLE](#m-VARIABLE)
 
 **Methods**:
 
-- [encode()](#s-encode)
-- [encodeOid(int[])](#s-encodeOid)
-- [encodeOid(long[])](#s-encodeOid-1)
-- [getColumn()](#s-getColumn)
-- [getOIDLong()](#s-getOIDLong)
-- [getRowIndex()](#s-getRowIndex)
-- [getType()](#s-getType)
-- [getValue()](#s-getValue)
-- [getVariable()](#s-getVariable)
-- [oidToString(int[])](#s-oidToString)
-- [oidToString(long[])](#s-oidToString-1)
-- [toString()](#s-toString)
+- [encode()](#m-encode-fbae522bba37)
+- [encodeOid(int[])](#m-encodeoid-1492ca23fa41)
+- [encodeOid(long[])](#m-encodeoid-0c7047df30be)
+- [getColumn()](#m-getcolumn-d5f8434d3d26)
+- [getOIDLong()](#m-getoidlong-60af351acc27)
+- [getRowIndex()](#m-getrowindex-7a54ed7b2c63)
+- [getType()](#m-gettype-5a52f6f0d4c1)
+- [getValue()](#m-getvalue-d93864668c40)
+- [getVariable()](#m-getvariable-e541c832a812)
+- [oidToString(int[])](#m-oidtostring-182e9901b522)
+- [oidToString(long[])](#m-oidtostring-75bded30fd10)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-SnmpVarbind-1"></a>
+<a id="m-snmpvarbind-622bbf39c7f7"></a>
 ### SnmpVarbind(long[], ConfValue)
 
 ```java
 public SnmpVarbind(long[] oid, com.tailf.conf.ConfValue value)
 ```
 
-Types: [ConfValue](ConfValue.md#s-ConfValue)
+Types: [ConfValue](ConfValue.md#cls-ConfValue)
 
 Constructor for Snmp variable binding (of type OID)
 
@@ -60,14 +60,14 @@ Constructor for Snmp variable binding (of type OID)
 - `long[] oid`
 - `com.tailf.conf.ConfValue value`
 
-<a id="s-SnmpVarbind-2"></a>
+<a id="m-snmpvarbind-2cb6509a0e9e"></a>
 ### SnmpVarbind(String, ConfValue)
 
 ```java
 public SnmpVarbind(String variable, com.tailf.conf.ConfValue value)
 ```
 
-Types: [ConfValue](ConfValue.md#s-ConfValue)
+Types: [ConfValue](ConfValue.md#cls-ConfValue)
 
 Constructor for Snmp variable binding (of type VARIABLE)
 
@@ -76,14 +76,14 @@ Constructor for Snmp variable binding (of type VARIABLE)
 - `String variable`
 - `com.tailf.conf.ConfValue value`
 
-<a id="s-SnmpVarbind-3"></a>
+<a id="m-snmpvarbind-14ee5cde09f9"></a>
 ### SnmpVarbind(String, int[], ConfValue)
 
 ```java
 public SnmpVarbind(String column, int[] rowindex, com.tailf.conf.ConfValue value)
 ```
 
-Types: [ConfValue](ConfValue.md#s-ConfValue)
+Types: [ConfValue](ConfValue.md#cls-ConfValue)
 
 Constructor for Snmp variable binding (of type COLUMN_ROW)
 
@@ -96,21 +96,21 @@ Constructor for Snmp variable binding (of type COLUMN_ROW)
 
 ## Fields
 
-<a id="s-COLUMN_ROW"></a>
+<a id="m-COLUMN_ROW"></a>
 ### COLUMN_ROW
 
 ```java
 public static final int COLUMN_ROW = 3;
 ```
 
-<a id="s-OID"></a>
+<a id="m-OID"></a>
 ### OID
 
 ```java
 public static final int OID = 2;
 ```
 
-<a id="s-VARIABLE"></a>
+<a id="m-VARIABLE"></a>
 ### VARIABLE
 
 ```java
@@ -120,25 +120,25 @@ public static final int VARIABLE = 1;
 
 ## Methods
 
-<a id="s-encode"></a>
+<a id="m-encode-fbae522bba37"></a>
 ### encode()
 
 ```java
 public com.tailf.proto.ConfEObject encode()
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 Return encoded term.
 
-<a id="s-encodeOid"></a>
+<a id="m-encodeoid-1492ca23fa41"></a>
 ### encodeOid(int[])
 
 ```java
 public com.tailf.proto.ConfEObject encodeOid(int[] oid)
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 Should only be used for rowindex now
 
@@ -146,64 +146,64 @@ Should only be used for rowindex now
 
 - `int[] oid`
 
-<a id="s-encodeOid-1"></a>
+<a id="m-encodeoid-0c7047df30be"></a>
 ### encodeOid(long[])
 
 ```java
 public com.tailf.proto.ConfEObject encodeOid(long[] oid)
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 **Parameters**
 
 - `long[] oid`
 
-<a id="s-getColumn"></a>
+<a id="m-getcolumn-d5f8434d3d26"></a>
 ### getColumn()
 
 ```java
 public String getColumn()
 ```
 
-<a id="s-getOIDLong"></a>
+<a id="m-getoidlong-60af351acc27"></a>
 ### getOIDLong()
 
 ```java
 public long[] getOIDLong()
 ```
 
-<a id="s-getRowIndex"></a>
+<a id="m-getrowindex-7a54ed7b2c63"></a>
 ### getRowIndex()
 
 ```java
 public int[] getRowIndex()
 ```
 
-<a id="s-getType"></a>
+<a id="m-gettype-5a52f6f0d4c1"></a>
 ### getType()
 
 ```java
 public int getType()
 ```
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
 public com.tailf.conf.ConfValue getValue()
 ```
 
-Types: [ConfValue](ConfValue.md#s-ConfValue)
+Types: [ConfValue](ConfValue.md#cls-ConfValue)
 
-<a id="s-getVariable"></a>
+<a id="m-getvariable-e541c832a812"></a>
 ### getVariable()
 
 ```java
 public String getVariable()
 ```
 
-<a id="s-oidToString"></a>
+<a id="m-oidtostring-182e9901b522"></a>
 ### oidToString(int[])
 
 ```java
@@ -217,7 +217,7 @@ Return oid as string on format 1.2.3.4 etc
 
 - `int[] oid`
 
-<a id="s-oidToString-1"></a>
+<a id="m-oidtostring-75bded30fd10"></a>
 ### oidToString(long[])
 
 ```java
@@ -230,7 +230,7 @@ Return oid as string on format 1.2.3.4 etc
 
 - `long[] oid`
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

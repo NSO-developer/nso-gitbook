@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,36 +6,32 @@ public static final class com.tailf.ncs.maapi.Schema.CsChoice.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getCases()](#s-getCases)
-- [getDefCase()](#s-getDefCase)
-- [getHns()](#s-getHns)
-- [getHtag()](#s-getHtag)
-- [getMinOccurs()](#s-getMinOccurs)
-- [hasCases()](#s-hasCases)
-- [initCases(int)](#s-initCases)
-- [initDefCase()](#s-initDefCase)
-- [setCases(Reader<Reader>)](#s-setCases)
-- [setDefCase(Reader)](#s-setDefCase)
-- [setHns(int)](#s-setHns)
-- [setHtag(int)](#s-setHtag)
-- [setMinOccurs(int)](#s-setMinOccurs)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getCases()](#m-getcases-42abc2944fb1)
+- [getDefCase()](#m-getdefcase-593fa181831e)
+- [getHns()](#m-gethns-457afaf41ae6)
+- [getHtag()](#m-gethtag-3a838d71ddf7)
+- [getMinOccurs()](#m-getminoccurs-cac79959dff8)
+- [hasCases()](#m-hascases-682cbddafe6a)
+- [initCases(int)](#m-initcases-102f13b140b1)
+- [initDefCase()](#m-initdefcase-ddb954b8162e)
+- [setCases(Reader<Reader>)](#m-setcases-0a50d2d330ee)
+- [setDefCase(Reader)](#m-setdefcase-aa1695d9bbde)
+- [setHns(int)](#m-sethns-7405e78f40fe)
+- [setHtag(int)](#m-sethtag-d40f4d76b210)
+- [setMinOccurs(int)](#m-setminoccurs-2cb1f96150f8)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -61,62 +57,62 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsChoice.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getCases"></a>
+<a id="m-getcases-42abc2944fb1"></a>
 ### getCases()
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsCase.Builder> getCases()
 ```
 
-Types: [Builder](../CsCase/Builder.md#s-Builder)
+Types: [Builder](../CsCase/Builder.md#cls-Builder)
 
-<a id="s-getDefCase"></a>
+<a id="m-getdefcase-593fa181831e"></a>
 ### getDefCase()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.QTag.Builder getDefCase()
 ```
 
-Types: [Builder](../QTag/Builder.md#s-Builder)
+Types: [Builder](../QTag/Builder.md#cls-Builder)
 
-<a id="s-getHns"></a>
+<a id="m-gethns-457afaf41ae6"></a>
 ### getHns()
 
 ```java
 public final int getHns()
 ```
 
-<a id="s-getHtag"></a>
+<a id="m-gethtag-3a838d71ddf7"></a>
 ### getHtag()
 
 ```java
 public final int getHtag()
 ```
 
-<a id="s-getMinOccurs"></a>
+<a id="m-getminoccurs-cac79959dff8"></a>
 ### getMinOccurs()
 
 ```java
 public final int getMinOccurs()
 ```
 
-<a id="s-hasCases"></a>
+<a id="m-hascases-682cbddafe6a"></a>
 ### hasCases()
 
 ```java
 public final boolean hasCases()
 ```
 
-<a id="s-initCases"></a>
+<a id="m-initcases-102f13b140b1"></a>
 ### initCases(int)
 
 ```java
@@ -125,22 +121,22 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsCase.
 )
 ```
 
-Types: [Builder](../CsCase/Builder.md#s-Builder)
+Types: [Builder](../CsCase/Builder.md#cls-Builder)
 
 **Parameters**
 
 - `int size`
 
-<a id="s-initDefCase"></a>
+<a id="m-initdefcase-ddb954b8162e"></a>
 ### initDefCase()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.QTag.Builder initDefCase()
 ```
 
-Types: [Builder](../QTag/Builder.md#s-Builder)
+Types: [Builder](../QTag/Builder.md#cls-Builder)
 
-<a id="s-setCases"></a>
+<a id="m-setcases-0a50d2d330ee"></a>
 ### setCases(Reader<Reader>)
 
 ```java
@@ -149,26 +145,26 @@ public final void setCases(
 )
 ```
 
-Types: [Reader](../CsCase/Reader.md#s-Reader)
+Types: [Reader](../CsCase/Reader.md#cls-Reader)
 
 **Parameters**
 
 - `org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsCase.Reader> value`
 
-<a id="s-setDefCase"></a>
+<a id="m-setdefcase-aa1695d9bbde"></a>
 ### setDefCase(Reader)
 
 ```java
 public final void setDefCase(com.tailf.ncs.maapi.Schema.QTag.Reader value)
 ```
 
-Types: [Reader](../QTag/Reader.md#s-Reader)
+Types: [Reader](../QTag/Reader.md#cls-Reader)
 
 **Parameters**
 
 - `com.tailf.ncs.maapi.Schema.QTag.Reader value`
 
-<a id="s-setHns"></a>
+<a id="m-sethns-7405e78f40fe"></a>
 ### setHns(int)
 
 ```java
@@ -179,7 +175,7 @@ public final void setHns(int value)
 
 - `int value`
 
-<a id="s-setHtag"></a>
+<a id="m-sethtag-d40f4d76b210"></a>
 ### setHtag(int)
 
 ```java
@@ -190,7 +186,7 @@ public final void setHtag(int value)
 
 - `int value`
 
-<a id="s-setMinOccurs"></a>
+<a id="m-setminoccurs-2cb1f96150f8"></a>
 ### setMinOccurs(int)
 
 ```java

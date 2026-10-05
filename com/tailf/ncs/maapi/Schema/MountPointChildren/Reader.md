@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,18 +10,18 @@ public static final class com.tailf.ncs.maapi.Schema.MountPointChildren.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getChildren()](#s-getChildren)
-- [getMountId()](#s-getMountId)
-- [hasChildren()](#s-hasChildren)
-- [hasMountId()](#s-hasMountId)
+- [getChildren()](#m-getchildren-fe2038dff10d)
+- [getMountId()](#m-getmountid-c5175827f949)
+- [hasChildren()](#m-haschildren-94c463ee6541)
+- [hasMountId()](#m-hasmountid-cfc15a094ddc)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -49,32 +49,32 @@ Reader(
 
 ## Methods
 
-<a id="s-getChildren"></a>
+<a id="m-getchildren-fe2038dff10d"></a>
 ### getChildren()
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.QTag.Reader> getChildren()
 ```
 
-Types: [Reader](../QTag/Reader.md#s-Reader)
+Types: [Reader](../QTag/Reader.md#cls-Reader)
 
-<a id="s-getMountId"></a>
+<a id="m-getmountid-c5175827f949"></a>
 ### getMountId()
 
 ```java
 public com.tailf.ncs.maapi.Schema.QTag.Reader getMountId()
 ```
 
-Types: [Reader](../QTag/Reader.md#s-Reader)
+Types: [Reader](../QTag/Reader.md#cls-Reader)
 
-<a id="s-hasChildren"></a>
+<a id="m-haschildren-94c463ee6541"></a>
 ### hasChildren()
 
 ```java
 public final boolean hasChildren()
 ```
 
-<a id="s-hasMountId"></a>
+<a id="m-hasmountid-cfc15a094ddc"></a>
 ### hasMountId()
 
 ```java

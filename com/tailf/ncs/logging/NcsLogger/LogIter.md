@@ -1,4 +1,4 @@
-<a id="s-LogIter"></a>
+<a id="cls-LogIter"></a>
 # LogIter
 
 **Package-private**
@@ -8,7 +8,7 @@ static class com.tailf.ncs.logging.NcsLogger.LogIter
     implements com.tailf.cdb.CdbDiffIterate
 ```
 
-Types: [CdbDiffIterate](../../../cdb/CdbDiffIterate.md#s-CdbDiffIterate)
+Types: [CdbDiffIterate](../../../cdb/CdbDiffIterate.md#cls-CdbDiffIterate)
 
 Class make the diffIterate and trigger the Log Level changes to all
  affected Loggers. The iterate() method accumulate all changes and
@@ -19,17 +19,17 @@ Class make the diffIterate and trigger the Log Level changes to all
 
 **Constructors**:
 
-- [LogIter()](#s-LogIter-1)
+- [LogIter()](#m-logiter-2449327a7e19)
 
 **Methods**:
 
-- [applyChanges()](#s-applyChanges)
-- [clearChanges()](#s-clearChanges)
-- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#s-iterate)
+- [applyChanges()](#m-applychanges-7bfabdfb7bc4)
+- [clearChanges()](#m-clearchanges-dfce305f5de6)
+- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#m-iterate-d80a566b7e0a)
 
 ## Constructors
 
-<a id="s-LogIter-1"></a>
+<a id="m-logiter-2449327a7e19"></a>
 ### LogIter()
 
 **Package-private**
@@ -41,21 +41,21 @@ LogIter()
 
 ## Methods
 
-<a id="s-applyChanges"></a>
+<a id="m-applychanges-7bfabdfb7bc4"></a>
 ### applyChanges()
 
 ```java
 public void applyChanges()
 ```
 
-<a id="s-clearChanges"></a>
+<a id="m-clearchanges-dfce305f5de6"></a>
 ### clearChanges()
 
 ```java
 public void clearChanges()
 ```
 
-<a id="s-iterate"></a>
+<a id="m-iterate-d80a566b7e0a"></a>
 ### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)
 
 ```java
@@ -68,7 +68,7 @@ public com.tailf.conf.DiffIterateResultFlag iterate(
 )
 ```
 
-Types: [DiffIterateResultFlag](../../../conf/DiffIterateResultFlag.md#s-DiffIterateResultFlag), [ConfObject](../../../conf/ConfObject.md#s-ConfObject), [DiffIterateOperFlag](../../../conf/DiffIterateOperFlag.md#s-DiffIterateOperFlag)
+Types: [DiffIterateResultFlag](../../../conf/DiffIterateResultFlag.md#cls-DiffIterateResultFlag), [ConfObject](../../../conf/ConfObject.md#cls-ConfObject), [DiffIterateOperFlag](../../../conf/DiffIterateOperFlag.md#cls-DiffIterateOperFlag)
 
 **Parameters**
 

@@ -1,4 +1,4 @@
-<a id="s-CommitQueueProgressNotification"></a>
+<a id="cls-CommitQueueProgressNotification"></a>
 # CommitQueueProgressNotification
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.notif.CommitQueueProgressNotification
     extends com.tailf.notif.Notification
 ```
 
-Types: [Notification](Notification.md#s-Notification)
+Types: [Notification](Notification.md#cls-Notification)
 
 Data structure for commit queue progress notifications.
 
@@ -14,36 +14,36 @@ Data structure for commit queue progress notifications.
 
 **Constructors**:
 
-- [CommitQueueProgressNotification(int, ConfDatetime, ConfUInt64, String, List<String>, Map<String,String>, Map<String,String>, Map<String,ConfList>, Map<String,ConfList[]>)](#s-CommitQueueProgressNotification-1)
+- [CommitQueueProgressNotification(int, ConfDatetime, ConfUInt64, String, List<String>, Map<String,String>, Map<String,String>, Map<String,ConfList>, Map<String,ConfList[]>)](#m-commitqueueprogressnotification-c3a908d74df6)
 
 **Fields**:
 
-- [NCS_CQ_ITEM_COMPLETED](#s-NCS_CQ_ITEM_COMPLETED)
-- [NCS_CQ_ITEM_DELETED](#s-NCS_CQ_ITEM_DELETED)
-- [NCS_CQ_ITEM_EXECUTING](#s-NCS_CQ_ITEM_EXECUTING)
-- [NCS_CQ_ITEM_FAILED](#s-NCS_CQ_ITEM_FAILED)
-- [NCS_CQ_ITEM_LOCKED](#s-NCS_CQ_ITEM_LOCKED)
-- [NCS_CQ_ITEM_WAITING](#s-NCS_CQ_ITEM_WAITING)
-- [type](Notification.md#s-type) from Notification
+- [NCS_CQ_ITEM_COMPLETED](#m-NCS_CQ_ITEM_COMPLETED)
+- [NCS_CQ_ITEM_DELETED](#m-NCS_CQ_ITEM_DELETED)
+- [NCS_CQ_ITEM_EXECUTING](#m-NCS_CQ_ITEM_EXECUTING)
+- [NCS_CQ_ITEM_FAILED](#m-NCS_CQ_ITEM_FAILED)
+- [NCS_CQ_ITEM_LOCKED](#m-NCS_CQ_ITEM_LOCKED)
+- [NCS_CQ_ITEM_WAITING](#m-NCS_CQ_ITEM_WAITING)
+- [type](Notification.md#m-type) from Notification
 
 **Methods**:
 
-- [getCompletedDevices()](#s-getCompletedDevices)
-- [getCompletedServices()](#s-getCompletedServices)
-- [getCQId()](#s-getCQId)
-- [getCQNotifType()](#s-getCQNotifType)
-- [getCQNotifTypeStr()](#s-getCQNotifTypeStr)
-- [getFailedDevices()](#s-getFailedDevices)
-- [getFailedServices()](#s-getFailedServices)
-- [getLabel()](#s-getLabel)
-- [getNotificationType()](Notification.md#s-getNotificationType) from Notification
-- [getTimestamp()](#s-getTimestamp)
-- [getTransientDevices()](#s-getTransientDevices)
-- [toString()](#s-toString)
+- [getCompletedDevices()](#m-getcompleteddevices-5d4f1d403427)
+- [getCompletedServices()](#m-getcompletedservices-8efb6940a788)
+- [getCQId()](#m-getcqid-1138a32e494a)
+- [getCQNotifType()](#m-getcqnotiftype-9681a75b690a)
+- [getCQNotifTypeStr()](#m-getcqnotiftypestr-c4898653014c)
+- [getFailedDevices()](#m-getfaileddevices-70e71b879fad)
+- [getFailedServices()](#m-getfailedservices-1b83786e5cef)
+- [getLabel()](#m-getlabel-72bf899bf6f1)
+- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
+- [getTimestamp()](#m-gettimestamp-a9e0c6b457f8)
+- [getTransientDevices()](#m-gettransientdevices-780e0b7cff26)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-CommitQueueProgressNotification-1"></a>
+<a id="m-commitqueueprogressnotification-c3a908d74df6"></a>
 ### CommitQueueProgressNotification(int, ConfDatetime, ConfUInt64, String, List<String>, Map<String,String>, Map<String,String>, Map<String,ConfList>, Map<String,ConfList[]>)
 
 ```java
@@ -60,7 +60,7 @@ public CommitQueueProgressNotification(
 )
 ```
 
-Types: [ConfDatetime](../conf/ConfDatetime.md#s-ConfDatetime), [ConfUInt64](../conf/ConfUInt64.md#s-ConfUInt64), [ConfList](../conf/ConfList.md#s-ConfList)
+Types: [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime), [ConfUInt64](../conf/ConfUInt64.md#cls-ConfUInt64), [ConfList](../conf/ConfList.md#cls-ConfList)
 
 **Parameters**
 
@@ -77,42 +77,42 @@ Types: [ConfDatetime](../conf/ConfDatetime.md#s-ConfDatetime), [ConfUInt64](../c
 
 ## Fields
 
-<a id="s-NCS_CQ_ITEM_COMPLETED"></a>
+<a id="m-NCS_CQ_ITEM_COMPLETED"></a>
 ### NCS_CQ_ITEM_COMPLETED
 
 ```java
 public static final int NCS_CQ_ITEM_COMPLETED = 4;
 ```
 
-<a id="s-NCS_CQ_ITEM_DELETED"></a>
+<a id="m-NCS_CQ_ITEM_DELETED"></a>
 ### NCS_CQ_ITEM_DELETED
 
 ```java
 public static final int NCS_CQ_ITEM_DELETED = 6;
 ```
 
-<a id="s-NCS_CQ_ITEM_EXECUTING"></a>
+<a id="m-NCS_CQ_ITEM_EXECUTING"></a>
 ### NCS_CQ_ITEM_EXECUTING
 
 ```java
 public static final int NCS_CQ_ITEM_EXECUTING = 2;
 ```
 
-<a id="s-NCS_CQ_ITEM_FAILED"></a>
+<a id="m-NCS_CQ_ITEM_FAILED"></a>
 ### NCS_CQ_ITEM_FAILED
 
 ```java
 public static final int NCS_CQ_ITEM_FAILED = 5;
 ```
 
-<a id="s-NCS_CQ_ITEM_LOCKED"></a>
+<a id="m-NCS_CQ_ITEM_LOCKED"></a>
 ### NCS_CQ_ITEM_LOCKED
 
 ```java
 public static final int NCS_CQ_ITEM_LOCKED = 3;
 ```
 
-<a id="s-NCS_CQ_ITEM_WAITING"></a>
+<a id="m-NCS_CQ_ITEM_WAITING"></a>
 ### NCS_CQ_ITEM_WAITING
 
 ```java
@@ -122,85 +122,85 @@ public static final int NCS_CQ_ITEM_WAITING = 1;
 
 ## Methods
 
-<a id="s-getCompletedDevices"></a>
+<a id="m-getcompleteddevices-5d4f1d403427"></a>
 ### getCompletedDevices()
 
 ```java
 public java.util.List<String> getCompletedDevices()
 ```
 
-<a id="s-getCompletedServices"></a>
+<a id="m-getcompletedservices-8efb6940a788"></a>
 ### getCompletedServices()
 
 ```java
 public java.util.Map<String,com.tailf.conf.ConfList> getCompletedServices()
 ```
 
-Types: [ConfList](../conf/ConfList.md#s-ConfList)
+Types: [ConfList](../conf/ConfList.md#cls-ConfList)
 
-<a id="s-getCQId"></a>
+<a id="m-getcqid-1138a32e494a"></a>
 ### getCQId()
 
 ```java
 public com.tailf.conf.ConfUInt64 getCQId()
 ```
 
-Types: [ConfUInt64](../conf/ConfUInt64.md#s-ConfUInt64)
+Types: [ConfUInt64](../conf/ConfUInt64.md#cls-ConfUInt64)
 
-<a id="s-getCQNotifType"></a>
+<a id="m-getcqnotiftype-9681a75b690a"></a>
 ### getCQNotifType()
 
 ```java
 public int getCQNotifType()
 ```
 
-<a id="s-getCQNotifTypeStr"></a>
+<a id="m-getcqnotiftypestr-c4898653014c"></a>
 ### getCQNotifTypeStr()
 
 ```java
 public String getCQNotifTypeStr()
 ```
 
-<a id="s-getFailedDevices"></a>
+<a id="m-getfaileddevices-70e71b879fad"></a>
 ### getFailedDevices()
 
 ```java
 public java.util.Map<String,String> getFailedDevices()
 ```
 
-<a id="s-getFailedServices"></a>
+<a id="m-getfailedservices-1b83786e5cef"></a>
 ### getFailedServices()
 
 ```java
 public java.util.Map<String,com.tailf.conf.ConfList[]> getFailedServices()
 ```
 
-Types: [ConfList](../conf/ConfList.md#s-ConfList)
+Types: [ConfList](../conf/ConfList.md#cls-ConfList)
 
-<a id="s-getLabel"></a>
+<a id="m-getlabel-72bf899bf6f1"></a>
 ### getLabel()
 
 ```java
 public String getLabel()
 ```
 
-<a id="s-getTimestamp"></a>
+<a id="m-gettimestamp-a9e0c6b457f8"></a>
 ### getTimestamp()
 
 ```java
 public com.tailf.conf.ConfDatetime getTimestamp()
 ```
 
-Types: [ConfDatetime](../conf/ConfDatetime.md#s-ConfDatetime)
+Types: [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime)
 
-<a id="s-getTransientDevices"></a>
+<a id="m-gettransientdevices-780e0b7cff26"></a>
 ### getTransientDevices()
 
 ```java
 public java.util.Map<String,String> getTransientDevices()
 ```
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

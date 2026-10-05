@@ -1,4 +1,4 @@
-<a id="s-DpTransValidateCallback"></a>
+<a id="cls-DpTransValidateCallback"></a>
 # DpTransValidateCallback
 
 ```java
@@ -45,38 +45,38 @@ This interface is used for the user validation callbacks.
  We must also install an actual validation function for each validation point
  which is defined in the YANG model.
 
-**See also:** [`DpValpointCallback`](DpValpointCallback.md#s-DpValpointCallback), [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#s-registerAnnotatedCallbacks)
+**See also:** [`DpValpointCallback`](DpValpointCallback.md#cls-DpValpointCallback), [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
 
 **Methods**:
 
-- [init(DpTrans)](#s-init)
-- [stop(DpTrans)](#s-stop)
+- [init(DpTrans)](#m-init-16fe8657859c)
+- [stop(DpTrans)](#m-stop-1dfe2eb96fb9)
 
 ## Methods
 
-<a id="s-init"></a>
+<a id="m-init-16fe8657859c"></a>
 ### init(DpTrans)
 
 ```java
 public abstract void init(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 **Parameters**
 
 - `com.tailf.dp.DpTrans trans`
 
-<a id="s-stop"></a>
+<a id="m-stop-1dfe2eb96fb9"></a>
 ### stop(DpTrans)
 
 ```java
 public abstract void stop(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 **Parameters**
 

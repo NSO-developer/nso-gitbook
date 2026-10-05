@@ -1,4 +1,4 @@
-<a id="s-ActionCallback"></a>
+<a id="cls-ActionCallback"></a>
 # ActionCallback
 
 ```java
@@ -15,12 +15,12 @@ Annotation class for Action Callbacks Attributes are callPoint and callType
 
 **Methods**:
 
-- [callPoint()](#s-callPoint)
-- [callType()](#s-callType)
+- [callPoint()](#m-callpoint-c21f52042879)
+- [callType()](#m-calltype-0d0f9b61a036)
 
 ## Methods
 
-<a id="s-callPoint"></a>
+<a id="m-callpoint-c21f52042879"></a>
 ### callPoint()
 
 ```java
@@ -29,13 +29,13 @@ public abstract String callPoint()
 
 The name of the callpoint implementing the action
 
-<a id="s-callType"></a>
+<a id="m-calltype-0d0f9b61a036"></a>
 ### callType()
 
 ```java
 public abstract com.tailf.dp.proto.ActionCBType[] callType()
 ```
 
-Types: [ActionCBType](../proto/ActionCBType.md#s-ActionCBType)
+Types: [ActionCBType](../proto/ActionCBType.md#cls-ActionCBType)
 
 The type of the callback (INIT, ACTION, ABORT etc)

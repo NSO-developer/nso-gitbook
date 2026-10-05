@@ -1,4 +1,4 @@
-<a id="s-NedMux"></a>
+<a id="cls-NedMux"></a>
 # NedMux
 
 ```java
@@ -15,39 +15,37 @@ The NedMux is used as the interface between NCS and the NedConnections.
 
 **Constructors**:
 
-- [NedMux(NcsMain)](#s-NedMux-1)
+- [NedMux(NcsMain)](#m-nedmux-5d47e1091ec5)
 
 **Methods**:
 
-- [addToConnectionList(NedConnectionBase)](#s-addToConnectionList)
-- [dorun()](#s-dorun)
-- [getConnection(int)](#s-getConnection)
-- [getErrorMessageFormatter()](#s-getErrorMessageFormatter)
-- [getErrorVerbosity()](#s-getErrorVerbosity)
-- [getNed(String)](#s-getNed)
-- [getNewNeds()](#s-getNewNeds)
-- [initWait()](#s-initWait)
-- [listOpenConnections()](#s-listOpenConnections)
-- [register(NedConnectionBase)](#s-register)
-- [removeFromConnectionList(int)](#s-removeFromConnectionList)
-- [reRegister(NedConnectionBase)](#s-reRegister)
-- [resetNewNeds()](#s-resetNewNeds)
-- [run()](#s-run)
-- [setErrorVerbosity(ErrorVerbosity)](#s-setErrorVerbosity)
-- [start()](#s-start)
-- [stopRequest()](#s-stopRequest)
-- [termRead(Socket)](#s-termRead)
+- [addToConnectionList(NedConnectionBase)](#m-addtoconnectionlist-0d53d864a35a)
+- [dorun()](#m-dorun-4965d2173fd3)
+- [getConnection(int)](#m-getconnection-a8fbfff22e02)
+- [getErrorMessageFormatter()](#m-geterrormessageformatter-8c75ba6f07e5)
+- [getErrorVerbosity()](#m-geterrorverbosity-defe49ca237d)
+- [getNewNeds()](#m-getnewneds-1ea8feed407d)
+- [listOpenConnections()](#m-listopenconnections-28eee6f299b2)
+- [register(NedConnectionBase)](#m-register-86d55bf880b4)
+- [removeFromConnectionList(int)](#m-removefromconnectionlist-2e9ec1695419)
+- [reRegister(NedConnectionBase)](#m-reregister-69b675594a1f)
+- [resetNewNeds()](#m-resetnewneds-8a4fddc81846)
+- [run()](#m-run-b6dbda048863)
+- [setErrorVerbosity(ErrorVerbosity)](#m-seterrorverbosity-bab7950e55c8)
+- [start()](#m-start-79e12dafe9f8)
+- [stopRequest()](#m-stoprequest-5e6b3185772c)
+- [termRead(Socket)](#m-termread-a6eabc408efc)
 
 ## Constructors
 
-<a id="s-NedMux-1"></a>
+<a id="m-nedmux-5d47e1091ec5"></a>
 ### NedMux(NcsMain)
 
 ```java
 public NedMux(com.tailf.ncs.NcsMain main)
 ```
 
-Types: [NcsMain](../ncs/NcsMain.md#s-NcsMain)
+Types: [NcsMain](../ncs/NcsMain.md#cls-NcsMain)
 
 **Parameters**
 
@@ -56,7 +54,7 @@ Types: [NcsMain](../ncs/NcsMain.md#s-NcsMain)
 
 ## Methods
 
-<a id="s-addToConnectionList"></a>
+<a id="m-addtoconnectionlist-0d53d864a35a"></a>
 ### addToConnectionList(NedConnectionBase)
 
 ```java
@@ -66,7 +64,7 @@ protected int addToConnectionList(
     throws com.tailf.ned.NedException
 ```
 
-Types: [NedConnectionBase](NedConnectionBase.md#s-NedConnectionBase), [NedException](NedException.md#s-NedException)
+Types: [NedConnectionBase](NedConnectionBase.md#cls-NedConnectionBase), [NedException](NedException.md#cls-NedException)
 
 This makes the mux aware of a new connection and returns
  a unique connection_id.
@@ -75,7 +73,7 @@ This makes the mux aware of a new connection and returns
 
 - `com.tailf.ned.NedConnectionBase con`
 
-<a id="s-dorun"></a>
+<a id="m-dorun-4965d2173fd3"></a>
 ### dorun()
 
 **Package-private**
@@ -84,40 +82,40 @@ This makes the mux aware of a new connection and returns
 void dorun() throws Exception
 ```
 
-<a id="s-getConnection"></a>
+<a id="m-getconnection-a8fbfff22e02"></a>
 ### getConnection(int)
 
 ```java
 public com.tailf.ned.NedConnectionBase getConnection(int id)
 ```
 
-Types: [NedConnectionBase](NedConnectionBase.md#s-NedConnectionBase)
+Types: [NedConnectionBase](NedConnectionBase.md#cls-NedConnectionBase)
 
 **Parameters**
 
 - `int id`
 
-<a id="s-getErrorMessageFormatter"></a>
+<a id="m-geterrormessageformatter-8c75ba6f07e5"></a>
 ### getErrorMessageFormatter()
 
 ```java
 public com.tailf.conf.ErrorMessageFormatter getErrorMessageFormatter()
 ```
 
-Types: [ErrorMessageFormatter](../conf/ErrorMessageFormatter.md#s-ErrorMessageFormatter)
+Types: [ErrorMessageFormatter](../conf/ErrorMessageFormatter.md#cls-ErrorMessageFormatter)
 
 Return the errorMessageFormatter for this NedMux.
 
 **Returns:** ErrorMessageFormatter for this NedMux
 
-<a id="s-getErrorVerbosity"></a>
+<a id="m-geterrorverbosity-defe49ca237d"></a>
 ### getErrorVerbosity()
 
 ```java
 public com.tailf.conf.ErrorVerbosity getErrorVerbosity()
 ```
 
-Types: [ErrorVerbosity](../conf/ErrorVerbosity.md#s-ErrorVerbosity)
+Types: [ErrorVerbosity](../conf/ErrorVerbosity.md#cls-ErrorVerbosity)
 
 Get the local verbosity level for reported errors
  If this verbosity is null the the default level governs the error
@@ -125,50 +123,30 @@ Get the local verbosity level for reported errors
 
 **Returns:** current errorVerbosity
 
-<a id="s-getNed"></a>
-### getNed(String)
-
-```java
-protected com.tailf.ned.NedConnectionBase getNed(String id)
-```
-
-Types: [NedConnectionBase](NedConnectionBase.md#s-NedConnectionBase)
-
-**Parameters**
-
-- `String id`
-
-<a id="s-getNewNeds"></a>
+<a id="m-getnewneds-1ea8feed407d"></a>
 ### getNewNeds()
 
 ```java
 public com.tailf.proto.ConfEList getNewNeds() throws Exception
 ```
 
-Types: [ConfEList](../proto/ConfEList.md#s-ConfEList)
+Types: [ConfEList](../proto/ConfEList.md#cls-ConfEList)
 
-<a id="s-initWait"></a>
-### initWait()
-
-```java
-public void initWait()
-```
-
-<a id="s-listOpenConnections"></a>
+<a id="m-listopenconnections-28eee6f299b2"></a>
 ### listOpenConnections()
 
 ```java
 public String[] listOpenConnections()
 ```
 
-<a id="s-register"></a>
+<a id="m-register-86d55bf880b4"></a>
 ### register(NedConnectionBase)
 
 ```java
 public void register(com.tailf.ned.NedConnectionBase userMod)
 ```
 
-Types: [NedConnectionBase](NedConnectionBase.md#s-NedConnectionBase)
+Types: [NedConnectionBase](NedConnectionBase.md#cls-NedConnectionBase)
 
 Register a new NedConnection with the mux. It will be reported
  to NCS when the NedMux connects to NCS and the NCS can request
@@ -179,7 +157,7 @@ Register a new NedConnection with the mux. It will be reported
 
 - `com.tailf.ned.NedConnectionBase userMod`
 
-<a id="s-removeFromConnectionList"></a>
+<a id="m-removefromconnectionlist-2e9ec1695419"></a>
 ### removeFromConnectionList(int)
 
 ```java
@@ -194,14 +172,14 @@ Removes the connection from the mux, indicating that it has
 
 - `int id` - is the connection_id of the terminated connection
 
-<a id="s-reRegister"></a>
+<a id="m-reregister-69b675594a1f"></a>
 ### reRegister(NedConnectionBase)
 
 ```java
 public boolean reRegister(com.tailf.ned.NedConnectionBase userMod)
 ```
 
-Types: [NedConnectionBase](NedConnectionBase.md#s-NedConnectionBase)
+Types: [NedConnectionBase](NedConnectionBase.md#cls-NedConnectionBase)
 
 The reRegister method will, NCS unknowingly, exchange the
  ned implementation on the fly. Since no communication with NCS is
@@ -212,28 +190,28 @@ The reRegister method will, NCS unknowingly, exchange the
 
 - `com.tailf.ned.NedConnectionBase userMod`
 
-<a id="s-resetNewNeds"></a>
+<a id="m-resetnewneds-8a4fddc81846"></a>
 ### resetNewNeds()
 
 ```java
 public void resetNewNeds()
 ```
 
-<a id="s-run"></a>
+<a id="m-run-b6dbda048863"></a>
 ### run()
 
 ```java
 public void run()
 ```
 
-<a id="s-setErrorVerbosity"></a>
+<a id="m-seterrorverbosity-bab7950e55c8"></a>
 ### setErrorVerbosity(ErrorVerbosity)
 
 ```java
 public void setErrorVerbosity(com.tailf.conf.ErrorVerbosity verbosity)
 ```
 
-Types: [ErrorVerbosity](../conf/ErrorVerbosity.md#s-ErrorVerbosity)
+Types: [ErrorVerbosity](../conf/ErrorVerbosity.md#cls-ErrorVerbosity)
 
 set the local verbosity level for reported errors
  If this verbosity is set to null the the default level governs the error
@@ -243,21 +221,21 @@ set the local verbosity level for reported errors
 
 - `com.tailf.conf.ErrorVerbosity verbosity`
 
-<a id="s-start"></a>
+<a id="m-start-79e12dafe9f8"></a>
 ### start()
 
 ```java
 public void start()
 ```
 
-<a id="s-stopRequest"></a>
+<a id="m-stoprequest-5e6b3185772c"></a>
 ### stopRequest()
 
 ```java
 public void stopRequest()
 ```
 
-<a id="s-termRead"></a>
+<a id="m-termread-a6eabc408efc"></a>
 ### termRead(Socket)
 
 ```java
@@ -267,7 +245,7 @@ protected com.tailf.proto.ConfEObject termRead(
     throws com.tailf.proto.ConfEDecodeException, java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfEDecodeException](../proto/ConfEDecodeException.md#s-ConfEDecodeException), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfEDecodeException](../proto/ConfEDecodeException.md#cls-ConfEDecodeException), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 

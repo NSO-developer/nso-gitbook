@@ -1,46 +1,42 @@
-<a id="s-DataMode"></a>
+<a id="cls-DataMode"></a>
 # DataMode
 
 ```java
 protected static enum com.tailf.navu.NavuContext.DataMode
 ```
 
-Types: [DataMode](DataMode.md#s-DataMode)
-
-**Related classes**
-
-- [DataMode](DataMode.md#s-DataMode)
+Types: [DataMode](DataMode.md#cls-DataMode)
 
 ## Members
 
 **Enum Constants**:
 
-- [DB_OPERATIONAL_TRANS](#s-DB_OPERATIONAL_TRANS)
-- [DB_RUNNING_TRANS](#s-DB_RUNNING_TRANS)
-- [NONE](#s-NONE)
+- [DB_OPERATIONAL_TRANS](#m-DB_OPERATIONAL_TRANS)
+- [DB_RUNNING_TRANS](#m-DB_RUNNING_TRANS)
+- [NONE](#m-NONE)
 
 **Methods**:
 
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-DB_OPERATIONAL_TRANS"></a>
+<a id="m-DB_OPERATIONAL_TRANS"></a>
 ### DB_OPERATIONAL_TRANS
 
 ```java
 public static final com.tailf.navu.NavuContext.DataMode DB_OPERATIONAL_TRANS;
 ```
 
-<a id="s-DB_RUNNING_TRANS"></a>
+<a id="m-DB_RUNNING_TRANS"></a>
 ### DB_RUNNING_TRANS
 
 ```java
 public static final com.tailf.navu.NavuContext.DataMode DB_RUNNING_TRANS;
 ```
 
-<a id="s-NONE"></a>
+<a id="m-NONE"></a>
 ### NONE
 
 ```java
@@ -50,24 +46,24 @@ public static final com.tailf.navu.NavuContext.DataMode NONE;
 
 ## Methods
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.navu.NavuContext.DataMode valueOf(String name)
 ```
 
-Types: [DataMode](DataMode.md#s-DataMode)
+Types: [DataMode](DataMode.md#cls-DataMode)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.navu.NavuContext.DataMode[] values()
 ```
 
-Types: [DataMode](DataMode.md#s-DataMode)
+Types: [DataMode](DataMode.md#cls-DataMode)

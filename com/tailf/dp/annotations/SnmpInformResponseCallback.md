@@ -1,4 +1,4 @@
-<a id="s-SnmpInformResponseCallback"></a>
+<a id="cls-SnmpInformResponseCallback"></a>
 # SnmpInformResponseCallback
 
 ```java
@@ -16,23 +16,23 @@ Annotation class for SnmpInformResponse Callbacks Attributes are callPoint
 
 **Methods**:
 
-- [callPoint()](#s-callPoint)
-- [callType()](#s-callType)
+- [callPoint()](#m-callpoint-c21f52042879)
+- [callType()](#m-calltype-0d0f9b61a036)
 
 ## Methods
 
-<a id="s-callPoint"></a>
+<a id="m-callpoint-c21f52042879"></a>
 ### callPoint()
 
 ```java
 public abstract String callPoint()
 ```
 
-<a id="s-callType"></a>
+<a id="m-calltype-0d0f9b61a036"></a>
 ### callType()
 
 ```java
 public abstract com.tailf.dp.proto.SnmpInformResponseCBType[] callType()
 ```
 
-Types: [SnmpInformResponseCBType](../proto/SnmpInformResponseCBType.md#s-SnmpInformResponseCBType)
+Types: [SnmpInformResponseCBType](../proto/SnmpInformResponseCBType.md#cls-SnmpInformResponseCBType)

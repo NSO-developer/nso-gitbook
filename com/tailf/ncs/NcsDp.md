@@ -1,4 +1,4 @@
-<a id="s-NcsDp"></a>
+<a id="cls-NcsDp"></a>
 # NcsDp
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.ncs.NcsDp
     extends com.tailf.dp.Dp
 ```
 
-Types: [Dp](../dp/Dp.md#s-Dp)
+Types: [Dp](../dp/Dp.md#cls-Dp)
 
 NCS Java vm internal DP dataprovider for stats data etc.
 
@@ -14,59 +14,59 @@ NCS Java vm internal DP dataprovider for stats data etc.
 
 **Constructors**:
 
-- [NcsDp(String, Socket, int)](#s-NcsDp-1)
+- [NcsDp(String, Socket, int)](#m-ncsdp-0ef0c19f0db9)
 
 **Fields**:
 
-- [workerThreadPool](../dp/Dp.md#s-workerThreadPool) from Dp
+- [workerThreadPool](../dp/Dp.md#m-workerThreadPool) from Dp
 
 **Methods**:
 
-- [close()](../dp/Dp.md#s-close) from Dp
-- [createNotifStream(String)](../dp/Dp.md#s-createNotifStream) from Dp
-- [createNotifStream(String, DpNotifReplayCallback)](../dp/Dp.md#s-createNotifStream-1) from Dp
-- [createNotifStream(String, DpNotifReplayCallback, Socket)](../dp/Dp.md#s-createNotifStream-2) from Dp
-- [createSnmpNotifier(String, String)](../dp/Dp.md#s-createSnmpNotifier) from Dp
-- [createSnmpNotifier(String, String, Object)](../dp/Dp.md#s-createSnmpNotifier-1) from Dp
-- [createSnmpNotifier(String, String, Object, Socket)](../dp/Dp.md#s-createSnmpNotifier-2) from Dp
-- [freeWorkerSocket(DpTrans)](../dp/Dp.md#s-freeWorkerSocket) from Dp
-- [getCtrlSocket()](../dp/Dp.md#s-getCtrlSocket) from Dp
-- [getDaemonId()](../dp/Dp.md#s-getDaemonId) from Dp
-- [getDataCallback(ConfBuf, int)](../dp/Dp.md#s-getDataCallback) from Dp
-- [getErrorMessageFormatter()](../dp/Dp.md#s-getErrorMessageFormatter) from Dp
-- [getErrorVerbosity()](../dp/Dp.md#s-getErrorVerbosity) from Dp
-- [getExceptionReporter()](../dp/Dp.md#s-getExceptionReporter) from Dp
-- [getNanoServiceCallback(ConfBuf, int)](../dp/Dp.md#s-getNanoServiceCallback) from Dp
-- [getNsList()](../dp/Dp.md#s-getNsList) from Dp
-- [getServiceCallback(ConfBuf, int)](../dp/Dp.md#s-getServiceCallback) from Dp
-- [getServicePointMaapi()](../dp/Dp.md#s-getServicePointMaapi) from Dp
-- [getServicePointMaapi(DpTrans)](../dp/Dp.md#s-getServicePointMaapi-1) from Dp
-- [getThreadPool()](#s-getThreadPool)
-- [getUserInfo(int)](../dp/Dp.md#s-getUserInfo) from Dp
-- [getWorkerPool()](../dp/Dp.md#s-getWorkerPool) from Dp
-- [getWorkerSocketFd(Socket)](../dp/Dp.md#s-getWorkerSocketFd) from Dp
-- [read()](../dp/Dp.md#s-read) from Dp
-- [registerAnnotatedCallbacks(Object)](../dp/Dp.md#s-registerAnnotatedCallbacks) from Dp
-- [registerAnnotatedCallbacks(String, Object)](../dp/Dp.md#s-registerAnnotatedCallbacks-1) from Dp
-- [registerAnnotatedMountedCbs(DpMountIdInterface, Object)](../dp/Dp.md#s-registerAnnotatedMountedCbs) from Dp
-- [registerAnnotatedRangeActionCallbacks(Object, ConfValue[], ConfValue[], ConfPath)](../dp/Dp.md#s-registerAnnotatedRangeActionCallbacks) from Dp
-- [registerAnnotatedRangeDataCallbacks(Object, ConfValue[], ConfValue[], ConfPath)](../dp/Dp.md#s-registerAnnotatedRangeDataCallbacks) from Dp
-- [registerDone()](../dp/Dp.md#s-registerDone) from Dp
-- [removeActionMaapi()](../dp/Dp.md#s-removeActionMaapi) from Dp
-- [reRegisterAnnotatedCallbacks(Object)](../dp/Dp.md#s-reRegisterAnnotatedCallbacks) from Dp
-- [reRegisterAnnotatedCallbacks(String, Object)](../dp/Dp.md#s-reRegisterAnnotatedCallbacks-1) from Dp
-- [reRegisterAnnotatedMountedCbs(DpMountIdInterface, Object)](../dp/Dp.md#s-reRegisterAnnotatedMountedCbs) from Dp
-- [reRegisterAnnotatedRangeActionCallbacks(Object)](../dp/Dp.md#s-reRegisterAnnotatedRangeActionCallbacks) from Dp
-- [reRegisterAnnotatedRangeDataCallbacks(Object)](../dp/Dp.md#s-reRegisterAnnotatedRangeDataCallbacks) from Dp
-- [setErrorVerbosity(ErrorVerbosity)](../dp/Dp.md#s-setErrorVerbosity) from Dp
-- [setExceptionReporter(DpExceptionReporter)](../dp/Dp.md#s-setExceptionReporter) from Dp
-- [setNumFreeWorkerSockets(int)](../dp/Dp.md#s-setNumFreeWorkerSockets) from Dp
-- [shutDownThreadPool()](../dp/Dp.md#s-shutDownThreadPool) from Dp
-- [shutDownThreadPoolNow()](../dp/Dp.md#s-shutDownThreadPoolNow) from Dp
+- [close()](../dp/Dp.md#m-close-8107c6dc012b) from Dp
+- [createNotifStream(String)](../dp/Dp.md#m-createnotifstream-e828f1b79ea0) from Dp
+- [createNotifStream(String, DpNotifReplayCallback)](../dp/Dp.md#m-createnotifstream-e4dac93288ec) from Dp
+- [createNotifStream(String, DpNotifReplayCallback, Socket)](../dp/Dp.md#m-createnotifstream-24ebe812b6ae) from Dp
+- [createSnmpNotifier(String, String)](../dp/Dp.md#m-createsnmpnotifier-e1bab2519dcd) from Dp
+- [createSnmpNotifier(String, String, Object)](../dp/Dp.md#m-createsnmpnotifier-89f0d186fc8f) from Dp
+- [createSnmpNotifier(String, String, Object, Socket)](../dp/Dp.md#m-createsnmpnotifier-666167fa4e78) from Dp
+- [freeWorkerSocket(DpTrans)](../dp/Dp.md#m-freeworkersocket-7fceeb5a23c4) from Dp
+- [getCtrlSocket()](../dp/Dp.md#m-getctrlsocket-bb621326ae1c) from Dp
+- [getDaemonId()](../dp/Dp.md#m-getdaemonid-289be546ab2e) from Dp
+- [getDataCallback(ConfBuf, int)](../dp/Dp.md#m-getdatacallback-41b5ab75fca5) from Dp
+- [getErrorMessageFormatter()](../dp/Dp.md#m-geterrormessageformatter-8c75ba6f07e5) from Dp
+- [getErrorVerbosity()](../dp/Dp.md#m-geterrorverbosity-defe49ca237d) from Dp
+- [getExceptionReporter()](../dp/Dp.md#m-getexceptionreporter-51bbec6b9ad7) from Dp
+- [getNanoServiceCallback(ConfBuf, int)](../dp/Dp.md#m-getnanoservicecallback-84fe7cc27c9e) from Dp
+- [getNsList()](../dp/Dp.md#m-getnslist-0345f486e876) from Dp
+- [getServiceCallback(ConfBuf, int)](../dp/Dp.md#m-getservicecallback-3eeb502a337a) from Dp
+- [getServicePointMaapi()](../dp/Dp.md#m-getservicepointmaapi-021836eac222) from Dp
+- [getServicePointMaapi(DpTrans)](../dp/Dp.md#m-getservicepointmaapi-16637fd1c239) from Dp
+- [getThreadPool()](#m-getthreadpool-dcf9f6700c2b)
+- [getUserInfo(int)](../dp/Dp.md#m-getuserinfo-4df0372acaa8) from Dp
+- [getWorkerPool()](../dp/Dp.md#m-getworkerpool-1955a0c55497) from Dp
+- [getWorkerSocketFd(Socket)](../dp/Dp.md#m-getworkersocketfd-fca29bd0a7bf) from Dp
+- [read()](../dp/Dp.md#m-read-b28b830b98d6) from Dp
+- [registerAnnotatedCallbacks(Object)](../dp/Dp.md#m-registerannotatedcallbacks-ffaebadbfc42) from Dp
+- [registerAnnotatedCallbacks(String, Object)](../dp/Dp.md#m-registerannotatedcallbacks-e4aab67443c6) from Dp
+- [registerAnnotatedMountedCbs(DpMountIdInterface, Object)](../dp/Dp.md#m-registerannotatedmountedcbs-5bdf889f0774) from Dp
+- [registerAnnotatedRangeActionCallbacks(Object, ConfValue[], ConfValue[], ConfPath)](../dp/Dp.md#m-registerannotatedrangeactioncallbacks-9933fdc875d2) from Dp
+- [registerAnnotatedRangeDataCallbacks(Object, ConfValue[], ConfValue[], ConfPath)](../dp/Dp.md#m-registerannotatedrangedatacallbacks-7df2c3b86ab4) from Dp
+- [registerDone()](../dp/Dp.md#m-registerdone-a7e6840dacc7) from Dp
+- [removeActionMaapi()](../dp/Dp.md#m-removeactionmaapi-ed4fc28fd600) from Dp
+- [reRegisterAnnotatedCallbacks(Object)](../dp/Dp.md#m-reregisterannotatedcallbacks-02241c7e25b1) from Dp
+- [reRegisterAnnotatedCallbacks(String, Object)](../dp/Dp.md#m-reregisterannotatedcallbacks-3db30c25ecf8) from Dp
+- [reRegisterAnnotatedMountedCbs(DpMountIdInterface, Object)](../dp/Dp.md#m-reregisterannotatedmountedcbs-aafebd57912a) from Dp
+- [reRegisterAnnotatedRangeActionCallbacks(Object)](../dp/Dp.md#m-reregisterannotatedrangeactioncallbacks-11af42e45a53) from Dp
+- [reRegisterAnnotatedRangeDataCallbacks(Object)](../dp/Dp.md#m-reregisterannotatedrangedatacallbacks-35f84233e42f) from Dp
+- [setErrorVerbosity(ErrorVerbosity)](../dp/Dp.md#m-seterrorverbosity-bab7950e55c8) from Dp
+- [setExceptionReporter(DpExceptionReporter)](../dp/Dp.md#m-setexceptionreporter-d521ed21a6eb) from Dp
+- [setNumFreeWorkerSockets(int)](../dp/Dp.md#m-setnumfreeworkersockets-1a22360e3897) from Dp
+- [shutDownThreadPool()](../dp/Dp.md#m-shutdownthreadpool-21f99643e601) from Dp
+- [shutDownThreadPoolNow()](../dp/Dp.md#m-shutdownthreadpoolnow-ad8e642d6ab4) from Dp
 
 ## Constructors
 
-<a id="s-NcsDp-1"></a>
+<a id="m-ncsdp-0ef0c19f0db9"></a>
 ### NcsDp(String, Socket, int)
 
 ```java
@@ -78,7 +78,7 @@ public NcsDp(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -89,11 +89,11 @@ Types: [ConfException](../conf/ConfException.md#s-ConfException)
 
 ## Methods
 
-<a id="s-getThreadPool"></a>
+<a id="m-getthreadpool-dcf9f6700c2b"></a>
 ### getThreadPool()
 
 ```java
 public com.tailf.dp.DpWorkerThreadPool getThreadPool()
 ```
 
-Types: [DpWorkerThreadPool](../dp/DpWorkerThreadPool.md#s-DpWorkerThreadPool)
+Types: [DpWorkerThreadPool](../dp/DpWorkerThreadPool.md#cls-DpWorkerThreadPool)

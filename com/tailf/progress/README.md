@@ -2,8 +2,8 @@
 
 ## Types
 
-- [Attributes](Attributes.md#s-Attributes)
-- [EmptySpan](EmptySpan.md#s-EmptySpan)
-- [ProgressTrace](ProgressTrace.md#s-ProgressTrace)
-- [ProgressTraceNed](ProgressTraceNed.md#s-ProgressTraceNed)
-- [Span](Span.md#s-Span)
+- [Attributes](Attributes.md#cls-Attributes)
+- [EmptySpan](EmptySpan.md#cls-EmptySpan)
+- [ProgressTrace](ProgressTrace.md#cls-ProgressTrace)
+- [ProgressTraceNed](ProgressTraceNed.md#cls-ProgressTraceNed)
+- [Span](Span.md#cls-Span)

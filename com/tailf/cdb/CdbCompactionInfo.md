@@ -1,4 +1,4 @@
-<a id="s-CdbCompactionInfo"></a>
+<a id="cls-CdbCompactionInfo"></a>
 # CdbCompactionInfo
 
 ```java
@@ -11,19 +11,19 @@ Represents the compaction info for CDB files.
 
 **Constructors**:
 
-- [CdbCompactionInfo(long, long, long, long)](#s-CdbCompactionInfo-1)
+- [CdbCompactionInfo(long, long, long, long)](#m-cdbcompactioninfo-9ab1e9946878)
 
 **Methods**:
 
-- [getFsizeCurrent()](#s-getFsizeCurrent)
-- [getFsizePrevious()](#s-getFsizePrevious)
-- [getLastTime()](#s-getLastTime)
-- [getNTrans()](#s-getNTrans)
-- [toString()](#s-toString)
+- [getFsizeCurrent()](#m-getfsizecurrent-b51a1455aac4)
+- [getFsizePrevious()](#m-getfsizeprevious-9edb3359500d)
+- [getLastTime()](#m-getlasttime-8db6c59d0e86)
+- [getNTrans()](#m-getntrans-2cd88cc47142)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-CdbCompactionInfo-1"></a>
+<a id="m-cdbcompactioninfo-9ab1e9946878"></a>
 ### CdbCompactionInfo(long, long, long, long)
 
 **Package-private**
@@ -42,7 +42,7 @@ CdbCompactionInfo(long fsizePrevious, long fsizeCurrent, long lastTime, long ntr
 
 ## Methods
 
-<a id="s-getFsizeCurrent"></a>
+<a id="m-getfsizecurrent-b51a1455aac4"></a>
 ### getFsizeCurrent()
 
 ```java
@@ -51,7 +51,7 @@ public long getFsizeCurrent()
 
 Current CDB file size.
 
-<a id="s-getFsizePrevious"></a>
+<a id="m-getfsizeprevious-9edb3359500d"></a>
 ### getFsizePrevious()
 
 ```java
@@ -60,7 +60,7 @@ public long getFsizePrevious()
 
 CDB file size at last compaction.
 
-<a id="s-getLastTime"></a>
+<a id="m-getlasttime-8db6c59d0e86"></a>
 ### getLastTime()
 
 ```java
@@ -69,7 +69,7 @@ public long getLastTime()
 
 Time at last compaction.
 
-<a id="s-getNTrans"></a>
+<a id="m-getntrans-2cd88cc47142"></a>
 ### getNTrans()
 
 ```java
@@ -78,7 +78,7 @@ public long getNTrans()
 
 Number of transactions since last compaction.
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

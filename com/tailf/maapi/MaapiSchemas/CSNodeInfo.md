@@ -1,4 +1,4 @@
-<a id="s-CSNodeInfo"></a>
+<a id="cls-CSNodeInfo"></a>
 # CSNodeInfo
 
 ```java
@@ -11,30 +11,30 @@ Class representing node information for a Schema node
 
 **Constructors**:
 
-- [CSNodeInfo()](#s-CSNodeInfo-1)
-- [CSNodeInfo(CSNodeInfo, int[], int, int, int, CSType)](#s-CSNodeInfo-2)
-- [CSNodeInfo(int[], int, int, int, CSType, ConfObject, CSChoice, int, HashMap<String,String>, MountId, String, String, String[])](#s-CSNodeInfo-3)
+- [CSNodeInfo()](#m-csnodeinfo-68cf9a9fd5a0)
+- [CSNodeInfo(CSNodeInfo, int[], int, int, int, CSType)](#m-csnodeinfo-afd67fc5b2ab)
+- [CSNodeInfo(int[], int, int, int, CSType, ConfObject, CSChoice, int, HashMap<String,String>, MountId, String, String, String[])](#m-csnodeinfo-9613813dad32)
 
 **Methods**:
 
-- [getChoices()](#s-getChoices)
-- [getDefval()](#s-getDefval)
-- [getDocDescription()](#s-getDocDescription)
-- [getFlags()](#s-getFlags)
-- [getHideGroups()](#s-getHideGroups)
-- [getKeys()](#s-getKeys)
-- [getMaxOccurs()](#s-getMaxOccurs)
-- [getMetaData()](#s-getMetaData)
-- [getMinOccurs()](#s-getMinOccurs)
-- [getMountId()](#s-getMountId)
-- [getPrompt()](#s-getPrompt)
-- [getShallowType()](#s-getShallowType)
-- [getType()](#s-getType)
-- [toString()](#s-toString)
+- [getChoices()](#m-getchoices-818fb3fccb86)
+- [getDefval()](#m-getdefval-561ad5494c47)
+- [getDocDescription()](#m-getdocdescription-08369bbe26a9)
+- [getFlags()](#m-getflags-3c1ca90fd29c)
+- [getHideGroups()](#m-gethidegroups-d566f1e3343e)
+- [getKeys()](#m-getkeys-a24b9d377db7)
+- [getMaxOccurs()](#m-getmaxoccurs-365e8c5a408f)
+- [getMetaData()](#m-getmetadata-15c2d5006ca5)
+- [getMinOccurs()](#m-getminoccurs-cac79959dff8)
+- [getMountId()](#m-getmountid-c5175827f949)
+- [getPrompt()](#m-getprompt-6a58866a8699)
+- [getShallowType()](#m-getshallowtype-2e2b5f294983)
+- [getType()](#m-gettype-5a52f6f0d4c1)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-CSNodeInfo-1"></a>
+<a id="m-csnodeinfo-68cf9a9fd5a0"></a>
 ### CSNodeInfo()
 
 ```java
@@ -43,7 +43,7 @@ protected CSNodeInfo()
 
 Constructor for CSNodeInfo class
 
-<a id="s-CSNodeInfo-2"></a>
+<a id="m-csnodeinfo-afd67fc5b2ab"></a>
 ### CSNodeInfo(CSNodeInfo, int[], int, int, int, CSType)
 
 ```java
@@ -57,7 +57,7 @@ protected CSNodeInfo(
 )
 ```
 
-Types: [CSNodeInfo](CSNodeInfo.md#s-CSNodeInfo), [CSType](CSType.md#s-CSType)
+Types: [CSNodeInfo](CSNodeInfo.md#cls-CSNodeInfo), [CSType](CSType.md#cls-CSType)
 
 **Parameters**
 
@@ -68,7 +68,7 @@ Types: [CSNodeInfo](CSNodeInfo.md#s-CSNodeInfo), [CSType](CSType.md#s-CSType)
 - `int shallowType`
 - `com.tailf.maapi.MaapiSchemas.CSType type`
 
-<a id="s-CSNodeInfo-3"></a>
+<a id="m-csnodeinfo-9613813dad32"></a>
 ### CSNodeInfo(int[], int, int, int, CSType, ConfObject, CSChoice, int, HashMap<String,String>, MountId, String, String, String[])
 
 ```java
@@ -89,7 +89,7 @@ public CSNodeInfo(
 )
 ```
 
-Types: [CSType](CSType.md#s-CSType), [ConfObject](../../conf/ConfObject.md#s-ConfObject), [CSChoice](CSChoice.md#s-CSChoice), [MountId](MountId.md#s-MountId)
+Types: [CSType](CSType.md#cls-CSType), [ConfObject](../../conf/ConfObject.md#cls-ConfObject), [CSChoice](CSChoice.md#cls-CSChoice), [MountId](MountId.md#cls-MountId)
 
 **Parameters**
 
@@ -110,34 +110,34 @@ Types: [CSType](CSType.md#s-CSType), [ConfObject](../../conf/ConfObject.md#s-Con
 
 ## Methods
 
-<a id="s-getChoices"></a>
+<a id="m-getchoices-818fb3fccb86"></a>
 ### getChoices()
 
 ```java
 public java.util.List<com.tailf.maapi.MaapiSchemas.CSChoice> getChoices()
 ```
 
-Types: [CSChoice](CSChoice.md#s-CSChoice)
+Types: [CSChoice](CSChoice.md#cls-CSChoice)
 
 get List object of choices for this node. A Choice is represented by
  the CSChoice class, this is a List of CSChoice accordingly
 
 **Returns:** List of Choices
 
-<a id="s-getDefval"></a>
+<a id="m-getdefval-561ad5494c47"></a>
 ### getDefval()
 
 ```java
 public com.tailf.conf.ConfObject getDefval()
 ```
 
-Types: [ConfObject](../../conf/ConfObject.md#s-ConfObject)
+Types: [ConfObject](../../conf/ConfObject.md#cls-ConfObject)
 
 get default value represented as a subclass to ConfObject
 
 **Returns:** ConfObject
 
-<a id="s-getDocDescription"></a>
+<a id="m-getdocdescription-08369bbe26a9"></a>
 ### getDocDescription()
 
 ```java
@@ -151,7 +151,7 @@ Get documentation description for this node.
 
 **Returns:** String documentation description or null.
 
-<a id="s-getFlags"></a>
+<a id="m-getflags-3c1ca90fd29c"></a>
 ### getFlags()
 
 ```java
@@ -162,7 +162,7 @@ get flags for this node. Currently not used
 
 **Returns:** int flags
 
-<a id="s-getHideGroups"></a>
+<a id="m-gethidegroups-d566f1e3343e"></a>
 ### getHideGroups()
 
 ```java
@@ -177,7 +177,7 @@ Get the hide group(s) for this node.
 
 **Returns:** String array of hide group names, or null if not hidden.
 
-<a id="s-getKeys"></a>
+<a id="m-getkeys-a24b9d377db7"></a>
 ### getKeys()
 
 ```java
@@ -186,11 +186,11 @@ public int[] getKeys()
 
 get keys for the node. keys are represented as a int array of
  hashvalues. Key names can be retrieved using
- [`MaapiSchemas`](../MaapiSchemas.md#s-MaapiSchemas)
+ [`MaapiSchemas#hashToStringTab`](../MaapiSchemas.md#m-hashToStringTab)
 
 **Returns:** int[] array of keys or null if not exists
 
-<a id="s-getMaxOccurs"></a>
+<a id="m-getmaxoccurs-365e8c5a408f"></a>
 ### getMaxOccurs()
 
 ```java
@@ -201,7 +201,7 @@ get MaxOccurs for the node
 
 **Returns:** int maxOccurs
 
-<a id="s-getMetaData"></a>
+<a id="m-getmetadata-15c2d5006ca5"></a>
 ### getMetaData()
 
 ```java
@@ -213,7 +213,7 @@ get meta data for this node.
 
 **Returns:** HashMapString, String
 
-<a id="s-getMinOccurs"></a>
+<a id="m-getminoccurs-cac79959dff8"></a>
 ### getMinOccurs()
 
 ```java
@@ -224,14 +224,14 @@ get MinOccurs for the node
 
 **Returns:** int minOccurs
 
-<a id="s-getMountId"></a>
+<a id="m-getmountid-c5175827f949"></a>
 ### getMountId()
 
 ```java
 public java.util.List<String> getMountId()
 ```
 
-<a id="s-getPrompt"></a>
+<a id="m-getprompt-6a58866a8699"></a>
 ### getPrompt()
 
 ```java
@@ -243,31 +243,31 @@ Get prompt for this node.
 
 **Returns:** String prompt or null
 
-<a id="s-getShallowType"></a>
+<a id="m-getshallowtype-2e2b5f294983"></a>
 ### getShallowType()
 
 ```java
 public int getShallowType()
 ```
 
-get shallowtype represented as final static int in [`ConfObject`](../../conf/ConfObject.md#s-ConfObject)
+get shallowtype represented as final static int in [`ConfObject`](../../conf/ConfObject.md#cls-ConfObject)
 
 **Returns:** int shallow type
 
-<a id="s-getType"></a>
+<a id="m-gettype-5a52f6f0d4c1"></a>
 ### getType()
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSType getType()
 ```
 
-Types: [CSType](CSType.md#s-CSType)
+Types: [CSType](CSType.md#cls-CSType)
 
 get type for the node
 
 **Returns:** CSType type for the node
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,29 +6,25 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getFractionDigits()](#s-getFractionDigits)
-- [getRanges()](#s-getRanges)
-- [hasRanges()](#s-hasRanges)
-- [initRanges(int)](#s-initRanges)
-- [setFractionDigits(byte)](#s-setFractionDigits)
-- [setRanges(Reader<Reader>)](#s-setRanges)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getFractionDigits()](#m-getfractiondigits-57dce19c4ffe)
+- [getRanges()](#m-getranges-c1cd383e54a0)
+- [hasRanges()](#m-hasranges-77bc63fe4ea8)
+- [initRanges(int)](#m-initranges-d04c09762bd6)
+- [setFractionDigits(byte)](#m-setfractiondigits-4268b060f4fc)
+- [setRanges(Reader<Reader>)](#m-setranges-69bbcdb47f71)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -54,39 +50,39 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getFractionDigits"></a>
+<a id="m-getfractiondigits-57dce19c4ffe"></a>
 ### getFractionDigits()
 
 ```java
 public final byte getFractionDigits()
 ```
 
-<a id="s-getRanges"></a>
+<a id="m-getranges-c1cd383e54a0"></a>
 ### getRanges()
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.Range.Builder> getRanges()
 ```
 
-Types: [Builder](../Range/Builder.md#s-Builder)
+Types: [Builder](../Range/Builder.md#cls-Builder)
 
-<a id="s-hasRanges"></a>
+<a id="m-hasranges-77bc63fe4ea8"></a>
 ### hasRanges()
 
 ```java
 public final boolean hasRanges()
 ```
 
-<a id="s-initRanges"></a>
+<a id="m-initranges-d04c09762bd6"></a>
 ### initRanges(int)
 
 ```java
@@ -95,13 +91,13 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.Range.B
 )
 ```
 
-Types: [Builder](../Range/Builder.md#s-Builder)
+Types: [Builder](../Range/Builder.md#cls-Builder)
 
 **Parameters**
 
 - `int size`
 
-<a id="s-setFractionDigits"></a>
+<a id="m-setfractiondigits-4268b060f4fc"></a>
 ### setFractionDigits(byte)
 
 ```java
@@ -112,7 +108,7 @@ public final void setFractionDigits(byte value)
 
 - `byte value`
 
-<a id="s-setRanges"></a>
+<a id="m-setranges-69bbcdb47f71"></a>
 ### setRanges(Reader<Reader>)
 
 ```java
@@ -121,7 +117,7 @@ public final void setRanges(
 )
 ```
 
-Types: [Reader](../Range/Reader.md#s-Reader)
+Types: [Reader](../Range/Reader.md#cls-Reader)
 
 **Parameters**
 

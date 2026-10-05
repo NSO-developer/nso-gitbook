@@ -1,4 +1,4 @@
-<a id="s-NotImplementedException"></a>
+<a id="cls-NotImplementedException"></a>
 # NotImplementedException
 
 ```java
@@ -10,15 +10,15 @@ public static class com.tailf.ned.NedWorker.NotImplementedException
 
 **Constructors**:
 
-- [NotImplementedException()](#s-NotImplementedException-1)
+- [NotImplementedException()](#m-notimplementedexception-01e007d22304)
 
 **Fields**:
 
-- [serialVersionUID](#s-serialVersionUID)
+- [serialVersionUID](#m-serialVersionUID)
 
 ## Constructors
 
-<a id="s-NotImplementedException-1"></a>
+<a id="m-notimplementedexception-01e007d22304"></a>
 ### NotImplementedException()
 
 ```java
@@ -28,7 +28,7 @@ public NotImplementedException()
 
 ## Fields
 
-<a id="s-serialVersionUID"></a>
+<a id="m-serialVersionUID"></a>
 ### serialVersionUID
 
 ```java

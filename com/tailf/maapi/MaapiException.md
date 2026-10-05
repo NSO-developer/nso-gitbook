@@ -1,4 +1,4 @@
-<a id="s-MaapiException"></a>
+<a id="cls-MaapiException"></a>
 # MaapiException
 
 ```java
@@ -6,36 +6,36 @@ public class com.tailf.maapi.MaapiException
     extends com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Exception raised from the maapi package
 
 **Related classes**
 
-- [MaapiMNsException](MaapiMNsException.md#s-MaapiMNsException)
-- [MaapiWarningException](MaapiWarningException.md#s-MaapiWarningException)
+- [MaapiMNsException](MaapiMNsException.md#cls-MaapiMNsException)
+- [MaapiWarningException](MaapiWarningException.md#cls-MaapiWarningException)
 
 ## Members
 
 **Constructors**:
 
-- [MaapiException(String)](#s-MaapiException-1)
-- [MaapiException(String, ErrorCode)](#s-MaapiException-2)
-- [MaapiException(String, ErrorCode, Throwable)](#s-MaapiException-3)
-- [MaapiException(String, int)](#s-MaapiException-4)
-- [MaapiException(String, int, Throwable)](#s-MaapiException-5)
-- [MaapiException(String, Throwable)](#s-MaapiException-6)
+- [MaapiException(String)](#m-maapiexception-415f096b5036)
+- [MaapiException(String, ErrorCode)](#m-maapiexception-259d1ef61a79)
+- [MaapiException(String, ErrorCode, Throwable)](#m-maapiexception-f9ca62813237)
+- [MaapiException(String, int)](#m-maapiexception-5e33165914c8)
+- [MaapiException(String, int, Throwable)](#m-maapiexception-ecd0bcd458ea)
+- [MaapiException(String, Throwable)](#m-maapiexception-fe7353f5073f)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#s-getErrorCode) from ConfException
-- [getOpaque()](../conf/ConfException.md#s-getOpaque) from ConfException
-- [mk(ConfResponse)](#s-mk)
-- [mk(ConfResponse, ConfPath)](#s-mk-1)
+- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [mk(ConfResponse)](#m-mk-de1cedfc6ea8)
+- [mk(ConfResponse, ConfPath)](#m-mk-79e69ffbc022)
 
 ## Constructors
 
-<a id="s-MaapiException-1"></a>
+<a id="m-maapiexception-415f096b5036"></a>
 ### MaapiException(String)
 
 ```java
@@ -46,28 +46,28 @@ public MaapiException(String msg)
 
 - `String msg`
 
-<a id="s-MaapiException-2"></a>
+<a id="m-maapiexception-259d1ef61a79"></a>
 ### MaapiException(String, ErrorCode)
 
 ```java
 public MaapiException(String msg, com.tailf.conf.ErrorCode code)
 ```
 
-Types: [ErrorCode](../conf/ErrorCode.md#s-ErrorCode)
+Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 
 **Parameters**
 
 - `String msg`
 - `com.tailf.conf.ErrorCode code`
 
-<a id="s-MaapiException-3"></a>
+<a id="m-maapiexception-f9ca62813237"></a>
 ### MaapiException(String, ErrorCode, Throwable)
 
 ```java
 public MaapiException(String msg, com.tailf.conf.ErrorCode code, Throwable cause)
 ```
 
-Types: [ErrorCode](../conf/ErrorCode.md#s-ErrorCode)
+Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 
 **Parameters**
 
@@ -75,7 +75,7 @@ Types: [ErrorCode](../conf/ErrorCode.md#s-ErrorCode)
 - `com.tailf.conf.ErrorCode code`
 - `Throwable cause`
 
-<a id="s-MaapiException-4"></a>
+<a id="m-maapiexception-5e33165914c8"></a>
 ### MaapiException(String, int)
 
 ```java
@@ -87,7 +87,7 @@ public MaapiException(String msg, int codeInteger)
 - `String msg`
 - `int codeInteger`
 
-<a id="s-MaapiException-5"></a>
+<a id="m-maapiexception-ecd0bcd458ea"></a>
 ### MaapiException(String, int, Throwable)
 
 ```java
@@ -100,7 +100,7 @@ public MaapiException(String msg, int codeInteger, Throwable cause)
 - `int codeInteger`
 - `Throwable cause`
 
-<a id="s-MaapiException-6"></a>
+<a id="m-maapiexception-fe7353f5073f"></a>
 ### MaapiException(String, Throwable)
 
 ```java
@@ -115,20 +115,20 @@ public MaapiException(String msg, Throwable cause)
 
 ## Methods
 
-<a id="s-mk"></a>
+<a id="m-mk-de1cedfc6ea8"></a>
 ### mk(ConfResponse)
 
 ```java
 public static com.tailf.conf.ConfException mk(com.tailf.conf.ConfResponse r)
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException), [ConfResponse](../conf/ConfResponse.md#s-ConfResponse)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException), [ConfResponse](../conf/ConfResponse.md#cls-ConfResponse)
 
 **Parameters**
 
 - `com.tailf.conf.ConfResponse r`
 
-<a id="s-mk-1"></a>
+<a id="m-mk-79e69ffbc022"></a>
 ### mk(ConfResponse, ConfPath)
 
 ```java
@@ -138,7 +138,7 @@ public static com.tailf.conf.ConfException mk(
 )
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException), [ConfResponse](../conf/ConfResponse.md#s-ConfResponse), [ConfPath](../conf/ConfPath.md#s-ConfPath)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException), [ConfResponse](../conf/ConfResponse.md#cls-ConfResponse), [ConfPath](../conf/ConfPath.md#cls-ConfPath)
 
 **Parameters**
 

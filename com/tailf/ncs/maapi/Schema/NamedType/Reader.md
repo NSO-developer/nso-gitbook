@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,18 +10,18 @@ public static final class com.tailf.ncs.maapi.Schema.NamedType.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getName()](#s-getName)
-- [getType()](#s-getType)
-- [hasName()](#s-hasName)
-- [hasType()](#s-hasType)
+- [getName()](#m-getname-2634b18b4a25)
+- [getType()](#m-gettype-5a52f6f0d4c1)
+- [hasName()](#m-hasname-bfe6c334e0d1)
+- [hasType()](#m-hastype-61dd7b60aacb)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -49,30 +49,30 @@ Reader(
 
 ## Methods
 
-<a id="s-getName"></a>
+<a id="m-getname-2634b18b4a25"></a>
 ### getName()
 
 ```java
 public org.capnproto.Text.Reader getName()
 ```
 
-<a id="s-getType"></a>
+<a id="m-gettype-5a52f6f0d4c1"></a>
 ### getType()
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsType.Reader getType()
 ```
 
-Types: [Reader](../CsType/Reader.md#s-Reader)
+Types: [Reader](../CsType/Reader.md#cls-Reader)
 
-<a id="s-hasName"></a>
+<a id="m-hasname-bfe6c334e0d1"></a>
 ### hasName()
 
 ```java
 public boolean hasName()
 ```
 
-<a id="s-hasType"></a>
+<a id="m-hastype-61dd7b60aacb"></a>
 ### hasType()
 
 ```java

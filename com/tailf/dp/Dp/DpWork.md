@@ -1,4 +1,4 @@
-<a id="s-DpWork"></a>
+<a id="cls-DpWork"></a>
 # DpWork
 
 **Package-private**
@@ -11,11 +11,11 @@ static interface com.tailf.dp.Dp.DpWork
 
 **Methods**:
 
-- [call(Socket)](#s-call)
+- [call(Socket)](#m-call-67d40d1ba51c)
 
 ## Methods
 
-<a id="s-call"></a>
+<a id="m-call-67d40d1ba51c"></a>
 ### call(Socket)
 
 ```java

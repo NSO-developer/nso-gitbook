@@ -1,4 +1,4 @@
-<a id="s-PathKey"></a>
+<a id="cls-PathKey"></a>
 # PathKey
 
 ```java
@@ -9,20 +9,20 @@ public static class com.tailf.conf.gen.PathParser.PathKey
 
 **Constructors**:
 
-- [PathKey()](#s-PathKey-1)
+- [PathKey()](#m-pathkey-af468f026aa6)
 
 **Fields**:
 
-- [value](#s-value)
+- [value](#m-value)
 
 **Methods**:
 
-- [equals(Object)](#s-equals)
-- [hashCode()](#s-hashCode)
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [hashCode()](#m-hashcode-ef797a217903)
 
 ## Constructors
 
-<a id="s-PathKey-1"></a>
+<a id="m-pathkey-af468f026aa6"></a>
 ### PathKey()
 
 ```java
@@ -32,19 +32,19 @@ public PathKey()
 
 ## Fields
 
-<a id="s-value"></a>
+<a id="m-value"></a>
 ### value
 
 ```java
 public com.tailf.conf.ConfObject value = null;
 ```
 
-Types: [ConfObject](../../ConfObject.md#s-ConfObject)
+Types: [ConfObject](../../ConfObject.md#cls-ConfObject)
 
 
 ## Methods
 
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
@@ -55,7 +55,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="s-hashCode"></a>
+<a id="m-hashcode-ef797a217903"></a>
 ### hashCode()
 
 ```java

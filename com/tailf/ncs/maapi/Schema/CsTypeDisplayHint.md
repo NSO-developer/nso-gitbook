@@ -1,4 +1,4 @@
-<a id="s-CsTypeDisplayHint"></a>
+<a id="cls-CsTypeDisplayHint"></a>
 # CsTypeDisplayHint
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeDisplayHint
 
 **Constructors**:
 
-- [CsTypeDisplayHint()](#s-CsTypeDisplayHint-1)
+- [CsTypeDisplayHint()](#m-cstypedisplayhint-87bd4df304e3)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](CsTypeDisplayHint/Builder.md#s-Builder)
-- [Factory](CsTypeDisplayHint/Factory.md#s-Factory)
-- [Reader](CsTypeDisplayHint/Reader.md#s-Reader)
+- [Builder](CsTypeDisplayHint/Builder.md#cls-Builder)
+- [Factory](CsTypeDisplayHint/Factory.md#cls-Factory)
+- [Reader](CsTypeDisplayHint/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-CsTypeDisplayHint-1"></a>
+<a id="m-cstypedisplayhint-87bd4df304e3"></a>
 ### CsTypeDisplayHint()
 
 ```java
@@ -35,25 +35,25 @@ public CsTypeDisplayHint()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Factory factory = null;
 ```
 
-Types: [Factory](CsTypeDisplayHint/Factory.md#s-Factory)
+Types: [Factory](CsTypeDisplayHint/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Builder,com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsTypeDisplayHint/Builder.md#s-Builder), [Reader](CsTypeDisplayHint/Reader.md#s-Reader)
+Types: [Builder](CsTypeDisplayHint/Builder.md#cls-Builder), [Reader](CsTypeDisplayHint/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsTypeDisplayHint/Builder.md)
-- [Factory](CsTypeDisplayHint/Factory.md)
-- [Reader](CsTypeDisplayHint/Reader.md)
+- [Builder](CsTypeDisplayHint/Builder.md#cls-Builder)
+- [Factory](CsTypeDisplayHint/Factory.md#cls-Factory)
+- [Reader](CsTypeDisplayHint/Reader.md#cls-Reader)

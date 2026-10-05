@@ -1,4 +1,4 @@
-<a id="s-DpNotifReplayThread"></a>
+<a id="cls-DpNotifReplayThread"></a>
 # DpNotifReplayThread
 
 ```java
@@ -9,24 +9,24 @@ public class com.tailf.dp.DpNotifReplayThread
 This class implements the Notification streams thread. The purpose of this
  class to provide a mechanism for resending notifications.
 
-**See also:** [`DpNotifStream`](DpNotifStream.md#s-DpNotifStream)
+**See also:** [`DpNotifStream`](DpNotifStream.md#cls-DpNotifStream)
 
 ## Members
 
 **Constructors**:
 
-- [DpNotifReplayThread(DpNotifStream, ConfDatetime, ConfDatetime)](#s-DpNotifReplayThread-1)
+- [DpNotifReplayThread(DpNotifStream, ConfDatetime, ConfDatetime)](#m-dpnotifreplaythread-ff8e548c1579)
 
 **Methods**:
 
-- [getNotifStream()](#s-getNotifStream)
-- [getStart()](#s-getStart)
-- [getStop()](#s-getStop)
-- [run()](#s-run)
+- [getNotifStream()](#m-getnotifstream-b60ff57383f1)
+- [getStart()](#m-getstart-f15aa51eaab7)
+- [getStop()](#m-getstop-509e70b17b96)
+- [run()](#m-run-b6dbda048863)
 
 ## Constructors
 
-<a id="s-DpNotifReplayThread-1"></a>
+<a id="m-dpnotifreplaythread-ff8e548c1579"></a>
 ### DpNotifReplayThread(DpNotifStream, ConfDatetime, ConfDatetime)
 
 **Package-private**
@@ -40,7 +40,7 @@ DpNotifReplayThread(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [DpNotifStream](DpNotifStream.md#s-DpNotifStream), [ConfDatetime](../conf/ConfDatetime.md#s-ConfDatetime), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [DpNotifStream](DpNotifStream.md#cls-DpNotifStream), [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 The constructor will initialize the thread.
 
@@ -61,36 +61,36 @@ The constructor will initialize the thread.
 
 ## Methods
 
-<a id="s-getNotifStream"></a>
+<a id="m-getnotifstream-b60ff57383f1"></a>
 ### getNotifStream()
 
 ```java
 public com.tailf.dp.DpNotifStream getNotifStream()
 ```
 
-Types: [DpNotifStream](DpNotifStream.md#s-DpNotifStream)
+Types: [DpNotifStream](DpNotifStream.md#cls-DpNotifStream)
 
 The Notification stream. Holds the context.
 
-<a id="s-getStart"></a>
+<a id="m-getstart-f15aa51eaab7"></a>
 ### getStart()
 
 ```java
 public com.tailf.conf.ConfDatetime getStart()
 ```
 
-Types: [ConfDatetime](../conf/ConfDatetime.md#s-ConfDatetime)
+Types: [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime)
 
-<a id="s-getStop"></a>
+<a id="m-getstop-509e70b17b96"></a>
 ### getStop()
 
 ```java
 public com.tailf.conf.ConfDatetime getStop()
 ```
 
-Types: [ConfDatetime](../conf/ConfDatetime.md#s-ConfDatetime)
+Types: [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime)
 
-<a id="s-run"></a>
+<a id="m-run-b6dbda048863"></a>
 ### run()
 
 ```java

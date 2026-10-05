@@ -1,4 +1,4 @@
-<a id="s-DpCallbackException"></a>
+<a id="cls-DpCallbackException"></a>
 # DpCallbackException
 
 ```java
@@ -6,36 +6,36 @@ public class com.tailf.dp.DpCallbackException
     extends com.tailf.dp.DpException
 ```
 
-Types: [DpException](DpException.md#s-DpException)
+Types: [DpException](DpException.md#cls-DpException)
 
 Exception thrown from inside callbacks to identify problems.
  Care should be taken to set reasonable ErrorCodes for new exceptions
 
 **Related classes**
 
-- [DpCallbackExtendedException](DpCallbackExtendedException.md#s-DpCallbackExtendedException)
-- [DpCallbackWarningException](DpCallbackWarningException.md#s-DpCallbackWarningException)
+- [DpCallbackExtendedException](DpCallbackExtendedException.md#cls-DpCallbackExtendedException)
+- [DpCallbackWarningException](DpCallbackWarningException.md#cls-DpCallbackWarningException)
 
 ## Members
 
 **Constructors**:
 
-- [DpCallbackException(String)](#s-DpCallbackException-1)
-- [DpCallbackException(String, ErrorCode)](#s-DpCallbackException-2)
-- [DpCallbackException(String, ErrorCode, Throwable)](#s-DpCallbackException-3)
-- [DpCallbackException(String, Throwable)](#s-DpCallbackException-4)
-- [DpCallbackException(Throwable)](#s-DpCallbackException-5)
+- [DpCallbackException(String)](#m-dpcallbackexception-a5652d7c1d08)
+- [DpCallbackException(String, ErrorCode)](#m-dpcallbackexception-53b98f1d2897)
+- [DpCallbackException(String, ErrorCode, Throwable)](#m-dpcallbackexception-1c2ed9d506c2)
+- [DpCallbackException(String, Throwable)](#m-dpcallbackexception-3f993a79a901)
+- [DpCallbackException(Throwable)](#m-dpcallbackexception-24c1c7bd7c34)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#s-getErrorCode) from ConfException
-- [getOpaque()](../conf/ConfException.md#s-getOpaque) from ConfException
-- [mk(ConfResponse)](DpException.md#s-mk) from DpException
-- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#s-mk-1) from ConfException
+- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [mk(ConfResponse)](DpException.md#m-mk-de1cedfc6ea8) from DpException
+- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#m-mk-79e69ffbc022) from ConfException
 
 ## Constructors
 
-<a id="s-DpCallbackException-1"></a>
+<a id="m-dpcallbackexception-a5652d7c1d08"></a>
 ### DpCallbackException(String)
 
 ```java
@@ -46,28 +46,28 @@ public DpCallbackException(String msg)
 
 - `String msg`
 
-<a id="s-DpCallbackException-2"></a>
+<a id="m-dpcallbackexception-53b98f1d2897"></a>
 ### DpCallbackException(String, ErrorCode)
 
 ```java
 public DpCallbackException(String msg, com.tailf.conf.ErrorCode code)
 ```
 
-Types: [ErrorCode](../conf/ErrorCode.md#s-ErrorCode)
+Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 
 **Parameters**
 
 - `String msg`
 - `com.tailf.conf.ErrorCode code`
 
-<a id="s-DpCallbackException-3"></a>
+<a id="m-dpcallbackexception-1c2ed9d506c2"></a>
 ### DpCallbackException(String, ErrorCode, Throwable)
 
 ```java
 public DpCallbackException(String msg, com.tailf.conf.ErrorCode code, Throwable cause)
 ```
 
-Types: [ErrorCode](../conf/ErrorCode.md#s-ErrorCode)
+Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 
 **Parameters**
 
@@ -75,7 +75,7 @@ Types: [ErrorCode](../conf/ErrorCode.md#s-ErrorCode)
 - `com.tailf.conf.ErrorCode code`
 - `Throwable cause`
 
-<a id="s-DpCallbackException-4"></a>
+<a id="m-dpcallbackexception-3f993a79a901"></a>
 ### DpCallbackException(String, Throwable)
 
 ```java
@@ -87,7 +87,7 @@ public DpCallbackException(String msg, Throwable cause)
 - `String msg`
 - `Throwable cause`
 
-<a id="s-DpCallbackException-5"></a>
+<a id="m-dpcallbackexception-24c1c7bd7c34"></a>
 ### DpCallbackException(Throwable)
 
 ```java

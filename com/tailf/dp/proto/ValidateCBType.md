@@ -1,17 +1,13 @@
-<a id="s-ValidateCBType"></a>
+<a id="cls-ValidateCBType"></a>
 # ValidateCBType
 
 ```java
 public enum com.tailf.dp.proto.ValidateCBType
 ```
 
-Types: [ValidateCBType](ValidateCBType.md#s-ValidateCBType)
+Types: [ValidateCBType](ValidateCBType.md#cls-ValidateCBType)
 
 Enumeration of Validate callback methods
-
-**Related classes**
-
-- [ValidateCBType](ValidateCBType.md#s-ValidateCBType)
 
 **Since:** 3.2.0
 
@@ -19,17 +15,17 @@ Enumeration of Validate callback methods
 
 **Enum Constants**:
 
-- [VALIDATE](#s-VALIDATE)
+- [VALIDATE](#m-VALIDATE)
 
 **Methods**:
 
-- [getValue()](#s-getValue)
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [getValue()](#m-getvalue-d93864668c40)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-VALIDATE"></a>
+<a id="m-VALIDATE"></a>
 ### VALIDATE
 
 ```java
@@ -39,7 +35,7 @@ public static final com.tailf.dp.proto.ValidateCBType VALIDATE;
 
 ## Methods
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
@@ -50,24 +46,24 @@ get integer value for enum
 
 **Returns:** int value
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.dp.proto.ValidateCBType valueOf(String name)
 ```
 
-Types: [ValidateCBType](ValidateCBType.md#s-ValidateCBType)
+Types: [ValidateCBType](ValidateCBType.md#cls-ValidateCBType)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.dp.proto.ValidateCBType[] values()
 ```
 
-Types: [ValidateCBType](ValidateCBType.md#s-ValidateCBType)
+Types: [ValidateCBType](ValidateCBType.md#cls-ValidateCBType)

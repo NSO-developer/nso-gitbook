@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,16 +10,16 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getDisplayHint()](#s-getDisplayHint)
-- [hasDisplayHint()](#s-hasDisplayHint)
+- [getDisplayHint()](#m-getdisplayhint-f9cb8b7f487f)
+- [hasDisplayHint()](#m-hasdisplayhint-a0d050b8aab0)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -47,14 +47,14 @@ Reader(
 
 ## Methods
 
-<a id="s-getDisplayHint"></a>
+<a id="m-getdisplayhint-f9cb8b7f487f"></a>
 ### getDisplayHint()
 
 ```java
 public org.capnproto.Data.Reader getDisplayHint()
 ```
 
-<a id="s-hasDisplayHint"></a>
+<a id="m-hasdisplayhint-a0d050b8aab0"></a>
 ### hasDisplayHint()
 
 ```java

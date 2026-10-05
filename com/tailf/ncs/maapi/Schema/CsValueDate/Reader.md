@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,19 +10,19 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDate.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getDay()](#s-getDay)
-- [getMonth()](#s-getMonth)
-- [getTimezone()](#s-getTimezone)
-- [getTimezoneMinutes()](#s-getTimezoneMinutes)
-- [getYear()](#s-getYear)
+- [getDay()](#m-getday-3b07996cd5f6)
+- [getMonth()](#m-getmonth-3813513d5069)
+- [getTimezone()](#m-gettimezone-9573790f24e6)
+- [getTimezoneMinutes()](#m-gettimezoneminutes-b20d3de8d152)
+- [getYear()](#m-getyear-584af4457cda)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -50,35 +50,35 @@ Reader(
 
 ## Methods
 
-<a id="s-getDay"></a>
+<a id="m-getday-3b07996cd5f6"></a>
 ### getDay()
 
 ```java
 public final byte getDay()
 ```
 
-<a id="s-getMonth"></a>
+<a id="m-getmonth-3813513d5069"></a>
 ### getMonth()
 
 ```java
 public final byte getMonth()
 ```
 
-<a id="s-getTimezone"></a>
+<a id="m-gettimezone-9573790f24e6"></a>
 ### getTimezone()
 
 ```java
 public final byte getTimezone()
 ```
 
-<a id="s-getTimezoneMinutes"></a>
+<a id="m-gettimezoneminutes-b20d3de8d152"></a>
 ### getTimezoneMinutes()
 
 ```java
 public final byte getTimezoneMinutes()
 ```
 
-<a id="s-getYear"></a>
+<a id="m-getyear-584af4457cda"></a>
 ### getYear()
 
 ```java

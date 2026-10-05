@@ -1,4 +1,4 @@
-<a id="s-ConfEBig"></a>
+<a id="cls-ConfEBig"></a>
 # ConfEBig
 
 ```java
@@ -6,13 +6,13 @@ public class com.tailf.proto.ConfEBig
     extends com.tailf.proto.ConfEObject
 ```
 
-Types: [ConfEObject](ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](ConfEObject.md#cls-ConfEObject)
 
 Provides a Java representation of E integral types. E does not distinguish
  between different integral types, however this class and its subclasses
- [`ConfEByte`](ConfEByte.md#s-ConfEByte), [`ConfEChar`](ConfEChar.md#s-ConfEChar), [`ConfEInt`](ConfEInt.md#s-ConfEInt), and
- [`ConfEShort`](ConfEShort.md#s-ConfEShort) attempt to map the E types onto the various Java integral
- types. Two additional classes, [`ConfEUInt`](ConfEUInt.md#s-ConfEUInt) and [`ConfEUShort`](ConfEUShort.md#s-ConfEUShort) are
+ [`ConfEByte`](ConfEByte.md#cls-ConfEByte), [`ConfEChar`](ConfEChar.md#cls-ConfEChar), [`ConfEInt`](ConfEInt.md#cls-ConfEInt), and
+ [`ConfEShort`](ConfEShort.md#cls-ConfEShort) attempt to map the E types onto the various Java integral
+ types. Two additional classes, [`ConfEUInt`](ConfEUInt.md#cls-ConfEUInt) and [`ConfEUShort`](ConfEUShort.md#cls-ConfEUShort) are
  provided for Corba compatibility. See the documentation for IC for more
  information.
 
@@ -20,29 +20,29 @@ Provides a Java representation of E integral types. E does not distinguish
 
 **Constructors**:
 
-- [ConfEBig(BigInteger)](#s-ConfEBig-1)
-- [ConfEBig(byte[])](#s-ConfEBig-2)
-- [ConfEBig(ConfInputStream)](#s-ConfEBig-3)
+- [ConfEBig(BigInteger)](#m-confebig-35fdf2f7de83)
+- [ConfEBig(byte[])](#m-confebig-97bb5b05e82f)
+- [ConfEBig(ConfInputStream)](#m-confebig-c2dca078cfcf)
 
 **Fields**:
 
-- [serialVersionUID](ConfEObject.md#s-serialVersionUID) from ConfEObject
+- [serialVersionUID](ConfEObject.md#m-serialVersionUID) from ConfEObject
 
 **Methods**:
 
-- [bigValue()](#s-bigValue)
-- [clone()](ConfEObject.md#s-clone) from ConfEObject
-- [decode(ConfInputStream)](ConfEObject.md#s-decode) from ConfEObject
-- [encode(ConfOutputStream)](#s-encode)
-- [equals(Object)](#s-equals)
-- [floatValue()](#s-floatValue)
-- [hashCode()](#s-hashCode)
-- [longValue()](#s-longValue)
-- [toString()](#s-toString)
+- [bigValue()](#m-bigvalue-eee3ffc9c3fa)
+- [clone()](ConfEObject.md#m-clone-164c86c45e9b) from ConfEObject
+- [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
+- [encode(ConfOutputStream)](#m-encode-cb1ad9eb7771)
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [floatValue()](#m-floatvalue-6e7c2cd63bb9)
+- [hashCode()](#m-hashcode-ef797a217903)
+- [longValue()](#m-longvalue-636bfe2d6862)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-ConfEBig-1"></a>
+<a id="m-confebig-35fdf2f7de83"></a>
 ### ConfEBig(BigInteger)
 
 ```java
@@ -53,7 +53,7 @@ public ConfEBig(java.math.BigInteger val)
 
 - `java.math.BigInteger val`
 
-<a id="s-ConfEBig-2"></a>
+<a id="m-confebig-97bb5b05e82f"></a>
 ### ConfEBig(byte[])
 
 ```java
@@ -66,14 +66,14 @@ Create an E integer from the given value.
 
 - `byte[] val` - - byte array representing the big value
 
-<a id="s-ConfEBig-3"></a>
+<a id="m-confebig-c2dca078cfcf"></a>
 ### ConfEBig(ConfInputStream)
 
 ```java
 public ConfEBig(com.tailf.proto.ConfInputStream buf) throws com.tailf.proto.ConfEDecodeException
 ```
 
-Types: [ConfInputStream](ConfInputStream.md#s-ConfInputStream), [ConfEDecodeException](ConfEDecodeException.md#s-ConfEDecodeException)
+Types: [ConfInputStream](ConfInputStream.md#cls-ConfInputStream), [ConfEDecodeException](ConfEDecodeException.md#cls-ConfEDecodeException)
 
 Create an E integer from a stream containing an integer encoded in E
  external format.
@@ -90,7 +90,7 @@ Create an E integer from a stream containing an integer encoded in E
 
 ## Methods
 
-<a id="s-bigValue"></a>
+<a id="m-bigvalue-eee3ffc9c3fa"></a>
 ### bigValue()
 
 ```java
@@ -101,14 +101,14 @@ Get this number as a BigInteger.
 
 **Returns:** the value of this number, as a BigInteger.
 
-<a id="s-encode"></a>
+<a id="m-encode-cb1ad9eb7771"></a>
 ### encode(ConfOutputStream)
 
 ```java
 public void encode(com.tailf.proto.ConfOutputStream buf)
 ```
 
-Types: [ConfOutputStream](ConfOutputStream.md#s-ConfOutputStream)
+Types: [ConfOutputStream](ConfOutputStream.md#cls-ConfOutputStream)
 
 Convert this number to the equivalent E external representation.
 
@@ -117,7 +117,7 @@ Convert this number to the equivalent E external representation.
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded number should be
             written.
 
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
@@ -133,7 +133,7 @@ Determine if two numbers are equal. Numbers are equal if they contain the
 
 **Returns:** true if the numbers have the same value.
 
-<a id="s-floatValue"></a>
+<a id="m-floatvalue-6e7c2cd63bb9"></a>
 ### floatValue()
 
 ```java
@@ -144,14 +144,14 @@ Get this number as a float.
 
 **Returns:** the value of this number, as a long.
 
-<a id="s-hashCode"></a>
+<a id="m-hashcode-ef797a217903"></a>
 ### hashCode()
 
 ```java
 public int hashCode()
 ```
 
-<a id="s-longValue"></a>
+<a id="m-longvalue-636bfe2d6862"></a>
 ### longValue()
 
 ```java
@@ -162,7 +162,7 @@ Get this number as a long
 
 **Returns:** the value of this number, as a long.
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

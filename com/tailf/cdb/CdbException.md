@@ -1,4 +1,4 @@
-<a id="s-CdbException"></a>
+<a id="cls-CdbException"></a>
 # CdbException
 
 ```java
@@ -6,36 +6,36 @@ public class com.tailf.cdb.CdbException
     extends com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Cdb package generic exception
 
 **Related classes**
 
-- [CdbExtendedException](CdbExtendedException.md#s-CdbExtendedException)
+- [CdbExtendedException](CdbExtendedException.md#cls-CdbExtendedException)
 
 ## Members
 
 **Constructors**:
 
-- [CdbException(String)](#s-CdbException-1)
-- [CdbException(String, ErrorCode)](#s-CdbException-2)
-- [CdbException(String, ErrorCode, Throwable)](#s-CdbException-3)
-- [CdbException(String, int)](#s-CdbException-4)
-- [CdbException(String, int, Throwable)](#s-CdbException-5)
-- [CdbException(String, Throwable)](#s-CdbException-6)
-- [CdbException(Throwable)](#s-CdbException-7)
+- [CdbException(String)](#m-cdbexception-712018a53039)
+- [CdbException(String, ErrorCode)](#m-cdbexception-aa046b728f43)
+- [CdbException(String, ErrorCode, Throwable)](#m-cdbexception-f772b12ea6ee)
+- [CdbException(String, int)](#m-cdbexception-1a95721d5c78)
+- [CdbException(String, int, Throwable)](#m-cdbexception-9adb758e9e8e)
+- [CdbException(String, Throwable)](#m-cdbexception-5e6f61025d70)
+- [CdbException(Throwable)](#m-cdbexception-7a4196d4ccee)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#s-getErrorCode) from ConfException
-- [getOpaque()](../conf/ConfException.md#s-getOpaque) from ConfException
-- [mk(ConfResponse)](#s-mk)
-- [mk(ConfResponse, ConfPath)](#s-mk-1)
+- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [mk(ConfResponse)](#m-mk-de1cedfc6ea8)
+- [mk(ConfResponse, ConfPath)](#m-mk-79e69ffbc022)
 
 ## Constructors
 
-<a id="s-CdbException-1"></a>
+<a id="m-cdbexception-712018a53039"></a>
 ### CdbException(String)
 
 ```java
@@ -46,28 +46,28 @@ public CdbException(String msg)
 
 - `String msg`
 
-<a id="s-CdbException-2"></a>
+<a id="m-cdbexception-aa046b728f43"></a>
 ### CdbException(String, ErrorCode)
 
 ```java
 public CdbException(String msg, com.tailf.conf.ErrorCode code)
 ```
 
-Types: [ErrorCode](../conf/ErrorCode.md#s-ErrorCode)
+Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 
 **Parameters**
 
 - `String msg`
 - `com.tailf.conf.ErrorCode code`
 
-<a id="s-CdbException-3"></a>
+<a id="m-cdbexception-f772b12ea6ee"></a>
 ### CdbException(String, ErrorCode, Throwable)
 
 ```java
 public CdbException(String msg, com.tailf.conf.ErrorCode code, Throwable cause)
 ```
 
-Types: [ErrorCode](../conf/ErrorCode.md#s-ErrorCode)
+Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 
 **Parameters**
 
@@ -75,7 +75,7 @@ Types: [ErrorCode](../conf/ErrorCode.md#s-ErrorCode)
 - `com.tailf.conf.ErrorCode code`
 - `Throwable cause`
 
-<a id="s-CdbException-4"></a>
+<a id="m-cdbexception-1a95721d5c78"></a>
 ### CdbException(String, int)
 
 ```java
@@ -87,7 +87,7 @@ public CdbException(String msg, int codeInteger)
 - `String msg`
 - `int codeInteger`
 
-<a id="s-CdbException-5"></a>
+<a id="m-cdbexception-9adb758e9e8e"></a>
 ### CdbException(String, int, Throwable)
 
 ```java
@@ -100,7 +100,7 @@ public CdbException(String msg, int codeInteger, Throwable cause)
 - `int codeInteger`
 - `Throwable cause`
 
-<a id="s-CdbException-6"></a>
+<a id="m-cdbexception-5e6f61025d70"></a>
 ### CdbException(String, Throwable)
 
 ```java
@@ -112,7 +112,7 @@ public CdbException(String msg, Throwable cause)
 - `String msg`
 - `Throwable cause`
 
-<a id="s-CdbException-7"></a>
+<a id="m-cdbexception-7a4196d4ccee"></a>
 ### CdbException(Throwable)
 
 ```java
@@ -126,20 +126,20 @@ public CdbException(Throwable t)
 
 ## Methods
 
-<a id="s-mk"></a>
+<a id="m-mk-de1cedfc6ea8"></a>
 ### mk(ConfResponse)
 
 ```java
 public static com.tailf.conf.ConfException mk(com.tailf.conf.ConfResponse r)
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException), [ConfResponse](../conf/ConfResponse.md#s-ConfResponse)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException), [ConfResponse](../conf/ConfResponse.md#cls-ConfResponse)
 
 **Parameters**
 
 - `com.tailf.conf.ConfResponse r`
 
-<a id="s-mk-1"></a>
+<a id="m-mk-79e69ffbc022"></a>
 ### mk(ConfResponse, ConfPath)
 
 ```java
@@ -149,7 +149,7 @@ public static com.tailf.conf.ConfException mk(
 )
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException), [ConfResponse](../conf/ConfResponse.md#s-ConfResponse), [ConfPath](../conf/ConfPath.md#s-ConfPath)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException), [ConfResponse](../conf/ConfResponse.md#cls-ConfResponse), [ConfPath](../conf/ConfPath.md#cls-ConfPath)
 
 **Parameters**
 

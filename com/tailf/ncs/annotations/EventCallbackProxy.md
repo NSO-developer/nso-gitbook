@@ -1,4 +1,4 @@
-<a id="s-EventCallbackProxy"></a>
+<a id="cls-EventCallbackProxy"></a>
 # EventCallbackProxy
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.ncs.annotations.EventCallbackProxy
     implements com.tailf.ncs.NavuEventCallback
 ```
 
-Types: [NavuEventCallback](../NavuEventCallback.md#s-NavuEventCallback)
+Types: [NavuEventCallback](../NavuEventCallback.md#cls-NavuEventCallback)
 
 Callback proxy for annotated NavuEventCallback methods This class is used
  internally be the NavuEventHandler.registerAnnotatedCallbacks to be able to
@@ -16,21 +16,21 @@ Callback proxy for annotated NavuEventCallback methods This class is used
 
 **Constructors**:
 
-- [EventCallbackProxy(Object, String, String)](#s-EventCallbackProxy-1)
+- [EventCallbackProxy(Object, String, String)](#m-eventcallbackproxy-235200ec6bf0)
 
 **Methods**:
 
-- [addActionCapability(EventCBType)](#s-addActionCapability)
-- [addActionMethod(String, Method)](#s-addActionMethod)
-- [getBackupObject()](#s-getBackupObject)
-- [getDeviceName()](#s-getDeviceName)
-- [getEventCallbackProxys(Object)](#s-getEventCallbackProxys)
-- [getSubscriptionName()](#s-getSubscriptionName)
-- [notifReceived(NavuContainer)](#s-notifReceived)
+- [addActionCapability(EventCBType)](#m-addactioncapability-471364e7872b)
+- [addActionMethod(String, Method)](#m-addactionmethod-cf3e43a67fd9)
+- [getBackupObject()](#m-getbackupobject-a6fb23c24524)
+- [getDeviceName()](#m-getdevicename-95c72ec0cf27)
+- [getEventCallbackProxys(Object)](#m-geteventcallbackproxys-76f551eae7e4)
+- [getSubscriptionName()](#m-getsubscriptionname-b6fdef58df3d)
+- [notifReceived(NavuContainer)](#m-notifreceived-df06be623526)
 
 ## Constructors
 
-<a id="s-EventCallbackProxy-1"></a>
+<a id="m-eventcallbackproxy-235200ec6bf0"></a>
 ### EventCallbackProxy(Object, String, String)
 
 ```java
@@ -48,14 +48,14 @@ Constructor for Callback proxys. Used internally.
 
 ## Methods
 
-<a id="s-addActionCapability"></a>
+<a id="m-addactioncapability-471364e7872b"></a>
 ### addActionCapability(EventCBType)
 
 ```java
 public void addActionCapability(com.tailf.ncs.proto.EventCBType eventCBType)
 ```
 
-Types: [EventCBType](../proto/EventCBType.md#s-EventCBType)
+Types: [EventCBType](../proto/EventCBType.md#cls-EventCBType)
 
 Add action capability from annotated callType used to register
  capabilities on the server
@@ -64,7 +64,7 @@ Add action capability from annotated callType used to register
 
 - `com.tailf.ncs.proto.EventCBType eventCBType` - action type
 
-<a id="s-addActionMethod"></a>
+<a id="m-addactionmethod-cf3e43a67fd9"></a>
 ### addActionMethod(String, Method)
 
 ```java
@@ -78,7 +78,7 @@ Add callback action method to proxy
 - `String name` - canonical action name
 - `java.lang.reflect.Method method` - registered callback method
 
-<a id="s-getBackupObject"></a>
+<a id="m-getbackupobject-a6fb23c24524"></a>
 ### getBackupObject()
 
 ```java
@@ -89,7 +89,7 @@ Retrieve the callback POJO
 
 **Returns:** Object registered callback object
 
-<a id="s-getDeviceName"></a>
+<a id="m-getdevicename-95c72ec0cf27"></a>
 ### getDeviceName()
 
 ```java
@@ -100,7 +100,7 @@ Retrieve the callback deviceName
 
 **Returns:** deviceName string
 
-<a id="s-getEventCallbackProxys"></a>
+<a id="m-geteventcallbackproxys-76f551eae7e4"></a>
 ### getEventCallbackProxys(Object)
 
 ```java
@@ -110,7 +110,7 @@ public static com.tailf.ncs.annotations.EventCallbackProxy[] getEventCallbackPro
     throws com.tailf.ncs.NcsException
 ```
 
-Types: [EventCallbackProxy](EventCallbackProxy.md#s-EventCallbackProxy), [NcsException](../NcsException.md#s-NcsException)
+Types: [EventCallbackProxy](EventCallbackProxy.md#cls-EventCallbackProxy), [NcsException](../NcsException.md#cls-NcsException)
 
 Get array of proxy objects from registered POJO callback. Used internally
  at callback registration
@@ -125,7 +125,7 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 - `NcsException`
 
-<a id="s-getSubscriptionName"></a>
+<a id="m-getsubscriptionname-b6fdef58df3d"></a>
 ### getSubscriptionName()
 
 ```java
@@ -136,14 +136,14 @@ Retrieve the callback deviceName
 
 **Returns:** deviceName string
 
-<a id="s-notifReceived"></a>
+<a id="m-notifreceived-df06be623526"></a>
 ### notifReceived(NavuContainer)
 
 ```java
 public void notifReceived(com.tailf.navu.NavuContainer event) throws com.tailf.ncs.NcsException
 ```
 
-Types: [NavuContainer](../../navu/NavuContainer.md#s-NavuContainer), [NcsException](../NcsException.md#s-NcsException)
+Types: [NavuContainer](../../navu/NavuContainer.md#cls-NavuContainer), [NcsException](../NcsException.md#cls-NcsException)
 
 **Parameters**
 

@@ -1,4 +1,4 @@
-<a id="s-DocDescription"></a>
+<a id="cls-DocDescription"></a>
 # DocDescription
 
 ```java
@@ -9,24 +9,24 @@ public static class com.tailf.ncs.maapi.Schema.Cs.DocDescription
 
 **Constructors**:
 
-- [DocDescription()](#s-DocDescription-1)
+- [DocDescription()](#m-docdescription-30719d22e6b3)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](DocDescription/Builder.md#s-Builder)
-- [Factory](DocDescription/Factory.md#s-Factory)
-- [Reader](DocDescription/Reader.md#s-Reader)
-- [Which](DocDescription/Which.md#s-Which)
+- [Builder](DocDescription/Builder.md#cls-Builder)
+- [Factory](DocDescription/Factory.md#cls-Factory)
+- [Reader](DocDescription/Reader.md#cls-Reader)
+- [Which](DocDescription/Which.md#cls-Which)
 
 ## Constructors
 
-<a id="s-DocDescription-1"></a>
+<a id="m-docdescription-30719d22e6b3"></a>
 ### DocDescription()
 
 ```java
@@ -36,25 +36,25 @@ public DocDescription()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cs.DocDescription.Factory factory = null;
 ```
 
-Types: [Factory](DocDescription/Factory.md#s-Factory)
+Types: [Factory](DocDescription/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.Cs.DocDescription.Builder,com.tailf.ncs.maapi.Schema.Cs.DocDescription.Reader> listFactory = null;
 ```
 
-Types: [Builder](DocDescription/Builder.md#s-Builder), [Reader](DocDescription/Reader.md#s-Reader)
+Types: [Builder](DocDescription/Builder.md#cls-Builder), [Reader](DocDescription/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -64,7 +64,7 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](DocDescription/Builder.md)
-- [Factory](DocDescription/Factory.md)
-- [Reader](DocDescription/Reader.md)
-- [Which](DocDescription/Which.md)
+- [Builder](DocDescription/Builder.md#cls-Builder)
+- [Factory](DocDescription/Factory.md#cls-Factory)
+- [Reader](DocDescription/Reader.md#cls-Reader)
+- [Which](DocDescription/Which.md#cls-Which)

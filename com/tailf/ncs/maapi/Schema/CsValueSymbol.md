@@ -1,4 +1,4 @@
-<a id="s-CsValueSymbol"></a>
+<a id="cls-CsValueSymbol"></a>
 # CsValueSymbol
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.CsValueSymbol
 
 **Constructors**:
 
-- [CsValueSymbol()](#s-CsValueSymbol-1)
+- [CsValueSymbol()](#m-csvaluesymbol-0f69469a6763)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](CsValueSymbol/Builder.md#s-Builder)
-- [Factory](CsValueSymbol/Factory.md#s-Factory)
-- [Reader](CsValueSymbol/Reader.md#s-Reader)
+- [Builder](CsValueSymbol/Builder.md#cls-Builder)
+- [Factory](CsValueSymbol/Factory.md#cls-Factory)
+- [Reader](CsValueSymbol/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-CsValueSymbol-1"></a>
+<a id="m-csvaluesymbol-0f69469a6763"></a>
 ### CsValueSymbol()
 
 ```java
@@ -35,25 +35,25 @@ public CsValueSymbol()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValueSymbol.Factory factory = null;
 ```
 
-Types: [Factory](CsValueSymbol/Factory.md#s-Factory)
+Types: [Factory](CsValueSymbol/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueSymbol.Builder,com.tailf.ncs.maapi.Schema.CsValueSymbol.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsValueSymbol/Builder.md#s-Builder), [Reader](CsValueSymbol/Reader.md#s-Reader)
+Types: [Builder](CsValueSymbol/Builder.md#cls-Builder), [Reader](CsValueSymbol/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsValueSymbol/Builder.md)
-- [Factory](CsValueSymbol/Factory.md)
-- [Reader](CsValueSymbol/Reader.md)
+- [Builder](CsValueSymbol/Builder.md#cls-Builder)
+- [Factory](CsValueSymbol/Factory.md#cls-Factory)
+- [Reader](CsValueSymbol/Reader.md#cls-Reader)

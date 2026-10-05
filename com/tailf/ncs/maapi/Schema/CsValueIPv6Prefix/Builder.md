@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,41 +6,37 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getA1()](#s-getA1)
-- [getA2()](#s-getA2)
-- [getA3()](#s-getA3)
-- [getA4()](#s-getA4)
-- [getA5()](#s-getA5)
-- [getA6()](#s-getA6)
-- [getA7()](#s-getA7)
-- [getA8()](#s-getA8)
-- [getPrefix()](#s-getPrefix)
-- [setA1(short)](#s-setA1)
-- [setA2(short)](#s-setA2)
-- [setA3(short)](#s-setA3)
-- [setA4(short)](#s-setA4)
-- [setA5(short)](#s-setA5)
-- [setA6(short)](#s-setA6)
-- [setA7(short)](#s-setA7)
-- [setA8(short)](#s-setA8)
-- [setPrefix(byte)](#s-setPrefix)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getA1()](#m-geta1-f8b8009a6bc7)
+- [getA2()](#m-geta2-a28d45466763)
+- [getA3()](#m-geta3-330abd611894)
+- [getA4()](#m-geta4-fce3220b7c51)
+- [getA5()](#m-geta5-c33c7ae5b8bf)
+- [getA6()](#m-geta6-50491e3e5ce6)
+- [getA7()](#m-geta7-84843d409266)
+- [getA8()](#m-geta8-c03708d8a2bb)
+- [getPrefix()](#m-getprefix-9268091e0223)
+- [setA1(short)](#m-seta1-86087d00f76b)
+- [setA2(short)](#m-seta2-8b4919257927)
+- [setA3(short)](#m-seta3-26923be51f72)
+- [setA4(short)](#m-seta4-cb477f744e5c)
+- [setA5(short)](#m-seta5-79ab4d5ba84f)
+- [setA6(short)](#m-seta6-a49761b267d3)
+- [setA7(short)](#m-seta7-6bbb104d9e3a)
+- [setA8(short)](#m-seta8-7bc7b767c00a)
+- [setPrefix(byte)](#m-setprefix-e20c09b64c12)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -66,79 +62,79 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getA1"></a>
+<a id="m-geta1-f8b8009a6bc7"></a>
 ### getA1()
 
 ```java
 public final short getA1()
 ```
 
-<a id="s-getA2"></a>
+<a id="m-geta2-a28d45466763"></a>
 ### getA2()
 
 ```java
 public final short getA2()
 ```
 
-<a id="s-getA3"></a>
+<a id="m-geta3-330abd611894"></a>
 ### getA3()
 
 ```java
 public final short getA3()
 ```
 
-<a id="s-getA4"></a>
+<a id="m-geta4-fce3220b7c51"></a>
 ### getA4()
 
 ```java
 public final short getA4()
 ```
 
-<a id="s-getA5"></a>
+<a id="m-geta5-c33c7ae5b8bf"></a>
 ### getA5()
 
 ```java
 public final short getA5()
 ```
 
-<a id="s-getA6"></a>
+<a id="m-geta6-50491e3e5ce6"></a>
 ### getA6()
 
 ```java
 public final short getA6()
 ```
 
-<a id="s-getA7"></a>
+<a id="m-geta7-84843d409266"></a>
 ### getA7()
 
 ```java
 public final short getA7()
 ```
 
-<a id="s-getA8"></a>
+<a id="m-geta8-c03708d8a2bb"></a>
 ### getA8()
 
 ```java
 public final short getA8()
 ```
 
-<a id="s-getPrefix"></a>
+<a id="m-getprefix-9268091e0223"></a>
 ### getPrefix()
 
 ```java
 public final byte getPrefix()
 ```
 
-<a id="s-setA1"></a>
+<a id="m-seta1-86087d00f76b"></a>
 ### setA1(short)
 
 ```java
@@ -149,7 +145,7 @@ public final void setA1(short value)
 
 - `short value`
 
-<a id="s-setA2"></a>
+<a id="m-seta2-8b4919257927"></a>
 ### setA2(short)
 
 ```java
@@ -160,7 +156,7 @@ public final void setA2(short value)
 
 - `short value`
 
-<a id="s-setA3"></a>
+<a id="m-seta3-26923be51f72"></a>
 ### setA3(short)
 
 ```java
@@ -171,7 +167,7 @@ public final void setA3(short value)
 
 - `short value`
 
-<a id="s-setA4"></a>
+<a id="m-seta4-cb477f744e5c"></a>
 ### setA4(short)
 
 ```java
@@ -182,7 +178,7 @@ public final void setA4(short value)
 
 - `short value`
 
-<a id="s-setA5"></a>
+<a id="m-seta5-79ab4d5ba84f"></a>
 ### setA5(short)
 
 ```java
@@ -193,7 +189,7 @@ public final void setA5(short value)
 
 - `short value`
 
-<a id="s-setA6"></a>
+<a id="m-seta6-a49761b267d3"></a>
 ### setA6(short)
 
 ```java
@@ -204,7 +200,7 @@ public final void setA6(short value)
 
 - `short value`
 
-<a id="s-setA7"></a>
+<a id="m-seta7-6bbb104d9e3a"></a>
 ### setA7(short)
 
 ```java
@@ -215,7 +211,7 @@ public final void setA7(short value)
 
 - `short value`
 
-<a id="s-setA8"></a>
+<a id="m-seta8-7bc7b767c00a"></a>
 ### setA8(short)
 
 ```java
@@ -226,7 +222,7 @@ public final void setA8(short value)
 
 - `short value`
 
-<a id="s-setPrefix"></a>
+<a id="m-setprefix-e20c09b64c12"></a>
 ### setPrefix(byte)
 
 ```java

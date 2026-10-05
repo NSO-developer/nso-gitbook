@@ -1,4 +1,4 @@
-<a id="s-ProgressTrace"></a>
+<a id="cls-ProgressTrace"></a>
 # ProgressTrace
 
 ```java
@@ -7,7 +7,7 @@ public class com.tailf.progress.ProgressTrace
 
 `ProgressTrace` class interacts with ConfD/NCS's
  progress trace framework over underlying
- [MAAPI](../maapi/Maapi.md#s-Maapi). See the Progress Trace chapter
+ [MAAPI](../maapi/Maapi.md#cls-Maapi). See the Progress Trace chapter
  in the NSO Development Guide or in the ConfD User Guide for more
  information. The class is implemented based on the concept of
  spans. For example:
@@ -28,44 +28,44 @@ public class com.tailf.progress.ProgressTrace
 
 **Related classes**
 
-- [ProgressTraceNed](ProgressTraceNed.md#s-ProgressTraceNed)
+- [ProgressTraceNed](ProgressTraceNed.md#cls-ProgressTraceNed)
 
 ## Members
 
 **Constructors**:
 
-- [ProgressTrace(Maapi, int)](#s-ProgressTrace-1)
-- [ProgressTrace(Maapi, int, ConfPath)](#s-ProgressTrace-2)
+- [ProgressTrace(Maapi, int)](#m-progresstrace-79427d590b52)
+- [ProgressTrace(Maapi, int, ConfPath)](#m-progresstrace-95f990b53e34)
 
 **Methods**:
 
-- [endSpan(Span)](#s-endSpan)
-- [endSpan(Span, String)](#s-endSpan-1)
-- [event(String)](#s-event)
-- [event(Verbosity, String)](#s-event-1)
-- [event(Verbosity, String, Attributes)](#s-event-2)
-- [getCurrentSpan()](#s-getCurrentSpan)
-- [setServicePath(ConfPath)](#s-setServicePath)
-- [startSpan(String)](#s-startSpan)
-- [startSpan(Verbosity, String)](#s-startSpan-1)
-- [startSpan(Verbosity, String, Attributes, Span[])](#s-startSpan-2)
+- [endSpan(Span)](#m-endspan-832d21f903c3)
+- [endSpan(Span, String)](#m-endspan-1c44c700da19)
+- [event(String)](#m-event-35c2a3878e07)
+- [event(Verbosity, String)](#m-event-9f8a52e74d94)
+- [event(Verbosity, String, Attributes)](#m-event-cdc8c9e968cd)
+- [getCurrentSpan()](#m-getcurrentspan-95e59db0f66f)
+- [setServicePath(ConfPath)](#m-setservicepath-95207665ae57)
+- [startSpan(String)](#m-startspan-a255151f7145)
+- [startSpan(Verbosity, String)](#m-startspan-b310d5a59dbf)
+- [startSpan(Verbosity, String, Attributes, Span[])](#m-startspan-ec78710be35e)
 
 ## Constructors
 
-<a id="s-ProgressTrace-1"></a>
+<a id="m-progresstrace-79427d590b52"></a>
 ### ProgressTrace(Maapi, int)
 
 ```java
 public ProgressTrace(com.tailf.maapi.Maapi maapi, int tid) throws com.tailf.conf.ConfException
 ```
 
-Types: [Maapi](../maapi/Maapi.md#s-Maapi), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Maapi](../maapi/Maapi.md#cls-Maapi), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Creates a new instance of `ProgressTrace`
 
 **Parameters**
 
-- `com.tailf.maapi.Maapi maapi` - a [MAAPI](../maapi/Maapi.md#s-Maapi)
+- `com.tailf.maapi.Maapi maapi` - a [MAAPI](../maapi/Maapi.md#cls-Maapi)
               instance
 - `int tid` - transaction ID
 
@@ -73,21 +73,21 @@ Creates a new instance of `ProgressTrace`
 
 - `ConfException`
 
-<a id="s-ProgressTrace-2"></a>
+<a id="m-progresstrace-95f990b53e34"></a>
 ### ProgressTrace(Maapi, int, ConfPath)
 
 ```java
 public ProgressTrace(com.tailf.maapi.Maapi maapi, int tid, com.tailf.conf.ConfPath servicePath)
 ```
 
-Types: [Maapi](../maapi/Maapi.md#s-Maapi), [ConfPath](../conf/ConfPath.md#s-ConfPath)
+Types: [Maapi](../maapi/Maapi.md#cls-Maapi), [ConfPath](../conf/ConfPath.md#cls-ConfPath)
 
 Creates a new instance of `ProgressTrace`.
  It is used for NSO service.
 
 **Parameters**
 
-- `com.tailf.maapi.Maapi maapi` - a [MAAPI](../maapi/Maapi.md#s-Maapi)
+- `com.tailf.maapi.Maapi maapi` - a [MAAPI](../maapi/Maapi.md#cls-Maapi)
         instance
 - `int tid` - transaction ID
 - `com.tailf.conf.ConfPath servicePath` - path of an NSO service instance
@@ -95,7 +95,7 @@ Creates a new instance of `ProgressTrace`.
 
 ## Methods
 
-<a id="s-endSpan"></a>
+<a id="m-endspan-832d21f903c3"></a>
 ### endSpan(Span)
 
 ```java
@@ -105,7 +105,7 @@ public void endSpan(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Span](Span.md#s-Span), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Span](Span.md#cls-Span), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 End a span
 
@@ -113,7 +113,7 @@ End a span
 
 - `com.tailf.progress.Span span` - the span which was previously started
 
-<a id="s-endSpan-1"></a>
+<a id="m-endspan-1c44c700da19"></a>
 ### endSpan(Span, String)
 
 ```java
@@ -124,7 +124,7 @@ public void endSpan(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Span](Span.md#s-Span), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Span](Span.md#cls-Span), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 End a span with annotation
 
@@ -139,14 +139,14 @@ End a span with annotation
 - `IOException`
 - `ConfException`
 
-<a id="s-event"></a>
+<a id="m-event-35c2a3878e07"></a>
 ### event(String)
 
 ```java
 public void event(String message) throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Report an event
 
@@ -159,7 +159,7 @@ Report an event
 - `IOException`
 - `ConfException`
 
-<a id="s-event-1"></a>
+<a id="m-event-9f8a52e74d94"></a>
 ### event(Verbosity, String)
 
 ```java
@@ -170,7 +170,7 @@ public void event(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Verbosity](../maapi/Maapi/Verbosity.md#s-Verbosity), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Verbosity](../maapi/Maapi/Verbosity.md#cls-Verbosity), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Report an event
 
@@ -185,7 +185,7 @@ Report an event
 - `IOException`
 - `ConfException`
 
-<a id="s-event-2"></a>
+<a id="m-event-cdc8c9e968cd"></a>
 ### event(Verbosity, String, Attributes)
 
 ```java
@@ -197,7 +197,7 @@ public void event(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Verbosity](../maapi/Maapi/Verbosity.md#s-Verbosity), [Attributes](Attributes.md#s-Attributes), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Verbosity](../maapi/Maapi/Verbosity.md#cls-Verbosity), [Attributes](Attributes.md#cls-Attributes), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Report an event
 
@@ -214,32 +214,32 @@ Report an event
 - `IOException`
 - `ConfException`
 
-<a id="s-getCurrentSpan"></a>
+<a id="m-getcurrentspan-95e59db0f66f"></a>
 ### getCurrentSpan()
 
 ```java
 public com.tailf.progress.Span getCurrentSpan()
 ```
 
-Types: [Span](Span.md#s-Span)
+Types: [Span](Span.md#cls-Span)
 
 Get the current span that is created by this API.
  The current span is updated to a new span or previous
  span depending on when
- a [`ProgressTrace`](ProgressTrace.md#s-ProgressTrace) or a
- [`ProgressTrace`](ProgressTrace.md#s-ProgressTrace) is called.
+ a `ProgressTrace#startSpan` or a
+ `ProgressTrace#endSpan` is called.
 
-**Returns:** a [`Span`](Span.md#s-Span) object or [`EmptySpan`](EmptySpan.md#s-EmptySpan)
+**Returns:** a [`Span`](Span.md#cls-Span) object or [`EmptySpan`](EmptySpan.md#cls-EmptySpan)
  object if the span is not created by the API.
 
-<a id="s-setServicePath"></a>
+<a id="m-setservicepath-95207665ae57"></a>
 ### setServicePath(ConfPath)
 
 ```java
 public void setServicePath(com.tailf.conf.ConfPath servicePath)
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath)
 
 Set NSO's service path
 
@@ -247,7 +247,7 @@ Set NSO's service path
 
 - `com.tailf.conf.ConfPath servicePath` - the service path
 
-<a id="s-startSpan"></a>
+<a id="m-startspan-a255151f7145"></a>
 ### startSpan(String)
 
 ```java
@@ -257,7 +257,7 @@ public com.tailf.progress.Span startSpan(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Span](Span.md#s-Span), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Span](Span.md#cls-Span), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Start a new span
 
@@ -265,15 +265,15 @@ Start a new span
 
 - `String message` - message of the span
 
-**Returns:** a [`Span`](Span.md#s-Span) object that is used
- for [`ProgressTrace`](ProgressTrace.md#s-ProgressTrace)
+**Returns:** a [`Span`](Span.md#cls-Span) object that is used
+ for `ProgressTrace#endSpan`
 
 **Throws**
 
 - `IOException`
 - `ConfException`
 
-<a id="s-startSpan-1"></a>
+<a id="m-startspan-b310d5a59dbf"></a>
 ### startSpan(Verbosity, String)
 
 ```java
@@ -284,7 +284,7 @@ public com.tailf.progress.Span startSpan(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Span](Span.md#s-Span), [Verbosity](../maapi/Maapi/Verbosity.md#s-Verbosity), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Span](Span.md#cls-Span), [Verbosity](../maapi/Maapi/Verbosity.md#cls-Verbosity), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Start a new span
 
@@ -294,15 +294,15 @@ Start a new span
          message should be reported
 - `String message` - message of the span
 
-**Returns:** a [`Span`](Span.md#s-Span) object that can used
- in [`ProgressTrace`](ProgressTrace.md#s-ProgressTrace)
+**Returns:** a [`Span`](Span.md#cls-Span) object that can used
+ in `ProgressTrace#endSpan`
 
 **Throws**
 
 - `IOException`
 - `ConfException`
 
-<a id="s-startSpan-2"></a>
+<a id="m-startspan-ec78710be35e"></a>
 ### startSpan(Verbosity, String, Attributes, Span[])
 
 ```java
@@ -315,7 +315,7 @@ public com.tailf.progress.Span startSpan(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Span](Span.md#s-Span), [Verbosity](../maapi/Maapi/Verbosity.md#s-Verbosity), [Attributes](Attributes.md#s-Attributes), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Span](Span.md#cls-Span), [Verbosity](../maapi/Maapi/Verbosity.md#cls-Verbosity), [Attributes](Attributes.md#cls-Attributes), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Start a new span
 
@@ -329,8 +329,8 @@ Start a new span
 - `com.tailf.progress.Span[] links` - list of linked spans
         This can be `null`.
 
-**Returns:** a [`Span`](Span.md#s-Span) object that can used
- in [`ProgressTrace`](ProgressTrace.md#s-ProgressTrace)
+**Returns:** a [`Span`](Span.md#cls-Span) object that can used
+ in `ProgressTrace#endSpan`
 
 **Throws**
 

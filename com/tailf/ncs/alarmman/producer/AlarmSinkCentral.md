@@ -1,4 +1,4 @@
-<a id="s-AlarmSinkCentral"></a>
+<a id="cls-AlarmSinkCentral"></a>
 # AlarmSinkCentral
 
 ```java
@@ -37,33 +37,33 @@ An `AlarmSinkCentral` represent a central "proxy"
 
 **Constructors**:
 
-- [AlarmSinkCentral(int, Maapi)](#s-AlarmSinkCentral-1)
-- [AlarmSinkCentral(int, Maapi, int, long)](#s-AlarmSinkCentral-2)
+- [AlarmSinkCentral(int, Maapi)](#m-alarmsinkcentral-5ca121e75734)
+- [AlarmSinkCentral(int, Maapi, int, long)](#m-alarmsinkcentral-15fb13c004f7)
 
 **Fields**:
 
-- [legacyCdb](#s-legacyCdb)
+- [legacyCdb](#m-legacyCdb)
 
 **Methods**:
 
-- [close()](#s-close)
-- [getQueue()](#s-getQueue)
-- [isAlive()](#s-isAlive)
-- [requestStop()](#s-requestStop)
-- [run()](#s-run)
-- [start()](#s-start)
-- [stop()](#s-stop)
+- [close()](#m-close-8107c6dc012b)
+- [getQueue()](#m-getqueue-d349d0a1f2e7)
+- [isAlive()](#m-isalive-264918864856)
+- [requestStop()](#m-requeststop-7507d99bde08)
+- [run()](#m-run-b6dbda048863)
+- [start()](#m-start-79e12dafe9f8)
+- [stop()](#m-stop-a62ecc446f97)
 
 ## Constructors
 
-<a id="s-AlarmSinkCentral-1"></a>
+<a id="m-alarmsinkcentral-5ca121e75734"></a>
 ### AlarmSinkCentral(int, Maapi)
 
 ```java
 public AlarmSinkCentral(int alarmQueueLen, com.tailf.maapi.Maapi maapi)
 ```
 
-Types: [Maapi](../../../maapi/Maapi.md#s-Maapi)
+Types: [Maapi](../../../maapi/Maapi.md#cls-Maapi)
 
 Creates an NCS alarm sink.
 
@@ -72,7 +72,7 @@ Creates an NCS alarm sink.
 - `int alarmQueueLen` - the maximum length of the queue.
 - `com.tailf.maapi.Maapi maapi` - the Maapi instance used to write alarm info
 
-<a id="s-AlarmSinkCentral-2"></a>
+<a id="m-alarmsinkcentral-15fb13c004f7"></a>
 ### AlarmSinkCentral(int, Maapi, int, long)
 
 ```java
@@ -84,7 +84,7 @@ public AlarmSinkCentral(
 )
 ```
 
-Types: [Maapi](../../../maapi/Maapi.md#s-Maapi)
+Types: [Maapi](../../../maapi/Maapi.md#cls-Maapi)
 
 Creates an NCS alarm sink.
 
@@ -100,19 +100,19 @@ Creates an NCS alarm sink.
 
 ## Fields
 
-<a id="s-legacyCdb"></a>
+<a id="m-legacyCdb"></a>
 ### legacyCdb
 
 ```java
 protected com.tailf.cdb.Cdb legacyCdb = null;
 ```
 
-Types: [Cdb](../../../cdb/Cdb.md#s-Cdb)
+Types: [Cdb](../../../cdb/Cdb.md#cls-Cdb)
 
 
 ## Methods
 
-<a id="s-close"></a>
+<a id="m-close-8107c6dc012b"></a>
 ### close()
 
 ```java
@@ -121,20 +121,20 @@ public void close()
 
 Closes the alarm sink central by stopping the processing thread.
 
-<a id="s-getQueue"></a>
+<a id="m-getqueue-d349d0a1f2e7"></a>
 ### getQueue()
 
 ```java
 public java.util.concurrent.ArrayBlockingQueue<com.tailf.ncs.alarmman.common.Alarm> getQueue()
 ```
 
-Types: [Alarm](../common/Alarm.md#s-Alarm)
+Types: [Alarm](../common/Alarm.md#cls-Alarm)
 
 Returns the alarm queue.
 
 **Returns:** the current alarm queue.
 
-<a id="s-isAlive"></a>
+<a id="m-isalive-264918864856"></a>
 ### isAlive()
 
 ```java
@@ -145,7 +145,7 @@ Checks if the alarm sink central thread is currently alive and running.
 
 **Returns:** true if the thread is alive, false otherwise
 
-<a id="s-requestStop"></a>
+<a id="m-requeststop-7507d99bde08"></a>
 ### requestStop()
 
 ```java
@@ -156,7 +156,7 @@ Requests the alarm sink central to stop processing alarms.
 
 **Returns:** true if the stop request was successful
 
-<a id="s-run"></a>
+<a id="m-run-b6dbda048863"></a>
 ### run()
 
 ```java
@@ -165,7 +165,7 @@ public void run()
 
 Main thread execution method that processes alarms from the queue.
 
-<a id="s-start"></a>
+<a id="m-start-79e12dafe9f8"></a>
 ### start()
 
 ```java
@@ -175,7 +175,7 @@ public synchronized void start()
 Starts the alarm sink central thread for processing alarms.
  Creates and starts a daemon thread if not already running.
 
-<a id="s-stop"></a>
+<a id="m-stop-a62ecc446f97"></a>
 ### stop()
 
 ```java

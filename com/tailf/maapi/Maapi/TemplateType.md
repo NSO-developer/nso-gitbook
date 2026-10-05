@@ -1,36 +1,32 @@
-<a id="s-TemplateType"></a>
+<a id="cls-TemplateType"></a>
 # TemplateType
 
 ```java
 public static enum com.tailf.maapi.Maapi.TemplateType
 ```
 
-Types: [TemplateType](TemplateType.md#s-TemplateType)
+Types: [TemplateType](TemplateType.md#cls-TemplateType)
 
 To be used in:
- [`TemplateType`](TemplateType.md#s-TemplateType)
+ `TemplateType#ncsGetTemplateVariables(String, TemplateType)`
  Designates informational of template types.
-
-**Related classes**
-
-- [TemplateType](TemplateType.md#s-TemplateType)
 
 ## Members
 
 **Enum Constants**:
 
-- [COMPLIANCE_TEMPLATE](#s-COMPLIANCE_TEMPLATE)
-- [DEVICE_TEMPLATE](#s-DEVICE_TEMPLATE)
-- [SERVICE_TEMPLATE](#s-SERVICE_TEMPLATE)
+- [COMPLIANCE_TEMPLATE](#m-COMPLIANCE_TEMPLATE)
+- [DEVICE_TEMPLATE](#m-DEVICE_TEMPLATE)
+- [SERVICE_TEMPLATE](#m-SERVICE_TEMPLATE)
 
 **Methods**:
 
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-COMPLIANCE_TEMPLATE"></a>
+<a id="m-COMPLIANCE_TEMPLATE"></a>
 ### COMPLIANCE_TEMPLATE
 
 ```java
@@ -42,7 +38,7 @@ Designates compliance template, compliance template used to verify
  predefined configuration, it also means the specific template
  configuration name under /ncs:compliance/ncs:template.
 
-<a id="s-DEVICE_TEMPLATE"></a>
+<a id="m-DEVICE_TEMPLATE"></a>
 ### DEVICE_TEMPLATE
 
 ```java
@@ -52,7 +48,7 @@ public static final com.tailf.maapi.Maapi.TemplateType DEVICE_TEMPLATE;
 Designates device template, device template means the specific
  template configuration name under /ncs:devices/ncs:template.
 
-<a id="s-SERVICE_TEMPLATE"></a>
+<a id="m-SERVICE_TEMPLATE"></a>
 ### SERVICE_TEMPLATE
 
 ```java
@@ -66,24 +62,24 @@ Designates service template, service template means the specific
 
 ## Methods
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.maapi.Maapi.TemplateType valueOf(String name)
 ```
 
-Types: [TemplateType](TemplateType.md#s-TemplateType)
+Types: [TemplateType](TemplateType.md#cls-TemplateType)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.maapi.Maapi.TemplateType[] values()
 ```
 
-Types: [TemplateType](TemplateType.md#s-TemplateType)
+Types: [TemplateType](TemplateType.md#cls-TemplateType)

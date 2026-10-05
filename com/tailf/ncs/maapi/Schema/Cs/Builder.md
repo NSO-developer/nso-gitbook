@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,52 +6,48 @@ public static final class com.tailf.ncs.maapi.Schema.Cs.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getChoices()](#s-getChoices)
-- [getCmp()](#s-getCmp)
-- [getDefval()](#s-getDefval)
-- [getDocDescription()](#s-getDocDescription)
-- [getFlags()](#s-getFlags)
-- [getHideGroups()](#s-getHideGroups)
-- [getKeys()](#s-getKeys)
-- [getMaxOccur()](#s-getMaxOccur)
-- [getMeta()](#s-getMeta)
-- [getMinOccur()](#s-getMinOccur)
-- [getMountId()](#s-getMountId)
-- [getPrompt()](#s-getPrompt)
-- [getShallowType()](#s-getShallowType)
-- [getType()](#s-getType)
-- [initChoices()](#s-initChoices)
-- [initDefval()](#s-initDefval)
-- [initDocDescription()](#s-initDocDescription)
-- [initHideGroups()](#s-initHideGroups)
-- [initKeys()](#s-initKeys)
-- [initMeta()](#s-initMeta)
-- [initMountId()](#s-initMountId)
-- [initPrompt()](#s-initPrompt)
-- [initType()](#s-initType)
-- [setCmp(Cmp)](#s-setCmp)
-- [setFlags(int)](#s-setFlags)
-- [setMaxOccur(int)](#s-setMaxOccur)
-- [setMinOccur(int)](#s-setMinOccur)
-- [setShallowType(ShallowType)](#s-setShallowType)
-- [setType(Reader)](#s-setType)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getChoices()](#m-getchoices-818fb3fccb86)
+- [getCmp()](#m-getcmp-a9e8116d77d2)
+- [getDefval()](#m-getdefval-561ad5494c47)
+- [getDocDescription()](#m-getdocdescription-08369bbe26a9)
+- [getFlags()](#m-getflags-3c1ca90fd29c)
+- [getHideGroups()](#m-gethidegroups-d566f1e3343e)
+- [getKeys()](#m-getkeys-a24b9d377db7)
+- [getMaxOccur()](#m-getmaxoccur-b4cb09a89559)
+- [getMeta()](#m-getmeta-33b809b5c0be)
+- [getMinOccur()](#m-getminoccur-da22ee8b4e31)
+- [getMountId()](#m-getmountid-c5175827f949)
+- [getPrompt()](#m-getprompt-6a58866a8699)
+- [getShallowType()](#m-getshallowtype-2e2b5f294983)
+- [getType()](#m-gettype-5a52f6f0d4c1)
+- [initChoices()](#m-initchoices-bd85acba2a40)
+- [initDefval()](#m-initdefval-fc211401cea7)
+- [initDocDescription()](#m-initdocdescription-e02d1d7991d3)
+- [initHideGroups()](#m-inithidegroups-e73c27a1f3f0)
+- [initKeys()](#m-initkeys-dbb1fee285c0)
+- [initMeta()](#m-initmeta-38c9843af893)
+- [initMountId()](#m-initmountid-43348a54995c)
+- [initPrompt()](#m-initprompt-e179e0cffc11)
+- [initType()](#m-inittype-9d8086c9965a)
+- [setCmp(Cmp)](#m-setcmp-7cb263b886c7)
+- [setFlags(int)](#m-setflags-ce4598e4465c)
+- [setMaxOccur(int)](#m-setmaxoccur-6939fed85b4a)
+- [setMinOccur(int)](#m-setminoccur-e8ca05aa5cf6)
+- [setShallowType(ShallowType)](#m-setshallowtype-d21ce22018e7)
+- [setType(Reader)](#m-settype-b1128ee37ec1)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -77,230 +73,230 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getChoices"></a>
+<a id="m-getchoices-818fb3fccb86"></a>
 ### getChoices()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.Choices.Builder getChoices()
 ```
 
-Types: [Builder](Choices/Builder.md#s-Builder)
+Types: [Builder](Choices/Builder.md#cls-Builder)
 
-<a id="s-getCmp"></a>
+<a id="m-getcmp-a9e8116d77d2"></a>
 ### getCmp()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cmp getCmp()
 ```
 
-Types: [Cmp](../Cmp.md#s-Cmp)
+Types: [Cmp](../Cmp.md#cls-Cmp)
 
-<a id="s-getDefval"></a>
+<a id="m-getdefval-561ad5494c47"></a>
 ### getDefval()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.Defval.Builder getDefval()
 ```
 
-Types: [Builder](Defval/Builder.md#s-Builder)
+Types: [Builder](Defval/Builder.md#cls-Builder)
 
-<a id="s-getDocDescription"></a>
+<a id="m-getdocdescription-08369bbe26a9"></a>
 ### getDocDescription()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.DocDescription.Builder getDocDescription()
 ```
 
-Types: [Builder](DocDescription/Builder.md#s-Builder)
+Types: [Builder](DocDescription/Builder.md#cls-Builder)
 
-<a id="s-getFlags"></a>
+<a id="m-getflags-3c1ca90fd29c"></a>
 ### getFlags()
 
 ```java
 public final int getFlags()
 ```
 
-<a id="s-getHideGroups"></a>
+<a id="m-gethidegroups-d566f1e3343e"></a>
 ### getHideGroups()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.HideGroups.Builder getHideGroups()
 ```
 
-Types: [Builder](HideGroups/Builder.md#s-Builder)
+Types: [Builder](HideGroups/Builder.md#cls-Builder)
 
-<a id="s-getKeys"></a>
+<a id="m-getkeys-a24b9d377db7"></a>
 ### getKeys()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.Keys.Builder getKeys()
 ```
 
-Types: [Builder](Keys/Builder.md#s-Builder)
+Types: [Builder](Keys/Builder.md#cls-Builder)
 
-<a id="s-getMaxOccur"></a>
+<a id="m-getmaxoccur-b4cb09a89559"></a>
 ### getMaxOccur()
 
 ```java
 public final int getMaxOccur()
 ```
 
-<a id="s-getMeta"></a>
+<a id="m-getmeta-33b809b5c0be"></a>
 ### getMeta()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.Meta.Builder getMeta()
 ```
 
-Types: [Builder](Meta/Builder.md#s-Builder)
+Types: [Builder](Meta/Builder.md#cls-Builder)
 
-<a id="s-getMinOccur"></a>
+<a id="m-getminoccur-da22ee8b4e31"></a>
 ### getMinOccur()
 
 ```java
 public final int getMinOccur()
 ```
 
-<a id="s-getMountId"></a>
+<a id="m-getmountid-c5175827f949"></a>
 ### getMountId()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.MountId.Builder getMountId()
 ```
 
-Types: [Builder](MountId/Builder.md#s-Builder)
+Types: [Builder](MountId/Builder.md#cls-Builder)
 
-<a id="s-getPrompt"></a>
+<a id="m-getprompt-6a58866a8699"></a>
 ### getPrompt()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.Prompt.Builder getPrompt()
 ```
 
-Types: [Builder](Prompt/Builder.md#s-Builder)
+Types: [Builder](Prompt/Builder.md#cls-Builder)
 
-<a id="s-getShallowType"></a>
+<a id="m-getshallowtype-2e2b5f294983"></a>
 ### getShallowType()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.ShallowType getShallowType()
 ```
 
-Types: [ShallowType](../ShallowType.md#s-ShallowType)
+Types: [ShallowType](../ShallowType.md#cls-ShallowType)
 
-<a id="s-getType"></a>
+<a id="m-gettype-5a52f6f0d4c1"></a>
 ### getType()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsType.Builder getType()
 ```
 
-Types: [Builder](../CsType/Builder.md#s-Builder)
+Types: [Builder](../CsType/Builder.md#cls-Builder)
 
-<a id="s-initChoices"></a>
+<a id="m-initchoices-bd85acba2a40"></a>
 ### initChoices()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.Choices.Builder initChoices()
 ```
 
-Types: [Builder](Choices/Builder.md#s-Builder)
+Types: [Builder](Choices/Builder.md#cls-Builder)
 
-<a id="s-initDefval"></a>
+<a id="m-initdefval-fc211401cea7"></a>
 ### initDefval()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.Defval.Builder initDefval()
 ```
 
-Types: [Builder](Defval/Builder.md#s-Builder)
+Types: [Builder](Defval/Builder.md#cls-Builder)
 
-<a id="s-initDocDescription"></a>
+<a id="m-initdocdescription-e02d1d7991d3"></a>
 ### initDocDescription()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.DocDescription.Builder initDocDescription()
 ```
 
-Types: [Builder](DocDescription/Builder.md#s-Builder)
+Types: [Builder](DocDescription/Builder.md#cls-Builder)
 
-<a id="s-initHideGroups"></a>
+<a id="m-inithidegroups-e73c27a1f3f0"></a>
 ### initHideGroups()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.HideGroups.Builder initHideGroups()
 ```
 
-Types: [Builder](HideGroups/Builder.md#s-Builder)
+Types: [Builder](HideGroups/Builder.md#cls-Builder)
 
-<a id="s-initKeys"></a>
+<a id="m-initkeys-dbb1fee285c0"></a>
 ### initKeys()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.Keys.Builder initKeys()
 ```
 
-Types: [Builder](Keys/Builder.md#s-Builder)
+Types: [Builder](Keys/Builder.md#cls-Builder)
 
-<a id="s-initMeta"></a>
+<a id="m-initmeta-38c9843af893"></a>
 ### initMeta()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.Meta.Builder initMeta()
 ```
 
-Types: [Builder](Meta/Builder.md#s-Builder)
+Types: [Builder](Meta/Builder.md#cls-Builder)
 
-<a id="s-initMountId"></a>
+<a id="m-initmountid-43348a54995c"></a>
 ### initMountId()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.MountId.Builder initMountId()
 ```
 
-Types: [Builder](MountId/Builder.md#s-Builder)
+Types: [Builder](MountId/Builder.md#cls-Builder)
 
-<a id="s-initPrompt"></a>
+<a id="m-initprompt-e179e0cffc11"></a>
 ### initPrompt()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.Prompt.Builder initPrompt()
 ```
 
-Types: [Builder](Prompt/Builder.md#s-Builder)
+Types: [Builder](Prompt/Builder.md#cls-Builder)
 
-<a id="s-initType"></a>
+<a id="m-inittype-9d8086c9965a"></a>
 ### initType()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsType.Builder initType()
 ```
 
-Types: [Builder](../CsType/Builder.md#s-Builder)
+Types: [Builder](../CsType/Builder.md#cls-Builder)
 
-<a id="s-setCmp"></a>
+<a id="m-setcmp-7cb263b886c7"></a>
 ### setCmp(Cmp)
 
 ```java
 public final void setCmp(com.tailf.ncs.maapi.Schema.Cmp value)
 ```
 
-Types: [Cmp](../Cmp.md#s-Cmp)
+Types: [Cmp](../Cmp.md#cls-Cmp)
 
 **Parameters**
 
 - `com.tailf.ncs.maapi.Schema.Cmp value`
 
-<a id="s-setFlags"></a>
+<a id="m-setflags-ce4598e4465c"></a>
 ### setFlags(int)
 
 ```java
@@ -311,7 +307,7 @@ public final void setFlags(int value)
 
 - `int value`
 
-<a id="s-setMaxOccur"></a>
+<a id="m-setmaxoccur-6939fed85b4a"></a>
 ### setMaxOccur(int)
 
 ```java
@@ -322,7 +318,7 @@ public final void setMaxOccur(int value)
 
 - `int value`
 
-<a id="s-setMinOccur"></a>
+<a id="m-setminoccur-e8ca05aa5cf6"></a>
 ### setMinOccur(int)
 
 ```java
@@ -333,27 +329,27 @@ public final void setMinOccur(int value)
 
 - `int value`
 
-<a id="s-setShallowType"></a>
+<a id="m-setshallowtype-d21ce22018e7"></a>
 ### setShallowType(ShallowType)
 
 ```java
 public final void setShallowType(com.tailf.ncs.maapi.Schema.ShallowType value)
 ```
 
-Types: [ShallowType](../ShallowType.md#s-ShallowType)
+Types: [ShallowType](../ShallowType.md#cls-ShallowType)
 
 **Parameters**
 
 - `com.tailf.ncs.maapi.Schema.ShallowType value`
 
-<a id="s-setType"></a>
+<a id="m-settype-b1128ee37ec1"></a>
 ### setType(Reader)
 
 ```java
 public final void setType(com.tailf.ncs.maapi.Schema.CsType.Reader value)
 ```
 
-Types: [Reader](../CsType/Reader.md#s-Reader)
+Types: [Reader](../CsType/Reader.md#cls-Reader)
 
 **Parameters**
 

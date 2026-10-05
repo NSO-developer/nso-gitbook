@@ -1,4 +1,4 @@
-<a id="s-ParseException"></a>
+<a id="cls-ParseException"></a>
 # ParseException
 
 ```java
@@ -18,24 +18,24 @@ This exception is thrown when parse errors are encountered.
 
 **Constructors**:
 
-- [ParseException()](#s-ParseException-1)
-- [ParseException(String)](#s-ParseException-2)
-- [ParseException(Token, int[][], String[])](#s-ParseException-3)
+- [ParseException()](#m-parseexception-7765e2a79d08)
+- [ParseException(String)](#m-parseexception-0700cc800bd9)
+- [ParseException(Token, int[][], String[])](#m-parseexception-b51b2d926e10)
 
 **Fields**:
 
-- [currentToken](#s-currentToken)
-- [EOL](#s-EOL)
-- [expectedTokenSequences](#s-expectedTokenSequences)
-- [tokenImage](#s-tokenImage)
+- [currentToken](#m-currentToken)
+- [EOL](#m-EOL)
+- [expectedTokenSequences](#m-expectedTokenSequences)
+- [tokenImage](#m-tokenImage)
 
 **Methods**:
 
-- [add_escapes(String)](#s-add_escapes)
+- [add_escapes(String)](#m-add_escapes-6d7387de134e)
 
 ## Constructors
 
-<a id="s-ParseException-1"></a>
+<a id="m-parseexception-7765e2a79d08"></a>
 ### ParseException()
 
 ```java
@@ -50,7 +50,7 @@ The following constructors are for use by you for whatever
  relevant information.  The JavaCC generated code does not use
  these constructors.
 
-<a id="s-ParseException-2"></a>
+<a id="m-parseexception-0700cc800bd9"></a>
 ### ParseException(String)
 
 ```java
@@ -63,7 +63,7 @@ Constructor with message.
 
 - `String message`
 
-<a id="s-ParseException-3"></a>
+<a id="m-parseexception-b51b2d926e10"></a>
 ### ParseException(Token, int[][], String[])
 
 ```java
@@ -74,7 +74,7 @@ public ParseException(
 )
 ```
 
-Types: [Token](Token.md#s-Token)
+Types: [Token](Token.md#cls-Token)
 
 This constructor is used by the method "generateParseException"
  in the generated parser.  Calling this constructor generates
@@ -90,20 +90,20 @@ This constructor is used by the method "generateParseException"
 
 ## Fields
 
-<a id="s-currentToken"></a>
+<a id="m-currentToken"></a>
 ### currentToken
 
 ```java
 public com.tailf.conf.dbg.Token currentToken = null;
 ```
 
-Types: [Token](Token.md#s-Token)
+Types: [Token](Token.md#cls-Token)
 
 This is the last token that has been consumed successfully.  If
  this object has been created due to a parse error, the token
  following this token will (therefore) be the first error token.
 
-<a id="s-EOL"></a>
+<a id="m-EOL"></a>
 ### EOL
 
 ```java
@@ -112,7 +112,7 @@ protected static String EOL = null;
 
 The end of line string for this machine.
 
-<a id="s-expectedTokenSequences"></a>
+<a id="m-expectedTokenSequences"></a>
 ### expectedTokenSequences
 
 ```java
@@ -123,7 +123,7 @@ Each entry in this array is an array of integers.  Each array
  of integers represents a sequence of tokens (by their ordinal
  values) that is expected at this point of the parse.
 
-<a id="s-tokenImage"></a>
+<a id="m-tokenImage"></a>
 ### tokenImage
 
 ```java
@@ -137,7 +137,7 @@ This is a reference to the "tokenImage" array of the generated
 
 ## Methods
 
-<a id="s-add_escapes"></a>
+<a id="m-add_escapes-6d7387de134e"></a>
 ### add_escapes(String)
 
 **Package-private**

@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,19 +10,19 @@ public static final class com.tailf.ncs.maapi.Schema.Range.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getFlags()](#s-getFlags)
-- [getHi()](#s-getHi)
-- [getLo()](#s-getLo)
-- [hasHi()](#s-hasHi)
-- [hasLo()](#s-hasLo)
+- [getFlags()](#m-getflags-3c1ca90fd29c)
+- [getHi()](#m-gethi-f8fa4dcfe431)
+- [getLo()](#m-getlo-bfe1c987d87a)
+- [hasHi()](#m-hashi-5d9a1cd214ca)
+- [hasLo()](#m-haslo-5c413cde5b09)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -50,39 +50,39 @@ Reader(
 
 ## Methods
 
-<a id="s-getFlags"></a>
+<a id="m-getflags-3c1ca90fd29c"></a>
 ### getFlags()
 
 ```java
 public final byte getFlags()
 ```
 
-<a id="s-getHi"></a>
+<a id="m-gethi-f8fa4dcfe431"></a>
 ### getHi()
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsValue.Reader getHi()
 ```
 
-Types: [Reader](../CsValue/Reader.md#s-Reader)
+Types: [Reader](../CsValue/Reader.md#cls-Reader)
 
-<a id="s-getLo"></a>
+<a id="m-getlo-bfe1c987d87a"></a>
 ### getLo()
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsValue.Reader getLo()
 ```
 
-Types: [Reader](../CsValue/Reader.md#s-Reader)
+Types: [Reader](../CsValue/Reader.md#cls-Reader)
 
-<a id="s-hasHi"></a>
+<a id="m-hashi-5d9a1cd214ca"></a>
 ### hasHi()
 
 ```java
 public boolean hasHi()
 ```
 
-<a id="s-hasLo"></a>
+<a id="m-haslo-5c413cde5b09"></a>
 ### hasLo()
 
 ```java

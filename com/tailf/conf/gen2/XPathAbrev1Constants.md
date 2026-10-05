@@ -1,4 +1,4 @@
-<a id="s-XPathAbrev1Constants"></a>
+<a id="cls-XPathAbrev1Constants"></a>
 # XPathAbrev1Constants
 
 **Package-private**
@@ -14,39 +14,39 @@ Token literal values and constants.
 
 **Fields**:
 
-- [AXIS_ANCESTOR](#s-AXIS_ANCESTOR)
-- [AXIS_ANCESTOR_OR_SELF](#s-AXIS_ANCESTOR_OR_SELF)
-- [AXIS_ATTRIBUTE](#s-AXIS_ATTRIBUTE)
-- [AXIS_CHILD](#s-AXIS_CHILD)
-- [AXIS_DESCENDANT](#s-AXIS_DESCENDANT)
-- [AXIS_DESCENDANT_OR_SELF](#s-AXIS_DESCENDANT_OR_SELF)
-- [AXIS_FOLLOWING](#s-AXIS_FOLLOWING)
-- [AXIS_FOLLOWING_SIBLING](#s-AXIS_FOLLOWING_SIBLING)
-- [AXIS_NAMESPACE](#s-AXIS_NAMESPACE)
-- [AXIS_PARENT](#s-AXIS_PARENT)
-- [AXIS_PRECEDING](#s-AXIS_PRECEDING)
-- [AXIS_PRECEDING_SIBLING](#s-AXIS_PRECEDING_SIBLING)
-- [AXIS_SELF](#s-AXIS_SELF)
-- [BaseChar](#s-BaseChar)
-- [CombiningChar](#s-CombiningChar)
-- [DEFAULT](#s-DEFAULT)
-- [Digit](#s-Digit)
-- [EOF](#s-EOF)
-- [EQ](#s-EQ)
-- [Extender](#s-Extender)
-- [FUNCTION_CURRENT](#s-FUNCTION_CURRENT)
-- [Ideographic](#s-Ideographic)
-- [Letter](#s-Letter)
-- [Literal](#s-Literal)
-- [NCName](#s-NCName)
-- [Number](#s-Number)
-- [SLASH](#s-SLASH)
-- [tokenImage](#s-tokenImage)
-- [UnicodeDigit](#s-UnicodeDigit)
+- [AXIS_ANCESTOR](#m-AXIS_ANCESTOR)
+- [AXIS_ANCESTOR_OR_SELF](#m-AXIS_ANCESTOR_OR_SELF)
+- [AXIS_ATTRIBUTE](#m-AXIS_ATTRIBUTE)
+- [AXIS_CHILD](#m-AXIS_CHILD)
+- [AXIS_DESCENDANT](#m-AXIS_DESCENDANT)
+- [AXIS_DESCENDANT_OR_SELF](#m-AXIS_DESCENDANT_OR_SELF)
+- [AXIS_FOLLOWING](#m-AXIS_FOLLOWING)
+- [AXIS_FOLLOWING_SIBLING](#m-AXIS_FOLLOWING_SIBLING)
+- [AXIS_NAMESPACE](#m-AXIS_NAMESPACE)
+- [AXIS_PARENT](#m-AXIS_PARENT)
+- [AXIS_PRECEDING](#m-AXIS_PRECEDING)
+- [AXIS_PRECEDING_SIBLING](#m-AXIS_PRECEDING_SIBLING)
+- [AXIS_SELF](#m-AXIS_SELF)
+- [BaseChar](#m-BaseChar)
+- [CombiningChar](#m-CombiningChar)
+- [DEFAULT](#m-DEFAULT)
+- [Digit](#m-Digit)
+- [EOF](#m-EOF)
+- [EQ](#m-EQ)
+- [Extender](#m-Extender)
+- [FUNCTION_CURRENT](#m-FUNCTION_CURRENT)
+- [Ideographic](#m-Ideographic)
+- [Letter](#m-Letter)
+- [Literal](#m-Literal)
+- [NCName](#m-NCName)
+- [Number](#m-Number)
+- [SLASH](#m-SLASH)
+- [tokenImage](#m-tokenImage)
+- [UnicodeDigit](#m-UnicodeDigit)
 
 ## Fields
 
-<a id="s-AXIS_ANCESTOR"></a>
+<a id="m-AXIS_ANCESTOR"></a>
 ### AXIS_ANCESTOR
 
 ```java
@@ -55,7 +55,7 @@ public static final int AXIS_ANCESTOR = 20;
 
 RegularExpression Id.
 
-<a id="s-AXIS_ANCESTOR_OR_SELF"></a>
+<a id="m-AXIS_ANCESTOR_OR_SELF"></a>
 ### AXIS_ANCESTOR_OR_SELF
 
 ```java
@@ -64,7 +64,7 @@ public static final int AXIS_ANCESTOR_OR_SELF = 26;
 
 RegularExpression Id.
 
-<a id="s-AXIS_ATTRIBUTE"></a>
+<a id="m-AXIS_ATTRIBUTE"></a>
 ### AXIS_ATTRIBUTE
 
 ```java
@@ -73,7 +73,7 @@ public static final int AXIS_ATTRIBUTE = 21;
 
 RegularExpression Id.
 
-<a id="s-AXIS_CHILD"></a>
+<a id="m-AXIS_CHILD"></a>
 ### AXIS_CHILD
 
 ```java
@@ -82,7 +82,7 @@ public static final int AXIS_CHILD = 18;
 
 RegularExpression Id.
 
-<a id="s-AXIS_DESCENDANT"></a>
+<a id="m-AXIS_DESCENDANT"></a>
 ### AXIS_DESCENDANT
 
 ```java
@@ -91,7 +91,7 @@ public static final int AXIS_DESCENDANT = 25;
 
 RegularExpression Id.
 
-<a id="s-AXIS_DESCENDANT_OR_SELF"></a>
+<a id="m-AXIS_DESCENDANT_OR_SELF"></a>
 ### AXIS_DESCENDANT_OR_SELF
 
 ```java
@@ -100,7 +100,7 @@ public static final int AXIS_DESCENDANT_OR_SELF = 29;
 
 RegularExpression Id.
 
-<a id="s-AXIS_FOLLOWING"></a>
+<a id="m-AXIS_FOLLOWING"></a>
 ### AXIS_FOLLOWING
 
 ```java
@@ -109,7 +109,7 @@ public static final int AXIS_FOLLOWING = 24;
 
 RegularExpression Id.
 
-<a id="s-AXIS_FOLLOWING_SIBLING"></a>
+<a id="m-AXIS_FOLLOWING_SIBLING"></a>
 ### AXIS_FOLLOWING_SIBLING
 
 ```java
@@ -118,7 +118,7 @@ public static final int AXIS_FOLLOWING_SIBLING = 27;
 
 RegularExpression Id.
 
-<a id="s-AXIS_NAMESPACE"></a>
+<a id="m-AXIS_NAMESPACE"></a>
 ### AXIS_NAMESPACE
 
 ```java
@@ -127,7 +127,7 @@ public static final int AXIS_NAMESPACE = 22;
 
 RegularExpression Id.
 
-<a id="s-AXIS_PARENT"></a>
+<a id="m-AXIS_PARENT"></a>
 ### AXIS_PARENT
 
 ```java
@@ -136,7 +136,7 @@ public static final int AXIS_PARENT = 19;
 
 RegularExpression Id.
 
-<a id="s-AXIS_PRECEDING"></a>
+<a id="m-AXIS_PRECEDING"></a>
 ### AXIS_PRECEDING
 
 ```java
@@ -145,7 +145,7 @@ public static final int AXIS_PRECEDING = 23;
 
 RegularExpression Id.
 
-<a id="s-AXIS_PRECEDING_SIBLING"></a>
+<a id="m-AXIS_PRECEDING_SIBLING"></a>
 ### AXIS_PRECEDING_SIBLING
 
 ```java
@@ -154,7 +154,7 @@ public static final int AXIS_PRECEDING_SIBLING = 28;
 
 RegularExpression Id.
 
-<a id="s-AXIS_SELF"></a>
+<a id="m-AXIS_SELF"></a>
 ### AXIS_SELF
 
 ```java
@@ -163,7 +163,7 @@ public static final int AXIS_SELF = 17;
 
 RegularExpression Id.
 
-<a id="s-BaseChar"></a>
+<a id="m-BaseChar"></a>
 ### BaseChar
 
 ```java
@@ -172,7 +172,7 @@ public static final int BaseChar = 12;
 
 RegularExpression Id.
 
-<a id="s-CombiningChar"></a>
+<a id="m-CombiningChar"></a>
 ### CombiningChar
 
 ```java
@@ -181,7 +181,7 @@ public static final int CombiningChar = 14;
 
 RegularExpression Id.
 
-<a id="s-DEFAULT"></a>
+<a id="m-DEFAULT"></a>
 ### DEFAULT
 
 ```java
@@ -190,7 +190,7 @@ public static final int DEFAULT = 0;
 
 Lexical state.
 
-<a id="s-Digit"></a>
+<a id="m-Digit"></a>
 ### Digit
 
 ```java
@@ -199,7 +199,7 @@ public static final int Digit = 9;
 
 RegularExpression Id.
 
-<a id="s-EOF"></a>
+<a id="m-EOF"></a>
 ### EOF
 
 ```java
@@ -208,7 +208,7 @@ public static final int EOF = 0;
 
 End of File.
 
-<a id="s-EQ"></a>
+<a id="m-EQ"></a>
 ### EQ
 
 ```java
@@ -217,7 +217,7 @@ public static final int EQ = 7;
 
 RegularExpression Id.
 
-<a id="s-Extender"></a>
+<a id="m-Extender"></a>
 ### Extender
 
 ```java
@@ -226,7 +226,7 @@ public static final int Extender = 16;
 
 RegularExpression Id.
 
-<a id="s-FUNCTION_CURRENT"></a>
+<a id="m-FUNCTION_CURRENT"></a>
 ### FUNCTION_CURRENT
 
 ```java
@@ -235,7 +235,7 @@ public static final int FUNCTION_CURRENT = 30;
 
 RegularExpression Id.
 
-<a id="s-Ideographic"></a>
+<a id="m-Ideographic"></a>
 ### Ideographic
 
 ```java
@@ -244,7 +244,7 @@ public static final int Ideographic = 13;
 
 RegularExpression Id.
 
-<a id="s-Letter"></a>
+<a id="m-Letter"></a>
 ### Letter
 
 ```java
@@ -253,7 +253,7 @@ public static final int Letter = 11;
 
 RegularExpression Id.
 
-<a id="s-Literal"></a>
+<a id="m-Literal"></a>
 ### Literal
 
 ```java
@@ -262,7 +262,7 @@ public static final int Literal = 8;
 
 RegularExpression Id.
 
-<a id="s-NCName"></a>
+<a id="m-NCName"></a>
 ### NCName
 
 ```java
@@ -271,7 +271,7 @@ public static final int NCName = 31;
 
 RegularExpression Id.
 
-<a id="s-Number"></a>
+<a id="m-Number"></a>
 ### Number
 
 ```java
@@ -280,7 +280,7 @@ public static final int Number = 10;
 
 RegularExpression Id.
 
-<a id="s-SLASH"></a>
+<a id="m-SLASH"></a>
 ### SLASH
 
 ```java
@@ -289,7 +289,7 @@ public static final int SLASH = 6;
 
 RegularExpression Id.
 
-<a id="s-tokenImage"></a>
+<a id="m-tokenImage"></a>
 ### tokenImage
 
 ```java
@@ -298,7 +298,7 @@ public static final String[] tokenImage = null;
 
 Literal token values.
 
-<a id="s-UnicodeDigit"></a>
+<a id="m-UnicodeDigit"></a>
 ### UnicodeDigit
 
 ```java

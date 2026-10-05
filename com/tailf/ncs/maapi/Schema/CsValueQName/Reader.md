@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,18 +10,18 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueQName.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getName()](#s-getName)
-- [getPrefix()](#s-getPrefix)
-- [hasName()](#s-hasName)
-- [hasPrefix()](#s-hasPrefix)
+- [getName()](#m-getname-2634b18b4a25)
+- [getPrefix()](#m-getprefix-9268091e0223)
+- [hasName()](#m-hasname-bfe6c334e0d1)
+- [hasPrefix()](#m-hasprefix-ddbc3bbca9c3)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -49,28 +49,28 @@ Reader(
 
 ## Methods
 
-<a id="s-getName"></a>
+<a id="m-getname-2634b18b4a25"></a>
 ### getName()
 
 ```java
 public org.capnproto.Text.Reader getName()
 ```
 
-<a id="s-getPrefix"></a>
+<a id="m-getprefix-9268091e0223"></a>
 ### getPrefix()
 
 ```java
 public org.capnproto.Text.Reader getPrefix()
 ```
 
-<a id="s-hasName"></a>
+<a id="m-hasname-bfe6c334e0d1"></a>
 ### hasName()
 
 ```java
 public boolean hasName()
 ```
 
-<a id="s-hasPrefix"></a>
+<a id="m-hasprefix-ddbc3bbca9c3"></a>
 ### hasPrefix()
 
 ```java

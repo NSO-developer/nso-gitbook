@@ -1,4 +1,4 @@
-<a id="s-CommandResponderImpl"></a>
+<a id="cls-CommandResponderImpl"></a>
 # CommandResponderImpl
 
 ```java
@@ -12,15 +12,15 @@ Internal snmp4j callback class used by the SnmpNotificationReceiver
 
 **Constructors**:
 
-- [CommandResponderImpl(SocketAddress, List<NotifHandlerInstance>)](#s-CommandResponderImpl-1)
+- [CommandResponderImpl(SocketAddress, List<NotifHandlerInstance>)](#m-commandresponderimpl-336dc0d55a04)
 
 **Methods**:
 
-- [processPdu(CommandResponderEvent)](#s-processPdu)
+- [processPdu(CommandResponderEvent)](#m-processpdu-9257ca95aa3e)
 
 ## Constructors
 
-<a id="s-CommandResponderImpl-1"></a>
+<a id="m-commandresponderimpl-336dc0d55a04"></a>
 ### CommandResponderImpl(SocketAddress, List<NotifHandlerInstance>)
 
 ```java
@@ -30,7 +30,7 @@ protected CommandResponderImpl(
 )
 ```
 
-Types: [NotifHandlerInstance](NotifHandlerInstance.md#s-NotifHandlerInstance)
+Types: [NotifHandlerInstance](NotifHandlerInstance.md#cls-NotifHandlerInstance)
 
 **Parameters**
 
@@ -40,7 +40,7 @@ Types: [NotifHandlerInstance](NotifHandlerInstance.md#s-NotifHandlerInstance)
 
 ## Methods
 
-<a id="s-processPdu"></a>
+<a id="m-processpdu-9257ca95aa3e"></a>
 ### processPdu(CommandResponderEvent)
 
 ```java

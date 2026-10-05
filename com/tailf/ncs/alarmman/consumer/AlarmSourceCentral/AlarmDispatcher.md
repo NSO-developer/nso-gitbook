@@ -1,4 +1,4 @@
-<a id="s-AlarmDispatcher"></a>
+<a id="cls-AlarmDispatcher"></a>
 # AlarmDispatcher
 
 ```java
@@ -6,7 +6,7 @@ protected class com.tailf.ncs.alarmman.consumer.AlarmSourceCentral.AlarmDispatch
     implements com.tailf.cdb.CdbDiffIterate, AutoCloseable
 ```
 
-Types: [CdbDiffIterate](../../../../cdb/CdbDiffIterate.md#s-CdbDiffIterate)
+Types: [CdbDiffIterate](../../../../cdb/CdbDiffIterate.md#cls-CdbDiffIterate)
 
 This class implements an alarm dispatching  function.
 
@@ -14,18 +14,18 @@ This class implements an alarm dispatching  function.
 
 **Constructors**:
 
-- [AlarmDispatcher(SocketAddress)](#s-AlarmDispatcher-1)
+- [AlarmDispatcher(SocketAddress)](#m-alarmdispatcher-613c7e189e3f)
 
 **Methods**:
 
-- [close()](#s-close)
-- [finish()](#s-finish)
-- [init()](#s-init)
-- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#s-iterate)
+- [close()](#m-close-8107c6dc012b)
+- [finish()](#m-finish-8c785ae2e6bb)
+- [init()](#m-init-e3919b885d98)
+- [iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)](#m-iterate-d80a566b7e0a)
 
 ## Constructors
 
-<a id="s-AlarmDispatcher-1"></a>
+<a id="m-alarmdispatcher-613c7e189e3f"></a>
 ### AlarmDispatcher(SocketAddress)
 
 ```java
@@ -35,7 +35,7 @@ public AlarmDispatcher(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../../../../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../../../../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -44,32 +44,32 @@ Types: [ConfException](../../../../conf/ConfException.md#s-ConfException)
 
 ## Methods
 
-<a id="s-close"></a>
+<a id="m-close-8107c6dc012b"></a>
 ### close()
 
 ```java
 public void close()
 ```
 
-<a id="s-finish"></a>
+<a id="m-finish-8c785ae2e6bb"></a>
 ### finish()
 
 ```java
 public void finish() throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../../../../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../../../../conf/ConfException.md#cls-ConfException)
 
-<a id="s-init"></a>
+<a id="m-init-e3919b885d98"></a>
 ### init()
 
 ```java
 public void init() throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../../../../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../../../../conf/ConfException.md#cls-ConfException)
 
-<a id="s-iterate"></a>
+<a id="m-iterate-d80a566b7e0a"></a>
 ### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)
 
 ```java
@@ -82,7 +82,7 @@ public com.tailf.conf.DiffIterateResultFlag iterate(
 )
 ```
 
-Types: [DiffIterateResultFlag](../../../../conf/DiffIterateResultFlag.md#s-DiffIterateResultFlag), [ConfObject](../../../../conf/ConfObject.md#s-ConfObject), [DiffIterateOperFlag](../../../../conf/DiffIterateOperFlag.md#s-DiffIterateOperFlag)
+Types: [DiffIterateResultFlag](../../../../conf/DiffIterateResultFlag.md#cls-DiffIterateResultFlag), [ConfObject](../../../../conf/ConfObject.md#cls-ConfObject), [DiffIterateOperFlag](../../../../conf/DiffIterateOperFlag.md#cls-DiffIterateOperFlag)
 
 **Parameters**
 

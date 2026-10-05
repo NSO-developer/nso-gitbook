@@ -1,4 +1,4 @@
-<a id="s-NextObjectArrayList"></a>
+<a id="cls-NextObjectArrayList"></a>
 # NextObjectArrayList
 
 ```java
@@ -7,7 +7,7 @@ public class com.tailf.dp.NextObjectArrayList<E>
     implements com.tailf.dp.NextObjectList<E>
 ```
 
-Types: [NextObjectList](NextObjectList.md#s-NextObjectList)
+Types: [NextObjectList](NextObjectList.md#cls-NextObjectList)
 
 ArrayList-based implementation of the NextObjectList interface.
 
@@ -15,25 +15,25 @@ ArrayList-based implementation of the NextObjectList interface.
 
 **Constructors**:
 
-- [NextObjectArrayList()](#s-NextObjectArrayList-1)
-- [NextObjectArrayList(Collection<? extends E>)](#s-NextObjectArrayList-2)
-- [NextObjectArrayList(int)](#s-NextObjectArrayList-3)
+- [NextObjectArrayList()](#m-nextobjectarraylist-8247e2abf6fa)
+- [NextObjectArrayList(Collection<? extends E>)](#m-nextobjectarraylist-a6fbfda6c13c)
+- [NextObjectArrayList(int)](#m-nextobjectarraylist-dc46d12ae286)
 
 **Methods**:
 
-- [getTimeout()](#s-getTimeout)
-- [setTimeout(int)](#s-setTimeout)
+- [getTimeout()](#m-gettimeout-c6606d7f7c00)
+- [setTimeout(int)](#m-settimeout-cbe758ecb5d8)
 
 ## Constructors
 
-<a id="s-NextObjectArrayList-1"></a>
+<a id="m-nextobjectarraylist-8247e2abf6fa"></a>
 ### NextObjectArrayList()
 
 ```java
 public NextObjectArrayList()
 ```
 
-<a id="s-NextObjectArrayList-2"></a>
+<a id="m-nextobjectarraylist-a6fbfda6c13c"></a>
 ### NextObjectArrayList(Collection<? extends E>)
 
 ```java
@@ -44,7 +44,7 @@ public NextObjectArrayList(java.util.Collection<? extends E> c)
 
 - `java.util.Collection<? extends E> c`
 
-<a id="s-NextObjectArrayList-3"></a>
+<a id="m-nextobjectarraylist-dc46d12ae286"></a>
 ### NextObjectArrayList(int)
 
 ```java
@@ -58,7 +58,7 @@ public NextObjectArrayList(int initialCapacity)
 
 ## Methods
 
-<a id="s-getTimeout"></a>
+<a id="m-gettimeout-c6606d7f7c00"></a>
 ### getTimeout()
 
 ```java
@@ -71,7 +71,7 @@ This method is used by the library to read the timeout value pertaining
  I.e. it governs for how long NCS will retain the objects and read them
  from its cache.
 
-<a id="s-setTimeout"></a>
+<a id="m-settimeout-cbe758ecb5d8"></a>
 ### setTimeout(int)
 
 ```java

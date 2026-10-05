@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,30 +6,26 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeBits.Bit.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getName()](#s-getName)
-- [getPos()](#s-getPos)
-- [hasName()](#s-hasName)
-- [initName(int)](#s-initName)
-- [setName(Reader)](#s-setName)
-- [setName(String)](#s-setName-1)
-- [setPos(int)](#s-setPos)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getName()](#m-getname-2634b18b4a25)
+- [getPos()](#m-getpos-ad2d7b30807f)
+- [hasName()](#m-hasname-bfe6c334e0d1)
+- [initName(int)](#m-initname-281e5d2102d4)
+- [setName(Reader)](#m-setname-79f9d1263a41)
+- [setName(String)](#m-setname-c76ccfcb9f18)
+- [setPos(int)](#m-setpos-a83f79498a31)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -55,37 +51,37 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeBits.Bit.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getName"></a>
+<a id="m-getname-2634b18b4a25"></a>
 ### getName()
 
 ```java
 public final org.capnproto.Text.Builder getName()
 ```
 
-<a id="s-getPos"></a>
+<a id="m-getpos-ad2d7b30807f"></a>
 ### getPos()
 
 ```java
 public final int getPos()
 ```
 
-<a id="s-hasName"></a>
+<a id="m-hasname-bfe6c334e0d1"></a>
 ### hasName()
 
 ```java
 public final boolean hasName()
 ```
 
-<a id="s-initName"></a>
+<a id="m-initname-281e5d2102d4"></a>
 ### initName(int)
 
 ```java
@@ -96,7 +92,7 @@ public final org.capnproto.Text.Builder initName(int size)
 
 - `int size`
 
-<a id="s-setName"></a>
+<a id="m-setname-79f9d1263a41"></a>
 ### setName(Reader)
 
 ```java
@@ -107,7 +103,7 @@ public final void setName(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="s-setName-1"></a>
+<a id="m-setname-c76ccfcb9f18"></a>
 ### setName(String)
 
 ```java
@@ -118,7 +114,7 @@ public final void setName(String value)
 
 - `String value`
 
-<a id="s-setPos"></a>
+<a id="m-setpos-a83f79498a31"></a>
 ### setPos(int)
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,18 +10,18 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getHid()](#s-getHid)
-- [getHns()](#s-getHns)
-- [getQname()](#s-getQname)
-- [hasQname()](#s-hasQname)
+- [getHid()](#m-gethid-34aa6038c623)
+- [getHns()](#m-gethns-457afaf41ae6)
+- [getQname()](#m-getqname-022156d42738)
+- [hasQname()](#m-hasqname-3146e94ee2c2)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -49,28 +49,28 @@ Reader(
 
 ## Methods
 
-<a id="s-getHid"></a>
+<a id="m-gethid-34aa6038c623"></a>
 ### getHid()
 
 ```java
 public final int getHid()
 ```
 
-<a id="s-getHns"></a>
+<a id="m-gethns-457afaf41ae6"></a>
 ### getHns()
 
 ```java
 public final int getHns()
 ```
 
-<a id="s-getQname"></a>
+<a id="m-getqname-022156d42738"></a>
 ### getQname()
 
 ```java
 public org.capnproto.Text.Reader getQname()
 ```
 
-<a id="s-hasQname"></a>
+<a id="m-hasqname-3146e94ee2c2"></a>
 ### hasQname()
 
 ```java

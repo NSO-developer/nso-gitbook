@@ -1,4 +1,4 @@
-<a id="s-DBCallback"></a>
+<a id="cls-DBCallback"></a>
 # DBCallback
 
 ```java
@@ -15,15 +15,15 @@ Annotation class for DB Callbacks Attribute are callType
 
 **Methods**:
 
-- [callType()](#s-callType)
+- [callType()](#m-calltype-0d0f9b61a036)
 
 ## Methods
 
-<a id="s-callType"></a>
+<a id="m-calltype-0d0f9b61a036"></a>
 ### callType()
 
 ```java
 public abstract com.tailf.dp.proto.DBCBType[] callType()
 ```
 
-Types: [DBCBType](../proto/DBCBType.md#s-DBCBType)
+Types: [DBCBType](../proto/DBCBType.md#cls-DBCBType)

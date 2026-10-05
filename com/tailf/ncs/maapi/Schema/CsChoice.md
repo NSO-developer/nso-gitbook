@@ -1,4 +1,4 @@
-<a id="s-CsChoice"></a>
+<a id="cls-CsChoice"></a>
 # CsChoice
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.CsChoice
 
 **Constructors**:
 
-- [CsChoice()](#s-CsChoice-1)
+- [CsChoice()](#m-cschoice-b4700c34a48c)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](CsChoice/Builder.md#s-Builder)
-- [Factory](CsChoice/Factory.md#s-Factory)
-- [Reader](CsChoice/Reader.md#s-Reader)
+- [Builder](CsChoice/Builder.md#cls-Builder)
+- [Factory](CsChoice/Factory.md#cls-Factory)
+- [Reader](CsChoice/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-CsChoice-1"></a>
+<a id="m-cschoice-b4700c34a48c"></a>
 ### CsChoice()
 
 ```java
@@ -35,25 +35,25 @@ public CsChoice()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsChoice.Factory factory = null;
 ```
 
-Types: [Factory](CsChoice/Factory.md#s-Factory)
+Types: [Factory](CsChoice/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsChoice.Builder,com.tailf.ncs.maapi.Schema.CsChoice.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsChoice/Builder.md#s-Builder), [Reader](CsChoice/Reader.md#s-Reader)
+Types: [Builder](CsChoice/Builder.md#cls-Builder), [Reader](CsChoice/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsChoice/Builder.md)
-- [Factory](CsChoice/Factory.md)
-- [Reader](CsChoice/Reader.md)
+- [Builder](CsChoice/Builder.md#cls-Builder)
+- [Factory](CsChoice/Factory.md#cls-Factory)
+- [Reader](CsChoice/Reader.md#cls-Reader)

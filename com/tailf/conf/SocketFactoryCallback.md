@@ -1,4 +1,4 @@
-<a id="s-SocketFactoryCallback"></a>
+<a id="cls-SocketFactoryCallback"></a>
 # SocketFactoryCallback
 
 ```java
@@ -11,15 +11,15 @@ Interface for user defined creation/wrapping of sockets.
 
 **Methods**:
 
-- [getSocket(Object, SocketAddress)](#s-getSocket)
-- [getSocket(SocketAddress)](#s-getSocket-1)
-- [getUnconnectedSocket(Object, ProtocolFamily)](#s-getUnconnectedSocket)
-- [getUnconnectedSocket(ProtocolFamily)](#s-getUnconnectedSocket-1)
-- [wrapSocket(Socket)](#s-wrapSocket)
+- [getSocket(Object, SocketAddress)](#m-getsocket-56f7f9efbb5e)
+- [getSocket(SocketAddress)](#m-getsocket-294002c373e6)
+- [getUnconnectedSocket(Object, ProtocolFamily)](#m-getunconnectedsocket-4d9322b795e2)
+- [getUnconnectedSocket(ProtocolFamily)](#m-getunconnectedsocket-2b37476a3a26)
+- [wrapSocket(Socket)](#m-wrapsocket-52cbce4e91a6)
 
 ## Methods
 
-<a id="s-getSocket"></a>
+<a id="m-getsocket-56f7f9efbb5e"></a>
 ### getSocket(Object, SocketAddress)
 
 ```java
@@ -30,7 +30,7 @@ public abstract java.net.Socket getSocket(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 Retrieve a socket connected to a specified address
 
@@ -48,7 +48,7 @@ Retrieve a socket connected to a specified address
 
 **Deprecated:** Use `#getSocket(SocketAddress)`.
 
-<a id="s-getSocket-1"></a>
+<a id="m-getsocket-294002c373e6"></a>
 ### getSocket(SocketAddress)
 
 ```java
@@ -58,7 +58,7 @@ public default java.net.Socket getSocket(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 Retrieve a socket connected to a specified address
 
@@ -73,7 +73,7 @@ Retrieve a socket connected to a specified address
 - `IOException`
 - `ConfException`
 
-<a id="s-getUnconnectedSocket"></a>
+<a id="m-getunconnectedsocket-4d9322b795e2"></a>
 ### getUnconnectedSocket(Object, ProtocolFamily)
 
 ```java
@@ -84,7 +84,7 @@ public abstract java.net.Socket getUnconnectedSocket(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 Retrieve an unconnected socket. Such socket can be used when e.g a
  bind() call is necessary before the connect() is performed.
@@ -104,7 +104,7 @@ Retrieve an unconnected socket. Such socket can be used when e.g a
 
 **Deprecated:** Use `#getUnconnectedSocket(ProtocolFamily)`.
 
-<a id="s-getUnconnectedSocket-1"></a>
+<a id="m-getunconnectedsocket-2b37476a3a26"></a>
 ### getUnconnectedSocket(ProtocolFamily)
 
 ```java
@@ -114,7 +114,7 @@ public default java.net.Socket getUnconnectedSocket(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 Retrieve an unconnected socket. Such socket can be used when e.g a
  bind() call is necessary before the connect() is performed.
@@ -131,7 +131,7 @@ Retrieve an unconnected socket. Such socket can be used when e.g a
 - `IOException`
 - `ConfException`
 
-<a id="s-wrapSocket"></a>
+<a id="m-wrapsocket-52cbce4e91a6"></a>
 ### wrapSocket(Socket)
 
 ```java

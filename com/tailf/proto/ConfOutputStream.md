@@ -1,4 +1,4 @@
-<a id="s-ConfOutputStream"></a>
+<a id="cls-ConfOutputStream"></a>
 # ConfOutputStream
 
 ```java
@@ -16,64 +16,64 @@ Provides a stream for encoding E terms to external format, for transmission
 
 **Constructors**:
 
-- [ConfOutputStream()](#s-ConfOutputStream-1)
-- [ConfOutputStream(ConfEObject)](#s-ConfOutputStream-2)
-- [ConfOutputStream(int)](#s-ConfOutputStream-3)
+- [ConfOutputStream()](#m-confoutputstream-3b0d6874ec87)
+- [ConfOutputStream(ConfEObject)](#m-confoutputstream-2a51f10515bc)
+- [ConfOutputStream(int)](#m-confoutputstream-62871c47af75)
 
 **Fields**:
 
-- [DEFAULT_INITIAL_SIZE](#s-DEFAULT_INITIAL_SIZE)
+- [DEFAULT_INITIAL_SIZE](#m-DEFAULT_INITIAL_SIZE)
 
 **Methods**:
 
-- [count()](#s-count)
-- [getConfInputStream(int)](#s-getConfInputStream)
-- [getPos()](#s-getPos)
-- [poke4BE(int, long)](#s-poke4BE)
-- [reset()](#s-reset)
-- [size()](#s-size)
-- [toByteArray()](#s-toByteArray)
-- [write(byte)](#s-write)
-- [write(byte[])](#s-write-1)
-- [write1(long)](#s-write1)
-- [write2BE(long)](#s-write2BE)
-- [write2LE(long)](#s-write2LE)
-- [write4BE(long)](#s-write4BE)
-- [write4LE(long)](#s-write4LE)
-- [write8LE(long)](#s-write8LE)
-- [write_any(ConfEObject)](#s-write_any)
-- [write_atom(String)](#s-write_atom)
-- [write_atom(String, boolean)](#s-write_atom-1)
-- [write_big(BigInteger)](#s-write_big)
-- [write_binary(byte[])](#s-write_binary)
-- [write_boolean(boolean)](#s-write_boolean)
-- [write_byte(byte)](#s-write_byte)
-- [write_char(char)](#s-write_char)
-- [write_double(double)](#s-write_double)
-- [write_float(float)](#s-write_float)
-- [write_int(int)](#s-write_int)
-- [write_list_head(int)](#s-write_list_head)
-- [write_long(long)](#s-write_long)
-- [write_long(long, boolean)](#s-write_long-1)
-- [write_nil()](#s-write_nil)
-- [write_pid(String, int, int, int, boolean)](#s-write_pid)
-- [write_port(String, int, int)](#s-write_port)
-- [write_ref(String, int, int)](#s-write_ref)
-- [write_ref(String, int[], int)](#s-write_ref-1)
-- [write_short(short)](#s-write_short)
-- [write_string(String)](#s-write_string)
-- [write_tuple_head(int)](#s-write_tuple_head)
-- [write_uint(int)](#s-write_uint)
-- [write_ulong(long)](#s-write_ulong)
-- [write_ushort(short)](#s-write_ushort)
-- [writeLE(long, int)](#s-writeLE)
-- [writeN(byte[])](#s-writeN)
-- [writeTo(OutputStream)](#s-writeTo)
-- [writeTo(SocketChannel, SelectionKey)](#s-writeTo-1)
+- [count()](#m-count-9e5d07d4db9b)
+- [getConfInputStream(int)](#m-getconfinputstream-066a2b2f92ac)
+- [getPos()](#m-getpos-ad2d7b30807f)
+- [poke4BE(int, long)](#m-poke4be-1599f0eb9562)
+- [reset()](#m-reset-6927918ac70a)
+- [size()](#m-size-c6d8505255fd)
+- [toByteArray()](#m-tobytearray-c018e63cfbd3)
+- [write(byte)](#m-write-049afc536dce)
+- [write(byte[])](#m-write-d030181b06a2)
+- [write1(long)](#m-write1-407167cfd7df)
+- [write2BE(long)](#m-write2be-caea454aa8a6)
+- [write2LE(long)](#m-write2le-2de33fb15724)
+- [write4BE(long)](#m-write4be-0fffd36474ae)
+- [write4LE(long)](#m-write4le-8f00d63df00e)
+- [write8LE(long)](#m-write8le-e4974e925e78)
+- [write_any(ConfEObject)](#m-write_any-39f3c731f9af)
+- [write_atom(String)](#m-write_atom-cb0e872c619b)
+- [write_atom(String, boolean)](#m-write_atom-e9bc357deb03)
+- [write_big(BigInteger)](#m-write_big-eef182ab6880)
+- [write_binary(byte[])](#m-write_binary-59f71b69853a)
+- [write_boolean(boolean)](#m-write_boolean-85ed730c2c6c)
+- [write_byte(byte)](#m-write_byte-b8a1b8055add)
+- [write_char(char)](#m-write_char-2466c696db56)
+- [write_double(double)](#m-write_double-140f4c04ed78)
+- [write_float(float)](#m-write_float-611b23aca3a6)
+- [write_int(int)](#m-write_int-ecbd574d3a55)
+- [write_list_head(int)](#m-write_list_head-8afa4a647bc5)
+- [write_long(long)](#m-write_long-52726186f08e)
+- [write_long(long, boolean)](#m-write_long-1566e4a476c3)
+- [write_nil()](#m-write_nil-454e0dfb8a20)
+- [write_pid(String, int, int, int, boolean)](#m-write_pid-1e498a2fcff8)
+- [write_port(String, int, int)](#m-write_port-f3d21f5605a4)
+- [write_ref(String, int, int)](#m-write_ref-229e9927dc2e)
+- [write_ref(String, int[], int)](#m-write_ref-f24efc920831)
+- [write_short(short)](#m-write_short-0269bc417d02)
+- [write_string(String)](#m-write_string-efdb49b76fb2)
+- [write_tuple_head(int)](#m-write_tuple_head-43d64516902f)
+- [write_uint(int)](#m-write_uint-92bf35c74b5e)
+- [write_ulong(long)](#m-write_ulong-5f1cbcab6a8d)
+- [write_ushort(short)](#m-write_ushort-8144cb5f16e1)
+- [writeLE(long, int)](#m-writele-202a5a78afe5)
+- [writeN(byte[])](#m-writen-60a742cb45f4)
+- [writeTo(OutputStream)](#m-writeto-9f8bc5cc5279)
+- [writeTo(SocketChannel, SelectionKey)](#m-writeto-d4adf7f1bd5a)
 
 ## Constructors
 
-<a id="s-ConfOutputStream-1"></a>
+<a id="m-confoutputstream-3b0d6874ec87"></a>
 ### ConfOutputStream()
 
 ```java
@@ -82,14 +82,14 @@ public ConfOutputStream()
 
 Create a stream with the default initial size.
 
-<a id="s-ConfOutputStream-2"></a>
+<a id="m-confoutputstream-2a51f10515bc"></a>
 ### ConfOutputStream(ConfEObject)
 
 ```java
 public ConfOutputStream(com.tailf.proto.ConfEObject o)
 ```
 
-Types: [ConfEObject](ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](ConfEObject.md#cls-ConfEObject)
 
 Create a stream containing the encoded version of the given E term.
 
@@ -97,7 +97,7 @@ Create a stream containing the encoded version of the given E term.
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="s-ConfOutputStream-3"></a>
+<a id="m-confoutputstream-62871c47af75"></a>
 ### ConfOutputStream(int)
 
 ```java
@@ -113,7 +113,7 @@ Create a stream with the specified initial size.
 
 ## Fields
 
-<a id="s-DEFAULT_INITIAL_SIZE"></a>
+<a id="m-DEFAULT_INITIAL_SIZE"></a>
 ### DEFAULT_INITIAL_SIZE
 
 ```java
@@ -125,7 +125,7 @@ The default initial size of the stream.
 
 ## Methods
 
-<a id="s-count"></a>
+<a id="m-count-9e5d07d4db9b"></a>
 ### count()
 
 ```java
@@ -136,7 +136,7 @@ Get the number of bytes in the stream.
 
 **Returns:** the number of bytes in the stream.
 
-<a id="s-getConfInputStream"></a>
+<a id="m-getconfinputstream-066a2b2f92ac"></a>
 ### getConfInputStream(int)
 
 **Package-private**
@@ -145,13 +145,13 @@ Get the number of bytes in the stream.
 com.tailf.proto.ConfInputStream getConfInputStream(int offset)
 ```
 
-Types: [ConfInputStream](ConfInputStream.md#s-ConfInputStream)
+Types: [ConfInputStream](ConfInputStream.md#cls-ConfInputStream)
 
 **Parameters**
 
 - `int offset`
 
-<a id="s-getPos"></a>
+<a id="m-getpos-ad2d7b30807f"></a>
 ### getPos()
 
 ```java
@@ -162,7 +162,7 @@ Get the current position in the stream.
 
 **Returns:** the current position in the stream.
 
-<a id="s-poke4BE"></a>
+<a id="m-poke4be-1599f0eb9562"></a>
 ### poke4BE(int, long)
 
 ```java
@@ -194,7 +194,7 @@ Write the low four bytes of a value to the stream in bif endian order, at
 - `int offset` - the position in the stream.
 - `long n` - the value to use.
 
-<a id="s-reset"></a>
+<a id="m-reset-6927918ac70a"></a>
 ### reset()
 
 ```java
@@ -203,7 +203,7 @@ public void reset()
 
 Reset the stream so that it can be reused.
 
-<a id="s-size"></a>
+<a id="m-size-c6d8505255fd"></a>
 ### size()
 
 ```java
@@ -216,7 +216,7 @@ Get the current capacity of the stream. As bytes are added the capacity
 
 **Returns:** the size of the internal buffer used by the stream.
 
-<a id="s-toByteArray"></a>
+<a id="m-tobytearray-c018e63cfbd3"></a>
 ### toByteArray()
 
 ```java
@@ -227,7 +227,7 @@ Get the contents of the stream in a byte array.
 
 **Returns:** a byte array containing a copy of the stream contents.
 
-<a id="s-write"></a>
+<a id="m-write-049afc536dce"></a>
 ### write(byte)
 
 ```java
@@ -240,7 +240,7 @@ Write one byte to the stream.
 
 - `byte b` - the byte to write.
 
-<a id="s-write-1"></a>
+<a id="m-write-d030181b06a2"></a>
 ### write(byte[])
 
 ```java
@@ -253,7 +253,7 @@ Write an array of bytes to the stream.
 
 - `byte[] buf` - the array of bytes to write.
 
-<a id="s-write1"></a>
+<a id="m-write1-407167cfd7df"></a>
 ### write1(long)
 
 ```java
@@ -266,7 +266,7 @@ Write the low byte of a value to the stream.
 
 - `long n` - the value to use.
 
-<a id="s-write2BE"></a>
+<a id="m-write2be-caea454aa8a6"></a>
 ### write2BE(long)
 
 ```java
@@ -279,7 +279,7 @@ Write the low two bytes of a value to the stream in big endian order.
 
 - `long n` - the value to use.
 
-<a id="s-write2LE"></a>
+<a id="m-write2le-2de33fb15724"></a>
 ### write2LE(long)
 
 ```java
@@ -292,7 +292,7 @@ Write the low two bytes of a value to the stream in little endian order.
 
 - `long n` - the value to use.
 
-<a id="s-write4BE"></a>
+<a id="m-write4be-0fffd36474ae"></a>
 ### write4BE(long)
 
 ```java
@@ -305,7 +305,7 @@ Write the low four bytes of a value to the stream in big endian order.
 
 - `long n` - the value to use.
 
-<a id="s-write4LE"></a>
+<a id="m-write4le-8f00d63df00e"></a>
 ### write4LE(long)
 
 ```java
@@ -318,7 +318,7 @@ Write the low four bytes of a value to the stream in little endian order.
 
 - `long n` - the value to use.
 
-<a id="s-write8LE"></a>
+<a id="m-write8le-e4974e925e78"></a>
 ### write8LE(long)
 
 ```java
@@ -332,14 +332,14 @@ Write the low eight bytes of a value to the stream in little endian
 
 - `long n` - the value to use.
 
-<a id="s-write_any"></a>
+<a id="m-write_any-39f3c731f9af"></a>
 ### write_any(ConfEObject)
 
 ```java
 public void write_any(com.tailf.proto.ConfEObject o)
 ```
 
-Types: [ConfEObject](ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](ConfEObject.md#cls-ConfEObject)
 
 Write an arbitrary E term to the stream.
 
@@ -347,7 +347,7 @@ Write an arbitrary E term to the stream.
 
 - `com.tailf.proto.ConfEObject o` - the E term to write.
 
-<a id="s-write_atom"></a>
+<a id="m-write_atom-cb0e872c619b"></a>
 ### write_atom(String)
 
 ```java
@@ -360,7 +360,7 @@ Write a string to the stream as an E atom.
 
 - `String atom` - the string to write.
 
-<a id="s-write_atom-1"></a>
+<a id="m-write_atom-e9bc357deb03"></a>
 ### write_atom(String, boolean)
 
 ```java
@@ -374,7 +374,7 @@ Write a string to the stream as an E atom.
 - `String atom` - the string to write.
 - `boolean isSmallUtf8` - whether to encode atoms using SMALL_ATOM_UTF8_EXT
 
-<a id="s-write_big"></a>
+<a id="m-write_big-eef182ab6880"></a>
 ### write_big(BigInteger)
 
 **Package-private**
@@ -387,7 +387,7 @@ void write_big(java.math.BigInteger big)
 
 - `java.math.BigInteger big`
 
-<a id="s-write_binary"></a>
+<a id="m-write_binary-59f71b69853a"></a>
 ### write_binary(byte[])
 
 ```java
@@ -400,7 +400,7 @@ Write an array of bytes to the stream as an E binary.
 
 - `byte[] bin` - the array of bytes to write.
 
-<a id="s-write_boolean"></a>
+<a id="m-write_boolean-85ed730c2c6c"></a>
 ### write_boolean(boolean)
 
 ```java
@@ -413,7 +413,7 @@ Write a boolean value to the stream as the E atom 'true' or 'false'.
 
 - `boolean b` - the boolean value to write.
 
-<a id="s-write_byte"></a>
+<a id="m-write_byte-b8a1b8055add"></a>
 ### write_byte(byte)
 
 ```java
@@ -427,7 +427,7 @@ Write a single byte to the stream as an E integer. The byte is really an
 
 - `byte b` - the byte to use.
 
-<a id="s-write_char"></a>
+<a id="m-write_char-2466c696db56"></a>
 ### write_char(char)
 
 ```java
@@ -442,7 +442,7 @@ Write a character to the stream as an E integer. The character may be a
 
 - `char c` - the character to use.
 
-<a id="s-write_double"></a>
+<a id="m-write_double-140f4c04ed78"></a>
 ### write_double(double)
 
 ```java
@@ -455,7 +455,7 @@ Write a double value to the stream.
 
 - `double d` - the double to use.
 
-<a id="s-write_float"></a>
+<a id="m-write_float-611b23aca3a6"></a>
 ### write_float(float)
 
 ```java
@@ -468,7 +468,7 @@ Write a float value to the stream.
 
 - `float f` - the float to use.
 
-<a id="s-write_int"></a>
+<a id="m-write_int-ecbd574d3a55"></a>
 ### write_int(int)
 
 ```java
@@ -481,7 +481,7 @@ Write an integer to the stream.
 
 - `int i` - the integer to use.
 
-<a id="s-write_list_head"></a>
+<a id="m-write_list_head-8afa4a647bc5"></a>
 ### write_list_head(int)
 
 ```java
@@ -496,7 +496,7 @@ Write an E list header to the stream. After calling this method, you must
 
 - `int arity` - the number of elements in the list.
 
-<a id="s-write_long"></a>
+<a id="m-write_long-52726186f08e"></a>
 ### write_long(long)
 
 ```java
@@ -509,7 +509,7 @@ Write a long to the stream.
 
 - `long l` - the long to use.
 
-<a id="s-write_long-1"></a>
+<a id="m-write_long-1566e4a476c3"></a>
 ### write_long(long, boolean)
 
 **Package-private**
@@ -523,7 +523,7 @@ void write_long(long v, boolean unsigned)
 - `long v`
 - `boolean unsigned`
 
-<a id="s-write_nil"></a>
+<a id="m-write_nil-454e0dfb8a20"></a>
 ### write_nil()
 
 ```java
@@ -532,7 +532,7 @@ public void write_nil()
 
 Write an empty E list to the stream.
 
-<a id="s-write_pid"></a>
+<a id="m-write_pid-1e498a2fcff8"></a>
 ### write_pid(String, int, int, int, boolean)
 
 ```java
@@ -551,7 +551,7 @@ Write an E PID to the stream.
             be used.
 - `boolean isNew`
 
-<a id="s-write_port"></a>
+<a id="m-write_port-f3d21f5605a4"></a>
 ### write_port(String, int, int)
 
 ```java
@@ -567,7 +567,7 @@ Write an E port to the stream.
 - `int creation` - another arbitrary number. Only the low order 2 bits will be
             used.
 
-<a id="s-write_ref"></a>
+<a id="m-write_ref-229e9927dc2e"></a>
 ### write_ref(String, int, int)
 
 ```java
@@ -583,7 +583,7 @@ Write an old style E ref to the stream.
 - `int creation` - another arbitrary number. Only the low order 2 bits will be
             used.
 
-<a id="s-write_ref-1"></a>
+<a id="m-write_ref-f24efc920831"></a>
 ### write_ref(String, int[], int)
 
 ```java
@@ -602,7 +602,7 @@ Write a new style (R6 and later) E ref to the stream.
 - `int creation` - another arbitrary number. Only the low order 2 bits will be
             used.
 
-<a id="s-write_short"></a>
+<a id="m-write_short-0269bc417d02"></a>
 ### write_short(short)
 
 ```java
@@ -615,7 +615,7 @@ Write a short to the stream.
 
 - `short s` - the short to use.
 
-<a id="s-write_string"></a>
+<a id="m-write_string-efdb49b76fb2"></a>
 ### write_string(String)
 
 ```java
@@ -628,7 +628,7 @@ Write a string to the stream.
 
 - `String s` - the string to write.
 
-<a id="s-write_tuple_head"></a>
+<a id="m-write_tuple_head-43d64516902f"></a>
 ### write_tuple_head(int)
 
 ```java
@@ -643,7 +643,7 @@ Write an E tuple header to the stream. After calling this method, you
 
 - `int arity` - the number of elements in the tuple.
 
-<a id="s-write_uint"></a>
+<a id="m-write_uint-92bf35c74b5e"></a>
 ### write_uint(int)
 
 ```java
@@ -657,7 +657,7 @@ Write a positive integer to the stream. The integer is interpreted as a
 
 - `int ui` - the integer to use.
 
-<a id="s-write_ulong"></a>
+<a id="m-write_ulong-5f1cbcab6a8d"></a>
 ### write_ulong(long)
 
 ```java
@@ -671,7 +671,7 @@ Write a positive long to the stream. The long is interpreted as a two's
 
 - `long ul` - the long to use.
 
-<a id="s-write_ushort"></a>
+<a id="m-write_ushort-8144cb5f16e1"></a>
 ### write_ushort(short)
 
 ```java
@@ -685,7 +685,7 @@ Write a positive short to the stream. The short is interpreted as a two's
 
 - `short us` - the short to use.
 
-<a id="s-writeLE"></a>
+<a id="m-writele-202a5a78afe5"></a>
 ### writeLE(long, int)
 
 ```java
@@ -699,7 +699,7 @@ Write any number of bytes in little endian format.
 - `long n` - the value to use.
 - `int b` - the number of bytes to write from the little end.
 
-<a id="s-writeN"></a>
+<a id="m-writen-60a742cb45f4"></a>
 ### writeN(byte[])
 
 ```java
@@ -712,7 +712,7 @@ Write an array of bytes to the stream.
 
 - `byte[] bytes` - the array of bytes to write.
 
-<a id="s-writeTo"></a>
+<a id="m-writeto-9f8bc5cc5279"></a>
 ### writeTo(OutputStream)
 
 ```java
@@ -729,7 +729,7 @@ Write the contents of the stream to an OutputStream.
 
 - `java.io.IOException` - if there is an error writing to the OutputStream.
 
-<a id="s-writeTo-1"></a>
+<a id="m-writeto-d4adf7f1bd5a"></a>
 ### writeTo(SocketChannel, SelectionKey)
 
 ```java

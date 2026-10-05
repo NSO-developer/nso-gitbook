@@ -1,4 +1,4 @@
-<a id="s-DpListFilter"></a>
+<a id="cls-DpListFilter"></a>
 # DpListFilter
 
 ```java
@@ -11,25 +11,25 @@ This class represents list filters that may be passed to data providers.
 
 **Constructors**:
 
-- [DpListFilter(ConfETuple)](#s-DpListFilter-1)
+- [DpListFilter(ConfETuple)](#m-dplistfilter-f7d847956d30)
 
 **Fields**:
 
-- [expr1](#s-expr1)
-- [expr2](#s-expr2)
-- [node](#s-node)
-- [op](#s-op)
-- [type](#s-type)
-- [val](#s-val)
-- [values](#s-values)
+- [expr1](#m-expr1)
+- [expr2](#m-expr2)
+- [node](#m-node)
+- [op](#m-op)
+- [type](#m-type)
+- [val](#m-val)
+- [values](#m-values)
 
 **Methods**:
 
-- [toString()](#s-toString)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-DpListFilter-1"></a>
+<a id="m-dplistfilter-f7d847956d30"></a>
 ### DpListFilter(ConfETuple)
 
 **Package-private**
@@ -41,7 +41,7 @@ DpListFilter(
     throws com.tailf.proto.ConfERangeException, com.tailf.conf.ConfException, com.tailf.dp.DpException
 ```
 
-Types: [ConfETuple](../proto/ConfETuple.md#s-ConfETuple), [ConfERangeException](../proto/ConfERangeException.md#s-ConfERangeException), [ConfException](../conf/ConfException.md#s-ConfException), [DpException](DpException.md#s-DpException)
+Types: [ConfETuple](../proto/ConfETuple.md#cls-ConfETuple), [ConfERangeException](../proto/ConfERangeException.md#cls-ConfERangeException), [ConfException](../conf/ConfException.md#cls-ConfException), [DpException](DpException.md#cls-DpException)
 
 **Parameters**
 
@@ -50,94 +50,94 @@ Types: [ConfETuple](../proto/ConfETuple.md#s-ConfETuple), [ConfERangeException](
 
 ## Fields
 
-<a id="s-expr1"></a>
+<a id="m-expr1"></a>
 ### expr1
 
 ```java
 public com.tailf.dp.DpListFilter expr1 = null;
 ```
 
-Types: [DpListFilter](DpListFilter.md#s-DpListFilter)
+Types: [DpListFilter](DpListFilter.md#cls-DpListFilter)
 
-Subfilter to use when type is [`ListFilterType`](ListFilterType.md#s-ListFilterType),
- [`ListFilterType`](ListFilterType.md#s-ListFilterType) or
- [`ListFilterType`](ListFilterType.md#s-ListFilterType)
+Subfilter to use when type is [`ListFilterType#CONFD_LF_OR`](ListFilterType.md#m-CONFD_LF_OR),
+ [`ListFilterType#CONFD_LF_AND`](ListFilterType.md#m-CONFD_LF_AND) or
+ [`ListFilterType#CONFD_LF_NOT`](ListFilterType.md#m-CONFD_LF_NOT)
 
-<a id="s-expr2"></a>
+<a id="m-expr2"></a>
 ### expr2
 
 ```java
 public com.tailf.dp.DpListFilter expr2 = null;
 ```
 
-Types: [DpListFilter](DpListFilter.md#s-DpListFilter)
+Types: [DpListFilter](DpListFilter.md#cls-DpListFilter)
 
-Second subfilter to use when type is [`ListFilterType`](ListFilterType.md#s-ListFilterType)
- or [`ListFilterType`](ListFilterType.md#s-ListFilterType)
+Second subfilter to use when type is [`ListFilterType#CONFD_LF_OR`](ListFilterType.md#m-CONFD_LF_OR)
+ or [`ListFilterType#CONFD_LF_AND`](ListFilterType.md#m-CONFD_LF_AND)
 
-<a id="s-node"></a>
+<a id="m-node"></a>
 ### node
 
 ```java
 public com.tailf.conf.ConfObject[] node = null;
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject)
 
-Node to use when type is [`ListFilterType`](ListFilterType.md#s-ListFilterType),
- [`ListFilterType`](ListFilterType.md#s-ListFilterType) or
- [`ListFilterType`](ListFilterType.md#s-ListFilterType)
+Node to use when type is [`ListFilterType#CONFD_LF_CMP`](ListFilterType.md#m-CONFD_LF_CMP),
+ [`ListFilterType#CONFD_LF_EXEC`](ListFilterType.md#m-CONFD_LF_EXEC) or
+ [`ListFilterType#CONFD_LF_EXISTS`](ListFilterType.md#m-CONFD_LF_EXISTS)
 
-<a id="s-op"></a>
+<a id="m-op"></a>
 ### op
 
 ```java
 public com.tailf.dp.ListFilterExprOp op = null;
 ```
 
-Types: [ListFilterExprOp](ListFilterExprOp.md#s-ListFilterExprOp)
+Types: [ListFilterExprOp](ListFilterExprOp.md#cls-ListFilterExprOp)
 
 Operation or function to use when type is
- [`ListFilterType`](ListFilterType.md#s-ListFilterType) or
- [`ListFilterType`](ListFilterType.md#s-ListFilterType)
+ [`ListFilterType#CONFD_LF_CMP`](ListFilterType.md#m-CONFD_LF_CMP) or
+ [`ListFilterType#CONFD_LF_EXEC`](ListFilterType.md#m-CONFD_LF_EXEC)
 
-<a id="s-type"></a>
+<a id="m-type"></a>
 ### type
 
 ```java
 public com.tailf.dp.ListFilterType type = null;
 ```
 
-Types: [ListFilterType](ListFilterType.md#s-ListFilterType)
+Types: [ListFilterType](ListFilterType.md#cls-ListFilterType)
 
 The type of filter
 
-<a id="s-val"></a>
+<a id="m-val"></a>
 ### val
 
 ```java
 public com.tailf.conf.ConfObject val = null;
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject)
 
-Value to use when type is [`ListFilterType`](ListFilterType.md#s-ListFilterType) or
- [`ListFilterType`](ListFilterType.md#s-ListFilterType) or
- [`ListFilterType`](ListFilterType.md#s-ListFilterType)
+Value to use when type is [`ListFilterType#CONFD_LF_CMP`](ListFilterType.md#m-CONFD_LF_CMP) or
+ [`ListFilterType#CONFD_LF_EXEC`](ListFilterType.md#m-CONFD_LF_EXEC) or
+ [`ListFilterType#CONFD_LF_ORIGIN`](ListFilterType.md#m-CONFD_LF_ORIGIN)
 
-<a id="s-values"></a>
+<a id="m-values"></a>
 ### values
 
 ```java
 public com.tailf.conf.ConfObject[] values = null;
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject)
 
 
 ## Methods
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

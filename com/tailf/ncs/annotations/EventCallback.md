@@ -1,4 +1,4 @@
-<a id="s-EventCallback"></a>
+<a id="cls-EventCallback"></a>
 # EventCallback
 
 ```java
@@ -14,29 +14,29 @@ Annotation class for Event Callbacks Attributes are deviceName,
 
 **Methods**:
 
-- [callType()](#s-callType)
-- [deviceName()](#s-deviceName)
-- [subscriptionName()](#s-subscriptionName)
+- [callType()](#m-calltype-0d0f9b61a036)
+- [deviceName()](#m-devicename-e1bdeb253d0a)
+- [subscriptionName()](#m-subscriptionname-2f5dadeb6aba)
 
 ## Methods
 
-<a id="s-callType"></a>
+<a id="m-calltype-0d0f9b61a036"></a>
 ### callType()
 
 ```java
 public abstract com.tailf.ncs.proto.EventCBType[] callType()
 ```
 
-Types: [EventCBType](../proto/EventCBType.md#s-EventCBType)
+Types: [EventCBType](../proto/EventCBType.md#cls-EventCBType)
 
-<a id="s-deviceName"></a>
+<a id="m-devicename-e1bdeb253d0a"></a>
 ### deviceName()
 
 ```java
 public abstract String deviceName()
 ```
 
-<a id="s-subscriptionName"></a>
+<a id="m-subscriptionname-2f5dadeb6aba"></a>
 ### subscriptionName()
 
 ```java

@@ -1,43 +1,39 @@
-<a id="s-TelemetryFormat"></a>
+<a id="cls-TelemetryFormat"></a>
 # TelemetryFormat
 
 ```java
 public enum com.tailf.ned.TelemetryFormat
 ```
 
-Types: [TelemetryFormat](TelemetryFormat.md#s-TelemetryFormat)
+Types: [TelemetryFormat](TelemetryFormat.md#cls-TelemetryFormat)
 
 Enum containing the valid response formats for a telemetry notification.
-
-**Related classes**
-
-- [TelemetryFormat](TelemetryFormat.md#s-TelemetryFormat)
 
 ## Members
 
 **Enum Constants**:
 
-- [JSON](#s-JSON)
-- [XML](#s-XML)
+- [JSON](#m-JSON)
+- [XML](#m-XML)
 
 **Methods**:
 
-- [fromString(String)](#s-fromString)
-- [getValue()](#s-getValue)
-- [toString()](#s-toString)
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [fromString(String)](#m-fromstring-5d905e812973)
+- [getValue()](#m-getvalue-d93864668c40)
+- [toString()](#m-tostring-e9d48c5503ef)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-JSON"></a>
+<a id="m-JSON"></a>
 ### JSON
 
 ```java
 public static final com.tailf.ned.TelemetryFormat JSON;
 ```
 
-<a id="s-XML"></a>
+<a id="m-XML"></a>
 ### XML
 
 ```java
@@ -47,51 +43,51 @@ public static final com.tailf.ned.TelemetryFormat XML;
 
 ## Methods
 
-<a id="s-fromString"></a>
+<a id="m-fromstring-5d905e812973"></a>
 ### fromString(String)
 
 ```java
 public static java.util.Optional<com.tailf.ned.TelemetryFormat> fromString(String value)
 ```
 
-Types: [TelemetryFormat](TelemetryFormat.md#s-TelemetryFormat)
+Types: [TelemetryFormat](TelemetryFormat.md#cls-TelemetryFormat)
 
 **Parameters**
 
 - `String value`
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
 public String getValue()
 ```
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java
 public String toString()
 ```
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.ned.TelemetryFormat valueOf(String name)
 ```
 
-Types: [TelemetryFormat](TelemetryFormat.md#s-TelemetryFormat)
+Types: [TelemetryFormat](TelemetryFormat.md#cls-TelemetryFormat)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.ned.TelemetryFormat[] values()
 ```
 
-Types: [TelemetryFormat](TelemetryFormat.md#s-TelemetryFormat)
+Types: [TelemetryFormat](TelemetryFormat.md#cls-TelemetryFormat)

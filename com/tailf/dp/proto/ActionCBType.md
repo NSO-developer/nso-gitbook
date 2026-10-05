@@ -1,17 +1,13 @@
-<a id="s-ActionCBType"></a>
+<a id="cls-ActionCBType"></a>
 # ActionCBType
 
 ```java
 public enum com.tailf.dp.proto.ActionCBType
 ```
 
-Types: [ActionCBType](ActionCBType.md#s-ActionCBType)
+Types: [ActionCBType](ActionCBType.md#cls-ActionCBType)
 
 Enumeration of Action callback methods
-
-**Related classes**
-
-- [ActionCBType](ActionCBType.md#s-ActionCBType)
 
 **Since:** 3.2.0
 
@@ -19,21 +15,21 @@ Enumeration of Action callback methods
 
 **Enum Constants**:
 
-- [ABORT](#s-ABORT)
-- [ACTION](#s-ACTION)
-- [COMMAND](#s-COMMAND)
-- [COMPLETION](#s-COMPLETION)
-- [INIT](#s-INIT)
+- [ABORT](#m-ABORT)
+- [ACTION](#m-ACTION)
+- [COMMAND](#m-COMMAND)
+- [COMPLETION](#m-COMPLETION)
+- [INIT](#m-INIT)
 
 **Methods**:
 
-- [getValue()](#s-getValue)
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [getValue()](#m-getvalue-d93864668c40)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-ABORT"></a>
+<a id="m-ABORT"></a>
 ### ABORT
 
 ```java
@@ -42,7 +38,7 @@ public static final com.tailf.dp.proto.ActionCBType ABORT;
 
 Abort callback type for user-initiated action termination.
 
-<a id="s-ACTION"></a>
+<a id="m-ACTION"></a>
 ### ACTION
 
 ```java
@@ -51,7 +47,7 @@ public static final com.tailf.dp.proto.ActionCBType ACTION;
 
 Main action callback type for YANG action execution.
 
-<a id="s-COMMAND"></a>
+<a id="m-COMMAND"></a>
 ### COMMAND
 
 ```java
@@ -60,7 +56,7 @@ public static final com.tailf.dp.proto.ActionCBType COMMAND;
 
 Command callback type for CLI command execution.
 
-<a id="s-COMPLETION"></a>
+<a id="m-COMPLETION"></a>
 ### COMPLETION
 
 ```java
@@ -69,7 +65,7 @@ public static final com.tailf.dp.proto.ActionCBType COMPLETION;
 
 Completion callback type for CLI auto-completion and help.
 
-<a id="s-INIT"></a>
+<a id="m-INIT"></a>
 ### INIT
 
 ```java
@@ -81,7 +77,7 @@ Initialization callback type for action callbacks.
 
 ## Methods
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
@@ -92,24 +88,24 @@ get integer value for enum
 
 **Returns:** int value
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.dp.proto.ActionCBType valueOf(String name)
 ```
 
-Types: [ActionCBType](ActionCBType.md#s-ActionCBType)
+Types: [ActionCBType](ActionCBType.md#cls-ActionCBType)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.dp.proto.ActionCBType[] values()
 ```
 
-Types: [ActionCBType](ActionCBType.md#s-ActionCBType)
+Types: [ActionCBType](ActionCBType.md#cls-ActionCBType)

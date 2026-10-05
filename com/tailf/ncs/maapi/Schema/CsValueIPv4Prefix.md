@@ -1,4 +1,4 @@
-<a id="s-CsValueIPv4Prefix"></a>
+<a id="cls-CsValueIPv4Prefix"></a>
 # CsValueIPv4Prefix
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix
 
 **Constructors**:
 
-- [CsValueIPv4Prefix()](#s-CsValueIPv4Prefix-1)
+- [CsValueIPv4Prefix()](#m-csvalueipv4prefix-56a91b50c7dc)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](CsValueIPv4Prefix/Builder.md#s-Builder)
-- [Factory](CsValueIPv4Prefix/Factory.md#s-Factory)
-- [Reader](CsValueIPv4Prefix/Reader.md#s-Reader)
+- [Builder](CsValueIPv4Prefix/Builder.md#cls-Builder)
+- [Factory](CsValueIPv4Prefix/Factory.md#cls-Factory)
+- [Reader](CsValueIPv4Prefix/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-CsValueIPv4Prefix-1"></a>
+<a id="m-csvalueipv4prefix-56a91b50c7dc"></a>
 ### CsValueIPv4Prefix()
 
 ```java
@@ -35,25 +35,25 @@ public CsValueIPv4Prefix()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Factory factory = null;
 ```
 
-Types: [Factory](CsValueIPv4Prefix/Factory.md#s-Factory)
+Types: [Factory](CsValueIPv4Prefix/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder,com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsValueIPv4Prefix/Builder.md#s-Builder), [Reader](CsValueIPv4Prefix/Reader.md#s-Reader)
+Types: [Builder](CsValueIPv4Prefix/Builder.md#cls-Builder), [Reader](CsValueIPv4Prefix/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsValueIPv4Prefix/Builder.md)
-- [Factory](CsValueIPv4Prefix/Factory.md)
-- [Reader](CsValueIPv4Prefix/Reader.md)
+- [Builder](CsValueIPv4Prefix/Builder.md#cls-Builder)
+- [Factory](CsValueIPv4Prefix/Factory.md#cls-Factory)
+- [Reader](CsValueIPv4Prefix/Reader.md#cls-Reader)

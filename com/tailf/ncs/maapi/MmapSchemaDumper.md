@@ -1,4 +1,4 @@
-<a id="s-MmapSchemaDumper"></a>
+<a id="cls-MmapSchemaDumper"></a>
 # MmapSchemaDumper
 
 ```java
@@ -15,15 +15,15 @@ Utility class to dump MmapSchema content from command line
 
 **Constructors**:
 
-- [MmapSchemaDumper()](#s-MmapSchemaDumper-1)
+- [MmapSchemaDumper()](#m-mmapschemadumper-3be5dcb44ba4)
 
 **Methods**:
 
-- [main(String[])](#s-main)
+- [main(String[])](#m-main-1503518a8568)
 
 ## Constructors
 
-<a id="s-MmapSchemaDumper-1"></a>
+<a id="m-mmapschemadumper-3be5dcb44ba4"></a>
 ### MmapSchemaDumper()
 
 ```java
@@ -33,7 +33,7 @@ public MmapSchemaDumper()
 
 ## Methods
 
-<a id="s-main"></a>
+<a id="m-main-1503518a8568"></a>
 ### main(String[])
 
 ```java

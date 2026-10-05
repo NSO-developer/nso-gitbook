@@ -1,4 +1,4 @@
-<a id="s-Factory"></a>
+<a id="cls-Factory"></a>
 # Factory
 
 ```java
@@ -6,35 +6,35 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueQName.Factory
     extends org.capnproto.StructFactory<com.tailf.ncs.maapi.Schema.CsValueQName.Builder,com.tailf.ncs.maapi.Schema.CsValueQName.Reader>
 ```
 
-Types: [Builder](Builder.md#s-Builder), [Reader](Reader.md#s-Reader)
+Types: [Builder](Builder.md#cls-Builder), [Reader](Reader.md#cls-Reader)
 
 ## Members
 
 **Constructors**:
 
-- [Factory()](#s-Factory-1)
+- [Factory()](#m-factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#s-asReader) from Builder
-- [asReader(Builder)](#s-asReader)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#s-constructBuilder)
-- [constructReader(SegmentReader, int, int, int, short, int)](#s-constructReader)
-- [getName()](Builder.md#s-getName) from Builder
-- [getPrefix()](Builder.md#s-getPrefix) from Builder
-- [hasName()](Builder.md#s-hasName) from Builder
-- [hasPrefix()](Builder.md#s-hasPrefix) from Builder
-- [initName(int)](Builder.md#s-initName) from Builder
-- [initPrefix(int)](Builder.md#s-initPrefix) from Builder
-- [setName(Reader)](Builder.md#s-setName) from Builder
-- [setName(String)](Builder.md#s-setName-1) from Builder
-- [setPrefix(Reader)](Builder.md#s-setPrefix) from Builder
-- [setPrefix(String)](Builder.md#s-setPrefix-1) from Builder
-- [structSize()](#s-structSize)
+- [asReader()](Builder.md#m-asreader-b5c0f2a8d115) from Builder
+- [asReader(Builder)](#m-asreader-9c5174106110)
+- [constructBuilder(SegmentBuilder, int, int, int, short)](#m-constructbuilder-5a2abf3209f9)
+- [constructReader(SegmentReader, int, int, int, short, int)](#m-constructreader-fbce6f4f912a)
+- [getName()](Builder.md#m-getname-2634b18b4a25) from Builder
+- [getPrefix()](Builder.md#m-getprefix-9268091e0223) from Builder
+- [hasName()](Builder.md#m-hasname-bfe6c334e0d1) from Builder
+- [hasPrefix()](Builder.md#m-hasprefix-ddbc3bbca9c3) from Builder
+- [initName(int)](Builder.md#m-initname-281e5d2102d4) from Builder
+- [initPrefix(int)](Builder.md#m-initprefix-e25b609de101) from Builder
+- [setName(Reader)](Builder.md#m-setname-79f9d1263a41) from Builder
+- [setName(String)](Builder.md#m-setname-c76ccfcb9f18) from Builder
+- [setPrefix(Reader)](Builder.md#m-setprefix-5c58f0bf0784) from Builder
+- [setPrefix(String)](Builder.md#m-setprefix-63fe622cb50c) from Builder
+- [structSize()](#m-structsize-1fa68dcadd21)
 
 ## Constructors
 
-<a id="s-Factory-1"></a>
+<a id="m-factory-0e9f9d7f4e84"></a>
 ### Factory()
 
 ```java
@@ -44,7 +44,7 @@ public Factory()
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-9c5174106110"></a>
 ### asReader(Builder)
 
 ```java
@@ -53,13 +53,13 @@ public final com.tailf.ncs.maapi.Schema.CsValueQName.Reader asReader(
 )
 ```
 
-Types: [Reader](Reader.md#s-Reader), [Builder](Builder.md#s-Builder)
+Types: [Reader](Reader.md#cls-Reader), [Builder](Builder.md#cls-Builder)
 
 **Parameters**
 
 - `com.tailf.ncs.maapi.Schema.CsValueQName.Builder builder`
 
-<a id="s-constructBuilder"></a>
+<a id="m-constructbuilder-5a2abf3209f9"></a>
 ### constructBuilder(SegmentBuilder, int, int, int, short)
 
 ```java
@@ -72,7 +72,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueQName.Builder constructBuilder(
 )
 ```
 
-Types: [Builder](Builder.md#s-Builder)
+Types: [Builder](Builder.md#cls-Builder)
 
 **Parameters**
 
@@ -82,7 +82,7 @@ Types: [Builder](Builder.md#s-Builder)
 - `int dataSize`
 - `short pointerCount`
 
-<a id="s-constructReader"></a>
+<a id="m-constructreader-fbce6f4f912a"></a>
 ### constructReader(SegmentReader, int, int, int, short, int)
 
 ```java
@@ -96,7 +96,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueQName.Reader constructReader(
 )
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
 **Parameters**
 
@@ -107,7 +107,7 @@ Types: [Reader](Reader.md#s-Reader)
 - `short pointerCount`
 - `int nestingLimit`
 
-<a id="s-structSize"></a>
+<a id="m-structsize-1fa68dcadd21"></a>
 ### structSize()
 
 ```java

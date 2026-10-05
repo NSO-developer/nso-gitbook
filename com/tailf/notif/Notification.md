@@ -1,4 +1,4 @@
-<a id="s-Notification"></a>
+<a id="cls-Notification"></a>
 # Notification
 
 ```java
@@ -9,48 +9,48 @@ Base class for notification data structures.
 
 **Related classes**
 
-- [AuditNetworkNotification](AuditNetworkNotification.md#s-AuditNetworkNotification)
-- [AuditNotification](AuditNotification.md#s-AuditNotification)
-- [CallHomeInfoNotification](CallHomeInfoNotification.md#s-CallHomeInfoNotification)
-- [CommitDiffNotification](CommitDiffNotification.md#s-CommitDiffNotification)
-- [CommitFailedNotification](CommitFailedNotification.md#s-CommitFailedNotification)
-- [CommitNotification](CommitNotification.md#s-CommitNotification)
-- [CommitQueueProgressNotification](CommitQueueProgressNotification.md#s-CommitQueueProgressNotification)
-- [CompactionNotification](CompactionNotification.md#s-CompactionNotification)
-- [ConfirmNotification](ConfirmNotification.md#s-ConfirmNotification)
-- [ForwardNotification](ForwardNotification.md#s-ForwardNotification)
-- [HaNotification](HaNotification.md#s-HaNotification)
-- [HealtCheckNotification](HealtCheckNotification.md#s-HealtCheckNotification)
-- [HeartbeatNotification](HeartbeatNotification.md#s-HeartbeatNotification)
-- [PackageReloadNotification](PackageReloadNotification.md#s-PackageReloadNotification)
-- [ProgressNotification](ProgressNotification.md#s-ProgressNotification)
-- [ReopenLogsNotification](ReopenLogsNotification.md#s-ReopenLogsNotification)
-- [SnmpaNotification](SnmpaNotification.md#s-SnmpaNotification)
-- [StreamNotification](StreamNotification.md#s-StreamNotification)
-- [SubagentNotification](SubagentNotification.md#s-SubagentNotification)
-- [SyslogNotification](SyslogNotification.md#s-SyslogNotification)
-- [SystemGoingDownNotification](SystemGoingDownNotification.md#s-SystemGoingDownNotification)
-- [UpgradeNotification](UpgradeNotification.md#s-UpgradeNotification)
-- [UserSessNotification](UserSessNotification.md#s-UserSessNotification)
+- [AuditNetworkNotification](AuditNetworkNotification.md#cls-AuditNetworkNotification)
+- [AuditNotification](AuditNotification.md#cls-AuditNotification)
+- [CallHomeInfoNotification](CallHomeInfoNotification.md#cls-CallHomeInfoNotification)
+- [CommitDiffNotification](CommitDiffNotification.md#cls-CommitDiffNotification)
+- [CommitFailedNotification](CommitFailedNotification.md#cls-CommitFailedNotification)
+- [CommitNotification](CommitNotification.md#cls-CommitNotification)
+- [CommitQueueProgressNotification](CommitQueueProgressNotification.md#cls-CommitQueueProgressNotification)
+- [CompactionNotification](CompactionNotification.md#cls-CompactionNotification)
+- [ConfirmNotification](ConfirmNotification.md#cls-ConfirmNotification)
+- [ForwardNotification](ForwardNotification.md#cls-ForwardNotification)
+- [HaNotification](HaNotification.md#cls-HaNotification)
+- [HealtCheckNotification](HealtCheckNotification.md#cls-HealtCheckNotification)
+- [HeartbeatNotification](HeartbeatNotification.md#cls-HeartbeatNotification)
+- [PackageReloadNotification](PackageReloadNotification.md#cls-PackageReloadNotification)
+- [ProgressNotification](ProgressNotification.md#cls-ProgressNotification)
+- [ReopenLogsNotification](ReopenLogsNotification.md#cls-ReopenLogsNotification)
+- [SnmpaNotification](SnmpaNotification.md#cls-SnmpaNotification)
+- [StreamNotification](StreamNotification.md#cls-StreamNotification)
+- [SubagentNotification](SubagentNotification.md#cls-SubagentNotification)
+- [SyslogNotification](SyslogNotification.md#cls-SyslogNotification)
+- [SystemGoingDownNotification](SystemGoingDownNotification.md#cls-SystemGoingDownNotification)
+- [UpgradeNotification](UpgradeNotification.md#cls-UpgradeNotification)
+- [UserSessNotification](UserSessNotification.md#cls-UserSessNotification)
 
 ## Members
 
 **Constructors**:
 
-- [Notification()](#s-Notification-1)
+- [Notification()](#m-notification-7fae6ec3923e)
 
 **Fields**:
 
-- [type](#s-type)
+- [type](#m-type)
 
 **Methods**:
 
-- [getNotificationType()](#s-getNotificationType)
-- [toString()](#s-toString)
+- [getNotificationType()](#m-getnotificationtype-f0e32b7b644f)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-Notification-1"></a>
+<a id="m-notification-7fae6ec3923e"></a>
 ### Notification()
 
 ```java
@@ -60,28 +60,28 @@ public Notification()
 
 ## Fields
 
-<a id="s-type"></a>
+<a id="m-type"></a>
 ### type
 
 ```java
 protected com.tailf.notif.NotificationType type = null;
 ```
 
-Types: [NotificationType](NotificationType.md#s-NotificationType)
+Types: [NotificationType](NotificationType.md#cls-NotificationType)
 
 
 ## Methods
 
-<a id="s-getNotificationType"></a>
+<a id="m-getnotificationtype-f0e32b7b644f"></a>
 ### getNotificationType()
 
 ```java
 public com.tailf.notif.NotificationType getNotificationType()
 ```
 
-Types: [NotificationType](NotificationType.md#s-NotificationType)
+Types: [NotificationType](NotificationType.md#cls-NotificationType)
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

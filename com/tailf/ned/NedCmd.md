@@ -1,4 +1,4 @@
-<a id="s-NedCmd"></a>
+<a id="cls-NedCmd"></a>
 # NedCmd
 
 ```java
@@ -14,148 +14,148 @@ A NedCmd represents the command send from the NCS with all
 
 **Constructors**:
 
-- [NedCmd(ConfETuple)](#s-NedCmd-1)
+- [NedCmd(ConfETuple)](#m-nedcmd-4a85ef572624)
 
 **Fields**:
 
-- [ABORT_CLI](#s-ABORT_CLI)
-- [ABORT_GENERIC](#s-ABORT_GENERIC)
-- [CLOSE](#s-CLOSE)
-- [CLOSE_ALL](#s-CLOSE_ALL)
-- [CMD](#s-CMD)
-- [COMMIT](#s-COMMIT)
-- [CONFIG_MERGE](#s-CONFIG_MERGE)
-- [CONFIG_REPLACE](#s-CONFIG_REPLACE)
-- [CONNECT_CLI](#s-CONNECT_CLI)
-- [CONNECT_GENERIC](#s-CONNECT_GENERIC)
-- [CREATE_SUBSCRIPTION](#s-CREATE_SUBSCRIPTION)
-- [CREATE_TELEMETRY_SUBSCRIPTION](#s-CREATE_TELEMETRY_SUBSCRIPTION)
-- [FILTER_NONE](#s-FILTER_NONE)
-- [FILTER_SUBTREE](#s-FILTER_SUBTREE)
-- [FILTER_XPATH](#s-FILTER_XPATH)
-- [GET_TRANS_ID](#s-GET_TRANS_ID)
-- [INITIALIZE](#s-INITIALIZE)
-- [IS_ALIVE](#s-IS_ALIVE)
-- [KEEP_ALIVE](#s-KEEP_ALIVE)
-- [KNOWN_ALGOS](#s-KNOWN_ALGOS)
-- [NEW_THREAD](#s-NEW_THREAD)
-- [NO_WORKER](#s-NO_WORKER)
-- [NOCONNECT_CLI](#s-NOCONNECT_CLI)
-- [NOCONNECT_GENERIC](#s-NOCONNECT_GENERIC)
-- [NONE](#s-NONE)
-- [PERSIST](#s-PERSIST)
-- [PREPARE_CLI](#s-PREPARE_CLI)
-- [PREPARE_DRY_CLI](#s-PREPARE_DRY_CLI)
-- [PREPARE_DRY_GENERIC](#s-PREPARE_DRY_GENERIC)
-- [PREPARE_GENERIC](#s-PREPARE_GENERIC)
-- [RECONNECT](#s-RECONNECT)
-- [REJECT_MISMATCH](#s-REJECT_MISMATCH)
-- [REJECT_UNKNOWN](#s-REJECT_UNKNOWN)
-- [RESTART](#s-RESTART)
-- [REVERT_CLI](#s-REVERT_CLI)
-- [REVERT_GENERIC](#s-REVERT_GENERIC)
-- [SHOW_CLI](#s-SHOW_CLI)
-- [SHOW_GENERIC](#s-SHOW_GENERIC)
-- [SHOW_OFFLINE_CLI](#s-SHOW_OFFLINE_CLI)
-- [SHOW_OFFLINE_GENERIC](#s-SHOW_OFFLINE_GENERIC)
-- [SHOW_PARTIAL_CLI](#s-SHOW_PARTIAL_CLI)
-- [SHOW_PARTIAL_GENERIC](#s-SHOW_PARTIAL_GENERIC)
-- [SHOW_STATS_FILTER](#s-SHOW_STATS_FILTER)
-- [SHOW_STATS_PATH](#s-SHOW_STATS_PATH)
-- [STOP_THREAD](#s-STOP_THREAD)
-- [SUBTREE](#s-SUBTREE)
-- [UNINITIALIZE](#s-UNINITIALIZE)
-- [XPATH](#s-XPATH)
+- [ABORT_CLI](#m-ABORT_CLI)
+- [ABORT_GENERIC](#m-ABORT_GENERIC)
+- [CLOSE](#m-CLOSE)
+- [CLOSE_ALL](#m-CLOSE_ALL)
+- [CMD](#m-CMD)
+- [COMMIT](#m-COMMIT)
+- [CONFIG_MERGE](#m-CONFIG_MERGE)
+- [CONFIG_REPLACE](#m-CONFIG_REPLACE)
+- [CONNECT_CLI](#m-CONNECT_CLI)
+- [CONNECT_GENERIC](#m-CONNECT_GENERIC)
+- [CREATE_SUBSCRIPTION](#m-CREATE_SUBSCRIPTION)
+- [CREATE_TELEMETRY_SUBSCRIPTION](#m-CREATE_TELEMETRY_SUBSCRIPTION)
+- [FILTER_NONE](#m-FILTER_NONE)
+- [FILTER_SUBTREE](#m-FILTER_SUBTREE)
+- [FILTER_XPATH](#m-FILTER_XPATH)
+- [GET_TRANS_ID](#m-GET_TRANS_ID)
+- [INITIALIZE](#m-INITIALIZE)
+- [IS_ALIVE](#m-IS_ALIVE)
+- [KEEP_ALIVE](#m-KEEP_ALIVE)
+- [KNOWN_ALGOS](#m-KNOWN_ALGOS)
+- [NEW_THREAD](#m-NEW_THREAD)
+- [NO_WORKER](#m-NO_WORKER)
+- [NOCONNECT_CLI](#m-NOCONNECT_CLI)
+- [NOCONNECT_GENERIC](#m-NOCONNECT_GENERIC)
+- [NONE](#m-NONE)
+- [PERSIST](#m-PERSIST)
+- [PREPARE_CLI](#m-PREPARE_CLI)
+- [PREPARE_DRY_CLI](#m-PREPARE_DRY_CLI)
+- [PREPARE_DRY_GENERIC](#m-PREPARE_DRY_GENERIC)
+- [PREPARE_GENERIC](#m-PREPARE_GENERIC)
+- [RECONNECT](#m-RECONNECT)
+- [REJECT_MISMATCH](#m-REJECT_MISMATCH)
+- [REJECT_UNKNOWN](#m-REJECT_UNKNOWN)
+- [RESTART](#m-RESTART)
+- [REVERT_CLI](#m-REVERT_CLI)
+- [REVERT_GENERIC](#m-REVERT_GENERIC)
+- [SHOW_CLI](#m-SHOW_CLI)
+- [SHOW_GENERIC](#m-SHOW_GENERIC)
+- [SHOW_OFFLINE_CLI](#m-SHOW_OFFLINE_CLI)
+- [SHOW_OFFLINE_GENERIC](#m-SHOW_OFFLINE_GENERIC)
+- [SHOW_PARTIAL_CLI](#m-SHOW_PARTIAL_CLI)
+- [SHOW_PARTIAL_GENERIC](#m-SHOW_PARTIAL_GENERIC)
+- [SHOW_STATS_FILTER](#m-SHOW_STATS_FILTER)
+- [SHOW_STATS_PATH](#m-SHOW_STATS_PATH)
+- [STOP_THREAD](#m-STOP_THREAD)
+- [SUBTREE](#m-SUBTREE)
+- [UNINITIALIZE](#m-UNINITIALIZE)
+- [XPATH](#m-XPATH)
 
 **Methods**:
 
-- [cmdString()](#s-cmdString)
-- [cmdToDevicePhase(int)](#s-cmdToDevicePhase)
-- [cmdToString(int)](#s-cmdToString)
-- [getActionName()](#s-getActionName)
-- [getAdditionalInfo()](#s-getAdditionalInfo)
-- [getAuthOrder()](#s-getAuthOrder)
-- [getCliConfigChars()](#s-getCliConfigChars)
-- [getCmdPaths()](#s-getCmdPaths)
-- [getCommand()](#s-getCommand)
-- [getComment()](#s-getComment)
-- [getConnectionId()](#s-getConnectionId)
-- [getConnectTimeout()](#s-getConnectTimeout)
-- [getDevice()](#s-getDevice)
-- [getDevList()](#s-getDevList)
-- [getFilter()](#s-getFilter)
-- [getFilterIntent()](#s-getFilterIntent)
-- [getFilterType()](#s-getFilterType)
-- [getFilterTypeAsString()](#s-getFilterTypeAsString)
-- [getFromTransactionId()](#s-getFromTransactionId)
-- [getGenericConfigChars()](#s-getGenericConfigChars)
-- [getHostKeyAlgos()](#s-getHostKeyAlgos)
-- [getHostKeys()](#s-getHostKeys)
-- [getHostKeyVerifAsString()](#s-getHostKeyVerifAsString)
-- [getHostKeyVerifier()](#s-getHostKeyVerifier)
-- [getHostKeyVerify()](#s-getHostKeyVerify)
-- [getId()](#s-getId)
-- [getIdentities(NedWorker)](#s-getIdentities)
-- [getIP()](#s-getIP)
-- [getKeyDir()](#s-getKeyDir)
-- [getLabel()](#s-getLabel)
-- [getLoadOp()](#s-getLoadOp)
-- [getLocalUser()](#s-getLocalUser)
-- [getMfaExecutable()](#s-getMfaExecutable)
-- [getMfaOpaque()](#s-getMfaOpaque)
-- [getOperations()](#s-getOperations)
-- [getParams()](#s-getParams)
-- [getPassword()](#s-getPassword)
-- [getPath()](#s-getPath)
-- [getPathIntent()](#s-getPathIntent)
-- [getPaths()](#s-getPaths)
-- [getPort()](#s-getPort)
-- [getProtocol()](#s-getProtocol)
-- [getProvisionalTransId()](#s-getProvisionalTransId)
-- [getPublicKeys()](#s-getPublicKeys)
-- [getReadTimeout()](#s-getReadTimeout)
-- [getRemoteUser()](#s-getRemoteUser)
-- [getSecondaryPassword()](#s-getSecondaryPassword)
-- [getServerKeyMismatch()](#s-getServerKeyMismatch)
-- [getSourceAddress()](#s-getSourceAddress)
-- [getSSHAlgorithms()](#s-getSSHAlgorithms)
-- [getStartTime()](#s-getStartTime)
-- [getStream()](#s-getStream)
-- [getTelemetrySettings()](#s-getTelemetrySettings)
-- [getTimeout()](#s-getTimeout)
-- [getTopTag()](#s-getTopTag)
-- [getToTransactionId()](#s-getToTransactionId)
-- [getTransaction()](#s-getTransaction)
-- [getUsid()](#s-getUsid)
-- [getWorkerId()](#s-getWorkerId)
-- [getWriteTimeout()](#s-getWriteTimeout)
-- [getXPathIntent()](#s-getXPathIntent)
-- [isAll()](#s-isAll)
-- [isForce()](#s-isForce)
-- [isSuppressTransId()](#s-isSuppressTransId)
-- [isTrace()](#s-isTrace)
-- [isVerbose()](#s-isVerbose)
-- [parseOps(ConfEList)](#s-parseOps)
-- [setAdditionalInfo(String)](#s-setAdditionalInfo)
-- [setProvisionalTransId(String)](#s-setProvisionalTransId)
-- [toString()](#s-toString)
-- [verifyServerHostKey(String, int, String, byte[])](#s-verifyServerHostKey)
+- [cmdString()](#m-cmdstring-14890451befe)
+- [cmdToDevicePhase(int)](#m-cmdtodevicephase-315de652ea11)
+- [cmdToString(int)](#m-cmdtostring-f5ed8a204e6f)
+- [getActionName()](#m-getactionname-c421fe4033d7)
+- [getAdditionalInfo()](#m-getadditionalinfo-e1cb561024ba)
+- [getAuthOrder()](#m-getauthorder-2d552ed01a0e)
+- [getCliConfigChars()](#m-getcliconfigchars-2a8ea15c9753)
+- [getCmdPaths()](#m-getcmdpaths-37171ce7c8eb)
+- [getCommand()](#m-getcommand-f6f76ff7d38b)
+- [getComment()](#m-getcomment-a5625f95afef)
+- [getConnectionId()](#m-getconnectionid-600ebb3e7d7f)
+- [getConnectTimeout()](#m-getconnecttimeout-cfec33294648)
+- [getDevice()](#m-getdevice-4acac4557fc6)
+- [getDevList()](#m-getdevlist-1a6070a968b7)
+- [getFilter()](#m-getfilter-2b84817e0707)
+- [getFilterIntent()](#m-getfilterintent-2bc571cd2560)
+- [getFilterType()](#m-getfiltertype-de1618989694)
+- [getFilterTypeAsString()](#m-getfiltertypeasstring-1352f2ea19d5)
+- [getFromTransactionId()](#m-getfromtransactionid-c49683f287a8)
+- [getGenericConfigChars()](#m-getgenericconfigchars-d9c9c3f287f2)
+- [getHostKeyAlgos()](#m-gethostkeyalgos-580f9f4a42c3)
+- [getHostKeys()](#m-gethostkeys-afeb8a087227)
+- [getHostKeyVerifAsString()](#m-gethostkeyverifasstring-888e4c14e9d7)
+- [getHostKeyVerifier()](#m-gethostkeyverifier-5231b47d5444)
+- [getHostKeyVerify()](#m-gethostkeyverify-faec6b615eba)
+- [getId()](#m-getid-199a349c70ef)
+- [getIdentities(NedWorker)](#m-getidentities-65d4c5a4a59e)
+- [getIP()](#m-getip-c2f1d3db411f)
+- [getKeyDir()](#m-getkeydir-07c13308c833)
+- [getLabel()](#m-getlabel-72bf899bf6f1)
+- [getLoadOp()](#m-getloadop-ab5127869701)
+- [getLocalUser()](#m-getlocaluser-6ac239a3b919)
+- [getMfaExecutable()](#m-getmfaexecutable-c68a3fe5954e)
+- [getMfaOpaque()](#m-getmfaopaque-1ba5d0f480c6)
+- [getOperations()](#m-getoperations-bb0a308eca4c)
+- [getParams()](#m-getparams-4abd21251a20)
+- [getPassword()](#m-getpassword-003001cc6c91)
+- [getPath()](#m-getpath-88fb21895561)
+- [getPathIntent()](#m-getpathintent-e49c0ca975d0)
+- [getPaths()](#m-getpaths-ce548cbbccae)
+- [getPort()](#m-getport-a2225f868a2b)
+- [getProtocol()](#m-getprotocol-7199008875a5)
+- [getProvisionalTransId()](#m-getprovisionaltransid-746567171fc9)
+- [getPublicKeys()](#m-getpublickeys-319aca5ff00c)
+- [getReadTimeout()](#m-getreadtimeout-640fc089c1de)
+- [getRemoteUser()](#m-getremoteuser-bdfb4a23b5ff)
+- [getSecondaryPassword()](#m-getsecondarypassword-34fb12bcee21)
+- [getServerKeyMismatch()](#m-getserverkeymismatch-397bbe151bff)
+- [getSourceAddress()](#m-getsourceaddress-873953ea3b38)
+- [getSSHAlgorithms()](#m-getsshalgorithms-9546086e7915)
+- [getStartTime()](#m-getstarttime-f237c63a0230)
+- [getStream()](#m-getstream-f9fafde50565)
+- [getTelemetrySettings()](#m-gettelemetrysettings-fbb071630f56)
+- [getTimeout()](#m-gettimeout-c6606d7f7c00)
+- [getTopTag()](#m-gettoptag-4bbcffa59820)
+- [getToTransactionId()](#m-gettotransactionid-3beba3c28e0e)
+- [getTransaction()](#m-gettransaction-4f1c72a828a1)
+- [getUsid()](#m-getusid-62d0ecfd68fd)
+- [getWorkerId()](#m-getworkerid-80f0b625907c)
+- [getWriteTimeout()](#m-getwritetimeout-866d6552aa46)
+- [getXPathIntent()](#m-getxpathintent-67290eec645d)
+- [isAll()](#m-isall-9d62c2f960b8)
+- [isForce()](#m-isforce-f9ef7f4abb1e)
+- [isSuppressTransId()](#m-issuppresstransid-ea2b7aa87e80)
+- [isTrace()](#m-istrace-98fd54ca3d6c)
+- [isVerbose()](#m-isverbose-224af8693204)
+- [parseOps(ConfEList)](#m-parseops-4ab9ce41ccc1)
+- [setAdditionalInfo(String)](#m-setadditionalinfo-b262ce567572)
+- [setProvisionalTransId(String)](#m-setprovisionaltransid-e17c71c7b76d)
+- [toString()](#m-tostring-e9d48c5503ef)
+- [verifyServerHostKey(String, int, String, byte[])](#m-verifyserverhostkey-df5f7c8ae1fe)
 
 **Nested Types**:
 
-- [NedPublicKey](NedCmd/NedPublicKey.md#s-NedPublicKey)
-- [NedSSHAlgorithms](NedCmd/NedSSHAlgorithms.md#s-NedSSHAlgorithms)
+- [NedPublicKey](NedCmd/NedPublicKey.md#cls-NedPublicKey)
+- [NedSSHAlgorithms](NedCmd/NedSSHAlgorithms.md#cls-NedSSHAlgorithms)
 
 ## Constructors
 
-<a id="s-NedCmd-1"></a>
+<a id="m-nedcmd-4a85ef572624"></a>
 ### NedCmd(ConfETuple)
 
 ```java
 public NedCmd(com.tailf.proto.ConfETuple t) throws com.tailf.ned.NedException
 ```
 
-Types: [ConfETuple](../proto/ConfETuple.md#s-ConfETuple), [NedException](NedException.md#s-NedException)
+Types: [ConfETuple](../proto/ConfETuple.md#cls-ConfETuple), [NedException](NedException.md#cls-NedException)
 
 **Parameters**
 
@@ -164,336 +164,336 @@ Types: [ConfETuple](../proto/ConfETuple.md#s-ConfETuple), [NedException](NedExce
 
 ## Fields
 
-<a id="s-ABORT_CLI"></a>
+<a id="m-ABORT_CLI"></a>
 ### ABORT_CLI
 
 ```java
 public static final int ABORT_CLI = 7;
 ```
 
-<a id="s-ABORT_GENERIC"></a>
+<a id="m-ABORT_GENERIC"></a>
 ### ABORT_GENERIC
 
 ```java
 public static final int ABORT_GENERIC = 8;
 ```
 
-<a id="s-CLOSE"></a>
+<a id="m-CLOSE"></a>
 ### CLOSE
 
 ```java
 public static final int CLOSE = 14;
 ```
 
-<a id="s-CLOSE_ALL"></a>
+<a id="m-CLOSE_ALL"></a>
 ### CLOSE_ALL
 
 ```java
 public static final int CLOSE_ALL = 15;
 ```
 
-<a id="s-CMD"></a>
+<a id="m-CMD"></a>
 ### CMD
 
 ```java
 public static final int CMD = 17;
 ```
 
-<a id="s-COMMIT"></a>
+<a id="m-COMMIT"></a>
 ### COMMIT
 
 ```java
 public static final int COMMIT = 6;
 ```
 
-<a id="s-CONFIG_MERGE"></a>
+<a id="m-CONFIG_MERGE"></a>
 ### CONFIG_MERGE
 
 ```java
 public static final int CONFIG_MERGE = 1;
 ```
 
-<a id="s-CONFIG_REPLACE"></a>
+<a id="m-CONFIG_REPLACE"></a>
 ### CONFIG_REPLACE
 
 ```java
 public static final int CONFIG_REPLACE = 0;
 ```
 
-<a id="s-CONNECT_CLI"></a>
+<a id="m-CONNECT_CLI"></a>
 ### CONNECT_CLI
 
 ```java
 public static final int CONNECT_CLI = 0;
 ```
 
-<a id="s-CONNECT_GENERIC"></a>
+<a id="m-CONNECT_GENERIC"></a>
 ### CONNECT_GENERIC
 
 ```java
 public static final int CONNECT_GENERIC = 1;
 ```
 
-<a id="s-CREATE_SUBSCRIPTION"></a>
+<a id="m-CREATE_SUBSCRIPTION"></a>
 ### CREATE_SUBSCRIPTION
 
 ```java
 public static final int CREATE_SUBSCRIPTION = 34;
 ```
 
-<a id="s-CREATE_TELEMETRY_SUBSCRIPTION"></a>
+<a id="m-CREATE_TELEMETRY_SUBSCRIPTION"></a>
 ### CREATE_TELEMETRY_SUBSCRIPTION
 
 ```java
 public static final int CREATE_TELEMETRY_SUBSCRIPTION = 37;
 ```
 
-<a id="s-FILTER_NONE"></a>
+<a id="m-FILTER_NONE"></a>
 ### FILTER_NONE
 
 ```java
 public static final int FILTER_NONE = 0;
 ```
 
-<a id="s-FILTER_SUBTREE"></a>
+<a id="m-FILTER_SUBTREE"></a>
 ### FILTER_SUBTREE
 
 ```java
 public static final int FILTER_SUBTREE = 2;
 ```
 
-<a id="s-FILTER_XPATH"></a>
+<a id="m-FILTER_XPATH"></a>
 ### FILTER_XPATH
 
 ```java
 public static final int FILTER_XPATH = 1;
 ```
 
-<a id="s-GET_TRANS_ID"></a>
+<a id="m-GET_TRANS_ID"></a>
 ### GET_TRANS_ID
 
 ```java
 public static final int GET_TRANS_ID = 20;
 ```
 
-<a id="s-INITIALIZE"></a>
+<a id="m-INITIALIZE"></a>
 ### INITIALIZE
 
 ```java
 public static final int INITIALIZE = 24;
 ```
 
-<a id="s-IS_ALIVE"></a>
+<a id="m-IS_ALIVE"></a>
 ### IS_ALIVE
 
 ```java
 public static final int IS_ALIVE = 22;
 ```
 
-<a id="s-KEEP_ALIVE"></a>
+<a id="m-KEEP_ALIVE"></a>
 ### KEEP_ALIVE
 
 ```java
 public static final int KEEP_ALIVE = 30;
 ```
 
-<a id="s-KNOWN_ALGOS"></a>
+<a id="m-KNOWN_ALGOS"></a>
 ### KNOWN_ALGOS
 
 ```java
 public static final String[] KNOWN_ALGOS = null;
 ```
 
-<a id="s-NEW_THREAD"></a>
+<a id="m-NEW_THREAD"></a>
 ### NEW_THREAD
 
 ```java
 public static final int NEW_THREAD = 16;
 ```
 
-<a id="s-NO_WORKER"></a>
+<a id="m-NO_WORKER"></a>
 ### NO_WORKER
 
 ```java
 public static final int NO_WORKER = -1;
 ```
 
-<a id="s-NOCONNECT_CLI"></a>
+<a id="m-NOCONNECT_CLI"></a>
 ### NOCONNECT_CLI
 
 ```java
 public static final int NOCONNECT_CLI = 28;
 ```
 
-<a id="s-NOCONNECT_GENERIC"></a>
+<a id="m-NOCONNECT_GENERIC"></a>
 ### NOCONNECT_GENERIC
 
 ```java
 public static final int NOCONNECT_GENERIC = 29;
 ```
 
-<a id="s-NONE"></a>
+<a id="m-NONE"></a>
 ### NONE
 
 ```java
 public static final int NONE = 2;
 ```
 
-<a id="s-PERSIST"></a>
+<a id="m-PERSIST"></a>
 ### PERSIST
 
 ```java
 public static final int PERSIST = 11;
 ```
 
-<a id="s-PREPARE_CLI"></a>
+<a id="m-PREPARE_CLI"></a>
 ### PREPARE_CLI
 
 ```java
 public static final int PREPARE_CLI = 2;
 ```
 
-<a id="s-PREPARE_DRY_CLI"></a>
+<a id="m-PREPARE_DRY_CLI"></a>
 ### PREPARE_DRY_CLI
 
 ```java
 public static final int PREPARE_DRY_CLI = 3;
 ```
 
-<a id="s-PREPARE_DRY_GENERIC"></a>
+<a id="m-PREPARE_DRY_GENERIC"></a>
 ### PREPARE_DRY_GENERIC
 
 ```java
 public static final int PREPARE_DRY_GENERIC = 5;
 ```
 
-<a id="s-PREPARE_GENERIC"></a>
+<a id="m-PREPARE_GENERIC"></a>
 ### PREPARE_GENERIC
 
 ```java
 public static final int PREPARE_GENERIC = 4;
 ```
 
-<a id="s-RECONNECT"></a>
+<a id="m-RECONNECT"></a>
 ### RECONNECT
 
 ```java
 public static final int RECONNECT = 23;
 ```
 
-<a id="s-REJECT_MISMATCH"></a>
+<a id="m-REJECT_MISMATCH"></a>
 ### REJECT_MISMATCH
 
 ```java
 public static final int REJECT_MISMATCH = 1;
 ```
 
-<a id="s-REJECT_UNKNOWN"></a>
+<a id="m-REJECT_UNKNOWN"></a>
 ### REJECT_UNKNOWN
 
 ```java
 public static final int REJECT_UNKNOWN = 0;
 ```
 
-<a id="s-RESTART"></a>
+<a id="m-RESTART"></a>
 ### RESTART
 
 ```java
 public static final int RESTART = 21;
 ```
 
-<a id="s-REVERT_CLI"></a>
+<a id="m-REVERT_CLI"></a>
 ### REVERT_CLI
 
 ```java
 public static final int REVERT_CLI = 9;
 ```
 
-<a id="s-REVERT_GENERIC"></a>
+<a id="m-REVERT_GENERIC"></a>
 ### REVERT_GENERIC
 
 ```java
 public static final int REVERT_GENERIC = 10;
 ```
 
-<a id="s-SHOW_CLI"></a>
+<a id="m-SHOW_CLI"></a>
 ### SHOW_CLI
 
 ```java
 public static final int SHOW_CLI = 12;
 ```
 
-<a id="s-SHOW_GENERIC"></a>
+<a id="m-SHOW_GENERIC"></a>
 ### SHOW_GENERIC
 
 ```java
 public static final int SHOW_GENERIC = 13;
 ```
 
-<a id="s-SHOW_OFFLINE_CLI"></a>
+<a id="m-SHOW_OFFLINE_CLI"></a>
 ### SHOW_OFFLINE_CLI
 
 ```java
 public static final int SHOW_OFFLINE_CLI = 32;
 ```
 
-<a id="s-SHOW_OFFLINE_GENERIC"></a>
+<a id="m-SHOW_OFFLINE_GENERIC"></a>
 ### SHOW_OFFLINE_GENERIC
 
 ```java
 public static final int SHOW_OFFLINE_GENERIC = 33;
 ```
 
-<a id="s-SHOW_PARTIAL_CLI"></a>
+<a id="m-SHOW_PARTIAL_CLI"></a>
 ### SHOW_PARTIAL_CLI
 
 ```java
 public static final int SHOW_PARTIAL_CLI = 26;
 ```
 
-<a id="s-SHOW_PARTIAL_GENERIC"></a>
+<a id="m-SHOW_PARTIAL_GENERIC"></a>
 ### SHOW_PARTIAL_GENERIC
 
 ```java
 public static final int SHOW_PARTIAL_GENERIC = 27;
 ```
 
-<a id="s-SHOW_STATS_FILTER"></a>
+<a id="m-SHOW_STATS_FILTER"></a>
 ### SHOW_STATS_FILTER
 
 ```java
 public static final int SHOW_STATS_FILTER = 36;
 ```
 
-<a id="s-SHOW_STATS_PATH"></a>
+<a id="m-SHOW_STATS_PATH"></a>
 ### SHOW_STATS_PATH
 
 ```java
 public static final int SHOW_STATS_PATH = 31;
 ```
 
-<a id="s-STOP_THREAD"></a>
+<a id="m-STOP_THREAD"></a>
 ### STOP_THREAD
 
 ```java
 public static final int STOP_THREAD = 35;
 ```
 
-<a id="s-SUBTREE"></a>
+<a id="m-SUBTREE"></a>
 ### SUBTREE
 
 ```java
 public static final String SUBTREE = "subtree";
 ```
 
-<a id="s-UNINITIALIZE"></a>
+<a id="m-UNINITIALIZE"></a>
 ### UNINITIALIZE
 
 ```java
 public static final int UNINITIALIZE = 25;
 ```
 
-<a id="s-XPATH"></a>
+<a id="m-XPATH"></a>
 ### XPATH
 
 ```java
@@ -503,14 +503,14 @@ public static final String XPATH = "xpath";
 
 ## Methods
 
-<a id="s-cmdString"></a>
+<a id="m-cmdstring-14890451befe"></a>
 ### cmdString()
 
 ```java
 public String cmdString()
 ```
 
-<a id="s-cmdToDevicePhase"></a>
+<a id="m-cmdtodevicephase-315de652ea11"></a>
 ### cmdToDevicePhase(int)
 
 ```java
@@ -521,7 +521,7 @@ public static String cmdToDevicePhase(int cmd)
 
 - `int cmd`
 
-<a id="s-cmdToString"></a>
+<a id="m-cmdtostring-f5ed8a204e6f"></a>
 ### cmdToString(int)
 
 ```java
@@ -532,172 +532,172 @@ public static String cmdToString(int cmd)
 
 - `int cmd`
 
-<a id="s-getActionName"></a>
+<a id="m-getactionname-c421fe4033d7"></a>
 ### getActionName()
 
 ```java
 public String getActionName()
 ```
 
-<a id="s-getAdditionalInfo"></a>
+<a id="m-getadditionalinfo-e1cb561024ba"></a>
 ### getAdditionalInfo()
 
 ```java
 public String getAdditionalInfo()
 ```
 
-<a id="s-getAuthOrder"></a>
+<a id="m-getauthorder-2d552ed01a0e"></a>
 ### getAuthOrder()
 
 ```java
 public String[] getAuthOrder()
 ```
 
-<a id="s-getCliConfigChars"></a>
+<a id="m-getcliconfigchars-2a8ea15c9753"></a>
 ### getCliConfigChars()
 
 ```java
 public String getCliConfigChars()
 ```
 
-<a id="s-getCmdPaths"></a>
+<a id="m-getcmdpaths-37171ce7c8eb"></a>
 ### getCmdPaths()
 
 ```java
 public String[] getCmdPaths()
 ```
 
-<a id="s-getCommand"></a>
+<a id="m-getcommand-f6f76ff7d38b"></a>
 ### getCommand()
 
 ```java
 public int getCommand()
 ```
 
-<a id="s-getComment"></a>
+<a id="m-getcomment-a5625f95afef"></a>
 ### getComment()
 
 ```java
 public String getComment()
 ```
 
-<a id="s-getConnectionId"></a>
+<a id="m-getconnectionid-600ebb3e7d7f"></a>
 ### getConnectionId()
 
 ```java
 public int getConnectionId()
 ```
 
-<a id="s-getConnectTimeout"></a>
+<a id="m-getconnecttimeout-cfec33294648"></a>
 ### getConnectTimeout()
 
 ```java
 public int getConnectTimeout()
 ```
 
-<a id="s-getDevice"></a>
+<a id="m-getdevice-4acac4557fc6"></a>
 ### getDevice()
 
 ```java
 public String getDevice()
 ```
 
-<a id="s-getDevList"></a>
+<a id="m-getdevlist-1a6070a968b7"></a>
 ### getDevList()
 
 ```java
 public java.util.Set<String> getDevList()
 ```
 
-<a id="s-getFilter"></a>
+<a id="m-getfilter-2b84817e0707"></a>
 ### getFilter()
 
 ```java
 public String getFilter()
 ```
 
-<a id="s-getFilterIntent"></a>
+<a id="m-getfilterintent-2bc571cd2560"></a>
 ### getFilterIntent()
 
 ```java
 public com.tailf.ned.NedShowFilter[] getFilterIntent()
 ```
 
-Types: [NedShowFilter](NedShowFilter.md#s-NedShowFilter)
+Types: [NedShowFilter](NedShowFilter.md#cls-NedShowFilter)
 
-<a id="s-getFilterType"></a>
+<a id="m-getfiltertype-de1618989694"></a>
 ### getFilterType()
 
 ```java
 public int getFilterType()
 ```
 
-<a id="s-getFilterTypeAsString"></a>
+<a id="m-getfiltertypeasstring-1352f2ea19d5"></a>
 ### getFilterTypeAsString()
 
 ```java
 public String getFilterTypeAsString()
 ```
 
-<a id="s-getFromTransactionId"></a>
+<a id="m-getfromtransactionid-c49683f287a8"></a>
 ### getFromTransactionId()
 
 ```java
 public int getFromTransactionId()
 ```
 
-<a id="s-getGenericConfigChars"></a>
+<a id="m-getgenericconfigchars-d9c9c3f287f2"></a>
 ### getGenericConfigChars()
 
 ```java
 public String getGenericConfigChars()
 ```
 
-<a id="s-getHostKeyAlgos"></a>
+<a id="m-gethostkeyalgos-580f9f4a42c3"></a>
 ### getHostKeyAlgos()
 
 ```java
 protected String[] getHostKeyAlgos()
 ```
 
-<a id="s-getHostKeys"></a>
+<a id="m-gethostkeys-afeb8a087227"></a>
 ### getHostKeys()
 
 ```java
 public com.tailf.ned.NedCmd.NedPublicKey[] getHostKeys()
 ```
 
-Types: [NedPublicKey](NedCmd/NedPublicKey.md#s-NedPublicKey)
+Types: [NedPublicKey](NedCmd/NedPublicKey.md#cls-NedPublicKey)
 
-<a id="s-getHostKeyVerifAsString"></a>
+<a id="m-gethostkeyverifasstring-888e4c14e9d7"></a>
 ### getHostKeyVerifAsString()
 
 ```java
 public String getHostKeyVerifAsString()
 ```
 
-<a id="s-getHostKeyVerifier"></a>
+<a id="m-gethostkeyverifier-5231b47d5444"></a>
 ### getHostKeyVerifier()
 
 ```java
 protected ch.ethz.ssh2.ServerHostKeyVerifier getHostKeyVerifier()
 ```
 
-<a id="s-getHostKeyVerify"></a>
+<a id="m-gethostkeyverify-faec6b615eba"></a>
 ### getHostKeyVerify()
 
 ```java
 public int getHostKeyVerify()
 ```
 
-<a id="s-getId"></a>
+<a id="m-getid-199a349c70ef"></a>
 ### getId()
 
 ```java
 public String getId()
 ```
 
-<a id="s-getIdentities"></a>
+<a id="m-getidentities-65d4c5a4a59e"></a>
 ### getIdentities(NedWorker)
 
 ```java
@@ -706,313 +706,313 @@ protected java.util.Collection<ch.ethz.ssh2.auth.AgentIdentity> getIdentities(
 )
 ```
 
-Types: [NedWorker](NedWorker.md#s-NedWorker)
+Types: [NedWorker](NedWorker.md#cls-NedWorker)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker worker`
 
-<a id="s-getIP"></a>
+<a id="m-getip-c2f1d3db411f"></a>
 ### getIP()
 
 ```java
 public java.net.InetAddress getIP()
 ```
 
-<a id="s-getKeyDir"></a>
+<a id="m-getkeydir-07c13308c833"></a>
 ### getKeyDir()
 
 ```java
 public String getKeyDir()
 ```
 
-<a id="s-getLabel"></a>
+<a id="m-getlabel-72bf899bf6f1"></a>
 ### getLabel()
 
 ```java
 public String getLabel()
 ```
 
-<a id="s-getLoadOp"></a>
+<a id="m-getloadop-ab5127869701"></a>
 ### getLoadOp()
 
 ```java
 public int getLoadOp()
 ```
 
-<a id="s-getLocalUser"></a>
+<a id="m-getlocaluser-6ac239a3b919"></a>
 ### getLocalUser()
 
 ```java
 public String getLocalUser()
 ```
 
-<a id="s-getMfaExecutable"></a>
+<a id="m-getmfaexecutable-c68a3fe5954e"></a>
 ### getMfaExecutable()
 
 ```java
 public String getMfaExecutable()
 ```
 
-<a id="s-getMfaOpaque"></a>
+<a id="m-getmfaopaque-1ba5d0f480c6"></a>
 ### getMfaOpaque()
 
 ```java
 public String getMfaOpaque()
 ```
 
-<a id="s-getOperations"></a>
+<a id="m-getoperations-bb0a308eca4c"></a>
 ### getOperations()
 
 ```java
 public com.tailf.ned.NedEditOp[] getOperations()
 ```
 
-Types: [NedEditOp](NedEditOp.md#s-NedEditOp)
+Types: [NedEditOp](NedEditOp.md#cls-NedEditOp)
 
-<a id="s-getParams"></a>
+<a id="m-getparams-4abd21251a20"></a>
 ### getParams()
 
 ```java
 public com.tailf.conf.ConfXMLParam[] getParams()
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam)
 
-<a id="s-getPassword"></a>
+<a id="m-getpassword-003001cc6c91"></a>
 ### getPassword()
 
 ```java
 public String getPassword()
 ```
 
-<a id="s-getPath"></a>
+<a id="m-getpath-88fb21895561"></a>
 ### getPath()
 
 ```java
 public com.tailf.conf.ConfPath getPath()
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath)
 
-<a id="s-getPathIntent"></a>
+<a id="m-getpathintent-e49c0ca975d0"></a>
 ### getPathIntent()
 
 ```java
 public com.tailf.conf.ConfPath[] getPathIntent()
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath)
 
-<a id="s-getPaths"></a>
+<a id="m-getpaths-ce548cbbccae"></a>
 ### getPaths()
 
 ```java
 public com.tailf.conf.ConfPath[] getPaths() throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-<a id="s-getPort"></a>
+<a id="m-getport-a2225f868a2b"></a>
 ### getPort()
 
 ```java
 public int getPort()
 ```
 
-<a id="s-getProtocol"></a>
+<a id="m-getprotocol-7199008875a5"></a>
 ### getProtocol()
 
 ```java
 public String getProtocol()
 ```
 
-<a id="s-getProvisionalTransId"></a>
+<a id="m-getprovisionaltransid-746567171fc9"></a>
 ### getProvisionalTransId()
 
 ```java
 public String getProvisionalTransId()
 ```
 
-<a id="s-getPublicKeys"></a>
+<a id="m-getpublickeys-319aca5ff00c"></a>
 ### getPublicKeys()
 
 ```java
 public com.tailf.ned.NedCmd.NedPublicKey[] getPublicKeys()
 ```
 
-Types: [NedPublicKey](NedCmd/NedPublicKey.md#s-NedPublicKey)
+Types: [NedPublicKey](NedCmd/NedPublicKey.md#cls-NedPublicKey)
 
-<a id="s-getReadTimeout"></a>
+<a id="m-getreadtimeout-640fc089c1de"></a>
 ### getReadTimeout()
 
 ```java
 public int getReadTimeout()
 ```
 
-<a id="s-getRemoteUser"></a>
+<a id="m-getremoteuser-bdfb4a23b5ff"></a>
 ### getRemoteUser()
 
 ```java
 public String getRemoteUser()
 ```
 
-<a id="s-getSecondaryPassword"></a>
+<a id="m-getsecondarypassword-34fb12bcee21"></a>
 ### getSecondaryPassword()
 
 ```java
 public String getSecondaryPassword()
 ```
 
-<a id="s-getServerKeyMismatch"></a>
+<a id="m-getserverkeymismatch-397bbe151bff"></a>
 ### getServerKeyMismatch()
 
 ```java
 protected boolean getServerKeyMismatch()
 ```
 
-<a id="s-getSourceAddress"></a>
+<a id="m-getsourceaddress-873953ea3b38"></a>
 ### getSourceAddress()
 
 ```java
 public java.net.InetSocketAddress getSourceAddress()
 ```
 
-<a id="s-getSSHAlgorithms"></a>
+<a id="m-getsshalgorithms-9546086e7915"></a>
 ### getSSHAlgorithms()
 
 ```java
 public com.tailf.ned.NedCmd.NedSSHAlgorithms getSSHAlgorithms()
 ```
 
-Types: [NedSSHAlgorithms](NedCmd/NedSSHAlgorithms.md#s-NedSSHAlgorithms)
+Types: [NedSSHAlgorithms](NedCmd/NedSSHAlgorithms.md#cls-NedSSHAlgorithms)
 
-<a id="s-getStartTime"></a>
+<a id="m-getstarttime-f237c63a0230"></a>
 ### getStartTime()
 
 ```java
 public String getStartTime()
 ```
 
-<a id="s-getStream"></a>
+<a id="m-getstream-f9fafde50565"></a>
 ### getStream()
 
 ```java
 public String getStream()
 ```
 
-<a id="s-getTelemetrySettings"></a>
+<a id="m-gettelemetrysettings-fbb071630f56"></a>
 ### getTelemetrySettings()
 
 ```java
 public java.util.Map<String,java.util.List<String>> getTelemetrySettings()
 ```
 
-<a id="s-getTimeout"></a>
+<a id="m-gettimeout-c6606d7f7c00"></a>
 ### getTimeout()
 
 ```java
 public int getTimeout()
 ```
 
-<a id="s-getTopTag"></a>
+<a id="m-gettoptag-4bbcffa59820"></a>
 ### getTopTag()
 
 ```java
 public String getTopTag()
 ```
 
-<a id="s-getToTransactionId"></a>
+<a id="m-gettotransactionid-3beba3c28e0e"></a>
 ### getToTransactionId()
 
 ```java
 public int getToTransactionId()
 ```
 
-<a id="s-getTransaction"></a>
+<a id="m-gettransaction-4f1c72a828a1"></a>
 ### getTransaction()
 
 ```java
 public int getTransaction()
 ```
 
-<a id="s-getUsid"></a>
+<a id="m-getusid-62d0ecfd68fd"></a>
 ### getUsid()
 
 ```java
 public int getUsid()
 ```
 
-<a id="s-getWorkerId"></a>
+<a id="m-getworkerid-80f0b625907c"></a>
 ### getWorkerId()
 
 ```java
 public int getWorkerId()
 ```
 
-<a id="s-getWriteTimeout"></a>
+<a id="m-getwritetimeout-866d6552aa46"></a>
 ### getWriteTimeout()
 
 ```java
 public int getWriteTimeout()
 ```
 
-<a id="s-getXPathIntent"></a>
+<a id="m-getxpathintent-67290eec645d"></a>
 ### getXPathIntent()
 
 ```java
 public String[] getXPathIntent()
 ```
 
-<a id="s-isAll"></a>
+<a id="m-isall-9d62c2f960b8"></a>
 ### isAll()
 
 ```java
 public boolean isAll()
 ```
 
-<a id="s-isForce"></a>
+<a id="m-isforce-f9ef7f4abb1e"></a>
 ### isForce()
 
 ```java
 public boolean isForce()
 ```
 
-<a id="s-isSuppressTransId"></a>
+<a id="m-issuppresstransid-ea2b7aa87e80"></a>
 ### isSuppressTransId()
 
 ```java
 public boolean isSuppressTransId()
 ```
 
-<a id="s-isTrace"></a>
+<a id="m-istrace-98fd54ca3d6c"></a>
 ### isTrace()
 
 ```java
 public boolean isTrace()
 ```
 
-<a id="s-isVerbose"></a>
+<a id="m-isverbose-224af8693204"></a>
 ### isVerbose()
 
 ```java
 public boolean isVerbose()
 ```
 
-<a id="s-parseOps"></a>
+<a id="m-parseops-4ab9ce41ccc1"></a>
 ### parseOps(ConfEList)
 
 ```java
 public final com.tailf.ned.NedEditOp[] parseOps(com.tailf.proto.ConfEList l)
 ```
 
-Types: [NedEditOp](NedEditOp.md#s-NedEditOp), [ConfEList](../proto/ConfEList.md#s-ConfEList)
+Types: [NedEditOp](NedEditOp.md#cls-NedEditOp), [ConfEList](../proto/ConfEList.md#cls-ConfEList)
 
 **Parameters**
 
 - `com.tailf.proto.ConfEList l`
 
-<a id="s-setAdditionalInfo"></a>
+<a id="m-setadditionalinfo-b262ce567572"></a>
 ### setAdditionalInfo(String)
 
 ```java
@@ -1023,7 +1023,7 @@ public void setAdditionalInfo(String info)
 
 - `String info`
 
-<a id="s-setProvisionalTransId"></a>
+<a id="m-setprovisionaltransid-e17c71c7b76d"></a>
 ### setProvisionalTransId(String)
 
 ```java
@@ -1034,14 +1034,14 @@ protected void setProvisionalTransId(String id)
 
 - `String id`
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java
 public String toString()
 ```
 
-<a id="s-verifyServerHostKey"></a>
+<a id="m-verifyserverhostkey-df5f7c8ae1fe"></a>
 ### verifyServerHostKey(String, int, String, byte[])
 
 ```java
@@ -1063,5 +1063,5 @@ public boolean verifyServerHostKey(
 
 ## Nested Types
 
-- [NedPublicKey](NedCmd/NedPublicKey.md)
-- [NedSSHAlgorithms](NedCmd/NedSSHAlgorithms.md)
+- [NedPublicKey](NedCmd/NedPublicKey.md#cls-NedPublicKey)
+- [NedSSHAlgorithms](NedCmd/NedSSHAlgorithms.md#cls-NedSSHAlgorithms)

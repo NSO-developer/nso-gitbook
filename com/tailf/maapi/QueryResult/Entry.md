@@ -1,11 +1,11 @@
-<a id="s-Entry"></a>
+<a id="cls-Entry"></a>
 # Entry
 
 ```java
 public static class com.tailf.maapi.QueryResult.Entry<E extends com.tailf.maapi.ResultType>
 ```
 
-Types: [ResultType](../ResultType.md#s-ResultType)
+Types: [ResultType](../ResultType.md#cls-ResultType)
 
 Represent result entry in a XPath query.
 
@@ -15,7 +15,7 @@ Represent result entry in a XPath query.
  A entry contains a `ListE` of the result type
  `E` (is the same type `T` specified
  in the last parameter of
- [`Maapi`](../Maapi.md#s-Maapi)).
+ `Maapi#queryStart(int,String,String,int,int,List,Class)`).
 
 
  Each entry in the `ListE` is the
@@ -26,15 +26,15 @@ Represent result entry in a XPath query.
 
 **Constructors**:
 
-- [Entry(List<E>)](#s-Entry-1)
+- [Entry(List<E>)](#m-entry-3c15f85e762c)
 
 **Methods**:
 
-- [value()](#s-value)
+- [value()](#m-value-9e1512d1a0ce)
 
 ## Constructors
 
-<a id="s-Entry-1"></a>
+<a id="m-entry-3c15f85e762c"></a>
 ### Entry(List<E>)
 
 **Package-private**
@@ -50,7 +50,7 @@ Entry(java.util.List<E> list)
 
 ## Methods
 
-<a id="s-value"></a>
+<a id="m-value-9e1512d1a0ce"></a>
 ### value()
 
 ```java

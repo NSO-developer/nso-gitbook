@@ -1,4 +1,4 @@
-<a id="s-ConfCleaner"></a>
+<a id="cls-ConfCleaner"></a>
 # ConfCleaner
 
 ```java
@@ -12,20 +12,20 @@ ConfCleaner manages a set of object references and corresponding
 
 **Fields**:
 
-- [CLEANER](#s-CLEANER)
+- [CLEANER](#m-CLEANER)
 
 **Methods**:
 
-- [register(Object, AutoCloseable, AutoCloseable[])](#s-register)
-- [register(Object, Runnable)](#s-register-1)
+- [register(Object, AutoCloseable, AutoCloseable[])](#m-register-15a1a2f775a2)
+- [register(Object, Runnable)](#m-register-2ca26b8e3d14)
 
 **Nested Types**:
 
-- [Closer](ConfCleaner/Closer.md#s-Closer)
+- [Closer](ConfCleaner/Closer.md#cls-Closer)
 
 ## Fields
 
-<a id="s-CLEANER"></a>
+<a id="m-CLEANER"></a>
 ### CLEANER
 
 ```java
@@ -35,7 +35,7 @@ public static final java.lang.ref.Cleaner CLEANER = null;
 
 ## Methods
 
-<a id="s-register"></a>
+<a id="m-register-15a1a2f775a2"></a>
 ### register(Object, AutoCloseable, AutoCloseable[])
 
 ```java
@@ -57,7 +57,7 @@ Registers an auto closeable object that will be closed when
 
 **Returns:** a Cleanable instance
 
-<a id="s-register-1"></a>
+<a id="m-register-2ca26b8e3d14"></a>
 ### register(Object, Runnable)
 
 ```java
@@ -77,4 +77,4 @@ Registers an object and a cleaning action to run when the
 
 ## Nested Types
 
-- [Closer](ConfCleaner/Closer.md)
+- [Closer](ConfCleaner/Closer.md#cls-Closer)

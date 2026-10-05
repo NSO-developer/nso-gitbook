@@ -1,17 +1,13 @@
-<a id="s-TransValidateCBType"></a>
+<a id="cls-TransValidateCBType"></a>
 # TransValidateCBType
 
 ```java
 public enum com.tailf.dp.proto.TransValidateCBType
 ```
 
-Types: [TransValidateCBType](TransValidateCBType.md#s-TransValidateCBType)
+Types: [TransValidateCBType](TransValidateCBType.md#cls-TransValidateCBType)
 
 Enumeration of TransValidate callback methods
-
-**Related classes**
-
-- [TransValidateCBType](TransValidateCBType.md#s-TransValidateCBType)
 
 **Since:** 3.2.0
 
@@ -19,25 +15,25 @@ Enumeration of TransValidate callback methods
 
 **Enum Constants**:
 
-- [INIT](#s-INIT)
-- [STOP](#s-STOP)
+- [INIT](#m-INIT)
+- [STOP](#m-STOP)
 
 **Methods**:
 
-- [getValue()](#s-getValue)
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [getValue()](#m-getvalue-d93864668c40)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-INIT"></a>
+<a id="m-INIT"></a>
 ### INIT
 
 ```java
 public static final com.tailf.dp.proto.TransValidateCBType INIT;
 ```
 
-<a id="s-STOP"></a>
+<a id="m-STOP"></a>
 ### STOP
 
 ```java
@@ -47,7 +43,7 @@ public static final com.tailf.dp.proto.TransValidateCBType STOP;
 
 ## Methods
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
@@ -58,24 +54,24 @@ get integer value for enum
 
 **Returns:** int value
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.dp.proto.TransValidateCBType valueOf(String name)
 ```
 
-Types: [TransValidateCBType](TransValidateCBType.md#s-TransValidateCBType)
+Types: [TransValidateCBType](TransValidateCBType.md#cls-TransValidateCBType)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.dp.proto.TransValidateCBType[] values()
 ```
 
-Types: [TransValidateCBType](TransValidateCBType.md#s-TransValidateCBType)
+Types: [TransValidateCBType](TransValidateCBType.md#cls-TransValidateCBType)

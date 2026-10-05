@@ -1,4 +1,4 @@
-<a id="s-Subsystem"></a>
+<a id="cls-Subsystem"></a>
 # Subsystem
 
 ```java
@@ -13,15 +13,15 @@ SSHCLient subsystem interface
 
 **Methods**:
 
-- [close()](#s-close)
-- [getInputStream()](#s-getInputStream)
-- [getOutputStream()](#s-getOutputStream)
-- [isEof()](#s-isEof)
-- [isOpen()](#s-isOpen)
+- [close()](#m-close-8107c6dc012b)
+- [getInputStream()](#m-getinputstream-cb1d1fa14d56)
+- [getOutputStream()](#m-getoutputstream-b7e39f99be28)
+- [isEof()](#m-iseof-8742248f0caf)
+- [isOpen()](#m-isopen-9dae28e82104)
 
 ## Methods
 
-<a id="s-close"></a>
+<a id="m-close-8107c6dc012b"></a>
 ### close()
 
 ```java
@@ -34,7 +34,7 @@ Close the subsystem
 
 - `IOException`
 
-<a id="s-getInputStream"></a>
+<a id="m-getinputstream-cb1d1fa14d56"></a>
 ### getInputStream()
 
 ```java
@@ -43,7 +43,7 @@ public abstract java.io.InputStream getInputStream()
 
 **Returns:** the input stream used for this subsystem.
 
-<a id="s-getOutputStream"></a>
+<a id="m-getoutputstream-b7e39f99be28"></a>
 ### getOutputStream()
 
 ```java
@@ -52,7 +52,7 @@ public abstract java.io.OutputStream getOutputStream()
 
 **Returns:** the output stream used for this subsystem.
 
-<a id="s-isEof"></a>
+<a id="m-iseof-8742248f0caf"></a>
 ### isEof()
 
 ```java
@@ -61,7 +61,7 @@ public abstract boolean isEof()
 
 **Returns:** whether EOF has been received.
 
-<a id="s-isOpen"></a>
+<a id="m-isopen-9dae28e82104"></a>
 ### isOpen()
 
 ```java

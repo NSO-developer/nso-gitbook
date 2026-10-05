@@ -1,4 +1,4 @@
-<a id="s-ConfInternal"></a>
+<a id="cls-ConfInternal"></a>
 # ConfInternal
 
 ```java
@@ -21,56 +21,56 @@ This class implements the internal communication API in Java.
 
 **Constructors**:
 
-- [ConfInternal()](#s-ConfInternal-1)
+- [ConfInternal()](#m-confinternal-3cc414d364dd)
 
 **Methods**:
 
-- [bufWrite(SelectionKey, int, int, byte[])](#s-bufWrite)
-- [bufWrite(Socket, int, int, byte[])](#s-bufWrite-1)
-- [diffIterate(Object, ConfIterate, Object)](#s-diffIterate)
-- [diffIterate(SelectionKey, ConfIterate, Object)](#s-diffIterate-1)
-- [doConnect(SelectionKey, int)](#s-doConnect)
-- [doConnect(Socket, int)](#s-doConnect-1)
-- [flushToSocket(Object, ConfOutputStream)](#s-flushToSocket)
-- [flushToSocket(SelectionKey, ConfOutputStream)](#s-flushToSocket-1)
-- [get_int16(int, byte[])](#s-get_int16)
-- [get_int32(int, byte[])](#s-get_int32)
-- [hk_keypath(ConfEObject)](#s-hk_keypath)
-- [intWrite(Socket, int, int, int)](#s-intWrite)
-- [mk_keypath(ConfEObject, List<ConfNamespace>)](#s-mk_keypath)
-- [put_int16(int, int, byte[])](#s-put_int16)
-- [put_int32(int, int, byte[])](#s-put_int32)
-- [readFill(SelectionKey, ByteBuffer, int)](#s-readFill)
-- [readFill(Socket, byte[])](#s-readFill-1)
-- [readPayLoad(SelectionKey, ByteBuffer, int)](#s-readPayLoad)
-- [readSize(SelectionKey, ByteBuffer, int)](#s-readSize)
-- [requestInt(Socket, int)](#s-requestInt)
-- [requestInt(Socket, int, int)](#s-requestInt-1)
-- [requestTerm(SelectionKey, int)](#s-requestTerm)
-- [requestTerm(SelectionKey, int, ConfEObject)](#s-requestTerm-1)
-- [requestTerm(SelectionKey, int, int, boolean, ConfEObject)](#s-requestTerm-2)
-- [requestTerm(Socket, int)](#s-requestTerm-3)
-- [requestTerm(Socket, int, ConfEObject)](#s-requestTerm-4)
-- [requestTerm(Socket, int, int, boolean, ConfEObject)](#s-requestTerm-5)
-- [substitute_percent(String, Object[])](#s-substitute_percent)
-- [termRead(Object)](#s-termRead)
-- [termRead(SelectionKey)](#s-termRead-1)
-- [termRead(SelectionKey, int)](#s-termRead-2)
-- [termRead(Socket)](#s-termRead-3)
-- [termRead(Socket, int)](#s-termRead-4)
-- [termWrite(int, int, ConfEObject)](#s-termWrite)
-- [termWrite(SelectionKey, int, int, ConfEObject)](#s-termWrite-1)
-- [termWrite(Socket, ConfEObject)](#s-termWrite-2)
-- [termWrite(Socket, int, ConfEObject)](#s-termWrite-3)
-- [termWrite(Socket, int, int, ConfEObject)](#s-termWrite-4)
-- [write(int, int)](#s-write)
-- [write(SelectionKey, int, int)](#s-write-1)
-- [write(Socket, int)](#s-write-2)
-- [write(Socket, int, int)](#s-write-3)
+- [bufWrite(SelectionKey, int, int, byte[])](#m-bufwrite-d33523fe82db)
+- [bufWrite(Socket, int, int, byte[])](#m-bufwrite-94d76be3d42a)
+- [diffIterate(Object, ConfIterate, Object)](#m-diffiterate-034170f5a030)
+- [diffIterate(SelectionKey, ConfIterate, Object)](#m-diffiterate-3a0becef6295)
+- [doConnect(SelectionKey, int)](#m-doconnect-a5d7493473e0)
+- [doConnect(Socket, int)](#m-doconnect-5288b1c56f77)
+- [flushToSocket(Object, ConfOutputStream)](#m-flushtosocket-0587eb53c17c)
+- [flushToSocket(SelectionKey, ConfOutputStream)](#m-flushtosocket-5c0c54d6c247)
+- [get_int16(int, byte[])](#m-get_int16-65c9cfe02f76)
+- [get_int32(int, byte[])](#m-get_int32-08ef7a55ec05)
+- [hk_keypath(ConfEObject)](#m-hk_keypath-b48c416c1f1c)
+- [intWrite(Socket, int, int, int)](#m-intwrite-721f33cb3e78)
+- [mk_keypath(ConfEObject, List<ConfNamespace>)](#m-mk_keypath-0b6f5c337acd)
+- [put_int16(int, int, byte[])](#m-put_int16-430883d863df)
+- [put_int32(int, int, byte[])](#m-put_int32-a1bdd1462219)
+- [readFill(SelectionKey, ByteBuffer, int)](#m-readfill-a250e734855a)
+- [readFill(Socket, byte[])](#m-readfill-f24254cdc166)
+- [readPayLoad(SelectionKey, ByteBuffer, int)](#m-readpayload-19f1f0759b9b)
+- [readSize(SelectionKey, ByteBuffer, int)](#m-readsize-9b9eb695cca2)
+- [requestInt(Socket, int)](#m-requestint-a1c24de5f8f1)
+- [requestInt(Socket, int, int)](#m-requestint-fb8fde4d0d13)
+- [requestTerm(SelectionKey, int)](#m-requestterm-29f26a37f01d)
+- [requestTerm(SelectionKey, int, ConfEObject)](#m-requestterm-8825787a78c9)
+- [requestTerm(SelectionKey, int, int, boolean, ConfEObject)](#m-requestterm-15683fcc881a)
+- [requestTerm(Socket, int)](#m-requestterm-ff5162bfe272)
+- [requestTerm(Socket, int, ConfEObject)](#m-requestterm-f966587fc3d9)
+- [requestTerm(Socket, int, int, boolean, ConfEObject)](#m-requestterm-7ec615ba84b5)
+- [substitute_percent(String, Object[])](#m-substitute_percent-2065ae27a6bc)
+- [termRead(Object)](#m-termread-dde69cb8c07f)
+- [termRead(SelectionKey)](#m-termread-1f9fd627b396)
+- [termRead(SelectionKey, int)](#m-termread-1f2ce37a445b)
+- [termRead(Socket)](#m-termread-a6eabc408efc)
+- [termRead(Socket, int)](#m-termread-56b02dc51c58)
+- [termWrite(int, int, ConfEObject)](#m-termwrite-c67483238ac9)
+- [termWrite(SelectionKey, int, int, ConfEObject)](#m-termwrite-c427eeaa3adb)
+- [termWrite(Socket, ConfEObject)](#m-termwrite-9ddad78c26d9)
+- [termWrite(Socket, int, ConfEObject)](#m-termwrite-86f265b572d8)
+- [termWrite(Socket, int, int, ConfEObject)](#m-termwrite-0fccfabe0503)
+- [write(int, int)](#m-write-92888bad2444)
+- [write(SelectionKey, int, int)](#m-write-8822ef3e60fa)
+- [write(Socket, int)](#m-write-e15b958a280b)
+- [write(Socket, int, int)](#m-write-f3ba282b5baf)
 
 ## Constructors
 
-<a id="s-ConfInternal-1"></a>
+<a id="m-confinternal-3cc414d364dd"></a>
 ### ConfInternal()
 
 ```java
@@ -80,7 +80,7 @@ public ConfInternal()
 
 ## Methods
 
-<a id="s-bufWrite"></a>
+<a id="m-bufwrite-d33523fe82db"></a>
 ### bufWrite(SelectionKey, int, int, byte[])
 
 ```java
@@ -102,7 +102,7 @@ Writes OP + string
 - `int thandle` - The transaction handle
 - `byte[] buf` - The byte buffer to write
 
-<a id="s-bufWrite-1"></a>
+<a id="m-bufwrite-94d76be3d42a"></a>
 ### bufWrite(Socket, int, int, byte[])
 
 ```java
@@ -124,7 +124,7 @@ Writes OP + string
 - `int thandle` - The transaction handle
 - `byte[] buf` - The byte buffer to write
 
-<a id="s-diffIterate"></a>
+<a id="m-diffiterate-034170f5a030"></a>
 ### diffIterate(Object, ConfIterate, Object)
 
 ```java
@@ -136,7 +136,7 @@ public static void diffIterate(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfIterate](ConfIterate.md#s-ConfIterate), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfIterate](ConfIterate.md#cls-ConfIterate), [ConfException](ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -144,7 +144,7 @@ Types: [ConfIterate](ConfIterate.md#s-ConfIterate), [ConfException](ConfExceptio
 - `com.tailf.conf.ConfIterate iter`
 - `Object initstate`
 
-<a id="s-diffIterate-1"></a>
+<a id="m-diffiterate-3a0becef6295"></a>
 ### diffIterate(SelectionKey, ConfIterate, Object)
 
 ```java
@@ -156,7 +156,7 @@ public static void diffIterate(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfIterate](ConfIterate.md#s-ConfIterate), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfIterate](ConfIterate.md#cls-ConfIterate), [ConfException](ConfException.md#cls-ConfException)
 
 Common static method for diffIterate with CdbSubscription.
  This method is used internally by the Cdb API.
@@ -178,7 +178,7 @@ Common static method for diffIterate with CdbSubscription.
 - `IOException` - if an general I/O error occurred
 - `ConfException` - if ConfD/NCS protocol error occurred
 
-<a id="s-doConnect"></a>
+<a id="m-doconnect-a5d7493473e0"></a>
 ### doConnect(SelectionKey, int)
 
 ```java
@@ -189,7 +189,7 @@ public static long doConnect(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 Connects the provided selectable channel to the Erlang process
   using the supplied selector with the buffer buf with the identifier
@@ -217,21 +217,21 @@ Connects the provided selectable channel to the Erlang process
   to be able to retrieve the cause use getCause().
 - `IOException` - if an I/O error occured
 
-<a id="s-doConnect-1"></a>
+<a id="m-doconnect-5288b1c56f77"></a>
 ### doConnect(Socket, int)
 
 ```java
 public static long doConnect(java.net.Socket socket, int id) throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `java.net.Socket socket`
 - `int id`
 
-<a id="s-flushToSocket"></a>
+<a id="m-flushtosocket-0587eb53c17c"></a>
 ### flushToSocket(Object, ConfOutputStream)
 
 ```java
@@ -242,14 +242,14 @@ public static void flushToSocket(
     throws java.io.IOException
 ```
 
-Types: [ConfOutputStream](../proto/ConfOutputStream.md#s-ConfOutputStream)
+Types: [ConfOutputStream](../proto/ConfOutputStream.md#cls-ConfOutputStream)
 
 **Parameters**
 
 - `Object socket`
 - `com.tailf.proto.ConfOutputStream out`
 
-<a id="s-flushToSocket-1"></a>
+<a id="m-flushtosocket-5c0c54d6c247"></a>
 ### flushToSocket(SelectionKey, ConfOutputStream)
 
 ```java
@@ -260,14 +260,14 @@ public static void flushToSocket(
     throws java.io.IOException
 ```
 
-Types: [ConfOutputStream](../proto/ConfOutputStream.md#s-ConfOutputStream)
+Types: [ConfOutputStream](../proto/ConfOutputStream.md#cls-ConfOutputStream)
 
 **Parameters**
 
 - `java.nio.channels.SelectionKey key`
 - `com.tailf.proto.ConfOutputStream out`
 
-<a id="s-get_int16"></a>
+<a id="m-get_int16-65c9cfe02f76"></a>
 ### get_int16(int, byte[])
 
 ```java
@@ -279,7 +279,7 @@ public static int get_int16(int offset, byte[] s)
 - `int offset`
 - `byte[] s`
 
-<a id="s-get_int32"></a>
+<a id="m-get_int32-08ef7a55ec05"></a>
 ### get_int32(int, byte[])
 
 ```java
@@ -291,7 +291,7 @@ public static long get_int32(int offset, byte[] s)
 - `int offset`
 - `byte[] s`
 
-<a id="s-hk_keypath"></a>
+<a id="m-hk_keypath-b48c416c1f1c"></a>
 ### hk_keypath(ConfEObject)
 
 ```java
@@ -301,7 +301,7 @@ public static com.tailf.conf.ConfObject[] hk_keypath(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfObject](ConfObject.md#s-ConfObject), [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfObject](ConfObject.md#cls-ConfObject), [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](ConfException.md#cls-ConfException)
 
 Create a hkeypath from a term. This method takes
  a ConfEList as its actual polymorphic type.
@@ -313,7 +313,7 @@ Create a hkeypath from a term. This method takes
 
 **Returns:** KeyPath of ConfEObject.
 
-<a id="s-intWrite"></a>
+<a id="m-intwrite-721f33cb3e78"></a>
 ### intWrite(Socket, int, int, int)
 
 ```java
@@ -336,7 +336,7 @@ Writes an integer op, a thandle, and a single integer argument to
 - `int thandle`
 - `int arg`
 
-<a id="s-mk_keypath"></a>
+<a id="m-mk_keypath-0b6f5c337acd"></a>
 ### mk_keypath(ConfEObject, List<ConfNamespace>)
 
 ```java
@@ -347,7 +347,7 @@ public static com.tailf.conf.ConfObject[] mk_keypath(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfObject](ConfObject.md#s-ConfObject), [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfNamespace](ConfNamespace.md#s-ConfNamespace), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfObject](ConfObject.md#cls-ConfObject), [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfNamespace](ConfNamespace.md#cls-ConfNamespace), [ConfException](ConfException.md#cls-ConfException)
 
 Makes a keypath from a term.
  This method us obsolete but the problem is
@@ -361,7 +361,7 @@ Makes a keypath from a term.
 - `com.tailf.proto.ConfEObject term`
 - `java.util.List<com.tailf.conf.ConfNamespace> nsList`
 
-<a id="s-put_int16"></a>
+<a id="m-put_int16-430883d863df"></a>
 ### put_int16(int, int, byte[])
 
 ```java
@@ -374,7 +374,7 @@ public static void put_int16(int offset, int i, byte[] s)
 - `int i`
 - `byte[] s`
 
-<a id="s-put_int32"></a>
+<a id="m-put_int32-a1bdd1462219"></a>
 ### put_int32(int, int, byte[])
 
 ```java
@@ -387,7 +387,7 @@ public static void put_int32(int offset, int i, byte[] s)
 - `int i`
 - `byte[] s`
 
-<a id="s-readFill"></a>
+<a id="m-readfill-a250e734855a"></a>
 ### readFill(SelectionKey, ByteBuffer, int)
 
 ```java
@@ -399,7 +399,7 @@ public static void readFill(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 Read exactly `siz` data into the buffer
  `buf`.
@@ -422,7 +422,7 @@ Read exactly `siz` data into the buffer
 - `IOException` - if an general I/O error occurred
 - `ConfException` - if ConfD/NCS protocol error occurred
 
-<a id="s-readFill-1"></a>
+<a id="m-readfill-f24254cdc166"></a>
 ### readFill(Socket, byte[])
 
 ```java
@@ -433,7 +433,7 @@ public static void readFill(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 Reads data into a buffer. Exactly all bytes as specified by the buffer
  size is read.
@@ -443,7 +443,7 @@ Reads data into a buffer. Exactly all bytes as specified by the buffer
 - `java.net.Socket socket` - A socket connected to ConfD/NCS
 - `byte[] b` - Buffer array of bytes to read data into
 
-<a id="s-readPayLoad"></a>
+<a id="m-readpayload-19f1f0759b9b"></a>
 ### readPayLoad(SelectionKey, ByteBuffer, int)
 
 ```java
@@ -455,7 +455,7 @@ public static void readPayLoad(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -463,7 +463,7 @@ Types: [ConfException](ConfException.md#s-ConfException)
 - `java.nio.ByteBuffer buf`
 - `int size`
 
-<a id="s-readSize"></a>
+<a id="m-readsize-9b9eb695cca2"></a>
 ### readSize(SelectionKey, ByteBuffer, int)
 
 ```java
@@ -475,7 +475,7 @@ public static void readSize(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 **Parameters**
 
@@ -483,7 +483,7 @@ Types: [ConfException](ConfException.md#s-ConfException)
 - `java.nio.ByteBuffer buf`
 - `int size`
 
-<a id="s-requestInt"></a>
+<a id="m-requestint-a1c24de5f8f1"></a>
 ### requestInt(Socket, int)
 
 ```java
@@ -494,7 +494,7 @@ public static int requestInt(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 Request an integer from ConfD/NCS.
 
@@ -503,7 +503,7 @@ Request an integer from ConfD/NCS.
 - `java.net.Socket socket` - A socket connected to ConfD/NCS
 - `int op` - The op code.
 
-<a id="s-requestInt-1"></a>
+<a id="m-requestint-fb8fde4d0d13"></a>
 ### requestInt(Socket, int, int)
 
 ```java
@@ -515,7 +515,7 @@ public static int requestInt(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 Requests an integer value from ConfD/NCS.
 
@@ -525,7 +525,7 @@ Requests an integer value from ConfD/NCS.
 - `int op` - The op code.
 - `int thandle` - The transaction handle.
 
-<a id="s-requestTerm"></a>
+<a id="m-requestterm-29f26a37f01d"></a>
 ### requestTerm(SelectionKey, int)
 
 ```java
@@ -536,7 +536,7 @@ public static com.tailf.conf.ConfResponse requestTerm(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfResponse](ConfResponse.md#s-ConfResponse), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfResponse](ConfResponse.md#cls-ConfResponse), [ConfException](ConfException.md#cls-ConfException)
 
 Request the operation `op` with no argument,
   and read the response from ConfD/NCS.
@@ -570,7 +570,7 @@ Request the operation `op` with no argument,
 - `IOException` - if an general I/O error occurred
 - `ConfException` - if ConfD/NCS protocol error occurred
 
-<a id="s-requestTerm-1"></a>
+<a id="m-requestterm-8825787a78c9"></a>
 ### requestTerm(SelectionKey, int, ConfEObject)
 
 ```java
@@ -582,7 +582,7 @@ public static com.tailf.conf.ConfResponse requestTerm(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfResponse](ConfResponse.md#s-ConfResponse), [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfResponse](ConfResponse.md#cls-ConfResponse), [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](ConfException.md#cls-ConfException)
 
 Write a term `arg` for the specified operation
   `op` and read the response,
@@ -613,7 +613,7 @@ Write a term `arg` for the specified operation
 - `IOException` - if an general I/O error occurred
 - `ConfException` - if ConfD/NCS protocol error occurred
 
-<a id="s-requestTerm-2"></a>
+<a id="m-requestterm-15683fcc881a"></a>
 ### requestTerm(SelectionKey, int, int, boolean, ConfEObject)
 
 ```java
@@ -627,7 +627,7 @@ public static com.tailf.conf.ConfResponse requestTerm(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfResponse](ConfResponse.md#s-ConfResponse), [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfResponse](ConfResponse.md#cls-ConfResponse), [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](ConfException.md#cls-ConfException)
 
 Write a term `arg` for the specified operation
   `op` , transaction handle `thandle`
@@ -662,7 +662,7 @@ Write a term `arg` for the specified operation
 - `IOException` - if an general I/O error occurred
 - `ConfException` - if ConfD/NCS protocol error occurred
 
-<a id="s-requestTerm-3"></a>
+<a id="m-requestterm-ff5162bfe272"></a>
 ### requestTerm(Socket, int)
 
 ```java
@@ -673,7 +673,7 @@ public static com.tailf.conf.ConfResponse requestTerm(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfResponse](ConfResponse.md#s-ConfResponse), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfResponse](ConfResponse.md#cls-ConfResponse), [ConfException](ConfException.md#cls-ConfException)
 
 Requests a term from ConfD/NCS.
 
@@ -682,7 +682,7 @@ Requests a term from ConfD/NCS.
 - `java.net.Socket socket` - A socket connected to ConfD/NCS
 - `int op` - The op code.
 
-<a id="s-requestTerm-4"></a>
+<a id="m-requestterm-f966587fc3d9"></a>
 ### requestTerm(Socket, int, ConfEObject)
 
 ```java
@@ -694,7 +694,7 @@ public static com.tailf.conf.ConfResponse requestTerm(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfResponse](ConfResponse.md#s-ConfResponse), [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfResponse](ConfResponse.md#cls-ConfResponse), [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](ConfException.md#cls-ConfException)
 
 Requests a term from ConfD/NCS.
 
@@ -704,7 +704,7 @@ Requests a term from ConfD/NCS.
 - `int op` - The op code.
 - `com.tailf.proto.ConfEObject arg` - An argument to send in the request
 
-<a id="s-requestTerm-5"></a>
+<a id="m-requestterm-7ec615ba84b5"></a>
 ### requestTerm(Socket, int, int, boolean, ConfEObject)
 
 ```java
@@ -718,7 +718,7 @@ public static com.tailf.conf.ConfResponse requestTerm(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfResponse](ConfResponse.md#s-ConfResponse), [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfResponse](ConfResponse.md#cls-ConfResponse), [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](ConfException.md#cls-ConfException)
 
 Requests a term from ConfD/NCS.
 
@@ -731,7 +731,7 @@ Requests a term from ConfD/NCS.
                if it is relative or not
 - `com.tailf.proto.ConfEObject arg` - Argument ConfObject object
 
-<a id="s-substitute_percent"></a>
+<a id="m-substitute_percent-2065ae27a6bc"></a>
 ### substitute_percent(String, Object[])
 
 ```java
@@ -743,7 +743,7 @@ public static String substitute_percent(String fmt, Object[] arguments)
 - `String fmt`
 - `Object[] arguments`
 
-<a id="s-termRead"></a>
+<a id="m-termread-dde69cb8c07f"></a>
 ### termRead(Object)
 
 ```java
@@ -753,7 +753,7 @@ public static com.tailf.conf.ConfResponse termRead(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfResponse](ConfResponse.md#s-ConfResponse), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfResponse](ConfResponse.md#cls-ConfResponse), [ConfException](ConfException.md#cls-ConfException)
 
 Common method to read a term from ConfD/NCS
 
@@ -775,7 +775,7 @@ Common method to read a term from ConfD/NCS
 - `IOException` - if an general I/O error occurred
 - `ConfException` - if ConfD/NCS protocol error occurred
 
-<a id="s-termRead-1"></a>
+<a id="m-termread-1f9fd627b396"></a>
 ### termRead(SelectionKey)
 
 ```java
@@ -785,7 +785,7 @@ public static com.tailf.conf.ConfResponse termRead(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfResponse](ConfResponse.md#s-ConfResponse), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfResponse](ConfResponse.md#cls-ConfResponse), [ConfException](ConfException.md#cls-ConfException)
 
 Common method to read ( request )  a term from ConfD/NCS
 
@@ -813,7 +813,7 @@ Common method to read ( request )  a term from ConfD/NCS
 - `IOException` - if an general I/O error occurred
 - `ConfException` - if ConfD/NCS protocol error occurred
 
-<a id="s-termRead-2"></a>
+<a id="m-termread-1f2ce37a445b"></a>
 ### termRead(SelectionKey, int)
 
 ```java
@@ -824,7 +824,7 @@ public static com.tailf.conf.ConfResponse termRead(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfResponse](ConfResponse.md#s-ConfResponse), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfResponse](ConfResponse.md#cls-ConfResponse), [ConfException](ConfException.md#cls-ConfException)
 
 Read a response, term from ConfD/NCS with the
   given `SelectionKey` and the op `cdbop`.
@@ -849,7 +849,7 @@ Read a response, term from ConfD/NCS with the
 - `IOException` - if an general I/O error occurred
 - `ConfException` - if ConfD/NCS protocol error occurred
 
-<a id="s-termRead-3"></a>
+<a id="m-termread-a6eabc408efc"></a>
 ### termRead(Socket)
 
 ```java
@@ -859,7 +859,7 @@ public static com.tailf.conf.ConfResponse termRead(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfResponse](ConfResponse.md#s-ConfResponse), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfResponse](ConfResponse.md#cls-ConfResponse), [ConfException](ConfException.md#cls-ConfException)
 
 Request one term from ConfD/NCS.
 
@@ -867,7 +867,7 @@ Request one term from ConfD/NCS.
 
 - `java.net.Socket sock` - A socket connected to ConfD/NCS
 
-<a id="s-termRead-4"></a>
+<a id="m-termread-56b02dc51c58"></a>
 ### termRead(Socket, int)
 
 ```java
@@ -878,7 +878,7 @@ public static com.tailf.conf.ConfResponse termRead(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfResponse](ConfResponse.md#s-ConfResponse), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfResponse](ConfResponse.md#cls-ConfResponse), [ConfException](ConfException.md#cls-ConfException)
 
 Request one term from ConfD/NCS.
 
@@ -887,7 +887,7 @@ Request one term from ConfD/NCS.
 - `java.net.Socket sock` - A socket connected to ConfD/NCS
 - `int cdbop` - The op code
 
-<a id="s-termWrite"></a>
+<a id="m-termwrite-c67483238ac9"></a>
 ### termWrite(int, int, ConfEObject)
 
 ```java
@@ -899,7 +899,7 @@ public static byte[] termWrite(
     throws java.io.IOException
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 **Parameters**
 
@@ -907,7 +907,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
 - `int thandle`
 - `com.tailf.proto.ConfEObject term`
 
-<a id="s-termWrite-1"></a>
+<a id="m-termwrite-c427eeaa3adb"></a>
 ### termWrite(SelectionKey, int, int, ConfEObject)
 
 ```java
@@ -920,7 +920,7 @@ public static void termWrite(
     throws java.io.IOException
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 Request that the operation `op` should be performed,
  with argument term `term` and with the transaction handle
@@ -944,7 +944,7 @@ Request that the operation `op` should be performed,
 
 - `IOException` - if an general I/O error occurred
 
-<a id="s-termWrite-2"></a>
+<a id="m-termwrite-9ddad78c26d9"></a>
 ### termWrite(Socket, ConfEObject)
 
 ```java
@@ -955,7 +955,7 @@ public static void termWrite(
     throws java.io.IOException
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 Writes a term argument to ConfD/NCS.
 
@@ -964,7 +964,7 @@ Writes a term argument to ConfD/NCS.
 - `java.net.Socket socket` - A socket connected to ConfD/NCS
 - `com.tailf.proto.ConfEObject term` - The ConfEObject term to write.
 
-<a id="s-termWrite-3"></a>
+<a id="m-termwrite-86f265b572d8"></a>
 ### termWrite(Socket, int, ConfEObject)
 
 ```java
@@ -976,7 +976,7 @@ public static void termWrite(
     throws java.io.IOException
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 Writes a term argument to ConfD/NCS.
 
@@ -986,7 +986,7 @@ Writes a term argument to ConfD/NCS.
 - `int op` - The op code.
 - `com.tailf.proto.ConfEObject term` - The ConfEObject term to write.
 
-<a id="s-termWrite-4"></a>
+<a id="m-termwrite-0fccfabe0503"></a>
 ### termWrite(Socket, int, int, ConfEObject)
 
 ```java
@@ -999,7 +999,7 @@ public static void termWrite(
     throws java.io.IOException
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 Writes a term argument to ConfD/NCS.
 
@@ -1010,7 +1010,7 @@ Writes a term argument to ConfD/NCS.
 - `int thandle` - The transaction handle
 - `com.tailf.proto.ConfEObject term` - The ConfEObject term to write.
 
-<a id="s-write"></a>
+<a id="m-write-92888bad2444"></a>
 ### write(int, int)
 
 ```java
@@ -1022,7 +1022,7 @@ public static byte[] write(int op, int thandle) throws java.io.IOException
 - `int op`
 - `int thandle`
 
-<a id="s-write-1"></a>
+<a id="m-write-8822ef3e60fa"></a>
 ### write(SelectionKey, int, int)
 
 ```java
@@ -1054,7 +1054,7 @@ Request that the operation `op` should be performed,
 
 - `IOException` - if an general I/O error occurred
 
-<a id="s-write-2"></a>
+<a id="m-write-e15b958a280b"></a>
 ### write(Socket, int)
 
 ```java
@@ -1068,7 +1068,7 @@ Write a simple op to ConfD/NCS
 - `java.net.Socket socket` - A socket connected to ConfD/NCS
 - `int op` - The op code.
 
-<a id="s-write-3"></a>
+<a id="m-write-f3ba282b5baf"></a>
 ### write(Socket, int, int)
 
 ```java

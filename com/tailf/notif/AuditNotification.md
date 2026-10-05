@@ -1,4 +1,4 @@
-<a id="s-AuditNotification"></a>
+<a id="cls-AuditNotification"></a>
 # AuditNotification
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.notif.AuditNotification
     extends com.tailf.notif.Notification
 ```
 
-Types: [Notification](Notification.md#s-Notification)
+Types: [Notification](Notification.md#cls-Notification)
 
 Data structure for Audit events
 
@@ -14,24 +14,24 @@ Data structure for Audit events
 
 **Constructors**:
 
-- [AuditNotification(int, String, int, String)](#s-AuditNotification-1)
+- [AuditNotification(int, String, int, String)](#m-auditnotification-0d6674fb37d3)
 
 **Fields**:
 
-- [type](Notification.md#s-type) from Notification
+- [type](Notification.md#m-type) from Notification
 
 **Methods**:
 
-- [getLogNo()](#s-getLogNo)
-- [getMessage()](#s-getMessage)
-- [getNotificationType()](Notification.md#s-getNotificationType) from Notification
-- [getUser()](#s-getUser)
-- [getUserId()](#s-getUserId)
-- [toString()](#s-toString)
+- [getLogNo()](#m-getlogno-0a53380cc549)
+- [getMessage()](#m-getmessage-77b7dae8469e)
+- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
+- [getUser()](#m-getuser-fbcccdd28c7c)
+- [getUserId()](#m-getuserid-46c2e98d8db7)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-AuditNotification-1"></a>
+<a id="m-auditnotification-0d6674fb37d3"></a>
 ### AuditNotification(int, String, int, String)
 
 ```java
@@ -50,7 +50,7 @@ Constructs a new AuditNotification with the specified parameters.
 
 ## Methods
 
-<a id="s-getLogNo"></a>
+<a id="m-getlogno-0a53380cc549"></a>
 ### getLogNo()
 
 ```java
@@ -62,7 +62,7 @@ Gets the log number from confd_logsyms.h associated with this audit
 
 **Returns:** the log number identifying the type of audit event
 
-<a id="s-getMessage"></a>
+<a id="m-getmessage-77b7dae8469e"></a>
 ### getMessage()
 
 ```java
@@ -73,7 +73,7 @@ Gets the audit message describing the event that occurred.
 
 **Returns:** the descriptive message for this audit event
 
-<a id="s-getUser"></a>
+<a id="m-getuser-fbcccdd28c7c"></a>
 ### getUser()
 
 ```java
@@ -84,7 +84,7 @@ Gets the username associated with this audit event.
 
 **Returns:** the username
 
-<a id="s-getUserId"></a>
+<a id="m-getuserid-46c2e98d8db7"></a>
 ### getUserId()
 
 ```java
@@ -95,7 +95,7 @@ Gets the user session identifier associated with this audit event.
 
 **Returns:** the user session ID
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

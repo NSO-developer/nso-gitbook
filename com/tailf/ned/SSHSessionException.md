@@ -1,4 +1,4 @@
-<a id="s-SSHSessionException"></a>
+<a id="cls-SSHSessionException"></a>
 # SSHSessionException
 
 ```java
@@ -12,20 +12,20 @@ Exception raised from the SSH Session
 
 **Constructors**:
 
-- [SSHSessionException(int, String)](#s-SSHSessionException-1)
+- [SSHSessionException(int, String)](#m-sshsessionexception-f6a2f2c7feea)
 
 **Fields**:
 
-- [READ_EOF](#s-READ_EOF)
-- [READ_TIMEOUT](#s-READ_TIMEOUT)
+- [READ_EOF](#m-READ_EOF)
+- [READ_TIMEOUT](#m-READ_TIMEOUT)
 
 **Methods**:
 
-- [getErrorCode()](#s-getErrorCode)
+- [getErrorCode()](#m-geterrorcode-812152fc083a)
 
 ## Constructors
 
-<a id="s-SSHSessionException-1"></a>
+<a id="m-sshsessionexception-f6a2f2c7feea"></a>
 ### SSHSessionException(int, String)
 
 ```java
@@ -40,14 +40,14 @@ public SSHSessionException(int id, String msg)
 
 ## Fields
 
-<a id="s-READ_EOF"></a>
+<a id="m-READ_EOF"></a>
 ### READ_EOF
 
 ```java
 public static final int READ_EOF = 1;
 ```
 
-<a id="s-READ_TIMEOUT"></a>
+<a id="m-READ_TIMEOUT"></a>
 ### READ_TIMEOUT
 
 ```java
@@ -57,7 +57,7 @@ public static final int READ_TIMEOUT = 0;
 
 ## Methods
 
-<a id="s-getErrorCode"></a>
+<a id="m-geterrorcode-812152fc083a"></a>
 ### getErrorCode()
 
 ```java

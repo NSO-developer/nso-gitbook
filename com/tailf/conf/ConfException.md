@@ -1,4 +1,4 @@
-<a id="s-ConfException"></a>
+<a id="cls-ConfException"></a>
 # ConfException
 
 ```java
@@ -11,40 +11,40 @@ Exception base class. Capable of formatting protocol errors into exceptions.
 
 **Related classes**
 
-- [CdbException](../cdb/CdbException.md#s-CdbException)
-- [ConfBadTermException](ConfBadTermException.md#s-ConfBadTermException)
-- [ConfWarningException](ConfWarningException.md#s-ConfWarningException)
-- [DpException](../dp/DpException.md#s-DpException)
-- [HaException](../ha/HaException.md#s-HaException)
-- [MaapiException](../maapi/MaapiException.md#s-MaapiException)
-- [MmapSchemaException](../ncs/maapi/MmapSchemaException.md#s-MmapSchemaException)
-- [NavuException](../navu/NavuException.md#s-NavuException)
-- [NcsException](../ncs/NcsException.md#s-NcsException)
-- [NotifException](../notif/NotifException.md#s-NotifException)
+- [CdbException](../cdb/CdbException.md#cls-CdbException)
+- [ConfBadTermException](ConfBadTermException.md#cls-ConfBadTermException)
+- [ConfWarningException](ConfWarningException.md#cls-ConfWarningException)
+- [DpException](../dp/DpException.md#cls-DpException)
+- [HaException](../ha/HaException.md#cls-HaException)
+- [MaapiException](../maapi/MaapiException.md#cls-MaapiException)
+- [MmapSchemaException](../ncs/maapi/MmapSchemaException.md#cls-MmapSchemaException)
+- [NavuException](../navu/NavuException.md#cls-NavuException)
+- [NcsException](../ncs/NcsException.md#cls-NcsException)
+- [NotifException](../notif/NotifException.md#cls-NotifException)
 
 ## Members
 
 **Constructors**:
 
-- [ConfException(String)](#s-ConfException-1)
-- [ConfException(String, ErrorCode)](#s-ConfException-2)
-- [ConfException(String, ErrorCode, Throwable)](#s-ConfException-3)
-- [ConfException(String, ErrorCode, Throwable, Object)](#s-ConfException-4)
-- [ConfException(String, int)](#s-ConfException-5)
-- [ConfException(String, int, Throwable)](#s-ConfException-6)
-- [ConfException(String, Throwable)](#s-ConfException-7)
-- [ConfException(Throwable)](#s-ConfException-8)
+- [ConfException(String)](#m-confexception-dc970c7fe4fe)
+- [ConfException(String, ErrorCode)](#m-confexception-d917b21fb864)
+- [ConfException(String, ErrorCode, Throwable)](#m-confexception-2ef26e60c90a)
+- [ConfException(String, ErrorCode, Throwable, Object)](#m-confexception-1d5a0544c033)
+- [ConfException(String, int)](#m-confexception-f9ced700f545)
+- [ConfException(String, int, Throwable)](#m-confexception-b28d9204d01c)
+- [ConfException(String, Throwable)](#m-confexception-c87e2ff2e68c)
+- [ConfException(Throwable)](#m-confexception-97f34dedf669)
 
 **Methods**:
 
-- [getErrorCode()](#s-getErrorCode)
-- [getOpaque()](#s-getOpaque)
-- [mk(ConfResponse)](#s-mk)
-- [mk(ConfResponse, ConfPath)](#s-mk-1)
+- [getErrorCode()](#m-geterrorcode-812152fc083a)
+- [getOpaque()](#m-getopaque-92e4945ec92d)
+- [mk(ConfResponse)](#m-mk-de1cedfc6ea8)
+- [mk(ConfResponse, ConfPath)](#m-mk-79e69ffbc022)
 
 ## Constructors
 
-<a id="s-ConfException-1"></a>
+<a id="m-confexception-dc970c7fe4fe"></a>
 ### ConfException(String)
 
 ```java
@@ -55,28 +55,28 @@ public ConfException(String msg)
 
 - `String msg`
 
-<a id="s-ConfException-2"></a>
+<a id="m-confexception-d917b21fb864"></a>
 ### ConfException(String, ErrorCode)
 
 ```java
 public ConfException(String msg, com.tailf.conf.ErrorCode code)
 ```
 
-Types: [ErrorCode](ErrorCode.md#s-ErrorCode)
+Types: [ErrorCode](ErrorCode.md#cls-ErrorCode)
 
 **Parameters**
 
 - `String msg`
 - `com.tailf.conf.ErrorCode code`
 
-<a id="s-ConfException-3"></a>
+<a id="m-confexception-2ef26e60c90a"></a>
 ### ConfException(String, ErrorCode, Throwable)
 
 ```java
 public ConfException(String msg, com.tailf.conf.ErrorCode code, Throwable cause)
 ```
 
-Types: [ErrorCode](ErrorCode.md#s-ErrorCode)
+Types: [ErrorCode](ErrorCode.md#cls-ErrorCode)
 
 **Parameters**
 
@@ -84,14 +84,14 @@ Types: [ErrorCode](ErrorCode.md#s-ErrorCode)
 - `com.tailf.conf.ErrorCode code`
 - `Throwable cause`
 
-<a id="s-ConfException-4"></a>
+<a id="m-confexception-1d5a0544c033"></a>
 ### ConfException(String, ErrorCode, Throwable, Object)
 
 ```java
 public ConfException(String msg, com.tailf.conf.ErrorCode code, Throwable cause, Object o)
 ```
 
-Types: [ErrorCode](ErrorCode.md#s-ErrorCode)
+Types: [ErrorCode](ErrorCode.md#cls-ErrorCode)
 
 **Parameters**
 
@@ -100,7 +100,7 @@ Types: [ErrorCode](ErrorCode.md#s-ErrorCode)
 - `Throwable cause`
 - `Object o`
 
-<a id="s-ConfException-5"></a>
+<a id="m-confexception-f9ced700f545"></a>
 ### ConfException(String, int)
 
 ```java
@@ -112,7 +112,7 @@ public ConfException(String msg, int codeInteger)
 - `String msg`
 - `int codeInteger`
 
-<a id="s-ConfException-6"></a>
+<a id="m-confexception-b28d9204d01c"></a>
 ### ConfException(String, int, Throwable)
 
 ```java
@@ -125,7 +125,7 @@ public ConfException(String msg, int codeInteger, Throwable cause)
 - `int codeInteger`
 - `Throwable cause`
 
-<a id="s-ConfException-7"></a>
+<a id="m-confexception-c87e2ff2e68c"></a>
 ### ConfException(String, Throwable)
 
 ```java
@@ -137,7 +137,7 @@ public ConfException(String msg, Throwable cause)
 - `String msg`
 - `Throwable cause`
 
-<a id="s-ConfException-8"></a>
+<a id="m-confexception-97f34dedf669"></a>
 ### ConfException(Throwable)
 
 ```java
@@ -151,36 +151,36 @@ public ConfException(Throwable cause)
 
 ## Methods
 
-<a id="s-getErrorCode"></a>
+<a id="m-geterrorcode-812152fc083a"></a>
 ### getErrorCode()
 
 ```java
 public com.tailf.conf.ErrorCode getErrorCode()
 ```
 
-Types: [ErrorCode](ErrorCode.md#s-ErrorCode)
+Types: [ErrorCode](ErrorCode.md#cls-ErrorCode)
 
-<a id="s-getOpaque"></a>
+<a id="m-getopaque-92e4945ec92d"></a>
 ### getOpaque()
 
 ```java
 public Object getOpaque()
 ```
 
-<a id="s-mk"></a>
+<a id="m-mk-de1cedfc6ea8"></a>
 ### mk(ConfResponse)
 
 ```java
 public static com.tailf.conf.ConfException mk(com.tailf.conf.ConfResponse r)
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException), [ConfResponse](ConfResponse.md#s-ConfResponse)
+Types: [ConfException](ConfException.md#cls-ConfException), [ConfResponse](ConfResponse.md#cls-ConfResponse)
 
 **Parameters**
 
 - `com.tailf.conf.ConfResponse r`
 
-<a id="s-mk-1"></a>
+<a id="m-mk-79e69ffbc022"></a>
 ### mk(ConfResponse, ConfPath)
 
 ```java
@@ -190,7 +190,7 @@ public static com.tailf.conf.ConfException mk(
 )
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException), [ConfResponse](ConfResponse.md#s-ConfResponse), [ConfPath](ConfPath.md#s-ConfPath)
+Types: [ConfException](ConfException.md#cls-ConfException), [ConfResponse](ConfResponse.md#cls-ConfResponse), [ConfPath](ConfPath.md#cls-ConfPath)
 
 **Parameters**
 

@@ -1,4 +1,4 @@
-<a id="s-ConfBits"></a>
+<a id="cls-ConfBits"></a>
 # ConfBits
 
 ```java
@@ -7,117 +7,114 @@ public abstract class com.tailf.conf.ConfBits
     implements Comparable<com.tailf.conf.ConfBits>
 ```
 
-Types: [ConfValue](ConfValue.md#s-ConfValue), [ConfBits](ConfBits.md#s-ConfBits)
+Types: [ConfValue](ConfValue.md#cls-ConfValue), [ConfBits](ConfBits.md#cls-ConfBits)
 
 DATA_CONTAINER - This is the superclass for all bits types i.e.
  ConfBit32, ConfBit64 and ConfBitBig.
 
 **Related classes**
 
-- [ConfBit32](ConfBit32.md#s-ConfBit32)
-- [ConfBit64](ConfBit64.md#s-ConfBit64)
-- [ConfBitBig](ConfBitBig.md#s-ConfBitBig)
+- [ConfBit32](ConfBit32.md#cls-ConfBit32)
+- [ConfBit64](ConfBit64.md#cls-ConfBit64)
+- [ConfBitBig](ConfBitBig.md#cls-ConfBitBig)
 
 ## Members
 
 **Constructors**:
 
-- [ConfBits()](#s-ConfBits-1)
-- [ConfBits(byte[])](#s-ConfBits-2)
-- [ConfBits(String)](#s-ConfBits-3)
+- [ConfBits()](#m-confbits-0be881152ad1)
+- [ConfBits(byte[])](#m-confbits-94ed0a76778e)
+- [ConfBits(String)](#m-confbits-0902dfad5c0c)
 
 **Fields**:
 
-- [J_BINARY](ConfObject.md#s-J_BINARY) from ConfObject
-- [J_BIT32](ConfObject.md#s-J_BIT32) from ConfObject
-- [J_BIT64](ConfObject.md#s-J_BIT64) from ConfObject
-- [J_BITBIG](ConfObject.md#s-J_BITBIG) from ConfObject
-- [J_BOOL](ConfObject.md#s-J_BOOL) from ConfObject
-- [J_BUF](ConfObject.md#s-J_BUF) from ConfObject
-- [J_CDBBEGIN](ConfObject.md#s-J_CDBBEGIN) from ConfObject
-- [J_DATE](ConfObject.md#s-J_DATE) from ConfObject
-- [J_DATETIME](ConfObject.md#s-J_DATETIME) from ConfObject
-- [J_DECIMAL64](ConfObject.md#s-J_DECIMAL64) from ConfObject
-- [J_DEFAULT](ConfObject.md#s-J_DEFAULT) from ConfObject
-- [J_DOUBLE](ConfObject.md#s-J_DOUBLE) from ConfObject
-- [J_DQUAD](ConfObject.md#s-J_DQUAD) from ConfObject
-- [J_DURATION](ConfObject.md#s-J_DURATION) from ConfObject
-- [J_EMPTY](ConfObject.md#s-J_EMPTY) from ConfObject
-- [J_ENUMERATION](ConfObject.md#s-J_ENUMERATION) from ConfObject
-- [J_HEXSTR](ConfObject.md#s-J_HEXSTR) from ConfObject
-- [J_IDENTITYREF](ConfObject.md#s-J_IDENTITYREF) from ConfObject
-- [J_INSTANCE_IDENTIFIER](ConfObject.md#s-J_INSTANCE_IDENTIFIER) from ConfObject
-- [J_INT16](ConfObject.md#s-J_INT16) from ConfObject
-- [J_INT32](ConfObject.md#s-J_INT32) from ConfObject
-- [J_INT64](ConfObject.md#s-J_INT64) from ConfObject
-- [J_INT8](ConfObject.md#s-J_INT8) from ConfObject
-- [J_IPV4](ConfObject.md#s-J_IPV4) from ConfObject
-- [J_IPV4_AND_PLEN](ConfObject.md#s-J_IPV4_AND_PLEN) from ConfObject
-- [J_IPV4PREFIX](ConfObject.md#s-J_IPV4PREFIX) from ConfObject
-- [J_IPV6](ConfObject.md#s-J_IPV6) from ConfObject
-- [J_IPV6_AND_PLEN](ConfObject.md#s-J_IPV6_AND_PLEN) from ConfObject
-- [J_IPV6PREFIX](ConfObject.md#s-J_IPV6PREFIX) from ConfObject
-- [J_LIST](ConfObject.md#s-J_LIST) from ConfObject
-- [J_NOEXISTS](ConfObject.md#s-J_NOEXISTS) from ConfObject
-- [J_OBJECTREF](ConfObject.md#s-J_OBJECTREF) from ConfObject
-- [J_OID](ConfObject.md#s-J_OID) from ConfObject
-- [J_PTR](ConfObject.md#s-J_PTR) from ConfObject
-- [J_QNAME](ConfObject.md#s-J_QNAME) from ConfObject
-- [J_STR](ConfObject.md#s-J_STR) from ConfObject
-- [J_SYMBOL](ConfObject.md#s-J_SYMBOL) from ConfObject
-- [J_TIME](ConfObject.md#s-J_TIME) from ConfObject
-- [J_UINT16](ConfObject.md#s-J_UINT16) from ConfObject
-- [J_UINT32](ConfObject.md#s-J_UINT32) from ConfObject
-- [J_UINT64](ConfObject.md#s-J_UINT64) from ConfObject
-- [J_UINT8](ConfObject.md#s-J_UINT8) from ConfObject
-- [J_UNION](ConfObject.md#s-J_UNION) from ConfObject
-- [J_XMLBEGIN](ConfObject.md#s-J_XMLBEGIN) from ConfObject
-- [J_XMLBEGINDEL](ConfObject.md#s-J_XMLBEGINDEL) from ConfObject
-- [J_XMLEND](ConfObject.md#s-J_XMLEND) from ConfObject
-- [J_XMLMOVEAFTER](ConfObject.md#s-J_XMLMOVEAFTER) from ConfObject
-- [J_XMLMOVEFIRST](ConfObject.md#s-J_XMLMOVEFIRST) from ConfObject
-- [J_XMLTAG](ConfObject.md#s-J_XMLTAG) from ConfObject
-- [val](#s-val)
+- [J_BINARY](ConfObject.md#m-J_BINARY) from ConfObject
+- [J_BIT32](ConfObject.md#m-J_BIT32) from ConfObject
+- [J_BIT64](ConfObject.md#m-J_BIT64) from ConfObject
+- [J_BITBIG](ConfObject.md#m-J_BITBIG) from ConfObject
+- [J_BOOL](ConfObject.md#m-J_BOOL) from ConfObject
+- [J_BUF](ConfObject.md#m-J_BUF) from ConfObject
+- [J_CDBBEGIN](ConfObject.md#m-J_CDBBEGIN) from ConfObject
+- [J_DATE](ConfObject.md#m-J_DATE) from ConfObject
+- [J_DATETIME](ConfObject.md#m-J_DATETIME) from ConfObject
+- [J_DECIMAL64](ConfObject.md#m-J_DECIMAL64) from ConfObject
+- [J_DEFAULT](ConfObject.md#m-J_DEFAULT) from ConfObject
+- [J_DOUBLE](ConfObject.md#m-J_DOUBLE) from ConfObject
+- [J_DQUAD](ConfObject.md#m-J_DQUAD) from ConfObject
+- [J_DURATION](ConfObject.md#m-J_DURATION) from ConfObject
+- [J_EMPTY](ConfObject.md#m-J_EMPTY) from ConfObject
+- [J_ENUMERATION](ConfObject.md#m-J_ENUMERATION) from ConfObject
+- [J_HEXSTR](ConfObject.md#m-J_HEXSTR) from ConfObject
+- [J_IDENTITYREF](ConfObject.md#m-J_IDENTITYREF) from ConfObject
+- [J_INSTANCE_IDENTIFIER](ConfObject.md#m-J_INSTANCE_IDENTIFIER) from ConfObject
+- [J_INT16](ConfObject.md#m-J_INT16) from ConfObject
+- [J_INT32](ConfObject.md#m-J_INT32) from ConfObject
+- [J_INT64](ConfObject.md#m-J_INT64) from ConfObject
+- [J_INT8](ConfObject.md#m-J_INT8) from ConfObject
+- [J_IPV4](ConfObject.md#m-J_IPV4) from ConfObject
+- [J_IPV4_AND_PLEN](ConfObject.md#m-J_IPV4_AND_PLEN) from ConfObject
+- [J_IPV4PREFIX](ConfObject.md#m-J_IPV4PREFIX) from ConfObject
+- [J_IPV6](ConfObject.md#m-J_IPV6) from ConfObject
+- [J_IPV6_AND_PLEN](ConfObject.md#m-J_IPV6_AND_PLEN) from ConfObject
+- [J_IPV6PREFIX](ConfObject.md#m-J_IPV6PREFIX) from ConfObject
+- [J_LIST](ConfObject.md#m-J_LIST) from ConfObject
+- [J_NOEXISTS](ConfObject.md#m-J_NOEXISTS) from ConfObject
+- [J_OBJECTREF](ConfObject.md#m-J_OBJECTREF) from ConfObject
+- [J_OID](ConfObject.md#m-J_OID) from ConfObject
+- [J_PTR](ConfObject.md#m-J_PTR) from ConfObject
+- [J_QNAME](ConfObject.md#m-J_QNAME) from ConfObject
+- [J_STR](ConfObject.md#m-J_STR) from ConfObject
+- [J_SYMBOL](ConfObject.md#m-J_SYMBOL) from ConfObject
+- [J_TIME](ConfObject.md#m-J_TIME) from ConfObject
+- [J_UINT16](ConfObject.md#m-J_UINT16) from ConfObject
+- [J_UINT32](ConfObject.md#m-J_UINT32) from ConfObject
+- [J_UINT64](ConfObject.md#m-J_UINT64) from ConfObject
+- [J_UINT8](ConfObject.md#m-J_UINT8) from ConfObject
+- [J_UNION](ConfObject.md#m-J_UNION) from ConfObject
+- [J_XMLBEGIN](ConfObject.md#m-J_XMLBEGIN) from ConfObject
+- [J_XMLBEGINDEL](ConfObject.md#m-J_XMLBEGINDEL) from ConfObject
+- [J_XMLEND](ConfObject.md#m-J_XMLEND) from ConfObject
+- [J_XMLMOVEAFTER](ConfObject.md#m-J_XMLMOVEAFTER) from ConfObject
+- [J_XMLMOVEFIRST](ConfObject.md#m-J_XMLMOVEFIRST) from ConfObject
+- [J_XMLTAG](ConfObject.md#m-J_XMLTAG) from ConfObject
+- [val](#m-val)
 
 **Methods**:
 
-- [bigEndianByteArray()](#s-bigEndianByteArray)
-- [byteArrayValue()](#s-byteArrayValue)
-- [clearBit(long)](#s-clearBit)
-- [clone()](ConfObject.md#s-clone) from ConfObject
-- [compare(ConfObject, ConfObject)](ConfObject.md#s-compare) from ConfObject
-- [compareTo(ConfBits)](#s-compareTo)
-- [decode(ConfEObject)](ConfObject.md#s-decode) from ConfObject
-- [decode(ConfEObject, ConfPath)](ConfObject.md#s-decode-1) from ConfObject
-- [decode(ConfEObject, String)](ConfObject.md#s-decode-2) from ConfObject
-- [encode()](#s-encode)
-- [equals(Object)](#s-equals)
-- [getBigInt()](#s-getBigInt)
-- [getBitNamesByValue(ConfPath, ConfBits)](#s-getBitNamesByValue)
-- [getBitNamesByValue(String, ConfBits)](#s-getBitNamesByValue-1)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#s-getStringByValue) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#s-getStringByValue-1) from ConfValue
-- [getValueByBitNamesString(ConfPath, String)](#s-getValueByBitNamesString)
-- [getValueByBitNamesString(String, String)](#s-getValueByBitNamesString-1)
-- [getValueByString(ConfPath, String)](ConfValue.md#s-getValueByString) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#s-getValueByString-1) from ConfValue
-- [hashCode()](#s-hashCode)
-- [isBitSet(long)](#s-isBitSet)
-- [isBitSetSafe(long)](#s-isBitSetSafe)
-- [reverseByteArray(byte[], boolean)](#s-reverseByteArray)
-- [setBit(long)](#s-setBit)
-- [toString()](#s-toString)
+- [byteArrayValue()](#m-bytearrayvalue-2e0fef980288)
+- [clearBit(long)](#m-clearbit-5db4b507737e)
+- [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
+- [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
+- [compareTo(ConfBits)](#m-compareto-66b77461fdc7)
+- [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
+- [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
+- [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
+- [encode()](ConfValue.md#m-encode-fbae522bba37) from ConfValue
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [getBitNamesByValue(ConfPath, ConfBits)](#m-getbitnamesbyvalue-3ba6b28839a1)
+- [getBitNamesByValue(String, ConfBits)](#m-getbitnamesbyvalue-c649f67dc799)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
+- [getValueByBitNamesString(ConfPath, String)](#m-getvaluebybitnamesstring-12ca247b9d9d)
+- [getValueByBitNamesString(String, String)](#m-getvaluebybitnamesstring-c0e8ef407b4c)
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
+- [hashCode()](#m-hashcode-ef797a217903)
+- [isBitSet(long)](#m-isbitset-a18cae1da74b)
+- [isBitSetSafe(long)](#m-isbitsetsafe-dbd99a7b4cbe)
+- [setBit(long)](#m-setbit-ca27ab33dd5d)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-ConfBits-1"></a>
+<a id="m-confbits-0be881152ad1"></a>
 ### ConfBits()
 
 ```java
 protected ConfBits()
 ```
 
-<a id="s-ConfBits-2"></a>
+<a id="m-confbits-94ed0a76778e"></a>
 ### ConfBits(byte[])
 
 ```java
@@ -131,14 +128,14 @@ Construct a bitset value from a byte array with the bytes in
 
 - `byte[] val`
 
-<a id="s-ConfBits-3"></a>
+<a id="m-confbits-0902dfad5c0c"></a>
 ### ConfBits(String)
 
 ```java
 protected ConfBits(String str) throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 String constructor for ConfBitBig.
  The string representation is expected to be 'bin0x...>'
@@ -155,7 +152,7 @@ String constructor for ConfBitBig.
 
 ## Fields
 
-<a id="s-val"></a>
+<a id="m-val"></a>
 ### val
 
 ```java
@@ -165,16 +162,7 @@ protected byte[] val = null;
 
 ## Methods
 
-<a id="s-bigEndianByteArray"></a>
-### bigEndianByteArray()
-
-```java
-protected byte[] bigEndianByteArray()
-```
-
-**Returns:** big endian byte array of this bitset
-
-<a id="s-byteArrayValue"></a>
+<a id="m-bytearrayvalue-2e0fef980288"></a>
 ### byteArrayValue()
 
 ```java
@@ -185,14 +173,14 @@ Get byte array representing this bitset in little endian order.
 
 **Returns:** little endian byte array of this bitset
 
-<a id="s-clearBit"></a>
+<a id="m-clearbit-5db4b507737e"></a>
 ### clearBit(long)
 
 ```java
 public void clearBit(long pos) throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 Clear bit at position pos in bitset. The bitset must initially been
  created with a maxposition higher or equal to pos or else
@@ -206,14 +194,14 @@ Clear bit at position pos in bitset. The bitset must initially been
 
 - `ConfException`
 
-<a id="s-compareTo"></a>
+<a id="m-compareto-66b77461fdc7"></a>
 ### compareTo(ConfBits)
 
 ```java
 public int compareTo(com.tailf.conf.ConfBits o)
 ```
 
-Types: [ConfBits](ConfBits.md#s-ConfBits)
+Types: [ConfBits](ConfBits.md#cls-ConfBits)
 
 CompareTo method
 
@@ -221,16 +209,7 @@ CompareTo method
 
 - `com.tailf.conf.ConfBits o`
 
-<a id="s-encode"></a>
-### encode()
-
-```java
-public abstract com.tailf.proto.ConfEObject encode()
-```
-
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
-
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
@@ -243,16 +222,7 @@ Equals method
 
 - `Object o`
 
-<a id="s-getBigInt"></a>
-### getBigInt()
-
-```java
-protected java.math.BigInteger getBigInt()
-```
-
-**Returns:** BigInteger representing this bitset
-
-<a id="s-getBitNamesByValue"></a>
+<a id="m-getbitnamesbyvalue-3ba6b28839a1"></a>
 ### getBitNamesByValue(ConfPath, ConfBits)
 
 ```java
@@ -263,7 +233,7 @@ public static String getBitNamesByValue(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfPath](ConfPath.md#s-ConfPath), [ConfBits](ConfBits.md#s-ConfBits), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfPath](ConfPath.md#cls-ConfPath), [ConfBits](ConfBits.md#cls-ConfBits), [ConfException](ConfException.md#cls-ConfException)
 
 Get a string of bitnames like  bitnames like "bit1 bit2 ...", i.e
  a space separated list of bitnames from a ConfBits value.
@@ -283,7 +253,7 @@ Get a string of bitnames like  bitnames like "bit1 bit2 ...", i.e
 
 - `ConfException`
 
-<a id="s-getBitNamesByValue-1"></a>
+<a id="m-getbitnamesbyvalue-c649f67dc799"></a>
 ### getBitNamesByValue(String, ConfBits)
 
 ```java
@@ -294,9 +264,9 @@ public static String getBitNamesByValue(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfBits](ConfBits.md#s-ConfBits), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfBits](ConfBits.md#cls-ConfBits), [ConfException](ConfException.md#cls-ConfException)
 
-Like [`ConfPath`](ConfPath.md#s-ConfPath) but takes a path
+Like `ConfPath#getBitNamesByValue(ConfPath, ConfBits)` but takes a path
  string pointing to the bitset in the schema.
 
 **Parameters**
@@ -310,7 +280,7 @@ Like [`ConfPath`](ConfPath.md#s-ConfPath) but takes a path
 
 - `ConfException`
 
-<a id="s-getValueByBitNamesString"></a>
+<a id="m-getvaluebybitnamesstring-12ca247b9d9d"></a>
 ### getValueByBitNamesString(ConfPath, String)
 
 ```java
@@ -321,7 +291,7 @@ public static com.tailf.conf.ConfBits getValueByBitNamesString(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfBits](ConfBits.md#s-ConfBits), [ConfPath](ConfPath.md#s-ConfPath), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfBits](ConfBits.md#cls-ConfBits), [ConfPath](ConfPath.md#cls-ConfPath), [ConfException](ConfException.md#cls-ConfException)
 
 Get an ConfBits from the string of bitnames like "bit1 bit2 ...", i.e
  a space separated list of bitnames adhering to a specific position in
@@ -342,7 +312,7 @@ Get an ConfBits from the string of bitnames like "bit1 bit2 ...", i.e
 
 - `ConfException`
 
-<a id="s-getValueByBitNamesString-1"></a>
+<a id="m-getvaluebybitnamesstring-c0e8ef407b4c"></a>
 ### getValueByBitNamesString(String, String)
 
 ```java
@@ -353,9 +323,9 @@ public static com.tailf.conf.ConfBits getValueByBitNamesString(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfBits](ConfBits.md#s-ConfBits), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfBits](ConfBits.md#cls-ConfBits), [ConfException](ConfException.md#cls-ConfException)
 
-Like [`ConfPath`](ConfPath.md#s-ConfPath) but takes a path
+Like `ConfPath#getValueByBitNamesString(ConfPath, String)` but takes a path
  string pointing to the bitset in the schema.
 
 **Parameters**
@@ -369,7 +339,7 @@ Like [`ConfPath`](ConfPath.md#s-ConfPath) but takes a path
 
 - `ConfException`
 
-<a id="s-hashCode"></a>
+<a id="m-hashcode-ef797a217903"></a>
 ### hashCode()
 
 ```java
@@ -378,14 +348,14 @@ public int hashCode()
 
 hashCode method
 
-<a id="s-isBitSet"></a>
+<a id="m-isbitset-a18cae1da74b"></a>
 ### isBitSet(long)
 
 ```java
 public boolean isBitSet(long pos) throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 Check if bit is set at position pos in bitset.
  The bitset must initially been
@@ -402,7 +372,7 @@ Check if bit is set at position pos in bitset.
 
 - `ConfException` - Never, for API backwards compatibility.
 
-<a id="s-isBitSetSafe"></a>
+<a id="m-isbitsetsafe-dbd99a7b4cbe"></a>
 ### isBitSetSafe(long)
 
 ```java
@@ -420,28 +390,14 @@ Check if bit is set at position pos in bitset.
 
 **Returns:** boolean true if bit is set.
 
-<a id="s-reverseByteArray"></a>
-### reverseByteArray(byte[], boolean)
-
-```java
-protected static final byte[] reverseByteArray(byte[] b, boolean trim)
-```
-
-**Parameters**
-
-- `byte[] b`
-- `boolean trim`
-
-**Returns:** reverse of `a`
-
-<a id="s-setBit"></a>
+<a id="m-setbit-ca27ab33dd5d"></a>
 ### setBit(long)
 
 ```java
 public void setBit(long pos) throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 Set bit at position pos in bitset. The bitset must initially been
  created with a maxposition higher or equal to pos or else
@@ -455,7 +411,7 @@ Set bit at position pos in bitset. The bitset must initially been
 
 - `ConfException`
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

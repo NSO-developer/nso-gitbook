@@ -1,4 +1,4 @@
-<a id="s-Factory"></a>
+<a id="cls-Factory"></a>
 # Factory
 
 ```java
@@ -6,34 +6,34 @@ public static final class com.tailf.ncs.maapi.Schema.Cs.Keys.Factory
     extends org.capnproto.StructFactory<com.tailf.ncs.maapi.Schema.Cs.Keys.Builder,com.tailf.ncs.maapi.Schema.Cs.Keys.Reader>
 ```
 
-Types: [Builder](Builder.md#s-Builder), [Reader](Reader.md#s-Reader)
+Types: [Builder](Builder.md#cls-Builder), [Reader](Reader.md#cls-Reader)
 
 ## Members
 
 **Constructors**:
 
-- [Factory()](#s-Factory-1)
+- [Factory()](#m-factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#s-asReader) from Builder
-- [asReader(Builder)](#s-asReader)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#s-constructBuilder)
-- [constructReader(SegmentReader, int, int, int, short, int)](#s-constructReader)
-- [getList()](Builder.md#s-getList) from Builder
-- [getNone()](Builder.md#s-getNone) from Builder
-- [hasList()](Builder.md#s-hasList) from Builder
-- [initList(int)](Builder.md#s-initList) from Builder
-- [isList()](Builder.md#s-isList) from Builder
-- [isNone()](Builder.md#s-isNone) from Builder
-- [setList(Reader)](Builder.md#s-setList) from Builder
-- [setNone(Void)](Builder.md#s-setNone) from Builder
-- [structSize()](#s-structSize)
-- [which()](Builder.md#s-which) from Builder
+- [asReader()](Builder.md#m-asreader-b5c0f2a8d115) from Builder
+- [asReader(Builder)](#m-asreader-a762fcbf193b)
+- [constructBuilder(SegmentBuilder, int, int, int, short)](#m-constructbuilder-5a2abf3209f9)
+- [constructReader(SegmentReader, int, int, int, short, int)](#m-constructreader-fbce6f4f912a)
+- [getList()](Builder.md#m-getlist-bb3f8cbe83be) from Builder
+- [getNone()](Builder.md#m-getnone-e31bfdbffa7f) from Builder
+- [hasList()](Builder.md#m-haslist-3712d7ce73ac) from Builder
+- [initList(int)](Builder.md#m-initlist-619d59db076f) from Builder
+- [isList()](Builder.md#m-islist-c36bce63b506) from Builder
+- [isNone()](Builder.md#m-isnone-e8a993ad0453) from Builder
+- [setList(Reader)](Builder.md#m-setlist-446c0e535b30) from Builder
+- [setNone(Void)](Builder.md#m-setnone-46764db867d5) from Builder
+- [structSize()](#m-structsize-1fa68dcadd21)
+- [which()](Builder.md#m-which-0b2d23db5ed0) from Builder
 
 ## Constructors
 
-<a id="s-Factory-1"></a>
+<a id="m-factory-0e9f9d7f4e84"></a>
 ### Factory()
 
 ```java
@@ -43,7 +43,7 @@ public Factory()
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-a762fcbf193b"></a>
 ### asReader(Builder)
 
 ```java
@@ -52,13 +52,13 @@ public final com.tailf.ncs.maapi.Schema.Cs.Keys.Reader asReader(
 )
 ```
 
-Types: [Reader](Reader.md#s-Reader), [Builder](Builder.md#s-Builder)
+Types: [Reader](Reader.md#cls-Reader), [Builder](Builder.md#cls-Builder)
 
 **Parameters**
 
 - `com.tailf.ncs.maapi.Schema.Cs.Keys.Builder builder`
 
-<a id="s-constructBuilder"></a>
+<a id="m-constructbuilder-5a2abf3209f9"></a>
 ### constructBuilder(SegmentBuilder, int, int, int, short)
 
 ```java
@@ -71,7 +71,7 @@ public final com.tailf.ncs.maapi.Schema.Cs.Keys.Builder constructBuilder(
 )
 ```
 
-Types: [Builder](Builder.md#s-Builder)
+Types: [Builder](Builder.md#cls-Builder)
 
 **Parameters**
 
@@ -81,7 +81,7 @@ Types: [Builder](Builder.md#s-Builder)
 - `int dataSize`
 - `short pointerCount`
 
-<a id="s-constructReader"></a>
+<a id="m-constructreader-fbce6f4f912a"></a>
 ### constructReader(SegmentReader, int, int, int, short, int)
 
 ```java
@@ -95,7 +95,7 @@ public final com.tailf.ncs.maapi.Schema.Cs.Keys.Reader constructReader(
 )
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
 **Parameters**
 
@@ -106,7 +106,7 @@ Types: [Reader](Reader.md#s-Reader)
 - `short pointerCount`
 - `int nestingLimit`
 
-<a id="s-structSize"></a>
+<a id="m-structsize-1fa68dcadd21"></a>
 ### structSize()
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-DpDataFindNextIterator"></a>
+<a id="cls-DpDataFindNextIterator"></a>
 # DpDataFindNextIterator
 
 ```java
@@ -11,7 +11,8 @@ Extended Iterator interface used to get `findNext` functionality.
 
  This class is expected to be the return value of the
  DP Data Provider method
- [`DpDataCallback`](DpDataCallback.md#s-DpDataCallback)
+ [`DpDataCallback#iterator(DpTrans, ConfObject[], ConfFindNextType,
+ ConfKey)`](DpDataCallback.md#m-iterator-5d250fbe6a8b)
  If this overlaid iterator method is implemented this implies that the
  data provider is capable of both getNext as the basic iterator as well
  as findNext which is the extended method in this interface.
@@ -24,11 +25,11 @@ Extended Iterator interface used to get `findNext` functionality.
 
 **Methods**:
 
-- [findNext(DpTrans, ConfObject[], ConfFindNextType, ConfKey)](#s-findNext)
+- [findNext(DpTrans, ConfObject[], ConfFindNextType, ConfKey)](#m-findnext-76a998cf9bff)
 
 ## Methods
 
-<a id="s-findNext"></a>
+<a id="m-findnext-76a998cf9bff"></a>
 ### findNext(DpTrans, ConfObject[], ConfFindNextType, ConfKey)
 
 ```java
@@ -40,13 +41,14 @@ public abstract Object findNext(
 )
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfFindNextType](../conf/ConfFindNextType.md#s-ConfFindNextType), [ConfKey](../conf/ConfKey.md#s-ConfKey)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfFindNextType](../conf/ConfFindNextType.md#cls-ConfFindNextType), [ConfKey](../conf/ConfKey.md#cls-ConfKey)
 
 This method is called by Dp when a FIND_NEXT or a FIND_NEXT_OBJECT call
  is issued. This iterator method is called to retrieve the element and
  the object is then rendered with the normal
- [`DpDataCallback`](DpDataCallback.md#s-DpDataCallback)
- or [`DpDataCallback`](DpDataCallback.md#s-DpDataCallback)
+ [`DpDataCallback#getIteratorKey(DpTrans, ConfObject[], Object)`](DpDataCallback.md#m-getiteratorkey-6df7c38f65f8)
+ or [`DpDataCallback#getIteratorObject(DpTrans, ConfObject[],
+ Object)`](DpDataCallback.md#m-getiteratorobject-425632c26c31)
  methods before the element returned.
 
 **Parameters**

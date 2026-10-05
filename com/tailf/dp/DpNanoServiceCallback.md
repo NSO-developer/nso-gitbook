@@ -1,4 +1,4 @@
-<a id="s-DpNanoServiceCallback"></a>
+<a id="cls-DpNanoServiceCallback"></a>
 # DpNanoServiceCallback
 
 ```java
@@ -9,27 +9,27 @@ This interface is used for the Nano Service callbacks.
  These callbacks are registered in conjuntion with the defined
  plan_components and plan_component_states of a Nano service plan
 
-**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#s-registerAnnotatedCallbacks)
+**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
 
 **Fields**:
 
-- [M_NANO_CREATE](#s-M_NANO_CREATE)
-- [M_NANO_DELETE](#s-M_NANO_DELETE)
+- [M_NANO_CREATE](#m-M_NANO_CREATE)
+- [M_NANO_DELETE](#m-M_NANO_DELETE)
 
 **Methods**:
 
-- [componentType()](#s-componentType)
-- [create(NanoServiceContext, NavuNode, NavuNode, Properties, Properties)](#s-create)
-- [delete(NanoServiceContext, NavuNode, NavuNode, Properties, Properties)](#s-delete)
-- [mask()](#s-mask)
-- [servicepoint()](#s-servicepoint)
-- [state()](#s-state)
+- [componentType()](#m-componenttype-59add484020d)
+- [create(NanoServiceContext, NavuNode, NavuNode, Properties, Properties)](#m-create-45a9e9003e1d)
+- [delete(NanoServiceContext, NavuNode, NavuNode, Properties, Properties)](#m-delete-4ba929210861)
+- [mask()](#m-mask-24c2fa29c6af)
+- [servicepoint()](#m-servicepoint-33fbd1d46c70)
+- [state()](#m-state-54117dea2388)
 
 ## Fields
 
-<a id="s-M_NANO_CREATE"></a>
+<a id="m-M_NANO_CREATE"></a>
 ### M_NANO_CREATE
 
 ```java
@@ -38,7 +38,7 @@ public static final int M_NANO_CREATE = 1;
 
 Flags for the mask
 
-<a id="s-M_NANO_DELETE"></a>
+<a id="m-M_NANO_DELETE"></a>
 ### M_NANO_DELETE
 
 ```java
@@ -48,7 +48,7 @@ public static final int M_NANO_DELETE = 2;
 
 ## Methods
 
-<a id="s-componentType"></a>
+<a id="m-componenttype-59add484020d"></a>
 ### componentType()
 
 ```java
@@ -57,7 +57,7 @@ public abstract String componentType()
 
 The name of the plan component
 
-<a id="s-create"></a>
+<a id="m-create-45a9e9003e1d"></a>
 ### create(NanoServiceContext, NavuNode, NavuNode, Properties, Properties)
 
 ```java
@@ -71,7 +71,7 @@ public abstract java.util.Properties create(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [NanoServiceContext](services/NanoServiceContext.md#s-NanoServiceContext), [NavuNode](../navu/NavuNode.md#s-NavuNode), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [NanoServiceContext](services/NanoServiceContext.md#cls-NanoServiceContext), [NavuNode](../navu/NavuNode.md#cls-NavuNode), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 Nano Create callback method.
 
@@ -83,7 +83,7 @@ Nano Create callback method.
 - `java.util.Properties opaque`
 - `java.util.Properties componentProperties`
 
-<a id="s-delete"></a>
+<a id="m-delete-4ba929210861"></a>
 ### delete(NanoServiceContext, NavuNode, NavuNode, Properties, Properties)
 
 ```java
@@ -97,7 +97,7 @@ public abstract java.util.Properties delete(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [NanoServiceContext](services/NanoServiceContext.md#s-NanoServiceContext), [NavuNode](../navu/NavuNode.md#s-NavuNode), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [NanoServiceContext](services/NanoServiceContext.md#cls-NanoServiceContext), [NavuNode](../navu/NavuNode.md#cls-NavuNode), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 Nano Delete callback method.
 
@@ -109,7 +109,7 @@ Nano Delete callback method.
 - `java.util.Properties opaque`
 - `java.util.Properties componentProperties`
 
-<a id="s-mask"></a>
+<a id="m-mask-24c2fa29c6af"></a>
 ### mask()
 
 ```java
@@ -122,7 +122,7 @@ Mask of flags for each method that is supported by this callback:
 - `#M_NANO_CREATE`
    - `#M_NANO_DELETE`
 
-<a id="s-servicepoint"></a>
+<a id="m-servicepoint-33fbd1d46c70"></a>
 ### servicepoint()
 
 ```java
@@ -131,7 +131,7 @@ public abstract String servicepoint()
 
 The name of the servicepoint
 
-<a id="s-state"></a>
+<a id="m-state-54117dea2388"></a>
 ### state()
 
 ```java

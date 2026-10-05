@@ -1,4 +1,4 @@
-<a id="s-ConfBadTermException"></a>
+<a id="cls-ConfBadTermException"></a>
 # ConfBadTermException
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.conf.ConfBadTermException
     extends com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](ConfException.md#s-ConfException)
+Types: [ConfException](ConfException.md#cls-ConfException)
 
 Exception thrown when protocol data is malformed.
 
@@ -14,26 +14,26 @@ Exception thrown when protocol data is malformed.
 
 **Constructors**:
 
-- [ConfBadTermException(String, ErrorCode, Throwable)](#s-ConfBadTermException-1)
-- [ConfBadTermException(String, int, Throwable)](#s-ConfBadTermException-2)
+- [ConfBadTermException(String, ErrorCode, Throwable)](#m-confbadtermexception-4bfec5e7ece6)
+- [ConfBadTermException(String, int, Throwable)](#m-confbadtermexception-85e234e03090)
 
 **Methods**:
 
-- [getErrorCode()](ConfException.md#s-getErrorCode) from ConfException
-- [getOpaque()](ConfException.md#s-getOpaque) from ConfException
-- [mk(ConfResponse)](ConfException.md#s-mk) from ConfException
-- [mk(ConfResponse, ConfPath)](ConfException.md#s-mk-1) from ConfException
+- [getErrorCode()](ConfException.md#m-geterrorcode-812152fc083a) from ConfException
+- [getOpaque()](ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [mk(ConfResponse)](ConfException.md#m-mk-de1cedfc6ea8) from ConfException
+- [mk(ConfResponse, ConfPath)](ConfException.md#m-mk-79e69ffbc022) from ConfException
 
 ## Constructors
 
-<a id="s-ConfBadTermException-1"></a>
+<a id="m-confbadtermexception-4bfec5e7ece6"></a>
 ### ConfBadTermException(String, ErrorCode, Throwable)
 
 ```java
 public ConfBadTermException(String msg, com.tailf.conf.ErrorCode code, Throwable cause)
 ```
 
-Types: [ErrorCode](ErrorCode.md#s-ErrorCode)
+Types: [ErrorCode](ErrorCode.md#cls-ErrorCode)
 
 **Parameters**
 
@@ -41,7 +41,7 @@ Types: [ErrorCode](ErrorCode.md#s-ErrorCode)
 - `com.tailf.conf.ErrorCode code`
 - `Throwable cause`
 
-<a id="s-ConfBadTermException-2"></a>
+<a id="m-confbadtermexception-85e234e03090"></a>
 ### ConfBadTermException(String, int, Throwable)
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-ConfEDecodeException"></a>
+<a id="cls-ConfEDecodeException"></a>
 # ConfEDecodeException
 
 ```java
@@ -6,24 +6,24 @@ public class com.tailf.proto.ConfEDecodeException
     extends com.tailf.proto.ConfEException
 ```
 
-Types: [ConfEException](ConfEException.md#s-ConfEException)
+Types: [ConfEException](ConfEException.md#cls-ConfEException)
 
 Exception raised when an attempt is made to create an E term by decoding a
  sequence of bytes that does not represent the type of term that was
  requested.
 
-**See also:** [`ConfInputStream`](ConfInputStream.md#s-ConfInputStream)
+**See also:** [`ConfInputStream`](ConfInputStream.md#cls-ConfInputStream)
 
 ## Members
 
 **Constructors**:
 
-- [ConfEDecodeException(String)](#s-ConfEDecodeException-1)
-- [ConfEDecodeException(String, Throwable)](#s-ConfEDecodeException-2)
+- [ConfEDecodeException(String)](#m-confedecodeexception-be17763994e7)
+- [ConfEDecodeException(String, Throwable)](#m-confedecodeexception-0e577e411eca)
 
 ## Constructors
 
-<a id="s-ConfEDecodeException-1"></a>
+<a id="m-confedecodeexception-be17763994e7"></a>
 ### ConfEDecodeException(String)
 
 ```java
@@ -34,7 +34,7 @@ public ConfEDecodeException(String msg)
 
 - `String msg`
 
-<a id="s-ConfEDecodeException-2"></a>
+<a id="m-confedecodeexception-0e577e411eca"></a>
 ### ConfEDecodeException(String, Throwable)
 
 ```java

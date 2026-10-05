@@ -1,4 +1,4 @@
-<a id="s-SSHJSFTP"></a>
+<a id="cls-SSHJSFTP"></a>
 # SSHJSFTP
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.ned.SSHJClient.SSHJSFTP
     implements com.tailf.ned.SSHClient.SecureFileTransfer
 ```
 
-Types: [SecureFileTransfer](../SSHClient/SecureFileTransfer.md#s-SecureFileTransfer)
+Types: [SecureFileTransfer](../SSHClient/SecureFileTransfer.md#cls-SecureFileTransfer)
 
 SFTP client implementation using the net.schmizz.sshj
 
@@ -16,17 +16,17 @@ SFTP client implementation using the net.schmizz.sshj
 
 **Constructors**:
 
-- [SSHJSFTP(SFTPClient)](#s-SSHJSFTP-1)
+- [SSHJSFTP(SFTPClient)](#m-sshjsftp-e05f05dfb741)
 
 **Methods**:
 
-- [get(String)](#s-get)
-- [put(String, String)](../SSHClient/SecureFileTransfer.md#s-put) from SecureFileTransfer
-- [put(String, String, int)](#s-put)
+- [get(String)](#m-get-e86cd4d90bf3)
+- [put(String, String)](../SSHClient/SecureFileTransfer.md#m-put-5593beca1d56) from SecureFileTransfer
+- [put(String, String, int)](#m-put-cd56c61d877c)
 
 ## Constructors
 
-<a id="s-SSHJSFTP-1"></a>
+<a id="m-sshjsftp-e05f05dfb741"></a>
 ### SSHJSFTP(SFTPClient)
 
 **Package-private**
@@ -42,7 +42,7 @@ SSHJSFTP(net.schmizz.sshj.sftp.SFTPClient sftp)
 
 ## Methods
 
-<a id="s-get"></a>
+<a id="m-get-e86cd4d90bf3"></a>
 ### get(String)
 
 ```java
@@ -53,7 +53,7 @@ public String get(String file) throws java.io.IOException
 
 - `String file`
 
-<a id="s-put"></a>
+<a id="m-put-cd56c61d877c"></a>
 ### put(String, String, int)
 
 ```java

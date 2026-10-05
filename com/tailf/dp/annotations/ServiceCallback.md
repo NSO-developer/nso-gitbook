@@ -1,4 +1,4 @@
-<a id="s-ServiceCallback"></a>
+<a id="cls-ServiceCallback"></a>
 # ServiceCallback
 
 ```java
@@ -26,21 +26,21 @@ Annotation class for Service Callbacks.
 
 **Methods**:
 
-- [callType()](#s-callType)
-- [servicePoint()](#s-servicePoint)
+- [callType()](#m-calltype-0d0f9b61a036)
+- [servicePoint()](#m-servicepoint-b277aa382c7d)
 
 ## Methods
 
-<a id="s-callType"></a>
+<a id="m-calltype-0d0f9b61a036"></a>
 ### callType()
 
 ```java
 public abstract com.tailf.dp.proto.ServiceCBType[] callType()
 ```
 
-Types: [ServiceCBType](../proto/ServiceCBType.md#s-ServiceCBType)
+Types: [ServiceCBType](../proto/ServiceCBType.md#cls-ServiceCBType)
 
-<a id="s-servicePoint"></a>
+<a id="m-servicepoint-b277aa382c7d"></a>
 ### servicePoint()
 
 ```java

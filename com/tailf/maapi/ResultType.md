@@ -1,4 +1,4 @@
-<a id="s-ResultType"></a>
+<a id="cls-ResultType"></a>
 # ResultType
 
 ```java
@@ -8,7 +8,7 @@ public interface com.tailf.maapi.ResultType
 Specifies the result type from XPath query.
 
   The query is issued trough
- [`Maapi`](Maapi.md#s-Maapi) where
+ `Maapi#queryStart(int,String,String,int,int,List,Class)` where
  the result type (the last parameter) is supplied as the class
  token corresponding to the specific sub type of this interface.
 
@@ -17,13 +17,13 @@ Specifies the result type from XPath query.
  The results can be returned as subtype of this interface:
 
 
-- strings, `String` [`ResultTypeString`](ResultTypeString.md#s-ResultTypeString)
+- strings, `String` [`ResultTypeString`](ResultTypeString.md#cls-ResultTypeString)
 - hkeypaths, array of `ConfObject[]`
- [`ResultTypeKeyPath`](ResultTypeKeyPath.md#s-ResultTypeKeyPath)
+ [`ResultTypeKeyPath`](ResultTypeKeyPath.md#cls-ResultTypeKeyPath)
 - hkeypaths and values, array of `ConfObject[]` and
  `ConfValue`
- [`ResultTypeKeyPathValue`](ResultTypeKeyPathValue.md#s-ResultTypeKeyPathValue)
-- tag and values, `ConfXMLParam` [`ResultTypeTag`](ResultTypeTag.md#s-ResultTypeTag)
+ [`ResultTypeKeyPathValue`](ResultTypeKeyPathValue.md#cls-ResultTypeKeyPathValue)
+- tag and values, `ConfXMLParam` [`ResultTypeTag`](ResultTypeTag.md#cls-ResultTypeTag)
 
 
 

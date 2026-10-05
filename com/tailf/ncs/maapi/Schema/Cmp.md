@@ -1,70 +1,66 @@
-<a id="s-Cmp"></a>
+<a id="cls-Cmp"></a>
 # Cmp
 
 ```java
 public static enum com.tailf.ncs.maapi.Schema.Cmp
 ```
 
-Types: [Cmp](Cmp.md#s-Cmp)
-
-**Related classes**
-
-- [Cmp](Cmp.md#s-Cmp)
+Types: [Cmp](Cmp.md#cls-Cmp)
 
 ## Members
 
 **Enum Constants**:
 
-- [_NOT_IN_SCHEMA](#s-_NOT_IN_SCHEMA)
-- [NORMAL](#s-NORMAL)
-- [SNMP](#s-SNMP)
-- [SNMP_IMPLIED](#s-SNMP_IMPLIED)
-- [UNSORTED](#s-UNSORTED)
-- [USER](#s-USER)
+- [_NOT_IN_SCHEMA](#m-_NOT_IN_SCHEMA)
+- [NORMAL](#m-NORMAL)
+- [SNMP](#m-SNMP)
+- [SNMP_IMPLIED](#m-SNMP_IMPLIED)
+- [UNSORTED](#m-UNSORTED)
+- [USER](#m-USER)
 
 **Methods**:
 
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-_NOT_IN_SCHEMA"></a>
+<a id="m-_NOT_IN_SCHEMA"></a>
 ### _NOT_IN_SCHEMA
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cmp _NOT_IN_SCHEMA;
 ```
 
-<a id="s-NORMAL"></a>
+<a id="m-NORMAL"></a>
 ### NORMAL
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cmp NORMAL;
 ```
 
-<a id="s-SNMP"></a>
+<a id="m-SNMP"></a>
 ### SNMP
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cmp SNMP;
 ```
 
-<a id="s-SNMP_IMPLIED"></a>
+<a id="m-SNMP_IMPLIED"></a>
 ### SNMP_IMPLIED
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cmp SNMP_IMPLIED;
 ```
 
-<a id="s-UNSORTED"></a>
+<a id="m-UNSORTED"></a>
 ### UNSORTED
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cmp UNSORTED;
 ```
 
-<a id="s-USER"></a>
+<a id="m-USER"></a>
 ### USER
 
 ```java
@@ -74,24 +70,24 @@ public static final com.tailf.ncs.maapi.Schema.Cmp USER;
 
 ## Methods
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.ncs.maapi.Schema.Cmp valueOf(String name)
 ```
 
-Types: [Cmp](Cmp.md#s-Cmp)
+Types: [Cmp](Cmp.md#cls-Cmp)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.ncs.maapi.Schema.Cmp[] values()
 ```
 
-Types: [Cmp](Cmp.md#s-Cmp)
+Types: [Cmp](Cmp.md#cls-Cmp)

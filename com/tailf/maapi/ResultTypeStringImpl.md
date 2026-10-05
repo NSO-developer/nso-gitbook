@@ -1,4 +1,4 @@
-<a id="s-ResultTypeStringImpl"></a>
+<a id="cls-ResultTypeStringImpl"></a>
 # ResultTypeStringImpl
 
 **Package-private**
@@ -8,21 +8,21 @@ class com.tailf.maapi.ResultTypeStringImpl
     implements com.tailf.maapi.ResultTypeString
 ```
 
-Types: [ResultTypeString](ResultTypeString.md#s-ResultTypeString)
+Types: [ResultTypeString](ResultTypeString.md#cls-ResultTypeString)
 
 ## Members
 
 **Constructors**:
 
-- [ResultTypeStringImpl(String)](#s-ResultTypeStringImpl-1)
+- [ResultTypeStringImpl(String)](#m-resulttypestringimpl-76604566947b)
 
 **Methods**:
 
-- [stringValue()](#s-stringValue)
+- [stringValue()](#m-stringvalue-a6efca13ec08)
 
 ## Constructors
 
-<a id="s-ResultTypeStringImpl-1"></a>
+<a id="m-resulttypestringimpl-76604566947b"></a>
 ### ResultTypeStringImpl(String)
 
 **Package-private**
@@ -38,7 +38,7 @@ ResultTypeStringImpl(String val)
 
 ## Methods
 
-<a id="s-stringValue"></a>
+<a id="m-stringvalue-a6efca13ec08"></a>
 ### stringValue()
 
 ```java

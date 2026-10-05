@@ -1,4 +1,4 @@
-<a id="s-EventContextImpl"></a>
+<a id="cls-EventContextImpl"></a>
 # EventContextImpl
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.ncs.snmp.snmp4j.EventContextImpl
     implements com.tailf.ncs.snmp.snmp4j.EventContext
 ```
 
-Types: [EventContext](EventContext.md#s-EventContext)
+Types: [EventContext](EventContext.md#cls-EventContext)
 
 EventContext implementation class
 
@@ -14,16 +14,16 @@ EventContext implementation class
 
 **Constructors**:
 
-- [EventContextImpl()](#s-EventContextImpl-1)
+- [EventContextImpl()](#m-eventcontextimpl-f0979f02a693)
 
 **Methods**:
 
-- [getDeviceName()](#s-getDeviceName)
-- [setDeviceKey(ConfKey)](#s-setDeviceKey)
+- [getDeviceName()](#m-getdevicename-95c72ec0cf27)
+- [setDeviceKey(ConfKey)](#m-setdevicekey-f51d3171cb37)
 
 ## Constructors
 
-<a id="s-EventContextImpl-1"></a>
+<a id="m-eventcontextimpl-f0979f02a693"></a>
 ### EventContextImpl()
 
 ```java
@@ -33,7 +33,7 @@ protected EventContextImpl()
 
 ## Methods
 
-<a id="s-getDeviceName"></a>
+<a id="m-getdevicename-95c72ec0cf27"></a>
 ### getDeviceName()
 
 ```java
@@ -42,14 +42,14 @@ public String getDeviceName()
 
 Get the deviceName for a snmp notification
 
-<a id="s-setDeviceKey"></a>
+<a id="m-setdevicekey-f51d3171cb37"></a>
 ### setDeviceKey(ConfKey)
 
 ```java
 protected void setDeviceKey(com.tailf.conf.ConfKey deviceKey)
 ```
 
-Types: [ConfKey](../../../conf/ConfKey.md#s-ConfKey)
+Types: [ConfKey](../../../conf/ConfKey.md#cls-ConfKey)
 
 **Parameters**
 

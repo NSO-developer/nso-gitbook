@@ -1,4 +1,4 @@
-<a id="s-QueryResult"></a>
+<a id="cls-QueryResult"></a>
 # QueryResult
 
 ```java
@@ -6,12 +6,12 @@ public class com.tailf.maapi.QueryResult<T extends com.tailf.maapi.ResultType>
     implements Iterable<com.tailf.maapi.QueryResult.Entry<T>>
 ```
 
-Types: [Entry](QueryResult/Entry.md#s-Entry), [ResultType](ResultType.md#s-ResultType)
+Types: [Entry](QueryResult/Entry.md#cls-Entry), [ResultType](ResultType.md#cls-ResultType)
 
 Represent a result from a XPath query.
 
  It is created trough successful invocation of
- [`Maapi`](Maapi.md#s-Maapi)
+ `Maapi#queryStart(int,String,String,int,int,List,Class)`
  method. Its purpose is to iterate, stop or reset a XPath Query
  specified from parameters in `queryStart`.
 
@@ -33,24 +33,24 @@ Represent a result from a XPath query.
 
 **Constructors**:
 
-- [QueryResult(Maapi, ConfELong)](#s-QueryResult-1)
+- [QueryResult(Maapi, ConfELong)](#m-queryresult-cfa1327eaddc)
 
 **Methods**:
 
-- [iterator()](#s-iterator)
-- [reset()](#s-reset)
-- [reset(int)](#s-reset-1)
-- [resultCount()](#s-resultCount)
-- [stop()](#s-stop)
-- [value()](QueryResult/Entry.md#s-value) from Entry
+- [iterator()](#m-iterator-188aa52d1f86)
+- [reset()](#m-reset-6927918ac70a)
+- [reset(int)](#m-reset-0119ff136490)
+- [resultCount()](#m-resultcount-69149d4d6ac3)
+- [stop()](#m-stop-a62ecc446f97)
+- [value()](QueryResult/Entry.md#m-value-9e1512d1a0ce) from Entry
 
 **Nested Types**:
 
-- [Entry](QueryResult/Entry.md#s-Entry)
+- [Entry](QueryResult/Entry.md#cls-Entry)
 
 ## Constructors
 
-<a id="s-QueryResult-1"></a>
+<a id="m-queryresult-cfa1327eaddc"></a>
 ### QueryResult(Maapi, ConfELong)
 
 **Package-private**
@@ -63,7 +63,7 @@ QueryResult(
     throws com.tailf.conf.ConfException, com.tailf.maapi.MaapiException, java.io.IOException
 ```
 
-Types: [Maapi](Maapi.md#s-Maapi), [ConfELong](../proto/ConfELong.md#s-ConfELong), [ConfException](../conf/ConfException.md#s-ConfException), [MaapiException](MaapiException.md#s-MaapiException)
+Types: [Maapi](Maapi.md#cls-Maapi), [ConfELong](../proto/ConfELong.md#cls-ConfELong), [ConfException](../conf/ConfException.md#cls-ConfException), [MaapiException](MaapiException.md#cls-MaapiException)
 
 **Parameters**
 
@@ -73,28 +73,28 @@ Types: [Maapi](Maapi.md#s-Maapi), [ConfELong](../proto/ConfELong.md#s-ConfELong)
 
 ## Methods
 
-<a id="s-iterator"></a>
+<a id="m-iterator-188aa52d1f86"></a>
 ### iterator()
 
 ```java
 public java.util.Iterator<com.tailf.maapi.QueryResult.Entry<T>> iterator()
 ```
 
-Types: [Entry](QueryResult/Entry.md#s-Entry)
+Types: [Entry](QueryResult/Entry.md#cls-Entry)
 
 Retrieves an iterator from which one could iterate over the
  result.
 
 **Returns:** a query result iterator
 
-<a id="s-reset"></a>
+<a id="m-reset-6927918ac70a"></a>
 ### reset()
 
 ```java
 public void reset() throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Reset/Rewind a running query so that it starts from the
  beginning again. Next call to `#iterator()`
@@ -106,14 +106,14 @@ Reset/Rewind a running query so that it starts from the
  run the same query again, as well as
  after fetching just one or a couple of results).
 
-<a id="s-reset-1"></a>
+<a id="m-reset-0119ff136490"></a>
 ### reset(int)
 
 ```java
 public void reset(int offset) throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Reset/Rewind a running query to a specific offset.
 
@@ -128,14 +128,14 @@ Reset/Rewind a running query to a specific offset.
 
 - `int offset`
 
-<a id="s-resultCount"></a>
+<a id="m-resultcount-69149d4d6ac3"></a>
 ### resultCount()
 
 ```java
 public long resultCount() throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Get number of elements in the result.
 
@@ -155,14 +155,14 @@ Get number of elements in the result.
 - `ConfException`
 - `IOException`
 
-<a id="s-stop"></a>
+<a id="m-stop-a62ecc446f97"></a>
 ### stop()
 
 ```java
 public void stop() throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Stops the running query and makes the server end
  free up any internal resources associated with the query.
@@ -170,4 +170,4 @@ Stops the running query and makes the server end
 
 ## Nested Types
 
-- [Entry](QueryResult/Entry.md)
+- [Entry](QueryResult/Entry.md#cls-Entry)

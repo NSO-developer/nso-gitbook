@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,21 +10,21 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDuration.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getDays()](#s-getDays)
-- [getHours()](#s-getHours)
-- [getMicros()](#s-getMicros)
-- [getMins()](#s-getMins)
-- [getMonths()](#s-getMonths)
-- [getSecs()](#s-getSecs)
-- [getYears()](#s-getYears)
+- [getDays()](#m-getdays-046356f0d5f0)
+- [getHours()](#m-gethours-3fa193b38793)
+- [getMicros()](#m-getmicros-062944cf4511)
+- [getMins()](#m-getmins-c1eeffb194a4)
+- [getMonths()](#m-getmonths-980c2a29d103)
+- [getSecs()](#m-getsecs-460472c1be09)
+- [getYears()](#m-getyears-04cc2ca752eb)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -52,49 +52,49 @@ Reader(
 
 ## Methods
 
-<a id="s-getDays"></a>
+<a id="m-getdays-046356f0d5f0"></a>
 ### getDays()
 
 ```java
 public final int getDays()
 ```
 
-<a id="s-getHours"></a>
+<a id="m-gethours-3fa193b38793"></a>
 ### getHours()
 
 ```java
 public final int getHours()
 ```
 
-<a id="s-getMicros"></a>
+<a id="m-getmicros-062944cf4511"></a>
 ### getMicros()
 
 ```java
 public final int getMicros()
 ```
 
-<a id="s-getMins"></a>
+<a id="m-getmins-c1eeffb194a4"></a>
 ### getMins()
 
 ```java
 public final int getMins()
 ```
 
-<a id="s-getMonths"></a>
+<a id="m-getmonths-980c2a29d103"></a>
 ### getMonths()
 
 ```java
 public final int getMonths()
 ```
 
-<a id="s-getSecs"></a>
+<a id="m-getsecs-460472c1be09"></a>
 ### getSecs()
 
 ```java
 public final int getSecs()
 ```
 
-<a id="s-getYears"></a>
+<a id="m-getyears-04cc2ca752eb"></a>
 ### getYears()
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-SSHJSCP"></a>
+<a id="cls-SSHJSCP"></a>
 # SSHJSCP
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.ned.SSHJClient.SSHJSCP
     implements com.tailf.ned.SSHClient.SecureFileTransfer
 ```
 
-Types: [SecureFileTransfer](../SSHClient/SecureFileTransfer.md#s-SecureFileTransfer)
+Types: [SecureFileTransfer](../SSHClient/SecureFileTransfer.md#cls-SecureFileTransfer)
 
 SCP client implementation using the net.schmizz.sshj
 
@@ -16,21 +16,21 @@ SCP client implementation using the net.schmizz.sshj
 
 **Constructors**:
 
-- [SSHJSCP(SCPFileTransfer)](#s-SSHJSCP-1)
+- [SSHJSCP(SCPFileTransfer)](#m-sshjscp-9973136f9754)
 
 **Fields**:
 
-- [scp](#s-scp)
+- [scp](#m-scp)
 
 **Methods**:
 
-- [get(String)](#s-get)
-- [put(String, String)](../SSHClient/SecureFileTransfer.md#s-put) from SecureFileTransfer
-- [put(String, String, int)](#s-put)
+- [get(String)](#m-get-e86cd4d90bf3)
+- [put(String, String)](../SSHClient/SecureFileTransfer.md#m-put-5593beca1d56) from SecureFileTransfer
+- [put(String, String, int)](#m-put-cd56c61d877c)
 
 ## Constructors
 
-<a id="s-SSHJSCP-1"></a>
+<a id="m-sshjscp-9973136f9754"></a>
 ### SSHJSCP(SCPFileTransfer)
 
 **Package-private**
@@ -46,7 +46,7 @@ SSHJSCP(net.schmizz.sshj.xfer.scp.SCPFileTransfer scp)
 
 ## Fields
 
-<a id="s-scp"></a>
+<a id="m-scp"></a>
 ### scp
 
 **Package-private**
@@ -58,7 +58,7 @@ net.schmizz.sshj.xfer.scp.SCPFileTransfer scp = null;
 
 ## Methods
 
-<a id="s-get"></a>
+<a id="m-get-e86cd4d90bf3"></a>
 ### get(String)
 
 ```java
@@ -69,7 +69,7 @@ public String get(String file) throws java.io.IOException
 
 - `String file`
 
-<a id="s-put"></a>
+<a id="m-put-cd56c61d877c"></a>
 ### put(String, String, int)
 
 ```java

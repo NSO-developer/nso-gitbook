@@ -1,46 +1,42 @@
-<a id="s-Verbosity"></a>
+<a id="cls-Verbosity"></a>
 # Verbosity
 
 ```java
 public enum com.tailf.navu.Verbosity
 ```
 
-Types: [Verbosity](Verbosity.md#s-Verbosity)
-
-**Related classes**
-
-- [Verbosity](Verbosity.md#s-Verbosity)
+Types: [Verbosity](Verbosity.md#cls-Verbosity)
 
 ## Members
 
 **Enum Constants**:
 
-- [SHOW_CHILD](#s-SHOW_CHILD)
-- [SHOW_PREFIX](#s-SHOW_PREFIX)
-- [SHOW_URI](#s-SHOW_URI)
+- [SHOW_CHILD](#m-SHOW_CHILD)
+- [SHOW_PREFIX](#m-SHOW_PREFIX)
+- [SHOW_URI](#m-SHOW_URI)
 
 **Methods**:
 
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-SHOW_CHILD"></a>
+<a id="m-SHOW_CHILD"></a>
 ### SHOW_CHILD
 
 ```java
 public static final com.tailf.navu.Verbosity SHOW_CHILD;
 ```
 
-<a id="s-SHOW_PREFIX"></a>
+<a id="m-SHOW_PREFIX"></a>
 ### SHOW_PREFIX
 
 ```java
 public static final com.tailf.navu.Verbosity SHOW_PREFIX;
 ```
 
-<a id="s-SHOW_URI"></a>
+<a id="m-SHOW_URI"></a>
 ### SHOW_URI
 
 ```java
@@ -50,24 +46,24 @@ public static final com.tailf.navu.Verbosity SHOW_URI;
 
 ## Methods
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.navu.Verbosity valueOf(String name)
 ```
 
-Types: [Verbosity](Verbosity.md#s-Verbosity)
+Types: [Verbosity](Verbosity.md#cls-Verbosity)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.navu.Verbosity[] values()
 ```
 
-Types: [Verbosity](Verbosity.md#s-Verbosity)
+Types: [Verbosity](Verbosity.md#cls-Verbosity)

@@ -1,4 +1,4 @@
-<a id="s-Child"></a>
+<a id="cls-Child"></a>
 # Child
 
 ```java
@@ -14,21 +14,21 @@ Child entry, stored in a continuous area of memory after a level record.
 
 **Constructors**:
 
-- [Child()](#s-Child-1)
-- [Child(Source, int, int)](#s-Child-2)
+- [Child()](#m-child-7aab3b03a8c5)
+- [Child(Source, int, int)](#m-child-ad55798fd08a)
 
 **Methods**:
 
-- [getIdx()](#s-getIdx)
-- [getLevelOff()](#s-getLevelOff)
-- [getNs()](#s-getNs)
-- [getOff()](#s-getOff)
-- [getTag()](#s-getTag)
-- [read(Source, int)](#s-read)
+- [getIdx()](#m-getidx-97576e8cb221)
+- [getLevelOff()](#m-getleveloff-56218c3aecdf)
+- [getNs()](#m-getns-59b97eae2a4a)
+- [getOff()](#m-getoff-578b9943fd00)
+- [getTag()](#m-gettag-315f45956d6f)
+- [read(Source, int)](#m-read-c048381a08bd)
 
 ## Constructors
 
-<a id="s-Child-1"></a>
+<a id="m-child-7aab3b03a8c5"></a>
 ### Child()
 
 **Package-private**
@@ -37,7 +37,7 @@ Child entry, stored in a continuous area of memory after a level record.
 Child()
 ```
 
-<a id="s-Child-2"></a>
+<a id="m-child-ad55798fd08a"></a>
 ### Child(Source, int, int)
 
 **Package-private**
@@ -46,7 +46,7 @@ Child()
 Child(com.tailf.ncs.maapi.MmapSchema.Source src, int pos, int idx)
 ```
 
-Types: [Source](Source.md#s-Source)
+Types: [Source](Source.md#cls-Source)
 
 **Parameters**
 
@@ -57,42 +57,42 @@ Types: [Source](Source.md#s-Source)
 
 ## Methods
 
-<a id="s-getIdx"></a>
+<a id="m-getidx-97576e8cb221"></a>
 ### getIdx()
 
 ```java
 public int getIdx()
 ```
 
-<a id="s-getLevelOff"></a>
+<a id="m-getleveloff-56218c3aecdf"></a>
 ### getLevelOff()
 
 ```java
 public int getLevelOff()
 ```
 
-<a id="s-getNs"></a>
+<a id="m-getns-59b97eae2a4a"></a>
 ### getNs()
 
 ```java
 public int getNs()
 ```
 
-<a id="s-getOff"></a>
+<a id="m-getoff-578b9943fd00"></a>
 ### getOff()
 
 ```java
 public int getOff()
 ```
 
-<a id="s-getTag"></a>
+<a id="m-gettag-315f45956d6f"></a>
 ### getTag()
 
 ```java
 public int getTag()
 ```
 
-<a id="s-read"></a>
+<a id="m-read-c048381a08bd"></a>
 ### read(Source, int)
 
 **Package-private**
@@ -101,7 +101,7 @@ public int getTag()
 final void read(com.tailf.ncs.maapi.MmapSchema.Source src, int pos)
 ```
 
-Types: [Source](Source.md#s-Source)
+Types: [Source](Source.md#cls-Source)
 
 **Parameters**
 

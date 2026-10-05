@@ -1,4 +1,4 @@
-<a id="s-DpFlags"></a>
+<a id="cls-DpFlags"></a>
 # DpFlags
 
 ```java
@@ -18,11 +18,11 @@ Annotation class that allows to specify data provider flags to tweak
 
 **Methods**:
 
-- [noDefaults()](#s-noDefaults)
+- [noDefaults()](#m-nodefaults-fa4b3f614c22)
 
 ## Methods
 
-<a id="s-noDefaults"></a>
+<a id="m-nodefaults-fa4b3f614c22"></a>
 ### noDefaults()
 
 ```java

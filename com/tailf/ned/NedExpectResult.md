@@ -1,4 +1,4 @@
-<a id="s-NedExpectResult"></a>
+<a id="cls-NedExpectResult"></a>
 # NedExpectResult
 
 ```java
@@ -13,18 +13,18 @@ The result of a expect() method invocation. It contains
 
 **Constructors**:
 
-- [NedExpectResult(int, String)](#s-NedExpectResult-1)
-- [NedExpectResult(int, String, String)](#s-NedExpectResult-2)
+- [NedExpectResult(int, String)](#m-nedexpectresult-066aa0c6fc6d)
+- [NedExpectResult(int, String, String)](#m-nedexpectresult-7f02cc765eaa)
 
 **Methods**:
 
-- [getHit()](#s-getHit)
-- [getMatch()](#s-getMatch)
-- [getText()](#s-getText)
+- [getHit()](#m-gethit-282efa757bc8)
+- [getMatch()](#m-getmatch-554153f4610e)
+- [getText()](#m-gettext-e63d55fcdcbd)
 
 ## Constructors
 
-<a id="s-NedExpectResult-1"></a>
+<a id="m-nedexpectresult-066aa0c6fc6d"></a>
 ### NedExpectResult(int, String)
 
 ```java
@@ -36,7 +36,7 @@ public NedExpectResult(int hit, String text)
 - `int hit`
 - `String text`
 
-<a id="s-NedExpectResult-2"></a>
+<a id="m-nedexpectresult-7f02cc765eaa"></a>
 ### NedExpectResult(int, String, String)
 
 ```java
@@ -52,21 +52,21 @@ public NedExpectResult(int hit, String text, String match)
 
 ## Methods
 
-<a id="s-getHit"></a>
+<a id="m-gethit-282efa757bc8"></a>
 ### getHit()
 
 ```java
 public int getHit()
 ```
 
-<a id="s-getMatch"></a>
+<a id="m-getmatch-554153f4610e"></a>
 ### getMatch()
 
 ```java
 public String getMatch()
 ```
 
-<a id="s-getText"></a>
+<a id="m-gettext-e63d55fcdcbd"></a>
 ### getText()
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-NavuNodeInfo"></a>
+<a id="cls-NavuNodeInfo"></a>
 # NavuNodeInfo
 
 ```java
@@ -11,55 +11,55 @@ This class contains meta information for a node.
 
 **Constructors**:
 
-- [NavuNodeInfo(CSNode)](#s-NavuNodeInfo-1)
-- [NavuNodeInfo(CSSchema)](#s-NavuNodeInfo-2)
-- [NavuNodeInfo(MaapiSchemas)](#s-NavuNodeInfo-3)
+- [NavuNodeInfo(CSNode)](#m-navunodeinfo-57ce6bff2390)
+- [NavuNodeInfo(CSSchema)](#m-navunodeinfo-be24a0dfd7c6)
+- [NavuNodeInfo(MaapiSchemas)](#m-navunodeinfo-323e83ba03d7)
 
 **Methods**:
 
-- [equals(Object)](#s-equals)
-- [getCSNode()](#s-getCSNode)
-- [getCsNode()](#s-getCsNode)
-- [getCSSchema()](#s-getCSSchema)
-- [getCSSchemas()](#s-getCSSchemas)
-- [hashCode()](#s-hashCode)
-- [isAction()](#s-isAction)
-- [isActionParam()](#s-isActionParam)
-- [isActionResult()](#s-isActionResult)
-- [isCase()](#s-isCase)
-- [isCdb()](#s-isCdb)
-- [isChildNode()](#s-isChildNode)
-- [isContainer()](#s-isContainer)
-- [isEmptyLeaf()](#s-isEmptyLeaf)
-- [isLeaf()](#s-isLeaf)
-- [isLeafList()](#s-isLeafList)
-- [isLeafref()](#s-isLeafref)
-- [isList()](#s-isList)
-- [isListEntry()](#s-isListEntry)
-- [isListEntry(boolean)](#s-isListEntry-1)
-- [isModule()](#s-isModule)
-- [isNotif()](#s-isNotif)
-- [isOper()](#s-isOper)
-- [isRootOfModules()](#s-isRootOfModules)
-- [isWritable()](#s-isWritable)
-- [isWritableAll()](#s-isWritableAll)
-- [printNodeType()](#s-printNodeType)
-- [toString()](#s-toString)
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [getCSNode()](#m-getcsnode-cf7a085aa7f5)
+- [getCsNode()](#m-getcsnode-e6bf08f79626)
+- [getCSSchema()](#m-getcsschema-9097d6b9dc61)
+- [getCSSchemas()](#m-getcsschemas-7867d0da9a73)
+- [hashCode()](#m-hashcode-ef797a217903)
+- [isAction()](#m-isaction-4ff29a7eee95)
+- [isActionParam()](#m-isactionparam-e8be06f1cc55)
+- [isActionResult()](#m-isactionresult-bf63fae6130e)
+- [isCase()](#m-iscase-fb6be6ab6d36)
+- [isCdb()](#m-iscdb-20ec16d14862)
+- [isChildNode()](#m-ischildnode-40e011106aee)
+- [isContainer()](#m-iscontainer-b5ebcd6f6b32)
+- [isEmptyLeaf()](#m-isemptyleaf-2ddc3d315b7a)
+- [isLeaf()](#m-isleaf-5329f6d31dd8)
+- [isLeafList()](#m-isleaflist-5410d840730d)
+- [isLeafref()](#m-isleafref-631e9c131138)
+- [isList()](#m-islist-c36bce63b506)
+- [isListEntry()](#m-islistentry-b9733acc1ea9)
+- [isListEntry(boolean)](#m-islistentry-cfb71a385976)
+- [isModule()](#m-ismodule-387434ee044f)
+- [isNotif()](#m-isnotif-8c0813ed9a18)
+- [isOper()](#m-isoper-578628dfb332)
+- [isRootOfModules()](#m-isrootofmodules-66dd95b06639)
+- [isWritable()](#m-iswritable-f813255e9b26)
+- [isWritableAll()](#m-iswritableall-8587e2efc611)
+- [printNodeType()](#m-printnodetype-6ac11a229979)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 **Nested Types**:
 
-- [NavuNodeType](NavuNodeInfo/NavuNodeType.md#s-NavuNodeType)
+- [NavuNodeType](NavuNodeInfo/NavuNodeType.md#cls-NavuNodeType)
 
 ## Constructors
 
-<a id="s-NavuNodeInfo-1"></a>
+<a id="m-navunodeinfo-57ce6bff2390"></a>
 ### NavuNodeInfo(CSNode)
 
 ```java
 public NavuNodeInfo(com.tailf.maapi.MaapiSchemas.CSNode node)
 ```
 
-Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#s-CSNode)
+Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
 
 Creates a NavuNodeInfo based on a schema node.
 
@@ -67,14 +67,14 @@ Creates a NavuNodeInfo based on a schema node.
 
 - `com.tailf.maapi.MaapiSchemas.CSNode node`
 
-<a id="s-NavuNodeInfo-2"></a>
+<a id="m-navunodeinfo-be24a0dfd7c6"></a>
 ### NavuNodeInfo(CSSchema)
 
 ```java
 protected NavuNodeInfo(com.tailf.maapi.MaapiSchemas.CSSchema module)
 ```
 
-Types: [CSSchema](../maapi/MaapiSchemas/CSSchema.md#s-CSSchema)
+Types: [CSSchema](../maapi/MaapiSchemas/CSSchema.md#cls-CSSchema)
 
 Constructor for a module.
 
@@ -82,14 +82,14 @@ Constructor for a module.
 
 - `com.tailf.maapi.MaapiSchemas.CSSchema module`
 
-<a id="s-NavuNodeInfo-3"></a>
+<a id="m-navunodeinfo-323e83ba03d7"></a>
 ### NavuNodeInfo(MaapiSchemas)
 
 ```java
 protected NavuNodeInfo(com.tailf.maapi.MaapiSchemas sch)
 ```
 
-Types: [MaapiSchemas](../maapi/MaapiSchemas.md#s-MaapiSchemas)
+Types: [MaapiSchemas](../maapi/MaapiSchemas.md#cls-MaapiSchemas)
 
 Constructor for the root.
 
@@ -100,7 +100,7 @@ Constructor for the root.
 
 ## Methods
 
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
@@ -111,58 +111,58 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="s-getCSNode"></a>
+<a id="m-getcsnode-cf7a085aa7f5"></a>
 ### getCSNode()
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode getCSNode()
 ```
 
-Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#s-CSNode)
+Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
 
-<a id="s-getCsNode"></a>
+<a id="m-getcsnode-e6bf08f79626"></a>
 ### getCsNode()
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode getCsNode()
 ```
 
-Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#s-CSNode)
+Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
 
 Returns the schema node from which the object is derive from.
 
 **Returns:** a given schema node.
 
-<a id="s-getCSSchema"></a>
+<a id="m-getcsschema-9097d6b9dc61"></a>
 ### getCSSchema()
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSSchema getCSSchema()
 ```
 
-Types: [CSSchema](../maapi/MaapiSchemas/CSSchema.md#s-CSSchema)
+Types: [CSSchema](../maapi/MaapiSchemas/CSSchema.md#cls-CSSchema)
 
 **Returns:** the schema of a module.
 
-<a id="s-getCSSchemas"></a>
+<a id="m-getcsschemas-7867d0da9a73"></a>
 ### getCSSchemas()
 
 ```java
 public com.tailf.maapi.MaapiSchemas getCSSchemas()
 ```
 
-Types: [MaapiSchemas](../maapi/MaapiSchemas.md#s-MaapiSchemas)
+Types: [MaapiSchemas](../maapi/MaapiSchemas.md#cls-MaapiSchemas)
 
 **Returns:** the schema of a module.
 
-<a id="s-hashCode"></a>
+<a id="m-hashcode-ef797a217903"></a>
 ### hashCode()
 
 ```java
 public int hashCode()
 ```
 
-<a id="s-isAction"></a>
+<a id="m-isaction-4ff29a7eee95"></a>
 ### isAction()
 
 ```java
@@ -173,7 +173,7 @@ Checks if a node is an action.
 
 **Returns:** true if it is an action.
 
-<a id="s-isActionParam"></a>
+<a id="m-isactionparam-e8be06f1cc55"></a>
 ### isActionParam()
 
 ```java
@@ -184,7 +184,7 @@ Checks if a node is an action parameter node.
 
 **Returns:** true if the node is an action parameter node.
 
-<a id="s-isActionResult"></a>
+<a id="m-isactionresult-bf63fae6130e"></a>
 ### isActionResult()
 
 ```java
@@ -195,7 +195,7 @@ Checks if a node is an action result node.
 
 **Returns:** true if the node is action result node.
 
-<a id="s-isCase"></a>
+<a id="m-iscase-fb6be6ab6d36"></a>
 ### isCase()
 
 ```java
@@ -206,14 +206,14 @@ Checks if a node is top level of a case.
 
 **Returns:** true if the node is part of a case.
 
-<a id="s-isCdb"></a>
+<a id="m-iscdb-20ec16d14862"></a>
 ### isCdb()
 
 ```java
 public boolean isCdb()
 ```
 
-<a id="s-isChildNode"></a>
+<a id="m-ischildnode-40e011106aee"></a>
 ### isChildNode()
 
 ```java
@@ -223,7 +223,7 @@ public boolean isChildNode()
 **Returns:** true is this is a child node, not a module or
  root of modules.
 
-<a id="s-isContainer"></a>
+<a id="m-iscontainer-b5ebcd6f6b32"></a>
 ### isContainer()
 
 ```java
@@ -234,14 +234,14 @@ Checks if a node is a container node.
 
 **Returns:** true if the node is a container node.
 
-<a id="s-isEmptyLeaf"></a>
+<a id="m-isemptyleaf-2ddc3d315b7a"></a>
 ### isEmptyLeaf()
 
 ```java
 public boolean isEmptyLeaf()
 ```
 
-<a id="s-isLeaf"></a>
+<a id="m-isleaf-5329f6d31dd8"></a>
 ### isLeaf()
 
 ```java
@@ -252,7 +252,7 @@ Checks if a node is a leaf node.
 
 **Returns:** true if the node is leaf node.
 
-<a id="s-isLeafList"></a>
+<a id="m-isleaflist-5410d840730d"></a>
 ### isLeafList()
 
 ```java
@@ -263,7 +263,7 @@ Checks if the node is a leaf-list node.
 
 **Returns:** true if the node is leaf-list node.
 
-<a id="s-isLeafref"></a>
+<a id="m-isleafref-631e9c131138"></a>
 ### isLeafref()
 
 ```java
@@ -274,7 +274,7 @@ Checks if the node is a YANG 'leafref'.
 
 **Returns:** true if node is a YANG 'leafref'.
 
-<a id="s-isList"></a>
+<a id="m-islist-c36bce63b506"></a>
 ### isList()
 
 ```java
@@ -285,14 +285,14 @@ Checks if a node is a list node.
 
 **Returns:** true if the node is list node.
 
-<a id="s-isListEntry"></a>
+<a id="m-islistentry-b9733acc1ea9"></a>
 ### isListEntry()
 
 ```java
 public boolean isListEntry()
 ```
 
-<a id="s-isListEntry-1"></a>
+<a id="m-islistentry-cfb71a385976"></a>
 ### isListEntry(boolean)
 
 **Package-private**
@@ -305,14 +305,14 @@ void isListEntry(boolean listEntry)
 
 - `boolean listEntry`
 
-<a id="s-isModule"></a>
+<a id="m-ismodule-387434ee044f"></a>
 ### isModule()
 
 ```java
 public boolean isModule()
 ```
 
-<a id="s-isNotif"></a>
+<a id="m-isnotif-8c0813ed9a18"></a>
 ### isNotif()
 
 ```java
@@ -323,7 +323,7 @@ Checks if the node is a notification
 
 **Returns:** true if the node a notification
 
-<a id="s-isOper"></a>
+<a id="m-isoper-578628dfb332"></a>
 ### isOper()
 
 ```java
@@ -332,7 +332,7 @@ public boolean isOper()
 
 **Returns:** true if node is OPER data.
 
-<a id="s-isRootOfModules"></a>
+<a id="m-isrootofmodules-66dd95b06639"></a>
 ### isRootOfModules()
 
 ```java
@@ -341,7 +341,7 @@ public boolean isRootOfModules()
 
 **Returns:** true if this is the true root above all loaded modules.
 
-<a id="s-isWritable"></a>
+<a id="m-iswritable-f813255e9b26"></a>
 ### isWritable()
 
 ```java
@@ -352,7 +352,7 @@ Checks if the node is writable.
 
 **Returns:** true if the node is writable.
 
-<a id="s-isWritableAll"></a>
+<a id="m-iswritableall-8587e2efc611"></a>
 ### isWritableAll()
 
 ```java
@@ -363,14 +363,14 @@ Checks if the node is writable for all data.
 
 **Returns:** true if the node is writable for all data.
 
-<a id="s-printNodeType"></a>
+<a id="m-printnodetype-6ac11a229979"></a>
 ### printNodeType()
 
 ```java
 public String printNodeType()
 ```
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java
@@ -380,4 +380,4 @@ public String toString()
 
 ## Nested Types
 
-- [NavuNodeType](NavuNodeInfo/NavuNodeType.md)
+- [NavuNodeType](NavuNodeInfo/NavuNodeType.md#cls-NavuNodeType)

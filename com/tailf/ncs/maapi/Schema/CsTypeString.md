@@ -1,4 +1,4 @@
-<a id="s-CsTypeString"></a>
+<a id="cls-CsTypeString"></a>
 # CsTypeString
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeString
 
 **Constructors**:
 
-- [CsTypeString()](#s-CsTypeString-1)
+- [CsTypeString()](#m-cstypestring-22e5621be6b9)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](CsTypeString/Builder.md#s-Builder)
-- [Factory](CsTypeString/Factory.md#s-Factory)
-- [Reader](CsTypeString/Reader.md#s-Reader)
+- [Builder](CsTypeString/Builder.md#cls-Builder)
+- [Factory](CsTypeString/Factory.md#cls-Factory)
+- [Reader](CsTypeString/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-CsTypeString-1"></a>
+<a id="m-cstypestring-22e5621be6b9"></a>
 ### CsTypeString()
 
 ```java
@@ -35,25 +35,25 @@ public CsTypeString()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsTypeString.Factory factory = null;
 ```
 
-Types: [Factory](CsTypeString/Factory.md#s-Factory)
+Types: [Factory](CsTypeString/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsTypeString.Builder,com.tailf.ncs.maapi.Schema.CsTypeString.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsTypeString/Builder.md#s-Builder), [Reader](CsTypeString/Reader.md#s-Reader)
+Types: [Builder](CsTypeString/Builder.md#cls-Builder), [Reader](CsTypeString/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsTypeString/Builder.md)
-- [Factory](CsTypeString/Factory.md)
-- [Reader](CsTypeString/Reader.md)
+- [Builder](CsTypeString/Builder.md#cls-Builder)
+- [Factory](CsTypeString/Factory.md#cls-Factory)
+- [Reader](CsTypeString/Reader.md#cls-Reader)

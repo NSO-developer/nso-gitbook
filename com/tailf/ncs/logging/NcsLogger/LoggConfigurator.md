@@ -1,4 +1,4 @@
-<a id="s-LoggConfigurator"></a>
+<a id="cls-LoggConfigurator"></a>
 # LoggConfigurator
 
 **Package-private**
@@ -21,17 +21,17 @@ Helper class to map the Ncs YANG enumeration type log-level- type to
 
 **Constructors**:
 
-- [LoggConfigurator(SocketAddress)](#s-LoggConfigurator-1)
+- [LoggConfigurator(SocketAddress)](#m-loggconfigurator-6207ae38aa39)
 
 **Methods**:
 
-- [getLog4jLevel(ConfEnumeration)](#s-getLog4jLevel)
-- [loadLog4JConfig()](#s-loadLog4JConfig)
-- [printLoggerStatus()](#s-printLoggerStatus)
+- [getLog4jLevel(ConfEnumeration)](#m-getlog4jlevel-31ba1eec0be7)
+- [loadLog4JConfig()](#m-loadlog4jconfig-bb849cf7c185)
+- [printLoggerStatus()](#m-printloggerstatus-e55794ea0a00)
 
 ## Constructors
 
-<a id="s-LoggConfigurator-1"></a>
+<a id="m-loggconfigurator-6207ae38aa39"></a>
 ### LoggConfigurator(SocketAddress)
 
 **Package-private**
@@ -47,7 +47,7 @@ LoggConfigurator(java.net.SocketAddress address)
 
 ## Methods
 
-<a id="s-getLog4jLevel"></a>
+<a id="m-getlog4jlevel-31ba1eec0be7"></a>
 ### getLog4jLevel(ConfEnumeration)
 
 **Package-private**
@@ -56,7 +56,7 @@ LoggConfigurator(java.net.SocketAddress address)
 org.apache.logging.log4j.Level getLog4jLevel(com.tailf.conf.ConfEnumeration level)
 ```
 
-Types: [ConfEnumeration](../../../conf/ConfEnumeration.md#s-ConfEnumeration)
+Types: [ConfEnumeration](../../../conf/ConfEnumeration.md#cls-ConfEnumeration)
 
 Maps all the Ncs YANG log-level-types to a log4j corresponding
  Level.
@@ -67,7 +67,7 @@ Maps all the Ncs YANG log-level-types to a log4j corresponding
 
 **Returns:** Corresponding log4j Level
 
-<a id="s-loadLog4JConfig"></a>
+<a id="m-loadlog4jconfig-bb849cf7c185"></a>
 ### loadLog4JConfig()
 
 **Package-private**
@@ -80,7 +80,7 @@ Uses parts of the log4j2 core API.
  When upgrading log4j2 check that LoggerContext, doesn't
  contain changes that break this method.
 
-<a id="s-printLoggerStatus"></a>
+<a id="m-printloggerstatus-e55794ea0a00"></a>
 ### printLoggerStatus()
 
 **Package-private**

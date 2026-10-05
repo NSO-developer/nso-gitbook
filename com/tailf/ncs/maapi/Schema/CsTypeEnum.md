@@ -1,4 +1,4 @@
-<a id="s-CsTypeEnum"></a>
+<a id="cls-CsTypeEnum"></a>
 # CsTypeEnum
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeEnum
 
 **Constructors**:
 
-- [CsTypeEnum()](#s-CsTypeEnum-1)
+- [CsTypeEnum()](#m-cstypeenum-cad52e20f657)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](CsTypeEnum/Builder.md#s-Builder)
-- [Factory](CsTypeEnum/Factory.md#s-Factory)
-- [Reader](CsTypeEnum/Reader.md#s-Reader)
+- [Builder](CsTypeEnum/Builder.md#cls-Builder)
+- [Factory](CsTypeEnum/Factory.md#cls-Factory)
+- [Reader](CsTypeEnum/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-CsTypeEnum-1"></a>
+<a id="m-cstypeenum-cad52e20f657"></a>
 ### CsTypeEnum()
 
 ```java
@@ -35,25 +35,25 @@ public CsTypeEnum()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsTypeEnum.Factory factory = null;
 ```
 
-Types: [Factory](CsTypeEnum/Factory.md#s-Factory)
+Types: [Factory](CsTypeEnum/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsTypeEnum.Builder,com.tailf.ncs.maapi.Schema.CsTypeEnum.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsTypeEnum/Builder.md#s-Builder), [Reader](CsTypeEnum/Reader.md#s-Reader)
+Types: [Builder](CsTypeEnum/Builder.md#cls-Builder), [Reader](CsTypeEnum/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsTypeEnum/Builder.md)
-- [Factory](CsTypeEnum/Factory.md)
-- [Reader](CsTypeEnum/Reader.md)
+- [Builder](CsTypeEnum/Builder.md#cls-Builder)
+- [Factory](CsTypeEnum/Factory.md#cls-Factory)
+- [Reader](CsTypeEnum/Reader.md#cls-Reader)

@@ -1,4 +1,4 @@
-<a id="s-EventContext"></a>
+<a id="cls-EventContext"></a>
 # EventContext
 
 ```java
@@ -11,11 +11,11 @@ This interface describes the context for the notification event
 
 **Methods**:
 
-- [getDeviceName()](#s-getDeviceName)
+- [getDeviceName()](#m-getdevicename-95c72ec0cf27)
 
 ## Methods
 
-<a id="s-getDeviceName"></a>
+<a id="m-getdevicename-95c72ec0cf27"></a>
 ### getDeviceName()
 
 ```java

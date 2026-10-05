@@ -1,4 +1,4 @@
-<a id="s-NavuXMLtoConfXMLParamGetHandler"></a>
+<a id="cls-NavuXMLtoConfXMLParamGetHandler"></a>
 # NavuXMLtoConfXMLParamGetHandler
 
 **Package-private**
@@ -9,7 +9,7 @@ class com.tailf.navu.NavuXMLtoConfXMLParamGetHandler
     implements com.tailf.navu.NavuXMLtoConfXMLParamHandler
 ```
 
-Types: [AbstractXMLtoConfXMLDefaultHandler](AbstractXMLtoConfXMLDefaultHandler.md#s-AbstractXMLtoConfXMLDefaultHandler), [NavuXMLtoConfXMLParamHandler](NavuXMLtoConfXMLParamHandler.md#s-NavuXMLtoConfXMLParamHandler)
+Types: [AbstractXMLtoConfXMLDefaultHandler](AbstractXMLtoConfXMLDefaultHandler.md#cls-AbstractXMLtoConfXMLDefaultHandler), [NavuXMLtoConfXMLParamHandler](NavuXMLtoConfXMLParamHandler.md#cls-NavuXMLtoConfXMLParamHandler)
 
 Handler class for SAX Parser. Contains callback methods
  that invokes by the (SAX) parser. The callback methods
@@ -21,63 +21,63 @@ Handler class for SAX Parser. Contains callback methods
 
 **Constructors**:
 
-- [NavuXMLtoConfXMLParamGetHandler(CSNode, ConfPath)](#s-NavuXMLtoConfXMLParamGetHandler-1)
+- [NavuXMLtoConfXMLParamGetHandler(CSNode, ConfPath)](#m-navuxmltoconfxmlparamgethandler-c0166b30bff6)
 
 **Fields**:
 
-- [accInfo](AbstractXMLtoConfXMLDefaultHandler.md#s-accInfo) from AbstractXMLtoConfXMLDefaultHandler
-- [depth](AbstractXMLtoConfXMLDefaultHandler.md#s-depth) from AbstractXMLtoConfXMLDefaultHandler
-- [info](AbstractXMLtoConfXMLDefaultHandler.md#s-info) from AbstractXMLtoConfXMLDefaultHandler
-- [leafListNodes](AbstractXMLtoConfXMLDefaultHandler.md#s-leafListNodes) from AbstractXMLtoConfXMLDefaultHandler
-- [locator](AbstractXMLtoConfXMLDefaultHandler.md#s-locator) from AbstractXMLtoConfXMLDefaultHandler
-- [mnsMap](AbstractXMLtoConfXMLDefaultHandler.md#s-mnsMap) from AbstractXMLtoConfXMLDefaultHandler
-- [nsPrefixMap](AbstractXMLtoConfXMLDefaultHandler.md#s-nsPrefixMap) from AbstractXMLtoConfXMLDefaultHandler
-- [nsStack](AbstractXMLtoConfXMLDefaultHandler.md#s-nsStack) from AbstractXMLtoConfXMLDefaultHandler
-- [params](AbstractXMLtoConfXMLDefaultHandler.md#s-params) from AbstractXMLtoConfXMLDefaultHandler
-- [path](AbstractXMLtoConfXMLDefaultHandler.md#s-path) from AbstractXMLtoConfXMLDefaultHandler
-- [pathNodes](AbstractXMLtoConfXMLDefaultHandler.md#s-pathNodes) from AbstractXMLtoConfXMLDefaultHandler
-- [pathStack](AbstractXMLtoConfXMLDefaultHandler.md#s-pathStack) from AbstractXMLtoConfXMLDefaultHandler
-- [schemas](AbstractXMLtoConfXMLDefaultHandler.md#s-schemas) from AbstractXMLtoConfXMLDefaultHandler
-- [stack](AbstractXMLtoConfXMLDefaultHandler.md#s-stack) from AbstractXMLtoConfXMLDefaultHandler
-- [startNode](AbstractXMLtoConfXMLDefaultHandler.md#s-startNode) from AbstractXMLtoConfXMLDefaultHandler
+- [accInfo](AbstractXMLtoConfXMLDefaultHandler.md#m-accInfo) from AbstractXMLtoConfXMLDefaultHandler
+- [depth](AbstractXMLtoConfXMLDefaultHandler.md#m-depth) from AbstractXMLtoConfXMLDefaultHandler
+- [info](AbstractXMLtoConfXMLDefaultHandler.md#m-info) from AbstractXMLtoConfXMLDefaultHandler
+- [leafListNodes](AbstractXMLtoConfXMLDefaultHandler.md#m-leafListNodes) from AbstractXMLtoConfXMLDefaultHandler
+- [locator](AbstractXMLtoConfXMLDefaultHandler.md#m-locator) from AbstractXMLtoConfXMLDefaultHandler
+- [mnsMap](AbstractXMLtoConfXMLDefaultHandler.md#m-mnsMap) from AbstractXMLtoConfXMLDefaultHandler
+- [nsPrefixMap](AbstractXMLtoConfXMLDefaultHandler.md#m-nsPrefixMap) from AbstractXMLtoConfXMLDefaultHandler
+- [nsStack](AbstractXMLtoConfXMLDefaultHandler.md#m-nsStack) from AbstractXMLtoConfXMLDefaultHandler
+- [params](AbstractXMLtoConfXMLDefaultHandler.md#m-params) from AbstractXMLtoConfXMLDefaultHandler
+- [path](AbstractXMLtoConfXMLDefaultHandler.md#m-path) from AbstractXMLtoConfXMLDefaultHandler
+- [pathNodes](AbstractXMLtoConfXMLDefaultHandler.md#m-pathNodes) from AbstractXMLtoConfXMLDefaultHandler
+- [pathStack](AbstractXMLtoConfXMLDefaultHandler.md#m-pathStack) from AbstractXMLtoConfXMLDefaultHandler
+- [schemas](AbstractXMLtoConfXMLDefaultHandler.md#m-schemas) from AbstractXMLtoConfXMLDefaultHandler
+- [stack](AbstractXMLtoConfXMLDefaultHandler.md#m-stack) from AbstractXMLtoConfXMLDefaultHandler
+- [startNode](AbstractXMLtoConfXMLDefaultHandler.md#m-startNode) from AbstractXMLtoConfXMLDefaultHandler
 
 **Methods**:
 
-- [accumulateChars(CSNode, String)](AbstractXMLtoConfXMLDefaultHandler.md#s-accumulateChars) from AbstractXMLtoConfXMLDefaultHandler
-- [addAccumulateChars()](AbstractXMLtoConfXMLDefaultHandler.md#s-addAccumulateChars) from AbstractXMLtoConfXMLDefaultHandler
-- [addEndElement(CSNode)](AbstractXMLtoConfXMLDefaultHandler.md#s-addEndElement) from AbstractXMLtoConfXMLDefaultHandler
-- [addLeafElement(CSNode)](AbstractXMLtoConfXMLDefaultHandler.md#s-addLeafElement) from AbstractXMLtoConfXMLDefaultHandler
-- [addLeafList()](AbstractXMLtoConfXMLDefaultHandler.md#s-addLeafList) from AbstractXMLtoConfXMLDefaultHandler
-- [addStartElement(CSNode)](AbstractXMLtoConfXMLDefaultHandler.md#s-addStartElement) from AbstractXMLtoConfXMLDefaultHandler
-- [addValueElement(CSNode, ConfValue)](AbstractXMLtoConfXMLDefaultHandler.md#s-addValueElement) from AbstractXMLtoConfXMLDefaultHandler
-- [characters(char[], int, int)](#s-characters)
-- [confXMLParam()](#s-confXMLParam)
-- [empty()](AbstractXMLtoConfXMLDefaultHandler.md#s-empty) from AbstractXMLtoConfXMLDefaultHandler
-- [endDocument()](AbstractXMLtoConfXMLDefaultHandler.md#s-endDocument) from AbstractXMLtoConfXMLDefaultHandler
-- [endElement(String, String, String)](#s-endElement)
-- [endPrefixMapping(String)](AbstractXMLtoConfXMLDefaultHandler.md#s-endPrefixMapping) from AbstractXMLtoConfXMLDefaultHandler
-- [error(SAXParseException)](AbstractXMLtoConfXMLDefaultHandler.md#s-error) from AbstractXMLtoConfXMLDefaultHandler
-- [fatalError(SAXParseException)](AbstractXMLtoConfXMLDefaultHandler.md#s-fatalError) from AbstractXMLtoConfXMLDefaultHandler
-- [getCSNode2XMLNs(CSNode)](AbstractXMLtoConfXMLDefaultHandler.md#s-getCSNode2XMLNs) from AbstractXMLtoConfXMLDefaultHandler
-- [ignorableWhitespace(char[], int, int)](AbstractXMLtoConfXMLDefaultHandler.md#s-ignorableWhitespace) from AbstractXMLtoConfXMLDefaultHandler
-- [isContainmentElement(CSNode)](AbstractXMLtoConfXMLDefaultHandler.md#s-isContainmentElement) from AbstractXMLtoConfXMLDefaultHandler
-- [isEmptyCharacter(String)](AbstractXMLtoConfXMLDefaultHandler.md#s-isEmptyCharacter) from AbstractXMLtoConfXMLDefaultHandler
-- [isEqual(QName, CSNode)](AbstractXMLtoConfXMLDefaultHandler.md#s-isEqual) from AbstractXMLtoConfXMLDefaultHandler
-- [peek()](AbstractXMLtoConfXMLDefaultHandler.md#s-peek) from AbstractXMLtoConfXMLDefaultHandler
-- [pop()](AbstractXMLtoConfXMLDefaultHandler.md#s-pop) from AbstractXMLtoConfXMLDefaultHandler
-- [processingInstruction(String, String)](AbstractXMLtoConfXMLDefaultHandler.md#s-processingInstruction) from AbstractXMLtoConfXMLDefaultHandler
-- [push(CSNode)](AbstractXMLtoConfXMLDefaultHandler.md#s-push) from AbstractXMLtoConfXMLDefaultHandler
-- [setDocumentLocator(Locator)](AbstractXMLtoConfXMLDefaultHandler.md#s-setDocumentLocator) from AbstractXMLtoConfXMLDefaultHandler
-- [startDocument()](AbstractXMLtoConfXMLDefaultHandler.md#s-startDocument) from AbstractXMLtoConfXMLDefaultHandler
-- [startElement(String, String, String, Attributes)](#s-startElement)
-- [startPrefixMapping(String, String)](AbstractXMLtoConfXMLDefaultHandler.md#s-startPrefixMapping) from AbstractXMLtoConfXMLDefaultHandler
-- [value(CSNode, String)](AbstractXMLtoConfXMLDefaultHandler.md#s-value) from AbstractXMLtoConfXMLDefaultHandler
-- [valueAdd(CSNode, String)](AbstractXMLtoConfXMLDefaultHandler.md#s-valueAdd) from AbstractXMLtoConfXMLDefaultHandler
-- [warning(SAXParseException)](AbstractXMLtoConfXMLDefaultHandler.md#s-warning) from AbstractXMLtoConfXMLDefaultHandler
+- [accumulateChars(CSNode, String)](AbstractXMLtoConfXMLDefaultHandler.md#m-accumulatechars-913e3d2e13f2) from AbstractXMLtoConfXMLDefaultHandler
+- [addAccumulateChars()](AbstractXMLtoConfXMLDefaultHandler.md#m-addaccumulatechars-be9ee6eba176) from AbstractXMLtoConfXMLDefaultHandler
+- [addEndElement(CSNode)](AbstractXMLtoConfXMLDefaultHandler.md#m-addendelement-a46a4eac513e) from AbstractXMLtoConfXMLDefaultHandler
+- [addLeafElement(CSNode)](AbstractXMLtoConfXMLDefaultHandler.md#m-addleafelement-19b72d17e396) from AbstractXMLtoConfXMLDefaultHandler
+- [addLeafList()](AbstractXMLtoConfXMLDefaultHandler.md#m-addleaflist-742766162951) from AbstractXMLtoConfXMLDefaultHandler
+- [addStartElement(CSNode)](AbstractXMLtoConfXMLDefaultHandler.md#m-addstartelement-681f3ec123d7) from AbstractXMLtoConfXMLDefaultHandler
+- [addValueElement(CSNode, ConfValue)](AbstractXMLtoConfXMLDefaultHandler.md#m-addvalueelement-d6cd0992363c) from AbstractXMLtoConfXMLDefaultHandler
+- [characters(char[], int, int)](#m-characters-54e61cfbbafb)
+- [confXMLParam()](#m-confxmlparam-334dac9dee1a)
+- [empty()](AbstractXMLtoConfXMLDefaultHandler.md#m-empty-83bc141ca576) from AbstractXMLtoConfXMLDefaultHandler
+- [endDocument()](AbstractXMLtoConfXMLDefaultHandler.md#m-enddocument-43add802e87c) from AbstractXMLtoConfXMLDefaultHandler
+- [endElement(String, String, String)](#m-endelement-bf7b2e1ca7dd)
+- [endPrefixMapping(String)](AbstractXMLtoConfXMLDefaultHandler.md#m-endprefixmapping-e148849915f0) from AbstractXMLtoConfXMLDefaultHandler
+- [error(SAXParseException)](AbstractXMLtoConfXMLDefaultHandler.md#m-error-a853f81b7a9c) from AbstractXMLtoConfXMLDefaultHandler
+- [fatalError(SAXParseException)](AbstractXMLtoConfXMLDefaultHandler.md#m-fatalerror-c264673a9faf) from AbstractXMLtoConfXMLDefaultHandler
+- [getCSNode2XMLNs(CSNode)](AbstractXMLtoConfXMLDefaultHandler.md#m-getcsnode2xmlns-bedb63844216) from AbstractXMLtoConfXMLDefaultHandler
+- [ignorableWhitespace(char[], int, int)](AbstractXMLtoConfXMLDefaultHandler.md#m-ignorablewhitespace-175d27978a6d) from AbstractXMLtoConfXMLDefaultHandler
+- [isContainmentElement(CSNode)](AbstractXMLtoConfXMLDefaultHandler.md#m-iscontainmentelement-c7d16abe6bc1) from AbstractXMLtoConfXMLDefaultHandler
+- [isEmptyCharacter(String)](AbstractXMLtoConfXMLDefaultHandler.md#m-isemptycharacter-7210ff4039cc) from AbstractXMLtoConfXMLDefaultHandler
+- [isEqual(QName, CSNode)](AbstractXMLtoConfXMLDefaultHandler.md#m-isequal-3d9c7ac2a95d) from AbstractXMLtoConfXMLDefaultHandler
+- [peek()](AbstractXMLtoConfXMLDefaultHandler.md#m-peek-a38eaaf8a6a7) from AbstractXMLtoConfXMLDefaultHandler
+- [pop()](AbstractXMLtoConfXMLDefaultHandler.md#m-pop-1c15fa891a07) from AbstractXMLtoConfXMLDefaultHandler
+- [processingInstruction(String, String)](AbstractXMLtoConfXMLDefaultHandler.md#m-processinginstruction-e290a99e8a1d) from AbstractXMLtoConfXMLDefaultHandler
+- [push(CSNode)](AbstractXMLtoConfXMLDefaultHandler.md#m-push-73f33d05b8a4) from AbstractXMLtoConfXMLDefaultHandler
+- [setDocumentLocator(Locator)](AbstractXMLtoConfXMLDefaultHandler.md#m-setdocumentlocator-d9bd10e8b8ad) from AbstractXMLtoConfXMLDefaultHandler
+- [startDocument()](AbstractXMLtoConfXMLDefaultHandler.md#m-startdocument-aca8d484cffb) from AbstractXMLtoConfXMLDefaultHandler
+- [startElement(String, String, String, Attributes)](#m-startelement-03aa11bd6db7)
+- [startPrefixMapping(String, String)](AbstractXMLtoConfXMLDefaultHandler.md#m-startprefixmapping-e3d43dbd7ed4) from AbstractXMLtoConfXMLDefaultHandler
+- [value(CSNode, String)](AbstractXMLtoConfXMLDefaultHandler.md#m-value-49c56559602a) from AbstractXMLtoConfXMLDefaultHandler
+- [valueAdd(CSNode, String)](AbstractXMLtoConfXMLDefaultHandler.md#m-valueadd-b812e6b46ea1) from AbstractXMLtoConfXMLDefaultHandler
+- [warning(SAXParseException)](AbstractXMLtoConfXMLDefaultHandler.md#m-warning-c401f291f7f5) from AbstractXMLtoConfXMLDefaultHandler
 
 ## Constructors
 
-<a id="s-NavuXMLtoConfXMLParamGetHandler-1"></a>
+<a id="m-navuxmltoconfxmlparamgethandler-c0166b30bff6"></a>
 ### NavuXMLtoConfXMLParamGetHandler(CSNode, ConfPath)
 
 **Package-private**
@@ -90,7 +90,7 @@ NavuXMLtoConfXMLParamGetHandler(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#s-CSNode), [ConfPath](../conf/ConfPath.md#s-ConfPath), [NavuException](NavuException.md#s-NavuException)
+Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [NavuException](NavuException.md#cls-NavuException)
 
 Constructor that for initializing the handler.
 
@@ -102,7 +102,7 @@ Constructor that for initializing the handler.
 
 ## Methods
 
-<a id="s-characters"></a>
+<a id="m-characters-54e61cfbbafb"></a>
 ### characters(char[], int, int)
 
 ```java
@@ -115,16 +115,16 @@ public void characters(char[] pCh, int pStart, int pLength) throws org.xml.sax.S
 - `int pStart`
 - `int pLength`
 
-<a id="s-confXMLParam"></a>
+<a id="m-confxmlparam-334dac9dee1a"></a>
 ### confXMLParam()
 
 ```java
 public com.tailf.conf.ConfXMLParam[] confXMLParam()
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam)
 
-<a id="s-endElement"></a>
+<a id="m-endelement-bf7b2e1ca7dd"></a>
 ### endElement(String, String, String)
 
 ```java
@@ -140,7 +140,7 @@ The callback methods that SAX Parser will call
 - `String localName`
 - `String qName`
 
-<a id="s-startElement"></a>
+<a id="m-startelement-03aa11bd6db7"></a>
 ### startElement(String, String, String, Attributes)
 
 ```java

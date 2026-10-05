@@ -1,4 +1,4 @@
-<a id="s-ResultTypeKeyPathValueImpl"></a>
+<a id="cls-ResultTypeKeyPathValueImpl"></a>
 # ResultTypeKeyPathValueImpl
 
 **Package-private**
@@ -8,22 +8,22 @@ class com.tailf.maapi.ResultTypeKeyPathValueImpl
     implements com.tailf.maapi.ResultTypeKeyPathValue
 ```
 
-Types: [ResultTypeKeyPathValue](ResultTypeKeyPathValue.md#s-ResultTypeKeyPathValue)
+Types: [ResultTypeKeyPathValue](ResultTypeKeyPathValue.md#cls-ResultTypeKeyPathValue)
 
 ## Members
 
 **Constructors**:
 
-- [ResultTypeKeyPathValueImpl(ConfObject[], ConfValue)](#s-ResultTypeKeyPathValueImpl-1)
+- [ResultTypeKeyPathValueImpl(ConfObject[], ConfValue)](#m-resulttypekeypathvalueimpl-451cc5da8f7a)
 
 **Methods**:
 
-- [confValue()](#s-confValue)
-- [keyPath()](#s-keyPath)
+- [confValue()](#m-confvalue-baca27cbbecf)
+- [keyPath()](#m-keypath-df48f9bfdabb)
 
 ## Constructors
 
-<a id="s-ResultTypeKeyPathValueImpl-1"></a>
+<a id="m-resulttypekeypathvalueimpl-451cc5da8f7a"></a>
 ### ResultTypeKeyPathValueImpl(ConfObject[], ConfValue)
 
 **Package-private**
@@ -32,7 +32,7 @@ Types: [ResultTypeKeyPathValue](ResultTypeKeyPathValue.md#s-ResultTypeKeyPathVal
 ResultTypeKeyPathValueImpl(com.tailf.conf.ConfObject[] keyPath, com.tailf.conf.ConfValue val)
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfValue](../conf/ConfValue.md#s-ConfValue)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfValue](../conf/ConfValue.md#cls-ConfValue)
 
 **Parameters**
 
@@ -42,20 +42,20 @@ Types: [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfValue](../conf/Con
 
 ## Methods
 
-<a id="s-confValue"></a>
+<a id="m-confvalue-baca27cbbecf"></a>
 ### confValue()
 
 ```java
 public com.tailf.conf.ConfValue confValue()
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue)
 
-<a id="s-keyPath"></a>
+<a id="m-keypath-df48f9bfdabb"></a>
 ### keyPath()
 
 ```java
 public com.tailf.conf.ConfObject[] keyPath()
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject)

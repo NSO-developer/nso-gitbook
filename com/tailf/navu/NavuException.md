@@ -1,4 +1,4 @@
-<a id="s-NavuException"></a>
+<a id="cls-NavuException"></a>
 # NavuException
 
 ```java
@@ -6,55 +6,55 @@ public class com.tailf.navu.NavuException
     extends com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Exception raised from the navu package
 
 **Related classes**
 
-- [IllegalParentNavuNodeException](IllegalParentNavuNodeException.md#s-IllegalParentNavuNodeException)
-- [NavuSAXException](NavuSAXException.md#s-NavuSAXException)
-- [NoSuchNavuCaseException](NoSuchNavuCaseException.md#s-NoSuchNavuCaseException)
-- [NoSuchNavuChoiceException](NoSuchNavuChoiceException.md#s-NoSuchNavuChoiceException)
-- [NoSuchNavuNodeException](NoSuchNavuNodeException.md#s-NoSuchNavuNodeException)
+- [IllegalParentNavuNodeException](IllegalParentNavuNodeException.md#cls-IllegalParentNavuNodeException)
+- [NavuSAXException](NavuSAXException.md#cls-NavuSAXException)
+- [NoSuchNavuCaseException](NoSuchNavuCaseException.md#cls-NoSuchNavuCaseException)
+- [NoSuchNavuChoiceException](NoSuchNavuChoiceException.md#cls-NoSuchNavuChoiceException)
+- [NoSuchNavuNodeException](NoSuchNavuNodeException.md#cls-NoSuchNavuNodeException)
 
 ## Members
 
 **Constructors**:
 
-- [NavuException(ConfException)](#s-NavuException-1)
-- [NavuException(IOException)](#s-NavuException-2)
-- [NavuException(MaapiException)](#s-NavuException-3)
-- [NavuException(String)](#s-NavuException-4)
-- [NavuException(String, ConfException)](#s-NavuException-5)
-- [NavuException(String, ErrorCode, Throwable)](#s-NavuException-6)
-- [NavuException(String, int, Throwable)](#s-NavuException-7)
-- [NavuException(String, Throwable)](#s-NavuException-8)
-- [NavuException(Throwable)](#s-NavuException-9)
+- [NavuException(ConfException)](#m-navuexception-cb130257ec60)
+- [NavuException(IOException)](#m-navuexception-77041496a997)
+- [NavuException(MaapiException)](#m-navuexception-5c5a496fd22b)
+- [NavuException(String)](#m-navuexception-a3ed40280047)
+- [NavuException(String, ConfException)](#m-navuexception-a4ac943843f8)
+- [NavuException(String, ErrorCode, Throwable)](#m-navuexception-011f1640694f)
+- [NavuException(String, int, Throwable)](#m-navuexception-5613700dce64)
+- [NavuException(String, Throwable)](#m-navuexception-f8be029568e4)
+- [NavuException(Throwable)](#m-navuexception-d0b010924c53)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#s-getErrorCode) from ConfException
-- [getOpaque()](../conf/ConfException.md#s-getOpaque) from ConfException
-- [mk(ConfResponse)](#s-mk)
-- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#s-mk-1) from ConfException
+- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [mk(ConfResponse)](#m-mk-de1cedfc6ea8)
+- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#m-mk-79e69ffbc022) from ConfException
 
 ## Constructors
 
-<a id="s-NavuException-1"></a>
+<a id="m-navuexception-cb130257ec60"></a>
 ### NavuException(ConfException)
 
 ```java
 public NavuException(com.tailf.conf.ConfException e)
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfException e`
 
-<a id="s-NavuException-2"></a>
+<a id="m-navuexception-77041496a997"></a>
 ### NavuException(IOException)
 
 ```java
@@ -65,20 +65,20 @@ public NavuException(java.io.IOException e)
 
 - `java.io.IOException e`
 
-<a id="s-NavuException-3"></a>
+<a id="m-navuexception-5c5a496fd22b"></a>
 ### NavuException(MaapiException)
 
 ```java
 public NavuException(com.tailf.maapi.MaapiException e)
 ```
 
-Types: [MaapiException](../maapi/MaapiException.md#s-MaapiException)
+Types: [MaapiException](../maapi/MaapiException.md#cls-MaapiException)
 
 **Parameters**
 
 - `com.tailf.maapi.MaapiException e`
 
-<a id="s-NavuException-4"></a>
+<a id="m-navuexception-a3ed40280047"></a>
 ### NavuException(String)
 
 ```java
@@ -89,28 +89,28 @@ public NavuException(String msg)
 
 - `String msg`
 
-<a id="s-NavuException-5"></a>
+<a id="m-navuexception-a4ac943843f8"></a>
 ### NavuException(String, ConfException)
 
 ```java
 public NavuException(String msg, com.tailf.conf.ConfException e)
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `String msg` - a message describing the exception.
 - `com.tailf.conf.ConfException e`
 
-<a id="s-NavuException-6"></a>
+<a id="m-navuexception-011f1640694f"></a>
 ### NavuException(String, ErrorCode, Throwable)
 
 ```java
 public NavuException(String msg, com.tailf.conf.ErrorCode code, Throwable cause)
 ```
 
-Types: [ErrorCode](../conf/ErrorCode.md#s-ErrorCode)
+Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 
 **Parameters**
 
@@ -118,7 +118,7 @@ Types: [ErrorCode](../conf/ErrorCode.md#s-ErrorCode)
 - `com.tailf.conf.ErrorCode code` - a code classifying the exception.
 - `Throwable cause`
 
-<a id="s-NavuException-7"></a>
+<a id="m-navuexception-5613700dce64"></a>
 ### NavuException(String, int, Throwable)
 
 ```java
@@ -131,7 +131,7 @@ public NavuException(String msg, int codeInteger, Throwable cause)
 - `int codeInteger`
 - `Throwable cause`
 
-<a id="s-NavuException-8"></a>
+<a id="m-navuexception-f8be029568e4"></a>
 ### NavuException(String, Throwable)
 
 ```java
@@ -143,7 +143,7 @@ public NavuException(String msg, Throwable cause)
 - `String msg`
 - `Throwable cause`
 
-<a id="s-NavuException-9"></a>
+<a id="m-navuexception-d0b010924c53"></a>
 ### NavuException(Throwable)
 
 ```java
@@ -157,14 +157,14 @@ public NavuException(Throwable cause)
 
 ## Methods
 
-<a id="s-mk"></a>
+<a id="m-mk-de1cedfc6ea8"></a>
 ### mk(ConfResponse)
 
 ```java
 public static com.tailf.conf.ConfException mk(com.tailf.conf.ConfResponse r)
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException), [ConfResponse](../conf/ConfResponse.md#s-ConfResponse)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException), [ConfResponse](../conf/ConfResponse.md#cls-ConfResponse)
 
 **Parameters**
 

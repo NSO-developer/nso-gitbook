@@ -1,4 +1,4 @@
-<a id="s-StringUtils"></a>
+<a id="cls-StringUtils"></a>
 # StringUtils
 
 ```java
@@ -9,15 +9,15 @@ public class com.tailf.util.StringUtils
 
 **Constructors**:
 
-- [StringUtils()](#s-StringUtils-1)
+- [StringUtils()](#m-stringutils-ec5c7ec80bba)
 
 **Methods**:
 
-- [getBytes(String)](#s-getBytes)
+- [getBytes(String)](#m-getbytes-dc2a63683673)
 
 ## Constructors
 
-<a id="s-StringUtils-1"></a>
+<a id="m-stringutils-ec5c7ec80bba"></a>
 ### StringUtils()
 
 ```java
@@ -27,7 +27,7 @@ public StringUtils()
 
 ## Methods
 
-<a id="s-getBytes"></a>
+<a id="m-getbytes-dc2a63683673"></a>
 ### getBytes(String)
 
 ```java

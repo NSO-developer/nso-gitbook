@@ -1,4 +1,4 @@
-<a id="s-PackageJarLoader"></a>
+<a id="cls-PackageJarLoader"></a>
 # PackageJarLoader
 
 ```java
@@ -10,16 +10,16 @@ public class com.tailf.ncs.ctrl.loader.PackageJarLoader
 
 **Constructors**:
 
-- [PackageJarLoader(String, ClassLoader)](#s-PackageJarLoader-1)
+- [PackageJarLoader(String, ClassLoader)](#m-packagejarloader-801a718ab75b)
 
 **Methods**:
 
-- [addURL(String)](#s-addURL)
-- [getPackageName()](#s-getPackageName)
+- [addURL(String)](#m-addurl-f2ba0680c96b)
+- [getPackageName()](#m-getpackagename-8e58a29d7a5d)
 
 ## Constructors
 
-<a id="s-PackageJarLoader-1"></a>
+<a id="m-packagejarloader-801a718ab75b"></a>
 ### PackageJarLoader(String, ClassLoader)
 
 ```java
@@ -34,7 +34,7 @@ public PackageJarLoader(String packageName, ClassLoader parent)
 
 ## Methods
 
-<a id="s-addURL"></a>
+<a id="m-addurl-f2ba0680c96b"></a>
 ### addURL(String)
 
 ```java
@@ -45,7 +45,7 @@ public void addURL(String url) throws java.net.MalformedURLException, java.net.U
 
 - `String url`
 
-<a id="s-getPackageName"></a>
+<a id="m-getpackagename-8e58a29d7a5d"></a>
 ### getPackageName()
 
 ```java

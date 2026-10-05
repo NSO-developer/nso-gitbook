@@ -1,4 +1,4 @@
-<a id="s-PlanComponent"></a>
+<a id="cls-PlanComponent"></a>
 # PlanComponent
 
 ```java
@@ -18,23 +18,23 @@ This class represents a plan component with its states.
 
 **Constructors**:
 
-- [PlanComponent(NavuNode, String, String)](#s-PlanComponent-1)
-- [PlanComponent(NavuNode, String, String, ConfObjectRef)](#s-PlanComponent-2)
+- [PlanComponent(NavuNode, String, String)](#m-plancomponent-1b9624e9dad9)
+- [PlanComponent(NavuNode, String, String, ConfObjectRef)](#m-plancomponent-5e61ba53deeb)
 
 **Methods**:
 
-- [appendState(String)](#s-appendState)
-- [appendState(String, String, String)](#s-appendState-1)
-- [appendState(String, String, String, String, String)](#s-appendState-2)
-- [backTrack()](#s-backTrack)
-- [backTrack(boolean)](#s-backTrack-1)
-- [setFailed(String)](#s-setFailed)
-- [setNotReached(String)](#s-setNotReached)
-- [setReached(String)](#s-setReached)
+- [appendState(String)](#m-appendstate-45d10d72ab14)
+- [appendState(String, String, String)](#m-appendstate-5142e7e1bad6)
+- [appendState(String, String, String, String, String)](#m-appendstate-efbc51e6cfd9)
+- [backTrack()](#m-backtrack-d3f8df17d7ce)
+- [backTrack(boolean)](#m-backtrack-9f47a005ed3f)
+- [setFailed(String)](#m-setfailed-c699ca5438a6)
+- [setNotReached(String)](#m-setnotreached-9b7c14c0c58a)
+- [setReached(String)](#m-setreached-d2df729907ae)
 
 ## Constructors
 
-<a id="s-PlanComponent-1"></a>
+<a id="m-plancomponent-1b9624e9dad9"></a>
 ### PlanComponent(NavuNode, String, String)
 
 ```java
@@ -46,7 +46,7 @@ public PlanComponent(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](../navu/NavuNode.md#s-NavuNode), [NavuException](../navu/NavuException.md#s-NavuException)
+Types: [NavuNode](../navu/NavuNode.md#cls-NavuNode), [NavuException](../navu/NavuException.md#cls-NavuException)
 
 Creation of a plan component.
  It uses a NavuNode pointing to the service. This is normally the same
@@ -62,7 +62,7 @@ Creation of a plan component.
 
 - `NavuException`
 
-<a id="s-PlanComponent-2"></a>
+<a id="m-plancomponent-5e61ba53deeb"></a>
 ### PlanComponent(NavuNode, String, String, ConfObjectRef)
 
 ```java
@@ -75,7 +75,7 @@ public PlanComponent(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](../navu/NavuNode.md#s-NavuNode), [ConfObjectRef](../conf/ConfObjectRef.md#s-ConfObjectRef), [NavuException](../navu/NavuException.md#s-NavuException)
+Types: [NavuNode](../navu/NavuNode.md#cls-NavuNode), [ConfObjectRef](../conf/ConfObjectRef.md#cls-ConfObjectRef), [NavuException](../navu/NavuException.md#cls-NavuException)
 
 **Parameters**
 
@@ -87,14 +87,14 @@ Types: [NavuNode](../navu/NavuNode.md#s-NavuNode), [ConfObjectRef](../conf/ConfO
 
 ## Methods
 
-<a id="s-appendState"></a>
+<a id="m-appendstate-45d10d72ab14"></a>
 ### appendState(String)
 
 ```java
 public com.tailf.ncs.PlanComponent appendState(String stateName) throws com.tailf.navu.NavuException
 ```
 
-Types: [PlanComponent](PlanComponent.md#s-PlanComponent), [NavuException](../navu/NavuException.md#s-NavuException)
+Types: [PlanComponent](PlanComponent.md#cls-PlanComponent), [NavuException](../navu/NavuException.md#cls-NavuException)
 
 This method supplies a state to the specific component.
  The initial status for this state can be ncs:reached or ncs:not-reached
@@ -111,7 +111,7 @@ This method supplies a state to the specific component.
 
 - `NavuException`
 
-<a id="s-appendState-1"></a>
+<a id="m-appendstate-5142e7e1bad6"></a>
 ### appendState(String, String, String)
 
 ```java
@@ -123,7 +123,7 @@ public com.tailf.ncs.PlanComponent appendState(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [PlanComponent](PlanComponent.md#s-PlanComponent), [NavuException](../navu/NavuException.md#s-NavuException)
+Types: [PlanComponent](PlanComponent.md#cls-PlanComponent), [NavuException](../navu/NavuException.md#cls-NavuException)
 
 **Parameters**
 
@@ -131,7 +131,7 @@ Types: [PlanComponent](PlanComponent.md#s-PlanComponent), [NavuException](../nav
 - `String createMonitor`
 - `String createTriggerExpr`
 
-<a id="s-appendState-2"></a>
+<a id="m-appendstate-efbc51e6cfd9"></a>
 ### appendState(String, String, String, String, String)
 
 ```java
@@ -145,7 +145,7 @@ public com.tailf.ncs.PlanComponent appendState(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [PlanComponent](PlanComponent.md#s-PlanComponent), [NavuException](../navu/NavuException.md#s-NavuException)
+Types: [PlanComponent](PlanComponent.md#cls-PlanComponent), [NavuException](../navu/NavuException.md#cls-NavuException)
 
 **Parameters**
 
@@ -155,16 +155,16 @@ Types: [PlanComponent](PlanComponent.md#s-PlanComponent), [NavuException](../nav
 - `String deleteMonitor`
 - `String deleteTriggerExpr`
 
-<a id="s-backTrack"></a>
+<a id="m-backtrack-d3f8df17d7ce"></a>
 ### backTrack()
 
 ```java
 public com.tailf.ncs.PlanComponent backTrack() throws com.tailf.navu.NavuException
 ```
 
-Types: [PlanComponent](PlanComponent.md#s-PlanComponent), [NavuException](../navu/NavuException.md#s-NavuException)
+Types: [PlanComponent](PlanComponent.md#cls-PlanComponent), [NavuException](../navu/NavuException.md#cls-NavuException)
 
-<a id="s-backTrack-1"></a>
+<a id="m-backtrack-9f47a005ed3f"></a>
 ### backTrack(boolean)
 
 ```java
@@ -174,20 +174,20 @@ public com.tailf.ncs.PlanComponent backTrack(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [PlanComponent](PlanComponent.md#s-PlanComponent), [NavuException](../navu/NavuException.md#s-NavuException)
+Types: [PlanComponent](PlanComponent.md#cls-PlanComponent), [NavuException](../navu/NavuException.md#cls-NavuException)
 
 **Parameters**
 
 - `boolean isBacktracking`
 
-<a id="s-setFailed"></a>
+<a id="m-setfailed-c699ca5438a6"></a>
 ### setFailed(String)
 
 ```java
 public com.tailf.ncs.PlanComponent setFailed(String stateName) throws com.tailf.navu.NavuException
 ```
 
-Types: [PlanComponent](PlanComponent.md#s-PlanComponent), [NavuException](../navu/NavuException.md#s-NavuException)
+Types: [PlanComponent](PlanComponent.md#cls-PlanComponent), [NavuException](../navu/NavuException.md#cls-NavuException)
 
 Setting status to ncs:failed for a specific state in the plan component
 
@@ -201,7 +201,7 @@ Setting status to ncs:failed for a specific state in the plan component
 
 - `NavuException`
 
-<a id="s-setNotReached"></a>
+<a id="m-setnotreached-9b7c14c0c58a"></a>
 ### setNotReached(String)
 
 ```java
@@ -211,7 +211,7 @@ public com.tailf.ncs.PlanComponent setNotReached(
     throws com.tailf.navu.NavuException
 ```
 
-Types: [PlanComponent](PlanComponent.md#s-PlanComponent), [NavuException](../navu/NavuException.md#s-NavuException)
+Types: [PlanComponent](PlanComponent.md#cls-PlanComponent), [NavuException](../navu/NavuException.md#cls-NavuException)
 
 Setting status to ncs:not-reached for a specific state in the
  plan component
@@ -226,14 +226,14 @@ Setting status to ncs:not-reached for a specific state in the
 
 - `NavuException`
 
-<a id="s-setReached"></a>
+<a id="m-setreached-d2df729907ae"></a>
 ### setReached(String)
 
 ```java
 public com.tailf.ncs.PlanComponent setReached(String stateName) throws com.tailf.navu.NavuException
 ```
 
-Types: [PlanComponent](PlanComponent.md#s-PlanComponent), [NavuException](../navu/NavuException.md#s-NavuException)
+Types: [PlanComponent](PlanComponent.md#cls-PlanComponent), [NavuException](../navu/NavuException.md#cls-NavuException)
 
 Setting status to ncs:reached for a specific state in the plan component
 

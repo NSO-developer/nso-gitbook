@@ -1,4 +1,4 @@
-<a id="s-MountId"></a>
+<a id="cls-MountId"></a>
 # MountId
 
 ```java
@@ -9,30 +9,30 @@ public static class com.tailf.maapi.MaapiSchemas.MountId
 
 **Fields**:
 
-- [ROOT_MOUNT_ID](#s-ROOT_MOUNT_ID)
+- [ROOT_MOUNT_ID](#m-ROOT_MOUNT_ID)
 
 **Methods**:
 
-- [create(CSSchema, String)](#s-create)
-- [equals(Object)](#s-equals)
-- [hashCode()](#s-hashCode)
-- [toString()](#s-toString)
+- [create(CSSchema, String)](#m-create-0ca8d54a2ca2)
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [hashCode()](#m-hashcode-ef797a217903)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Fields
 
-<a id="s-ROOT_MOUNT_ID"></a>
+<a id="m-ROOT_MOUNT_ID"></a>
 ### ROOT_MOUNT_ID
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.MountId ROOT_MOUNT_ID = null;
 ```
 
-Types: [MountId](MountId.md#s-MountId)
+Types: [MountId](MountId.md#cls-MountId)
 
 
 ## Methods
 
-<a id="s-create"></a>
+<a id="m-create-0ca8d54a2ca2"></a>
 ### create(CSSchema, String)
 
 ```java
@@ -42,14 +42,14 @@ public static com.tailf.maapi.MaapiSchemas.MountId create(
 )
 ```
 
-Types: [MountId](MountId.md#s-MountId), [CSSchema](CSSchema.md#s-CSSchema)
+Types: [MountId](MountId.md#cls-MountId), [CSSchema](CSSchema.md#cls-CSSchema)
 
 **Parameters**
 
 - `com.tailf.maapi.MaapiSchemas.CSSchema schema`
 - `String tag`
 
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
@@ -60,14 +60,14 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="s-hashCode"></a>
+<a id="m-hashcode-ef797a217903"></a>
 ### hashCode()
 
 ```java
 public int hashCode()
 ```
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

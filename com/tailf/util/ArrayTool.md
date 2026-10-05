@@ -1,4 +1,4 @@
-<a id="s-ArrayTool"></a>
+<a id="cls-ArrayTool"></a>
 # ArrayTool
 
 ```java
@@ -11,13 +11,13 @@ Tools for array manipulation.
 
 **Methods**:
 
-- [concatArrays(Object[], Object)](#s-concatArrays)
-- [concatArrays(Object[], Object[])](#s-concatArrays-1)
-- [copyOfRange(T[], int, int)](#s-copyOfRange)
+- [concatArrays(Object[], Object)](#m-concatarrays-f32733fb7851)
+- [concatArrays(Object[], Object[])](#m-concatarrays-d5889ad0c069)
+- [copyOfRange(T[], int, int)](#m-copyofrange-69de5e44fd9f)
 
 ## Methods
 
-<a id="s-concatArrays"></a>
+<a id="m-concatarrays-f32733fb7851"></a>
 ### concatArrays(Object[], Object)
 
 ```java
@@ -33,7 +33,7 @@ Appends an object to the end of an array, creating a new array.
 
 **Returns:** new array with the object appended
 
-<a id="s-concatArrays-1"></a>
+<a id="m-concatarrays-d5889ad0c069"></a>
 ### concatArrays(Object[], Object[])
 
 ```java
@@ -49,7 +49,7 @@ Concatenates two arrays into a new array.
 
 **Returns:** new array containing elements from both arrays
 
-<a id="s-copyOfRange"></a>
+<a id="m-copyofrange-69de5e44fd9f"></a>
 ### copyOfRange(T[], int, int)
 
 ```java

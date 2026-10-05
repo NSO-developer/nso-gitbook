@@ -1,4 +1,4 @@
-<a id="s-TransCallback"></a>
+<a id="cls-TransCallback"></a>
 # TransCallback
 
 ```java
@@ -15,15 +15,15 @@ Annotation class for Trans Callbacks Attribute is callType
 
 **Methods**:
 
-- [callType()](#s-callType)
+- [callType()](#m-calltype-0d0f9b61a036)
 
 ## Methods
 
-<a id="s-callType"></a>
+<a id="m-calltype-0d0f9b61a036"></a>
 ### callType()
 
 ```java
 public abstract com.tailf.dp.proto.TransCBType[] callType()
 ```
 
-Types: [TransCBType](../proto/TransCBType.md#s-TransCBType)
+Types: [TransCBType](../proto/TransCBType.md#cls-TransCBType)

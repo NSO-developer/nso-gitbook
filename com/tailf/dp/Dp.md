@@ -1,4 +1,4 @@
-<a id="s-Dp"></a>
+<a id="cls-Dp"></a>
 # Dp
 
 ```java
@@ -226,8 +226,8 @@ This class implements the Data Provider API (DP).
  internal worker threads. `Dp` could be configured to prestart
  worker threads so the overhead of creating and starting threads is minimized.
 
- `Dp` delivers a task ([`DpTrans`](DpTrans.md#s-DpTrans),[`DpValidateTrans`](DpValidateTrans.md#s-DpValidateTrans),
- [`DpActionTrans`](DpActionTrans.md#s-DpActionTrans) to worker threads when requests comes
+ `Dp` delivers a task ([`DpTrans`](DpTrans.md#cls-DpTrans),[`DpValidateTrans`](DpValidateTrans.md#cls-DpValidateTrans),
+ [`DpActionTrans`](DpActionTrans.md#cls-DpActionTrans) to worker threads when requests comes
  from controller socket.
  '
  The worker threads could either wait for task to arrive to them or
@@ -236,88 +236,88 @@ This class implements the Data Provider API (DP).
 
 **Related classes**
 
-- [NcsDp](../ncs/NcsDp.md#s-NcsDp)
+- [NcsDp](../ncs/NcsDp.md#cls-NcsDp)
 
 **See also:** `java.util.concurrent.ThreadPoolExecutor,for information how the
- ExecutorService could be configured.`, [`ActionCBType`](proto/ActionCBType.md#s-ActionCBType), [`DBCBType`](proto/DBCBType.md#s-DBCBType), [`DataCBType`](proto/DataCBType.md#s-DataCBType), [`SnmpInformResponseCBType`](proto/SnmpInformResponseCBType.md#s-SnmpInformResponseCBType), [`TransCBType`](proto/TransCBType.md#s-TransCBType), [`TransValidateCBType`](proto/TransValidateCBType.md#s-TransValidateCBType), [`ValidateCBType`](proto/ValidateCBType.md#s-ValidateCBType)
+ ExecutorService could be configured.`, [`ActionCBType`](proto/ActionCBType.md#cls-ActionCBType), [`DBCBType`](proto/DBCBType.md#cls-DBCBType), [`DataCBType`](proto/DataCBType.md#cls-DataCBType), [`SnmpInformResponseCBType`](proto/SnmpInformResponseCBType.md#cls-SnmpInformResponseCBType), [`TransCBType`](proto/TransCBType.md#cls-TransCBType), [`TransValidateCBType`](proto/TransValidateCBType.md#cls-TransValidateCBType), [`ValidateCBType`](proto/ValidateCBType.md#cls-ValidateCBType)
 
 ## Members
 
 **Constructors**:
 
-- [Dp(String, Socket)](#s-Dp-1)
-- [Dp(String, Socket, boolean)](#s-Dp-2)
-- [Dp(String, Socket, boolean, int, int, long, TimeUnit, BlockingQueue<Runnable>, boolean)](#s-Dp-3)
+- [Dp(String, Socket)](#m-dp-7585811d2823)
+- [Dp(String, Socket, boolean)](#m-dp-a5bd6c16fcf6)
+- [Dp(String, Socket, boolean, int, int, long, TimeUnit, BlockingQueue<Runnable>, boolean)](#m-dp-c0bd46f94119)
 
 **Fields**:
 
-- [DATA_REPLY_ERROR](#s-DATA_REPLY_ERROR)
-- [DATA_REPLY_OK](#s-DATA_REPLY_OK)
-- [DATA_REPLY_VALUE](#s-DATA_REPLY_VALUE)
-- [workerThreadPool](#s-workerThreadPool)
+- [DATA_REPLY_ERROR](#m-DATA_REPLY_ERROR)
+- [DATA_REPLY_OK](#m-DATA_REPLY_OK)
+- [DATA_REPLY_VALUE](#m-DATA_REPLY_VALUE)
+- [workerThreadPool](#m-workerThreadPool)
 
 **Methods**:
 
-- [allocWorkerSocket(DpTrans)](#s-allocWorkerSocket)
-- [allocWorkerSocket(DpTrans, Socket)](#s-allocWorkerSocket-1)
-- [close()](#s-close)
-- [closeWorkerSocket(DpTrans)](#s-closeWorkerSocket)
-- [connectWorkerSocket(Socket, int)](#s-connectWorkerSocket)
-- [createNotifStream(String)](#s-createNotifStream)
-- [createNotifStream(String, DpNotifReplayCallback)](#s-createNotifStream-1)
-- [createNotifStream(String, DpNotifReplayCallback, Socket)](#s-createNotifStream-2)
-- [createSnmpNotifier(String, String)](#s-createSnmpNotifier)
-- [createSnmpNotifier(String, String, Object)](#s-createSnmpNotifier-1)
-- [createSnmpNotifier(String, String, Object, Socket)](#s-createSnmpNotifier-2)
-- [freeWorkerSocket(DpTrans)](#s-freeWorkerSocket)
-- [getActionCallback(String)](#s-getActionCallback)
-- [getActionCallback(String, int)](#s-getActionCallback-1)
-- [getCtrlSocket()](#s-getCtrlSocket)
-- [getDaemonId()](#s-getDaemonId)
-- [getDataCallback(ConfBuf, int)](#s-getDataCallback)
-- [getDbCallback()](#s-getDbCallback)
-- [getErrorMessageFormatter()](#s-getErrorMessageFormatter)
-- [getErrorVerbosity()](#s-getErrorVerbosity)
-- [getExceptionReporter()](#s-getExceptionReporter)
-- [getNanoServiceCallback(ConfBuf, int)](#s-getNanoServiceCallback)
-- [getNsList()](#s-getNsList)
-- [getServiceCallback(ConfBuf, int)](#s-getServiceCallback)
-- [getServicePointMaapi()](#s-getServicePointMaapi)
-- [getServicePointMaapi(DpTrans)](#s-getServicePointMaapi-1)
-- [getTransCallback()](#s-getTransCallback)
-- [getTransValidateCallback()](#s-getTransValidateCallback)
-- [getUserInfo(int)](#s-getUserInfo)
-- [getValpointCallback(ConfBuf, int)](#s-getValpointCallback)
-- [getWorkerPool()](#s-getWorkerPool)
-- [getWorkerSocketFd(Socket)](#s-getWorkerSocketFd)
-- [read()](#s-read)
-- [registerAnnotatedCallbacks(Object)](#s-registerAnnotatedCallbacks)
-- [registerAnnotatedCallbacks(String, Object)](#s-registerAnnotatedCallbacks-1)
-- [registerAnnotatedMountedCbs(DpMountIdInterface, Object)](#s-registerAnnotatedMountedCbs)
-- [registerAnnotatedRangeActionCallbacks(Object, ConfValue[], ConfValue[], ConfPath)](#s-registerAnnotatedRangeActionCallbacks)
-- [registerAnnotatedRangeDataCallbacks(Object, ConfValue[], ConfValue[], ConfPath)](#s-registerAnnotatedRangeDataCallbacks)
-- [registerDone()](#s-registerDone)
-- [removeActionMaapi()](#s-removeActionMaapi)
-- [reRegisterAnnotatedCallbacks(Object)](#s-reRegisterAnnotatedCallbacks)
-- [reRegisterAnnotatedCallbacks(String, Object)](#s-reRegisterAnnotatedCallbacks-1)
-- [reRegisterAnnotatedMountedCbs(DpMountIdInterface, Object)](#s-reRegisterAnnotatedMountedCbs)
-- [reRegisterAnnotatedRangeActionCallbacks(Object)](#s-reRegisterAnnotatedRangeActionCallbacks)
-- [reRegisterAnnotatedRangeDataCallbacks(Object)](#s-reRegisterAnnotatedRangeDataCallbacks)
-- [runWithSocket(DpTrans, DpWork, Socket)](#s-runWithSocket)
-- [setErrorVerbosity(ErrorVerbosity)](#s-setErrorVerbosity)
-- [setExceptionReporter(DpExceptionReporter)](#s-setExceptionReporter)
-- [setNumFreeWorkerSockets(int)](#s-setNumFreeWorkerSockets)
-- [setRejectedExecutionHandler(RejectedExecutionHandler)](#s-setRejectedExecutionHandler)
-- [shutDownThreadPool()](#s-shutDownThreadPool)
-- [shutDownThreadPoolNow()](#s-shutDownThreadPoolNow)
+- [allocWorkerSocket(DpTrans)](#m-allocworkersocket-174516f00d50)
+- [allocWorkerSocket(DpTrans, Socket)](#m-allocworkersocket-f2a88a81642d)
+- [close()](#m-close-8107c6dc012b)
+- [closeWorkerSocket(DpTrans)](#m-closeworkersocket-dc01a44ce016)
+- [connectWorkerSocket(Socket, int)](#m-connectworkersocket-c43c1ab09de8)
+- [createNotifStream(String)](#m-createnotifstream-e828f1b79ea0)
+- [createNotifStream(String, DpNotifReplayCallback)](#m-createnotifstream-e4dac93288ec)
+- [createNotifStream(String, DpNotifReplayCallback, Socket)](#m-createnotifstream-24ebe812b6ae)
+- [createSnmpNotifier(String, String)](#m-createsnmpnotifier-e1bab2519dcd)
+- [createSnmpNotifier(String, String, Object)](#m-createsnmpnotifier-89f0d186fc8f)
+- [createSnmpNotifier(String, String, Object, Socket)](#m-createsnmpnotifier-666167fa4e78)
+- [freeWorkerSocket(DpTrans)](#m-freeworkersocket-7fceeb5a23c4)
+- [getActionCallback(String)](#m-getactioncallback-1afe38accd25)
+- [getActionCallback(String, int)](#m-getactioncallback-80fd3aa41080)
+- [getCtrlSocket()](#m-getctrlsocket-bb621326ae1c)
+- [getDaemonId()](#m-getdaemonid-289be546ab2e)
+- [getDataCallback(ConfBuf, int)](#m-getdatacallback-41b5ab75fca5)
+- [getDbCallback()](#m-getdbcallback-bd46dc259b1a)
+- [getErrorMessageFormatter()](#m-geterrormessageformatter-8c75ba6f07e5)
+- [getErrorVerbosity()](#m-geterrorverbosity-defe49ca237d)
+- [getExceptionReporter()](#m-getexceptionreporter-51bbec6b9ad7)
+- [getNanoServiceCallback(ConfBuf, int)](#m-getnanoservicecallback-84fe7cc27c9e)
+- [getNsList()](#m-getnslist-0345f486e876)
+- [getServiceCallback(ConfBuf, int)](#m-getservicecallback-3eeb502a337a)
+- [getServicePointMaapi()](#m-getservicepointmaapi-021836eac222)
+- [getServicePointMaapi(DpTrans)](#m-getservicepointmaapi-16637fd1c239)
+- [getTransCallback()](#m-gettranscallback-7890d71f94df)
+- [getTransValidateCallback()](#m-gettransvalidatecallback-0eaee07d8d43)
+- [getUserInfo(int)](#m-getuserinfo-4df0372acaa8)
+- [getValpointCallback(ConfBuf, int)](#m-getvalpointcallback-5f5550918feb)
+- [getWorkerPool()](#m-getworkerpool-1955a0c55497)
+- [getWorkerSocketFd(Socket)](#m-getworkersocketfd-fca29bd0a7bf)
+- [read()](#m-read-b28b830b98d6)
+- [registerAnnotatedCallbacks(Object)](#m-registerannotatedcallbacks-ffaebadbfc42)
+- [registerAnnotatedCallbacks(String, Object)](#m-registerannotatedcallbacks-e4aab67443c6)
+- [registerAnnotatedMountedCbs(DpMountIdInterface, Object)](#m-registerannotatedmountedcbs-5bdf889f0774)
+- [registerAnnotatedRangeActionCallbacks(Object, ConfValue[], ConfValue[], ConfPath)](#m-registerannotatedrangeactioncallbacks-9933fdc875d2)
+- [registerAnnotatedRangeDataCallbacks(Object, ConfValue[], ConfValue[], ConfPath)](#m-registerannotatedrangedatacallbacks-7df2c3b86ab4)
+- [registerDone()](#m-registerdone-a7e6840dacc7)
+- [removeActionMaapi()](#m-removeactionmaapi-ed4fc28fd600)
+- [reRegisterAnnotatedCallbacks(Object)](#m-reregisterannotatedcallbacks-02241c7e25b1)
+- [reRegisterAnnotatedCallbacks(String, Object)](#m-reregisterannotatedcallbacks-3db30c25ecf8)
+- [reRegisterAnnotatedMountedCbs(DpMountIdInterface, Object)](#m-reregisterannotatedmountedcbs-aafebd57912a)
+- [reRegisterAnnotatedRangeActionCallbacks(Object)](#m-reregisterannotatedrangeactioncallbacks-11af42e45a53)
+- [reRegisterAnnotatedRangeDataCallbacks(Object)](#m-reregisterannotatedrangedatacallbacks-35f84233e42f)
+- [runWithSocket(DpTrans, DpWork, Socket)](#m-runwithsocket-c07b7acd0039)
+- [setErrorVerbosity(ErrorVerbosity)](#m-seterrorverbosity-bab7950e55c8)
+- [setExceptionReporter(DpExceptionReporter)](#m-setexceptionreporter-d521ed21a6eb)
+- [setNumFreeWorkerSockets(int)](#m-setnumfreeworkersockets-1a22360e3897)
+- [setRejectedExecutionHandler(RejectedExecutionHandler)](#m-setrejectedexecutionhandler-8f7288278e17)
+- [shutDownThreadPool()](#m-shutdownthreadpool-21f99643e601)
+- [shutDownThreadPoolNow()](#m-shutdownthreadpoolnow-ad8e642d6ab4)
 
 **Nested Types**:
 
-- [DpWork](Dp/DpWork.md#s-DpWork)
+- [DpWork](Dp/DpWork.md#cls-DpWork)
 
 ## Constructors
 
-<a id="s-Dp-1"></a>
+<a id="m-dp-7585811d2823"></a>
 ### Dp(String, Socket)
 
 ```java
@@ -328,7 +328,7 @@ public Dp(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 This constructor will initialize the Dp class library and connect to
  ConfD/NCS on the provided control socket.
@@ -366,7 +366,7 @@ This constructor will initialize the Dp class library and connect to
 - `IOException` - Failed to read from control socket.
 - `ConfException` - Failed to decode or other internal failure.
 
-<a id="s-Dp-2"></a>
+<a id="m-dp-a5bd6c16fcf6"></a>
 ### Dp(String, Socket, boolean)
 
 ```java
@@ -378,7 +378,7 @@ public Dp(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 This constructor will initialize the Dp class library and connect to
  ConfD/NCS on the provided control socket.
@@ -422,7 +422,7 @@ This constructor will initialize the Dp class library and connect to
 - `IOException` - Failed to read from control socket.
 - `ConfException` - Failed to decode or other internal failure.
 
-<a id="s-Dp-3"></a>
+<a id="m-dp-c0bd46f94119"></a>
 ### Dp(String, Socket, boolean, int, int, long, TimeUnit, BlockingQueue<Runnable>, boolean)
 
 ```java
@@ -440,7 +440,7 @@ public Dp(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 This constructor will initialize the Dp class library and connect to
  ConfD/NCS on the provided control socket.
@@ -501,7 +501,7 @@ This constructor will initialize the Dp class library and connect to
 
 ## Fields
 
-<a id="s-DATA_REPLY_ERROR"></a>
+<a id="m-DATA_REPLY_ERROR"></a>
 ### DATA_REPLY_ERROR
 
 **Package-private**
@@ -510,7 +510,7 @@ This constructor will initialize the Dp class library and connect to
 static final int DATA_REPLY_ERROR = 105;
 ```
 
-<a id="s-DATA_REPLY_OK"></a>
+<a id="m-DATA_REPLY_OK"></a>
 ### DATA_REPLY_OK
 
 **Package-private**
@@ -519,7 +519,7 @@ static final int DATA_REPLY_ERROR = 105;
 static final int DATA_REPLY_OK = 104;
 ```
 
-<a id="s-DATA_REPLY_VALUE"></a>
+<a id="m-DATA_REPLY_VALUE"></a>
 ### DATA_REPLY_VALUE
 
 **Package-private**
@@ -528,19 +528,19 @@ static final int DATA_REPLY_OK = 104;
 static final int DATA_REPLY_VALUE = 103;
 ```
 
-<a id="s-workerThreadPool"></a>
+<a id="m-workerThreadPool"></a>
 ### workerThreadPool
 
 ```java
 protected com.tailf.dp.DpWorkerThreadPool workerThreadPool = null;
 ```
 
-Types: [DpWorkerThreadPool](DpWorkerThreadPool.md#s-DpWorkerThreadPool)
+Types: [DpWorkerThreadPool](DpWorkerThreadPool.md#cls-DpWorkerThreadPool)
 
 
 ## Methods
 
-<a id="s-allocWorkerSocket"></a>
+<a id="m-allocworkersocket-174516f00d50"></a>
 ### allocWorkerSocket(DpTrans)
 
 **Package-private**
@@ -552,7 +552,7 @@ synchronized java.net.Socket allocWorkerSocket(
     throws com.tailf.dp.DpException, java.io.IOException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [DpException](DpException.md#s-DpException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [DpException](DpException.md#cls-DpException)
 
 Allocate a new worker socket from a pool of open sockets.
  The returned socket is connected to ConfD/NCS.
@@ -561,7 +561,7 @@ Allocate a new worker socket from a pool of open sockets.
 
 - `com.tailf.dp.DpTrans trans`
 
-<a id="s-allocWorkerSocket-1"></a>
+<a id="m-allocworkersocket-f2a88a81642d"></a>
 ### allocWorkerSocket(DpTrans, Socket)
 
 **Package-private**
@@ -574,7 +574,7 @@ synchronized java.net.Socket allocWorkerSocket(
     throws com.tailf.dp.DpException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [DpException](DpException.md#s-DpException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [DpException](DpException.md#cls-DpException)
 
 This method is invoked from setSocket when user provides his own
  Socket. In this case we still need to make a fake file descriptor.
@@ -584,14 +584,14 @@ This method is invoked from setSocket when user provides his own
 - `com.tailf.dp.DpTrans trans`
 - `java.net.Socket workerSocket`
 
-<a id="s-close"></a>
+<a id="m-close-8107c6dc012b"></a>
 ### close()
 
 ```java
 public void close()
 ```
 
-<a id="s-closeWorkerSocket"></a>
+<a id="m-closeworkersocket-dc01a44ce016"></a>
 ### closeWorkerSocket(DpTrans)
 
 **Package-private**
@@ -600,7 +600,7 @@ public void close()
 synchronized void closeWorkerSocket(com.tailf.dp.DpTrans trans)
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans)
+Types: [DpTrans](DpTrans.md#cls-DpTrans)
 
 Close a worker socket and remove from running sockets.
 
@@ -608,7 +608,7 @@ Close a worker socket and remove from running sockets.
 
 - `com.tailf.dp.DpTrans trans`
 
-<a id="s-connectWorkerSocket"></a>
+<a id="m-connectworkersocket-c43c1ab09de8"></a>
 ### connectWorkerSocket(Socket, int)
 
 **Package-private**
@@ -617,7 +617,7 @@ Close a worker socket and remove from running sockets.
 void connectWorkerSocket(java.net.Socket sock, int fd) throws com.tailf.dp.DpException
 ```
 
-Types: [DpException](DpException.md#s-DpException)
+Types: [DpException](DpException.md#cls-DpException)
 
 Used by allocWorkerSocket() when a new socket is created.
 
@@ -626,7 +626,7 @@ Used by allocWorkerSocket() when a new socket is created.
 - `java.net.Socket sock`
 - `int fd`
 
-<a id="s-createNotifStream"></a>
+<a id="m-createnotifstream-e828f1b79ea0"></a>
 ### createNotifStream(String)
 
 ```java
@@ -636,7 +636,7 @@ public com.tailf.dp.DpNotifStream createNotifStream(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [DpNotifStream](DpNotifStream.md#s-DpNotifStream), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [DpNotifStream](DpNotifStream.md#cls-DpNotifStream), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Creates (and registers) a notifications stream with ConfD/NCS.
  This can be used for
@@ -652,9 +652,9 @@ Creates (and registers) a notifications stream with ConfD/NCS.
 - `IOException` - Failed to read from notification socket.
 - `ConfException` - Failed to decode or other internal failure.
 
-**See also:** [`DpNotifStream`](DpNotifStream.md#s-DpNotifStream)
+**See also:** [`DpNotifStream`](DpNotifStream.md#cls-DpNotifStream)
 
-<a id="s-createNotifStream-1"></a>
+<a id="m-createnotifstream-e4dac93288ec"></a>
 ### createNotifStream(String, DpNotifReplayCallback)
 
 ```java
@@ -665,7 +665,7 @@ public com.tailf.dp.DpNotifStream createNotifStream(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [DpNotifStream](DpNotifStream.md#s-DpNotifStream), [DpNotifReplayCallback](DpNotifReplayCallback.md#s-DpNotifReplayCallback), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [DpNotifStream](DpNotifStream.md#cls-DpNotifStream), [DpNotifReplayCallback](DpNotifReplayCallback.md#cls-DpNotifReplayCallback), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Creates (and registers) a notifications stream with ConfD/NCS.
  This can be used for
@@ -683,9 +683,9 @@ Creates (and registers) a notifications stream with ConfD/NCS.
 - `IOException` - Failed to read from notification socket.
 - `ConfException` - Failed to decode or other internal failure.
 
-**See also:** [`DpNotifStream`](DpNotifStream.md#s-DpNotifStream)
+**See also:** [`DpNotifStream`](DpNotifStream.md#cls-DpNotifStream)
 
-<a id="s-createNotifStream-2"></a>
+<a id="m-createnotifstream-24ebe812b6ae"></a>
 ### createNotifStream(String, DpNotifReplayCallback, Socket)
 
 ```java
@@ -697,7 +697,7 @@ public com.tailf.dp.DpNotifStream createNotifStream(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [DpNotifStream](DpNotifStream.md#s-DpNotifStream), [DpNotifReplayCallback](DpNotifReplayCallback.md#s-DpNotifReplayCallback), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [DpNotifStream](DpNotifStream.md#cls-DpNotifStream), [DpNotifReplayCallback](DpNotifReplayCallback.md#cls-DpNotifReplayCallback), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Creates (and registers) a notifications stream with ConfD/NCS.
  This can be used for
@@ -716,9 +716,9 @@ Creates (and registers) a notifications stream with ConfD/NCS.
 - `IOException` - Failed to read from notification socket.
 - `ConfException` - Failed to decode or other internal failure.
 
-**See also:** [`DpNotifStream`](DpNotifStream.md#s-DpNotifStream)
+**See also:** [`DpNotifStream`](DpNotifStream.md#cls-DpNotifStream)
 
-<a id="s-createSnmpNotifier"></a>
+<a id="m-createsnmpnotifier-e1bab2519dcd"></a>
 ### createSnmpNotifier(String, String)
 
 ```java
@@ -729,9 +729,9 @@ public com.tailf.dp.DpSnmpNotifier createSnmpNotifier(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [DpSnmpNotifier](DpSnmpNotifier.md#s-DpSnmpNotifier), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [DpSnmpNotifier](DpSnmpNotifier.md#cls-DpSnmpNotifier), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-Creates (and registers) a SNMP Notifer @see [`DpSnmpNotifier`](DpSnmpNotifier.md#s-DpSnmpNotifier).
+Creates (and registers) a SNMP Notifer @see [`DpSnmpNotifier`](DpSnmpNotifier.md#cls-DpSnmpNotifier).
 
 **Parameters**
 
@@ -743,9 +743,9 @@ Creates (and registers) a SNMP Notifer @see [`DpSnmpNotifier`](DpSnmpNotifier.md
 - `IOException` - Failed to read from notification socket.
 - `ConfException` - Failed to decode or other internal failure.
 
-**See also:** [`DpSnmpNotifier`](DpSnmpNotifier.md#s-DpSnmpNotifier)
+**See also:** [`DpSnmpNotifier`](DpSnmpNotifier.md#cls-DpSnmpNotifier)
 
-<a id="s-createSnmpNotifier-1"></a>
+<a id="m-createsnmpnotifier-89f0d186fc8f"></a>
 ### createSnmpNotifier(String, String, Object)
 
 ```java
@@ -757,9 +757,9 @@ public com.tailf.dp.DpSnmpNotifier createSnmpNotifier(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [DpSnmpNotifier](DpSnmpNotifier.md#s-DpSnmpNotifier), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [DpSnmpNotifier](DpSnmpNotifier.md#cls-DpSnmpNotifier), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-Creates (and registers) a SNMP Notifier @see [`DpSnmpNotifier`](DpSnmpNotifier.md#s-DpSnmpNotifier).
+Creates (and registers) a SNMP Notifier @see [`DpSnmpNotifier`](DpSnmpNotifier.md#cls-DpSnmpNotifier).
 
 **Parameters**
 
@@ -772,9 +772,9 @@ Creates (and registers) a SNMP Notifier @see [`DpSnmpNotifier`](DpSnmpNotifier.m
 - `IOException` - Failed to read from notification socket.
 - `ConfException` - Failed to decode or other internal failure.
 
-**See also:** [`DpSnmpNotifier`](DpSnmpNotifier.md#s-DpSnmpNotifier)
+**See also:** [`DpSnmpNotifier`](DpSnmpNotifier.md#cls-DpSnmpNotifier)
 
-<a id="s-createSnmpNotifier-2"></a>
+<a id="m-createsnmpnotifier-666167fa4e78"></a>
 ### createSnmpNotifier(String, String, Object, Socket)
 
 ```java
@@ -787,16 +787,16 @@ public com.tailf.dp.DpSnmpNotifier createSnmpNotifier(
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
-Types: [DpSnmpNotifier](DpSnmpNotifier.md#s-DpSnmpNotifier), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [DpSnmpNotifier](DpSnmpNotifier.md#cls-DpSnmpNotifier), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-Creates (and registers) a SNMP Notifier see [`DpSnmpNotifier`](DpSnmpNotifier.md#s-DpSnmpNotifier).
+Creates (and registers) a SNMP Notifier see [`DpSnmpNotifier`](DpSnmpNotifier.md#cls-DpSnmpNotifier).
 
 **Parameters**
 
 - `String notifyName` - a name uniquely identifying the SNMP notifier.
 - `String contextName` - the SNMP context.
 - `Object informCb` - the callback to be called for Inform Responses.
-- `java.net.Socket socket` - socket to be used by [`DpSnmpNotifier`](DpSnmpNotifier.md#s-DpSnmpNotifier) as
+- `java.net.Socket socket` - socket to be used by [`DpSnmpNotifier`](DpSnmpNotifier.md#cls-DpSnmpNotifier) as
  worker socket.
 
 **Throws**
@@ -804,16 +804,16 @@ Creates (and registers) a SNMP Notifier see [`DpSnmpNotifier`](DpSnmpNotifier.md
 - `IOException` - Failed to read from notification socket.
 - `ConfException` - Failed to decode or other internal failure.
 
-**See also:** [`DpSnmpNotifier`](DpSnmpNotifier.md#s-DpSnmpNotifier)
+**See also:** [`DpSnmpNotifier`](DpSnmpNotifier.md#cls-DpSnmpNotifier)
 
-<a id="s-freeWorkerSocket"></a>
+<a id="m-freeworkersocket-7fceeb5a23c4"></a>
 ### freeWorkerSocket(DpTrans)
 
 ```java
 protected synchronized void freeWorkerSocket(com.tailf.dp.DpTrans trans)
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans)
+Types: [DpTrans](DpTrans.md#cls-DpTrans)
 
 Free up a worker socket, for use on other Transaction.
 
@@ -821,7 +821,7 @@ Free up a worker socket, for use on other Transaction.
 
 - `com.tailf.dp.DpTrans trans`
 
-<a id="s-getActionCallback"></a>
+<a id="m-getactioncallback-1afe38accd25"></a>
 ### getActionCallback(String)
 
 **Package-private**
@@ -830,7 +830,7 @@ Free up a worker socket, for use on other Transaction.
 com.tailf.dp.DpActionCallback getActionCallback(String point) throws com.tailf.dp.DpException
 ```
 
-Types: [DpActionCallback](DpActionCallback.md#s-DpActionCallback), [DpException](DpException.md#s-DpException)
+Types: [DpActionCallback](DpActionCallback.md#cls-DpActionCallback), [DpException](DpException.md#cls-DpException)
 
 Find the action callback for a callpoint.
 
@@ -838,7 +838,7 @@ Find the action callback for a callpoint.
 
 - `String point` - An action point name
 
-<a id="s-getActionCallback-1"></a>
+<a id="m-getactioncallback-80fd3aa41080"></a>
 ### getActionCallback(String, int)
 
 **Package-private**
@@ -851,7 +851,7 @@ com.tailf.dp.DpActionCallback getActionCallback(
     throws com.tailf.dp.DpException
 ```
 
-Types: [DpActionCallback](DpActionCallback.md#s-DpActionCallback), [DpException](DpException.md#s-DpException)
+Types: [DpActionCallback](DpActionCallback.md#cls-DpActionCallback), [DpException](DpException.md#cls-DpException)
 
 Find the action callback for a callpoint.
 
@@ -860,7 +860,7 @@ Find the action callback for a callpoint.
 - `String point` - An action point name
 - `int index` - Index for position in actionpoint array
 
-<a id="s-getCtrlSocket"></a>
+<a id="m-getctrlsocket-bb621326ae1c"></a>
 ### getCtrlSocket()
 
 ```java
@@ -871,7 +871,7 @@ The control socket which is connected to ConfD/NCS.
 
 **Returns:** Socket the control socket
 
-<a id="s-getDaemonId"></a>
+<a id="m-getdaemonid-289be546ab2e"></a>
 ### getDaemonId()
 
 ```java
@@ -882,7 +882,7 @@ The daemon identifier (assigned by ConfD/NCS).
 
 **Returns:** int daemon identifier
 
-<a id="s-getDataCallback"></a>
+<a id="m-getdatacallback-41b5ab75fca5"></a>
 ### getDataCallback(ConfBuf, int)
 
 ```java
@@ -893,7 +893,7 @@ protected com.tailf.dp.DpDataCallback getDataCallback(
     throws com.tailf.dp.DpException
 ```
 
-Types: [DpDataCallback](DpDataCallback.md#s-DpDataCallback), [ConfBuf](../conf/ConfBuf.md#s-ConfBuf), [DpException](DpException.md#s-DpException)
+Types: [DpDataCallback](DpDataCallback.md#cls-DpDataCallback), [ConfBuf](../conf/ConfBuf.md#cls-ConfBuf), [DpException](DpException.md#cls-DpException)
 
 Get the registered data callback with specified name and at index.
 
@@ -902,7 +902,7 @@ Get the registered data callback with specified name and at index.
 - `com.tailf.conf.ConfBuf callpoint` - The name of the callpoint
 - `int index` - The index of callpoint
 
-<a id="s-getDbCallback"></a>
+<a id="m-getdbcallback-bd46dc259b1a"></a>
 ### getDbCallback()
 
 **Package-private**
@@ -911,31 +911,31 @@ Get the registered data callback with specified name and at index.
 com.tailf.dp.DpDbCallback getDbCallback() throws com.tailf.dp.DpException
 ```
 
-Types: [DpDbCallback](DpDbCallback.md#s-DpDbCallback), [DpException](DpException.md#s-DpException)
+Types: [DpDbCallback](DpDbCallback.md#cls-DpDbCallback), [DpException](DpException.md#cls-DpException)
 
 Gets the registered db callback.
 
-<a id="s-getErrorMessageFormatter"></a>
+<a id="m-geterrormessageformatter-8c75ba6f07e5"></a>
 ### getErrorMessageFormatter()
 
 ```java
 public com.tailf.conf.ErrorMessageFormatter getErrorMessageFormatter()
 ```
 
-Types: [ErrorMessageFormatter](../conf/ErrorMessageFormatter.md#s-ErrorMessageFormatter)
+Types: [ErrorMessageFormatter](../conf/ErrorMessageFormatter.md#cls-ErrorMessageFormatter)
 
 Return the errorMessageFormatter for this Dp.
 
 **Returns:** the ErrorMessageFormatter for this Dp.
 
-<a id="s-getErrorVerbosity"></a>
+<a id="m-geterrorverbosity-defe49ca237d"></a>
 ### getErrorVerbosity()
 
 ```java
 public com.tailf.conf.ErrorVerbosity getErrorVerbosity()
 ```
 
-Types: [ErrorVerbosity](../conf/ErrorVerbosity.md#s-ErrorVerbosity)
+Types: [ErrorVerbosity](../conf/ErrorVerbosity.md#cls-ErrorVerbosity)
 
 Get the local verbosity level for reported errors
  If this verbosity is null the the default level governs the error
@@ -943,16 +943,16 @@ Get the local verbosity level for reported errors
 
 **Returns:** the current errorVerbosity for this Dp
 
-<a id="s-getExceptionReporter"></a>
+<a id="m-getexceptionreporter-51bbec6b9ad7"></a>
 ### getExceptionReporter()
 
 ```java
 public com.tailf.dp.DpExceptionReporter getExceptionReporter()
 ```
 
-Types: [DpExceptionReporter](DpExceptionReporter.md#s-DpExceptionReporter)
+Types: [DpExceptionReporter](DpExceptionReporter.md#cls-DpExceptionReporter)
 
-<a id="s-getNanoServiceCallback"></a>
+<a id="m-getnanoservicecallback-84fe7cc27c9e"></a>
 ### getNanoServiceCallback(ConfBuf, int)
 
 ```java
@@ -963,26 +963,26 @@ protected com.tailf.dp.DpNanoServiceCallback getNanoServiceCallback(
     throws com.tailf.dp.DpException
 ```
 
-Types: [DpNanoServiceCallback](DpNanoServiceCallback.md#s-DpNanoServiceCallback), [ConfBuf](../conf/ConfBuf.md#s-ConfBuf), [DpException](DpException.md#s-DpException)
+Types: [DpNanoServiceCallback](DpNanoServiceCallback.md#cls-DpNanoServiceCallback), [ConfBuf](../conf/ConfBuf.md#cls-ConfBuf), [DpException](DpException.md#cls-DpException)
 
 **Parameters**
 
 - `com.tailf.conf.ConfBuf servicepoint`
 - `int index`
 
-<a id="s-getNsList"></a>
+<a id="m-getnslist-0345f486e876"></a>
 ### getNsList()
 
 ```java
 public java.util.ArrayList<com.tailf.conf.ConfNamespace> getNsList()
 ```
 
-Types: [ConfNamespace](../conf/ConfNamespace.md#s-ConfNamespace)
+Types: [ConfNamespace](../conf/ConfNamespace.md#cls-ConfNamespace)
 
 Get a list of the installed namespaces. The namespace list
  is needed, for example, when creating an object ref.
 
-<a id="s-getServiceCallback"></a>
+<a id="m-getservicecallback-3eeb502a337a"></a>
 ### getServiceCallback(ConfBuf, int)
 
 ```java
@@ -993,7 +993,7 @@ protected com.tailf.dp.DpServiceCallback getServiceCallback(
     throws com.tailf.dp.DpException
 ```
 
-Types: [DpServiceCallback](DpServiceCallback.md#s-DpServiceCallback), [ConfBuf](../conf/ConfBuf.md#s-ConfBuf), [DpException](DpException.md#s-DpException)
+Types: [DpServiceCallback](DpServiceCallback.md#cls-DpServiceCallback), [ConfBuf](../conf/ConfBuf.md#cls-ConfBuf), [DpException](DpException.md#cls-DpException)
 
 Get the registered service callback with specified name and at index.
 
@@ -1002,7 +1002,7 @@ Get the registered service callback with specified name and at index.
 - `com.tailf.conf.ConfBuf servicepoint` - The name of the servicepoint
 - `int index` - The index of servicepoint
 
-<a id="s-getServicePointMaapi"></a>
+<a id="m-getservicepointmaapi-021836eac222"></a>
 ### getServicePointMaapi()
 
 ```java
@@ -1010,9 +1010,9 @@ public com.tailf.maapi.Maapi getServicePointMaapi() throws java.io.IOException, 
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Maapi](../maapi/Maapi.md#s-Maapi), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Maapi](../maapi/Maapi.md#cls-Maapi), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-<a id="s-getServicePointMaapi-1"></a>
+<a id="m-getservicepointmaapi-16637fd1c239"></a>
 ### getServicePointMaapi(DpTrans)
 
 ```java
@@ -1022,13 +1022,13 @@ public synchronized com.tailf.maapi.Maapi getServicePointMaapi(
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [Maapi](../maapi/Maapi.md#s-Maapi), [DpTrans](DpTrans.md#s-DpTrans), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [Maapi](../maapi/Maapi.md#cls-Maapi), [DpTrans](DpTrans.md#cls-DpTrans), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.dp.DpTrans trans`
 
-<a id="s-getTransCallback"></a>
+<a id="m-gettranscallback-7890d71f94df"></a>
 ### getTransCallback()
 
 **Package-private**
@@ -1037,11 +1037,11 @@ Types: [Maapi](../maapi/Maapi.md#s-Maapi), [DpTrans](DpTrans.md#s-DpTrans), [Con
 com.tailf.dp.DpTransCallback getTransCallback() throws com.tailf.dp.DpException
 ```
 
-Types: [DpTransCallback](DpTransCallback.md#s-DpTransCallback), [DpException](DpException.md#s-DpException)
+Types: [DpTransCallback](DpTransCallback.md#cls-DpTransCallback), [DpException](DpException.md#cls-DpException)
 
 Get the registered transaction callback.
 
-<a id="s-getTransValidateCallback"></a>
+<a id="m-gettransvalidatecallback-0eaee07d8d43"></a>
 ### getTransValidateCallback()
 
 **Package-private**
@@ -1050,18 +1050,18 @@ Get the registered transaction callback.
 com.tailf.dp.DpTransValidateCallback getTransValidateCallback() throws com.tailf.dp.DpException
 ```
 
-Types: [DpTransValidateCallback](DpTransValidateCallback.md#s-DpTransValidateCallback), [DpException](DpException.md#s-DpException)
+Types: [DpTransValidateCallback](DpTransValidateCallback.md#cls-DpTransValidateCallback), [DpException](DpException.md#cls-DpException)
 
 Get the registered transaction validate callback.
 
-<a id="s-getUserInfo"></a>
+<a id="m-getuserinfo-4df0372acaa8"></a>
 ### getUserInfo(int)
 
 ```java
 public com.tailf.dp.DpUserInfo getUserInfo(int usid)
 ```
 
-Types: [DpUserInfo](DpUserInfo.md#s-DpUserInfo)
+Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
 
 Retrieves the user information.
 
@@ -1069,7 +1069,7 @@ Retrieves the user information.
 
 - `int usid` - User identifier
 
-<a id="s-getValpointCallback"></a>
+<a id="m-getvalpointcallback-5f5550918feb"></a>
 ### getValpointCallback(ConfBuf, int)
 
 **Package-private**
@@ -1082,7 +1082,7 @@ com.tailf.dp.DpValpointCallback getValpointCallback(
     throws com.tailf.dp.DpException
 ```
 
-Types: [DpValpointCallback](DpValpointCallback.md#s-DpValpointCallback), [ConfBuf](../conf/ConfBuf.md#s-ConfBuf), [DpException](DpException.md#s-DpException)
+Types: [DpValpointCallback](DpValpointCallback.md#cls-DpValpointCallback), [ConfBuf](../conf/ConfBuf.md#cls-ConfBuf), [DpException](DpException.md#cls-DpException)
 
 Finds the valpoint callback.
 
@@ -1091,7 +1091,7 @@ Finds the valpoint callback.
 - `com.tailf.conf.ConfBuf point` - A valpoint name
 - `int index` - Index for position in valpoint array
 
-<a id="s-getWorkerPool"></a>
+<a id="m-getworkerpool-1955a0c55497"></a>
 ### getWorkerPool()
 
 ```java
@@ -1102,7 +1102,7 @@ Get current WorkerThreadPool
 
 **Returns:** WorkerThreadPool
 
-<a id="s-getWorkerSocketFd"></a>
+<a id="m-getworkersocketfd-fca29bd0a7bf"></a>
 ### getWorkerSocketFd(Socket)
 
 ```java
@@ -1115,14 +1115,14 @@ Get the internal fd of a worker socket
 
 - `java.net.Socket workerSocket`
 
-<a id="s-read"></a>
+<a id="m-read-b28b830b98d6"></a>
 ### read()
 
 ```java
 public void read() throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Receives data on the control socket which is connected to ConfD/NCS.
  Performs a blocking read. If a socket timeout value has been configured
@@ -1135,14 +1135,14 @@ Receives data on the control socket which is connected to ConfD/NCS.
 - `SocketTimeoutException` - The control socket timed out.
 - `IOException` - Failed to read from control socket.
 
-<a id="s-registerAnnotatedCallbacks"></a>
+<a id="m-registerannotatedcallbacks-ffaebadbfc42"></a>
 ### registerAnnotatedCallbacks(Object)
 
 ```java
 public void registerAnnotatedCallbacks(Object obj) throws com.tailf.dp.DpException
 ```
 
-Types: [DpException](DpException.md#s-DpException)
+Types: [DpException](DpException.md#cls-DpException)
 
 All Data, Trans, Action, Validate, TransValidate and DB callbacks
  are registered using this method.
@@ -1191,14 +1191,14 @@ All Data, Trans, Action, Validate, TransValidate and DB callbacks
  annotation has an Enum of legal values
 
 
-- [`DataCBType`](proto/DataCBType.md#s-DataCBType)
-- [`TransCBType`](proto/TransCBType.md#s-TransCBType)
-- [`ActionCBType`](proto/ActionCBType.md#s-ActionCBType)
-- [`ValidateCBType`](proto/ValidateCBType.md#s-ValidateCBType)
-- [`TransValidateCBType`](proto/TransValidateCBType.md#s-TransValidateCBType)
-- [`DBCBType`](proto/DBCBType.md#s-DBCBType)
-- [`AuthCBType`](proto/AuthCBType.md#s-AuthCBType)
-- [`ServiceCBType`](proto/ServiceCBType.md#s-ServiceCBType)
+- [`DataCBType`](proto/DataCBType.md#cls-DataCBType)
+- [`TransCBType`](proto/TransCBType.md#cls-TransCBType)
+- [`ActionCBType`](proto/ActionCBType.md#cls-ActionCBType)
+- [`ValidateCBType`](proto/ValidateCBType.md#cls-ValidateCBType)
+- [`TransValidateCBType`](proto/TransValidateCBType.md#cls-TransValidateCBType)
+- [`DBCBType`](proto/DBCBType.md#cls-DBCBType)
+- [`AuthCBType`](proto/AuthCBType.md#cls-AuthCBType)
+- [`ServiceCBType`](proto/ServiceCBType.md#cls-ServiceCBType)
 
 **Parameters**
 
@@ -1208,21 +1208,21 @@ All Data, Trans, Action, Validate, TransValidate and DB callbacks
 
 - `DpException`
 
-<a id="s-registerAnnotatedCallbacks-1"></a>
+<a id="m-registerannotatedcallbacks-e4aab67443c6"></a>
 ### registerAnnotatedCallbacks(String, Object)
 
 ```java
 public void registerAnnotatedCallbacks(String mountId, Object obj) throws com.tailf.dp.DpException
 ```
 
-Types: [DpException](DpException.md#s-DpException)
+Types: [DpException](DpException.md#cls-DpException)
 
 **Parameters**
 
 - `String mountId`
 - `Object obj`
 
-<a id="s-registerAnnotatedMountedCbs"></a>
+<a id="m-registerannotatedmountedcbs-5bdf889f0774"></a>
 ### registerAnnotatedMountedCbs(DpMountIdInterface, Object)
 
 ```java
@@ -1233,14 +1233,14 @@ public void registerAnnotatedMountedCbs(
     throws com.tailf.dp.DpException
 ```
 
-Types: [DpMountIdInterface](DpMountIdInterface.md#s-DpMountIdInterface), [DpException](DpException.md#s-DpException)
+Types: [DpMountIdInterface](DpMountIdInterface.md#cls-DpMountIdInterface), [DpException](DpException.md#cls-DpException)
 
 **Parameters**
 
 - `com.tailf.dp.DpMountIdInterface mountIdMethod`
 - `Object obj`
 
-<a id="s-registerAnnotatedRangeActionCallbacks"></a>
+<a id="m-registerannotatedrangeactioncallbacks-9933fdc875d2"></a>
 ### registerAnnotatedRangeActionCallbacks(Object, ConfValue[], ConfValue[], ConfPath)
 
 ```java
@@ -1253,7 +1253,7 @@ public void registerAnnotatedRangeActionCallbacks(
     throws com.tailf.dp.DpException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfPath](../conf/ConfPath.md#s-ConfPath), [DpException](DpException.md#s-DpException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [DpException](DpException.md#cls-DpException)
 
 **Parameters**
 
@@ -1262,7 +1262,7 @@ Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfPath](../conf/ConfPat
 - `com.tailf.conf.ConfValue[] higher`
 - `com.tailf.conf.ConfPath path`
 
-<a id="s-registerAnnotatedRangeDataCallbacks"></a>
+<a id="m-registerannotatedrangedatacallbacks-7df2c3b86ab4"></a>
 ### registerAnnotatedRangeDataCallbacks(Object, ConfValue[], ConfValue[], ConfPath)
 
 ```java
@@ -1275,7 +1275,7 @@ public void registerAnnotatedRangeDataCallbacks(
     throws com.tailf.dp.DpException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfPath](../conf/ConfPath.md#s-ConfPath), [DpException](DpException.md#s-DpException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [ConfPath](../conf/ConfPath.md#cls-ConfPath), [DpException](DpException.md#cls-DpException)
 
 DataCallbacks can be registered for a range of values using this method
 
@@ -1290,14 +1290,14 @@ DataCallbacks can be registered for a range of values using this method
 
 - `DpException` - Failed to register range data callback.
 
-<a id="s-registerDone"></a>
+<a id="m-registerdone-a7e6840dacc7"></a>
 ### registerDone()
 
 ```java
 public void registerDone() throws com.tailf.dp.DpException
 ```
 
-Types: [DpException](DpException.md#s-DpException)
+Types: [DpException](DpException.md#cls-DpException)
 
 When we have registered all the callbacks for a daemon
  we must call this function to synchronize with ConfD/NCS.
@@ -1308,21 +1308,21 @@ When we have registered all the callbacks for a daemon
 
 - `DpException` - Failed with registerDone()
 
-<a id="s-removeActionMaapi"></a>
+<a id="m-removeactionmaapi-ed4fc28fd600"></a>
 ### removeActionMaapi()
 
 ```java
 public void removeActionMaapi()
 ```
 
-<a id="s-reRegisterAnnotatedCallbacks"></a>
+<a id="m-reregisterannotatedcallbacks-02241c7e25b1"></a>
 ### reRegisterAnnotatedCallbacks(Object)
 
 ```java
 public void reRegisterAnnotatedCallbacks(Object obj) throws com.tailf.dp.DpException
 ```
 
-Types: [DpException](DpException.md#s-DpException)
+Types: [DpException](DpException.md#cls-DpException)
 
 reRegisters an existing callback.
  This implies that the current callback is exchanged
@@ -1336,21 +1336,21 @@ reRegisters an existing callback.
 
 - `DpException`
 
-<a id="s-reRegisterAnnotatedCallbacks-1"></a>
+<a id="m-reregisterannotatedcallbacks-3db30c25ecf8"></a>
 ### reRegisterAnnotatedCallbacks(String, Object)
 
 ```java
 public void reRegisterAnnotatedCallbacks(String mountId, Object obj) throws com.tailf.dp.DpException
 ```
 
-Types: [DpException](DpException.md#s-DpException)
+Types: [DpException](DpException.md#cls-DpException)
 
 **Parameters**
 
 - `String mountId`
 - `Object obj`
 
-<a id="s-reRegisterAnnotatedMountedCbs"></a>
+<a id="m-reregisterannotatedmountedcbs-aafebd57912a"></a>
 ### reRegisterAnnotatedMountedCbs(DpMountIdInterface, Object)
 
 ```java
@@ -1361,21 +1361,21 @@ public void reRegisterAnnotatedMountedCbs(
     throws com.tailf.dp.DpException
 ```
 
-Types: [DpMountIdInterface](DpMountIdInterface.md#s-DpMountIdInterface), [DpException](DpException.md#s-DpException)
+Types: [DpMountIdInterface](DpMountIdInterface.md#cls-DpMountIdInterface), [DpException](DpException.md#cls-DpException)
 
 **Parameters**
 
 - `com.tailf.dp.DpMountIdInterface mountIdMethod`
 - `Object obj`
 
-<a id="s-reRegisterAnnotatedRangeActionCallbacks"></a>
+<a id="m-reregisterannotatedrangeactioncallbacks-11af42e45a53"></a>
 ### reRegisterAnnotatedRangeActionCallbacks(Object)
 
 ```java
 public void reRegisterAnnotatedRangeActionCallbacks(Object obj) throws com.tailf.dp.DpException
 ```
 
-Types: [DpException](DpException.md#s-DpException)
+Types: [DpException](DpException.md#cls-DpException)
 
 reRegisters an existing callback.
  This implies that the current callback is exchanged
@@ -1391,14 +1391,14 @@ reRegisters an existing callback.
 
 - `DpException`
 
-<a id="s-reRegisterAnnotatedRangeDataCallbacks"></a>
+<a id="m-reregisterannotatedrangedatacallbacks-35f84233e42f"></a>
 ### reRegisterAnnotatedRangeDataCallbacks(Object)
 
 ```java
 public void reRegisterAnnotatedRangeDataCallbacks(Object obj) throws com.tailf.dp.DpException
 ```
 
-Types: [DpException](DpException.md#s-DpException)
+Types: [DpException](DpException.md#cls-DpException)
 
 reRegisters an existing callback.
  This implies that the current callback is exchanged
@@ -1414,7 +1414,7 @@ reRegisters an existing callback.
 
 - `DpException`
 
-<a id="s-runWithSocket"></a>
+<a id="m-runwithsocket-c07b7acd0039"></a>
 ### runWithSocket(DpTrans, DpWork, Socket)
 
 **Package-private**
@@ -1428,7 +1428,7 @@ java.net.Socket runWithSocket(
     throws Throwable
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [DpWork](Dp/DpWork.md#s-DpWork)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [DpWork](Dp/DpWork.md#cls-DpWork)
 
 The purpose of this method is to make sure the socket is still connected
  to ConfD/NCS before executing the callback.
@@ -1442,14 +1442,14 @@ The purpose of this method is to make sure the socket is still connected
 - `com.tailf.dp.Dp.DpWork dpWork`
 - `java.net.Socket socket`
 
-<a id="s-setErrorVerbosity"></a>
+<a id="m-seterrorverbosity-bab7950e55c8"></a>
 ### setErrorVerbosity(ErrorVerbosity)
 
 ```java
 public void setErrorVerbosity(com.tailf.conf.ErrorVerbosity verbosity)
 ```
 
-Types: [ErrorVerbosity](../conf/ErrorVerbosity.md#s-ErrorVerbosity)
+Types: [ErrorVerbosity](../conf/ErrorVerbosity.md#cls-ErrorVerbosity)
 
 set the local verbosity level for reported errors
  If this verbosity is set to null the the default level governs the error
@@ -1459,20 +1459,20 @@ set the local verbosity level for reported errors
 
 - `com.tailf.conf.ErrorVerbosity verbosity`
 
-<a id="s-setExceptionReporter"></a>
+<a id="m-setexceptionreporter-d521ed21a6eb"></a>
 ### setExceptionReporter(DpExceptionReporter)
 
 ```java
 public void setExceptionReporter(com.tailf.dp.DpExceptionReporter exReporter)
 ```
 
-Types: [DpExceptionReporter](DpExceptionReporter.md#s-DpExceptionReporter)
+Types: [DpExceptionReporter](DpExceptionReporter.md#cls-DpExceptionReporter)
 
 **Parameters**
 
 - `com.tailf.dp.DpExceptionReporter exReporter`
 
-<a id="s-setNumFreeWorkerSockets"></a>
+<a id="m-setnumfreeworkersockets-1a22360e3897"></a>
 ### setNumFreeWorkerSockets(int)
 
 ```java
@@ -1491,7 +1491,7 @@ This method is used to control the number of workersockets that
 
 - `int numSockets` - number of sockets.
 
-<a id="s-setRejectedExecutionHandler"></a>
+<a id="m-setrejectedexecutionhandler-8f7288278e17"></a>
 ### setRejectedExecutionHandler(RejectedExecutionHandler)
 
 **Package-private**
@@ -1504,7 +1504,7 @@ void setRejectedExecutionHandler(java.util.concurrent.RejectedExecutionHandler h
 
 - `java.util.concurrent.RejectedExecutionHandler handler`
 
-<a id="s-shutDownThreadPool"></a>
+<a id="m-shutdownthreadpool-21f99643e601"></a>
 ### shutDownThreadPool()
 
 ```java
@@ -1515,7 +1515,7 @@ Initiates an orderly shutdown in which previously
  transactions are executed, but no new transactions
  will be accepted.
 
-<a id="s-shutDownThreadPoolNow"></a>
+<a id="m-shutdownthreadpoolnow-ad8e642d6ab4"></a>
 ### shutDownThreadPoolNow()
 
 ```java
@@ -1531,4 +1531,4 @@ Attempts to stop all actively executing transactions,
 
 ## Nested Types
 
-- [DpWork](Dp/DpWork.md)
+- [DpWork](Dp/DpWork.md#cls-DpWork)

@@ -1,4 +1,4 @@
-<a id="s-NedTTL"></a>
+<a id="cls-NedTTL"></a>
 # NedTTL
 
 ```java
@@ -12,27 +12,27 @@ The NedTTL class is used to pass time-to-live information
 
 **Constructors**:
 
-- [NedTTL(ConfPath, int)](#s-NedTTL-1)
-- [NedTTL(ConfPath, int, boolean)](#s-NedTTL-2)
+- [NedTTL(ConfPath, int)](#m-nedttl-d59ba0f9d8e4)
+- [NedTTL(ConfPath, int, boolean)](#m-nedttl-16d294d5a6a3)
 
 **Methods**:
 
-- [encode()](#s-encode)
-- [getPath()](#s-getPath)
-- [getTTL()](#s-getTTL)
-- [isSubtree()](#s-isSubtree)
-- [toString()](#s-toString)
+- [encode()](#m-encode-fbae522bba37)
+- [getPath()](#m-getpath-88fb21895561)
+- [getTTL()](#m-getttl-7693f68ee5b0)
+- [isSubtree()](#m-issubtree-0d784a2e567c)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-NedTTL-1"></a>
+<a id="m-nedttl-d59ba0f9d8e4"></a>
 ### NedTTL(ConfPath, int)
 
 ```java
 public NedTTL(com.tailf.conf.ConfPath path, int ttl)
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath)
 
 Creates a single TTL entry.
 
@@ -41,14 +41,14 @@ Creates a single TTL entry.
 - `com.tailf.conf.ConfPath path` - The path for which the TTL holds.
 - `int ttl` - The time-to-live in seconds.
 
-<a id="s-NedTTL-2"></a>
+<a id="m-nedttl-16d294d5a6a3"></a>
 ### NedTTL(ConfPath, int, boolean)
 
 ```java
 public NedTTL(com.tailf.conf.ConfPath path, int ttl, boolean isSubtree)
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath)
 
 Creates a single TTL entry.
 
@@ -66,39 +66,39 @@ Creates a single TTL entry.
 
 ## Methods
 
-<a id="s-encode"></a>
+<a id="m-encode-fbae522bba37"></a>
 ### encode()
 
 ```java
 public com.tailf.proto.ConfEObject encode()
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="s-getPath"></a>
+<a id="m-getpath-88fb21895561"></a>
 ### getPath()
 
 ```java
 public com.tailf.conf.ConfPath getPath()
 ```
 
-Types: [ConfPath](../conf/ConfPath.md#s-ConfPath)
+Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath)
 
-<a id="s-getTTL"></a>
+<a id="m-getttl-7693f68ee5b0"></a>
 ### getTTL()
 
 ```java
 public int getTTL()
 ```
 
-<a id="s-isSubtree"></a>
+<a id="m-issubtree-0d784a2e567c"></a>
 ### isSubtree()
 
 ```java
 public boolean isSubtree()
 ```
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

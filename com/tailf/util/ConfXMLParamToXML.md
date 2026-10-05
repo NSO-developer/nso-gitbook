@@ -1,4 +1,4 @@
-<a id="s-ConfXMLParamToXML"></a>
+<a id="cls-ConfXMLParamToXML"></a>
 # ConfXMLParamToXML
 
 ```java
@@ -30,27 +30,27 @@ Utility class to transform `ConfXMLParam[]`
   /fragment
 ```
 
-**See also:** [`ConfXMLParamValue`](../conf/ConfXMLParamValue.md#s-ConfXMLParamValue), [`ConfXMLParamStart`](../conf/ConfXMLParamStart.md#s-ConfXMLParamStart), [`ConfXMLParamStop`](../conf/ConfXMLParamStop.md#s-ConfXMLParamStop), [`ConfXMLParam`](../conf/ConfXMLParam.md#s-ConfXMLParam), [`ConfXMLParamLeaf`](../conf/ConfXMLParamLeaf.md#s-ConfXMLParamLeaf)
+**See also:** [`ConfXMLParamValue`](../conf/ConfXMLParamValue.md#cls-ConfXMLParamValue), [`ConfXMLParamStart`](../conf/ConfXMLParamStart.md#cls-ConfXMLParamStart), [`ConfXMLParamStop`](../conf/ConfXMLParamStop.md#cls-ConfXMLParamStop), [`ConfXMLParam`](../conf/ConfXMLParam.md#cls-ConfXMLParam), [`ConfXMLParamLeaf`](../conf/ConfXMLParamLeaf.md#cls-ConfXMLParamLeaf)
 
 ## Members
 
 **Constructors**:
 
-- [ConfXMLParamToXML()](#s-ConfXMLParamToXML-1)
+- [ConfXMLParamToXML()](#m-confxmlparamtoxml-ee47ca2e850d)
 
 **Methods**:
 
-- [clear()](#s-clear)
-- [serialize(Document, OutputStream)](#s-serialize)
-- [serialize(Document, Writer)](#s-serialize-1)
-- [toXML(ConfXMLParam[])](#s-toXML)
-- [toXML(ConfXMLParam[], boolean)](#s-toXML-1)
-- [toXML(ConfXMLParam[], String, String)](#s-toXML-2)
-- [toXML(ConfXMLParam[], String, String, boolean)](#s-toXML-3)
+- [clear()](#m-clear-ca3baec040cb)
+- [serialize(Document, OutputStream)](#m-serialize-55bd4c595c9d)
+- [serialize(Document, Writer)](#m-serialize-d15119ec5ca5)
+- [toXML(ConfXMLParam[])](#m-toxml-122580fde7a8)
+- [toXML(ConfXMLParam[], boolean)](#m-toxml-37f46ad3cde5)
+- [toXML(ConfXMLParam[], String, String)](#m-toxml-e7cef9be4b1e)
+- [toXML(ConfXMLParam[], String, String, boolean)](#m-toxml-5c273ed8be98)
 
 ## Constructors
 
-<a id="s-ConfXMLParamToXML-1"></a>
+<a id="m-confxmlparamtoxml-ee47ca2e850d"></a>
 ### ConfXMLParamToXML()
 
 ```java
@@ -60,7 +60,7 @@ public ConfXMLParamToXML()
 
 ## Methods
 
-<a id="s-clear"></a>
+<a id="m-clear-ca3baec040cb"></a>
 ### clear()
 
 ```java
@@ -68,9 +68,9 @@ public void clear()
 ```
 
 Clears the state of the instance of this class which permits
- multiple invocation of [`ConfXMLParam`](../conf/ConfXMLParam.md#s-ConfXMLParam).
+ multiple invocation of `ConfXMLParam#toXML(ConfXMLParam[],boolean)`.
 
-<a id="s-serialize"></a>
+<a id="m-serialize-55bd4c595c9d"></a>
 ### serialize(Document, OutputStream)
 
 ```java
@@ -81,7 +81,7 @@ public void serialize(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Flushes the source document `doc` to
   the target `out`.
@@ -95,7 +95,7 @@ Flushes the source document `doc` to
 
 - `ConfException` - if occurred while flushing the document
 
-<a id="s-serialize-1"></a>
+<a id="m-serialize-d15119ec5ca5"></a>
 ### serialize(Document, Writer)
 
 ```java
@@ -106,7 +106,7 @@ public void serialize(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Flushes the source document `doc` to
    the target `out`
@@ -120,7 +120,7 @@ Flushes the source document `doc` to
 
 - `ConfException` - if occurred while flushing the document
 
-<a id="s-toXML"></a>
+<a id="m-toxml-122580fde7a8"></a>
 ### toXML(ConfXMLParam[])
 
 ```java
@@ -130,7 +130,7 @@ public org.w3c.dom.Document toXML(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Transforms the supplied parameter `ConfXMLParam[]`
  to a document (`Document`).
@@ -150,7 +150,7 @@ Transforms the supplied parameter `ConfXMLParam[]`
 
 
  If another root tag is desired use the method
- [`ConfXMLParam`](../conf/ConfXMLParam.md#s-ConfXMLParam) where
+ [`ConfXMLParam#toXML(ConfXMLParam[],String,String)`](../conf/ConfXMLParam.md#m-toxml-e7cef9be4b1e) where
  root tag `name` and namespace `uri` string
  could be supplied and will be the root Node of the *Document*.
 
@@ -168,7 +168,7 @@ Transforms the supplied parameter `ConfXMLParam[]`
 
 - `ConfException` - If some error occurred
 
-<a id="s-toXML-1"></a>
+<a id="m-toxml-37f46ad3cde5"></a>
 ### toXML(ConfXMLParam[], boolean)
 
 ```java
@@ -179,7 +179,7 @@ public org.w3c.dom.Document toXML(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Transforms the supplied parameter `ConfXMLParam[]`
  to a document (`Document`).
@@ -200,7 +200,7 @@ Transforms the supplied parameter `ConfXMLParam[]`
 
 
  If another root tag is desired use the method
- [`ConfXMLParam`](../conf/ConfXMLParam.md#s-ConfXMLParam) where
+ [`ConfXMLParam#toXML(ConfXMLParam[],String,String)`](../conf/ConfXMLParam.md#m-toxml-e7cef9be4b1e) where
  root tag `name` and namespace `uri` string
  could be supplied and will
  be the root Node of the returning `Document`.
@@ -217,7 +217,7 @@ Transforms the supplied parameter `ConfXMLParam[]`
 
 - `ConfException` - If some error occurred
 
-<a id="s-toXML-2"></a>
+<a id="m-toxml-e7cef9be4b1e"></a>
 ### toXML(ConfXMLParam[], String, String)
 
 ```java
@@ -229,7 +229,7 @@ public org.w3c.dom.Document toXML(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Transforms the supplied `ConfXMLParam[]`
  to a document (`Document`).
@@ -248,7 +248,7 @@ Transforms the supplied `ConfXMLParam[]`
 
 - `ConfException` - if a error occurred
 
-<a id="s-toXML-3"></a>
+<a id="m-toxml-5c273ed8be98"></a>
 ### toXML(ConfXMLParam[], String, String, boolean)
 
 ```java
@@ -261,7 +261,7 @@ public org.w3c.dom.Document toXML(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [ConfException](../conf/ConfException.md#s-ConfException)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Transforms the supplied parameter `ConfXMLParam[]`
  to a document (`Document`).

@@ -1,4 +1,4 @@
-<a id="s-Ha"></a>
+<a id="cls-Ha"></a>
 # Ha
 
 ```java
@@ -14,28 +14,28 @@ Main class for the HA cluster management. The HA functionality makes it
 
 **Constructors**:
 
-- [Ha(Socket, String)](#s-Ha-1)
+- [Ha(Socket, String)](#m-ha-a01ce05f0fc4)
 
 **Methods**:
 
-- [beNone()](#s-beNone)
-- [bePrimary(ConfValue)](#s-bePrimary)
-- [beRelay()](#s-beRelay)
-- [beSecondary(ConfValue, ConfHaNode, boolean)](#s-beSecondary)
-- [close()](#s-close)
-- [secondaryDead(ConfValue)](#s-secondaryDead)
-- [status()](#s-status)
+- [beNone()](#m-benone-d237c0001505)
+- [bePrimary(ConfValue)](#m-beprimary-53ade4701481)
+- [beRelay()](#m-berelay-c1ba9a75af6e)
+- [beSecondary(ConfValue, ConfHaNode, boolean)](#m-besecondary-fdf817eb2bdb)
+- [close()](#m-close-8107c6dc012b)
+- [secondaryDead(ConfValue)](#m-secondarydead-138cc5049b31)
+- [status()](#m-status-f7d72174690b)
 
 ## Constructors
 
-<a id="s-Ha-1"></a>
+<a id="m-ha-a01ce05f0fc4"></a>
 ### Ha(Socket, String)
 
 ```java
 public Ha(java.net.Socket socket, String token) throws java.io.IOException, com.tailf.ha.HaException
 ```
 
-Types: [HaException](HaException.md#s-HaException)
+Types: [HaException](HaException.md#cls-HaException)
 
 Constructor for management of an HA Cluster node. This constructor
  implicitly connects an HA socket which can be used to control a ConfD/NCS
@@ -93,19 +93,19 @@ Constructor for management of an HA Cluster node. This constructor
 
 ## Methods
 
-<a id="s-beNone"></a>
+<a id="m-benone-d237c0001505"></a>
 ### beNone()
 
 ```java
 public synchronized void beNone() throws java.io.IOException, com.tailf.ha.HaException
 ```
 
-Types: [HaException](HaException.md#s-HaException)
+Types: [HaException](HaException.md#cls-HaException)
 
 Instruct a node to resume the initial state, i.e. neither primary nor
  secondary.
 
-<a id="s-bePrimary"></a>
+<a id="m-beprimary-53ade4701481"></a>
 ### bePrimary(ConfValue)
 
 ```java
@@ -115,7 +115,7 @@ public synchronized void bePrimary(
     throws java.io.IOException, com.tailf.ha.HaException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [HaException](HaException.md#s-HaException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [HaException](HaException.md#cls-HaException)
 
 Instruct an HA node to be primary and also give the node a name.
 
@@ -123,18 +123,18 @@ Instruct an HA node to be primary and also give the node a name.
 
 - `com.tailf.conf.ConfValue myNodeId` - ConfValue naming the ha node
 
-<a id="s-beRelay"></a>
+<a id="m-berelay-c1ba9a75af6e"></a>
 ### beRelay()
 
 ```java
 public void beRelay() throws java.io.IOException, com.tailf.ha.HaException
 ```
 
-Types: [HaException](HaException.md#s-HaException)
+Types: [HaException](HaException.md#cls-HaException)
 
 Instruct a secondary node to be a relay for other secondaries.
 
-<a id="s-beSecondary"></a>
+<a id="m-besecondary-fdf817eb2bdb"></a>
 ### beSecondary(ConfValue, ConfHaNode, boolean)
 
 ```java
@@ -146,7 +146,7 @@ public synchronized void beSecondary(
     throws java.io.IOException, com.tailf.ha.HaException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [ConfHaNode](../conf/ConfHaNode.md#s-ConfHaNode), [HaException](HaException.md#s-HaException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [ConfHaNode](../conf/ConfHaNode.md#cls-ConfHaNode), [HaException](HaException.md#cls-HaException)
 
 Instruct an HA node to be a secondary to a named primary. The waitreply
  is a boolean. If true, the function is synchronous and it will hang
@@ -169,14 +169,14 @@ Instruct an HA node to be a secondary to a named primary. The waitreply
 - `IOException`
 - `HaException`
 
-<a id="s-close"></a>
+<a id="m-close-8107c6dc012b"></a>
 ### close()
 
 ```java
 public void close()
 ```
 
-<a id="s-secondaryDead"></a>
+<a id="m-secondarydead-138cc5049b31"></a>
 ### secondaryDead(ConfValue)
 
 ```java
@@ -186,7 +186,7 @@ public synchronized void secondaryDead(
     throws java.io.IOException, com.tailf.ha.HaException
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue), [HaException](HaException.md#s-HaException)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [HaException](HaException.md#cls-HaException)
 
 This function must be used by the application to inform the HA subsystem
  that another node which is possibly connected to the server is dead.
@@ -195,7 +195,7 @@ This function must be used by the application to inform the HA subsystem
 
 - `com.tailf.conf.ConfValue nodeId` - ConfValue naming the cluster node
 
-<a id="s-status"></a>
+<a id="m-status-f7d72174690b"></a>
 ### status()
 
 ```java
@@ -203,7 +203,7 @@ public synchronized com.tailf.ha.HaStatus status() throws java.io.IOException, c
     throws java.io.IOException, com.tailf.ha.HaException
 ```
 
-Types: [HaStatus](HaStatus.md#s-HaStatus), [HaException](HaException.md#s-HaException)
+Types: [HaStatus](HaStatus.md#cls-HaStatus), [HaException](HaException.md#cls-HaException)
 
 Query an HA node for its status. If successful, the function returns an
  HaStatus object.

@@ -1,4 +1,4 @@
-<a id="s-ConfXMLParam"></a>
+<a id="cls-ConfXMLParam"></a>
 # ConfXMLParam
 
 ```java
@@ -6,7 +6,7 @@ public abstract class com.tailf.conf.ConfXMLParam
     extends com.tailf.conf.ConfObject
 ```
 
-Types: [ConfObject](ConfObject.md#s-ConfObject)
+Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
 Represents the base class of a flat XML structure.
 
@@ -15,7 +15,7 @@ Represents the base class of a flat XML structure.
  It is also used in methods that set/get multiple values in one call.
 
  Subclasses to this class represents node elements or
- entries in a [`ConfXMLParam`](ConfXMLParam.md#s-ConfXMLParam) array. An array
+ entries in a [`ConfXMLParam`](ConfXMLParam.md#cls-ConfXMLParam) array. An array
  of this type form a flat XML structure.
 
  The array is populated, normally through a "depth first" traversal of
@@ -26,11 +26,11 @@ Represents the base class of a flat XML structure.
  omitted entirely from the array.
 
    - List and container nodes use one array element where the value
- has type [`ConfXMLParamStart`](ConfXMLParamStart.md#s-ConfXMLParamStart), and `tag` and
+ has type [`ConfXMLParamStart`](ConfXMLParamStart.md#cls-ConfXMLParamStart), and `tag` and
  `ns` set according to the node name followed by array
  elements for the sub-nodes according to this list, followed by one
  array element where the value has type
- [`ConfXMLParamStop`](ConfXMLParamStop.md#s-ConfXMLParamStop), and `tag` and `ns`
+ [`ConfXMLParamStop`](ConfXMLParamStop.md#cls-ConfXMLParamStop), and `tag` and `ns`
  set according to the node name.
 
 
@@ -60,12 +60,12 @@ Represents the base class of a flat XML structure.
  in XML.
 
      - Leafs with a type other than empty uses the instance
- [`ConfXMLParamValue`](ConfXMLParamValue.md#s-ConfXMLParamValue) for value element and `tag` and
+ [`ConfXMLParamValue`](ConfXMLParamValue.md#cls-ConfXMLParamValue) for value element and `tag` and
  `ns` according to the node name and additional
  `value` set according to the leaf name.
 
        - Leafs of type empty use an array element where the value has
- type [`ConfXMLParamLeaf`](ConfXMLParamLeaf.md#s-ConfXMLParamLeaf), and `tag` and
+ type [`ConfXMLParamLeaf`](ConfXMLParamLeaf.md#cls-ConfXMLParamLeaf), and `tag` and
  `ns` set according to the leaf name.
 
  Note that the list or container node corresponding to the complete array
@@ -184,17 +184,17 @@ Represents the base class of a flat XML structure.
 
  As stated above the correct populated `ConfXMLParam`
  is used for populate a subtree within one method call, for example
- [`Maapi`](../maapi/Maapi.md#s-Maapi) or we could
+ [`Maapi#setValues(int,ConfXMLParam[],ConfPath)`](../maapi/Maapi.md#m-setvalues-27a83fbfcc37) or we could
  extract multiple values in one call, for example
- [`Maapi`](../maapi/Maapi.md#s-Maapi) or
+ `Maapi#getValues(int, ConfXMLParam[],String,Object...)` or
  with MAAPI.
 
  And with CDB
- [`CdbSession`](../cdb/CdbSession.md#s-CdbSession).
+ [`CdbSession#setValues(ConfXMLParam[],ConfPath)`](../cdb/CdbSession.md#m-setvalues-0755e36fbd2c).
 
  The `ConfXMLParam` array is also used in
 
- [`CdbSession`](../cdb/CdbSession.md#s-CdbSession)
+ [`CdbSession#getValues(ConfXMLParam[],ConfPath)`](../cdb/CdbSession.md#m-getvalues-b30d01896278)
  to retrieve multiple values in one call.
 
  When we need to extract or retrieve multiple values
@@ -243,7 +243,7 @@ Represents the base class of a flat XML structure.
  Note in the above example the list key must be known before hand.
 
  Another usage of the (Conf)XML-Structure is to invoke an action
- for example [`Maapi`](../maapi/Maapi.md#s-Maapi)
+ for example [`Maapi#requestAction(ConfXMLParam[],String,Object...)`](../maapi/Maapi.md#m-requestaction-76bbfd533fa4)
  of a Identifies a model element as a parameter. This is the base class
  for representing modeled parameters.
 
@@ -370,143 +370,143 @@ Represents the base class of a flat XML structure.
 
 **Related classes**
 
-- [ConfXMLParamLeaf](ConfXMLParamLeaf.md#s-ConfXMLParamLeaf)
-- [ConfXMLParamStart](ConfXMLParamStart.md#s-ConfXMLParamStart)
-- [ConfXMLParamStartDel](ConfXMLParamStartDel.md#s-ConfXMLParamStartDel)
-- [ConfXMLParamStop](ConfXMLParamStop.md#s-ConfXMLParamStop)
-- [ConfXMLParamValue](ConfXMLParamValue.md#s-ConfXMLParamValue)
+- [ConfXMLParamLeaf](ConfXMLParamLeaf.md#cls-ConfXMLParamLeaf)
+- [ConfXMLParamStart](ConfXMLParamStart.md#cls-ConfXMLParamStart)
+- [ConfXMLParamStartDel](ConfXMLParamStartDel.md#cls-ConfXMLParamStartDel)
+- [ConfXMLParamStop](ConfXMLParamStop.md#cls-ConfXMLParamStop)
+- [ConfXMLParamValue](ConfXMLParamValue.md#cls-ConfXMLParamValue)
 
 ## Members
 
 **Constructors**:
 
-- [ConfXMLParam(ConfEObject)](#s-ConfXMLParam-1)
-- [ConfXMLParam(ConfNamespace, String, ConfObject)](#s-ConfXMLParam-2)
-- [ConfXMLParam(ConfNamespace, String, XMLParamType)](#s-ConfXMLParam-3)
-- [ConfXMLParam(ConfPath, MountIdInterface, String, String, ConfObject)](#s-ConfXMLParam-4)
-- [ConfXMLParam(ConfPath, MountIdInterface, String, String, XMLParamType)](#s-ConfXMLParam-5)
-- [ConfXMLParam(int, int)](#s-ConfXMLParam-6)
-- [ConfXMLParam(int, int, ConfObject)](#s-ConfXMLParam-7)
-- [ConfXMLParam(int, int, XMLParamType)](#s-ConfXMLParam-8)
-- [ConfXMLParam(int, String, XMLParamType)](#s-ConfXMLParam-9)
-- [ConfXMLParam(long, long)](#s-ConfXMLParam-10)
-- [ConfXMLParam(long, long, ConfObject)](#s-ConfXMLParam-11)
-- [ConfXMLParam(String, String, ConfObject)](#s-ConfXMLParam-12)
-- [ConfXMLParam(String, String, XMLParamType)](#s-ConfXMLParam-13)
+- [ConfXMLParam(ConfEObject)](#m-confxmlparam-1316dcbd2d76)
+- [ConfXMLParam(ConfNamespace, String, ConfObject)](#m-confxmlparam-de1f4e03200f)
+- [ConfXMLParam(ConfNamespace, String, XMLParamType)](#m-confxmlparam-08ceb6e049bd)
+- [ConfXMLParam(ConfPath, MountIdInterface, String, String, ConfObject)](#m-confxmlparam-ee545ddced6d)
+- [ConfXMLParam(ConfPath, MountIdInterface, String, String, XMLParamType)](#m-confxmlparam-4fb2eb63d2c2)
+- [ConfXMLParam(int, int)](#m-confxmlparam-bde5bd68585f)
+- [ConfXMLParam(int, int, ConfObject)](#m-confxmlparam-5d07eab52545)
+- [ConfXMLParam(int, int, XMLParamType)](#m-confxmlparam-b7f397465f0a)
+- [ConfXMLParam(int, String, XMLParamType)](#m-confxmlparam-d108a4297643)
+- [ConfXMLParam(long, long)](#m-confxmlparam-6204e20f2f87)
+- [ConfXMLParam(long, long, ConfObject)](#m-confxmlparam-fef602310362)
+- [ConfXMLParam(String, String, ConfObject)](#m-confxmlparam-856d61cc7e2a)
+- [ConfXMLParam(String, String, XMLParamType)](#m-confxmlparam-69e745801ad7)
 
 **Fields**:
 
-- [J_BINARY](ConfObject.md#s-J_BINARY) from ConfObject
-- [J_BIT32](ConfObject.md#s-J_BIT32) from ConfObject
-- [J_BIT64](ConfObject.md#s-J_BIT64) from ConfObject
-- [J_BITBIG](ConfObject.md#s-J_BITBIG) from ConfObject
-- [J_BOOL](ConfObject.md#s-J_BOOL) from ConfObject
-- [J_BUF](ConfObject.md#s-J_BUF) from ConfObject
-- [J_CDBBEGIN](ConfObject.md#s-J_CDBBEGIN) from ConfObject
-- [J_DATE](ConfObject.md#s-J_DATE) from ConfObject
-- [J_DATETIME](ConfObject.md#s-J_DATETIME) from ConfObject
-- [J_DECIMAL64](ConfObject.md#s-J_DECIMAL64) from ConfObject
-- [J_DEFAULT](ConfObject.md#s-J_DEFAULT) from ConfObject
-- [J_DOUBLE](ConfObject.md#s-J_DOUBLE) from ConfObject
-- [J_DQUAD](ConfObject.md#s-J_DQUAD) from ConfObject
-- [J_DURATION](ConfObject.md#s-J_DURATION) from ConfObject
-- [J_EMPTY](ConfObject.md#s-J_EMPTY) from ConfObject
-- [J_ENUMERATION](ConfObject.md#s-J_ENUMERATION) from ConfObject
-- [J_HEXSTR](ConfObject.md#s-J_HEXSTR) from ConfObject
-- [J_IDENTITYREF](ConfObject.md#s-J_IDENTITYREF) from ConfObject
-- [J_INSTANCE_IDENTIFIER](ConfObject.md#s-J_INSTANCE_IDENTIFIER) from ConfObject
-- [J_INT16](ConfObject.md#s-J_INT16) from ConfObject
-- [J_INT32](ConfObject.md#s-J_INT32) from ConfObject
-- [J_INT64](ConfObject.md#s-J_INT64) from ConfObject
-- [J_INT8](ConfObject.md#s-J_INT8) from ConfObject
-- [J_IPV4](ConfObject.md#s-J_IPV4) from ConfObject
-- [J_IPV4_AND_PLEN](ConfObject.md#s-J_IPV4_AND_PLEN) from ConfObject
-- [J_IPV4PREFIX](ConfObject.md#s-J_IPV4PREFIX) from ConfObject
-- [J_IPV6](ConfObject.md#s-J_IPV6) from ConfObject
-- [J_IPV6_AND_PLEN](ConfObject.md#s-J_IPV6_AND_PLEN) from ConfObject
-- [J_IPV6PREFIX](ConfObject.md#s-J_IPV6PREFIX) from ConfObject
-- [J_LIST](ConfObject.md#s-J_LIST) from ConfObject
-- [J_NOEXISTS](ConfObject.md#s-J_NOEXISTS) from ConfObject
-- [J_OBJECTREF](ConfObject.md#s-J_OBJECTREF) from ConfObject
-- [J_OID](ConfObject.md#s-J_OID) from ConfObject
-- [J_PTR](ConfObject.md#s-J_PTR) from ConfObject
-- [J_QNAME](ConfObject.md#s-J_QNAME) from ConfObject
-- [J_STR](ConfObject.md#s-J_STR) from ConfObject
-- [J_SYMBOL](ConfObject.md#s-J_SYMBOL) from ConfObject
-- [J_TIME](ConfObject.md#s-J_TIME) from ConfObject
-- [J_UINT16](ConfObject.md#s-J_UINT16) from ConfObject
-- [J_UINT32](ConfObject.md#s-J_UINT32) from ConfObject
-- [J_UINT64](ConfObject.md#s-J_UINT64) from ConfObject
-- [J_UINT8](ConfObject.md#s-J_UINT8) from ConfObject
-- [J_UNION](ConfObject.md#s-J_UNION) from ConfObject
-- [J_XMLBEGIN](ConfObject.md#s-J_XMLBEGIN) from ConfObject
-- [J_XMLBEGINDEL](ConfObject.md#s-J_XMLBEGINDEL) from ConfObject
-- [J_XMLEND](ConfObject.md#s-J_XMLEND) from ConfObject
-- [J_XMLMOVEAFTER](ConfObject.md#s-J_XMLMOVEAFTER) from ConfObject
-- [J_XMLMOVEFIRST](ConfObject.md#s-J_XMLMOVEFIRST) from ConfObject
-- [J_XMLTAG](ConfObject.md#s-J_XMLTAG) from ConfObject
-- [namespace](#s-namespace)
-- [ns](#s-ns)
-- [prefix](#s-prefix)
-- [tag](#s-tag)
-- [tagString](#s-tagString)
-- [val](#s-val)
+- [J_BINARY](ConfObject.md#m-J_BINARY) from ConfObject
+- [J_BIT32](ConfObject.md#m-J_BIT32) from ConfObject
+- [J_BIT64](ConfObject.md#m-J_BIT64) from ConfObject
+- [J_BITBIG](ConfObject.md#m-J_BITBIG) from ConfObject
+- [J_BOOL](ConfObject.md#m-J_BOOL) from ConfObject
+- [J_BUF](ConfObject.md#m-J_BUF) from ConfObject
+- [J_CDBBEGIN](ConfObject.md#m-J_CDBBEGIN) from ConfObject
+- [J_DATE](ConfObject.md#m-J_DATE) from ConfObject
+- [J_DATETIME](ConfObject.md#m-J_DATETIME) from ConfObject
+- [J_DECIMAL64](ConfObject.md#m-J_DECIMAL64) from ConfObject
+- [J_DEFAULT](ConfObject.md#m-J_DEFAULT) from ConfObject
+- [J_DOUBLE](ConfObject.md#m-J_DOUBLE) from ConfObject
+- [J_DQUAD](ConfObject.md#m-J_DQUAD) from ConfObject
+- [J_DURATION](ConfObject.md#m-J_DURATION) from ConfObject
+- [J_EMPTY](ConfObject.md#m-J_EMPTY) from ConfObject
+- [J_ENUMERATION](ConfObject.md#m-J_ENUMERATION) from ConfObject
+- [J_HEXSTR](ConfObject.md#m-J_HEXSTR) from ConfObject
+- [J_IDENTITYREF](ConfObject.md#m-J_IDENTITYREF) from ConfObject
+- [J_INSTANCE_IDENTIFIER](ConfObject.md#m-J_INSTANCE_IDENTIFIER) from ConfObject
+- [J_INT16](ConfObject.md#m-J_INT16) from ConfObject
+- [J_INT32](ConfObject.md#m-J_INT32) from ConfObject
+- [J_INT64](ConfObject.md#m-J_INT64) from ConfObject
+- [J_INT8](ConfObject.md#m-J_INT8) from ConfObject
+- [J_IPV4](ConfObject.md#m-J_IPV4) from ConfObject
+- [J_IPV4_AND_PLEN](ConfObject.md#m-J_IPV4_AND_PLEN) from ConfObject
+- [J_IPV4PREFIX](ConfObject.md#m-J_IPV4PREFIX) from ConfObject
+- [J_IPV6](ConfObject.md#m-J_IPV6) from ConfObject
+- [J_IPV6_AND_PLEN](ConfObject.md#m-J_IPV6_AND_PLEN) from ConfObject
+- [J_IPV6PREFIX](ConfObject.md#m-J_IPV6PREFIX) from ConfObject
+- [J_LIST](ConfObject.md#m-J_LIST) from ConfObject
+- [J_NOEXISTS](ConfObject.md#m-J_NOEXISTS) from ConfObject
+- [J_OBJECTREF](ConfObject.md#m-J_OBJECTREF) from ConfObject
+- [J_OID](ConfObject.md#m-J_OID) from ConfObject
+- [J_PTR](ConfObject.md#m-J_PTR) from ConfObject
+- [J_QNAME](ConfObject.md#m-J_QNAME) from ConfObject
+- [J_STR](ConfObject.md#m-J_STR) from ConfObject
+- [J_SYMBOL](ConfObject.md#m-J_SYMBOL) from ConfObject
+- [J_TIME](ConfObject.md#m-J_TIME) from ConfObject
+- [J_UINT16](ConfObject.md#m-J_UINT16) from ConfObject
+- [J_UINT32](ConfObject.md#m-J_UINT32) from ConfObject
+- [J_UINT64](ConfObject.md#m-J_UINT64) from ConfObject
+- [J_UINT8](ConfObject.md#m-J_UINT8) from ConfObject
+- [J_UNION](ConfObject.md#m-J_UNION) from ConfObject
+- [J_XMLBEGIN](ConfObject.md#m-J_XMLBEGIN) from ConfObject
+- [J_XMLBEGINDEL](ConfObject.md#m-J_XMLBEGINDEL) from ConfObject
+- [J_XMLEND](ConfObject.md#m-J_XMLEND) from ConfObject
+- [J_XMLMOVEAFTER](ConfObject.md#m-J_XMLMOVEAFTER) from ConfObject
+- [J_XMLMOVEFIRST](ConfObject.md#m-J_XMLMOVEFIRST) from ConfObject
+- [J_XMLTAG](ConfObject.md#m-J_XMLTAG) from ConfObject
+- [namespace](#m-namespace)
+- [ns](#m-ns)
+- [prefix](#m-prefix)
+- [tag](#m-tag)
+- [tagString](#m-tagString)
+- [val](#m-val)
 
 **Methods**:
 
-- [clone()](ConfObject.md#s-clone) from ConfObject
-- [compare(ConfObject, ConfObject)](ConfObject.md#s-compare) from ConfObject
-- [decode(ConfEObject)](ConfObject.md#s-decode) from ConfObject
-- [decode(ConfEObject, ConfPath)](ConfObject.md#s-decode-1) from ConfObject
-- [decode(ConfEObject, String)](ConfObject.md#s-decode-2) from ConfObject
-- [decodeParam(ConfEObject)](#s-decodeParam)
-- [decodeParams(ConfEObject)](#s-decodeParams)
-- [encode()](#s-encode)
-- [encode(ConfXMLParam[])](#s-encode-1)
-- [encode(List<String>)](#s-encode-2)
-- [encode(List<String>, ConfXMLParam[])](#s-encode-3)
-- [encodeHKP()](#s-encodeHKP)
-- [encodeHKP(ConfXMLParam[])](#s-encodeHKP-1)
-- [encodeHKP(List<String>)](#s-encodeHKP-2)
-- [encodeHKP(List<String>, ConfXMLParam[])](#s-encodeHKP-3)
-- [encodeIKP()](#s-encodeIKP)
-- [encodeIKP(ConfXMLParam[])](#s-encodeIKP-1)
-- [encodeIKP(List<String>)](#s-encodeIKP-2)
-- [encodeIKP(List<String>, ConfXMLParam[])](#s-encodeIKP-3)
-- [equals(Object)](#s-equals)
-- [getConfNamespace()](#s-getConfNamespace)
-- [getNSHash()](#s-getNSHash)
-- [getTag()](#s-getTag)
-- [getTagHash()](#s-getTagHash)
-- [getValue()](#s-getValue)
-- [hashCode()](#s-hashCode)
-- [setCdbInstanceInteger(int)](#s-setCdbInstanceInteger)
-- [setNamespace(ConfNamespace)](#s-setNamespace)
-- [setNamespaceFromMountId(List<String>)](#s-setNamespaceFromMountId)
-- [toDOM(ConfXMLParam[])](#s-toDOM)
-- [toDOM(ConfXMLParam[], String, String)](#s-toDOM-1)
-- [toString()](#s-toString)
-- [toXML(ConfXMLParam[])](#s-toXML)
-- [toXML(ConfXMLParam[], String, String)](#s-toXML-1)
-- [toXMLParams(String, ConfPath)](#s-toXMLParams)
-- [toXMLParams(String, ConfPath, int)](#s-toXMLParams-1)
+- [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
+- [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
+- [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
+- [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
+- [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
+- [decodeParam(ConfEObject)](#m-decodeparam-6799ac4705bb)
+- [decodeParams(ConfEObject)](#m-decodeparams-5a1c83464ae4)
+- [encode()](#m-encode-fbae522bba37)
+- [encode(ConfXMLParam[])](#m-encode-7356521b6411)
+- [encode(List<String>)](#m-encode-da878ca7b20d)
+- [encode(List<String>, ConfXMLParam[])](#m-encode-e9fa5532e6d5)
+- [encodeHKP()](#m-encodehkp-50d4bf8d0256)
+- [encodeHKP(ConfXMLParam[])](#m-encodehkp-ebc927cd1ccf)
+- [encodeHKP(List<String>)](#m-encodehkp-2ff023418b43)
+- [encodeHKP(List<String>, ConfXMLParam[])](#m-encodehkp-6bc3df5e84cb)
+- [encodeIKP()](#m-encodeikp-b160b87f6433)
+- [encodeIKP(ConfXMLParam[])](#m-encodeikp-ab4320a110c6)
+- [encodeIKP(List<String>)](#m-encodeikp-6f358b789ce0)
+- [encodeIKP(List<String>, ConfXMLParam[])](#m-encodeikp-c0a89dd54349)
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [getConfNamespace()](#m-getconfnamespace-87556caf3223)
+- [getNSHash()](#m-getnshash-2129fb8b3cfe)
+- [getTag()](#m-gettag-315f45956d6f)
+- [getTagHash()](#m-gettaghash-8f057919039c)
+- [getValue()](#m-getvalue-d93864668c40)
+- [hashCode()](#m-hashcode-ef797a217903)
+- [setCdbInstanceInteger(int)](#m-setcdbinstanceinteger-f7ee747b0f20)
+- [setNamespace(ConfNamespace)](#m-setnamespace-30316a480cfa)
+- [setNamespaceFromMountId(List<String>)](#m-setnamespacefrommountid-1aa3f67eb493)
+- [toDOM(ConfXMLParam[])](#m-todom-13fd8f87f1a2)
+- [toDOM(ConfXMLParam[], String, String)](#m-todom-a2de025173ef)
+- [toString()](#m-tostring-e9d48c5503ef)
+- [toXML(ConfXMLParam[])](#m-toxml-122580fde7a8)
+- [toXML(ConfXMLParam[], String, String)](#m-toxml-e7cef9be4b1e)
+- [toXMLParams(String, ConfPath)](#m-toxmlparams-bec6ecc54070)
+- [toXMLParams(String, ConfPath, int)](#m-toxmlparams-61a6fdf75a13)
 
 ## Constructors
 
-<a id="s-ConfXMLParam-1"></a>
+<a id="m-confxmlparam-1316dcbd2d76"></a>
 ### ConfXMLParam(ConfEObject)
 
 ```java
 protected ConfXMLParam(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="s-ConfXMLParam-2"></a>
+<a id="m-confxmlparam-de1f4e03200f"></a>
 ### ConfXMLParam(ConfNamespace, String, ConfObject)
 
 ```java
@@ -517,7 +517,7 @@ protected ConfXMLParam(
 )
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#s-ConfNamespace), [ConfObject](ConfObject.md#s-ConfObject)
+Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace), [ConfObject](ConfObject.md#cls-ConfObject)
 
 **Parameters**
 
@@ -525,7 +525,7 @@ Types: [ConfNamespace](ConfNamespace.md#s-ConfNamespace), [ConfObject](ConfObjec
 - `String tagString`
 - `com.tailf.conf.ConfObject val`
 
-<a id="s-ConfXMLParam-3"></a>
+<a id="m-confxmlparam-08ceb6e049bd"></a>
 ### ConfXMLParam(ConfNamespace, String, XMLParamType)
 
 ```java
@@ -536,7 +536,7 @@ protected ConfXMLParam(
 )
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#s-ConfNamespace), [XMLParamType](XMLParamType.md#s-XMLParamType)
+Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace), [XMLParamType](XMLParamType.md#cls-XMLParamType)
 
 **Parameters**
 
@@ -544,7 +544,7 @@ Types: [ConfNamespace](ConfNamespace.md#s-ConfNamespace), [XMLParamType](XMLPara
 - `String tagString`
 - `com.tailf.conf.XMLParamType type`
 
-<a id="s-ConfXMLParam-4"></a>
+<a id="m-confxmlparam-ee545ddced6d"></a>
 ### ConfXMLParam(ConfPath, MountIdInterface, String, String, ConfObject)
 
 ```java
@@ -557,7 +557,7 @@ protected ConfXMLParam(
 )
 ```
 
-Types: [ConfPath](ConfPath.md#s-ConfPath), [MountIdInterface](MountIdInterface.md#s-MountIdInterface), [ConfObject](ConfObject.md#s-ConfObject)
+Types: [ConfPath](ConfPath.md#cls-ConfPath), [MountIdInterface](MountIdInterface.md#cls-MountIdInterface), [ConfObject](ConfObject.md#cls-ConfObject)
 
 **Parameters**
 
@@ -567,7 +567,7 @@ Types: [ConfPath](ConfPath.md#s-ConfPath), [MountIdInterface](MountIdInterface.m
 - `String tagString`
 - `com.tailf.conf.ConfObject val`
 
-<a id="s-ConfXMLParam-5"></a>
+<a id="m-confxmlparam-4fb2eb63d2c2"></a>
 ### ConfXMLParam(ConfPath, MountIdInterface, String, String, XMLParamType)
 
 ```java
@@ -580,7 +580,7 @@ protected ConfXMLParam(
 )
 ```
 
-Types: [ConfPath](ConfPath.md#s-ConfPath), [MountIdInterface](MountIdInterface.md#s-MountIdInterface), [XMLParamType](XMLParamType.md#s-XMLParamType)
+Types: [ConfPath](ConfPath.md#cls-ConfPath), [MountIdInterface](MountIdInterface.md#cls-MountIdInterface), [XMLParamType](XMLParamType.md#cls-XMLParamType)
 
 **Parameters**
 
@@ -590,7 +590,7 @@ Types: [ConfPath](ConfPath.md#s-ConfPath), [MountIdInterface](MountIdInterface.m
 - `String tagString`
 - `com.tailf.conf.XMLParamType type`
 
-<a id="s-ConfXMLParam-6"></a>
+<a id="m-confxmlparam-bde5bd68585f"></a>
 ### ConfXMLParam(int, int)
 
 ```java
@@ -602,14 +602,14 @@ protected ConfXMLParam(int nshash, int tag)
 - `int nshash`
 - `int tag`
 
-<a id="s-ConfXMLParam-7"></a>
+<a id="m-confxmlparam-5d07eab52545"></a>
 ### ConfXMLParam(int, int, ConfObject)
 
 ```java
 protected ConfXMLParam(int ns, int tag, com.tailf.conf.ConfObject val)
 ```
 
-Types: [ConfObject](ConfObject.md#s-ConfObject)
+Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
 **Parameters**
 
@@ -617,14 +617,14 @@ Types: [ConfObject](ConfObject.md#s-ConfObject)
 - `int tag`
 - `com.tailf.conf.ConfObject val`
 
-<a id="s-ConfXMLParam-8"></a>
+<a id="m-confxmlparam-b7f397465f0a"></a>
 ### ConfXMLParam(int, int, XMLParamType)
 
 ```java
 protected ConfXMLParam(int ns, int tag, com.tailf.conf.XMLParamType type)
 ```
 
-Types: [XMLParamType](XMLParamType.md#s-XMLParamType)
+Types: [XMLParamType](XMLParamType.md#cls-XMLParamType)
 
 **Parameters**
 
@@ -632,14 +632,14 @@ Types: [XMLParamType](XMLParamType.md#s-XMLParamType)
 - `int tag`
 - `com.tailf.conf.XMLParamType type`
 
-<a id="s-ConfXMLParam-9"></a>
+<a id="m-confxmlparam-d108a4297643"></a>
 ### ConfXMLParam(int, String, XMLParamType)
 
 ```java
 protected ConfXMLParam(int ns, String tagString, com.tailf.conf.XMLParamType type)
 ```
 
-Types: [XMLParamType](XMLParamType.md#s-XMLParamType)
+Types: [XMLParamType](XMLParamType.md#cls-XMLParamType)
 
 **Parameters**
 
@@ -647,7 +647,7 @@ Types: [XMLParamType](XMLParamType.md#s-XMLParamType)
 - `String tagString`
 - `com.tailf.conf.XMLParamType type`
 
-<a id="s-ConfXMLParam-10"></a>
+<a id="m-confxmlparam-6204e20f2f87"></a>
 ### ConfXMLParam(long, long)
 
 ```java
@@ -659,14 +659,14 @@ protected ConfXMLParam(long nshash, long tag)
 - `long nshash`
 - `long tag`
 
-<a id="s-ConfXMLParam-11"></a>
+<a id="m-confxmlparam-fef602310362"></a>
 ### ConfXMLParam(long, long, ConfObject)
 
 ```java
 protected ConfXMLParam(long ns, long tag, com.tailf.conf.ConfObject val)
 ```
 
-Types: [ConfObject](ConfObject.md#s-ConfObject)
+Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
 **Parameters**
 
@@ -674,14 +674,14 @@ Types: [ConfObject](ConfObject.md#s-ConfObject)
 - `long tag`
 - `com.tailf.conf.ConfObject val`
 
-<a id="s-ConfXMLParam-12"></a>
+<a id="m-confxmlparam-856d61cc7e2a"></a>
 ### ConfXMLParam(String, String, ConfObject)
 
 ```java
 protected ConfXMLParam(String prefix, String tagString, com.tailf.conf.ConfObject val)
 ```
 
-Types: [ConfObject](ConfObject.md#s-ConfObject)
+Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
 **Parameters**
 
@@ -689,14 +689,14 @@ Types: [ConfObject](ConfObject.md#s-ConfObject)
 - `String tagString`
 - `com.tailf.conf.ConfObject val`
 
-<a id="s-ConfXMLParam-13"></a>
+<a id="m-confxmlparam-69e745801ad7"></a>
 ### ConfXMLParam(String, String, XMLParamType)
 
 ```java
 protected ConfXMLParam(String prefix, String tagString, com.tailf.conf.XMLParamType type)
 ```
 
-Types: [XMLParamType](XMLParamType.md#s-XMLParamType)
+Types: [XMLParamType](XMLParamType.md#cls-XMLParamType)
 
 **Parameters**
 
@@ -707,56 +707,56 @@ Types: [XMLParamType](XMLParamType.md#s-XMLParamType)
 
 ## Fields
 
-<a id="s-namespace"></a>
+<a id="m-namespace"></a>
 ### namespace
 
 ```java
 protected com.tailf.conf.ConfNamespace namespace = null;
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#s-ConfNamespace)
+Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
 
-<a id="s-ns"></a>
+<a id="m-ns"></a>
 ### ns
 
 ```java
 protected Integer ns = null;
 ```
 
-<a id="s-prefix"></a>
+<a id="m-prefix"></a>
 ### prefix
 
 ```java
 protected String prefix = null;
 ```
 
-<a id="s-tag"></a>
+<a id="m-tag"></a>
 ### tag
 
 ```java
 protected Integer tag = null;
 ```
 
-<a id="s-tagString"></a>
+<a id="m-tagString"></a>
 ### tagString
 
 ```java
 protected String tagString = null;
 ```
 
-<a id="s-val"></a>
+<a id="m-val"></a>
 ### val
 
 ```java
 protected com.tailf.conf.ConfObject val = null;
 ```
 
-Types: [ConfObject](ConfObject.md#s-ConfObject)
+Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
 
 ## Methods
 
-<a id="s-decodeParam"></a>
+<a id="m-decodeparam-6799ac4705bb"></a>
 ### decodeParam(ConfEObject)
 
 ```java
@@ -766,7 +766,7 @@ public static com.tailf.conf.ConfXMLParam decodeParam(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](ConfXMLParam.md#s-ConfXMLParam), [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfXMLParam](ConfXMLParam.md#cls-ConfXMLParam), [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](ConfException.md#cls-ConfException)
 
 Decode the internal representation to a `ConfXMLParam`
  Used internally.
@@ -777,7 +777,7 @@ Decode the internal representation to a `ConfXMLParam`
 
 **Returns:** The paramter from the internal representation
 
-<a id="s-decodeParams"></a>
+<a id="m-decodeparams-5a1c83464ae4"></a>
 ### decodeParams(ConfEObject)
 
 ```java
@@ -787,48 +787,48 @@ public static com.tailf.conf.ConfXMLParam[] decodeParams(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](ConfXMLParam.md#s-ConfXMLParam), [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfXMLParam](ConfXMLParam.md#cls-ConfXMLParam), [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](ConfException.md#cls-ConfException)
 
 **Parameters**
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="s-encode"></a>
+<a id="m-encode-fbae522bba37"></a>
 ### encode()
 
 ```java
 public com.tailf.proto.ConfEObject encode()
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="s-encode-1"></a>
+<a id="m-encode-7356521b6411"></a>
 ### encode(ConfXMLParam[])
 
 ```java
 public static com.tailf.proto.ConfEObject encode(com.tailf.conf.ConfXMLParam[] params)
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfXMLParam](ConfXMLParam.md#s-ConfXMLParam)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfXMLParam](ConfXMLParam.md#cls-ConfXMLParam)
 
 **Parameters**
 
 - `com.tailf.conf.ConfXMLParam[] params`
 
-<a id="s-encode-2"></a>
+<a id="m-encode-da878ca7b20d"></a>
 ### encode(List<String>)
 
 ```java
 public com.tailf.proto.ConfEObject encode(java.util.List<String> mountId)
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 **Parameters**
 
 - `java.util.List<String> mountId`
 
-<a id="s-encode-3"></a>
+<a id="m-encode-e9fa5532e6d5"></a>
 ### encode(List<String>, ConfXMLParam[])
 
 ```java
@@ -838,53 +838,53 @@ public static com.tailf.proto.ConfEObject encode(
 )
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfXMLParam](ConfXMLParam.md#s-ConfXMLParam)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfXMLParam](ConfXMLParam.md#cls-ConfXMLParam)
 
 **Parameters**
 
 - `java.util.List<String> mountId`
 - `com.tailf.conf.ConfXMLParam[] params`
 
-<a id="s-encodeHKP"></a>
+<a id="m-encodehkp-50d4bf8d0256"></a>
 ### encodeHKP()
 
 ```java
 public com.tailf.proto.ConfEObject encodeHKP()
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 Encode this ConfXMLParam to HKP representation
  (i.e hashbased [ns | tag] where where ns and tag are both
  in long). This does not rely on ConfNamespace.
 
-<a id="s-encodeHKP-1"></a>
+<a id="m-encodehkp-ebc927cd1ccf"></a>
 ### encodeHKP(ConfXMLParam[])
 
 ```java
 public static com.tailf.proto.ConfEObject encodeHKP(com.tailf.conf.ConfXMLParam[] params)
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfXMLParam](ConfXMLParam.md#s-ConfXMLParam)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfXMLParam](ConfXMLParam.md#cls-ConfXMLParam)
 
 **Parameters**
 
 - `com.tailf.conf.ConfXMLParam[] params`
 
-<a id="s-encodeHKP-2"></a>
+<a id="m-encodehkp-2ff023418b43"></a>
 ### encodeHKP(List<String>)
 
 ```java
 public com.tailf.proto.ConfEObject encodeHKP(java.util.List<String> mountId)
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 **Parameters**
 
 - `java.util.List<String> mountId`
 
-<a id="s-encodeHKP-3"></a>
+<a id="m-encodehkp-6bc3df5e84cb"></a>
 ### encodeHKP(List<String>, ConfXMLParam[])
 
 ```java
@@ -894,49 +894,49 @@ public static com.tailf.proto.ConfEObject encodeHKP(
 )
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfXMLParam](ConfXMLParam.md#s-ConfXMLParam)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfXMLParam](ConfXMLParam.md#cls-ConfXMLParam)
 
 **Parameters**
 
 - `java.util.List<String> mountId`
 - `com.tailf.conf.ConfXMLParam[] params`
 
-<a id="s-encodeIKP"></a>
+<a id="m-encodeikp-b160b87f6433"></a>
 ### encodeIKP()
 
 ```java
 public com.tailf.proto.ConfEObject encodeIKP()
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="s-encodeIKP-1"></a>
+<a id="m-encodeikp-ab4320a110c6"></a>
 ### encodeIKP(ConfXMLParam[])
 
 ```java
 public static com.tailf.proto.ConfEObject encodeIKP(com.tailf.conf.ConfXMLParam[] params)
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfXMLParam](ConfXMLParam.md#s-ConfXMLParam)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfXMLParam](ConfXMLParam.md#cls-ConfXMLParam)
 
 **Parameters**
 
 - `com.tailf.conf.ConfXMLParam[] params`
 
-<a id="s-encodeIKP-2"></a>
+<a id="m-encodeikp-6f358b789ce0"></a>
 ### encodeIKP(List<String>)
 
 ```java
 public com.tailf.proto.ConfEObject encodeIKP(java.util.List<String> mountId)
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 **Parameters**
 
 - `java.util.List<String> mountId`
 
-<a id="s-encodeIKP-3"></a>
+<a id="m-encodeikp-c0a89dd54349"></a>
 ### encodeIKP(List<String>, ConfXMLParam[])
 
 ```java
@@ -946,14 +946,14 @@ public static com.tailf.proto.ConfEObject encodeIKP(
 )
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfXMLParam](ConfXMLParam.md#s-ConfXMLParam)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfXMLParam](ConfXMLParam.md#cls-ConfXMLParam)
 
 **Parameters**
 
 - `java.util.List<String> mountId`
 - `com.tailf.conf.ConfXMLParam[] params`
 
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
@@ -964,20 +964,20 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="s-getConfNamespace"></a>
+<a id="m-getconfnamespace-87556caf3223"></a>
 ### getConfNamespace()
 
 ```java
 public com.tailf.conf.ConfNamespace getConfNamespace()
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#s-ConfNamespace)
+Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
 
 Returns the namespace for this parameter.
 
 **Returns:** The namespace for this parameter
 
-<a id="s-getNSHash"></a>
+<a id="m-getnshash-2129fb8b3cfe"></a>
 ### getNSHash()
 
 ```java
@@ -988,7 +988,7 @@ Returns the namespce hash for this parameter.
 
 **Returns:** The namespace hash for this parameter
 
-<a id="s-getTag"></a>
+<a id="m-gettag-315f45956d6f"></a>
 ### getTag()
 
 ```java
@@ -999,7 +999,7 @@ Returns the tag for this parameter.
 
 **Returns:** The tag for this parameter
 
-<a id="s-getTagHash"></a>
+<a id="m-gettaghash-8f057919039c"></a>
 ### getTagHash()
 
 ```java
@@ -1010,27 +1010,27 @@ Returns the hash tag for this parameter.
 
 **Returns:** The tag hash for this parameter
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
 public com.tailf.conf.ConfObject getValue()
 ```
 
-Types: [ConfObject](ConfObject.md#s-ConfObject)
+Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
 Returns the value for this parameter.
 
 **Returns:** The value for this parameter
 
-<a id="s-hashCode"></a>
+<a id="m-hashcode-ef797a217903"></a>
 ### hashCode()
 
 ```java
 public int hashCode()
 ```
 
-<a id="s-setCdbInstanceInteger"></a>
+<a id="m-setcdbinstanceinteger-f7ee747b0f20"></a>
 ### setCdbInstanceInteger(int)
 
 ```java
@@ -1041,20 +1041,20 @@ protected void setCdbInstanceInteger(int cdbInstanceInteger)
 
 - `int cdbInstanceInteger`
 
-<a id="s-setNamespace"></a>
+<a id="m-setnamespace-30316a480cfa"></a>
 ### setNamespace(ConfNamespace)
 
 ```java
 protected void setNamespace(com.tailf.conf.ConfNamespace namespace)
 ```
 
-Types: [ConfNamespace](ConfNamespace.md#s-ConfNamespace)
+Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
 
 **Parameters**
 
 - `com.tailf.conf.ConfNamespace namespace`
 
-<a id="s-setNamespaceFromMountId"></a>
+<a id="m-setnamespacefrommountid-1aa3f67eb493"></a>
 ### setNamespaceFromMountId(List<String>)
 
 ```java
@@ -1065,7 +1065,7 @@ protected void setNamespaceFromMountId(java.util.List<String> mountId)
 
 - `java.util.List<String> mountId`
 
-<a id="s-toDOM"></a>
+<a id="m-todom-13fd8f87f1a2"></a>
 ### toDOM(ConfXMLParam[])
 
 ```java
@@ -1075,7 +1075,7 @@ public static org.w3c.dom.Document toDOM(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](ConfXMLParam.md#s-ConfXMLParam), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfXMLParam](ConfXMLParam.md#cls-ConfXMLParam), [ConfException](ConfException.md#cls-ConfException)
 
 Return String `DOM` document representation of a
  (Conf)XML-structure. A array of `ConfXMLParam` could
@@ -1096,7 +1096,7 @@ Return String `DOM` document representation of a
 - `ConfException` - If the the populated array is not well
                         structured
 
-<a id="s-toDOM-1"></a>
+<a id="m-todom-a2de025173ef"></a>
 ### toDOM(ConfXMLParam[], String, String)
 
 ```java
@@ -1108,7 +1108,7 @@ public static org.w3c.dom.Document toDOM(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](ConfXMLParam.md#s-ConfXMLParam), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfXMLParam](ConfXMLParam.md#cls-ConfXMLParam), [ConfException](ConfException.md#cls-ConfException)
 
 Return String `DOM` representation of a
   (Conf)XML-structure. A array of `ConfXMLParam`
@@ -1133,21 +1133,21 @@ Return String `DOM` representation of a
 - `ConfException` - If the the populated array is not well
                         structured
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java
 public String toString()
 ```
 
-<a id="s-toXML"></a>
+<a id="m-toxml-122580fde7a8"></a>
 ### toXML(ConfXMLParam[])
 
 ```java
 public static String toXML(com.tailf.conf.ConfXMLParam[] params) throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](ConfXMLParam.md#s-ConfXMLParam), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfXMLParam](ConfXMLParam.md#cls-ConfXMLParam), [ConfException](ConfException.md#cls-ConfException)
 
 Return String XML representation of a (Conf)XML-structure. A
   array of `ConfXMLParam` could represent a frament
@@ -1167,7 +1167,7 @@ Return String XML representation of a (Conf)XML-structure. A
 - `ConfException` - If the the populated array is not well
                         structured
 
-<a id="s-toXML-1"></a>
+<a id="m-toxml-e7cef9be4b1e"></a>
 ### toXML(ConfXMLParam[], String, String)
 
 ```java
@@ -1179,7 +1179,7 @@ public static String toXML(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](ConfXMLParam.md#s-ConfXMLParam), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfXMLParam](ConfXMLParam.md#cls-ConfXMLParam), [ConfException](ConfException.md#cls-ConfException)
 
 Return String XML representation of a (Conf)XML-structure. A
   array of `ConfXMLParam` could represent a frament
@@ -1200,7 +1200,7 @@ Return String XML representation of a (Conf)XML-structure. A
 - `ConfException` - If the the populated array is not well
                         structured
 
-<a id="s-toXMLParams"></a>
+<a id="m-toxmlparams-bec6ecc54070"></a>
 ### toXMLParams(String, ConfPath)
 
 ```java
@@ -1211,7 +1211,7 @@ public static com.tailf.conf.ConfXMLParam[] toXMLParams(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](ConfXMLParam.md#s-ConfXMLParam), [ConfPath](ConfPath.md#s-ConfPath), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfXMLParam](ConfXMLParam.md#cls-ConfXMLParam), [ConfPath](ConfPath.md#cls-ConfPath), [ConfException](ConfException.md#cls-ConfException)
 
 Converts an xml snippet to a corresponding ConfXMLParam[].
  The resulting ConfXMLParam[] is prepared for a getValues() call.
@@ -1237,7 +1237,7 @@ Converts an xml snippet to a corresponding ConfXMLParam[].
 
 - `ConfException`
 
-<a id="s-toXMLParams-1"></a>
+<a id="m-toxmlparams-61a6fdf75a13"></a>
 ### toXMLParams(String, ConfPath, int)
 
 ```java
@@ -1249,13 +1249,13 @@ public static com.tailf.conf.ConfXMLParam[] toXMLParams(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfXMLParam](ConfXMLParam.md#s-ConfXMLParam), [ConfPath](ConfPath.md#s-ConfPath), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfXMLParam](ConfXMLParam.md#cls-ConfXMLParam), [ConfPath](ConfPath.md#cls-ConfPath), [ConfException](ConfException.md#cls-ConfException)
 
 Converts an xml snippet to a corresponding ConfXMLParam[].
  The mode parameter controls whether this ConfXMLParam[] should be
  prepared for a getValues() call or for a setValues() call using
- using [`XMLtoConfXMLParam`](../util/XMLtoConfXMLParam.md#s-XMLtoConfXMLParam) or
-  [`XMLtoConfXMLParam`](../util/XMLtoConfXMLParam.md#s-XMLtoConfXMLParam) respectively.
+ using [`XMLtoConfXMLParam#MODE_GET`](../util/XMLtoConfXMLParam.md#m-MODE_GET) or
+  [`XMLtoConfXMLParam#MODE_SET`](../util/XMLtoConfXMLParam.md#m-MODE_SET) respectively.
 
  The XML input can be provided in two forms:
 
@@ -1271,8 +1271,8 @@ Converts an xml snippet to a corresponding ConfXMLParam[].
 - `String xml` - XML string representing an instance document
    at or below the path node
 - `com.tailf.conf.ConfPath path` - Start node (or root path) of the XML document
-- `int mode` - one of [`XMLtoConfXMLParam`](../util/XMLtoConfXMLParam.md#s-XMLtoConfXMLParam) or
-  [`XMLtoConfXMLParam`](../util/XMLtoConfXMLParam.md#s-XMLtoConfXMLParam)
+- `int mode` - one of [`XMLtoConfXMLParam#MODE_GET`](../util/XMLtoConfXMLParam.md#m-MODE_GET) or
+  [`XMLtoConfXMLParam#MODE_SET`](../util/XMLtoConfXMLParam.md#m-MODE_SET)
 
 **Returns:** The resulting ConfXMLParam[]
 

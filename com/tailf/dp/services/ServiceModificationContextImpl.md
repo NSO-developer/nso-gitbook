@@ -1,12 +1,10 @@
-<a id="s-ServiceModificationContextImpl"></a>
+<a id="cls-ServiceModificationContextImpl"></a>
 # ServiceModificationContextImpl
 
 ```java
 public class com.tailf.dp.services.ServiceModificationContextImpl
     extends com.tailf.dp.services.ServiceContextImpl
 ```
-
-Types: [ServiceContextImpl](ServiceContextImpl.md#s-ServiceContextImpl)
 
 Internal class implementing the service context for PRE/POST MODIFICATION
  callbacks. In this case NavuContext for NavuNodes should always attach
@@ -17,42 +15,14 @@ Internal class implementing the service context for PRE/POST MODIFICATION
 
 **Constructors**:
 
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject)](#s-ServiceModificationContextImpl-1)
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject, ServiceOperationType)](#s-ServiceModificationContextImpl-2)
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEList)](#s-ServiceModificationContextImpl-3)
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEObject)](#s-ServiceModificationContextImpl-4)
-
-**Fields**:
-
-- [attachedServiceMaapi](ServiceContextImpl.md#s-attachedServiceMaapi) from ServiceContextImpl
-- [currentDp](ServiceContextImpl.md#s-currentDp) from ServiceContextImpl
-- [currentDpTrans](ServiceContextImpl.md#s-currentDpTrans) from ServiceContextImpl
-- [currentPath](ServiceContextImpl.md#s-currentPath) from ServiceContextImpl
-- [eOpaque](ServiceContextImpl.md#s-eOpaque) from ServiceContextImpl
-- [nbase](ServiceContextImpl.md#s-nbase) from ServiceContextImpl
-- [nContext](ServiceContextImpl.md#s-nContext) from ServiceContextImpl
-- [ncsHash](ServiceContextImpl.md#s-ncsHash) from ServiceContextImpl
-- [operation](ServiceContextImpl.md#s-operation) from ServiceContextImpl
-- [transInTrans](ServiceContextImpl.md#s-transInTrans) from ServiceContextImpl
-
-**Methods**:
-
-- [decodeOpaque()](ServiceContextImpl.md#s-decodeOpaque) from ServiceContextImpl
-- [decodeProperties(ConfEObject)](ServiceContextImpl.md#s-decodeProperties) from ServiceContextImpl
-- [detachServiceTrans()](ServiceContextImpl.md#s-detachServiceTrans) from ServiceContextImpl
-- [encodeOpaque(Properties)](ServiceContextImpl.md#s-encodeOpaque) from ServiceContextImpl
-- [getAttachedServiceMaapi()](ServiceContextImpl.md#s-getAttachedServiceMaapi) from ServiceContextImpl
-- [getCurrentDpTrans()](ServiceContextImpl.md#s-getCurrentDpTrans) from ServiceContextImpl
-- [getNedIdByDeviceName(String)](ServiceContextImpl.md#s-getNedIdByDeviceName) from ServiceContextImpl
-- [getOperation()](ServiceContextImpl.md#s-getOperation) from ServiceContextImpl
-- [getRootNode()](ServiceContextImpl.md#s-getRootNode) from ServiceContextImpl
-- [getServiceNode()](ServiceContextImpl.md#s-getServiceNode) from ServiceContextImpl
-- [getServicePath()](ServiceContextImpl.md#s-getServicePath) from ServiceContextImpl
-- [setTimeout(int)](ServiceContextImpl.md#s-setTimeout) from ServiceContextImpl
+- [ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject)](#m-servicemodificationcontextimpl-d0eddddd16f2)
+- [ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject, ServiceOperationType)](#m-servicemodificationcontextimpl-be8c23b53fc7)
+- [ServiceModificationContextImpl(DpTrans, Dp, ConfEList)](#m-servicemodificationcontextimpl-90b24dd80819)
+- [ServiceModificationContextImpl(DpTrans, Dp, ConfEObject)](#m-servicemodificationcontextimpl-767900bccb2e)
 
 ## Constructors
 
-<a id="s-ServiceModificationContextImpl-1"></a>
+<a id="m-servicemodificationcontextimpl-d0eddddd16f2"></a>
 ### ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject)
 
 ```java
@@ -66,7 +36,7 @@ protected ServiceModificationContextImpl(
     throws com.tailf.conf.ConfException, com.tailf.proto.ConfERangeException
 ```
 
-Types: [DpTrans](../DpTrans.md#s-DpTrans), [Dp](../Dp.md#s-Dp), [ConfEAtom](../../proto/ConfEAtom.md#s-ConfEAtom), [ConfEList](../../proto/ConfEList.md#s-ConfEList), [ConfEObject](../../proto/ConfEObject.md#s-ConfEObject), [ConfException](../../conf/ConfException.md#s-ConfException), [ConfERangeException](../../proto/ConfERangeException.md#s-ConfERangeException)
+Types: [DpTrans](../DpTrans.md#cls-DpTrans), [Dp](../Dp.md#cls-Dp), [ConfEAtom](../../proto/ConfEAtom.md#cls-ConfEAtom), [ConfEList](../../proto/ConfEList.md#cls-ConfEList), [ConfEObject](../../proto/ConfEObject.md#cls-ConfEObject), [ConfException](../../conf/ConfException.md#cls-ConfException), [ConfERangeException](../../proto/ConfERangeException.md#cls-ConfERangeException)
 
 **Parameters**
 
@@ -76,7 +46,7 @@ Types: [DpTrans](../DpTrans.md#s-DpTrans), [Dp](../Dp.md#s-Dp), [ConfEAtom](../.
 - `com.tailf.proto.ConfEList ePath`
 - `com.tailf.proto.ConfEObject eOpaque`
 
-<a id="s-ServiceModificationContextImpl-2"></a>
+<a id="m-servicemodificationcontextimpl-be8c23b53fc7"></a>
 ### ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject, ServiceOperationType)
 
 ```java
@@ -91,7 +61,7 @@ protected ServiceModificationContextImpl(
     throws com.tailf.conf.ConfException, com.tailf.proto.ConfERangeException
 ```
 
-Types: [DpTrans](../DpTrans.md#s-DpTrans), [Dp](../Dp.md#s-Dp), [ConfEAtom](../../proto/ConfEAtom.md#s-ConfEAtom), [ConfEList](../../proto/ConfEList.md#s-ConfEList), [ConfEObject](../../proto/ConfEObject.md#s-ConfEObject), [ServiceOperationType](ServiceOperationType.md#s-ServiceOperationType), [ConfException](../../conf/ConfException.md#s-ConfException), [ConfERangeException](../../proto/ConfERangeException.md#s-ConfERangeException)
+Types: [DpTrans](../DpTrans.md#cls-DpTrans), [Dp](../Dp.md#cls-Dp), [ConfEAtom](../../proto/ConfEAtom.md#cls-ConfEAtom), [ConfEList](../../proto/ConfEList.md#cls-ConfEList), [ConfEObject](../../proto/ConfEObject.md#cls-ConfEObject), [ServiceOperationType](ServiceOperationType.md#cls-ServiceOperationType), [ConfException](../../conf/ConfException.md#cls-ConfException), [ConfERangeException](../../proto/ConfERangeException.md#cls-ConfERangeException)
 
 **Parameters**
 
@@ -102,7 +72,7 @@ Types: [DpTrans](../DpTrans.md#s-DpTrans), [Dp](../Dp.md#s-Dp), [ConfEAtom](../.
 - `com.tailf.proto.ConfEObject eOpaque`
 - `com.tailf.dp.services.ServiceOperationType operation`
 
-<a id="s-ServiceModificationContextImpl-3"></a>
+<a id="m-servicemodificationcontextimpl-90b24dd80819"></a>
 ### ServiceModificationContextImpl(DpTrans, Dp, ConfEList)
 
 ```java
@@ -114,7 +84,7 @@ protected ServiceModificationContextImpl(
     throws com.tailf.conf.ConfException, com.tailf.proto.ConfERangeException
 ```
 
-Types: [DpTrans](../DpTrans.md#s-DpTrans), [Dp](../Dp.md#s-Dp), [ConfEList](../../proto/ConfEList.md#s-ConfEList), [ConfException](../../conf/ConfException.md#s-ConfException), [ConfERangeException](../../proto/ConfERangeException.md#s-ConfERangeException)
+Types: [DpTrans](../DpTrans.md#cls-DpTrans), [Dp](../Dp.md#cls-Dp), [ConfEList](../../proto/ConfEList.md#cls-ConfEList), [ConfException](../../conf/ConfException.md#cls-ConfException), [ConfERangeException](../../proto/ConfERangeException.md#cls-ConfERangeException)
 
 **Parameters**
 
@@ -122,7 +92,7 @@ Types: [DpTrans](../DpTrans.md#s-DpTrans), [Dp](../Dp.md#s-Dp), [ConfEList](../.
 - `com.tailf.dp.Dp dp`
 - `com.tailf.proto.ConfEList eTransTup`
 
-<a id="s-ServiceModificationContextImpl-4"></a>
+<a id="m-servicemodificationcontextimpl-767900bccb2e"></a>
 ### ServiceModificationContextImpl(DpTrans, Dp, ConfEObject)
 
 ```java
@@ -134,7 +104,7 @@ public ServiceModificationContextImpl(
     throws com.tailf.conf.ConfException, com.tailf.proto.ConfERangeException
 ```
 
-Types: [DpTrans](../DpTrans.md#s-DpTrans), [Dp](../Dp.md#s-Dp), [ConfEObject](../../proto/ConfEObject.md#s-ConfEObject), [ConfException](../../conf/ConfException.md#s-ConfException), [ConfERangeException](../../proto/ConfERangeException.md#s-ConfERangeException)
+Types: [DpTrans](../DpTrans.md#cls-DpTrans), [Dp](../Dp.md#cls-Dp), [ConfEObject](../../proto/ConfEObject.md#cls-ConfEObject), [ConfException](../../conf/ConfException.md#cls-ConfException), [ConfERangeException](../../proto/ConfERangeException.md#cls-ConfERangeException)
 
 Internally used constructor
 

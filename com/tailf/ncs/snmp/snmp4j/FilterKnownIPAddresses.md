@@ -1,4 +1,4 @@
-<a id="s-FilterKnownIPAddresses"></a>
+<a id="cls-FilterKnownIPAddresses"></a>
 # FilterKnownIPAddresses
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.ncs.snmp.snmp4j.FilterKnownIPAddresses
     implements com.tailf.ncs.snmp.snmp4j.NotificationHandler
 ```
 
-Types: [NotificationHandler](NotificationHandler.md#s-NotificationHandler)
+Types: [NotificationHandler](NotificationHandler.md#cls-NotificationHandler)
 
 Standard filter for suppression of notifications
  emanating from ip addresses outside defined set of addresses
@@ -21,15 +21,15 @@ Standard filter for suppression of notifications
 
 **Constructors**:
 
-- [FilterKnownIPAddresses(Map<InetAddress,ConfKey>)](#s-FilterKnownIPAddresses-1)
+- [FilterKnownIPAddresses(Map<InetAddress,ConfKey>)](#m-filterknownipaddresses-46bfae603127)
 
 **Methods**:
 
-- [processPdu(EventContext, CommandResponderEvent, Object)](#s-processPdu)
+- [processPdu(EventContext, CommandResponderEvent, Object)](#m-processpdu-6c9b32673c38)
 
 ## Constructors
 
-<a id="s-FilterKnownIPAddresses-1"></a>
+<a id="m-filterknownipaddresses-46bfae603127"></a>
 ### FilterKnownIPAddresses(Map<InetAddress,ConfKey>)
 
 ```java
@@ -38,7 +38,7 @@ public FilterKnownIPAddresses(
 )
 ```
 
-Types: [ConfKey](../../../conf/ConfKey.md#s-ConfKey)
+Types: [ConfKey](../../../conf/ConfKey.md#cls-ConfKey)
 
 Filter constructor
 
@@ -50,7 +50,7 @@ Filter constructor
 
 ## Methods
 
-<a id="s-processPdu"></a>
+<a id="m-processpdu-6c9b32673c38"></a>
 ### processPdu(EventContext, CommandResponderEvent, Object)
 
 ```java
@@ -62,7 +62,7 @@ public com.tailf.ncs.snmp.snmp4j.HandlerResponse processPdu(
     throws Exception
 ```
 
-Types: [HandlerResponse](HandlerResponse.md#s-HandlerResponse), [EventContext](EventContext.md#s-EventContext)
+Types: [HandlerResponse](HandlerResponse.md#cls-HandlerResponse), [EventContext](EventContext.md#cls-EventContext)
 
 Standard filter method for suppressing unknown ipAddresses
 

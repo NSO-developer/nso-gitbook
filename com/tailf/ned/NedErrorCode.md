@@ -1,113 +1,109 @@
-<a id="s-NedErrorCode"></a>
+<a id="cls-NedErrorCode"></a>
 # NedErrorCode
 
 ```java
 public enum com.tailf.ned.NedErrorCode
 ```
 
-Types: [NedErrorCode](NedErrorCode.md#s-NedErrorCode)
-
-**Related classes**
-
-- [NedErrorCode](NedErrorCode.md#s-NedErrorCode)
+Types: [NedErrorCode](NedErrorCode.md#cls-NedErrorCode)
 
 ## Members
 
 **Enum Constants**:
 
-- [CONNECT_BADAUTH](#s-CONNECT_BADAUTH)
-- [CONNECT_BADKEY](#s-CONNECT_BADKEY)
-- [CONNECT_CONNECTION_REFUSED](#s-CONNECT_CONNECTION_REFUSED)
-- [CONNECT_HOST_KEY_REJECTED](#s-CONNECT_HOST_KEY_REJECTED)
-- [CONNECT_HOSTUNREACH](#s-CONNECT_HOSTUNREACH)
-- [CONNECT_KEX_FAILED](#s-CONNECT_KEX_FAILED)
-- [CONNECT_TIMEOUT](#s-CONNECT_TIMEOUT)
-- [CONNECTION_GONE](#s-CONNECTION_GONE)
-- [IN_USE](#s-IN_USE)
-- [NED_EXTERNAL_ERROR](#s-NED_EXTERNAL_ERROR)
-- [NED_INTERNAL_ERROR](#s-NED_INTERNAL_ERROR)
+- [CONNECT_BADAUTH](#m-CONNECT_BADAUTH)
+- [CONNECT_BADKEY](#m-CONNECT_BADKEY)
+- [CONNECT_CONNECTION_REFUSED](#m-CONNECT_CONNECTION_REFUSED)
+- [CONNECT_HOST_KEY_REJECTED](#m-CONNECT_HOST_KEY_REJECTED)
+- [CONNECT_HOSTUNREACH](#m-CONNECT_HOSTUNREACH)
+- [CONNECT_KEX_FAILED](#m-CONNECT_KEX_FAILED)
+- [CONNECT_TIMEOUT](#m-CONNECT_TIMEOUT)
+- [CONNECTION_GONE](#m-CONNECTION_GONE)
+- [IN_USE](#m-IN_USE)
+- [NED_EXTERNAL_ERROR](#m-NED_EXTERNAL_ERROR)
+- [NED_INTERNAL_ERROR](#m-NED_INTERNAL_ERROR)
 
 **Methods**:
 
-- [getValue()](#s-getValue)
-- [toAtomString()](#s-toAtomString)
-- [valueOf(int)](#s-valueOf)
-- [valueOf(String)](#s-valueOf-1)
-- [values()](#s-values)
+- [getValue()](#m-getvalue-d93864668c40)
+- [toAtomString()](#m-toatomstring-a89f0452ee0b)
+- [valueOf(int)](#m-valueof-c0d46d25fc67)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-CONNECT_BADAUTH"></a>
+<a id="m-CONNECT_BADAUTH"></a>
 ### CONNECT_BADAUTH
 
 ```java
 public static final com.tailf.ned.NedErrorCode CONNECT_BADAUTH;
 ```
 
-<a id="s-CONNECT_BADKEY"></a>
+<a id="m-CONNECT_BADKEY"></a>
 ### CONNECT_BADKEY
 
 ```java
 public static final com.tailf.ned.NedErrorCode CONNECT_BADKEY;
 ```
 
-<a id="s-CONNECT_CONNECTION_REFUSED"></a>
+<a id="m-CONNECT_CONNECTION_REFUSED"></a>
 ### CONNECT_CONNECTION_REFUSED
 
 ```java
 public static final com.tailf.ned.NedErrorCode CONNECT_CONNECTION_REFUSED;
 ```
 
-<a id="s-CONNECT_HOST_KEY_REJECTED"></a>
+<a id="m-CONNECT_HOST_KEY_REJECTED"></a>
 ### CONNECT_HOST_KEY_REJECTED
 
 ```java
 public static final com.tailf.ned.NedErrorCode CONNECT_HOST_KEY_REJECTED;
 ```
 
-<a id="s-CONNECT_HOSTUNREACH"></a>
+<a id="m-CONNECT_HOSTUNREACH"></a>
 ### CONNECT_HOSTUNREACH
 
 ```java
 public static final com.tailf.ned.NedErrorCode CONNECT_HOSTUNREACH;
 ```
 
-<a id="s-CONNECT_KEX_FAILED"></a>
+<a id="m-CONNECT_KEX_FAILED"></a>
 ### CONNECT_KEX_FAILED
 
 ```java
 public static final com.tailf.ned.NedErrorCode CONNECT_KEX_FAILED;
 ```
 
-<a id="s-CONNECT_TIMEOUT"></a>
+<a id="m-CONNECT_TIMEOUT"></a>
 ### CONNECT_TIMEOUT
 
 ```java
 public static final com.tailf.ned.NedErrorCode CONNECT_TIMEOUT;
 ```
 
-<a id="s-CONNECTION_GONE"></a>
+<a id="m-CONNECTION_GONE"></a>
 ### CONNECTION_GONE
 
 ```java
 public static final com.tailf.ned.NedErrorCode CONNECTION_GONE;
 ```
 
-<a id="s-IN_USE"></a>
+<a id="m-IN_USE"></a>
 ### IN_USE
 
 ```java
 public static final com.tailf.ned.NedErrorCode IN_USE;
 ```
 
-<a id="s-NED_EXTERNAL_ERROR"></a>
+<a id="m-NED_EXTERNAL_ERROR"></a>
 ### NED_EXTERNAL_ERROR
 
 ```java
 public static final com.tailf.ned.NedErrorCode NED_EXTERNAL_ERROR;
 ```
 
-<a id="s-NED_INTERNAL_ERROR"></a>
+<a id="m-NED_INTERNAL_ERROR"></a>
 ### NED_INTERNAL_ERROR
 
 ```java
@@ -117,7 +113,7 @@ public static final com.tailf.ned.NedErrorCode NED_INTERNAL_ERROR;
 
 ## Methods
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
@@ -128,7 +124,7 @@ Get the integer representation of the enum.
 
 **Returns:** the integer representation of the error code
 
-<a id="s-toAtomString"></a>
+<a id="m-toatomstring-a89f0452ee0b"></a>
 ### toAtomString()
 
 ```java
@@ -139,14 +135,14 @@ Get the string representation of the enum.
 
 **Returns:** the string representation of the error code
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-c0d46d25fc67"></a>
 ### valueOf(int)
 
 ```java
 public static com.tailf.ned.NedErrorCode valueOf(int i)
 ```
 
-Types: [NedErrorCode](NedErrorCode.md#s-NedErrorCode)
+Types: [NedErrorCode](NedErrorCode.md#cls-NedErrorCode)
 
 Get the NED error code from the given integer.
 
@@ -161,24 +157,24 @@ Get the NED error code from the given integer.
 - `IllegalArgumentException` - if there is no corresponding
          NED error code
 
-<a id="s-valueOf-1"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.ned.NedErrorCode valueOf(String name)
 ```
 
-Types: [NedErrorCode](NedErrorCode.md#s-NedErrorCode)
+Types: [NedErrorCode](NedErrorCode.md#cls-NedErrorCode)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.ned.NedErrorCode[] values()
 ```
 
-Types: [NedErrorCode](NedErrorCode.md#s-NedErrorCode)
+Types: [NedErrorCode](NedErrorCode.md#cls-NedErrorCode)

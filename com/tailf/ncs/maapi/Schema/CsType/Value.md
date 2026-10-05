@@ -1,4 +1,4 @@
-<a id="s-Value"></a>
+<a id="cls-Value"></a>
 # Value
 
 ```java
@@ -9,24 +9,24 @@ public static class com.tailf.ncs.maapi.Schema.CsType.Value
 
 **Constructors**:
 
-- [Value()](#s-Value-1)
+- [Value()](#m-value-4dcd21cc15a5)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](Value/Builder.md#s-Builder)
-- [Factory](Value/Factory.md#s-Factory)
-- [Reader](Value/Reader.md#s-Reader)
-- [Which](Value/Which.md#s-Which)
+- [Builder](Value/Builder.md#cls-Builder)
+- [Factory](Value/Factory.md#cls-Factory)
+- [Reader](Value/Reader.md#cls-Reader)
+- [Which](Value/Which.md#cls-Which)
 
 ## Constructors
 
-<a id="s-Value-1"></a>
+<a id="m-value-4dcd21cc15a5"></a>
 ### Value()
 
 ```java
@@ -36,25 +36,25 @@ public Value()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsType.Value.Factory factory = null;
 ```
 
-Types: [Factory](Value/Factory.md#s-Factory)
+Types: [Factory](Value/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsType.Value.Builder,com.tailf.ncs.maapi.Schema.CsType.Value.Reader> listFactory = null;
 ```
 
-Types: [Builder](Value/Builder.md#s-Builder), [Reader](Value/Reader.md#s-Reader)
+Types: [Builder](Value/Builder.md#cls-Builder), [Reader](Value/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -64,7 +64,7 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](Value/Builder.md)
-- [Factory](Value/Factory.md)
-- [Reader](Value/Reader.md)
-- [Which](Value/Which.md)
+- [Builder](Value/Builder.md#cls-Builder)
+- [Factory](Value/Factory.md#cls-Factory)
+- [Reader](Value/Reader.md#cls-Reader)
+- [Which](Value/Which.md#cls-Which)

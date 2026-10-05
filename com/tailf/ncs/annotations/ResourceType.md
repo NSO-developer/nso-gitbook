@@ -1,41 +1,37 @@
-<a id="s-ResourceType"></a>
+<a id="cls-ResourceType"></a>
 # ResourceType
 
 ```java
 public enum com.tailf.ncs.annotations.ResourceType
 ```
 
-Types: [ResourceType](ResourceType.md#s-ResourceType)
+Types: [ResourceType](ResourceType.md#cls-ResourceType)
 
 ResourceType set by the Ncs ResourceManager
-
-**Related classes**
-
-- [ResourceType](ResourceType.md#s-ResourceType)
 
 ## Members
 
 **Enum Constants**:
 
-- [CDB](#s-CDB)
-- [MAAPI](#s-MAAPI)
+- [CDB](#m-CDB)
+- [MAAPI](#m-MAAPI)
 
 **Methods**:
 
-- [getValue()](#s-getValue)
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [getValue()](#m-getvalue-d93864668c40)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-CDB"></a>
+<a id="m-CDB"></a>
 ### CDB
 
 ```java
 public static final com.tailf.ncs.annotations.ResourceType CDB;
 ```
 
-<a id="s-MAAPI"></a>
+<a id="m-MAAPI"></a>
 ### MAAPI
 
 ```java
@@ -45,31 +41,31 @@ public static final com.tailf.ncs.annotations.ResourceType MAAPI;
 
 ## Methods
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
 public int getValue()
 ```
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.ncs.annotations.ResourceType valueOf(String name)
 ```
 
-Types: [ResourceType](ResourceType.md#s-ResourceType)
+Types: [ResourceType](ResourceType.md#cls-ResourceType)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.ncs.annotations.ResourceType[] values()
 ```
 
-Types: [ResourceType](ResourceType.md#s-ResourceType)
+Types: [ResourceType](ResourceType.md#cls-ResourceType)

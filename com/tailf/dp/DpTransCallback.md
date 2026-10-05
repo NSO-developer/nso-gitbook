@@ -1,4 +1,4 @@
-<a id="s-DpTransCallback"></a>
+<a id="cls-DpTransCallback"></a>
 # DpTransCallback
 
 ```java
@@ -84,126 +84,126 @@ This interface is used for the user transaction callbacks.
   // And so on ...
 ```
 
-**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#s-registerAnnotatedCallbacks)
+**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
 
 **Fields**:
 
-- [M_ABORT](#s-M_ABORT)
-- [M_ALL](#s-M_ALL)
-- [M_COMMIT](#s-M_COMMIT)
-- [M_FINISH](#s-M_FINISH)
-- [M_INIT](#s-M_INIT)
-- [M_PREPARE](#s-M_PREPARE)
-- [M_TRANS_LOCK](#s-M_TRANS_LOCK)
-- [M_TRANS_UNLOCK](#s-M_TRANS_UNLOCK)
-- [M_WRITE_START](#s-M_WRITE_START)
+- [M_ABORT](#m-M_ABORT)
+- [M_ALL](#m-M_ALL)
+- [M_COMMIT](#m-M_COMMIT)
+- [M_FINISH](#m-M_FINISH)
+- [M_INIT](#m-M_INIT)
+- [M_PREPARE](#m-M_PREPARE)
+- [M_TRANS_LOCK](#m-M_TRANS_LOCK)
+- [M_TRANS_UNLOCK](#m-M_TRANS_UNLOCK)
+- [M_WRITE_START](#m-M_WRITE_START)
 
 **Methods**:
 
-- [abort(DpTrans)](#s-abort)
-- [commit(DpTrans)](#s-commit)
-- [finish(DpTrans)](#s-finish)
-- [init(DpTrans)](#s-init)
-- [mask()](#s-mask)
-- [prepare(DpTrans)](#s-prepare)
-- [transLock(DpTrans)](#s-transLock)
-- [transUnlock(DpTrans)](#s-transUnlock)
-- [writeStart(DpTrans)](#s-writeStart)
+- [abort(DpTrans)](#m-abort-be36f552f23c)
+- [commit(DpTrans)](#m-commit-5e7631b9a7e8)
+- [finish(DpTrans)](#m-finish-1001d416be96)
+- [init(DpTrans)](#m-init-16fe8657859c)
+- [mask()](#m-mask-24c2fa29c6af)
+- [prepare(DpTrans)](#m-prepare-ab366f6ce7ea)
+- [transLock(DpTrans)](#m-translock-dc59c2c0e5f8)
+- [transUnlock(DpTrans)](#m-transunlock-d0b9be30b219)
+- [writeStart(DpTrans)](#m-writestart-5fee67274be5)
 
 ## Fields
 
-<a id="s-M_ABORT"></a>
+<a id="m-M_ABORT"></a>
 ### M_ABORT
 
 ```java
 public static final int M_ABORT = 32;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#abort(DpTrans)` method.
 
-<a id="s-M_ALL"></a>
+<a id="m-M_ALL"></a>
 ### M_ALL
 
 ```java
 public static final int M_ALL = 255;
 ```
 
-<a id="s-M_COMMIT"></a>
+<a id="m-M_COMMIT"></a>
 ### M_COMMIT
 
 ```java
 public static final int M_COMMIT = 64;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#commit(DpTrans)` method.
 
-<a id="s-M_FINISH"></a>
+<a id="m-M_FINISH"></a>
 ### M_FINISH
 
 ```java
 public static final int M_FINISH = 128;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#finish(DpTrans)` method.
 
-<a id="s-M_INIT"></a>
+<a id="m-M_INIT"></a>
 ### M_INIT
 
 ```java
 public static final int M_INIT = 1;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#init(DpTrans)` method.
 
-<a id="s-M_PREPARE"></a>
+<a id="m-M_PREPARE"></a>
 ### M_PREPARE
 
 ```java
 public static final int M_PREPARE = 16;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#prepare(DpTrans)` method.
 
-<a id="s-M_TRANS_LOCK"></a>
+<a id="m-M_TRANS_LOCK"></a>
 ### M_TRANS_LOCK
 
 ```java
 public static final int M_TRANS_LOCK = 2;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#transLock(DpTrans)` method.
 
-<a id="s-M_TRANS_UNLOCK"></a>
+<a id="m-M_TRANS_UNLOCK"></a>
 ### M_TRANS_UNLOCK
 
 ```java
 public static final int M_TRANS_UNLOCK = 4;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#transUnlock(DpTrans)` method.
 
-<a id="s-M_WRITE_START"></a>
+<a id="m-M_WRITE_START"></a>
 ### M_WRITE_START
 
 ```java
 public static final int M_WRITE_START = 8;
 ```
 
-Bit flag for the [`DpTrans`](DpTrans.md#s-DpTrans) method.
+Bit flag for the `DpTrans#writeStart(DpTrans)` method.
 
 
 ## Methods
 
-<a id="s-abort"></a>
+<a id="m-abort-be36f552f23c"></a>
 ### abort(DpTrans)
 
 ```java
 public abstract void abort(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This  callback  is  responsible  for
  undoing  whatever  was  done in the prepare() phase.
@@ -216,14 +216,14 @@ This  callback  is  responsible  for
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-commit"></a>
+<a id="m-commit-5e7631b9a7e8"></a>
 ### commit(DpTrans)
 
 ```java
 public abstract void commit(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This  callback  is  responsible  for
  undoing  whatever  was  done in the prepare() phase.
@@ -236,14 +236,14 @@ This  callback  is  responsible  for
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-finish"></a>
+<a id="m-finish-1001d416be96"></a>
 ### finish(DpTrans)
 
 ```java
 public abstract void finish(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This  callback  is  responsible  for
  releasing  resources  allocated in the init() phase.
@@ -256,14 +256,14 @@ This  callback  is  responsible  for
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-init"></a>
+<a id="m-init-16fe8657859c"></a>
 ### init(DpTrans)
 
 ```java
 public abstract void init(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 The  callback must indicate which WORKER_SOCKET
  should be used for future communications  in  this  transaction.
@@ -278,7 +278,7 @@ The  callback must indicate which WORKER_SOCKET
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-mask"></a>
+<a id="m-mask-24c2fa29c6af"></a>
 ### mask()
 
 ```java
@@ -297,14 +297,14 @@ Mask of flags for each method that is supported by this callback:
              - `#M_COMMIT`
                - `#M_FINISH`
 
-<a id="s-prepare"></a>
+<a id="m-prepare-ab366f6ce7ea"></a>
 ### prepare(DpTrans)
 
 ```java
 public abstract void prepare(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 If we have multiple sources of data  it  is  highly  recommended
  that the callback is implemented.  The callback is called at the
@@ -320,14 +320,14 @@ If we have multiple sources of data  it  is  highly  recommended
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-transLock"></a>
+<a id="m-translock-dc59c2c0e5f8"></a>
 ### transLock(DpTrans)
 
 ```java
 public abstract void transLock(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback is invoked when the validation phase of the transaction
  starts.  If the underlying database supports real transactions,
@@ -349,14 +349,14 @@ This callback is invoked when the validation phase of the transaction
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-transUnlock"></a>
+<a id="m-transunlock-d0b9be30b219"></a>
 ### transUnlock(DpTrans)
 
 ```java
 public abstract void transUnlock(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This  callback  is called when the validation of the transaction
  failed, or the validation is triggered explicitly (i.e. not part
@@ -375,14 +375,14 @@ This  callback  is called when the validation of the transaction
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="s-writeStart"></a>
+<a id="m-writestart-5fee67274be5"></a>
 ### writeStart(DpTrans)
 
 ```java
 public abstract void writeStart(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpTrans](DpTrans.md#s-DpTrans), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpTrans](DpTrans.md#cls-DpTrans), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback is invoked when the validation succeeded  and  the
  write  phase of the transaction starts.  If the underlying database

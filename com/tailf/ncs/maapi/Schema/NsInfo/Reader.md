@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,27 +10,27 @@ public static final class com.tailf.ncs.maapi.Schema.NsInfo.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getModule()](#s-getModule)
-- [getNshash()](#s-getNshash)
-- [getPrefix()](#s-getPrefix)
-- [getRevision()](#s-getRevision)
-- [getRootNodes()](#s-getRootNodes)
-- [getTypes()](#s-getTypes)
-- [getUri()](#s-getUri)
-- [hasModule()](#s-hasModule)
-- [hasPrefix()](#s-hasPrefix)
-- [hasRevision()](#s-hasRevision)
-- [hasRootNodes()](#s-hasRootNodes)
-- [hasTypes()](#s-hasTypes)
-- [hasUri()](#s-hasUri)
+- [getModule()](#m-getmodule-68694513ccce)
+- [getNshash()](#m-getnshash-c5a7631eae00)
+- [getPrefix()](#m-getprefix-9268091e0223)
+- [getRevision()](#m-getrevision-b0088aa9f0bf)
+- [getRootNodes()](#m-getrootnodes-63f2b6255095)
+- [getTypes()](#m-gettypes-cbd0de718034)
+- [getUri()](#m-geturi-e839fdd3e24c)
+- [hasModule()](#m-hasmodule-8a9f381a7ff1)
+- [hasPrefix()](#m-hasprefix-ddbc3bbca9c3)
+- [hasRevision()](#m-hasrevision-23a5e6a14bd8)
+- [hasRootNodes()](#m-hasrootnodes-251070d577eb)
+- [hasTypes()](#m-hastypes-5c6311e6f402)
+- [hasUri()](#m-hasuri-d455832c8996)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -58,95 +58,95 @@ Reader(
 
 ## Methods
 
-<a id="s-getModule"></a>
+<a id="m-getmodule-68694513ccce"></a>
 ### getModule()
 
 ```java
 public org.capnproto.Text.Reader getModule()
 ```
 
-<a id="s-getNshash"></a>
+<a id="m-getnshash-c5a7631eae00"></a>
 ### getNshash()
 
 ```java
 public final int getNshash()
 ```
 
-<a id="s-getPrefix"></a>
+<a id="m-getprefix-9268091e0223"></a>
 ### getPrefix()
 
 ```java
 public org.capnproto.Text.Reader getPrefix()
 ```
 
-<a id="s-getRevision"></a>
+<a id="m-getrevision-b0088aa9f0bf"></a>
 ### getRevision()
 
 ```java
 public org.capnproto.Text.Reader getRevision()
 ```
 
-<a id="s-getRootNodes"></a>
+<a id="m-getrootnodes-63f2b6255095"></a>
 ### getRootNodes()
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.QTag.Reader> getRootNodes()
 ```
 
-Types: [Reader](../QTag/Reader.md#s-Reader)
+Types: [Reader](../QTag/Reader.md#cls-Reader)
 
-<a id="s-getTypes"></a>
+<a id="m-gettypes-cbd0de718034"></a>
 ### getTypes()
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.NamedType.Reader> getTypes()
 ```
 
-Types: [Reader](../NamedType/Reader.md#s-Reader)
+Types: [Reader](../NamedType/Reader.md#cls-Reader)
 
-<a id="s-getUri"></a>
+<a id="m-geturi-e839fdd3e24c"></a>
 ### getUri()
 
 ```java
 public org.capnproto.Text.Reader getUri()
 ```
 
-<a id="s-hasModule"></a>
+<a id="m-hasmodule-8a9f381a7ff1"></a>
 ### hasModule()
 
 ```java
 public boolean hasModule()
 ```
 
-<a id="s-hasPrefix"></a>
+<a id="m-hasprefix-ddbc3bbca9c3"></a>
 ### hasPrefix()
 
 ```java
 public boolean hasPrefix()
 ```
 
-<a id="s-hasRevision"></a>
+<a id="m-hasrevision-23a5e6a14bd8"></a>
 ### hasRevision()
 
 ```java
 public boolean hasRevision()
 ```
 
-<a id="s-hasRootNodes"></a>
+<a id="m-hasrootnodes-251070d577eb"></a>
 ### hasRootNodes()
 
 ```java
 public final boolean hasRootNodes()
 ```
 
-<a id="s-hasTypes"></a>
+<a id="m-hastypes-5c6311e6f402"></a>
 ### hasTypes()
 
 ```java
 public final boolean hasTypes()
 ```
 
-<a id="s-hasUri"></a>
+<a id="m-hasuri-d455832c8996"></a>
 ### hasUri()
 
 ```java

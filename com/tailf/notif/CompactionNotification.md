@@ -1,4 +1,4 @@
-<a id="s-CompactionNotification"></a>
+<a id="cls-CompactionNotification"></a>
 # CompactionNotification
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.notif.CompactionNotification
     extends com.tailf.notif.Notification
 ```
 
-Types: [Notification](Notification.md#s-Notification)
+Types: [Notification](Notification.md#cls-Notification)
 
 Data structure for compaction notifications.
 
@@ -14,33 +14,33 @@ Data structure for compaction notifications.
 
 **Constructors**:
 
-- [CompactionNotification(int, int, long, long, long, long, long, int)](#s-CompactionNotification-1)
+- [CompactionNotification(int, int, long, long, long, long, long, int)](#m-compactionnotification-0c17dc576da7)
 
 **Fields**:
 
-- [type](Notification.md#s-type) from Notification
+- [type](Notification.md#m-type) from Notification
 
 **Methods**:
 
-- [getCompactionFile()](#s-getCompactionFile)
-- [getCompactionType()](#s-getCompactionType)
-- [getDuration()](#s-getDuration)
-- [getFsizeEnd()](#s-getFsizeEnd)
-- [getFsizeLast()](#s-getFsizeLast)
-- [getFsizeStart()](#s-getFsizeStart)
-- [getNotificationType()](Notification.md#s-getNotificationType) from Notification
-- [getNTrans()](#s-getNTrans)
-- [getTimeStart()](#s-getTimeStart)
-- [toString()](#s-toString)
+- [getCompactionFile()](#m-getcompactionfile-3eb01a1683fd)
+- [getCompactionType()](#m-getcompactiontype-3be15f6ef3fb)
+- [getDuration()](#m-getduration-aee615ea7fe2)
+- [getFsizeEnd()](#m-getfsizeend-057a34fa16b7)
+- [getFsizeLast()](#m-getfsizelast-bf24c434e64a)
+- [getFsizeStart()](#m-getfsizestart-8f3bfb841399)
+- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
+- [getNTrans()](#m-getntrans-2cd88cc47142)
+- [getTimeStart()](#m-gettimestart-524baafff753)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 **Nested Types**:
 
-- [CompactionFile](CompactionNotification/CompactionFile.md#s-CompactionFile)
-- [CompactionType](CompactionNotification/CompactionType.md#s-CompactionType)
+- [CompactionFile](CompactionNotification/CompactionFile.md#cls-CompactionFile)
+- [CompactionType](CompactionNotification/CompactionType.md#cls-CompactionType)
 
 ## Constructors
 
-<a id="s-CompactionNotification-1"></a>
+<a id="m-compactionnotification-0c17dc576da7"></a>
 ### CompactionNotification(int, int, long, long, long, long, long, int)
 
 ```java
@@ -70,30 +70,30 @@ public CompactionNotification(
 
 ## Methods
 
-<a id="s-getCompactionFile"></a>
+<a id="m-getcompactionfile-3eb01a1683fd"></a>
 ### getCompactionFile()
 
 ```java
 public com.tailf.notif.CompactionNotification.CompactionFile getCompactionFile()
 ```
 
-Types: [CompactionFile](CompactionNotification/CompactionFile.md#s-CompactionFile)
+Types: [CompactionFile](CompactionNotification/CompactionFile.md#cls-CompactionFile)
 
 Indicates which datastore was compacted.
 
-<a id="s-getCompactionType"></a>
+<a id="m-getcompactiontype-3be15f6ef3fb"></a>
 ### getCompactionType()
 
 ```java
 public com.tailf.notif.CompactionNotification.CompactionType getCompactionType()
 ```
 
-Types: [CompactionType](CompactionNotification/CompactionType.md#s-CompactionType)
+Types: [CompactionType](CompactionNotification/CompactionType.md#cls-CompactionType)
 
 Indicates whether the compaction was triggered manually or automatically
  by the system.
 
-<a id="s-getDuration"></a>
+<a id="m-getduration-aee615ea7fe2"></a>
 ### getDuration()
 
 ```java
@@ -102,7 +102,7 @@ public long getDuration()
 
 Duration of compaction in microseconds.
 
-<a id="s-getFsizeEnd"></a>
+<a id="m-getfsizeend-057a34fa16b7"></a>
 ### getFsizeEnd()
 
 ```java
@@ -111,7 +111,7 @@ public long getFsizeEnd()
 
 The size (bytes) of the datastore at the end of the compaction.
 
-<a id="s-getFsizeLast"></a>
+<a id="m-getfsizelast-bf24c434e64a"></a>
 ### getFsizeLast()
 
 ```java
@@ -120,7 +120,7 @@ public long getFsizeLast()
 
 The size (bytes) of the datastore at the end of the previous compaction.
 
-<a id="s-getFsizeStart"></a>
+<a id="m-getfsizestart-8f3bfb841399"></a>
 ### getFsizeStart()
 
 ```java
@@ -129,7 +129,7 @@ public long getFsizeStart()
 
 The size (bytes) of the datastore at the beginning of the compaction.
 
-<a id="s-getNTrans"></a>
+<a id="m-getntrans-2cd88cc47142"></a>
 ### getNTrans()
 
 ```java
@@ -138,7 +138,7 @@ public int getNTrans()
 
 Number of transactions since the previous compaction.
 
-<a id="s-getTimeStart"></a>
+<a id="m-gettimestart-524baafff753"></a>
 ### getTimeStart()
 
 ```java
@@ -147,7 +147,7 @@ public long getTimeStart()
 
 Epoch timestamp of when the transaction started, given in microseconds.
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java
@@ -157,5 +157,5 @@ public String toString()
 
 ## Nested Types
 
-- [CompactionFile](CompactionNotification/CompactionFile.md)
-- [CompactionType](CompactionNotification/CompactionType.md)
+- [CompactionFile](CompactionNotification/CompactionFile.md#cls-CompactionFile)
+- [CompactionType](CompactionNotification/CompactionType.md#cls-CompactionType)

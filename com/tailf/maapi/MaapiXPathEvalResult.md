@@ -1,4 +1,4 @@
-<a id="s-MaapiXPathEvalResult"></a>
+<a id="cls-MaapiXPathEvalResult"></a>
 # MaapiXPathEvalResult
 
 ```java
@@ -9,17 +9,17 @@ This interface is used with `xpathEval`
  method in `Maapi`. It allows a way
  to iterate through a set of resulting nodes from evaluating xpath expression.
 
-**See also:** [`Maapi#xpathEval`](Maapi.md#s-xpathEval)
+**See also:** [`Maapi#xpathEval`](Maapi.md#m-xpatheval-8e8640817c0b)
 
 ## Members
 
 **Methods**:
 
-- [result(ConfObject[], ConfValue, Object)](#s-result)
+- [result(ConfObject[], ConfValue, Object)](#m-result-94a00942459a)
 
 ## Methods
 
-<a id="s-result"></a>
+<a id="m-result-94a00942459a"></a>
 ### result(ConfObject[], ConfValue, Object)
 
 ```java
@@ -30,7 +30,7 @@ public abstract com.tailf.maapi.XPathNodeIterateResultFlag result(
 )
 ```
 
-Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#s-XPathNodeIterateResultFlag), [ConfObject](../conf/ConfObject.md#s-ConfObject), [ConfValue](../conf/ConfValue.md#s-ConfValue)
+Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#cls-XPathNodeIterateResultFlag), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfValue](../conf/ConfValue.md#cls-ConfValue)
 
 For each node in the resulting node set evaluated by the xpath
  this method will be called.
@@ -44,11 +44,11 @@ For each node in the resulting node set evaluated by the xpath
 
 
  After each invocation this method (done
- by [xpathEval](Maapi.md#s-Maapi) )
+ by [xpathEval](Maapi.md#m-xpatheval-8e8640817c0b) )
  this method should return either
- [ITER_CONTINUE](XPathNodeIterateResultFlag.md#s-XPathNodeIterateResultFlag) to
+ [ITER_CONTINUE](XPathNodeIterateResultFlag.md#cls-XPathNodeIterateResultFlag) to
  tell the xpath evaluator to continue with the
- next resulting node or stop [ITER_STOP](XPathNodeIterateResultFlag.md#s-XPathNodeIterateResultFlag)
+ next resulting node or stop [ITER_STOP](XPathNodeIterateResultFlag.md#cls-XPathNodeIterateResultFlag)
  to stop the iteration.
 
 **Parameters**

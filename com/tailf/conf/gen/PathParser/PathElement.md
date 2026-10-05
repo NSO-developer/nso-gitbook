@@ -1,4 +1,4 @@
-<a id="s-PathElement"></a>
+<a id="cls-PathElement"></a>
 # PathElement
 
 ```java
@@ -9,25 +9,25 @@ public static class com.tailf.conf.gen.PathParser.PathElement
 
 **Constructors**:
 
-- [PathElement()](#s-PathElement-1)
+- [PathElement()](#m-pathelement-f49964060be9)
 
 **Fields**:
 
-- [isDummy](#s-isDummy)
-- [isRelative](#s-isRelative)
-- [keys](#s-keys)
-- [namespace](#s-namespace)
-- [ordinal](#s-ordinal)
-- [term](#s-term)
+- [isDummy](#m-isDummy)
+- [isRelative](#m-isRelative)
+- [keys](#m-keys)
+- [namespace](#m-namespace)
+- [ordinal](#m-ordinal)
+- [term](#m-term)
 
 **Methods**:
 
-- [equals(Object)](#s-equals)
-- [hashCode()](#s-hashCode)
+- [equals(Object)](#m-equals-fcd6492e0d6c)
+- [hashCode()](#m-hashcode-ef797a217903)
 
 ## Constructors
 
-<a id="s-PathElement-1"></a>
+<a id="m-pathelement-f49964060be9"></a>
 ### PathElement()
 
 ```java
@@ -37,56 +37,56 @@ public PathElement()
 
 ## Fields
 
-<a id="s-isDummy"></a>
+<a id="m-isDummy"></a>
 ### isDummy
 
 ```java
 public boolean isDummy = null;
 ```
 
-<a id="s-isRelative"></a>
+<a id="m-isRelative"></a>
 ### isRelative
 
 ```java
 public boolean isRelative = null;
 ```
 
-<a id="s-keys"></a>
+<a id="m-keys"></a>
 ### keys
 
 ```java
 public java.util.ArrayList<com.tailf.conf.gen.PathParser.PathKey> keys = null;
 ```
 
-Types: [PathKey](PathKey.md#s-PathKey)
+Types: [PathKey](PathKey.md#cls-PathKey)
 
-<a id="s-namespace"></a>
+<a id="m-namespace"></a>
 ### namespace
 
 ```java
 public Object namespace = null;
 ```
 
-<a id="s-ordinal"></a>
+<a id="m-ordinal"></a>
 ### ordinal
 
 ```java
 public Integer ordinal = null;
 ```
 
-<a id="s-term"></a>
+<a id="m-term"></a>
 ### term
 
 ```java
 public com.tailf.conf.ConfObject term = null;
 ```
 
-Types: [ConfObject](../../ConfObject.md#s-ConfObject)
+Types: [ConfObject](../../ConfObject.md#cls-ConfObject)
 
 
 ## Methods
 
-<a id="s-equals"></a>
+<a id="m-equals-fcd6492e0d6c"></a>
 ### equals(Object)
 
 ```java
@@ -97,7 +97,7 @@ public boolean equals(Object rhs)
 
 - `Object rhs`
 
-<a id="s-hashCode"></a>
+<a id="m-hashcode-ef797a217903"></a>
 ### hashCode()
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-CSTypeBits"></a>
+<a id="cls-CSTypeBits"></a>
 # CSTypeBits
 
 ```java
@@ -9,33 +9,33 @@ public static class com.tailf.maapi.MaapiSchemas.CSTypeBits
 
 **Constructors**:
 
-- [CSTypeBits()](#s-CSTypeBits-1)
-- [CSTypeBits(int, CSBit[])](#s-CSTypeBits-2)
+- [CSTypeBits()](#m-cstypebits-12e7c9036219)
+- [CSTypeBits(int, CSBit[])](#m-cstypebits-db0376dbc16d)
 
 **Methods**:
 
-- [getBitArray()](#s-getBitArray)
-- [getNativeType()](#s-getNativeType)
-- [getWidth()](#s-getWidth)
-- [toString()](#s-toString)
+- [getBitArray()](#m-getbitarray-34b74fdace40)
+- [getNativeType()](#m-getnativetype-5e881dc4a7e8)
+- [getWidth()](#m-getwidth-aff9ccaa8b54)
+- [toString()](#m-tostring-e9d48c5503ef)
 
 ## Constructors
 
-<a id="s-CSTypeBits-1"></a>
+<a id="m-cstypebits-12e7c9036219"></a>
 ### CSTypeBits()
 
 ```java
 public CSTypeBits()
 ```
 
-<a id="s-CSTypeBits-2"></a>
+<a id="m-cstypebits-db0376dbc16d"></a>
 ### CSTypeBits(int, CSBit[])
 
 ```java
 public CSTypeBits(int width, com.tailf.maapi.MaapiSchemas.CSBit[] bitArray)
 ```
 
-Types: [CSBit](CSBit.md#s-CSBit)
+Types: [CSBit](CSBit.md#cls-CSBit)
 
 **Parameters**
 
@@ -45,30 +45,30 @@ Types: [CSBit](CSBit.md#s-CSBit)
 
 ## Methods
 
-<a id="s-getBitArray"></a>
+<a id="m-getbitarray-34b74fdace40"></a>
 ### getBitArray()
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSBit[] getBitArray()
 ```
 
-Types: [CSBit](CSBit.md#s-CSBit)
+Types: [CSBit](CSBit.md#cls-CSBit)
 
-<a id="s-getNativeType"></a>
+<a id="m-getnativetype-5e881dc4a7e8"></a>
 ### getNativeType()
 
 ```java
 public int getNativeType()
 ```
 
-<a id="s-getWidth"></a>
+<a id="m-getwidth-aff9ccaa8b54"></a>
 ### getWidth()
 
 ```java
 public int getWidth()
 ```
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java

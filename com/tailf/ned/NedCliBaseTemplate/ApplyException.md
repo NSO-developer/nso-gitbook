@@ -1,4 +1,4 @@
-<a id="s-ApplyException"></a>
+<a id="cls-ApplyException"></a>
 # ApplyException
 
 ```java
@@ -10,18 +10,18 @@ public class com.tailf.ned.NedCliBaseTemplate.ApplyException
 
 **Constructors**:
 
-- [ApplyException(String, boolean, boolean)](#s-ApplyException-1)
-- [ApplyException(String, String, boolean, boolean)](#s-ApplyException-2)
+- [ApplyException(String, boolean, boolean)](#m-applyexception-7b81fcea900a)
+- [ApplyException(String, String, boolean, boolean)](#m-applyexception-bbb5076611ee)
 
 **Fields**:
 
-- [inConfigMode](#s-inConfigMode)
-- [isAtTop](#s-isAtTop)
-- [serialVersionUID](#s-serialVersionUID)
+- [inConfigMode](#m-inConfigMode)
+- [isAtTop](#m-isAtTop)
+- [serialVersionUID](#m-serialVersionUID)
 
 ## Constructors
 
-<a id="s-ApplyException-1"></a>
+<a id="m-applyexception-7b81fcea900a"></a>
 ### ApplyException(String, boolean, boolean)
 
 ```java
@@ -34,7 +34,7 @@ public ApplyException(String msg, boolean isAtTop, boolean inConfigMode)
 - `boolean isAtTop`
 - `boolean inConfigMode`
 
-<a id="s-ApplyException-2"></a>
+<a id="m-applyexception-bbb5076611ee"></a>
 ### ApplyException(String, String, boolean, boolean)
 
 ```java
@@ -51,21 +51,21 @@ public ApplyException(String line, String msg, boolean isAtTop, boolean inConfig
 
 ## Fields
 
-<a id="s-inConfigMode"></a>
+<a id="m-inConfigMode"></a>
 ### inConfigMode
 
 ```java
 public boolean inConfigMode = null;
 ```
 
-<a id="s-isAtTop"></a>
+<a id="m-isAtTop"></a>
 ### isAtTop
 
 ```java
 public boolean isAtTop = null;
 ```
 
-<a id="s-serialVersionUID"></a>
+<a id="m-serialVersionUID"></a>
 ### serialVersionUID
 
 ```java

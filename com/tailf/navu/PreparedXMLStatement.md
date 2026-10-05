@@ -1,4 +1,4 @@
-<a id="s-PreparedXMLStatement"></a>
+<a id="cls-PreparedXMLStatement"></a>
 # PreparedXMLStatement
 
 ```java
@@ -23,7 +23,7 @@ This class represents a parsed XML-string, optionally with parameterized
 
 
  If a parameter is not replaced by a value before a `setValues()`
- occurs, the value is treated as a [`ConfDefault`](../conf/ConfDefault.md#s-ConfDefault).
+ occurs, the value is treated as a [`ConfDefault`](../conf/ConfDefault.md#cls-ConfDefault).
 
 
  No validation of data types occurs when `put()` is called, but
@@ -99,23 +99,23 @@ This class represents a parsed XML-string, optionally with parameterized
 
 **Constructors**:
 
-- [PreparedXMLStatement(ConfXMLParam[], Map<Integer,Object[]>, NavuNode)](#s-PreparedXMLStatement-1)
+- [PreparedXMLStatement(ConfXMLParam[], Map<Integer,Object[]>, NavuNode)](#m-preparedxmlstatement-c488490cc518)
 
 **Methods**:
 
-- [put(int, ConfObject)](#s-put)
-- [put(int, String)](#s-put-1)
-- [reset()](#s-reset)
-- [setValues()](#s-setValues)
-- [setValues(NavuContext)](#s-setValues-1)
-- [setValues(NavuNode)](#s-setValues-2)
-- [sharedSetValues()](#s-sharedSetValues)
-- [sharedSetValues(NavuContext)](#s-sharedSetValues-1)
-- [sharedSetValues(NavuNode)](#s-sharedSetValues-2)
+- [put(int, ConfObject)](#m-put-472f1342b5b7)
+- [put(int, String)](#m-put-f549d0ea766e)
+- [reset()](#m-reset-6927918ac70a)
+- [setValues()](#m-setvalues-da0bc3c468bf)
+- [setValues(NavuContext)](#m-setvalues-24042b0e5576)
+- [setValues(NavuNode)](#m-setvalues-5afe5d05dd50)
+- [sharedSetValues()](#m-sharedsetvalues-d34ed76578b4)
+- [sharedSetValues(NavuContext)](#m-sharedsetvalues-ccc5cc08315b)
+- [sharedSetValues(NavuNode)](#m-sharedsetvalues-28aec52d6350)
 
 ## Constructors
 
-<a id="s-PreparedXMLStatement-1"></a>
+<a id="m-preparedxmlstatement-c488490cc518"></a>
 ### PreparedXMLStatement(ConfXMLParam[], Map<Integer,Object[]>, NavuNode)
 
 ```java
@@ -126,7 +126,7 @@ public PreparedXMLStatement(
 )
 ```
 
-Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [NavuNode](NavuNode.md#s-NavuNode)
+Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [NavuNode](NavuNode.md#cls-NavuNode)
 
 **Parameters**
 
@@ -137,14 +137,14 @@ Types: [ConfXMLParam](../conf/ConfXMLParam.md#s-ConfXMLParam), [NavuNode](NavuNo
 
 ## Methods
 
-<a id="s-put"></a>
+<a id="m-put-472f1342b5b7"></a>
 ### put(int, ConfObject)
 
 ```java
 public void put(int index, com.tailf.conf.ConfObject val)
 ```
 
-Types: [ConfObject](../conf/ConfObject.md#s-ConfObject)
+Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject)
 
 Populate the parameterized value at position `index`
  with the value `val`. The first parameter has index 0.
@@ -154,7 +154,7 @@ Populate the parameterized value at position `index`
 - `int index` - zero-based index of the parameter
 - `com.tailf.conf.ConfObject val` - the value to give to the parameter
 
-<a id="s-put-1"></a>
+<a id="m-put-f549d0ea766e"></a>
 ### put(int, String)
 
 ```java
@@ -171,34 +171,34 @@ Populate the parameterized value at position `index` with
 - `int index` - zero-based index of the parameter
 - `String strval` - string representation of the value to give to the parameter
 
-<a id="s-reset"></a>
+<a id="m-reset-6927918ac70a"></a>
 ### reset()
 
 ```java
 public void reset()
 ```
 
-<a id="s-setValues"></a>
+<a id="m-setvalues-da0bc3c468bf"></a>
 ### setValues()
 
 ```java
 public void setValues() throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#s-NavuException)
+Types: [NavuException](NavuException.md#cls-NavuException)
 
 When all of the parameterized values have been filled in,
  this method is intended to be invoked for a
  final set operation with the given values.
 
-<a id="s-setValues-1"></a>
+<a id="m-setvalues-24042b0e5576"></a>
 ### setValues(NavuContext)
 
 ```java
 public void setValues(com.tailf.navu.NavuContext context) throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuContext](NavuContext.md#s-NavuContext), [NavuException](NavuException.md#s-NavuException)
+Types: [NavuContext](NavuContext.md#cls-NavuContext), [NavuException](NavuException.md#cls-NavuException)
 
 When all of the parameterized values have been filled in,
  this method is intended to be invoked for a
@@ -209,59 +209,59 @@ When all of the parameterized values have been filled in,
 - `com.tailf.navu.NavuContext context` - NavuContext object that the setValues() operation should
                 use
 
-<a id="s-setValues-2"></a>
+<a id="m-setvalues-5afe5d05dd50"></a>
 ### setValues(NavuNode)
 
 ```java
 public void setValues(com.tailf.navu.NavuNode node) throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](NavuNode.md#s-NavuNode), [NavuException](NavuException.md#s-NavuException)
+Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
 
-Similar to [`NavuContext`](NavuContext.md#s-NavuContext) but uses the context of
+Similar to `NavuContext#setValues(NavuContext)` but uses the context of
  the supplied node.
 
 **Parameters**
 
 - `com.tailf.navu.NavuNode node` - node containing the NavuContext to use
 
-<a id="s-sharedSetValues"></a>
+<a id="m-sharedsetvalues-d34ed76578b4"></a>
 ### sharedSetValues()
 
 ```java
 public void sharedSetValues() throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuException](NavuException.md#s-NavuException)
+Types: [NavuException](NavuException.md#cls-NavuException)
 
 Variant of `#setValues()` with FastMap support.
 
-<a id="s-sharedSetValues-1"></a>
+<a id="m-sharedsetvalues-ccc5cc08315b"></a>
 ### sharedSetValues(NavuContext)
 
 ```java
 public void sharedSetValues(com.tailf.navu.NavuContext context) throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuContext](NavuContext.md#s-NavuContext), [NavuException](NavuException.md#s-NavuException)
+Types: [NavuContext](NavuContext.md#cls-NavuContext), [NavuException](NavuException.md#cls-NavuException)
 
-Variant of [`NavuContext`](NavuContext.md#s-NavuContext) with FastMap support.
+Variant of `NavuContext#setValues(NavuContext)` with FastMap support.
 
 **Parameters**
 
 - `com.tailf.navu.NavuContext context` - NavuContext object that the sharedSetValues()
                 operation should use
 
-<a id="s-sharedSetValues-2"></a>
+<a id="m-sharedsetvalues-28aec52d6350"></a>
 ### sharedSetValues(NavuNode)
 
 ```java
 public void sharedSetValues(com.tailf.navu.NavuNode node) throws com.tailf.navu.NavuException
 ```
 
-Types: [NavuNode](NavuNode.md#s-NavuNode), [NavuException](NavuException.md#s-NavuException)
+Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
 
-Variant of [`NavuNode`](NavuNode.md#s-NavuNode) with FastMap support.
+Variant of `NavuNode#setValues(NavuNode)` with FastMap support.
 
 **Parameters**
 

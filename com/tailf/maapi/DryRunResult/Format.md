@@ -1,54 +1,50 @@
-<a id="s-Format"></a>
+<a id="cls-Format"></a>
 # Format
 
 ```java
 public static enum com.tailf.maapi.DryRunResult.Format
 ```
 
-Types: [Format](Format.md#s-Format)
-
-**Related classes**
-
-- [Format](Format.md#s-Format)
+Types: [Format](Format.md#cls-Format)
 
 ## Members
 
 **Enum Constants**:
 
-- [CLI](#s-CLI)
-- [CLI_C](#s-CLI_C)
-- [NATIVE](#s-NATIVE)
-- [XML](#s-XML)
+- [CLI](#m-CLI)
+- [CLI_C](#m-CLI_C)
+- [NATIVE](#m-NATIVE)
+- [XML](#m-XML)
 
 **Methods**:
 
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-CLI"></a>
+<a id="m-CLI"></a>
 ### CLI
 
 ```java
 public static final com.tailf.maapi.DryRunResult.Format CLI;
 ```
 
-<a id="s-CLI_C"></a>
+<a id="m-CLI_C"></a>
 ### CLI_C
 
 ```java
 public static final com.tailf.maapi.DryRunResult.Format CLI_C;
 ```
 
-<a id="s-NATIVE"></a>
+<a id="m-NATIVE"></a>
 ### NATIVE
 
 ```java
 public static final com.tailf.maapi.DryRunResult.Format NATIVE;
 ```
 
-<a id="s-XML"></a>
+<a id="m-XML"></a>
 ### XML
 
 ```java
@@ -58,24 +54,24 @@ public static final com.tailf.maapi.DryRunResult.Format XML;
 
 ## Methods
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.maapi.DryRunResult.Format valueOf(String name)
 ```
 
-Types: [Format](Format.md#s-Format)
+Types: [Format](Format.md#cls-Format)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.maapi.DryRunResult.Format[] values()
 ```
 
-Types: [Format](Format.md#s-Format)
+Types: [Format](Format.md#cls-Format)

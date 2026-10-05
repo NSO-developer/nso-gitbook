@@ -1,37 +1,33 @@
-<a id="s-MaapiDeleteAllFlag"></a>
+<a id="cls-MaapiDeleteAllFlag"></a>
 # MaapiDeleteAllFlag
 
 ```java
 public enum com.tailf.maapi.MaapiDeleteAllFlag
 ```
 
-Types: [MaapiDeleteAllFlag](MaapiDeleteAllFlag.md#s-MaapiDeleteAllFlag)
+Types: [MaapiDeleteAllFlag](MaapiDeleteAllFlag.md#cls-MaapiDeleteAllFlag)
 
 Flags for use in:
-   [`Maapi`](Maapi.md#s-Maapi)
-
-**Related classes**
-
-- [MaapiDeleteAllFlag](MaapiDeleteAllFlag.md#s-MaapiDeleteAllFlag)
+   [`Maapi#deleteAll(int, MaapiDeleteAllFlag)`](Maapi.md#m-deleteall-b0d5e11220fb)
 
 ## Members
 
 **Enum Constants**:
 
-- [DEL_ALL](#s-DEL_ALL)
-- [DEL_EXPORTED](#s-DEL_EXPORTED)
-- [DEL_SAFE](#s-DEL_SAFE)
+- [DEL_ALL](#m-DEL_ALL)
+- [DEL_EXPORTED](#m-DEL_EXPORTED)
+- [DEL_SAFE](#m-DEL_SAFE)
 
 **Methods**:
 
-- [getValue()](#s-getValue)
-- [valueOf(int)](#s-valueOf)
-- [valueOf(String)](#s-valueOf-1)
-- [values()](#s-values)
+- [getValue()](#m-getvalue-d93864668c40)
+- [valueOf(int)](#m-valueof-c0d46d25fc67)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-DEL_ALL"></a>
+<a id="m-DEL_ALL"></a>
 ### DEL_ALL
 
 ```java
@@ -40,7 +36,7 @@ public static final com.tailf.maapi.MaapiDeleteAllFlag DEL_ALL;
 
 Delete everything. AAA rules are ignored.
 
-<a id="s-DEL_EXPORTED"></a>
+<a id="m-DEL_EXPORTED"></a>
 ### DEL_EXPORTED
 
 ```java
@@ -51,7 +47,7 @@ Delete everything except namespaces that were exported to none
    (with tailf:export none). AAA rules are ignored, i.e. nodes are
    deleted even if the AAA rules don't allow it.
 
-<a id="s-DEL_SAFE"></a>
+<a id="m-DEL_SAFE"></a>
 ### DEL_SAFE
 
 ```java
@@ -66,44 +62,44 @@ Delete everything except namespaces that were exported to none
 
 ## Methods
 
-<a id="s-getValue"></a>
+<a id="m-getvalue-d93864668c40"></a>
 ### getValue()
 
 ```java
 public int getValue()
 ```
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-c0d46d25fc67"></a>
 ### valueOf(int)
 
 ```java
 public static com.tailf.maapi.MaapiDeleteAllFlag valueOf(int i)
 ```
 
-Types: [MaapiDeleteAllFlag](MaapiDeleteAllFlag.md#s-MaapiDeleteAllFlag)
+Types: [MaapiDeleteAllFlag](MaapiDeleteAllFlag.md#cls-MaapiDeleteAllFlag)
 
 **Parameters**
 
 - `int i`
 
-<a id="s-valueOf-1"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.maapi.MaapiDeleteAllFlag valueOf(String name)
 ```
 
-Types: [MaapiDeleteAllFlag](MaapiDeleteAllFlag.md#s-MaapiDeleteAllFlag)
+Types: [MaapiDeleteAllFlag](MaapiDeleteAllFlag.md#cls-MaapiDeleteAllFlag)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.maapi.MaapiDeleteAllFlag[] values()
 ```
 
-Types: [MaapiDeleteAllFlag](MaapiDeleteAllFlag.md#s-MaapiDeleteAllFlag)
+Types: [MaapiDeleteAllFlag](MaapiDeleteAllFlag.md#cls-MaapiDeleteAllFlag)

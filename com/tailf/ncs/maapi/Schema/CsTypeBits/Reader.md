@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,17 +10,17 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeBits.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getBits()](#s-getBits)
-- [getWidth()](#s-getWidth)
-- [hasBits()](#s-hasBits)
+- [getBits()](#m-getbits-032b4694ff31)
+- [getWidth()](#m-getwidth-aff9ccaa8b54)
+- [hasBits()](#m-hasbits-3d091966c9f9)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -48,23 +48,23 @@ Reader(
 
 ## Methods
 
-<a id="s-getBits"></a>
+<a id="m-getbits-032b4694ff31"></a>
 ### getBits()
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsTypeBits.Bit.Reader> getBits()
 ```
 
-Types: [Reader](Bit/Reader.md#s-Reader)
+Types: [Reader](Bit/Reader.md#cls-Reader)
 
-<a id="s-getWidth"></a>
+<a id="m-getwidth-aff9ccaa8b54"></a>
 ### getWidth()
 
 ```java
 public final byte getWidth()
 ```
 
-<a id="s-hasBits"></a>
+<a id="m-hasbits-3d091966c9f9"></a>
 ### hasBits()
 
 ```java

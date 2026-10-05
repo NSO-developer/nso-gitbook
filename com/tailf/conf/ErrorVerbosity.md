@@ -1,35 +1,31 @@
-<a id="s-ErrorVerbosity"></a>
+<a id="cls-ErrorVerbosity"></a>
 # ErrorVerbosity
 
 ```java
 public enum com.tailf.conf.ErrorVerbosity
 ```
 
-Types: [ErrorVerbosity](ErrorVerbosity.md#s-ErrorVerbosity)
+Types: [ErrorVerbosity](ErrorVerbosity.md#cls-ErrorVerbosity)
 
 verbosity levels for reported errors
-
-**Related classes**
-
-- [ErrorVerbosity](ErrorVerbosity.md#s-ErrorVerbosity)
 
 ## Members
 
 **Enum Constants**:
 
-- [STANDARD](#s-STANDARD)
-- [TRACE](#s-TRACE)
-- [VERBOSE](#s-VERBOSE)
+- [STANDARD](#m-STANDARD)
+- [TRACE](#m-TRACE)
+- [VERBOSE](#m-VERBOSE)
 
 **Methods**:
 
-- [valueOf(int)](#s-valueOf)
-- [valueOf(String)](#s-valueOf-1)
-- [values()](#s-values)
+- [valueOf(int)](#m-valueof-c0d46d25fc67)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-STANDARD"></a>
+<a id="m-STANDARD"></a>
 ### STANDARD
 
 ```java
@@ -38,7 +34,7 @@ public static final com.tailf.conf.ErrorVerbosity STANDARD;
 
 Message from top level Exception is reported
 
-<a id="s-TRACE"></a>
+<a id="m-TRACE"></a>
 ### TRACE
 
 ```java
@@ -47,7 +43,7 @@ public static final com.tailf.conf.ErrorVerbosity TRACE;
 
 As VERBOSE plus complete bottom Exception stack trace is reported
 
-<a id="s-VERBOSE"></a>
+<a id="m-VERBOSE"></a>
 ### VERBOSE
 
 ```java
@@ -59,37 +55,37 @@ As STANDARD plus message from bottom level Exception is reported
 
 ## Methods
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-c0d46d25fc67"></a>
 ### valueOf(int)
 
 ```java
 public static com.tailf.conf.ErrorVerbosity valueOf(int ordinal)
 ```
 
-Types: [ErrorVerbosity](ErrorVerbosity.md#s-ErrorVerbosity)
+Types: [ErrorVerbosity](ErrorVerbosity.md#cls-ErrorVerbosity)
 
 **Parameters**
 
 - `int ordinal`
 
-<a id="s-valueOf-1"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.conf.ErrorVerbosity valueOf(String name)
 ```
 
-Types: [ErrorVerbosity](ErrorVerbosity.md#s-ErrorVerbosity)
+Types: [ErrorVerbosity](ErrorVerbosity.md#cls-ErrorVerbosity)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.conf.ErrorVerbosity[] values()
 ```
 
-Types: [ErrorVerbosity](ErrorVerbosity.md#s-ErrorVerbosity)
+Types: [ErrorVerbosity](ErrorVerbosity.md#cls-ErrorVerbosity)

@@ -1,4 +1,4 @@
-<a id="s-DpThread"></a>
+<a id="cls-DpThread"></a>
 # DpThread
 
 ```java
@@ -14,21 +14,21 @@ DpThread with the ability to log more info about
 
 **Constructors**:
 
-- [DpThread(Runnable)](#s-DpThread-1)
-- [DpThread(Runnable, String)](#s-DpThread-2)
+- [DpThread(Runnable)](#m-dpthread-9efa3f28cb99)
+- [DpThread(Runnable, String)](#m-dpthread-e9bcaa66a795)
 
 **Fields**:
 
-- [DEFAULT_NAME](#s-DEFAULT_NAME)
+- [DEFAULT_NAME](#m-DEFAULT_NAME)
 
 **Methods**:
 
-- [run()](#s-run)
-- [uncaughtException(Thread, Throwable)](#s-uncaughtException)
+- [run()](#m-run-b6dbda048863)
+- [uncaughtException(Thread, Throwable)](#m-uncaughtexception-ad07d4154b36)
 
 ## Constructors
 
-<a id="s-DpThread-1"></a>
+<a id="m-dpthread-9efa3f28cb99"></a>
 ### DpThread(Runnable)
 
 ```java
@@ -39,7 +39,7 @@ public DpThread(Runnable r)
 
 - `Runnable r`
 
-<a id="s-DpThread-2"></a>
+<a id="m-dpthread-e9bcaa66a795"></a>
 ### DpThread(Runnable, String)
 
 ```java
@@ -54,7 +54,7 @@ public DpThread(Runnable r, String name)
 
 ## Fields
 
-<a id="s-DEFAULT_NAME"></a>
+<a id="m-DEFAULT_NAME"></a>
 ### DEFAULT_NAME
 
 ```java
@@ -64,14 +64,14 @@ public static final String DEFAULT_NAME = "DpWorkerPoolThread";
 
 ## Methods
 
-<a id="s-run"></a>
+<a id="m-run-b6dbda048863"></a>
 ### run()
 
 ```java
 public void run()
 ```
 
-<a id="s-uncaughtException"></a>
+<a id="m-uncaughtexception-ad07d4154b36"></a>
 ### uncaughtException(Thread, Throwable)
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-ResultTypeKeyPathValue"></a>
+<a id="cls-ResultTypeKeyPathValue"></a>
 # ResultTypeKeyPathValue
 
 ```java
@@ -6,11 +6,11 @@ public interface com.tailf.maapi.ResultTypeKeyPathValue
     extends com.tailf.maapi.ResultTypeKeyPath
 ```
 
-Types: [ResultTypeKeyPath](ResultTypeKeyPath.md#s-ResultTypeKeyPath)
+Types: [ResultTypeKeyPath](ResultTypeKeyPath.md#cls-ResultTypeKeyPath)
 
 XPath Result in keypath and value format. This format
  is specified trough `ReslutTypeKeyPathValue.class` as a parameter
- to [`Maapi`](Maapi.md#s-Maapi)
+ to `Maapi#queryStart(int,String,String,int,int,List,Class)`
 
 
  Example:
@@ -39,19 +39,19 @@ XPath Result in keypath and value format. This format
 
 **Methods**:
 
-- [confValue()](#s-confValue)
-- [keyPath()](ResultTypeKeyPath.md#s-keyPath) from ResultTypeKeyPath
+- [confValue()](#m-confvalue-baca27cbbecf)
+- [keyPath()](ResultTypeKeyPath.md#m-keypath-df48f9bfdabb) from ResultTypeKeyPath
 
 ## Methods
 
-<a id="s-confValue"></a>
+<a id="m-confvalue-baca27cbbecf"></a>
 ### confValue()
 
 ```java
 public abstract com.tailf.conf.ConfValue confValue()
 ```
 
-Types: [ConfValue](../conf/ConfValue.md#s-ConfValue)
+Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue)
 
 Retrieves the result value from a query
 

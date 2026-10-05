@@ -1,4 +1,4 @@
-<a id="s-CsCase"></a>
+<a id="cls-CsCase"></a>
 # CsCase
 
 ```java
@@ -9,23 +9,23 @@ public static class com.tailf.ncs.maapi.Schema.CsCase
 
 **Constructors**:
 
-- [CsCase()](#s-CsCase-1)
+- [CsCase()](#m-cscase-a79f29647e9f)
 
 **Fields**:
 
-- [factory](#s-factory)
-- [listFactory](#s-listFactory)
-- [STRUCT_SIZE](#s-STRUCT_SIZE)
+- [factory](#m-factory)
+- [listFactory](#m-listFactory)
+- [STRUCT_SIZE](#m-STRUCT_SIZE)
 
 **Nested Types**:
 
-- [Builder](CsCase/Builder.md#s-Builder)
-- [Factory](CsCase/Factory.md#s-Factory)
-- [Reader](CsCase/Reader.md#s-Reader)
+- [Builder](CsCase/Builder.md#cls-Builder)
+- [Factory](CsCase/Factory.md#cls-Factory)
+- [Reader](CsCase/Reader.md#cls-Reader)
 
 ## Constructors
 
-<a id="s-CsCase-1"></a>
+<a id="m-cscase-a79f29647e9f"></a>
 ### CsCase()
 
 ```java
@@ -35,25 +35,25 @@ public CsCase()
 
 ## Fields
 
-<a id="s-factory"></a>
+<a id="m-factory"></a>
 ### factory
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsCase.Factory factory = null;
 ```
 
-Types: [Factory](CsCase/Factory.md#s-Factory)
+Types: [Factory](CsCase/Factory.md#cls-Factory)
 
-<a id="s-listFactory"></a>
+<a id="m-listFactory"></a>
 ### listFactory
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsCase.Builder,com.tailf.ncs.maapi.Schema.CsCase.Reader> listFactory = null;
 ```
 
-Types: [Builder](CsCase/Builder.md#s-Builder), [Reader](CsCase/Reader.md#s-Reader)
+Types: [Builder](CsCase/Builder.md#cls-Builder), [Reader](CsCase/Reader.md#cls-Reader)
 
-<a id="s-STRUCT_SIZE"></a>
+<a id="m-STRUCT_SIZE"></a>
 ### STRUCT_SIZE
 
 ```java
@@ -63,6 +63,6 @@ public static final org.capnproto.StructSize STRUCT_SIZE = null;
 
 ## Nested Types
 
-- [Builder](CsCase/Builder.md)
-- [Factory](CsCase/Factory.md)
-- [Reader](CsCase/Reader.md)
+- [Builder](CsCase/Builder.md#cls-Builder)
+- [Factory](CsCase/Factory.md#cls-Factory)
+- [Reader](CsCase/Reader.md#cls-Reader)

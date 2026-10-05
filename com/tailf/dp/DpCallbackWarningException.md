@@ -1,4 +1,4 @@
-<a id="s-DpCallbackWarningException"></a>
+<a id="cls-DpCallbackWarningException"></a>
 # DpCallbackWarningException
 
 ```java
@@ -6,7 +6,7 @@ public class com.tailf.dp.DpCallbackWarningException
     extends com.tailf.dp.DpCallbackException
 ```
 
-Types: [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 Warnings thrown from inside callbacks to identify problems.
 
@@ -14,18 +14,18 @@ Warnings thrown from inside callbacks to identify problems.
 
 **Constructors**:
 
-- [DpCallbackWarningException(String)](#s-DpCallbackWarningException-1)
+- [DpCallbackWarningException(String)](#m-dpcallbackwarningexception-ce11f2f653e4)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#s-getErrorCode) from ConfException
-- [getOpaque()](../conf/ConfException.md#s-getOpaque) from ConfException
-- [mk(ConfResponse)](DpException.md#s-mk) from DpException
-- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#s-mk-1) from ConfException
+- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [mk(ConfResponse)](DpException.md#m-mk-de1cedfc6ea8) from DpException
+- [mk(ConfResponse, ConfPath)](../conf/ConfException.md#m-mk-79e69ffbc022) from ConfException
 
 ## Constructors
 
-<a id="s-DpCallbackWarningException-1"></a>
+<a id="m-dpcallbackwarningexception-ce11f2f653e4"></a>
 ### DpCallbackWarningException(String)
 
 ```java

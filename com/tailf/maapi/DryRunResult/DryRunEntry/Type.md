@@ -1,46 +1,42 @@
-<a id="s-Type"></a>
+<a id="cls-Type"></a>
 # Type
 
 ```java
 public static enum com.tailf.maapi.DryRunResult.DryRunEntry.Type
 ```
 
-Types: [Type](Type.md#s-Type)
-
-**Related classes**
-
-- [Type](Type.md#s-Type)
+Types: [Type](Type.md#cls-Type)
 
 ## Members
 
 **Enum Constants**:
 
-- [DEVICE](#s-DEVICE)
-- [LOCAL_NODE](#s-LOCAL_NODE)
-- [LSA_NODE](#s-LSA_NODE)
+- [DEVICE](#m-DEVICE)
+- [LOCAL_NODE](#m-LOCAL_NODE)
+- [LSA_NODE](#m-LSA_NODE)
 
 **Methods**:
 
-- [valueOf(String)](#s-valueOf)
-- [values()](#s-values)
+- [valueOf(String)](#m-valueof-ac61b3547613)
+- [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="s-DEVICE"></a>
+<a id="m-DEVICE"></a>
 ### DEVICE
 
 ```java
 public static final com.tailf.maapi.DryRunResult.DryRunEntry.Type DEVICE;
 ```
 
-<a id="s-LOCAL_NODE"></a>
+<a id="m-LOCAL_NODE"></a>
 ### LOCAL_NODE
 
 ```java
 public static final com.tailf.maapi.DryRunResult.DryRunEntry.Type LOCAL_NODE;
 ```
 
-<a id="s-LSA_NODE"></a>
+<a id="m-LSA_NODE"></a>
 ### LSA_NODE
 
 ```java
@@ -50,24 +46,24 @@ public static final com.tailf.maapi.DryRunResult.DryRunEntry.Type LSA_NODE;
 
 ## Methods
 
-<a id="s-valueOf"></a>
+<a id="m-valueof-ac61b3547613"></a>
 ### valueOf(String)
 
 ```java
 public static com.tailf.maapi.DryRunResult.DryRunEntry.Type valueOf(String name)
 ```
 
-Types: [Type](Type.md#s-Type)
+Types: [Type](Type.md#cls-Type)
 
 **Parameters**
 
 - `String name`
 
-<a id="s-values"></a>
+<a id="m-values-406dfe3ca270"></a>
 ### values()
 
 ```java
 public static com.tailf.maapi.DryRunResult.DryRunEntry.Type[] values()
 ```
 
-Types: [Type](Type.md#s-Type)
+Types: [Type](Type.md#cls-Type)

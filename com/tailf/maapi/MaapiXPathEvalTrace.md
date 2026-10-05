@@ -1,4 +1,4 @@
-<a id="s-MaapiXPathEvalTrace"></a>
+<a id="cls-MaapiXPathEvalTrace"></a>
 # MaapiXPathEvalTrace
 
 ```java
@@ -8,24 +8,24 @@ public interface com.tailf.maapi.MaapiXPathEvalTrace
 This interface is used with the `xpathEval` method
  in Maapi. It allows a way trace output from the xpath evaluator.
 
-**See also:** [`Maapi#xpathEval`](Maapi.md#s-xpathEval)
+**See also:** [`Maapi#xpathEval`](Maapi.md#m-xpatheval-8e8640817c0b)
 
 ## Members
 
 **Methods**:
 
-- [trace(String)](#s-trace)
+- [trace(String)](#m-trace-108e6d2bbf2f)
 
 ## Methods
 
-<a id="s-trace"></a>
+<a id="m-trace-108e6d2bbf2f"></a>
 ### trace(String)
 
 ```java
 public abstract com.tailf.maapi.XPathNodeIterateResultFlag trace(String str)
 ```
 
-Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#s-XPathNodeIterateResultFlag)
+Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#cls-XPathNodeIterateResultFlag)
 
 The interface declare a method that takes a single string as argument.
  If supplied to `maapiXPathEval` method it will be

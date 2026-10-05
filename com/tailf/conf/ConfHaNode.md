@@ -1,4 +1,4 @@
-<a id="s-ConfHaNode"></a>
+<a id="cls-ConfHaNode"></a>
 # ConfHaNode
 
 ```java
@@ -11,26 +11,26 @@ ConfHaNode represents a HA node by identity and IP address
 
 **Constructors**:
 
-- [ConfHaNode(ConfValue, ConfValue)](#s-ConfHaNode-1)
+- [ConfHaNode(ConfValue, ConfValue)](#m-confhanode-7146bae77a19)
 
 **Methods**:
 
-- [getAddr()](#s-getAddr)
-- [getNodeId()](#s-getNodeId)
-- [pack_ha_node(ConfHaNode)](#s-pack_ha_node)
-- [toString()](#s-toString)
-- [unpack_ha_node(ConfEObject)](#s-unpack_ha_node)
+- [getAddr()](#m-getaddr-7643cf1deb7b)
+- [getNodeId()](#m-getnodeid-1bc8b2feefac)
+- [pack_ha_node(ConfHaNode)](#m-pack_ha_node-dc74c8785624)
+- [toString()](#m-tostring-e9d48c5503ef)
+- [unpack_ha_node(ConfEObject)](#m-unpack_ha_node-25b6274287f0)
 
 ## Constructors
 
-<a id="s-ConfHaNode-1"></a>
+<a id="m-confhanode-7146bae77a19"></a>
 ### ConfHaNode(ConfValue, ConfValue)
 
 ```java
 public ConfHaNode(com.tailf.conf.ConfValue nodeid, com.tailf.conf.ConfValue addr)
 ```
 
-Types: [ConfValue](ConfValue.md#s-ConfValue)
+Types: [ConfValue](ConfValue.md#cls-ConfValue)
 
 Constructor for a HA node
 
@@ -42,40 +42,40 @@ Constructor for a HA node
 
 ## Methods
 
-<a id="s-getAddr"></a>
+<a id="m-getaddr-7643cf1deb7b"></a>
 ### getAddr()
 
 ```java
 public com.tailf.conf.ConfValue getAddr()
 ```
 
-Types: [ConfValue](ConfValue.md#s-ConfValue)
+Types: [ConfValue](ConfValue.md#cls-ConfValue)
 
 Get the IP address for the node as ConfIPv4 or ConfIPv6
 
 **Returns:** ConfValue which is either ConfIPv4 or ConfIPv6
 
-<a id="s-getNodeId"></a>
+<a id="m-getnodeid-1bc8b2feefac"></a>
 ### getNodeId()
 
 ```java
 public com.tailf.conf.ConfValue getNodeId()
 ```
 
-Types: [ConfValue](ConfValue.md#s-ConfValue)
+Types: [ConfValue](ConfValue.md#cls-ConfValue)
 
 Get the nodeid which is the identity of the HA node
 
 **Returns:** ConfValue nodeid
 
-<a id="s-pack_ha_node"></a>
+<a id="m-pack_ha_node-dc74c8785624"></a>
 ### pack_ha_node(ConfHaNode)
 
 ```java
 public static com.tailf.proto.ConfEObject pack_ha_node(com.tailf.conf.ConfHaNode node)
 ```
 
-Types: [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfHaNode](ConfHaNode.md#s-ConfHaNode)
+Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfHaNode](ConfHaNode.md#cls-ConfHaNode)
 
 Encodes a ConfHaNode into a ConfEObject to be transported by the
  protocol. This method is used internally by the api.
@@ -86,14 +86,14 @@ Encodes a ConfHaNode into a ConfEObject to be transported by the
 
 **Returns:** ConfEObject
 
-<a id="s-toString"></a>
+<a id="m-tostring-e9d48c5503ef"></a>
 ### toString()
 
 ```java
 public String toString()
 ```
 
-<a id="s-unpack_ha_node"></a>
+<a id="m-unpack_ha_node-25b6274287f0"></a>
 ### unpack_ha_node(ConfEObject)
 
 ```java
@@ -103,7 +103,7 @@ public static com.tailf.conf.ConfHaNode unpack_ha_node(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfHaNode](ConfHaNode.md#s-ConfHaNode), [ConfEObject](../proto/ConfEObject.md#s-ConfEObject), [ConfException](ConfException.md#s-ConfException)
+Types: [ConfHaNode](ConfHaNode.md#cls-ConfHaNode), [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](ConfException.md#cls-ConfException)
 
 Decodes a ConfEObject into a ConfHaNode. This method is used internally
  by the api.

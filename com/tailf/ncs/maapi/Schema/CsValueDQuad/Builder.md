@@ -1,4 +1,4 @@
-<a id="s-Builder"></a>
+<a id="cls-Builder"></a>
 # Builder
 
 ```java
@@ -6,31 +6,27 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDQuad.Builder
     extends org.capnproto.StructBuilder
 ```
 
-**Related classes**
-
-- [Factory](Factory.md#s-Factory)
-
 ## Members
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#s-Builder-1)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#s-asReader)
-- [getD1()](#s-getD1)
-- [getD2()](#s-getD2)
-- [getD3()](#s-getD3)
-- [getD4()](#s-getD4)
-- [setD1(byte)](#s-setD1)
-- [setD2(byte)](#s-setD2)
-- [setD3(byte)](#s-setD3)
-- [setD4(byte)](#s-setD4)
+- [asReader()](#m-asreader-b5c0f2a8d115)
+- [getD1()](#m-getd1-1ccbbca0d18f)
+- [getD2()](#m-getd2-93b8c43fe331)
+- [getD3()](#m-getd3-1982f3560cd6)
+- [getD4()](#m-getd4-a7608deae360)
+- [setD1(byte)](#m-setd1-123e1073562a)
+- [setD2(byte)](#m-setd2-7e3edbd83eb9)
+- [setD3(byte)](#m-setd3-304a3b391ac1)
+- [setD4(byte)](#m-setd4-fad28190aa51)
 
 ## Constructors
 
-<a id="s-Builder-1"></a>
+<a id="m-builder-179fba5038bd"></a>
 ### Builder(SegmentBuilder, int, int, int, short)
 
 **Package-private**
@@ -56,44 +52,44 @@ Builder(
 
 ## Methods
 
-<a id="s-asReader"></a>
+<a id="m-asreader-b5c0f2a8d115"></a>
 ### asReader()
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDQuad.Reader asReader()
 ```
 
-Types: [Reader](Reader.md#s-Reader)
+Types: [Reader](Reader.md#cls-Reader)
 
-<a id="s-getD1"></a>
+<a id="m-getd1-1ccbbca0d18f"></a>
 ### getD1()
 
 ```java
 public final byte getD1()
 ```
 
-<a id="s-getD2"></a>
+<a id="m-getd2-93b8c43fe331"></a>
 ### getD2()
 
 ```java
 public final byte getD2()
 ```
 
-<a id="s-getD3"></a>
+<a id="m-getd3-1982f3560cd6"></a>
 ### getD3()
 
 ```java
 public final byte getD3()
 ```
 
-<a id="s-getD4"></a>
+<a id="m-getd4-a7608deae360"></a>
 ### getD4()
 
 ```java
 public final byte getD4()
 ```
 
-<a id="s-setD1"></a>
+<a id="m-setd1-123e1073562a"></a>
 ### setD1(byte)
 
 ```java
@@ -104,7 +100,7 @@ public final void setD1(byte value)
 
 - `byte value`
 
-<a id="s-setD2"></a>
+<a id="m-setd2-7e3edbd83eb9"></a>
 ### setD2(byte)
 
 ```java
@@ -115,7 +111,7 @@ public final void setD2(byte value)
 
 - `byte value`
 
-<a id="s-setD3"></a>
+<a id="m-setd3-304a3b391ac1"></a>
 ### setD3(byte)
 
 ```java
@@ -126,7 +122,7 @@ public final void setD3(byte value)
 
 - `byte value`
 
-<a id="s-setD4"></a>
+<a id="m-setd4-fad28190aa51"></a>
 ### setD4(byte)
 
 ```java

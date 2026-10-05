@@ -1,4 +1,4 @@
-<a id="s-Reader"></a>
+<a id="cls-Reader"></a>
 # Reader
 
 ```java
@@ -10,19 +10,19 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeString.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
 
 **Methods**:
 
-- [getInvertMatch()](#s-getInvertMatch)
-- [getPattern()](#s-getPattern)
-- [getRanges()](#s-getRanges)
-- [hasPattern()](#s-hasPattern)
-- [hasRanges()](#s-hasRanges)
+- [getInvertMatch()](#m-getinvertmatch-323126ccbf2f)
+- [getPattern()](#m-getpattern-b471c55bbd3b)
+- [getRanges()](#m-getranges-c1cd383e54a0)
+- [hasPattern()](#m-haspattern-e3fe48944019)
+- [hasRanges()](#m-hasranges-77bc63fe4ea8)
 
 ## Constructors
 
-<a id="s-Reader-1"></a>
+<a id="m-reader-cf5e962c3323"></a>
 ### Reader(SegmentReader, int, int, int, short, int)
 
 **Package-private**
@@ -50,37 +50,37 @@ Reader(
 
 ## Methods
 
-<a id="s-getInvertMatch"></a>
+<a id="m-getinvertmatch-323126ccbf2f"></a>
 ### getInvertMatch()
 
 ```java
 public final boolean getInvertMatch()
 ```
 
-<a id="s-getPattern"></a>
+<a id="m-getpattern-b471c55bbd3b"></a>
 ### getPattern()
 
 ```java
 public org.capnproto.Text.Reader getPattern()
 ```
 
-<a id="s-getRanges"></a>
+<a id="m-getranges-c1cd383e54a0"></a>
 ### getRanges()
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.Range.Reader> getRanges()
 ```
 
-Types: [Reader](../Range/Reader.md#s-Reader)
+Types: [Reader](../Range/Reader.md#cls-Reader)
 
-<a id="s-hasPattern"></a>
+<a id="m-haspattern-e3fe48944019"></a>
 ### hasPattern()
 
 ```java
 public boolean hasPattern()
 ```
 
-<a id="s-hasRanges"></a>
+<a id="m-hasranges-77bc63fe4ea8"></a>
 ### hasRanges()
 
 ```java

@@ -1,4 +1,4 @@
-<a id="s-TransValidateCallback"></a>
+<a id="cls-TransValidateCallback"></a>
 # TransValidateCallback
 
 ```java
@@ -15,15 +15,15 @@ Annotation class for TransValidate Callbacks Attribute is callType
 
 **Methods**:
 
-- [callType()](#s-callType)
+- [callType()](#m-calltype-0d0f9b61a036)
 
 ## Methods
 
-<a id="s-callType"></a>
+<a id="m-calltype-0d0f9b61a036"></a>
 ### callType()
 
 ```java
 public abstract com.tailf.dp.proto.TransValidateCBType[] callType()
 ```
 
-Types: [TransValidateCBType](../proto/TransValidateCBType.md#s-TransValidateCBType)
+Types: [TransValidateCBType](../proto/TransValidateCBType.md#cls-TransValidateCBType)

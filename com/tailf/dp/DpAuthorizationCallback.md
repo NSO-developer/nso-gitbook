@@ -1,4 +1,4 @@
-<a id="s-DpAuthorizationCallback"></a>
+<a id="cls-DpAuthorizationCallback"></a>
 # DpAuthorizationCallback
 
 ```java
@@ -25,20 +25,20 @@ We can register two authorization callbacks with ConfD´s AAA subsystem.
 
 **Fields**:
 
-- [M_CHECK_CMD_ACCESS](#s-M_CHECK_CMD_ACCESS)
-- [M_CHECK_DATA_ACCESS](#s-M_CHECK_DATA_ACCESS)
+- [M_CHECK_CMD_ACCESS](#m-M_CHECK_CMD_ACCESS)
+- [M_CHECK_DATA_ACCESS](#m-M_CHECK_DATA_ACCESS)
 
 **Methods**:
 
-- [checkCommandAccess(DpAuthorizationContext, String[], AuthorizationOperCheck)](#s-checkCommandAccess)
-- [checkDataAccess(DpAuthorizationContext, ConfObject[], AuthorizationOperCheck, AuthorizationOperCheck)](#s-checkDataAccess)
-- [commandFilter()](#s-commandFilter)
-- [dataFilter()](#s-dataFilter)
-- [mask()](#s-mask)
+- [checkCommandAccess(DpAuthorizationContext, String[], AuthorizationOperCheck)](#m-checkcommandaccess-db6891a729e3)
+- [checkDataAccess(DpAuthorizationContext, ConfObject[], AuthorizationOperCheck, AuthorizationOperCheck)](#m-checkdataaccess-e7c6a7d5a565)
+- [commandFilter()](#m-commandfilter-75902bf3c954)
+- [dataFilter()](#m-datafilter-5e19142fe25a)
+- [mask()](#m-mask-24c2fa29c6af)
 
 ## Fields
 
-<a id="s-M_CHECK_CMD_ACCESS"></a>
+<a id="m-M_CHECK_CMD_ACCESS"></a>
 ### M_CHECK_CMD_ACCESS
 
 ```java
@@ -47,7 +47,7 @@ public static final int M_CHECK_CMD_ACCESS = 1;
 
 Mask for the command access authorization callback.
 
-<a id="s-M_CHECK_DATA_ACCESS"></a>
+<a id="m-M_CHECK_DATA_ACCESS"></a>
 ### M_CHECK_DATA_ACCESS
 
 ```java
@@ -59,7 +59,7 @@ Mask for the data access authorization callback.
 
 ## Methods
 
-<a id="s-checkCommandAccess"></a>
+<a id="m-checkcommandaccess-db6891a729e3"></a>
 ### checkCommandAccess(DpAuthorizationContext, String[], AuthorizationOperCheck)
 
 ```java
@@ -71,7 +71,7 @@ public abstract com.tailf.dp.AuthorizationResult checkCommandAccess(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [AuthorizationResult](AuthorizationResult.md#s-AuthorizationResult), [DpAuthorizationContext](DpAuthorizationContext.md#s-DpAuthorizationContext), [AuthorizationOperCheck](AuthorizationOperCheck.md#s-AuthorizationOperCheck), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [AuthorizationResult](AuthorizationResult.md#cls-AuthorizationResult), [DpAuthorizationContext](DpAuthorizationContext.md#cls-DpAuthorizationContext), [AuthorizationOperCheck](AuthorizationOperCheck.md#cls-AuthorizationOperCheck), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback is invoked for command authorization, i.e. it
  corresponds to the rules under /nacm/rule-list in the
@@ -93,7 +93,7 @@ This callback is invoked for command authorization, i.e. it
 
 - `DpCallbackException` - if an error occurs during the callback
 
-<a id="s-checkDataAccess"></a>
+<a id="m-checkdataaccess-e7c6a7d5a565"></a>
 ### checkDataAccess(DpAuthorizationContext, ConfObject[], AuthorizationOperCheck, AuthorizationOperCheck)
 
 ```java
@@ -106,7 +106,7 @@ public abstract com.tailf.dp.AuthorizationResult checkDataAccess(
     throws com.tailf.dp.DpCallbackException
 ```
 
-Types: [AuthorizationResult](AuthorizationResult.md#s-AuthorizationResult), [DpAuthorizationContext](DpAuthorizationContext.md#s-DpAuthorizationContext), [ConfObject](../conf/ConfObject.md#s-ConfObject), [AuthorizationOperCheck](AuthorizationOperCheck.md#s-AuthorizationOperCheck), [DpCallbackException](DpCallbackException.md#s-DpCallbackException)
+Types: [AuthorizationResult](AuthorizationResult.md#cls-AuthorizationResult), [DpAuthorizationContext](DpAuthorizationContext.md#cls-DpAuthorizationContext), [ConfObject](../conf/ConfObject.md#cls-ConfObject), [AuthorizationOperCheck](AuthorizationOperCheck.md#cls-AuthorizationOperCheck), [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 This callback is invoked for data authorization, i.e. it
  corresponds to the rules under /nacm/rule-list in the
@@ -128,14 +128,14 @@ This callback is invoked for data authorization, i.e. it
 
 - `DpCallbackException` - if an error occurs during the callback
 
-<a id="s-commandFilter"></a>
+<a id="m-commandfilter-75902bf3c954"></a>
 ### commandFilter()
 
 ```java
 public abstract java.util.EnumSet<com.tailf.dp.AuthorizationOperCheck> commandFilter()
 ```
 
-Types: [AuthorizationOperCheck](AuthorizationOperCheck.md#s-AuthorizationOperCheck)
+Types: [AuthorizationOperCheck](AuthorizationOperCheck.md#cls-AuthorizationOperCheck)
 
 Thus method can be used to prevent access checks from causing invocation
  of a checkCommandAccess callback even though it is registered.
@@ -145,14 +145,14 @@ Thus method can be used to prevent access checks from causing invocation
 
 **Returns:** EnumSet of AuthorizationOperCheck values
 
-<a id="s-dataFilter"></a>
+<a id="m-datafilter-5e19142fe25a"></a>
 ### dataFilter()
 
 ```java
 public abstract java.util.EnumSet<com.tailf.dp.AuthorizationOperCheck> dataFilter()
 ```
 
-Types: [AuthorizationOperCheck](AuthorizationOperCheck.md#s-AuthorizationOperCheck)
+Types: [AuthorizationOperCheck](AuthorizationOperCheck.md#cls-AuthorizationOperCheck)
 
 Thus method can be used to prevent access checks from causing invocation
  of a checkDataAccess callback even though it is registered.
@@ -161,7 +161,7 @@ Thus method can be used to prevent access checks from causing invocation
 
 **Returns:** EnumSet of AuthorizationOperCheck values
 
-<a id="s-mask"></a>
+<a id="m-mask-24c2fa29c6af"></a>
 ### mask()
 
 ```java
