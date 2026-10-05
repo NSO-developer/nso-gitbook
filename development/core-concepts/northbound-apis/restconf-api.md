@@ -735,7 +735,7 @@ RESTCONF event notification is a way for RESTCONF clients to retrieve notificati
 
 For the notification events and emission conditions of each NSO built-in stream, see [Built-in Notification Streams](nso-netconf-server.md#d5e521).
 
-More information on how to define a new notification event using Yang is described in [RFC 7950](https://www.rfc-editor.org/rfc/rfc7950.txt).
+More information on how to define a new notification event using Yang is described in [RFC 7950](https://www.ietf.org/rfc/rfc7950.txt).
 
 How to add and configure notifications support in NSO is described in the `ncs.conf(3)` man page.
 
