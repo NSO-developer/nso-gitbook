@@ -1,0 +1,96 @@
+<a id="s-Reader"></a>
+# Reader
+
+```java
+public static final class com.tailf.ncs.maapi.Schema.Cs.Prompt.Reader
+    extends org.capnproto.StructReader
+```
+
+## Members
+
+**Constructors**:
+
+- [Reader(SegmentReader, int, int, int, short, int)](#s-Reader-1)
+
+**Methods**:
+
+- [getNone()](#s-getNone)
+- [getValue()](#s-getValue)
+- [hasValue()](#s-hasValue)
+- [isNone()](#s-isNone)
+- [isValue()](#s-isValue)
+- [which()](#s-which)
+
+## Constructors
+
+<a id="s-Reader-1"></a>
+### Reader(SegmentReader, int, int, int, short, int)
+
+**Package-private**
+
+```java
+Reader(
+    org.capnproto.SegmentReader segment,
+    int data,
+    int pointers,
+    int dataSize,
+    short pointerCount,
+    int nestingLimit
+)
+```
+
+**Parameters**
+
+- `org.capnproto.SegmentReader segment`
+- `int data`
+- `int pointers`
+- `int dataSize`
+- `short pointerCount`
+- `int nestingLimit`
+
+
+## Methods
+
+<a id="s-getNone"></a>
+### getNone()
+
+```java
+public final org.capnproto.Void getNone()
+```
+
+<a id="s-getValue"></a>
+### getValue()
+
+```java
+public org.capnproto.Text.Reader getValue()
+```
+
+<a id="s-hasValue"></a>
+### hasValue()
+
+```java
+public boolean hasValue()
+```
+
+<a id="s-isNone"></a>
+### isNone()
+
+```java
+public final boolean isNone()
+```
+
+<a id="s-isValue"></a>
+### isValue()
+
+```java
+public final boolean isValue()
+```
+
+<a id="s-which"></a>
+### which()
+
+```java
+public com.tailf.ncs.maapi.Schema.Cs.Prompt.Which which()
+```
+
+Types: [Which](Which.md#s-Which)

@@ -1,0 +1,274 @@
+<a id="s-CdbExtendedException"></a>
+# CdbExtendedException
+
+```java
+public class com.tailf.cdb.CdbExtendedException
+    extends com.tailf.cdb.CdbException
+```
+
+Types: [CdbException](CdbException.md#s-CdbException)
+
+This exception is used by clients of CdbSubscription that needs to report
+ errors. As such it can is required to hold an extendedErrorCode and an
+ message. The extendedErrorCode is one of: ERRCODE_IN_USE
+ ERRCODE_RESOURCE_DENIED ERRCODE_INCONSISTENT_VALUE ERRCODE_ACCESS_DENIED
+ ERRCODE_APPLICATION ERRCODE_APPLICATION_INTERNAL ERRCODE_DATA_MISSING
+ ERRCODE_INTERRUPT
+
+ It can also indicate an application namespace and tag to further indicate
+ place for the error.
+
+## Members
+
+**Constructors**:
+
+- [CdbExtendedException(int, ConfNamespace, String, ConfException)](#s-CdbExtendedException-1)
+- [CdbExtendedException(int, ConfNamespace, String, String)](#s-CdbExtendedException-2)
+- [CdbExtendedException(int, String)](#s-CdbExtendedException-3)
+
+**Fields**:
+
+- [ERRCODE_ACCESS_DENIED](#s-ERRCODE_ACCESS_DENIED)
+- [ERRCODE_APPLICATION](#s-ERRCODE_APPLICATION)
+- [ERRCODE_APPLICATION_INTERNAL](#s-ERRCODE_APPLICATION_INTERNAL)
+- [ERRCODE_DATA_MISSING](#s-ERRCODE_DATA_MISSING)
+- [ERRCODE_IN_USE](#s-ERRCODE_IN_USE)
+- [ERRCODE_INCONSISTENT_VALUE](#s-ERRCODE_INCONSISTENT_VALUE)
+- [ERRCODE_INTERNAL](#s-ERRCODE_INTERNAL)
+- [ERRCODE_INTERRUPT](#s-ERRCODE_INTERRUPT)
+- [ERRCODE_PROTO_USAGE](#s-ERRCODE_PROTO_USAGE)
+- [ERRCODE_RESOURCE_DENIED](#s-ERRCODE_RESOURCE_DENIED)
+- [extendedErrorCode](#s-extendedErrorCode)
+
+**Methods**:
+
+- [getAppNS()](#s-getAppNS)
+- [getAppTag()](#s-getAppTag)
+- [getErrorCode()](../conf/ConfException.md#s-getErrorCode) from ConfException
+- [getExtendedErrorCodeString()](#s-getExtendedErrorCodeString)
+- [getOpaque()](../conf/ConfException.md#s-getOpaque) from ConfException
+- [mk(ConfResponse)](CdbException.md#s-mk) from CdbException
+- [mk(ConfResponse, ConfPath)](CdbException.md#s-mk-1) from CdbException
+- [mk(int, ConfNamespace, String, ConfResponse)](#s-mk)
+
+## Constructors
+
+<a id="s-CdbExtendedException-1"></a>
+### CdbExtendedException(int, ConfNamespace, String, ConfException)
+
+```java
+public CdbExtendedException(
+    int extendedErrorCode,
+    com.tailf.conf.ConfNamespace appNS,
+    String appTag,
+    com.tailf.conf.ConfException ex
+)
+```
+
+Types: [ConfNamespace](../conf/ConfNamespace.md#s-ConfNamespace), [ConfException](../conf/ConfException.md#s-ConfException)
+
+**Parameters**
+
+- `int extendedErrorCode` - - One of `ERRCODE_IN_USE`,
+            `ERRCODE_RESOURCE_DENIED`,
+            `ERRCODE_INCONSISTENT_VALUE`,
+            `ERRCODE_ACCESS_DENIED`,
+            `ERRCODE_DATA_MISSING`,
+            `ERRCODE_INTERRUPT`,
+            `ERRCODE_APPLICATION` or
+            `ERRCODE_APPLICATION_INTERNAL`
+- `com.tailf.conf.ConfNamespace appNS` - - not implemented, should be null
+- `String appTag` - - not implemented, should be null
+- `com.tailf.conf.ConfException ex` - - cause exception
+
+<a id="s-CdbExtendedException-2"></a>
+### CdbExtendedException(int, ConfNamespace, String, String)
+
+```java
+public CdbExtendedException(
+    int extendedErrorCode,
+    com.tailf.conf.ConfNamespace appNS,
+    String appTag,
+    String msg
+)
+```
+
+Types: [ConfNamespace](../conf/ConfNamespace.md#s-ConfNamespace)
+
+**Parameters**
+
+- `int extendedErrorCode` - - One of `ERRCODE_IN_USE`,
+            `ERRCODE_RESOURCE_DENIED`,
+            `ERRCODE_INCONSISTENT_VALUE`,
+            `ERRCODE_ACCESS_DENIED`,
+            `ERRCODE_DATA_MISSING`,
+            `ERRCODE_INTERRUPT`,
+            `ERRCODE_APPLICATION` or
+            `ERRCODE_APPLICATION_INTERNAL`
+- `com.tailf.conf.ConfNamespace appNS` - - not implemented, should be null
+- `String appTag` - - not implemented, should be null
+- `String msg` - - informative text describing this exception
+
+<a id="s-CdbExtendedException-3"></a>
+### CdbExtendedException(int, String)
+
+```java
+public CdbExtendedException(int extendedErrorCode, String msg)
+```
+
+**Parameters**
+
+- `int extendedErrorCode` - - One of `ERRCODE_IN_USE`,
+            `ERRCODE_RESOURCE_DENIED`,
+            `ERRCODE_INCONSISTENT_VALUE`,
+            `ERRCODE_ACCESS_DENIED`,
+            `ERRCODE_DATA_MISSING`,
+            `ERRCODE_INTERRUPT`,
+            `ERRCODE_APPLICATION` or
+            `ERRCODE_APPLICATION_INTERNAL`
+- `String msg` - - informative text describing this exception
+
+
+## Fields
+
+<a id="s-ERRCODE_ACCESS_DENIED"></a>
+### ERRCODE_ACCESS_DENIED
+
+```java
+public static final int ERRCODE_ACCESS_DENIED = 3;
+```
+
+<a id="s-ERRCODE_APPLICATION"></a>
+### ERRCODE_APPLICATION
+
+```java
+public static final int ERRCODE_APPLICATION = 4;
+```
+
+<a id="s-ERRCODE_APPLICATION_INTERNAL"></a>
+### ERRCODE_APPLICATION_INTERNAL
+
+```java
+public static final int ERRCODE_APPLICATION_INTERNAL = 5;
+```
+
+<a id="s-ERRCODE_DATA_MISSING"></a>
+### ERRCODE_DATA_MISSING
+
+```java
+public static final int ERRCODE_DATA_MISSING = 8;
+```
+
+<a id="s-ERRCODE_IN_USE"></a>
+### ERRCODE_IN_USE
+
+```java
+public static final int ERRCODE_IN_USE = 0;
+```
+
+<a id="s-ERRCODE_INCONSISTENT_VALUE"></a>
+### ERRCODE_INCONSISTENT_VALUE
+
+```java
+public static final int ERRCODE_INCONSISTENT_VALUE = 2;
+```
+
+<a id="s-ERRCODE_INTERNAL"></a>
+### ERRCODE_INTERNAL
+
+```java
+protected static final int ERRCODE_INTERNAL = 7;
+```
+
+<a id="s-ERRCODE_INTERRUPT"></a>
+### ERRCODE_INTERRUPT
+
+```java
+public static final int ERRCODE_INTERRUPT = 9;
+```
+
+<a id="s-ERRCODE_PROTO_USAGE"></a>
+### ERRCODE_PROTO_USAGE
+
+```java
+protected static final int ERRCODE_PROTO_USAGE = 6;
+```
+
+<a id="s-ERRCODE_RESOURCE_DENIED"></a>
+### ERRCODE_RESOURCE_DENIED
+
+```java
+public static final int ERRCODE_RESOURCE_DENIED = 1;
+```
+
+<a id="s-extendedErrorCode"></a>
+### extendedErrorCode
+
+```java
+public int extendedErrorCode = null;
+```
+
+
+## Methods
+
+<a id="s-getAppNS"></a>
+### getAppNS()
+
+```java
+public com.tailf.conf.ConfNamespace getAppNS()
+```
+
+Types: [ConfNamespace](../conf/ConfNamespace.md#s-ConfNamespace)
+
+**Returns:** ConfNamespace for this extended exception
+
+<a id="s-getAppTag"></a>
+### getAppTag()
+
+```java
+public String getAppTag()
+```
+
+**Returns:** appTag for the extended exception
+
+<a id="s-getExtendedErrorCodeString"></a>
+### getExtendedErrorCodeString()
+
+```java
+public String getExtendedErrorCodeString()
+```
+
+Get string representation of this exception error code.
+
+**Returns:** String representation of the errorcode for this extended
+         exception
+
+<a id="s-mk"></a>
+### mk(int, ConfNamespace, String, ConfResponse)
+
+```java
+public static com.tailf.conf.ConfException mk(
+    int extendedErrorCode,
+    com.tailf.conf.ConfNamespace appNS,
+    String appTag,
+    com.tailf.conf.ConfResponse r
+)
+```
+
+Types: [ConfException](../conf/ConfException.md#s-ConfException), [ConfNamespace](../conf/ConfNamespace.md#s-ConfNamespace), [ConfResponse](../conf/ConfResponse.md#s-ConfResponse)
+
+**Parameters**
+
+- `int extendedErrorCode` - - One of `ERRCODE_IN_USE`,
+            `ERRCODE_RESOURCE_DENIED`,
+            `ERRCODE_INCONSISTENT_VALUE`,
+            `ERRCODE_ACCESS_DENIED`,
+            `ERRCODE_DATA_MISSING`,
+            `ERRCODE_INTERRUPT`,
+            `ERRCODE_APPLICATION` or
+            `ERRCODE_APPLICATION_INTERNAL`
+- `com.tailf.conf.ConfNamespace appNS` - - not implemented, should be null
+- `String appTag` - - not implemented, should be null
+- `com.tailf.conf.ConfResponse r` - - cause response
+
+**Returns:** ConfException - the resulting exception
