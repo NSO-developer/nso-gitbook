@@ -4,8 +4,6 @@
 public enum com.tailf.maapi.MoveWhereFlag
 ```
 
-Types: [MoveWhereFlag](MoveWhereFlag.md#movewhereflag-bbc0edc34bda)
-
 flags us by Maapi.moveOrdered method to control ordered-by user orders
 
 ## Members

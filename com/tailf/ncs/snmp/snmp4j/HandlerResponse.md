@@ -4,8 +4,6 @@
 public enum com.tailf.ncs.snmp.snmp4j.HandlerResponse
 ```
 
-Types: [HandlerResponse](HandlerResponse.md#handlerresponse-651c4aa97197)
-
 Response enums controlling the execution of the handler chain
 
 ## Members

@@ -4,8 +4,6 @@
 public enum com.tailf.conf.ConfAttributeType
 ```
 
-Types: [ConfAttributeType](ConfAttributeType.md#confattributetype-292ad441835a)
-
 Enumeration of attribute types
 
 ## Members

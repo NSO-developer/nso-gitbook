@@ -4,8 +4,6 @@
 public enum com.tailf.cdb.CdbSubscriptionType
 ```
 
-Types: [CdbSubscriptionType](CdbSubscriptionType.md#cdbsubscriptiontype-e11484b3379f)
-
 Subscription type used in subscribe() method
 
 ## Members

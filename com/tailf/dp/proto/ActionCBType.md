@@ -4,8 +4,6 @@
 public enum com.tailf.dp.proto.ActionCBType
 ```
 
-Types: [ActionCBType](ActionCBType.md#actioncbtype-10d0222e8e66)
-
 Enumeration of Action callback methods
 
 **Since:** 3.2.0

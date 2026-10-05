@@ -4,8 +4,6 @@
 public enum com.tailf.conf.ConfFindNextType
 ```
 
-Types: [ConfFindNextType](ConfFindNextType.md#conffindnexttype-c34c1027a581)
-
 Enum used in findNext calls to determine if the element extraction
  should start at indicated element or the element after that
 

@@ -4,8 +4,6 @@
 public enum com.tailf.dp.proto.DpFlag
 ```
 
-Types: [DpFlag](DpFlag.md#dpflag-40a7c12f7903)
-
 ## Members
 
 **Enum Constants**:

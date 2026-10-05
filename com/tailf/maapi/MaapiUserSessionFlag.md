@@ -4,8 +4,6 @@
 public enum com.tailf.maapi.MaapiUserSessionFlag
 ```
 
-Types: [MaapiUserSessionFlag](MaapiUserSessionFlag.md#maapiusersessionflag-ee298af54ca4)
-
 flags for defining User Session protocol
 
 ## Members

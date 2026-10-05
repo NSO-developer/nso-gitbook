@@ -4,8 +4,6 @@
 public static enum com.tailf.maapi.CommitParams.ConfirmNetworkStateMode
 ```
 
-Types: [ConfirmNetworkStateMode](ConfirmNetworkStateMode.md#confirmnetworkstatemode-f61ccbe3a7e4)
-
 ## Members
 
 **Enum Constants**:

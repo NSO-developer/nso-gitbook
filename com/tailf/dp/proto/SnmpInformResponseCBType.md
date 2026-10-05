@@ -4,8 +4,6 @@
 public enum com.tailf.dp.proto.SnmpInformResponseCBType
 ```
 
-Types: [SnmpInformResponseCBType](SnmpInformResponseCBType.md#snmpinformresponsecbtype-ff6f60964bb4)
-
 Enumeration of SnmpInformResponse callback methods
 
 **Since:** 3.2.0

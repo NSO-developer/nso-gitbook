@@ -4,8 +4,6 @@
 public enum com.tailf.ned.TelemetryType
 ```
 
-Types: [TelemetryType](TelemetryType.md#telemetrytype-817e3224204d)
-
 Enum containing the valid response types for a telemetry notification.
 
 ## Members

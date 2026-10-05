@@ -4,8 +4,6 @@
 public enum com.tailf.maapi.MaapiConfigFlag
 ```
 
-Types: [MaapiConfigFlag](MaapiConfigFlag.md#maapiconfigflag-53df41e9a7b7)
-
 Flags used in `Maapi#saveConfig(int,EnumSet,String,Object... )`
  and `Maapi#loadConfig(int,EnumSet,String)`.
 

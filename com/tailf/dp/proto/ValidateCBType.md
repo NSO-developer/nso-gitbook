@@ -4,8 +4,6 @@
 public enum com.tailf.dp.proto.ValidateCBType
 ```
 
-Types: [ValidateCBType](ValidateCBType.md#validatecbtype-5b50c87e5fe9)
-
 Enumeration of Validate callback methods
 
 **Since:** 3.2.0

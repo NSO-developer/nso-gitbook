@@ -4,8 +4,6 @@
 public enum com.tailf.cdb.CdbLockType
 ```
 
-Types: [CdbLockType](CdbLockType.md#cdblocktype-1d165621c0a3)
-
 DB lock type flag for *Cdb Sessions* which controls locking of
  sessions.
 

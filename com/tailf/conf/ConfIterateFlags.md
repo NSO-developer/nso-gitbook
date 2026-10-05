@@ -4,8 +4,6 @@
 public enum com.tailf.conf.ConfIterateFlags
 ```
 
-Types: [ConfIterateFlags](ConfIterateFlags.md#confiterateflags-74fb5551dac9)
-
 Enumeration flags us by
  `CdbSubscription#diffIterate(
  int,CdbDiffIterate,EnumSet,Object)` to

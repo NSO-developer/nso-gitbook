@@ -4,8 +4,6 @@
 public enum com.tailf.notif.NotificationType
 ```
 
-Types: [NotificationType](NotificationType.md#notificationtype-1f10f57e184d)
-
 Enum describing the different notification types available.
 
 ## Members

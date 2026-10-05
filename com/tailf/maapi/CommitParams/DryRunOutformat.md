@@ -4,8 +4,6 @@
 public static enum com.tailf.maapi.CommitParams.DryRunOutformat
 ```
 
-Types: [DryRunOutformat](DryRunOutformat.md#dryrunoutformat-41adee760922)
-
 ## Members
 
 **Enum Constants**:

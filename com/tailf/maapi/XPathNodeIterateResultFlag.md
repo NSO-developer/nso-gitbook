@@ -4,8 +4,6 @@
 public enum com.tailf.maapi.XPathNodeIterateResultFlag
 ```
 
-Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd)
-
 The [result\(ConfObject\[\],ConfValue,Object\)](MaapiXPathEvalResult.md#maapixpathevalresult-e5a539712098) method
  should return any of the following two constants
 

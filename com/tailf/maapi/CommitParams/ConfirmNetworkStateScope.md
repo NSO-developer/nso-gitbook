@@ -4,8 +4,6 @@
 public static enum com.tailf.maapi.CommitParams.ConfirmNetworkStateScope
 ```
 
-Types: [ConfirmNetworkStateScope](ConfirmNetworkStateScope.md#confirmnetworkstatescope-758c42054a3e)
-
 ## Members
 
 **Enum Constants**:

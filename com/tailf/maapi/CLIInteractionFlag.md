@@ -4,8 +4,6 @@
 public enum com.tailf.maapi.CLIInteractionFlag
 ```
 
-Types: [CLIInteractionFlag](CLIInteractionFlag.md#cliinteractionflag-e5edaaf18139)
-
 flags for controlling cmd to CLI via CLIInteraction class
 
 ## Members

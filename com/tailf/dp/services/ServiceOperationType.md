@@ -4,8 +4,6 @@
 public enum com.tailf.dp.services.ServiceOperationType
 ```
 
-Types: [ServiceOperationType](ServiceOperationType.md#serviceoperationtype-76755b5b3de9)
-
 The service operation type
 
 ## Members

@@ -4,8 +4,6 @@
 public enum com.tailf.dp.ListFilterType
 ```
 
-Types: [ListFilterType](ListFilterType.md#listfiltertype-64b4a39256c7)
-
 Enumeration of list filter types
 
 ## Members

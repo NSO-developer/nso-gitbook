@@ -4,8 +4,6 @@
 public static enum com.tailf.notif.ProgressNotification.ProgressEventType
 ```
 
-Types: [ProgressEventType](ProgressEventType.md#progresseventtype-502fa6a49262)
-
 Progress event type.
 
 ## Members

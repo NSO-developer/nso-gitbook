@@ -4,8 +4,6 @@
 public enum com.tailf.ha.HaStateType
 ```
 
-Types: [HaStateType](HaStateType.md#hastatetype-8f5797940a11)
-
 This enum describes the different states a HA node can be in.
 
 ## Members

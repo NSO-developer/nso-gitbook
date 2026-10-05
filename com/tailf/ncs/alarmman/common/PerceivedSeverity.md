@@ -4,8 +4,6 @@
 public enum com.tailf.ncs.alarmman.common.PerceivedSeverity
 ```
 
-Types: [PerceivedSeverity](PerceivedSeverity.md#perceivedseverity-80ffc24a94f2)
-
 Enum representing the possible perceived severities for an alarm
 
 ## Members

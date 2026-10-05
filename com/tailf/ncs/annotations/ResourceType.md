@@ -4,8 +4,6 @@
 public enum com.tailf.ncs.annotations.ResourceType
 ```
 
-Types: [ResourceType](ResourceType.md#resourcetype-7c885fa4653a)
-
 ResourceType set by the Ncs ResourceManager
 
 ## Members

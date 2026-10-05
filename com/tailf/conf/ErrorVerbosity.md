@@ -4,8 +4,6 @@
 public enum com.tailf.conf.ErrorVerbosity
 ```
 
-Types: [ErrorVerbosity](ErrorVerbosity.md#errorverbosity-7dabb9fc7bcd)
-
 verbosity levels for reported errors
 
 ## Members

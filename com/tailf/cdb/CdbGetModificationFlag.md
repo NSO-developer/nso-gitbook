@@ -4,8 +4,6 @@
 public enum com.tailf.cdb.CdbGetModificationFlag
 ```
 
-Types: [CdbGetModificationFlag](CdbGetModificationFlag.md#cdbgetmodificationflag-5905bbf36241)
-
 ## Members
 
 **Enum Constants**:

@@ -4,8 +4,6 @@
 public enum com.tailf.cdb.CdbNotificationType
 ```
 
-Types: [CdbNotificationType](CdbNotificationType.md#cdbnotificationtype-ed004a968992)
-
 Subscription notification type retrieved from getLatestNotificationType()
  method
 

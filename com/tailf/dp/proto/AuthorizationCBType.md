@@ -4,8 +4,6 @@
 public enum com.tailf.dp.proto.AuthorizationCBType
 ```
 
-Types: [AuthorizationCBType](AuthorizationCBType.md#authorizationcbtype-53c148cac4cd)
-
 Enumeration of Authorization callback methods
 
 ## Members

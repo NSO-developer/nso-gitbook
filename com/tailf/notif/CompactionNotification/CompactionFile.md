@@ -4,8 +4,6 @@
 public static enum com.tailf.notif.CompactionNotification.CompactionFile
 ```
 
-Types: [CompactionFile](CompactionFile.md#compactionfile-19e286d90f5f)
-
 ## Members
 
 **Enum Constants**:

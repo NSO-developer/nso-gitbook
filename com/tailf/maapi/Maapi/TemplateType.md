@@ -4,8 +4,6 @@
 public static enum com.tailf.maapi.Maapi.TemplateType
 ```
 
-Types: [TemplateType](TemplateType.md#templatetype-08e95c149f38)
-
 To be used in:
  `ncsGetTemplateVariables(String, TemplateType)`
  Designates informational of template types.

@@ -4,8 +4,6 @@
 protected static enum com.tailf.navu.NavuContext.DataMode
 ```
 
-Types: [DataMode](DataMode.md#datamode-25b2036cfd59)
-
 ## Members
 
 **Enum Constants**:

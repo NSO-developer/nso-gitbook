@@ -4,8 +4,6 @@
 public static enum com.tailf.maapi.CommitParams.NoOverwriteScope
 ```
 
-Types: [NoOverwriteScope](NoOverwriteScope.md#nooverwritescope-b02f8090321d)
-
 ## Members
 
 **Enum Constants**:

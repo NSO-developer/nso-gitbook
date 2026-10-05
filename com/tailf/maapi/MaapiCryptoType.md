@@ -4,8 +4,6 @@
 public enum com.tailf.maapi.MaapiCryptoType
 ```
 
-Types: [MaapiCryptoType](MaapiCryptoType.md#maapicryptotype-eed6b72aa0d2)
-
 Data encryption and decryption helper class for each supported
  encryption algorithm. Should be used through [`MaapiCrypto`](MaapiCrypto.md#maapicrypto-2f94e265c842).
 

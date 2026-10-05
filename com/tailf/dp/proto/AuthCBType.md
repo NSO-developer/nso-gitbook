@@ -4,8 +4,6 @@
 public enum com.tailf.dp.proto.AuthCBType
 ```
 
-Types: [AuthCBType](AuthCBType.md#authcbtype-5bd4ee208ec6)
-
 Enumeration of Auth callback methods.
 
 ## Members

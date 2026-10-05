@@ -4,8 +4,6 @@
 public enum com.tailf.conf.ErrorCode
 ```
 
-Types: [ErrorCode](ErrorCode.md#errorcode-65263de08890)
-
 Error codes for all errors delivered over the protocol.
 
 ## Members

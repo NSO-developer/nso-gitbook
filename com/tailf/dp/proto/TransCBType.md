@@ -4,8 +4,6 @@
 public enum com.tailf.dp.proto.TransCBType
 ```
 
-Types: [TransCBType](TransCBType.md#transcbtype-23d0df519739)
-
 Enumeration of Trans callback methods
 
 

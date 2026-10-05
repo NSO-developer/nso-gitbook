@@ -4,8 +4,6 @@
 public static enum com.tailf.maapi.CommitParams.CommitQueueErrorOption
 ```
 
-Types: [CommitQueueErrorOption](CommitQueueErrorOption.md#commitqueueerroroption-c09325b4a347)
-
 ## Members
 
 **Enum Constants**:

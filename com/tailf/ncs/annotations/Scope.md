@@ -4,8 +4,6 @@
 public enum com.tailf.ncs.annotations.Scope
 ```
 
-Types: [Scope](Scope.md#scope-5971086e8af0)
-
 Scope for resources managed by the Resource Manager
 
 ## Members

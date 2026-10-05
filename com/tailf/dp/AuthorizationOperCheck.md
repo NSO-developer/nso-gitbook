@@ -4,8 +4,6 @@
 public enum com.tailf.dp.AuthorizationOperCheck
 ```
 
-Types: [AuthorizationOperCheck](AuthorizationOperCheck.md#authorizationopercheck-7342d1a011a5)
-
 AuthorizationOperCheck used as argument to authorization callbacks.
  They are also used defined as access filters
 

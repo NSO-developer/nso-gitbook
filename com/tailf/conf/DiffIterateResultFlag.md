@@ -4,8 +4,6 @@
 public enum com.tailf.conf.DiffIterateResultFlag
 ```
 
-Types: [DiffIterateResultFlag](DiffIterateResultFlag.md#diffiterateresultflag-3bcd05ed3269)
-
 flags us by DiffIterate interface The iterate() method should return any
  of the following constants
 

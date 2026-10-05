@@ -4,8 +4,6 @@
 public enum com.tailf.dp.ListFilterExprOp
 ```
 
-Types: [ListFilterExprOp](ListFilterExprOp.md#listfilterexprop-7e720d295cdf)
-
 The type of comparison or function to employ when the filter type is
  [`ListFilterType#CONFD_LF_CMP`](ListFilterType.md#confd_lf_cmp-583727db1b1c) or [`ListFilterType#CONFD_LF_EXEC`](ListFilterType.md#confd_lf_exec-5af1f0461120).
 

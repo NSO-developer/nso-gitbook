@@ -4,8 +4,6 @@
 public enum com.tailf.navu.Verbosity
 ```
 
-Types: [Verbosity](Verbosity.md#verbosity-a9c618ec424f)
-
 ## Members
 
 **Enum Constants**:

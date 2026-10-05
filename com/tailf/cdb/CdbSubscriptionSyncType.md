@@ -4,8 +4,6 @@
 public enum com.tailf.cdb.CdbSubscriptionSyncType
 ```
 
-Types: [CdbSubscriptionSyncType](CdbSubscriptionSyncType.md#cdbsubscriptionsynctype-adacba3ff512)
-
 Subscription Synchronization type used in sync() method
 
 ## Members

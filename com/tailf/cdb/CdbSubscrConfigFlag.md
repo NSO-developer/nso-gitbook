@@ -4,8 +4,6 @@
 public enum com.tailf.cdb.CdbSubscrConfigFlag
 ```
 
-Types: [CdbSubscrConfigFlag](CdbSubscrConfigFlag.md#cdbsubscrconfigflag-881f5a524821)
-
 Distinguish the different types of subscription notifications
 
 ## Members

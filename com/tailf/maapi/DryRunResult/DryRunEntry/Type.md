@@ -4,8 +4,6 @@
 public static enum com.tailf.maapi.DryRunResult.DryRunEntry.Type
 ```
 
-Types: [Type](Type.md#type-e2b37c882bf2)
-
 ## Members
 
 **Enum Constants**:

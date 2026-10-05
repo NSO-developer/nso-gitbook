@@ -4,8 +4,6 @@
 public enum com.tailf.dp.proto.TransValidateCBType
 ```
 
-Types: [TransValidateCBType](TransValidateCBType.md#transvalidatecbtype-351144dc4150)
-
 Enumeration of TransValidate callback methods
 
 **Since:** 3.2.0

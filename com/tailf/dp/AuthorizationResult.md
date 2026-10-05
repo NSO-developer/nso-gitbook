@@ -4,8 +4,6 @@
 public enum com.tailf.dp.AuthorizationResult
 ```
 
-Types: [AuthorizationResult](AuthorizationResult.md#authorizationresult-118ce0a72969)
-
 Enum for returning authorization result from authorization callbacks
 
 ## Members

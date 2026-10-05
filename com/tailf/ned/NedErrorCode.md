@@ -4,8 +4,6 @@
 public enum com.tailf.ned.NedErrorCode
 ```
 
-Types: [NedErrorCode](NedErrorCode.md#nederrorcode-e5f6e08a55a2)
-
 ## Members
 
 **Enum Constants**:

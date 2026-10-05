@@ -4,8 +4,6 @@
 public enum com.tailf.dp.proto.DataCBType
 ```
 
-Types: [DataCBType](DataCBType.md#datacbtype-1cb4e4ee7708)
-
 Enumeration of Data callback methods
 
 **Since:** 3.2.0

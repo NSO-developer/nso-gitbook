@@ -4,8 +4,6 @@
 public enum com.tailf.dp.proto.ServiceCBType
 ```
 
-Types: [ServiceCBType](ServiceCBType.md#servicecbtype-cf8844439319)
-
 Enumeration of Service callback methods
 
 ## Members

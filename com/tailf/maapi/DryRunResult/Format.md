@@ -4,8 +4,6 @@
 public static enum com.tailf.maapi.DryRunResult.Format
 ```
 
-Types: [Format](Format.md#format-7125142f5ce6)
-
 ## Members
 
 **Enum Constants**:

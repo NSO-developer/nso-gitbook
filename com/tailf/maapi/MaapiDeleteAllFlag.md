@@ -4,8 +4,6 @@
 public enum com.tailf.maapi.MaapiDeleteAllFlag
 ```
 
-Types: [MaapiDeleteAllFlag](MaapiDeleteAllFlag.md#maapideleteallflag-ab18714d13ee)
-
 Flags for use in:
    [`Maapi#deleteAll(int, MaapiDeleteAllFlag)`](Maapi.md#deleteall-b0d5e11220fb)
 

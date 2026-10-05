@@ -4,8 +4,6 @@
 public enum com.tailf.ned.TelemetryFormat
 ```
 
-Types: [TelemetryFormat](TelemetryFormat.md#telemetryformat-e367fbe44067)
-
 Enum containing the valid response formats for a telemetry notification.
 
 ## Members

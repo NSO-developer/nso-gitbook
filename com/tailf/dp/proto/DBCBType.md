@@ -4,8 +4,6 @@
 public enum com.tailf.dp.proto.DBCBType
 ```
 
-Types: [DBCBType](DBCBType.md#dbcbtype-b9ff294018bf)
-
 Enumeration of DB callback methods
 
 **Since:** 3.2.0

@@ -4,8 +4,6 @@
 public static enum com.tailf.maapi.MaapiSchemas.CSShallowType
 ```
 
-Types: [CSShallowType](CSShallowType.md#csshallowtype-383e8e4d58c6)
-
 Enum containing all possible node values.
 
 ## Members

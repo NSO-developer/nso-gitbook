@@ -4,8 +4,6 @@
 public static enum com.tailf.ncs.maapi.Schema.Cmp
 ```
 
-Types: [Cmp](Cmp.md#cmp-99bade45503f)
-
 ## Members
 
 **Enum Constants**:

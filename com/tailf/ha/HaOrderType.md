@@ -4,8 +4,6 @@
 public enum com.tailf.ha.HaOrderType
 ```
 
-Types: [HaOrderType](HaOrderType.md#haordertype-0276888fecca)
-
 enum for the different HA cluster protocol operations Used internally by the
  api.
 

@@ -4,8 +4,6 @@
 public enum com.tailf.ncs.proto.EventCBType
 ```
 
-Types: [EventCBType](EventCBType.md#eventcbtype-2b91d6aed05c)
-
 Enumeration of Event callback methods
 
 ## Members

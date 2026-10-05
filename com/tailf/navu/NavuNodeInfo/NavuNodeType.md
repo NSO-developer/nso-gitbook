@@ -4,8 +4,6 @@
 protected static enum com.tailf.navu.NavuNodeInfo.NavuNodeType
 ```
 
-Types: [NavuNodeType](NavuNodeType.md#navunodetype-6744525a3747)
-
 ## Members
 
 **Enum Constants**:

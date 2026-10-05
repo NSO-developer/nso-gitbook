@@ -4,8 +4,6 @@
 public enum com.tailf.conf.XMLParamType
 ```
 
-Types: [XMLParamType](XMLParamType.md#xmlparamtype-3881bed6e84d)
-
 Enum identifying type of ConfXMLParam subclass.
  see [`ConfXMLParam`](ConfXMLParam.md#confxmlparam-f5f4394b46a7)
 

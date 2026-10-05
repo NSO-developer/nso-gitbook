@@ -4,8 +4,6 @@
 public static enum com.tailf.maapi.MaapiSchemas.CSNodeType
 ```
 
-Types: [CSNodeType](CSNodeType.md#csnodetype-c43320d71626)
-
 Enum containing all possible node values for a node type.
 
 ## Members

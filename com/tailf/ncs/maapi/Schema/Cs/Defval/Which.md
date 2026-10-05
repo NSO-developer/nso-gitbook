@@ -4,8 +4,6 @@
 public static enum com.tailf.ncs.maapi.Schema.Cs.Defval.Which
 ```
 
-Types: [Which](Which.md#which-92b652653aa7)
-
 ## Members
 
 **Enum Constants**:

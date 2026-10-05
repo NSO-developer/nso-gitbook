@@ -4,8 +4,6 @@
 public static enum com.tailf.maapi.CommitQueueResult.Status
 ```
 
-Types: [Status](Status.md#status-84eaa40b9dbc)
-
 ## Members
 
 **Enum Constants**:

@@ -4,8 +4,6 @@
 public enum com.tailf.maapi.MaapiFlag
 ```
 
-Types: [MaapiFlag](MaapiFlag.md#maapiflag-6e6635db8a9f)
-
 Flags used by `Maapi#setFlags(int,EnumSet)` method to control
  read/write sessions.
 

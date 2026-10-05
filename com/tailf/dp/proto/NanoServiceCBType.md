@@ -4,8 +4,6 @@
 public enum com.tailf.dp.proto.NanoServiceCBType
 ```
 
-Types: [NanoServiceCBType](NanoServiceCBType.md#nanoservicecbtype-16a84eed865a)
-
 Enumeration of Nano Service callback methods
 
 ## Members

@@ -4,8 +4,6 @@
 public static enum com.tailf.conf.ConfList.WhereTo
 ```
 
-Types: [WhereTo](WhereTo.md#whereto-ed479ce50b9a)
-
 ## Members
 
 **Enum Constants**:

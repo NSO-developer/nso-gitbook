@@ -4,8 +4,6 @@
 public static enum com.tailf.ncs.maapi.Schema.ShallowType
 ```
 
-Types: [ShallowType](ShallowType.md#shallowtype-736a38acb289)
-
 ## Members
 
 **Enum Constants**:

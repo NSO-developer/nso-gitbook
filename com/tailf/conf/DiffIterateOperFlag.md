@@ -4,8 +4,6 @@
 public enum com.tailf.conf.DiffIterateOperFlag
 ```
 
-Types: [DiffIterateOperFlag](DiffIterateOperFlag.md#diffiterateoperflag-d1cd8560c2ec)
-
 The modification flags supplied by the library to
  [`CdbDiffIterate`](../cdb/CdbDiffIterate.md#cdbdiffiterate-ab6fafeeb31e),
  [`MaapiDiffIterate`](../maapi/MaapiDiffIterate.md#maapidiffiterate-199d02e1da37) user implementation of the

@@ -4,8 +4,6 @@
 public enum com.tailf.cdb.CdbDBType
 ```
 
-Types: [CdbDBType](CdbDBType.md#cdbdbtype-5ae1aed3f97a)
-
 Database types specified when setting up CDB sessions
 
 ## Members

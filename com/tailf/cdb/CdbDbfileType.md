@@ -4,8 +4,6 @@
 public enum com.tailf.cdb.CdbDbfileType
 ```
 
-Types: [CdbDbfileType](CdbDbfileType.md#cdbdbfiletype-a0872754369c)
-
 Database file types specified when initiating compaction
  or retrieving compaction info
 

@@ -4,8 +4,6 @@
 public static enum com.tailf.maapi.Maapi.Verbosity
 ```
 
-Types: [Verbosity](Verbosity.md#verbosity-a9c618ec424f)
-
 To be used in:
  `reportProgress(int,Verbosity,String)`
  `reportServiceProgress(int,Verbosity,String,ConfPath)`

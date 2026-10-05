@@ -4,8 +4,6 @@
 public static enum com.tailf.ned.NedWorker.TransactionIdMode
 ```
 
-Types: [TransactionIdMode](TransactionIdMode.md#transactionidmode-469080668075)
-
 Indicates the mode of Transaction ID supported by the NED.
  Support for Transaction ID is required for check-sync action.
 

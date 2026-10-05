@@ -4,8 +4,6 @@
 public static enum com.tailf.navu.NavuContextBase.UnSetCaseInChoice
 ```
 
-Types: [UnSetCaseInChoice](UnSetCaseInChoice.md#unsetcaseinchoice-f6b21f3bb1fe)
-
 The enumeration specifies the behavior
   when a case in a choice is not selected
   explicitly or implicitly.
