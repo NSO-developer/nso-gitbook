@@ -27,7 +27,7 @@ Flags for use in:
 ### DEL_ALL <a href="#del_all-6da46022ffb7" id="del_all-6da46022ffb7"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiDeleteAllFlag DEL_ALL;
+DEL_ALL(2);
 ```
 
 Delete everything. AAA rules are ignored.
@@ -35,7 +35,7 @@ Delete everything. AAA rules are ignored.
 ### DEL_EXPORTED <a href="#del_exported-c1133a0a2e13" id="del_exported-c1133a0a2e13"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiDeleteAllFlag DEL_EXPORTED;
+DEL_EXPORTED(3);
 ```
 
 Delete everything except namespaces that were exported to none
@@ -45,7 +45,7 @@ Delete everything except namespaces that were exported to none
 ### DEL_SAFE <a href="#del_safe-d3fc545efed9" id="del_safe-d3fc545efed9"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiDeleteAllFlag DEL_SAFE;
+DEL_SAFE(1);
 ```
 
 Delete everything except namespaces that were exported to none

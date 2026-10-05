@@ -115,7 +115,7 @@ Enumeration of Trans callback methods
 ### ABORT <a href="#abort-7ca9e5aa43c8" id="abort-7ca9e5aa43c8"></a>
 
 ```java
-public static final com.tailf.dp.proto.TransCBType ABORT;
+ABORT(DpProto.MASK_TR_ABORT);
 ```
 
 Bit flag for the [`DpTransCallback#abort(DpTrans)`](../DpTransCallback.md#abort-be36f552f23c)
@@ -124,7 +124,7 @@ Bit flag for the [`DpTransCallback#abort(DpTrans)`](../DpTransCallback.md#abort-
 ### COMMIT <a href="#commit-14b001a1be17" id="commit-14b001a1be17"></a>
 
 ```java
-public static final com.tailf.dp.proto.TransCBType COMMIT;
+COMMIT(DpProto.MASK_TR_COMMIT);
 ```
 
 Bit flag for the [`DpTransCallback#commit(DpTrans)`](../DpTransCallback.md#commit-5e7631b9a7e8)
@@ -133,7 +133,7 @@ Bit flag for the [`DpTransCallback#commit(DpTrans)`](../DpTransCallback.md#commi
 ### FINISH <a href="#finish-d07f8d2510ea" id="finish-d07f8d2510ea"></a>
 
 ```java
-public static final com.tailf.dp.proto.TransCBType FINISH;
+FINISH(DpProto.MASK_TR_FINISH);
 ```
 
 Bit flag for the [`DpTransCallback#finish(DpTrans)`](../DpTransCallback.md#finish-1001d416be96)
@@ -142,7 +142,7 @@ Bit flag for the [`DpTransCallback#finish(DpTrans)`](../DpTransCallback.md#finis
 ### INIT <a href="#init-5407b9c86a37" id="init-5407b9c86a37"></a>
 
 ```java
-public static final com.tailf.dp.proto.TransCBType INIT;
+INIT(DpProto.MASK_TR_INIT);
 ```
 
 Bit flag for the [`DpTransCallback#init(DpTrans)`](../DpTransCallback.md#init-16fe8657859c)
@@ -151,7 +151,7 @@ Bit flag for the [`DpTransCallback#init(DpTrans)`](../DpTransCallback.md#init-16
 ### PREPARE <a href="#prepare-751688bc2f01" id="prepare-751688bc2f01"></a>
 
 ```java
-public static final com.tailf.dp.proto.TransCBType PREPARE;
+PREPARE(DpProto.MASK_TR_PREPARE);
 ```
 
 Bit flag for the [`DpTransCallback#prepare(DpTrans)`](../DpTransCallback.md#prepare-ab366f6ce7ea)
@@ -160,7 +160,7 @@ Bit flag for the [`DpTransCallback#prepare(DpTrans)`](../DpTransCallback.md#prep
 ### TRANS_LOCK <a href="#trans_lock-ca813c8ef589" id="trans_lock-ca813c8ef589"></a>
 
 ```java
-public static final com.tailf.dp.proto.TransCBType TRANS_LOCK;
+TRANS_LOCK(DpProto.MASK_TR_TRANS_LOCK);
 ```
 
 Bit flag for the [`DpTransCallback#transLock(DpTrans)`](../DpTransCallback.md#translock-dc59c2c0e5f8)
@@ -169,7 +169,7 @@ Bit flag for the [`DpTransCallback#transLock(DpTrans)`](../DpTransCallback.md#tr
 ### TRANS_UNLOCK <a href="#trans_unlock-33c04d445eb8" id="trans_unlock-33c04d445eb8"></a>
 
 ```java
-public static final com.tailf.dp.proto.TransCBType TRANS_UNLOCK;
+TRANS_UNLOCK(DpProto.MASK_TR_TRANS_UNLOCK);
 ```
 
 Bit flag for the
@@ -178,7 +178,7 @@ Bit flag for the
 ### WRITE_START <a href="#write_start-c5f19ac27692" id="write_start-c5f19ac27692"></a>
 
 ```java
-public static final com.tailf.dp.proto.TransCBType WRITE_START;
+WRITE_START(DpProto.MASK_TR_WRITE_START);
 ```
 
 Bit flag for the [`DpTransCallback#writeStart(DpTrans)`](../DpTransCallback.md#writestart-5fee67274be5)

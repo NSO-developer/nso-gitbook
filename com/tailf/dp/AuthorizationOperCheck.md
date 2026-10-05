@@ -32,7 +32,7 @@ AuthorizationOperCheck used as argument to authorization callbacks.
 ### CREATE <a href="#create-146c3c7e4f65" id="create-146c3c7e4f65"></a>
 
 ```java
-public static final com.tailf.dp.AuthorizationOperCheck CREATE;
+CREATE(1 << 2);
 ```
 
 Create access
@@ -40,7 +40,7 @@ Create access
 ### DELETE <a href="#delete-17bb47048092" id="delete-17bb47048092"></a>
 
 ```java
-public static final com.tailf.dp.AuthorizationOperCheck DELETE;
+DELETE(1 << 4);
 ```
 
 Delete access
@@ -48,7 +48,7 @@ Delete access
 ### EXECUTE <a href="#execute-52024d3f616a" id="execute-52024d3f616a"></a>
 
 ```java
-public static final com.tailf.dp.AuthorizationOperCheck EXECUTE;
+EXECUTE(1 << 1);
 ```
 
 Execute access
@@ -56,7 +56,7 @@ Execute access
 ### FINAL <a href="#final-5a6aacb2d147" id="final-5a6aacb2d147"></a>
 
 ```java
-public static final com.tailf.dp.AuthorizationOperCheck FINAL;
+FINAL(1 << 9);
 ```
 
 "How" parameter, Access to the specific data node is requested.
@@ -64,7 +64,7 @@ public static final com.tailf.dp.AuthorizationOperCheck FINAL;
 ### INTERMEDIATE <a href="#intermediate-9af98bb5e4a7" id="intermediate-9af98bb5e4a7"></a>
 
 ```java
-public static final com.tailf.dp.AuthorizationOperCheck INTERMEDIATE;
+INTERMEDIATE(1 << 8);
 ```
 
 "How" parameter,
@@ -75,7 +75,7 @@ public static final com.tailf.dp.AuthorizationOperCheck INTERMEDIATE;
 ### READ <a href="#read-a581bbb3f39f" id="read-a581bbb3f39f"></a>
 
 ```java
-public static final com.tailf.dp.AuthorizationOperCheck READ;
+READ(1 << 0);
 ```
 
 Read access.
@@ -83,7 +83,7 @@ Read access.
 ### UPDATE <a href="#update-39b73b15811d" id="update-39b73b15811d"></a>
 
 ```java
-public static final com.tailf.dp.AuthorizationOperCheck UPDATE;
+UPDATE(1 << 3);
 ```
 
 Update access
@@ -91,7 +91,7 @@ Update access
 ### WRITE <a href="#write-e622810b08da" id="write-e622810b08da"></a>
 
 ```java
-public static final com.tailf.dp.AuthorizationOperCheck WRITE;
+WRITE(1 << 5);
 ```
 
 Write access. This is used when the specific write operation

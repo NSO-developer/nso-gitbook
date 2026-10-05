@@ -22,27 +22,11 @@ public static enum com.tailf.maapi.DryRunResult.Format
 
 ### CLI <a href="#cli-0d593b2cecc2" id="cli-0d593b2cecc2"></a>
 
-```java
-public static final com.tailf.maapi.DryRunResult.Format CLI;
-```
-
 ### CLI_C <a href="#cli_c-c2e13684a7a3" id="cli_c-c2e13684a7a3"></a>
-
-```java
-public static final com.tailf.maapi.DryRunResult.Format CLI_C;
-```
 
 ### NATIVE <a href="#native-18aeb3ecd16f" id="native-18aeb3ecd16f"></a>
 
-```java
-public static final com.tailf.maapi.DryRunResult.Format NATIVE;
-```
-
 ### XML <a href="#xml-b65914d05936" id="xml-b65914d05936"></a>
-
-```java
-public static final com.tailf.maapi.DryRunResult.Format XML;
-```
 
 
 ## Methods

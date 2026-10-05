@@ -29,7 +29,7 @@ enum for the different HA cluster protocol operations Used internally by the
 ### BENONE <a href="#benone-8943c52731fc" id="benone-8943c52731fc"></a>
 
 ```java
-public static final com.tailf.ha.HaOrderType BENONE;
+BENONE(3);
 ```
 
 Implies that the node should be removed from the cluster
@@ -37,7 +37,7 @@ Implies that the node should be removed from the cluster
 ### BEPRIMARY <a href="#beprimary-e01813d10d2e" id="beprimary-e01813d10d2e"></a>
 
 ```java
-public static final com.tailf.ha.HaOrderType BEPRIMARY;
+BEPRIMARY(1);
 ```
 
 Implies that the node should be primary in the cluster
@@ -45,7 +45,7 @@ Implies that the node should be primary in the cluster
 ### BERELAY <a href="#berelay-4319cee8cab8" id="berelay-4319cee8cab8"></a>
 
 ```java
-public static final com.tailf.ha.HaOrderType BERELAY;
+BERELAY(6);
 ```
 
 Implies that the secondary node should be a relay for other secondaries
@@ -53,7 +53,7 @@ Implies that the secondary node should be a relay for other secondaries
 ### BESECONDARY <a href="#besecondary-a9ff5fc98372" id="besecondary-a9ff5fc98372"></a>
 
 ```java
-public static final com.tailf.ha.HaOrderType BESECONDARY;
+BESECONDARY(2);
 ```
 
 Implies that the node should be secondary in the cluster
@@ -61,7 +61,7 @@ Implies that the node should be secondary in the cluster
 ### GETSTATUS <a href="#getstatus-8b73e123eca8" id="getstatus-8b73e123eca8"></a>
 
 ```java
-public static final com.tailf.ha.HaOrderType GETSTATUS;
+GETSTATUS(4);
 ```
 
 Retrieving node status information
@@ -69,7 +69,7 @@ Retrieving node status information
 ### SECONDARY_DEAD <a href="#secondary_dead-dbf3430fbfb9" id="secondary_dead-dbf3430fbfb9"></a>
 
 ```java
-public static final com.tailf.ha.HaOrderType SECONDARY_DEAD;
+SECONDARY_DEAD(5);
 ```
 
 Reporting secondary node as dead

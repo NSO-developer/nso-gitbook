@@ -23,7 +23,7 @@ Enumeration of Auth callback methods.
 ### AUTH <a href="#auth-fc8da3edc070" id="auth-fc8da3edc070"></a>
 
 ```java
-public static final com.tailf.dp.proto.AuthCBType AUTH;
+AUTH(1);
 ```
 
 Authentication callback type

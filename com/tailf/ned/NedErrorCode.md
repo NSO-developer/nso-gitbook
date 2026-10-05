@@ -33,67 +33,67 @@ public enum com.tailf.ned.NedErrorCode
 ### CONNECT_BADAUTH <a href="#connect_badauth-7335ef6f22db" id="connect_badauth-7335ef6f22db"></a>
 
 ```java
-public static final com.tailf.ned.NedErrorCode CONNECT_BADAUTH;
+CONNECT_BADAUTH(7);
 ```
 
 ### CONNECT_BADKEY <a href="#connect_badkey-e91f2ec9a06b" id="connect_badkey-e91f2ec9a06b"></a>
 
 ```java
-public static final com.tailf.ned.NedErrorCode CONNECT_BADKEY;
+CONNECT_BADKEY(4);
 ```
 
 ### CONNECT_CONNECTION_REFUSED <a href="#connect_connection_refused-2749682d78b8" id="connect_connection_refused-2749682d78b8"></a>
 
 ```java
-public static final com.tailf.ned.NedErrorCode CONNECT_CONNECTION_REFUSED;
+CONNECT_CONNECTION_REFUSED(1);
 ```
 
 ### CONNECT_HOST_KEY_REJECTED <a href="#connect_host_key_rejected-a0751ad2484d" id="connect_host_key_rejected-a0751ad2484d"></a>
 
 ```java
-public static final com.tailf.ned.NedErrorCode CONNECT_HOST_KEY_REJECTED;
+CONNECT_HOST_KEY_REJECTED(6);
 ```
 
 ### CONNECT_HOSTUNREACH <a href="#connect_hostunreach-2e8b49fe247c" id="connect_hostunreach-2e8b49fe247c"></a>
 
 ```java
-public static final com.tailf.ned.NedErrorCode CONNECT_HOSTUNREACH;
+CONNECT_HOSTUNREACH(5);
 ```
 
 ### CONNECT_KEX_FAILED <a href="#connect_kex_failed-277147eb318b" id="connect_kex_failed-277147eb318b"></a>
 
 ```java
-public static final com.tailf.ned.NedErrorCode CONNECT_KEX_FAILED;
+CONNECT_KEX_FAILED(12);
 ```
 
 ### CONNECT_TIMEOUT <a href="#connect_timeout-38526d2fcecb" id="connect_timeout-38526d2fcecb"></a>
 
 ```java
-public static final com.tailf.ned.NedErrorCode CONNECT_TIMEOUT;
+CONNECT_TIMEOUT(2);
 ```
 
 ### CONNECTION_GONE <a href="#connection_gone-fa4baf17f4de" id="connection_gone-fa4baf17f4de"></a>
 
 ```java
-public static final com.tailf.ned.NedErrorCode CONNECTION_GONE;
+CONNECTION_GONE(10);
 ```
 
 ### IN_USE <a href="#in_use-17f334a1bb80" id="in_use-17f334a1bb80"></a>
 
 ```java
-public static final com.tailf.ned.NedErrorCode IN_USE;
+IN_USE(9);
 ```
 
 ### NED_EXTERNAL_ERROR <a href="#ned_external_error-d7323c5395f7" id="ned_external_error-d7323c5395f7"></a>
 
 ```java
-public static final com.tailf.ned.NedErrorCode NED_EXTERNAL_ERROR;
+NED_EXTERNAL_ERROR(8);
 ```
 
 ### NED_INTERNAL_ERROR <a href="#ned_internal_error-ae25a59e68ef" id="ned_internal_error-ae25a59e68ef"></a>
 
 ```java
-public static final com.tailf.ned.NedErrorCode NED_INTERNAL_ERROR;
+NED_INTERNAL_ERROR(100);
 ```
 
 

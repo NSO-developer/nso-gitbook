@@ -25,7 +25,7 @@ Enumeration of Service callback methods
 ### CREATE <a href="#create-146c3c7e4f65" id="create-146c3c7e4f65"></a>
 
 ```java
-public static final com.tailf.dp.proto.ServiceCBType CREATE;
+CREATE(DpServiceCallback.M_CREATE);
 ```
 
 Indicates service create callback.
@@ -36,7 +36,7 @@ Indicates service create callback.
 ### POST_MODIFICATION <a href="#post_modification-9df86e7e6776" id="post_modification-9df86e7e6776"></a>
 
 ```java
-public static final com.tailf.dp.proto.ServiceCBType POST_MODIFICATION;
+POST_MODIFICATION(DpServiceCallback.M_POST_MODIFICATION);
 ```
 
 Indicates post-modification service callback.
@@ -47,7 +47,7 @@ Indicates post-modification service callback.
 ### PRE_MODIFICATION <a href="#pre_modification-c5a7904084f0" id="pre_modification-c5a7904084f0"></a>
 
 ```java
-public static final com.tailf.dp.proto.ServiceCBType PRE_MODIFICATION;
+PRE_MODIFICATION(DpServiceCallback.M_PRE_MODIFICATION);
 ```
 
 Indicates pre-modification service callback.

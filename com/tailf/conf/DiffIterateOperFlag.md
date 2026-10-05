@@ -40,7 +40,7 @@ The modification flags supplied by the library to
 ### MOP_ATTR_SET <a href="#mop_attr_set-93d0727524e3" id="mop_attr_set-93d0727524e3"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateOperFlag MOP_ATTR_SET;
+MOP_ATTR_SET(6);
 ```
 
 MaapiDiffIterate only
@@ -48,7 +48,7 @@ MaapiDiffIterate only
 ### MOP_CREATED <a href="#mop_created-1b4baba0a9b5" id="mop_created-1b4baba0a9b5"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateOperFlag MOP_CREATED;
+MOP_CREATED(1);
 ```
 
 Specifies that list entry, presence container, or leaf of type empty
@@ -57,7 +57,7 @@ Specifies that list entry, presence container, or leaf of type empty
 ### MOP_DELETED <a href="#mop_deleted-bfb313272589" id="mop_deleted-bfb313272589"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateOperFlag MOP_DELETED;
+MOP_DELETED(2);
 ```
 
 The list entry, presence container, or optional leaf has been deleted.
@@ -74,7 +74,7 @@ The list entry, presence container, or optional leaf has been deleted.
 ### MOP_MODIFIED <a href="#mop_modified-04604a9e1f38" id="mop_modified-04604a9e1f38"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateOperFlag MOP_MODIFIED;
+MOP_MODIFIED(3);
 ```
 
 A descendant of the list entry has been modified.
@@ -82,7 +82,7 @@ A descendant of the list entry has been modified.
 ### MOP_MOVED_AFTER <a href="#mop_moved_after-a0be8ecb4c10" id="mop_moved_after-a0be8ecb4c10"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateOperFlag MOP_MOVED_AFTER;
+MOP_MOVED_AFTER(5);
 ```
 
 The list entry given by path, in an ordered-by user list,
@@ -96,7 +96,7 @@ The list entry given by path, in an ordered-by user list,
 ### MOP_VALUE_SET <a href="#mop_value_set-785b954bac72" id="mop_value_set-785b954bac72"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateOperFlag MOP_VALUE_SET;
+MOP_VALUE_SET(4);
 ```
 
 The value of the leaf given by the path has been set to a new value.

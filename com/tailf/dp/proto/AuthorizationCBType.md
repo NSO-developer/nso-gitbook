@@ -26,7 +26,7 @@ Enumeration of Authorization callback methods
 ### CHECK_CMD_ACCESS <a href="#check_cmd_access-8a77478fcfe0" id="check_cmd_access-8a77478fcfe0"></a>
 
 ```java
-public static final com.tailf.dp.proto.AuthorizationCBType CHECK_CMD_ACCESS;
+CHECK_CMD_ACCESS(DpProto.MASK_CHK_CMD_ACCESS);
 ```
 
 Authorization callback type for checking command access permissions.
@@ -35,7 +35,7 @@ Authorization callback type for checking command access permissions.
 ### CHECK_DATA_ACCESS <a href="#check_data_access-1aff0f5526c7" id="check_data_access-1aff0f5526c7"></a>
 
 ```java
-public static final com.tailf.dp.proto.AuthorizationCBType CHECK_DATA_ACCESS;
+CHECK_DATA_ACCESS(DpProto.MASK_CHK_DATA_ACCESS);
 ```
 
 Authorization callback type for checking data access permissions.
@@ -44,7 +44,7 @@ Authorization callback type for checking data access permissions.
 ### CMD_FILTER <a href="#cmd_filter-202bdf5d983c" id="cmd_filter-202bdf5d983c"></a>
 
 ```java
-public static final com.tailf.dp.proto.AuthorizationCBType CMD_FILTER;
+CMD_FILTER(10001);
 ```
 
 Authorization callback type for command filtering.
@@ -54,7 +54,7 @@ Authorization callback type for command filtering.
 ### DATA_FILTER <a href="#data_filter-fb72d718d64a" id="data_filter-fb72d718d64a"></a>
 
 ```java
-public static final com.tailf.dp.proto.AuthorizationCBType DATA_FILTER;
+DATA_FILTER(10002);
 ```
 
 Authorization callback type for data filtering.

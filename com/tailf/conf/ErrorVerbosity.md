@@ -24,25 +24,13 @@ verbosity levels for reported errors
 
 ### STANDARD <a href="#standard-4bb7f6f1f62c" id="standard-4bb7f6f1f62c"></a>
 
-```java
-public static final com.tailf.conf.ErrorVerbosity STANDARD;
-```
-
 Message from top level Exception is reported
 
 ### TRACE <a href="#trace-30aa7fcb1d67" id="trace-30aa7fcb1d67"></a>
 
-```java
-public static final com.tailf.conf.ErrorVerbosity TRACE;
-```
-
 As VERBOSE plus complete bottom Exception stack trace is reported
 
 ### VERBOSE <a href="#verbose-cb0b793dd2e1" id="verbose-cb0b793dd2e1"></a>
-
-```java
-public static final com.tailf.conf.ErrorVerbosity VERBOSE;
-```
 
 As STANDARD plus message from bottom level Exception is reported
 

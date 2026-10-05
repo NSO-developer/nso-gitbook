@@ -24,13 +24,13 @@ ResourceType set by the Ncs ResourceManager
 ### CDB <a href="#cdb-d41900d6c754" id="cdb-d41900d6c754"></a>
 
 ```java
-public static final com.tailf.ncs.annotations.ResourceType CDB;
+CDB(2);
 ```
 
 ### MAAPI <a href="#maapi-23b8e25adab3" id="maapi-23b8e25adab3"></a>
 
 ```java
-public static final com.tailf.ncs.annotations.ResourceType MAAPI;
+MAAPI(1);
 ```
 
 

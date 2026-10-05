@@ -27,7 +27,7 @@ Enum for returning authorization result from authorization callbacks
 ### ACCEPT <a href="#accept-36909b32fd5f" id="accept-36909b32fd5f"></a>
 
 ```java
-public static final com.tailf.dp.AuthorizationResult ACCEPT;
+ACCEPT(0);
 ```
 
 The access is allowed. This is a "final verdict", analogous to a
@@ -36,7 +36,7 @@ The access is allowed. This is a "final verdict", analogous to a
 ### CONTINUE <a href="#continue-5e783bfcaf54" id="continue-5e783bfcaf54"></a>
 
 ```java
-public static final com.tailf.dp.AuthorizationResult CONTINUE;
+CONTINUE(2);
 ```
 
 The access is allowed "so far". I.e. access to sub-elements is not
@@ -47,7 +47,7 @@ The access is allowed "so far". I.e. access to sub-elements is not
 ### DEFAULT <a href="#default-260e1d6ccdf3" id="default-260e1d6ccdf3"></a>
 
 ```java
-public static final com.tailf.dp.AuthorizationResult DEFAULT;
+DEFAULT(3);
 ```
 
 The request should be handled according to the rules configured in
@@ -56,7 +56,7 @@ The request should be handled according to the rules configured in
 ### REJECT <a href="#reject-0ae9cb4d8a71" id="reject-0ae9cb4d8a71"></a>
 
 ```java
-public static final com.tailf.dp.AuthorizationResult REJECT;
+REJECT(1);
 ```
 
 The access is denied.

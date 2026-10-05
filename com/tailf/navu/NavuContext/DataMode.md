@@ -21,21 +21,9 @@ protected static enum com.tailf.navu.NavuContext.DataMode
 
 ### DB_OPERATIONAL_TRANS <a href="#db_operational_trans-bf7908061bc2" id="db_operational_trans-bf7908061bc2"></a>
 
-```java
-public static final com.tailf.navu.NavuContext.DataMode DB_OPERATIONAL_TRANS;
-```
-
 ### DB_RUNNING_TRANS <a href="#db_running_trans-0b9977369c65" id="db_running_trans-0b9977369c65"></a>
 
-```java
-public static final com.tailf.navu.NavuContext.DataMode DB_RUNNING_TRANS;
-```
-
 ### NONE <a href="#none-f29411358a7b" id="none-f29411358a7b"></a>
-
-```java
-public static final com.tailf.navu.NavuContext.DataMode NONE;
-```
 
 
 ## Methods

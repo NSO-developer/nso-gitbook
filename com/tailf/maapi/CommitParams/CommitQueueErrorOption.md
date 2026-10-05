@@ -25,19 +25,19 @@ public static enum com.tailf.maapi.CommitParams.CommitQueueErrorOption
 ### CONTINUE_ON_ERROR <a href="#continue_on_error-c322b0c0a38b" id="continue_on_error-c322b0c0a38b"></a>
 
 ```java
-public static final com.tailf.maapi.CommitParams.CommitQueueErrorOption CONTINUE_ON_ERROR;
+CONTINUE_ON_ERROR(getOnErrorFieldVal("_continue_on_error"));
 ```
 
 ### ROLLBACK_ON_ERROR <a href="#rollback_on_error-c11d17b7a439" id="rollback_on_error-c11d17b7a439"></a>
 
 ```java
-public static final com.tailf.maapi.CommitParams.CommitQueueErrorOption ROLLBACK_ON_ERROR;
+ROLLBACK_ON_ERROR(getOnErrorFieldVal("_rollback_on_error"));
 ```
 
 ### STOP_ON_ERROR <a href="#stop_on_error-78f7b093300f" id="stop_on_error-78f7b093300f"></a>
 
 ```java
-public static final com.tailf.maapi.CommitParams.CommitQueueErrorOption STOP_ON_ERROR;
+STOP_ON_ERROR(getOnErrorFieldVal("_stop_on_error"));
 ```
 
 

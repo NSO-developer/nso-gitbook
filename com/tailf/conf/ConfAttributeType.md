@@ -33,7 +33,7 @@ Enumeration of attribute types
 ### ANNOTATION <a href="#annotation-031796bc0642" id="annotation-031796bc0642"></a>
 
 ```java
-public static final com.tailf.conf.ConfAttributeType ANNOTATION;
+ANNOTATION(0x80000001L, "ANNOTATION");
 ```
 
 CONFD_ATTR_ANNOTATION: value is ConfBuf/C_STR
@@ -41,7 +41,7 @@ CONFD_ATTR_ANNOTATION: value is ConfBuf/C_STR
 ### BACKPOINTER <a href="#backpointer-d19810a6ed25" id="backpointer-d19810a6ed25"></a>
 
 ```java
-public static final com.tailf.conf.ConfAttributeType BACKPOINTER;
+BACKPOINTER(0x80000003L, "BACKPOINTER");
 ```
 
 CONFD_ATTR_BACKPOINTER: value is ConfObjectRef'
@@ -49,7 +49,7 @@ CONFD_ATTR_BACKPOINTER: value is ConfObjectRef'
 ### INACTIVE <a href="#inactive-e05983904557" id="inactive-e05983904557"></a>
 
 ```java
-public static final com.tailf.conf.ConfAttributeType INACTIVE;
+INACTIVE(0x00000000L, "INACTIVE");
 ```
 
 CONFD_ATTR_INACTIVE: value is ConfBool 'true'
@@ -57,7 +57,7 @@ CONFD_ATTR_INACTIVE: value is ConfBool 'true'
 ### ORIGIN <a href="#origin-ba5b8252647b" id="origin-ba5b8252647b"></a>
 
 ```java
-public static final com.tailf.conf.ConfAttributeType ORIGIN;
+ORIGIN(0x80000007L, "ORIGIN");
 ```
 
 CONFD_ATTR_ORIGIN: value is ConfIdentityRef
@@ -65,13 +65,13 @@ CONFD_ATTR_ORIGIN: value is ConfIdentityRef
 ### ORIGINAL_VALUE <a href="#original_value-a4542e5c6326" id="original_value-a4542e5c6326"></a>
 
 ```java
-public static final com.tailf.conf.ConfAttributeType ORIGINAL_VALUE;
+ORIGINAL_VALUE(0x80000005L, "original_value");
 ```
 
 ### OUT_OF_BAND <a href="#out_of_band-9f01185dffb9" id="out_of_band-9f01185dffb9"></a>
 
 ```java
-public static final com.tailf.conf.ConfAttributeType OUT_OF_BAND;
+OUT_OF_BAND(0x80000010L, "OUT_OF_BAND");
 ```
 
 CONFD_ATTR_OUT_OF_BAND: value is ConfObjectRef'
@@ -79,7 +79,7 @@ CONFD_ATTR_OUT_OF_BAND: value is ConfObjectRef'
 ### REFCOUNT <a href="#refcount-a55a58985f6e" id="refcount-a55a58985f6e"></a>
 
 ```java
-public static final com.tailf.conf.ConfAttributeType REFCOUNT;
+REFCOUNT(0x80000002L, "REFCOUNT");
 ```
 
 CONFD_ATTR_REFCOUNT: value is ConfInt32
@@ -87,7 +87,7 @@ CONFD_ATTR_REFCOUNT: value is ConfInt32
 ### TAGS <a href="#tags-827c8f7775e3" id="tags-827c8f7775e3"></a>
 
 ```java
-public static final com.tailf.conf.ConfAttributeType TAGS;
+TAGS(0x80000000L, "TAGS");
 ```
 
 CONFD_ATTR_TAGS: value is ConfList of ConfBuf/C_STR
@@ -95,7 +95,7 @@ CONFD_ATTR_TAGS: value is ConfList of ConfBuf/C_STR
 ### WHEN <a href="#when-330c898295c5" id="when-330c898295c5"></a>
 
 ```java
-public static final com.tailf.conf.ConfAttributeType WHEN;
+WHEN(0x80000004L, "when");
 ```
 
 

@@ -27,7 +27,7 @@ This enum describes the different states a HA node can be in.
 ### NONE <a href="#none-f29411358a7b" id="none-f29411358a7b"></a>
 
 ```java
-public static final com.tailf.ha.HaStateType NONE;
+NONE(1);
 ```
 
 NONE implies that the node is not participating in a HA cluster.
@@ -35,7 +35,7 @@ NONE implies that the node is not participating in a HA cluster.
 ### PRIMARY <a href="#primary-b37cfb8b5165" id="primary-b37cfb8b5165"></a>
 
 ```java
-public static final com.tailf.ha.HaStateType PRIMARY;
+PRIMARY(3);
 ```
 
 PRIMARY implies that the node is primary in a HA cluster.
@@ -43,7 +43,7 @@ PRIMARY implies that the node is primary in a HA cluster.
 ### SECONDARY <a href="#secondary-0ebc1e389638" id="secondary-0ebc1e389638"></a>
 
 ```java
-public static final com.tailf.ha.HaStateType SECONDARY;
+SECONDARY(2);
 ```
 
 SECONDARY implies that the node is secondary in a HA cluster.
@@ -51,7 +51,7 @@ SECONDARY implies that the node is secondary in a HA cluster.
 ### SECONDARY_RELAY <a href="#secondary_relay-30883f2fae5b" id="secondary_relay-30883f2fae5b"></a>
 
 ```java
-public static final com.tailf.ha.HaStateType SECONDARY_RELAY;
+SECONDARY_RELAY(4);
 ```
 
 SECONDARY_RELAY implies that the node is secondary in a HA cluster,

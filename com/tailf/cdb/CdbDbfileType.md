@@ -26,7 +26,7 @@ Database file types specified when initiating compaction
 ### CDB_A_CDB <a href="#cdb_a_cdb-b16407b4afb8" id="cdb_a_cdb-b16407b4afb8"></a>
 
 ```java
-public static final com.tailf.cdb.CdbDbfileType CDB_A_CDB;
+CDB_A_CDB(1);
 ```
 
 cdb file for configuration DB
@@ -34,7 +34,7 @@ cdb file for configuration DB
 ### CDB_O_CDB <a href="#cdb_o_cdb-7744e7292c9e" id="cdb_o_cdb-7744e7292c9e"></a>
 
 ```java
-public static final com.tailf.cdb.CdbDbfileType CDB_O_CDB;
+CDB_O_CDB(2);
 ```
 
 cdb file for operational DB
@@ -42,7 +42,7 @@ cdb file for operational DB
 ### CDB_S_CDB <a href="#cdb_s_cdb-1139e1b3fa0a" id="cdb_s_cdb-1139e1b3fa0a"></a>
 
 ```java
-public static final com.tailf.cdb.CdbDbfileType CDB_S_CDB;
+CDB_S_CDB(3);
 ```
 
 cdb file for snapshot DB

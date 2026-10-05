@@ -30,13 +30,13 @@ Data encryption and decryption helper class for each supported
 ### AES128 <a href="#aes128-b24f34692f5f" id="aes128-b24f34692f5f"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiCryptoType AES128;
+AES128(16, "$8$", Arrays.asList("$4$"), AesEncrypter.class);
 ```
 
 ### AES256 <a href="#aes256-beb44eb342f0" id="aes256-beb44eb342f0"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiCryptoType AES256;
+AES256(16, "$9$", Collections.emptyList(), AesEncrypter.class);
 ```
 
 

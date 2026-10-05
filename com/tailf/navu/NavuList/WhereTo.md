@@ -22,27 +22,11 @@ public static enum com.tailf.navu.NavuList.WhereTo
 
 ### AFTER <a href="#after-cdab80090500" id="after-cdab80090500"></a>
 
-```java
-public static final com.tailf.navu.NavuList.WhereTo AFTER;
-```
-
 ### BEFORE <a href="#before-3329944f9f07" id="before-3329944f9f07"></a>
-
-```java
-public static final com.tailf.navu.NavuList.WhereTo BEFORE;
-```
 
 ### FIRST <a href="#first-8ae2a0220581" id="first-8ae2a0220581"></a>
 
-```java
-public static final com.tailf.navu.NavuList.WhereTo FIRST;
-```
-
 ### LAST <a href="#last-9436e1473da8" id="last-9436e1473da8"></a>
-
-```java
-public static final com.tailf.navu.NavuList.WhereTo LAST;
-```
 
 
 ## Methods

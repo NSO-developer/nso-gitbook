@@ -58,7 +58,7 @@ DB lock type flag for *Cdb Sessions* which controls locking of
 ### LOCK_PARTIAL <a href="#lock_partial-018e4e600871" id="lock_partial-018e4e600871"></a>
 
 ```java
-public static final com.tailf.cdb.CdbLockType LOCK_PARTIAL;
+LOCK_PARTIAL(1 << 3);
 ```
 
 Controls if locks of type LOCK_REQUEST should be partial
@@ -67,7 +67,7 @@ Controls if locks of type LOCK_REQUEST should be partial
 ### LOCK_REQUEST <a href="#lock_request-7644a883c14e" id="lock_request-7644a883c14e"></a>
 
 ```java
-public static final com.tailf.cdb.CdbLockType LOCK_REQUEST;
+LOCK_REQUEST(1 << 2);
 ```
 
 Obtain read lock for each read request
@@ -75,7 +75,7 @@ Obtain read lock for each read request
 ### LOCK_SESSION <a href="#lock_session-306b0dde39ea" id="lock_session-306b0dde39ea"></a>
 
 ```java
-public static final com.tailf.cdb.CdbLockType LOCK_SESSION;
+LOCK_SESSION(1 << 1);
 ```
 
 Obtain read lock for the complete session
@@ -83,7 +83,7 @@ Obtain read lock for the complete session
 ### LOCK_WAIT <a href="#lock_wait-1b85e04cb86b" id="lock_wait-1b85e04cb86b"></a>
 
 ```java
-public static final com.tailf.cdb.CdbLockType LOCK_WAIT;
+LOCK_WAIT(1 << 0);
 ```
 
 Controls in combination with one of LOCK_SESSION or LOCK_REQUEST if the

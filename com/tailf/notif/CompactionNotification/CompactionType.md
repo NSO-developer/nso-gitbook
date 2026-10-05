@@ -21,15 +21,7 @@ public static enum com.tailf.notif.CompactionNotification.CompactionType
 
 ### COMPACTION_AUTOMATIC <a href="#compaction_automatic-10ae9bcb3ccb" id="compaction_automatic-10ae9bcb3ccb"></a>
 
-```java
-public static final com.tailf.notif.CompactionNotification.CompactionType COMPACTION_AUTOMATIC;
-```
-
 ### COMPACTION_MANUAL <a href="#compaction_manual-30ec7b6a78e2" id="compaction_manual-30ec7b6a78e2"></a>
-
-```java
-public static final com.tailf.notif.CompactionNotification.CompactionType COMPACTION_MANUAL;
-```
 
 
 ## Methods

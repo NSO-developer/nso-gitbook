@@ -28,25 +28,25 @@ Enum containing the valid response types for a telemetry notification.
 ### NOTIFICATION <a href="#notification-cfd483f9d35d" id="notification-cfd483f9d35d"></a>
 
 ```java
-public static final com.tailf.ned.TelemetryType NOTIFICATION;
+NOTIFICATION("notification");
 ```
 
 ### PUSH_CHANGE_UPDATE <a href="#push_change_update-a7088e2522cd" id="push_change_update-a7088e2522cd"></a>
 
 ```java
-public static final com.tailf.ned.TelemetryType PUSH_CHANGE_UPDATE;
+PUSH_CHANGE_UPDATE("push-change-update");
 ```
 
 ### PUSH_UPDATE <a href="#push_update-b0dc29bea59e" id="push_update-b0dc29bea59e"></a>
 
 ```java
-public static final com.tailf.ned.TelemetryType PUSH_UPDATE;
+PUSH_UPDATE("push-update");
 ```
 
 ### RAW <a href="#raw-66ddfd0e319a" id="raw-66ddfd0e319a"></a>
 
 ```java
-public static final com.tailf.ned.TelemetryType RAW;
+RAW("raw");
 ```
 
 

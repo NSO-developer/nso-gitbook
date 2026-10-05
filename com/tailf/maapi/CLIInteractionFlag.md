@@ -25,7 +25,7 @@ flags for controlling cmd to CLI via CLIInteraction class
 ### NO_FULLPATH <a href="#no_fullpath-9780bdb87de8" id="no_fullpath-9780bdb87de8"></a>
 
 ```java
-public static final com.tailf.maapi.CLIInteractionFlag NO_FULLPATH;
+NO_FULLPATH(1);
 ```
 
 Do not perform the full path check on show commands.
@@ -33,7 +33,7 @@ Do not perform the full path check on show commands.
 ### NO_HIDDEN <a href="#no_hidden-2e1d61add5d6" id="no_hidden-2e1d61add5d6"></a>
 
 ```java
-public static final com.tailf.maapi.CLIInteractionFlag NO_HIDDEN;
+NO_HIDDEN(2);
 ```
 
 Allows execution of hidden CLI commands.

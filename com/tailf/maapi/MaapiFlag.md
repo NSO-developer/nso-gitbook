@@ -30,7 +30,7 @@ Flags used by `Maapi#setFlags(int,EnumSet)` method to control
 ### CONFIG_ONLY <a href="#config_only-c29f84f4db03" id="config_only-c29f84f4db03"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiFlag CONFIG_ONLY;
+CONFIG_ONLY((1 << 2));
 ```
 
 This flag will make the `Maapi.getXxx()` method return
@@ -47,7 +47,7 @@ This flag will make the `Maapi.getXxx()` method return
 ### DELAYED_WHEN <a href="#delayed_when-6f2d6f397786" id="delayed_when-6f2d6f397786"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiFlag DELAYED_WHEN;
+DELAYED_WHEN((1 << 6));
 ```
 
 This flag only takes effect when used in
@@ -62,7 +62,7 @@ This flag only takes effect when used in
 ### HIDE_ALL_HIDEGROUPS <a href="#hide_all_hidegroups-27fac18f1f9d" id="hide_all_hidegroups-27fac18f1f9d"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiFlag HIDE_ALL_HIDEGROUPS;
+HIDE_ALL_HIDEGROUPS((1 << 8));
 ```
 
 This flag only takes effect when used in
@@ -76,7 +76,7 @@ This flag only takes effect when used in
 ### HIDE_INACTIVE <a href="#hide_inactive-c1ab6b970578" id="hide_inactive-c1ab6b970578"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiFlag HIDE_INACTIVE;
+HIDE_INACTIVE((1 << 3));
 ```
 
 This flag only takes effect when used in
@@ -90,7 +90,7 @@ This flag only takes effect when used in
 ### HINT_BULK <a href="#hint_bulk-2513a5e315c2" id="hint_bulk-2513a5e315c2"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiFlag HINT_BULK;
+HINT_BULK((1 << 0));
 ```
 
 This flag tells the server that we will be reading substantial amounts
@@ -111,7 +111,7 @@ This flag tells the server that we will be reading substantial amounts
 ### NO_DEFAULTS <a href="#no_defaults-60bc0f0feb09" id="no_defaults-60bc0f0feb09"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiFlag NO_DEFAULTS;
+NO_DEFAULTS((1 << 1));
 ```
 
 This flag specifies that we want to be informed when we read leafs with
@@ -125,7 +125,7 @@ This flag specifies that we want to be informed when we read leafs with
 ### SKIP_SUBSCRIBERS <a href="#skip_subscribers-b6bf396f1398" id="skip_subscribers-b6bf396f1398"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiFlag SKIP_SUBSCRIBERS;
+SKIP_SUBSCRIBERS((1 << 9));
 ```
 
 This flag only takes effect when used in

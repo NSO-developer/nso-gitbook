@@ -21,21 +21,9 @@ public static enum com.tailf.ncs.maapi.Schema.Cs.Keys.Which
 
 ### _NOT_IN_SCHEMA <a href="#_not_in_schema-515ed8bae617" id="_not_in_schema-515ed8bae617"></a>
 
-```java
-public static final com.tailf.ncs.maapi.Schema.Cs.Keys.Which _NOT_IN_SCHEMA;
-```
-
 ### LIST <a href="#list-2576ea1fe9a9" id="list-2576ea1fe9a9"></a>
 
-```java
-public static final com.tailf.ncs.maapi.Schema.Cs.Keys.Which LIST;
-```
-
 ### NONE <a href="#none-f29411358a7b" id="none-f29411358a7b"></a>
-
-```java
-public static final com.tailf.ncs.maapi.Schema.Cs.Keys.Which NONE;
-```
 
 
 ## Methods

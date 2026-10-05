@@ -24,17 +24,9 @@ Indicates the mode of Transaction ID supported by the NED.
 
 ### NONE <a href="#none-f29411358a7b" id="none-f29411358a7b"></a>
 
-```java
-public static final com.tailf.ned.NedWorker.TransactionIdMode NONE;
-```
-
 Transaction ID is not supported
 
 ### UNIQUE_STRING <a href="#unique_string-f175645841dd" id="unique_string-f175645841dd"></a>
-
-```java
-public static final com.tailf.ned.NedWorker.TransactionIdMode UNIQUE_STRING;
-```
 
 Transaction ID should be a String
  uniquely identifying each transaction

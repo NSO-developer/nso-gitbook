@@ -24,19 +24,19 @@ public static enum com.tailf.maapi.CommitParams.NoOverwriteScope
 ### WRITE_AND_FULL_READ_SET <a href="#write_and_full_read_set-4e55e1aabb9e" id="write_and_full_read_set-4e55e1aabb9e"></a>
 
 ```java
-public static final com.tailf.maapi.CommitParams.NoOverwriteScope WRITE_AND_FULL_READ_SET;
+WRITE_AND_FULL_READ_SET(getOnErrorFieldVal("_write_and_full_read_set", ncpCls));
 ```
 
 ### WRITE_AND_SERVICE_READ_SET <a href="#write_and_service_read_set-ada5614bc022" id="write_and_service_read_set-ada5614bc022"></a>
 
 ```java
-public static final com.tailf.maapi.CommitParams.NoOverwriteScope WRITE_AND_SERVICE_READ_SET;
+WRITE_AND_SERVICE_READ_SET(getOnErrorFieldVal("_write_and_service_read_set", ncpCls));
 ```
 
 ### WRITE_SET_ONLY <a href="#write_set_only-f5c0a407f737" id="write_set_only-f5c0a407f737"></a>
 
 ```java
-public static final com.tailf.maapi.CommitParams.NoOverwriteScope WRITE_SET_ONLY;
+WRITE_SET_ONLY(getOnErrorFieldVal("_write_set_only", ncpCls));
 ```
 
 

@@ -26,25 +26,25 @@ public static enum com.tailf.maapi.CommitParams.DryRunOutformat
 ### CLI <a href="#cli-0d593b2cecc2" id="cli-0d593b2cecc2"></a>
 
 ```java
-public static final com.tailf.maapi.CommitParams.DryRunOutformat CLI;
+CLI(getOnErrorFieldVal("_outformat_cli"));
 ```
 
 ### CLI_C <a href="#cli_c-c2e13684a7a3" id="cli_c-c2e13684a7a3"></a>
 
 ```java
-public static final com.tailf.maapi.CommitParams.DryRunOutformat CLI_C;
+CLI_C(getOnErrorFieldVal("_outformat_cli_c"));
 ```
 
 ### NATIVE <a href="#native-18aeb3ecd16f" id="native-18aeb3ecd16f"></a>
 
 ```java
-public static final com.tailf.maapi.CommitParams.DryRunOutformat NATIVE;
+NATIVE(getOnErrorFieldVal("_outformat_native"));
 ```
 
 ### XML <a href="#xml-b65914d05936" id="xml-b65914d05936"></a>
 
 ```java
-public static final com.tailf.maapi.CommitParams.DryRunOutformat XML;
+XML(getOnErrorFieldVal("_outformat_xml"));
 ```
 
 

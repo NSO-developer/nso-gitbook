@@ -23,7 +23,7 @@ Enumeration of Event callback methods
 ### NOTIF_RECEIVED <a href="#notif_received-c74c9d30176e" id="notif_received-c74c9d30176e"></a>
 
 ```java
-public static final com.tailf.ncs.proto.EventCBType NOTIF_RECEIVED;
+NOTIF_RECEIVED(1);
 ```
 
 

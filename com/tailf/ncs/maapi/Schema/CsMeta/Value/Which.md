@@ -21,21 +21,9 @@ public static enum com.tailf.ncs.maapi.Schema.CsMeta.Value.Which
 
 ### _NOT_IN_SCHEMA <a href="#_not_in_schema-515ed8bae617" id="_not_in_schema-515ed8bae617"></a>
 
-```java
-public static final com.tailf.ncs.maapi.Schema.CsMeta.Value.Which _NOT_IN_SCHEMA;
-```
-
 ### NONE <a href="#none-f29411358a7b" id="none-f29411358a7b"></a>
 
-```java
-public static final com.tailf.ncs.maapi.Schema.CsMeta.Value.Which NONE;
-```
-
 ### TEXT <a href="#text-57b1ebf5da61" id="text-57b1ebf5da61"></a>
-
-```java
-public static final com.tailf.ncs.maapi.Schema.CsMeta.Value.Which TEXT;
-```
 
 
 ## Methods

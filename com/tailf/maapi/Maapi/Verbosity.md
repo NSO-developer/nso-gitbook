@@ -26,19 +26,11 @@ To be used in:
 
 ### DEBUG <a href="#debug-51c942f8d798" id="debug-51c942f8d798"></a>
 
-```java
-public static final com.tailf.maapi.Maapi.Verbosity DEBUG;
-```
-
 The highest verbosity level. Designates fine-grained informational
  messages usable for debugging the application and its internal
  operations.
 
 ### NORMAL <a href="#normal-b34e6bc0c9ca" id="normal-b34e6bc0c9ca"></a>
-
-```java
-public static final com.tailf.maapi.Maapi.Verbosity NORMAL;
-```
 
 Designates informational messages that highlight the progress
  of the application at coarse-granined level. Used mainly to
@@ -47,17 +39,9 @@ Designates informational messages that highlight the progress
 
 ### VERBOSE <a href="#verbose-cb0b793dd2e1" id="verbose-cb0b793dd2e1"></a>
 
-```java
-public static final com.tailf.maapi.Maapi.Verbosity VERBOSE;
-```
-
 Designates detailed informational messages from the application.
 
 ### VERY_VERBOSE <a href="#very_verbose-cb7e3570f916" id="very_verbose-cb7e3570f916"></a>
-
-```java
-public static final com.tailf.maapi.Maapi.Verbosity VERY_VERBOSE;
-```
 
 Designates very detailed informational messages from the application
  and its internal operations.

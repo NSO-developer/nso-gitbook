@@ -24,39 +24,15 @@ public static enum com.tailf.ncs.maapi.Schema.Cmp
 
 ### _NOT_IN_SCHEMA <a href="#_not_in_schema-515ed8bae617" id="_not_in_schema-515ed8bae617"></a>
 
-```java
-public static final com.tailf.ncs.maapi.Schema.Cmp _NOT_IN_SCHEMA;
-```
-
 ### NORMAL <a href="#normal-b34e6bc0c9ca" id="normal-b34e6bc0c9ca"></a>
-
-```java
-public static final com.tailf.ncs.maapi.Schema.Cmp NORMAL;
-```
 
 ### SNMP <a href="#snmp-c46f3da06bc1" id="snmp-c46f3da06bc1"></a>
 
-```java
-public static final com.tailf.ncs.maapi.Schema.Cmp SNMP;
-```
-
 ### SNMP_IMPLIED <a href="#snmp_implied-496bde2aaf61" id="snmp_implied-496bde2aaf61"></a>
-
-```java
-public static final com.tailf.ncs.maapi.Schema.Cmp SNMP_IMPLIED;
-```
 
 ### UNSORTED <a href="#unsorted-7e5264f4686e" id="unsorted-7e5264f4686e"></a>
 
-```java
-public static final com.tailf.ncs.maapi.Schema.Cmp UNSORTED;
-```
-
 ### USER <a href="#user-6f2b7f80e5c5" id="user-6f2b7f80e5c5"></a>
-
-```java
-public static final com.tailf.ncs.maapi.Schema.Cmp USER;
-```
 
 
 ## Methods

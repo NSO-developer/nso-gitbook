@@ -30,61 +30,61 @@ protected static enum com.tailf.navu.NavuNodeInfo.NavuNodeType
 ### CS_NODE_IS_ACTION <a href="#cs_node_is_action-3107f62fdc87" id="cs_node_is_action-3107f62fdc87"></a>
 
 ```java
-public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_ACTION;
+CS_NODE_IS_ACTION(1 << 3);
 ```
 
 ### CS_NODE_IS_CASE <a href="#cs_node_is_case-6e5ef2b25aa6" id="cs_node_is_case-6e5ef2b25aa6"></a>
 
 ```java
-public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_CASE;
+CS_NODE_IS_CASE(1 << 7);
 ```
 
 ### CS_NODE_IS_CDB <a href="#cs_node_is_cdb-f0d0e75e76fd" id="cs_node_is_cdb-f0d0e75e76fd"></a>
 
 ```java
-public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_CDB;
+CS_NODE_IS_CDB(1 << 2);
 ```
 
 ### CS_NODE_IS_CONTAINER <a href="#cs_node_is_container-40402b656490" id="cs_node_is_container-40402b656490"></a>
 
 ```java
-public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_CONTAINER;
+CS_NODE_IS_CONTAINER(1 << 8);
 ```
 
 ### CS_NODE_IS_LIST <a href="#cs_node_is_list-1cd0e7e67223" id="cs_node_is_list-1cd0e7e67223"></a>
 
 ```java
-public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_LIST;
+CS_NODE_IS_LIST(1 << 0);
 ```
 
 ### CS_NODE_IS_NOTIF <a href="#cs_node_is_notif-7d1c1ba1de3c" id="cs_node_is_notif-7d1c1ba1de3c"></a>
 
 ```java
-public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_NOTIF;
+CS_NODE_IS_NOTIF(1 << 6);
 ```
 
 ### CS_NODE_IS_PARAM <a href="#cs_node_is_param-b51a4d7d5766" id="cs_node_is_param-b51a4d7d5766"></a>
 
 ```java
-public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_PARAM;
+CS_NODE_IS_PARAM(1 << 4);
 ```
 
 ### CS_NODE_IS_RESULT <a href="#cs_node_is_result-d1516b1dc1b1" id="cs_node_is_result-d1516b1dc1b1"></a>
 
 ```java
-public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_RESULT;
+CS_NODE_IS_RESULT(1 << 5);
 ```
 
 ### CS_NODE_IS_WRITE <a href="#cs_node_is_write-1cbe36076711" id="cs_node_is_write-1cbe36076711"></a>
 
 ```java
-public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_WRITE;
+CS_NODE_IS_WRITE(1 << 1);
 ```
 
 ### CS_NODE_IS_WRITE_ALL <a href="#cs_node_is_write_all-8b0efda2263d" id="cs_node_is_write_all-8b0efda2263d"></a>
 
 ```java
-public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_WRITE_ALL;
+CS_NODE_IS_WRITE_ALL(1 << 12);
 ```
 
 

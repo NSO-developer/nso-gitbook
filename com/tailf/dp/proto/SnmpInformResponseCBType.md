@@ -26,13 +26,13 @@ Enumeration of SnmpInformResponse callback methods
 ### RESULT <a href="#result-8f9cf1e83480" id="result-8f9cf1e83480"></a>
 
 ```java
-public static final com.tailf.dp.proto.SnmpInformResponseCBType RESULT;
+RESULT(DpProto.MASK_NOTIF_SNMP_INFORM_RESULT);
 ```
 
 ### TARGETS <a href="#targets-27a51bb6da73" id="targets-27a51bb6da73"></a>
 
 ```java
-public static final com.tailf.dp.proto.SnmpInformResponseCBType TARGETS;
+TARGETS(DpProto.MASK_NOTIF_SNMP_INFORM_TARGETS);
 ```
 
 

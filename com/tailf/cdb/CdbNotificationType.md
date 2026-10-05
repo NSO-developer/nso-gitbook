@@ -28,7 +28,7 @@ Subscription notification type retrieved from getLatestNotificationType()
 ### SUB_ABORT <a href="#sub_abort-ac91cee66b28" id="sub_abort-ac91cee66b28"></a>
 
 ```java
-public static final com.tailf.cdb.CdbNotificationType SUB_ABORT;
+SUB_ABORT(3);
 ```
 
 Notification on aborted transaction
@@ -36,7 +36,7 @@ Notification on aborted transaction
 ### SUB_COMMIT <a href="#sub_commit-633bd95c1d87" id="sub_commit-633bd95c1d87"></a>
 
 ```java
-public static final com.tailf.cdb.CdbNotificationType SUB_COMMIT;
+SUB_COMMIT(2);
 ```
 
 Notification on transaction in commit state
@@ -44,7 +44,7 @@ Notification on transaction in commit state
 ### SUB_OPER <a href="#sub_oper-f2b8e63685f1" id="sub_oper-f2b8e63685f1"></a>
 
 ```java
-public static final com.tailf.cdb.CdbNotificationType SUB_OPER;
+SUB_OPER(4);
 ```
 
 Notification
@@ -52,7 +52,7 @@ Notification
 ### SUB_PREPARE <a href="#sub_prepare-1762334ebd19" id="sub_prepare-1762334ebd19"></a>
 
 ```java
-public static final com.tailf.cdb.CdbNotificationType SUB_PREPARE;
+SUB_PREPARE(1);
 ```
 
 Notification on transaction in prepare state

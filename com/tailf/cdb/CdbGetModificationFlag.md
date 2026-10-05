@@ -28,43 +28,43 @@ public enum com.tailf.cdb.CdbGetModificationFlag
 ### CDB_GET_MODS_CLI_NO_BACKQUOTES <a href="#cdb_get_mods_cli_no_backquotes-f77ecdcb82aa" id="cdb_get_mods_cli_no_backquotes-f77ecdcb82aa"></a>
 
 ```java
-public static final com.tailf.cdb.CdbGetModificationFlag CDB_GET_MODS_CLI_NO_BACKQUOTES;
+CDB_GET_MODS_CLI_NO_BACKQUOTES(1 << 3);
 ```
 
 ### CDB_GET_MODS_CLI_SUPPRESS_QUOTING <a href="#cdb_get_mods_cli_suppress_quoting-2e253ea6db62" id="cdb_get_mods_cli_suppress_quoting-2e253ea6db62"></a>
 
 ```java
-public static final com.tailf.cdb.CdbGetModificationFlag CDB_GET_MODS_CLI_SUPPRESS_QUOTING;
+CDB_GET_MODS_CLI_SUPPRESS_QUOTING(1 << 6);
 ```
 
 ### CDB_GET_MODS_INCLUDE_LISTS <a href="#cdb_get_mods_include_lists-0911f0c4b5f1" id="cdb_get_mods_include_lists-0911f0c4b5f1"></a>
 
 ```java
-public static final com.tailf.cdb.CdbGetModificationFlag CDB_GET_MODS_INCLUDE_LISTS;
+CDB_GET_MODS_INCLUDE_LISTS(1 << 0);
 ```
 
 ### CDB_GET_MODS_INCLUDE_MOVES <a href="#cdb_get_mods_include_moves-02241f608c8e" id="cdb_get_mods_include_moves-02241f608c8e"></a>
 
 ```java
-public static final com.tailf.cdb.CdbGetModificationFlag CDB_GET_MODS_INCLUDE_MOVES;
+CDB_GET_MODS_INCLUDE_MOVES(1 << 4);
 ```
 
 ### CDB_GET_MODS_REVERSE <a href="#cdb_get_mods_reverse-ad28ccaadd8f" id="cdb_get_mods_reverse-ad28ccaadd8f"></a>
 
 ```java
-public static final com.tailf.cdb.CdbGetModificationFlag CDB_GET_MODS_REVERSE;
+CDB_GET_MODS_REVERSE(1 << 1);
 ```
 
 ### CDB_GET_MODS_SUPPRESS_DEFAULTS <a href="#cdb_get_mods_suppress_defaults-da168d5178bc" id="cdb_get_mods_suppress_defaults-da168d5178bc"></a>
 
 ```java
-public static final com.tailf.cdb.CdbGetModificationFlag CDB_GET_MODS_SUPPRESS_DEFAULTS;
+CDB_GET_MODS_SUPPRESS_DEFAULTS(1 << 2);
 ```
 
 ### CDB_GET_MODS_WANT_ANCESTOR_DELETE <a href="#cdb_get_mods_want_ancestor_delete-01b2af02cfb1" id="cdb_get_mods_want_ancestor_delete-01b2af02cfb1"></a>
 
 ```java
-public static final com.tailf.cdb.CdbGetModificationFlag CDB_GET_MODS_WANT_ANCESTOR_DELETE;
+CDB_GET_MODS_WANT_ANCESTOR_DELETE(1 << 5);
 ```
 
 

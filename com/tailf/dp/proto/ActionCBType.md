@@ -29,7 +29,7 @@ Enumeration of Action callback methods
 ### ABORT <a href="#abort-7ca9e5aa43c8" id="abort-7ca9e5aa43c8"></a>
 
 ```java
-public static final com.tailf.dp.proto.ActionCBType ABORT;
+ABORT(DpProto.MASK_ACT_ABORT);
 ```
 
 Abort callback type for user-initiated action termination.
@@ -37,7 +37,7 @@ Abort callback type for user-initiated action termination.
 ### ACTION <a href="#action-c6b3ffa6be67" id="action-c6b3ffa6be67"></a>
 
 ```java
-public static final com.tailf.dp.proto.ActionCBType ACTION;
+ACTION(DpProto.MASK_ACT_ACTION);
 ```
 
 Main action callback type for YANG action execution.
@@ -45,7 +45,7 @@ Main action callback type for YANG action execution.
 ### COMMAND <a href="#command-b0176ed668be" id="command-b0176ed668be"></a>
 
 ```java
-public static final com.tailf.dp.proto.ActionCBType COMMAND;
+COMMAND(DpProto.MASK_ACT_COMMAND);
 ```
 
 Command callback type for CLI command execution.
@@ -53,7 +53,7 @@ Command callback type for CLI command execution.
 ### COMPLETION <a href="#completion-5e04d27371ea" id="completion-5e04d27371ea"></a>
 
 ```java
-public static final com.tailf.dp.proto.ActionCBType COMPLETION;
+COMPLETION(DpProto.MASK_ACT_COMPLETION);
 ```
 
 Completion callback type for CLI auto-completion and help.
@@ -61,7 +61,7 @@ Completion callback type for CLI auto-completion and help.
 ### INIT <a href="#init-5407b9c86a37" id="init-5407b9c86a37"></a>
 
 ```java
-public static final com.tailf.dp.proto.ActionCBType INIT;
+INIT(DpProto.MASK_ACT_INIT);
 ```
 
 Initialization callback type for action callbacks.

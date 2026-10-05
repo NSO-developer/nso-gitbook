@@ -56,7 +56,7 @@ Enum describing the different notification types available.
 ### NOTIF_AUDIT <a href="#notif_audit-6f0218ecc8bf" id="notif_audit-6f0218ecc8bf"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_AUDIT;
+NOTIF_AUDIT(1L << 0);
 ```
 
 Flag in eventmask requests ConfD to send audit log events.
@@ -64,7 +64,7 @@ Flag in eventmask requests ConfD to send audit log events.
 ### NOTIF_AUDIT_NETWORK <a href="#notif_audit_network-ca4c25b853f0" id="notif_audit_network-ca4c25b853f0"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_AUDIT_NETWORK;
+NOTIF_AUDIT_NETWORK(1L << 28);
 ```
 
 Flag in eventmask requests NCS to send audit network events
@@ -72,7 +72,7 @@ Flag in eventmask requests NCS to send audit network events
 ### NOTIF_AUDIT_NETWORK_SYNC <a href="#notif_audit_network_sync-0ea10c1c0b1b" id="notif_audit_network_sync-0ea10c1c0b1b"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_AUDIT_NETWORK_SYNC;
+NOTIF_AUDIT_NETWORK_SYNC(1L << 29);
 ```
 
 Flag in eventmask which is used in combination with the
@@ -84,7 +84,7 @@ Flag in eventmask which is used in combination with the
 ### NOTIF_AUDIT_SYNC <a href="#notif_audit_sync-17bfefc0883b" id="notif_audit_sync-17bfefc0883b"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_AUDIT_SYNC;
+NOTIF_AUDIT_SYNC(1L << 17);
 ```
 
 Flag in eventmask which is used in combination with the
@@ -96,7 +96,7 @@ Flag in eventmask which is used in combination with the
 ### NOTIF_CALL_HOME_INFO <a href="#notif_call_home_info-23574ca1ae62" id="notif_call_home_info-23574ca1ae62"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_CALL_HOME_INFO;
+NOTIF_CALL_HOME_INFO(1L << 25);
 ```
 
 Flag in eventmask requests NCS to send events for NETCONF Call Home
@@ -105,7 +105,7 @@ Flag in eventmask requests NCS to send events for NETCONF Call Home
 ### NOTIF_COMMIT_DIFF <a href="#notif_commit_diff-6c2f08680904" id="notif_commit_diff-6c2f08680904"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_COMMIT_DIFF;
+NOTIF_COMMIT_DIFF(1L << 4);
 ```
 
 Flag in eventmask requests ConfD to send commit diff events.
@@ -113,7 +113,7 @@ Flag in eventmask requests ConfD to send commit diff events.
 ### NOTIF_COMMIT_FAILED <a href="#notif_commit_failed-912625bd5699" id="notif_commit_failed-912625bd5699"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_COMMIT_FAILED;
+NOTIF_COMMIT_FAILED(1L << 8);
 ```
 
 Flag in eventmask requests ConfD to send commit failed events.
@@ -121,7 +121,7 @@ Flag in eventmask requests ConfD to send commit failed events.
 ### NOTIF_COMMIT_PROGRESS <a href="#notif_commit_progress-333a6e755b44" id="notif_commit_progress-333a6e755b44"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_COMMIT_PROGRESS;
+NOTIF_COMMIT_PROGRESS(1L << 16);
 ```
 
 Flag in eventmask requests ConfD to send commit progress events.
@@ -129,7 +129,7 @@ Flag in eventmask requests ConfD to send commit progress events.
 ### NOTIF_COMMIT_SIMPLE <a href="#notif_commit_simple-77385244eeaf" id="notif_commit_simple-77385244eeaf"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_COMMIT_SIMPLE;
+NOTIF_COMMIT_SIMPLE(1L << 3);
 ```
 
 Flag in eventmask requests ConfD to send commit events.
@@ -137,7 +137,7 @@ Flag in eventmask requests ConfD to send commit events.
 ### NOTIF_COMPACTION <a href="#notif_compaction-3c759579b08c" id="notif_compaction-3c759579b08c"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_COMPACTION;
+NOTIF_COMPACTION(1L << 30);
 ```
 
 Flag in eventmask requests NCS to send compaction events
@@ -145,7 +145,7 @@ Flag in eventmask requests NCS to send compaction events
 ### NOTIF_CONFIRMED_COMMIT <a href="#notif_confirmed_commit-160051a03cfb" id="notif_confirmed_commit-160051a03cfb"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_CONFIRMED_COMMIT;
+NOTIF_CONFIRMED_COMMIT(1L << 14);
 ```
 
 Flag in eventmask requests ConfD to send confirmed commit events.
@@ -153,7 +153,7 @@ Flag in eventmask requests ConfD to send confirmed commit events.
 ### NOTIF_CQ_PROGRESS <a href="#notif_cq_progress-426acfb71dd0" id="notif_cq_progress-426acfb71dd0"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_CQ_PROGRESS;
+NOTIF_CQ_PROGRESS(1L << 22);
 ```
 
 Flag in eventmask requests NCS to send event for the ncs commit queue
@@ -163,7 +163,7 @@ Flag in eventmask requests NCS to send event for the ncs commit queue
 ### NOTIF_DAEMON <a href="#notif_daemon-303df64b33ae" id="notif_daemon-303df64b33ae"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_DAEMON;
+NOTIF_DAEMON(1 << 1);
 ```
 
 Flag in eventmask requests ConfD to send syslog events.
@@ -171,7 +171,7 @@ Flag in eventmask requests ConfD to send syslog events.
 ### NOTIF_DEVEL <a href="#notif_devel-a219d7049a8d" id="notif_devel-a219d7049a8d"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_DEVEL;
+NOTIF_DEVEL(1L << 12);
 ```
 
 Flag in eventmask requests ConfD to send devel events.
@@ -179,7 +179,7 @@ Flag in eventmask requests ConfD to send devel events.
 ### NOTIF_FORWARD_INFO <a href="#notif_forward_info-a10cdcdae573" id="notif_forward_info-a10cdcdae573"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_FORWARD_INFO;
+NOTIF_FORWARD_INFO(1L << 10);
 ```
 
 Flag in eventmask requests ConfD to send forward info events.
@@ -187,7 +187,7 @@ Flag in eventmask requests ConfD to send forward info events.
 ### NOTIF_HA_INFO <a href="#notif_ha_info-9b20b0deabc8" id="notif_ha_info-9b20b0deabc8"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_HA_INFO;
+NOTIF_HA_INFO(1L << 6);
 ```
 
 Flag in eventmask requests ConfD to send HA (high availability) info
@@ -196,7 +196,7 @@ Flag in eventmask requests ConfD to send HA (high availability) info
 ### NOTIF_HA_INFO_SYNC <a href="#notif_ha_info_sync-11c7d32ea4f1" id="notif_ha_info_sync-11c7d32ea4f1"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_HA_INFO_SYNC;
+NOTIF_HA_INFO_SYNC(1L << 20);
 ```
 
 Flag in eventmask requests ConfD events related to changes of the
@@ -205,7 +205,7 @@ Flag in eventmask requests ConfD events related to changes of the
 ### NOTIF_HEALTH_CHECK <a href="#notif_health_check-16b040e322ff" id="notif_health_check-16b040e322ff"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_HEALTH_CHECK;
+NOTIF_HEALTH_CHECK(1L << 18);
 ```
 
 Flag in eventmask requests ConfD to send health check events.
@@ -213,7 +213,7 @@ Flag in eventmask requests ConfD to send health check events.
 ### NOTIF_HEARTBEAT <a href="#notif_heartbeat-a901d424d5e9" id="notif_heartbeat-a901d424d5e9"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_HEARTBEAT;
+NOTIF_HEARTBEAT(1L << 13);
 ```
 
 Flag in eventmask requests ConfD to send heartbeat events.
@@ -221,7 +221,7 @@ Flag in eventmask requests ConfD to send heartbeat events.
 ### NOTIF_JSONRPC <a href="#notif_jsonrpc-4be7873f995c" id="notif_jsonrpc-4be7873f995c"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_JSONRPC;
+NOTIF_JSONRPC(1L << 26);
 ```
 
 Flag in eventmask requests ConfD to send jsonrpc events.
@@ -229,7 +229,7 @@ Flag in eventmask requests ConfD to send jsonrpc events.
 ### NOTIF_NETCONF <a href="#notif_netconf-81b47b039ce6" id="notif_netconf-81b47b039ce6"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_NETCONF;
+NOTIF_NETCONF(1L << 11);
 ```
 
 Flag in eventmask requests ConfD to send netconf events.
@@ -237,7 +237,7 @@ Flag in eventmask requests ConfD to send netconf events.
 ### NOTIF_PACKAGE_RELOAD <a href="#notif_package_reload-4fb5bbfdf8b6" id="notif_package_reload-4fb5bbfdf8b6"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_PACKAGE_RELOAD;
+NOTIF_PACKAGE_RELOAD(1L << 21);
 ```
 
 Flag in eventmask requests NCS to send event when a package
@@ -246,7 +246,7 @@ Flag in eventmask requests NCS to send event when a package
 ### NOTIF_PROGRESS <a href="#notif_progress-824025559a0d" id="notif_progress-824025559a0d"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_PROGRESS;
+NOTIF_PROGRESS(1L << 24);
 ```
 
 Flag in eventmask requests ConfD to send progress events of
@@ -255,7 +255,7 @@ Flag in eventmask requests ConfD to send progress events of
 ### NOTIF_REOPEN_LOGS <a href="#notif_reopen_logs-95839edbabbb" id="notif_reopen_logs-95839edbabbb"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_REOPEN_LOGS;
+NOTIF_REOPEN_LOGS(1L << 23);
 ```
 
 Flag in eventmask requests ConfD/NCS to send an event when it will
@@ -264,7 +264,7 @@ Flag in eventmask requests ConfD/NCS to send an event when it will
 ### NOTIF_RESTCONF <a href="#notif_restconf-acb8462af7cf" id="notif_restconf-acb8462af7cf"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_RESTCONF;
+NOTIF_RESTCONF(1L << 32);
 ```
 
 Flag in eventmask requests ConfD to send RESTCONF log events
@@ -272,7 +272,7 @@ Flag in eventmask requests ConfD to send RESTCONF log events
 ### NOTIF_SNMPA <a href="#notif_snmpa-064b11a46034" id="notif_snmpa-064b11a46034"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_SNMPA;
+NOTIF_SNMPA(1L << 9);
 ```
 
 Flag in eventmask requests ConfD to send snmpa events.
@@ -280,7 +280,7 @@ Flag in eventmask requests ConfD to send snmpa events.
 ### NOTIF_STREAM_EVENT <a href="#notif_stream_event-32431368050e" id="notif_stream_event-32431368050e"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_STREAM_EVENT;
+NOTIF_STREAM_EVENT(1L << 19);
 ```
 
 Flag in eventmask requests ConfD to send event
@@ -289,7 +289,7 @@ Flag in eventmask requests ConfD to send event
 ### NOTIF_SUBAGENT_INFO <a href="#notif_subagent_info-17dacb38b7c2" id="notif_subagent_info-17dacb38b7c2"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_SUBAGENT_INFO;
+NOTIF_SUBAGENT_INFO(1L << 7);
 ```
 
 Flag in eventmask requests ConfD to send subagent info events.
@@ -297,7 +297,7 @@ Flag in eventmask requests ConfD to send subagent info events.
 ### NOTIF_SYSTEM_GOING_DOWN <a href="#notif_system_going_down-6a8f118871f8" id="notif_system_going_down-6a8f118871f8"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_SYSTEM_GOING_DOWN;
+NOTIF_SYSTEM_GOING_DOWN(1L << 31);
 ```
 
 Flag in eventmask requests ConfD to send system going down events
@@ -305,7 +305,7 @@ Flag in eventmask requests ConfD to send system going down events
 ### NOTIF_TAKEOVER_SYSLOG <a href="#notif_takeover_syslog-02a246c5f2ea" id="notif_takeover_syslog-02a246c5f2ea"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_TAKEOVER_SYSLOG;
+NOTIF_TAKEOVER_SYSLOG(1L << 2);
 ```
 
 Flag in eventmask requests ConfD to send syslog takeover events.
@@ -313,7 +313,7 @@ Flag in eventmask requests ConfD to send syslog takeover events.
 ### NOTIF_UPGRADE_EVENT <a href="#notif_upgrade_event-1aad3a285721" id="notif_upgrade_event-1aad3a285721"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_UPGRADE_EVENT;
+NOTIF_UPGRADE_EVENT(1L << 15);
 ```
 
 Flag in eventmask requests ConfD to send upgrade info events.
@@ -321,7 +321,7 @@ Flag in eventmask requests ConfD to send upgrade info events.
 ### NOTIF_USER_SESSION <a href="#notif_user_session-425b13eae42a" id="notif_user_session-425b13eae42a"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_USER_SESSION;
+NOTIF_USER_SESSION(1L << 5);
 ```
 
 Flag in eventmask requests ConfD to send user session events.
@@ -329,7 +329,7 @@ Flag in eventmask requests ConfD to send user session events.
 ### NOTIF_WEBUI <a href="#notif_webui-ad3e3f6d8a19" id="notif_webui-ad3e3f6d8a19"></a>
 
 ```java
-public static final com.tailf.notif.NotificationType NOTIF_WEBUI;
+NOTIF_WEBUI(1L << 27);
 ```
 
 Flag in eventmask requests ConfD to send webui events.

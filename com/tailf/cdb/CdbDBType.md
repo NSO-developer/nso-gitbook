@@ -26,7 +26,7 @@ Database types specified when setting up CDB sessions
 ### CDB_OPERATIONAL <a href="#cdb_operational-502b916801c6" id="cdb_operational-502b916801c6"></a>
 
 ```java
-public static final com.tailf.cdb.CdbDBType CDB_OPERATIONAL;
+CDB_OPERATIONAL(3);
 ```
 
 create a read/write session towards the operational db
@@ -34,7 +34,7 @@ create a read/write session towards the operational db
 ### CDB_PRE_COMMIT_RUNNING <a href="#cdb_pre_commit_running-68ec740136a8" id="cdb_pre_commit_running-68ec740136a8"></a>
 
 ```java
-public static final com.tailf.cdb.CdbDBType CDB_PRE_COMMIT_RUNNING;
+CDB_PRE_COMMIT_RUNNING(4);
 ```
 
 create a read session toward the running database as it was before the
@@ -45,7 +45,7 @@ create a read session toward the running database as it was before the
 ### CDB_RUNNING <a href="#cdb_running-a1f43295f116" id="cdb_running-a1f43295f116"></a>
 
 ```java
-public static final com.tailf.cdb.CdbDBType CDB_RUNNING;
+CDB_RUNNING(1);
 ```
 
 create a session towards the running db
@@ -53,7 +53,7 @@ create a session towards the running db
 ### CDB_STARTUP <a href="#cdb_startup-4e1e423a32bb" id="cdb_startup-4e1e423a32bb"></a>
 
 ```java
-public static final com.tailf.cdb.CdbDBType CDB_STARTUP;
+CDB_STARTUP(2);
 ```
 
 create a session towards the startup db

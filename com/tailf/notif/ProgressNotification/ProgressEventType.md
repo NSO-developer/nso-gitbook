@@ -24,21 +24,9 @@ Progress event type.
 
 ### INFO <a href="#info-accb88f562cb" id="info-accb88f562cb"></a>
 
-```java
-public static final com.tailf.notif.ProgressNotification.ProgressEventType INFO;
-```
-
 ### START <a href="#start-759667c28821" id="start-759667c28821"></a>
 
-```java
-public static final com.tailf.notif.ProgressNotification.ProgressEventType START;
-```
-
 ### STOP <a href="#stop-0113fde09d86" id="stop-0113fde09d86"></a>
-
-```java
-public static final com.tailf.notif.ProgressNotification.ProgressEventType STOP;
-```
 
 
 ## Methods

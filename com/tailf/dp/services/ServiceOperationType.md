@@ -24,21 +24,9 @@ The service operation type
 
 ### CREATE <a href="#create-146c3c7e4f65" id="create-146c3c7e4f65"></a>
 
-```java
-public static final com.tailf.dp.services.ServiceOperationType CREATE;
-```
-
 ### DELETE <a href="#delete-17bb47048092" id="delete-17bb47048092"></a>
 
-```java
-public static final com.tailf.dp.services.ServiceOperationType DELETE;
-```
-
 ### UPDATE <a href="#update-39b73b15811d" id="update-39b73b15811d"></a>
-
-```java
-public static final com.tailf.dp.services.ServiceOperationType UPDATE;
-```
 
 
 ## Methods

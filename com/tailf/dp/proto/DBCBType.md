@@ -40,7 +40,7 @@ Enumeration of DB callback methods
 ### ACTIVATE_CHECKPOINT_RUNNING <a href="#activate_checkpoint_running-a6100ae5a340" id="activate_checkpoint_running-a6100ae5a340"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType ACTIVATE_CHECKPOINT_RUNNING;
+ACTIVATE_CHECKPOINT_RUNNING(DpProto.MASK_DB_ACTIVATE_CHECKPOINT_RUNNING);
 ```
 
 Bit flag for the
@@ -50,7 +50,7 @@ Bit flag for the
 ### ADD_CHECKPOINT_RUNNING <a href="#add_checkpoint_running-768e54bdcf2c" id="add_checkpoint_running-768e54bdcf2c"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType ADD_CHECKPOINT_RUNNING;
+ADD_CHECKPOINT_RUNNING(DpProto.MASK_DB_ADD_CHECKPOINT_RUNNING);
 ```
 
 Bit flag for the
@@ -60,7 +60,7 @@ Bit flag for the
 ### CANDIDATE_CHK_NOT_MODIFIED <a href="#candidate_chk_not_modified-6012c50d33a1" id="candidate_chk_not_modified-6012c50d33a1"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType CANDIDATE_CHK_NOT_MODIFIED;
+CANDIDATE_CHK_NOT_MODIFIED(DpProto.MASK_DB_CANDIDATE_CHK_NOT_MODIFIED);
 ```
 
 Bit flag for the
@@ -70,7 +70,7 @@ Bit flag for the
 ### CANDIDATE_COMMIT <a href="#candidate_commit-971d6b42a25a" id="candidate_commit-971d6b42a25a"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType CANDIDATE_COMMIT;
+CANDIDATE_COMMIT(DpProto.MASK_DB_CANDIDATE_COMMIT);
 ```
 
 Bit flag for the
@@ -80,7 +80,7 @@ Bit flag for the
 ### CANDIDATE_CONFIRMING_COMMIT <a href="#candidate_confirming_commit-a4e2d978d491" id="candidate_confirming_commit-a4e2d978d491"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType CANDIDATE_CONFIRMING_COMMIT;
+CANDIDATE_CONFIRMING_COMMIT(DpProto.MASK_DB_CANDIDATE_CONFIRMING_COMMIT);
 ```
 
 Bit flag for the
@@ -90,7 +90,7 @@ Bit flag for the
 ### CANDIDATE_RESET <a href="#candidate_reset-4c8beeb0d732" id="candidate_reset-4c8beeb0d732"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType CANDIDATE_RESET;
+CANDIDATE_RESET(DpProto.MASK_DB_CANDIDATE_RESET);
 ```
 
 Bit flag for the
@@ -99,7 +99,7 @@ Bit flag for the
 ### CANDIDATE_ROLLBACK_RUNNING <a href="#candidate_rollback_running-ce29d62e7fa0" id="candidate_rollback_running-ce29d62e7fa0"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType CANDIDATE_ROLLBACK_RUNNING;
+CANDIDATE_ROLLBACK_RUNNING(DpProto.MASK_DB_CANDIDATE_ROLLBACK_RUNNING);
 ```
 
 Bit flag for the
@@ -109,7 +109,7 @@ Bit flag for the
 ### CANDIDATE_VALIDATE <a href="#candidate_validate-88fec4af40ae" id="candidate_validate-88fec4af40ae"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType CANDIDATE_VALIDATE;
+CANDIDATE_VALIDATE(DpProto.MASK_DB_CANDIDATE_VALIDATE);
 ```
 
 Bit flag for the
@@ -118,7 +118,7 @@ Bit flag for the
 ### COPY_RUNNING_TO_STARTUP <a href="#copy_running_to_startup-7f29c12e742c" id="copy_running_to_startup-7f29c12e742c"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType COPY_RUNNING_TO_STARTUP;
+COPY_RUNNING_TO_STARTUP(DpProto.MASK_DB_COPY_RUNNING_TO_STARTUP);
 ```
 
 Bit flag for the
@@ -128,7 +128,7 @@ Bit flag for the
 ### DEL_CHECKPOINT_RUNNING <a href="#del_checkpoint_running-df7c40981810" id="del_checkpoint_running-df7c40981810"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType DEL_CHECKPOINT_RUNNING;
+DEL_CHECKPOINT_RUNNING(DpProto.MASK_DB_DEL_CHECKPOINT_RUNNING);
 ```
 
 Bit flag for the
@@ -138,7 +138,7 @@ Bit flag for the
 ### DELETE_CONFIG <a href="#delete_config-bbbb8d87fc7e" id="delete_config-bbbb8d87fc7e"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType DELETE_CONFIG;
+DELETE_CONFIG(DpProto.MASK_DB_DELETE_CONFIG);
 ```
 
 Bit flag for the
@@ -147,7 +147,7 @@ Bit flag for the
 ### LOCK <a href="#lock-019de6a65aa2" id="lock-019de6a65aa2"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType LOCK;
+LOCK(DpProto.MASK_DB_LOCK);
 ```
 
 Bit flag for the
@@ -156,7 +156,7 @@ Bit flag for the
 ### LOCK_PARTIAL <a href="#lock_partial-018e4e600871" id="lock_partial-018e4e600871"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType LOCK_PARTIAL;
+LOCK_PARTIAL(DpProto.MASK_DB_LOCK_PARTIAL);
 ```
 
 Bit flag for the
@@ -166,7 +166,7 @@ Bit flag for the
 ### RUNNING_CHK_NOT_MODIFIED <a href="#running_chk_not_modified-4e227ccf520e" id="running_chk_not_modified-4e227ccf520e"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType RUNNING_CHK_NOT_MODIFIED;
+RUNNING_CHK_NOT_MODIFIED(DpProto.MASK_DB_RUNNING_CHK_NOT_MODIFIED);
 ```
 
 Bit flag for the
@@ -176,7 +176,7 @@ Bit flag for the
 ### UNLOCK <a href="#unlock-9bc91c84c792" id="unlock-9bc91c84c792"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType UNLOCK;
+UNLOCK(DpProto.MASK_DB_UNLOCK);
 ```
 
 Bit flag for the
@@ -185,7 +185,7 @@ Bit flag for the
 ### UNLOCK_PARTIAL <a href="#unlock_partial-7523966be288" id="unlock_partial-7523966be288"></a>
 
 ```java
-public static final com.tailf.dp.proto.DBCBType UNLOCK_PARTIAL;
+UNLOCK_PARTIAL(DpProto.MASK_DB_UNLOCK_PARTIAL);
 ```
 
 Bit flag for the

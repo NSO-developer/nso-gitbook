@@ -25,7 +25,7 @@ Enumeration of Validate callback methods
 ### VALIDATE <a href="#validate-7a9462d1222c" id="validate-7a9462d1222c"></a>
 
 ```java
-public static final com.tailf.dp.proto.ValidateCBType VALIDATE;
+VALIDATE(0);
 ```
 
 

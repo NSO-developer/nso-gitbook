@@ -21,7 +21,7 @@ public enum com.tailf.dp.proto.DpFlag
 ### NO_DEFAULTS <a href="#no_defaults-60bc0f0feb09" id="no_defaults-60bc0f0feb09"></a>
 
 ```java
-public static final com.tailf.dp.proto.DpFlag NO_DEFAULTS;
+NO_DEFAULTS(1 << 2);
 ```
 
 

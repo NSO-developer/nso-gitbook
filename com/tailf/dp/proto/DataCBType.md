@@ -41,7 +41,7 @@ Enumeration of Data callback methods
 ### CREATE <a href="#create-146c3c7e4f65" id="create-146c3c7e4f65"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType CREATE;
+CREATE(DpProto.MASK_DATA_CREATE);
 ```
 
 Bit flag for the
@@ -50,7 +50,7 @@ Bit flag for the
 ### EXISTS_OPTIONAL <a href="#exists_optional-f5be923624f4" id="exists_optional-f5be923624f4"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType EXISTS_OPTIONAL;
+EXISTS_OPTIONAL(DpProto.MASK_DATA_EXISTS_OPTIONAL);
 ```
 
 Bit flag for the
@@ -60,7 +60,7 @@ Bit flag for the
 ### GET_ATTRS <a href="#get_attrs-e8030b5dd328" id="get_attrs-e8030b5dd328"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType GET_ATTRS;
+GET_ATTRS(DpProto.MASK_DATA_GET_ATTRS);
 ```
 
 Bit flag for the
@@ -70,7 +70,7 @@ Bit flag for the
 ### GET_CASE <a href="#get_case-9ef2ae59c94b" id="get_case-9ef2ae59c94b"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType GET_CASE;
+GET_CASE(DpProto.MASK_DATA_GET_CASE);
 ```
 
 Bit flag for the
@@ -80,7 +80,7 @@ Bit flag for the
 ### GET_ELEM <a href="#get_elem-c4bad67e639e" id="get_elem-c4bad67e639e"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType GET_ELEM;
+GET_ELEM(DpProto.MASK_DATA_GET_ELEM);
 ```
 
 Bit flag for the
@@ -89,7 +89,7 @@ Bit flag for the
 ### GET_NEXT <a href="#get_next-6a271635d86e" id="get_next-6a271635d86e"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType GET_NEXT;
+GET_NEXT(DpProto.MASK_DATA_GET_NEXT);
 ```
 
 Bit flag for getting the next key for a list entry using an iterator
@@ -102,7 +102,7 @@ Bit flag for getting the next key for a list entry using an iterator
 ### GET_NEXT_OBJECT <a href="#get_next_object-9f70b230e968" id="get_next_object-9f70b230e968"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType GET_NEXT_OBJECT;
+GET_NEXT_OBJECT(DpProto.MASK_DATA_GET_NEXT_OBJECT);
 ```
 
 Bit flag for getting the next object using an iterator retrieved from the
@@ -115,7 +115,7 @@ Bit flag for getting the next object using an iterator retrieved from the
 ### GET_NEXT_OBJECT_LIST <a href="#get_next_object_list-b798e83d5f8e" id="get_next_object_list-b798e83d5f8e"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType GET_NEXT_OBJECT_LIST;
+GET_NEXT_OBJECT_LIST(0x40000000);
 ```
 
 Bit flag for getting a List of objects using an iterator retrieved from
@@ -128,7 +128,7 @@ Bit flag for getting a List of objects using an iterator retrieved from
 ### GET_OBJECT <a href="#get_object-839ff9de9cc4" id="get_object-839ff9de9cc4"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType GET_OBJECT;
+GET_OBJECT(DpProto.MASK_DATA_GET_OBJECT);
 ```
 
 Bit flag for the
@@ -138,7 +138,7 @@ Bit flag for the
 ### ITERATOR <a href="#iterator-4246715ba5f0" id="iterator-4246715ba5f0"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType ITERATOR;
+ITERATOR(0);
 ```
 
 iterator to be used with
@@ -154,7 +154,7 @@ iterator to be used with
 ### MOVE_AFTER <a href="#move_after-582d0ddace39" id="move_after-582d0ddace39"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType MOVE_AFTER;
+MOVE_AFTER(DpProto.MASK_DATA_MOVE_AFTER);
 ```
 
 Bit flag for the
@@ -164,7 +164,7 @@ Bit flag for the
 ### NUM_INSTANCES <a href="#num_instances-bc8f1909765f" id="num_instances-bc8f1909765f"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType NUM_INSTANCES;
+NUM_INSTANCES(DpProto.MASK_DATA_NUM_INSTANCES);
 ```
 
 Bit flag for the
@@ -174,7 +174,7 @@ Bit flag for the
 ### REMOVE <a href="#remove-954d8c0ae444" id="remove-954d8c0ae444"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType REMOVE;
+REMOVE(DpProto.MASK_DATA_REMOVE);
 ```
 
 Bit flag for the
@@ -183,7 +183,7 @@ Bit flag for the
 ### SET_ATTR <a href="#set_attr-8d1502d32197" id="set_attr-8d1502d32197"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType SET_ATTR;
+SET_ATTR(DpProto.MASK_DATA_SET_ATTR);
 ```
 
 Bit flag for the
@@ -193,7 +193,7 @@ Bit flag for the
 ### SET_CASE <a href="#set_case-bba9ec167799" id="set_case-bba9ec167799"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType SET_CASE;
+SET_CASE(DpProto.MASK_DATA_SET_CASE);
 ```
 
 Bit flag for the
@@ -203,7 +203,7 @@ Bit flag for the
 ### SET_ELEM <a href="#set_elem-a932054018d7" id="set_elem-a932054018d7"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType SET_ELEM;
+SET_ELEM(DpProto.MASK_DATA_SET_ELEM);
 ```
 
 Bit flag for the
@@ -213,7 +213,7 @@ Bit flag for the
 ### WRITE_ALL <a href="#write_all-16f02b0c53c5" id="write_all-16f02b0c53c5"></a>
 
 ```java
-public static final com.tailf.dp.proto.DataCBType WRITE_ALL;
+WRITE_ALL(DpProto.MASK_DATA_WRITE_ALL);
 ```
 
 Bit flag for the

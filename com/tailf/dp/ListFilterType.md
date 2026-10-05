@@ -29,7 +29,7 @@ Enumeration of list filter types
 ### CONFD_LF_AND <a href="#confd_lf_and-21574f054605" id="confd_lf_and-21574f054605"></a>
 
 ```java
-public static final com.tailf.dp.ListFilterType CONFD_LF_AND;
+CONFD_LF_AND(1);
 ```
 
 This filter is the conjunction of the two filters given by expr1 and
@@ -38,7 +38,7 @@ This filter is the conjunction of the two filters given by expr1 and
 ### CONFD_LF_CMP <a href="#confd_lf_cmp-583727db1b1c" id="confd_lf_cmp-583727db1b1c"></a>
 
 ```java
-public static final com.tailf.dp.ListFilterType CONFD_LF_CMP;
+CONFD_LF_CMP(3);
 ```
 
 This filter is a comparison between a node and a value.
@@ -49,7 +49,7 @@ This filter is a comparison between a node and a value.
 ### CONFD_LF_EXEC <a href="#confd_lf_exec-5af1f0461120" id="confd_lf_exec-5af1f0461120"></a>
 
 ```java
-public static final com.tailf.dp.ListFilterType CONFD_LF_EXEC;
+CONFD_LF_EXEC(5);
 ```
 
 This filter is a function on a node and a value.
@@ -59,7 +59,7 @@ This filter is a function on a node and a value.
 ### CONFD_LF_EXISTS <a href="#confd_lf_exists-dfdd2bdabe58" id="confd_lf_exists-dfdd2bdabe58"></a>
 
 ```java
-public static final com.tailf.dp.ListFilterType CONFD_LF_EXISTS;
+CONFD_LF_EXISTS(4);
 ```
 
 This filter is an existence check for the path given by the field
@@ -68,7 +68,7 @@ This filter is an existence check for the path given by the field
 ### CONFD_LF_NOT <a href="#confd_lf_not-303281c57901" id="confd_lf_not-303281c57901"></a>
 
 ```java
-public static final com.tailf.dp.ListFilterType CONFD_LF_NOT;
+CONFD_LF_NOT(2);
 ```
 
 This filter is the inverse of another filter given by expr1.
@@ -76,7 +76,7 @@ This filter is the inverse of another filter given by expr1.
 ### CONFD_LF_OR <a href="#confd_lf_or-e8352365e0cd" id="confd_lf_or-e8352365e0cd"></a>
 
 ```java
-public static final com.tailf.dp.ListFilterType CONFD_LF_OR;
+CONFD_LF_OR(0);
 ```
 
 This filter is the inclusive disjunction of the two filters given
@@ -85,7 +85,7 @@ This filter is the inclusive disjunction of the two filters given
 ### CONFD_LF_ORIGIN <a href="#confd_lf_origin-91a898baad60" id="confd_lf_origin-91a898baad60"></a>
 
 ```java
-public static final com.tailf.dp.ListFilterType CONFD_LF_ORIGIN;
+CONFD_LF_ORIGIN(6);
 ```
 
 This filter is an origin check on a value.

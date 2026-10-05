@@ -25,7 +25,7 @@ Flags used in `Maapi#CLIPathCmd(int,EnumSet,String,Object... )`
 ### DELETE <a href="#delete-17bb47048092" id="delete-17bb47048092"></a>
 
 ```java
-public static final com.tailf.maapi.CLIPathCmdFlag DELETE;
+DELETE(1 << 1);
 ```
 
 Emit the command to delete the given path.
@@ -33,7 +33,7 @@ Emit the command to delete the given path.
 ### EMIT_PARENTS <a href="#emit_parents-7672db479b6c" id="emit_parents-7672db479b6c"></a>
 
 ```java
-public static final com.tailf.maapi.CLIPathCmdFlag EMIT_PARENTS;
+EMIT_PARENTS(1 << 0);
 ```
 
 Enable the commands to reach the submode for the path to be emitted.
@@ -41,7 +41,7 @@ Enable the commands to reach the submode for the path to be emitted.
 ### NON_RECURSIVE <a href="#non_recursive-560671442c67" id="non_recursive-560671442c67"></a>
 
 ```java
-public static final com.tailf.maapi.CLIPathCmdFlag NON_RECURSIVE;
+NON_RECURSIVE(1 << 2);
 ```
 
 Prevent that all children to a container or list item are displayed.

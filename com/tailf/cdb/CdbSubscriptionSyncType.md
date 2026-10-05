@@ -26,7 +26,7 @@ Subscription Synchronization type used in sync() method
 ### DONE_OPERATIONAL <a href="#done_operational-a27840e105d3" id="done_operational-a27840e105d3"></a>
 
 ```java
-public static final com.tailf.cdb.CdbSubscriptionSyncType DONE_OPERATIONAL;
+DONE_OPERATIONAL(4);
 ```
 
 This should be used when a subscription notification for
@@ -37,7 +37,7 @@ This should be used when a subscription notification for
 ### DONE_PRIORITY <a href="#done_priority-b870590aba34" id="done_priority-b870590aba34"></a>
 
 ```java
-public static final com.tailf.cdb.CdbSubscriptionSyncType DONE_PRIORITY;
+DONE_PRIORITY(1);
 ```
 
 This means that application has
@@ -47,7 +47,7 @@ This means that application has
 ### DONE_SOCKET <a href="#done_socket-acfefb01e422" id="done_socket-acfefb01e422"></a>
 
 ```java
-public static final com.tailf.cdb.CdbSubscriptionSyncType DONE_SOCKET;
+DONE_SOCKET(2);
 ```
 
 This means that we are done. But regardless of priority,
@@ -57,7 +57,7 @@ This means that we are done. But regardless of priority,
 ### DONE_TRANSACTION <a href="#done_transaction-49dca47f96cf" id="done_transaction-49dca47f96cf"></a>
 
 ```java
-public static final com.tailf.cdb.CdbSubscriptionSyncType DONE_TRANSACTION;
+DONE_TRANSACTION(3);
 ```
 
 This means that CDB should not send any further notifications

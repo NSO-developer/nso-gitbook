@@ -36,7 +36,7 @@ Enumeration flags us by
 ### ITER_WANT_ANCESTOR_DELETE <a href="#iter_want_ancestor_delete-8aeb50c9a808" id="iter_want_ancestor_delete-8aeb50c9a808"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateFlags ITER_WANT_ANCESTOR_DELETE;
+ITER_WANT_ANCESTOR_DELETE(1 << 1);
 ```
 
 Control if the deleted of a ancestor will trigger a subscription
@@ -55,7 +55,7 @@ Control if the deleted of a ancestor will trigger a subscription
 ### ITER_WANT_ATTR <a href="#iter_want_attr-946a41e3cb08" id="iter_want_attr-946a41e3cb08"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateFlags ITER_WANT_ATTR;
+ITER_WANT_ATTR(1 << 2);
 ```
 
 This is flag that only has meaning in the maapi case.
@@ -67,25 +67,25 @@ This is flag that only has meaning in the maapi case.
 ### ITER_WANT_CLI_STR <a href="#iter_want_cli_str-439533dcd1aa" id="iter_want_cli_str-439533dcd1aa"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateFlags ITER_WANT_CLI_STR;
+ITER_WANT_CLI_STR(1 << 3);
 ```
 
 ### ITER_WANT_LEAF_FIRST_ORDER <a href="#iter_want_leaf_first_order-1ef3029f141f" id="iter_want_leaf_first_order-1ef3029f141f"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateFlags ITER_WANT_LEAF_FIRST_ORDER;
+ITER_WANT_LEAF_FIRST_ORDER(1 << 5);
 ```
 
 ### ITER_WANT_LEAF_LAST_ORDER <a href="#iter_want_leaf_last_order-90156295eb70" id="iter_want_leaf_last_order-90156295eb70"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateFlags ITER_WANT_LEAF_LAST_ORDER;
+ITER_WANT_LEAF_LAST_ORDER(1 << 6);
 ```
 
 ### ITER_WANT_PREV <a href="#iter_want_prev-20404d5d1d20" id="iter_want_prev-20404d5d1d20"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateFlags ITER_WANT_PREV;
+ITER_WANT_PREV(1 << 0);
 ```
 
 Include the previous value for modification of a leaf/leaf-list
@@ -111,25 +111,25 @@ Include the previous value for modification of a leaf/leaf-list
 ### ITER_WANT_REVERSE <a href="#iter_want_reverse-584e3ca20d2a" id="iter_want_reverse-584e3ca20d2a"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateFlags ITER_WANT_REVERSE;
+ITER_WANT_REVERSE(1 << 7);
 ```
 
 ### ITER_WANT_SCHEMA_ORDER <a href="#iter_want_schema_order-81f758c281ea" id="iter_want_schema_order-81f758c281ea"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateFlags ITER_WANT_SCHEMA_ORDER;
+ITER_WANT_SCHEMA_ORDER(1 << 4);
 ```
 
 ### ITER_WANT_SUPPRESS_CONF_DEFAULTS <a href="#iter_want_suppress_conf_defaults-deb131f01638" id="iter_want_suppress_conf_defaults-deb131f01638"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateFlags ITER_WANT_SUPPRESS_CONF_DEFAULTS;
+ITER_WANT_SUPPRESS_CONF_DEFAULTS(1 << 12);
 ```
 
 ### ITER_WANT_SUPPRESS_OPER_DEFAULTS <a href="#iter_want_suppress_oper_defaults-695be9e11ea4" id="iter_want_suppress_oper_defaults-695be9e11ea4"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateFlags ITER_WANT_SUPPRESS_OPER_DEFAULTS;
+ITER_WANT_SUPPRESS_OPER_DEFAULTS(1 << 11);
 ```
 
 

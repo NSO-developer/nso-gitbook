@@ -25,7 +25,7 @@ Subscription type used in subscribe() method
 ### SUB_OPERATIONAL <a href="#sub_operational-108575580ffa" id="sub_operational-108575580ffa"></a>
 
 ```java
-public static final com.tailf.cdb.CdbSubscriptionType SUB_OPERATIONAL;
+SUB_OPERATIONAL(3);
 ```
 
 Setup subscription in the operational database
@@ -33,7 +33,7 @@ Setup subscription in the operational database
 ### SUB_RUNNING <a href="#sub_running-2fc9f97444d6" id="sub_running-2fc9f97444d6"></a>
 
 ```java
-public static final com.tailf.cdb.CdbSubscriptionType SUB_RUNNING;
+SUB_RUNNING(1);
 ```
 
 Setup subscription in the running database
@@ -41,7 +41,7 @@ Setup subscription in the running database
 ### SUB_RUNNING_TWOPHASE <a href="#sub_running_twophase-ae7b9c659f06" id="sub_running_twophase-ae7b9c659f06"></a>
 
 ```java
-public static final com.tailf.cdb.CdbSubscriptionType SUB_RUNNING_TWOPHASE;
+SUB_RUNNING_TWOPHASE(2);
 ```
 
 Setup subscription for both prepare and commit states of transactions in

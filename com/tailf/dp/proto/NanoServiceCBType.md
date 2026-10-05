@@ -24,7 +24,7 @@ Enumeration of Nano Service callback methods
 ### CREATE <a href="#create-146c3c7e4f65" id="create-146c3c7e4f65"></a>
 
 ```java
-public static final com.tailf.dp.proto.NanoServiceCBType CREATE;
+CREATE(DpNanoServiceCallback.M_NANO_CREATE);
 ```
 
 Indicates nano service create callback.
@@ -35,7 +35,7 @@ Indicates nano service create callback.
 ### DELETE <a href="#delete-17bb47048092" id="delete-17bb47048092"></a>
 
 ```java
-public static final com.tailf.dp.proto.NanoServiceCBType DELETE;
+DELETE(DpNanoServiceCallback.M_NANO_DELETE);
 ```
 
 Indicates nano service delete callback.

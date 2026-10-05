@@ -20,15 +20,7 @@ public static enum com.tailf.maapi.CommitParams.ConfirmNetworkStateMode
 
 ### NORMAL <a href="#normal-b34e6bc0c9ca" id="normal-b34e6bc0c9ca"></a>
 
-```java
-public static final com.tailf.maapi.CommitParams.ConfirmNetworkStateMode NORMAL;
-```
-
 ### RE_EVALUATE_POLICIES <a href="#re_evaluate_policies-1866fe2fdda0" id="re_evaluate_policies-1866fe2fdda0"></a>
-
-```java
-public static final com.tailf.maapi.CommitParams.ConfirmNetworkStateMode RE_EVALUATE_POLICIES;
-```
 
 
 ## Methods

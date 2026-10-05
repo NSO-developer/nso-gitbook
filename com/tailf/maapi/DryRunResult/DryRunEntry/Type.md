@@ -21,21 +21,9 @@ public static enum com.tailf.maapi.DryRunResult.DryRunEntry.Type
 
 ### DEVICE <a href="#device-530223f65d97" id="device-530223f65d97"></a>
 
-```java
-public static final com.tailf.maapi.DryRunResult.DryRunEntry.Type DEVICE;
-```
-
 ### LOCAL_NODE <a href="#local_node-0394590310ba" id="local_node-0394590310ba"></a>
 
-```java
-public static final com.tailf.maapi.DryRunResult.DryRunEntry.Type LOCAL_NODE;
-```
-
 ### LSA_NODE <a href="#lsa_node-ce1c2350351b" id="lsa_node-ce1c2350351b"></a>
-
-```java
-public static final com.tailf.maapi.DryRunResult.DryRunEntry.Type LSA_NODE;
-```
 
 
 ## Methods

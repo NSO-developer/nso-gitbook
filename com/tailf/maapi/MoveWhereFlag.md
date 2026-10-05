@@ -27,7 +27,7 @@ flags us by Maapi.moveOrdered method to control ordered-by user orders
 ### MOVE_AFTER <a href="#move_after-582d0ddace39" id="move_after-582d0ddace39"></a>
 
 ```java
-public static final com.tailf.maapi.MoveWhereFlag MOVE_AFTER;
+MOVE_AFTER(3);
 ```
 
 Move the entry to the position after a given position.
@@ -35,7 +35,7 @@ Move the entry to the position after a given position.
 ### MOVE_BEFORE <a href="#move_before-49aa8d3d3c77" id="move_before-49aa8d3d3c77"></a>
 
 ```java
-public static final com.tailf.maapi.MoveWhereFlag MOVE_BEFORE;
+MOVE_BEFORE(2);
 ```
 
 Move the entry to the position before a given position.
@@ -43,7 +43,7 @@ Move the entry to the position before a given position.
 ### MOVE_FIRST <a href="#move_first-b29449f31e72" id="move_first-b29449f31e72"></a>
 
 ```java
-public static final com.tailf.maapi.MoveWhereFlag MOVE_FIRST;
+MOVE_FIRST(1);
 ```
 
 Move the entry first in the list.
@@ -51,7 +51,7 @@ Move the entry first in the list.
 ### MOVE_LAST <a href="#move_last-03b1662a5ee0" id="move_last-03b1662a5ee0"></a>
 
 ```java
-public static final com.tailf.maapi.MoveWhereFlag MOVE_LAST;
+MOVE_LAST(4);
 ```
 
 Move the entry last in the list.

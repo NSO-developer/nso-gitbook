@@ -26,7 +26,7 @@ The [result\(ConfObject\[\],ConfValue,Object\)](MaapiXPathEvalResult.md#maapixpa
 ### ITER_CONTINUE <a href="#iter_continue-987b3f3577df" id="iter_continue-987b3f3577df"></a>
 
 ```java
-public static final com.tailf.maapi.XPathNodeIterateResultFlag ITER_CONTINUE;
+ITER_CONTINUE(2);
 ```
 
 The `result` method should return
@@ -36,7 +36,7 @@ The `result` method should return
 ### ITER_STOP <a href="#iter_stop-1b807e9343da" id="iter_stop-1b807e9343da"></a>
 
 ```java
-public static final com.tailf.maapi.XPathNodeIterateResultFlag ITER_STOP;
+ITER_STOP(1);
 ```
 
 The `result` method should return `ITER_STOP`

@@ -22,18 +22,10 @@ Response enums controlling the execution of the handler chain
 
 ### CONTINUE <a href="#continue-5e783bfcaf54" id="continue-5e783bfcaf54"></a>
 
-```java
-public static final com.tailf.ncs.snmp.snmp4j.HandlerResponse CONTINUE;
-```
-
 Value indicating that a notification should be passed to
  the next handler in the handler chain
 
 ### SUPPRESS <a href="#suppress-e5b01e73cf35" id="suppress-e5b01e73cf35"></a>
-
-```java
-public static final com.tailf.ncs.snmp.snmp4j.HandlerResponse SUPPRESS;
-```
 
 Value indicating that processing for this notification
  stop traversing the handler chain.

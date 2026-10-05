@@ -26,36 +26,20 @@ The enumeration specifies the behavior
 
 ### ERROR_EXCEPTION <a href="#error_exception-c1763e4fca52" id="error_exception-c1763e4fca52"></a>
 
-```java
-public static final com.tailf.navu.NavuContextBase.UnSetCaseInChoice ERROR_EXCEPTION;
-```
-
 Threat a unset case as a error
   throws exception NavuException.
 
 ### MUTE <a href="#mute-8ea7a733cf2b" id="mute-8ea7a733cf2b"></a>
-
-```java
-public static final com.tailf.navu.NavuContextBase.UnSetCaseInChoice MUTE;
-```
 
 Mute all warning messages in the log and
   no exception will be thrown.
 
 ### WARN_LOG <a href="#warn_log-aa99735ca482" id="warn_log-aa99735ca482"></a>
 
-```java
-public static final com.tailf.navu.NavuContextBase.UnSetCaseInChoice WARN_LOG;
-```
-
 Print warn message in the log
   no exception will be thrown.
 
 ### WARN_LOG_EXCEPTION <a href="#warn_log_exception-76f5f52f87a1" id="warn_log_exception-76f5f52f87a1"></a>
-
-```java
-public static final com.tailf.navu.NavuContextBase.UnSetCaseInChoice WARN_LOG_EXCEPTION;
-```
 
 Print warn message in the log
   and print the stacktrace as WARN

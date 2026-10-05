@@ -25,10 +25,6 @@ To be used in:
 
 ### COMPLIANCE_TEMPLATE <a href="#compliance_template-1930b800dedf" id="compliance_template-1930b800dedf"></a>
 
-```java
-public static final com.tailf.maapi.Maapi.TemplateType COMPLIANCE_TEMPLATE;
-```
-
 Designates compliance template, compliance template used to verify
  that the configuration on a device conforms to an expected,
  predefined configuration, it also means the specific template
@@ -36,18 +32,10 @@ Designates compliance template, compliance template used to verify
 
 ### DEVICE_TEMPLATE <a href="#device_template-52f2db4b5c80" id="device_template-52f2db4b5c80"></a>
 
-```java
-public static final com.tailf.maapi.Maapi.TemplateType DEVICE_TEMPLATE;
-```
-
 Designates device template, device template means the specific
  template configuration name under /ncs:devices/ncs:template.
 
 ### SERVICE_TEMPLATE <a href="#service_template-7bffc291c10d" id="service_template-7bffc291c10d"></a>
-
-```java
-public static final com.tailf.maapi.Maapi.TemplateType SERVICE_TEMPLATE;
-```
 
 Designates service template, service template means the specific
  template configuration name of template loaded from the directory

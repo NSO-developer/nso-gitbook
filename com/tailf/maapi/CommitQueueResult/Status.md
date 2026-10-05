@@ -28,37 +28,37 @@ public static enum com.tailf.maapi.CommitQueueResult.Status
 ### ASYNC <a href="#async-84416e99cf56" id="async-84416e99cf56"></a>
 
 ```java
-public static final com.tailf.maapi.CommitQueueResult.Status ASYNC;
+ASYNC(0, "async");
 ```
 
 ### COMPLETED <a href="#completed-a27eb844ceac" id="completed-a27eb844ceac"></a>
 
 ```java
-public static final com.tailf.maapi.CommitQueueResult.Status COMPLETED;
+COMPLETED(1, "completed");
 ```
 
 ### DELETED <a href="#deleted-dafb9dab21f9" id="deleted-dafb9dab21f9"></a>
 
 ```java
-public static final com.tailf.maapi.CommitQueueResult.Status DELETED;
+DELETED(3, "deleted");
 ```
 
 ### FAILED <a href="#failed-d300719affb0" id="failed-d300719affb0"></a>
 
 ```java
-public static final com.tailf.maapi.CommitQueueResult.Status FAILED;
+FAILED(4, "failed");
 ```
 
 ### NONE <a href="#none-f29411358a7b" id="none-f29411358a7b"></a>
 
 ```java
-public static final com.tailf.maapi.CommitQueueResult.Status NONE;
+NONE(-1, "none");
 ```
 
 ### TIMEOUT <a href="#timeout-7555a653de51" id="timeout-7555a653de51"></a>
 
 ```java
-public static final com.tailf.maapi.CommitQueueResult.Status TIMEOUT;
+TIMEOUT(2, "timeout");
 ```
 
 

@@ -31,37 +31,37 @@ Enum representing the possible perceived severities for an alarm
 ### CLEARED <a href="#cleared-a3e29631e361" id="cleared-a3e29631e361"></a>
 
 ```java
-public static final com.tailf.ncs.alarmman.common.PerceivedSeverity CLEARED;
+CLEARED(1);
 ```
 
 ### CRITICAL <a href="#critical-c08db3e362be" id="critical-c08db3e362be"></a>
 
 ```java
-public static final com.tailf.ncs.alarmman.common.PerceivedSeverity CRITICAL;
+CRITICAL(6);
 ```
 
 ### INDETERMINATE <a href="#indeterminate-2e7ecb440311" id="indeterminate-2e7ecb440311"></a>
 
 ```java
-public static final com.tailf.ncs.alarmman.common.PerceivedSeverity INDETERMINATE;
+INDETERMINATE(2);
 ```
 
 ### MAJOR <a href="#major-aff5b4ccbce7" id="major-aff5b4ccbce7"></a>
 
 ```java
-public static final com.tailf.ncs.alarmman.common.PerceivedSeverity MAJOR;
+MAJOR(5);
 ```
 
 ### MINOR <a href="#minor-a1abdb82d7aa" id="minor-a1abdb82d7aa"></a>
 
 ```java
-public static final com.tailf.ncs.alarmman.common.PerceivedSeverity MINOR;
+MINOR(3);
 ```
 
 ### WARNING <a href="#warning-4b8836533779" id="warning-4b8836533779"></a>
 
 ```java
-public static final com.tailf.ncs.alarmman.common.PerceivedSeverity WARNING;
+WARNING(4);
 ```
 
 

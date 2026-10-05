@@ -24,7 +24,7 @@ Distinguish the different types of subscription notifications
 ### CDB_SUB_WANT_ABORT_ON_ABORT <a href="#cdb_sub_want_abort_on_abort-47411eed1a75" id="cdb_sub_want_abort_on_abort-47411eed1a75"></a>
 
 ```java
-public static final com.tailf.cdb.CdbSubscrConfigFlag CDB_SUB_WANT_ABORT_ON_ABORT;
+CDB_SUB_WANT_ABORT_ON_ABORT(1 << 0);
 ```
 
 Normally if a subscriber is the one to abort a transaction it will not

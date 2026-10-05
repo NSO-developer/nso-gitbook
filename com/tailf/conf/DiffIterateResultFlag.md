@@ -28,7 +28,7 @@ flags us by DiffIterate interface The iterate() method should return any
 ### ITER_CONTINUE <a href="#iter_continue-987b3f3577df" id="iter_continue-987b3f3577df"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateResultFlag ITER_CONTINUE;
+ITER_CONTINUE(3);
 ```
 
 The iterate() method should return ITER_CONTINUE when iteration should
@@ -37,7 +37,7 @@ The iterate() method should return ITER_CONTINUE when iteration should
 ### ITER_RECURSE <a href="#iter_recurse-691241795ec1" id="iter_recurse-691241795ec1"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateResultFlag ITER_RECURSE;
+ITER_RECURSE(2);
 ```
 
 The iterate() method should return ITER_RECURSE when iteration should
@@ -46,7 +46,7 @@ The iterate() method should return ITER_RECURSE when iteration should
 ### ITER_STOP <a href="#iter_stop-1b807e9343da" id="iter_stop-1b807e9343da"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateResultFlag ITER_STOP;
+ITER_STOP(1);
 ```
 
 The iterate() method should return ITER_STOP when no more iteration
@@ -55,7 +55,7 @@ The iterate() method should return ITER_STOP when no more iteration
 ### ITER_SUSPEND <a href="#iter_suspend-575a3c5be208" id="iter_suspend-575a3c5be208"></a>
 
 ```java
-public static final com.tailf.conf.DiffIterateResultFlag ITER_SUSPEND;
+ITER_SUSPEND(4);
 ```
 
 

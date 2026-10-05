@@ -29,7 +29,7 @@ Distinguish the different types of subscription notifications
 ### CDB_SUB_FLAG_HA_IS_SECONDARY <a href="#cdb_sub_flag_ha_is_secondary-b33a98c07944" id="cdb_sub_flag_ha_is_secondary-b33a98c07944"></a>
 
 ```java
-public static final com.tailf.cdb.CdbSubscriptionFlagType CDB_SUB_FLAG_HA_IS_SECONDARY;
+CDB_SUB_FLAG_HA_IS_SECONDARY(1 << 4);
 ```
 
 This bit is set when the system is in HA secondary mode.
@@ -37,7 +37,7 @@ This bit is set when the system is in HA secondary mode.
 ### CDB_SUB_FLAG_HA_SYNC <a href="#cdb_sub_flag_ha_sync-316e067b9757" id="cdb_sub_flag_ha_sync-316e067b9757"></a>
 
 ```java
-public static final com.tailf.cdb.CdbSubscriptionFlagType CDB_SUB_FLAG_HA_SYNC;
+CDB_SUB_FLAG_HA_SYNC(1 << 3);
 ```
 
 This bit is set when the cause of the subscription notification is
@@ -46,7 +46,7 @@ This bit is set when the cause of the subscription notification is
 ### CDB_SUB_FLAG_IS_LAST <a href="#cdb_sub_flag_is_last-2455f6196fbe" id="cdb_sub_flag_is_last-2455f6196fbe"></a>
 
 ```java
-public static final com.tailf.cdb.CdbSubscriptionFlagType CDB_SUB_FLAG_IS_LAST;
+CDB_SUB_FLAG_IS_LAST(1 << 0);
 ```
 
 This bit is set when this notification is the last of
@@ -55,7 +55,7 @@ This bit is set when this notification is the last of
 ### CDB_SUB_FLAG_REVERT <a href="#cdb_sub_flag_revert-a60d9caf0742" id="cdb_sub_flag_revert-a60d9caf0742"></a>
 
 ```java
-public static final com.tailf.cdb.CdbSubscriptionFlagType CDB_SUB_FLAG_REVERT;
+CDB_SUB_FLAG_REVERT(1 << 2);
 ```
 
 If a confirming commit is aborted it will look to the CDB
@@ -73,7 +73,7 @@ If a confirming commit is aborted it will look to the CDB
 ### CDB_SUB_FLAG_TRIGGER <a href="#cdb_sub_flag_trigger-758be0880da5" id="cdb_sub_flag_trigger-758be0880da5"></a>
 
 ```java
-public static final com.tailf.cdb.CdbSubscriptionFlagType CDB_SUB_FLAG_TRIGGER;
+CDB_SUB_FLAG_TRIGGER(1 << 1);
 ```
 
 This bit is set when the cause of the subscription notification is

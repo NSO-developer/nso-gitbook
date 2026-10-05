@@ -21,21 +21,9 @@ public enum com.tailf.navu.Verbosity
 
 ### SHOW_CHILD <a href="#show_child-e5993c5575c1" id="show_child-e5993c5575c1"></a>
 
-```java
-public static final com.tailf.navu.Verbosity SHOW_CHILD;
-```
-
 ### SHOW_PREFIX <a href="#show_prefix-74ac80b5b8de" id="show_prefix-74ac80b5b8de"></a>
 
-```java
-public static final com.tailf.navu.Verbosity SHOW_PREFIX;
-```
-
 ### SHOW_URI <a href="#show_uri-a982eaf84e8a" id="show_uri-a982eaf84e8a"></a>
-
-```java
-public static final com.tailf.navu.Verbosity SHOW_URI;
-```
 
 
 ## Methods

@@ -26,33 +26,13 @@ Enum identifying type of ConfXMLParam subclass.
 
 ### DELETE <a href="#delete-17bb47048092" id="delete-17bb47048092"></a>
 
-```java
-public static final com.tailf.conf.XMLParamType DELETE;
-```
-
 ### LEAF <a href="#leaf-b4c2430c1450" id="leaf-b4c2430c1450"></a>
-
-```java
-public static final com.tailf.conf.XMLParamType LEAF;
-```
 
 ### START <a href="#start-759667c28821" id="start-759667c28821"></a>
 
-```java
-public static final com.tailf.conf.XMLParamType START;
-```
-
 ### STOP <a href="#stop-0113fde09d86" id="stop-0113fde09d86"></a>
 
-```java
-public static final com.tailf.conf.XMLParamType STOP;
-```
-
 ### VALUE <a href="#value-9372855f0c07" id="value-9372855f0c07"></a>
-
-```java
-public static final com.tailf.conf.XMLParamType VALUE;
-```
 
 
 ## Methods

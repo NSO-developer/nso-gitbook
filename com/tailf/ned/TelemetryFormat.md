@@ -26,13 +26,13 @@ Enum containing the valid response formats for a telemetry notification.
 ### JSON <a href="#json-87fbb227963d" id="json-87fbb227963d"></a>
 
 ```java
-public static final com.tailf.ned.TelemetryFormat JSON;
+JSON("json");
 ```
 
 ### XML <a href="#xml-b65914d05936" id="xml-b65914d05936"></a>
 
 ```java
-public static final com.tailf.ned.TelemetryFormat XML;
+XML("xml");
 ```
 
 

@@ -22,21 +22,9 @@ public static enum com.tailf.notif.CompactionNotification.CompactionFile
 
 ### COMPACTION_A_CDB <a href="#compaction_a_cdb-1036a712400c" id="compaction_a_cdb-1036a712400c"></a>
 
-```java
-public static final com.tailf.notif.CompactionNotification.CompactionFile COMPACTION_A_CDB;
-```
-
 ### COMPACTION_O_CDB <a href="#compaction_o_cdb-5b55deea8f6d" id="compaction_o_cdb-5b55deea8f6d"></a>
 
-```java
-public static final com.tailf.notif.CompactionNotification.CompactionFile COMPACTION_O_CDB;
-```
-
 ### COMPACTION_S_CDB <a href="#compaction_s_cdb-e2ce630be938" id="compaction_s_cdb-e2ce630be938"></a>
-
-```java
-public static final com.tailf.notif.CompactionNotification.CompactionFile COMPACTION_S_CDB;
-```
 
 
 ## Methods

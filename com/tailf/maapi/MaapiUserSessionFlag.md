@@ -27,7 +27,7 @@ flags for defining User Session protocol
 ### PROTO_CONSOLE <a href="#proto_console-78051500ad84" id="proto_console-78051500ad84"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiUserSessionFlag PROTO_CONSOLE;
+PROTO_CONSOLE(4);
 ```
 
 User session originates from the console.
@@ -35,7 +35,7 @@ User session originates from the console.
 ### PROTO_SSH <a href="#proto_ssh-cc9a1a228f8c" id="proto_ssh-cc9a1a228f8c"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiUserSessionFlag PROTO_SSH;
+PROTO_SSH(2);
 ```
 
 User session is transported over SSH.
@@ -43,7 +43,7 @@ User session is transported over SSH.
 ### PROTO_SSL <a href="#proto_ssl-5514b2e651a4" id="proto_ssl-5514b2e651a4"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiUserSessionFlag PROTO_SSL;
+PROTO_SSL(5);
 ```
 
 User session transported over SSL.
@@ -51,7 +51,7 @@ User session transported over SSL.
 ### PROTO_TCP <a href="#proto_tcp-828eb785fabf" id="proto_tcp-828eb785fabf"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiUserSessionFlag PROTO_TCP;
+PROTO_TCP(1);
 ```
 
 User session transported over TCP.

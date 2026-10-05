@@ -26,13 +26,13 @@ Enumeration of TransValidate callback methods
 ### INIT <a href="#init-5407b9c86a37" id="init-5407b9c86a37"></a>
 
 ```java
-public static final com.tailf.dp.proto.TransValidateCBType INIT;
+INIT(0);
 ```
 
 ### STOP <a href="#stop-0113fde09d86" id="stop-0113fde09d86"></a>
 
 ```java
-public static final com.tailf.dp.proto.TransValidateCBType STOP;
+STOP(1);
 ```
 
 

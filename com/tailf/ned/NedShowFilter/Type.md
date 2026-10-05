@@ -21,21 +21,9 @@ public static enum com.tailf.ned.NedShowFilter.Type
 
 ### CONTAINMENT <a href="#containment-6598cb1ae24e" id="containment-6598cb1ae24e"></a>
 
-```java
-public static final com.tailf.ned.NedShowFilter.Type CONTAINMENT;
-```
-
 ### CONTENT_MATCH <a href="#content_match-06fdf68e0652" id="content_match-06fdf68e0652"></a>
 
-```java
-public static final com.tailf.ned.NedShowFilter.Type CONTENT_MATCH;
-```
-
 ### SELECTION <a href="#selection-a773ec0a07ab" id="selection-a773ec0a07ab"></a>
-
-```java
-public static final com.tailf.ned.NedShowFilter.Type SELECTION;
-```
 
 
 ## Methods

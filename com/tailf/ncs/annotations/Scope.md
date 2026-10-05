@@ -24,7 +24,7 @@ Scope for resources managed by the Resource Manager
 ### CONTEXT <a href="#context-87b787ddc857" id="context-87b787ddc857"></a>
 
 ```java
-public static final com.tailf.ncs.annotations.Scope CONTEXT;
+CONTEXT(1);
 ```
 
 Context scope implies that the resource is
@@ -37,7 +37,7 @@ Context scope implies that the resource is
 ### INSTANCE <a href="#instance-5a6b3c2a0c71" id="instance-5a6b3c2a0c71"></a>
 
 ```java
-public static final com.tailf.ncs.annotations.Scope INSTANCE;
+INSTANCE(2);
 ```
 
 Instance scope implies that all instances will

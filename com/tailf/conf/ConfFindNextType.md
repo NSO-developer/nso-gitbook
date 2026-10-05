@@ -26,7 +26,7 @@ Enum used in findNext calls to determine if the element extraction
 ### FIND_NEXT <a href="#find_next-1cc7540f85fd" id="find_next-1cc7540f85fd"></a>
 
 ```java
-public static final com.tailf.conf.ConfFindNextType FIND_NEXT;
+FIND_NEXT(0);
 ```
 
 Find should start after the indicated element
@@ -34,7 +34,7 @@ Find should start after the indicated element
 ### FIND_SAME_OR_NEXT <a href="#find_same_or_next-759812451f0a" id="find_same_or_next-759812451f0a"></a>
 
 ```java
-public static final com.tailf.conf.ConfFindNextType FIND_SAME_OR_NEXT;
+FIND_SAME_OR_NEXT(1);
 ```
 
 Find should start with indicated element or the

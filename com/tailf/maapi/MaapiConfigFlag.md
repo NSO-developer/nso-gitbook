@@ -71,7 +71,7 @@ Flags used in `Maapi#saveConfig(int,EnumSet,String,Object... )`
 ### CISCO_IOS_FORMAT <a href="#cisco_ios_format-a2224e97faa1" id="cisco_ios_format-a2224e97faa1"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag CISCO_IOS_FORMAT;
+CISCO_IOS_FORMAT(1 << 5);
 ```
 
 Save/Load config flag indicating Cisco IOS style configuration format.
@@ -79,7 +79,7 @@ Save/Load config flag indicating Cisco IOS style configuration format.
 ### CISCO_XR_FORMAT <a href="#cisco_xr_format-95c530ea77b0" id="cisco_xr_format-95c530ea77b0"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag CISCO_XR_FORMAT;
+CISCO_XR_FORMAT(1 << 2);
 ```
 
 Save/Load config flag indicating Cisco XR style configuration format.
@@ -87,7 +87,7 @@ Save/Load config flag indicating Cisco XR style configuration format.
 ### CONFIG_AUTOCOMMIT <a href="#config_autocommit-8c94644b466d" id="config_autocommit-8c94644b466d"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag CONFIG_AUTOCOMMIT;
+CONFIG_AUTOCOMMIT(1 << 13);
 ```
 
 The flag can be used together with [`MAAPI_CONFIG_C`](MaapiConfigFlag.md#maapi_config_c-2ee924bb806a) and
@@ -97,7 +97,7 @@ The flag can be used together with [`MAAPI_CONFIG_C`](MaapiConfigFlag.md#maapi_c
 ### CONFIG_CDB_ONLY <a href="#config_cdb_only-14a717b83df3" id="config_cdb_only-14a717b83df3"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag CONFIG_CDB_ONLY;
+CONFIG_CDB_ONLY(1 << 22);
 ```
 
 The output of saveConfig will only include data stored in CDB.
@@ -105,7 +105,7 @@ The output of saveConfig will only include data stored in CDB.
 ### CONFIG_CONTINUE_ON_ERROR <a href="#config_continue_on_error-b33ec1fca49d" id="config_continue_on_error-b33ec1fca49d"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag CONFIG_CONTINUE_ON_ERROR;
+CONFIG_CONTINUE_ON_ERROR(1 << 14);
 ```
 
 The flag can be used to indicate that the load should not be aborted
@@ -114,7 +114,7 @@ The flag can be used to indicate that the load should not be aborted
 ### CONFIG_HIDE_ALL <a href="#config_hide_all-5f78b54eb612" id="config_hide_all-5f78b54eb612"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag CONFIG_HIDE_ALL;
+CONFIG_HIDE_ALL(1 << 11);
 ```
 
 Hide all hidden nodes.
@@ -122,7 +122,7 @@ Hide all hidden nodes.
 ### CONFIG_NO_PARENTS <a href="#config_no_parents-70482f5db198" id="config_no_parents-70482f5db198"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag CONFIG_NO_PARENTS;
+CONFIG_NO_PARENTS(1 << 19);
 ```
 
 The output of saveConfig will begin at path instead of root.
@@ -130,7 +130,7 @@ The output of saveConfig will begin at path instead of root.
 ### CONFIG_OPER_ONLY <a href="#config_oper_only-c1f1cc9f2f2d" id="config_oper_only-c1f1cc9f2f2d"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag CONFIG_OPER_ONLY;
+CONFIG_OPER_ONLY(1 << 20);
 ```
 
 The output of saveConfig will only include operational data
@@ -139,7 +139,7 @@ The output of saveConfig will only include operational data
 ### CONFIG_REPLACE <a href="#config_replace-a1c6f235599b" id="config_replace-a1c6f235599b"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag CONFIG_REPLACE;
+CONFIG_REPLACE(1 << 10);
 ```
 
 To replace only the part of the configuration that is present in
@@ -148,7 +148,7 @@ To replace only the part of the configuration that is present in
 ### CONFIG_SUPPRESS_ERRORS <a href="#config_suppress_errors-fc6a518d13c0" id="config_suppress_errors-fc6a518d13c0"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag CONFIG_SUPPRESS_ERRORS;
+CONFIG_SUPPRESS_ERRORS(1 << 15);
 ```
 
 The flag is used to suppress the long error messages but instead have a
@@ -157,7 +157,7 @@ The flag is used to suppress the long error messages but instead have a
 ### CONFIG_UNHIDE_ALL <a href="#config_unhide_all-d8d7940eac43" id="config_unhide_all-d8d7940eac43"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag CONFIG_UNHIDE_ALL;
+CONFIG_UNHIDE_ALL(1 << 12);
 ```
 
 Unhide all hidden nodes (see below).
@@ -165,7 +165,7 @@ Unhide all hidden nodes (see below).
 ### CONFIG_WITH_SERVICE_META <a href="#config_with_service_meta-1d973f1ba025" id="config_with_service_meta-1d973f1ba025"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag CONFIG_WITH_SERVICE_META;
+CONFIG_WITH_SERVICE_META(1 << 18);
 ```
 
 The flag can be used to request that NCS service-meta-data attributes
@@ -174,7 +174,7 @@ The flag can be used to request that NCS service-meta-data attributes
 ### CONFIG_XML_LOAD_LAX <a href="#config_xml_load_lax-ff4dabb7ea34" id="config_xml_load_lax-ff4dabb7ea34"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag CONFIG_XML_LOAD_LAX;
+CONFIG_XML_LOAD_LAX(1 << 16);
 ```
 
 The flag can be used together with [`XML_FORMAT`](MaapiConfigFlag.md#xml_format-96c70b32b8b4). Indicates
@@ -184,7 +184,7 @@ The flag can be used together with [`XML_FORMAT`](MaapiConfigFlag.md#xml_format-
 ### JSON_FORMAT <a href="#json_format-178bf951b22d" id="json_format-178bf951b22d"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag JSON_FORMAT;
+JSON_FORMAT(1 << 17);
 ```
 
 The configuration format is JSON.
@@ -192,7 +192,7 @@ The configuration format is JSON.
 ### JUNIPER_CLI_CMD_FORMAT <a href="#juniper_cli_cmd_format-b1175f2cf62b" id="juniper_cli_cmd_format-b1175f2cf62b"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag JUNIPER_CLI_CMD_FORMAT;
+JUNIPER_CLI_CMD_FORMAT(1 << 24);
 ```
 
 The configuration format is Juniper-style set commands.
@@ -203,7 +203,7 @@ The configuration format is Juniper-style set commands.
 ### JUNIPER_CLI_FORMAT <a href="#juniper_cli_format-861be2804daf" id="juniper_cli_format-861be2804daf"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag JUNIPER_CLI_FORMAT;
+JUNIPER_CLI_FORMAT(1 << 1);
 ```
 
 Save/Load config flag indicating curly brace Juniper CLI configuration
@@ -212,7 +212,7 @@ Save/Load config flag indicating curly brace Juniper CLI configuration
 ### MAAPI_CONFIG_AUTOCOMMIT <a href="#maapi_config_autocommit-51f70a6e1477" id="maapi_config_autocommit-51f70a6e1477"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_AUTOCOMMIT;
+MAAPI_CONFIG_AUTOCOMMIT(1 << 13);
 ```
 
 Same as [`CONFIG_AUTOCOMMIT`](MaapiConfigFlag.md#config_autocommit-8c94644b466d)
@@ -220,7 +220,7 @@ Same as [`CONFIG_AUTOCOMMIT`](MaapiConfigFlag.md#config_autocommit-8c94644b466d)
 ### MAAPI_CONFIG_C <a href="#maapi_config_c-2ee924bb806a" id="maapi_config_c-2ee924bb806a"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_C;
+MAAPI_CONFIG_C(1 << 2);
 ```
 
 Same as [`CISCO_XR_FORMAT`](MaapiConfigFlag.md#cisco_xr_format-95c530ea77b0)
@@ -228,7 +228,7 @@ Same as [`CISCO_XR_FORMAT`](MaapiConfigFlag.md#cisco_xr_format-95c530ea77b0)
 ### MAAPI_CONFIG_C_IOS <a href="#maapi_config_c_ios-5908ad7c1e08" id="maapi_config_c_ios-5908ad7c1e08"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_C_IOS;
+MAAPI_CONFIG_C_IOS(1 << 5);
 ```
 
 Same as [`CISCO_IOS_FORMAT`](MaapiConfigFlag.md#cisco_ios_format-a2224e97faa1)
@@ -236,7 +236,7 @@ Same as [`CISCO_IOS_FORMAT`](MaapiConfigFlag.md#cisco_ios_format-a2224e97faa1)
 ### MAAPI_CONFIG_CDB_ONLY <a href="#maapi_config_cdb_only-bf39f574655b" id="maapi_config_cdb_only-bf39f574655b"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_CDB_ONLY;
+MAAPI_CONFIG_CDB_ONLY(1 << 22);
 ```
 
 Same as [`CONFIG_CDB_ONLY`](MaapiConfigFlag.md#config_cdb_only-14a717b83df3)
@@ -244,7 +244,7 @@ Same as [`CONFIG_CDB_ONLY`](MaapiConfigFlag.md#config_cdb_only-14a717b83df3)
 ### MAAPI_CONFIG_CONTINUE_ON_ERROR <a href="#maapi_config_continue_on_error-6e636c4055ce" id="maapi_config_continue_on_error-6e636c4055ce"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_CONTINUE_ON_ERROR;
+MAAPI_CONFIG_CONTINUE_ON_ERROR(1 << 14);
 ```
 
 Same as [`CONFIG_CONTINUE_ON_ERROR`](MaapiConfigFlag.md#config_continue_on_error-b33ec1fca49d)
@@ -252,7 +252,7 @@ Same as [`CONFIG_CONTINUE_ON_ERROR`](MaapiConfigFlag.md#config_continue_on_error
 ### MAAPI_CONFIG_HIDE_ALL <a href="#maapi_config_hide_all-161f42eaba86" id="maapi_config_hide_all-161f42eaba86"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_HIDE_ALL;
+MAAPI_CONFIG_HIDE_ALL(1 << 11);
 ```
 
 Same as [`CONFIG_HIDE_ALL`](MaapiConfigFlag.md#config_hide_all-5f78b54eb612)
@@ -260,7 +260,7 @@ Same as [`CONFIG_HIDE_ALL`](MaapiConfigFlag.md#config_hide_all-5f78b54eb612)
 ### MAAPI_CONFIG_J <a href="#maapi_config_j-fcd7daaed20b" id="maapi_config_j-fcd7daaed20b"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_J;
+MAAPI_CONFIG_J(1 << 1);
 ```
 
 Same as [`JUNIPER_CLI_FORMAT`](MaapiConfigFlag.md#juniper_cli_format-861be2804daf)
@@ -268,7 +268,7 @@ Same as [`JUNIPER_CLI_FORMAT`](MaapiConfigFlag.md#juniper_cli_format-861be2804da
 ### MAAPI_CONFIG_J_CMD <a href="#maapi_config_j_cmd-84a4e8b8957c" id="maapi_config_j_cmd-84a4e8b8957c"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_J_CMD;
+MAAPI_CONFIG_J_CMD(1 << 24);
 ```
 
 Same as [`JUNIPER_CLI_CMD_FORMAT`](MaapiConfigFlag.md#juniper_cli_cmd_format-b1175f2cf62b)
@@ -276,7 +276,7 @@ Same as [`JUNIPER_CLI_CMD_FORMAT`](MaapiConfigFlag.md#juniper_cli_cmd_format-b11
 ### MAAPI_CONFIG_JSON <a href="#maapi_config_json-b51203378e16" id="maapi_config_json-b51203378e16"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_JSON;
+MAAPI_CONFIG_JSON(1 << 17);
 ```
 
 Same as [`JSON_FORMAT`](MaapiConfigFlag.md#json_format-178bf951b22d)
@@ -284,7 +284,7 @@ Same as [`JSON_FORMAT`](MaapiConfigFlag.md#json_format-178bf951b22d)
 ### MAAPI_CONFIG_MERGE <a href="#maapi_config_merge-b85720c4efea" id="maapi_config_merge-b85720c4efea"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_MERGE;
+MAAPI_CONFIG_MERGE(1 << 6);
 ```
 
 Same as [`MERGE_CONFIGURATIONS`](MaapiConfigFlag.md#merge_configurations-31b94a3713f5)
@@ -292,7 +292,7 @@ Same as [`MERGE_CONFIGURATIONS`](MaapiConfigFlag.md#merge_configurations-31b94a3
 ### MAAPI_CONFIG_NO_BACKQUOTE <a href="#maapi_config_no_backquote-6c598a928427" id="maapi_config_no_backquote-6c598a928427"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_NO_BACKQUOTE;
+MAAPI_CONFIG_NO_BACKQUOTE(1 << 21);
 ```
 
 Same as [`CONFIG_AUTOCOMMIT`](MaapiConfigFlag.md#config_autocommit-8c94644b466d)
@@ -300,7 +300,7 @@ Same as [`CONFIG_AUTOCOMMIT`](MaapiConfigFlag.md#config_autocommit-8c94644b466d)
 ### MAAPI_CONFIG_NO_PARENTS <a href="#maapi_config_no_parents-465a62b97522" id="maapi_config_no_parents-465a62b97522"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_NO_PARENTS;
+MAAPI_CONFIG_NO_PARENTS(1 << 19);
 ```
 
 Same as [`CONFIG_NO_PARENTS`](MaapiConfigFlag.md#config_no_parents-70482f5db198)
@@ -308,7 +308,7 @@ Same as [`CONFIG_NO_PARENTS`](MaapiConfigFlag.md#config_no_parents-70482f5db198)
 ### MAAPI_CONFIG_OPER_ONLY <a href="#maapi_config_oper_only-67aef56f15f7" id="maapi_config_oper_only-67aef56f15f7"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_OPER_ONLY;
+MAAPI_CONFIG_OPER_ONLY(1 << 20);
 ```
 
 Same as [`CONFIG_OPER_ONLY`](MaapiConfigFlag.md#config_oper_only-c1f1cc9f2f2d)
@@ -316,7 +316,7 @@ Same as [`CONFIG_OPER_ONLY`](MaapiConfigFlag.md#config_oper_only-c1f1cc9f2f2d)
 ### MAAPI_CONFIG_READ_WRITE_ACCESS_ONLY <a href="#maapi_config_read_write_access_only-e9540ee0b76c" id="maapi_config_read_write_access_only-e9540ee0b76c"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_READ_WRITE_ACCESS_ONLY;
+MAAPI_CONFIG_READ_WRITE_ACCESS_ONLY(1 << 25);
 ```
 
 The output of saveConfig will only include nodes for which the user has
@@ -325,7 +325,7 @@ The output of saveConfig will only include nodes for which the user has
 ### MAAPI_CONFIG_REPLACE <a href="#maapi_config_replace-633c751ba3ec" id="maapi_config_replace-633c751ba3ec"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_REPLACE;
+MAAPI_CONFIG_REPLACE(1 << 10);
 ```
 
 Same as [`CONFIG_REPLACE`](MaapiConfigFlag.md#config_replace-a1c6f235599b)
@@ -333,7 +333,7 @@ Same as [`CONFIG_REPLACE`](MaapiConfigFlag.md#config_replace-a1c6f235599b)
 ### MAAPI_CONFIG_SHOW_DEFAULTS <a href="#maapi_config_show_defaults-2328f9974c9c" id="maapi_config_show_defaults-2328f9974c9c"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_SHOW_DEFAULTS;
+MAAPI_CONFIG_SHOW_DEFAULTS(1 << 4);
 ```
 
 Same as [`WITH_DEFAULTS`](MaapiConfigFlag.md#with_defaults-e9932c88bf13)
@@ -341,7 +341,7 @@ Same as [`WITH_DEFAULTS`](MaapiConfigFlag.md#with_defaults-e9932c88bf13)
 ### MAAPI_CONFIG_SUPPRESS_ERRORS <a href="#maapi_config_suppress_errors-82d208211cbe" id="maapi_config_suppress_errors-82d208211cbe"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_SUPPRESS_ERRORS;
+MAAPI_CONFIG_SUPPRESS_ERRORS(1 << 15);
 ```
 
 Same as [`CONFIG_SUPPRESS_ERRORS`](MaapiConfigFlag.md#config_suppress_errors-fc6a518d13c0)
@@ -349,7 +349,7 @@ Same as [`CONFIG_SUPPRESS_ERRORS`](MaapiConfigFlag.md#config_suppress_errors-fc6
 ### MAAPI_CONFIG_UNHIDE_ALL <a href="#maapi_config_unhide_all-6db0d84095d7" id="maapi_config_unhide_all-6db0d84095d7"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_UNHIDE_ALL;
+MAAPI_CONFIG_UNHIDE_ALL(1 << 12);
 ```
 
 Same as [`CONFIG_UNHIDE_ALL`](MaapiConfigFlag.md#config_unhide_all-d8d7940eac43)
@@ -357,7 +357,7 @@ Same as [`CONFIG_UNHIDE_ALL`](MaapiConfigFlag.md#config_unhide_all-d8d7940eac43)
 ### MAAPI_CONFIG_WITH_DEFAULTS <a href="#maapi_config_with_defaults-199d7d94d931" id="maapi_config_with_defaults-199d7d94d931"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_WITH_DEFAULTS;
+MAAPI_CONFIG_WITH_DEFAULTS(1 << 3);
 ```
 
 Same as [`WITH_DEFAULTS`](MaapiConfigFlag.md#with_defaults-e9932c88bf13)
@@ -365,7 +365,7 @@ Same as [`WITH_DEFAULTS`](MaapiConfigFlag.md#with_defaults-e9932c88bf13)
 ### MAAPI_CONFIG_WITH_OPER <a href="#maapi_config_with_oper-e9ea7e3958f1" id="maapi_config_with_oper-e9ea7e3958f1"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_WITH_OPER;
+MAAPI_CONFIG_WITH_OPER(1 << 7);
 ```
 
 Same as [`WITH_OPER`](MaapiConfigFlag.md#with_oper-3283e53d6412)
@@ -373,7 +373,7 @@ Same as [`WITH_OPER`](MaapiConfigFlag.md#with_oper-3283e53d6412)
 ### MAAPI_CONFIG_WITH_SERVICE_META <a href="#maapi_config_with_service_meta-262400830f06" id="maapi_config_with_service_meta-262400830f06"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_WITH_SERVICE_META;
+MAAPI_CONFIG_WITH_SERVICE_META(1 << 18);
 ```
 
 Same as [`CONFIG_WITH_SERVICE_META`](MaapiConfigFlag.md#config_with_service_meta-1d973f1ba025)
@@ -381,7 +381,7 @@ Same as [`CONFIG_WITH_SERVICE_META`](MaapiConfigFlag.md#config_with_service_meta
 ### MAAPI_CONFIG_XML <a href="#maapi_config_xml-5293149632cc" id="maapi_config_xml-5293149632cc"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_XML;
+MAAPI_CONFIG_XML(1 << 0);
 ```
 
 Same as [`XML_FORMAT`](MaapiConfigFlag.md#xml_format-96c70b32b8b4)
@@ -389,7 +389,7 @@ Same as [`XML_FORMAT`](MaapiConfigFlag.md#xml_format-96c70b32b8b4)
 ### MAAPI_CONFIG_XML_LOAD_LAX <a href="#maapi_config_xml_load_lax-ee0929bebaf5" id="maapi_config_xml_load_lax-ee0929bebaf5"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_XML_LOAD_LAX;
+MAAPI_CONFIG_XML_LOAD_LAX(1 << 16);
 ```
 
 Same as [`CONFIG_XML_LOAD_LAX`](MaapiConfigFlag.md#config_xml_load_lax-ff4dabb7ea34)
@@ -397,7 +397,7 @@ Same as [`CONFIG_XML_LOAD_LAX`](MaapiConfigFlag.md#config_xml_load_lax-ff4dabb7e
 ### MAAPI_CONFIG_XML_PRETTY <a href="#maapi_config_xml_pretty-6e369993cec8" id="maapi_config_xml_pretty-6e369993cec8"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_XML_PRETTY;
+MAAPI_CONFIG_XML_PRETTY(1 << 9);
 ```
 
 Same as [`XPATH`](MaapiConfigFlag.md#xpath-9a88fbc67981)
@@ -405,7 +405,7 @@ Same as [`XPATH`](MaapiConfigFlag.md#xpath-9a88fbc67981)
 ### MAAPI_CONFIG_XPATH <a href="#maapi_config_xpath-1457dd10cb74" id="maapi_config_xpath-1457dd10cb74"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MAAPI_CONFIG_XPATH;
+MAAPI_CONFIG_XPATH(1 << 8);
 ```
 
 Same as [`XPATH`](MaapiConfigFlag.md#xpath-9a88fbc67981)
@@ -413,7 +413,7 @@ Same as [`XPATH`](MaapiConfigFlag.md#xpath-9a88fbc67981)
 ### MERGE_CONFIGURATIONS <a href="#merge_configurations-31b94a3713f5" id="merge_configurations-31b94a3713f5"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag MERGE_CONFIGURATIONS;
+MERGE_CONFIGURATIONS(1 << 6);
 ```
 
 Load config flag indicating that current configuration should be merged
@@ -422,7 +422,7 @@ Load config flag indicating that current configuration should be merged
 ### SHOW_DEFAULTS <a href="#show_defaults-b8c48c4cee5e" id="show_defaults-b8c48c4cee5e"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag SHOW_DEFAULTS;
+SHOW_DEFAULTS(1 << 4);
 ```
 
 Save/Load config flag indicating that default values are also included
@@ -431,7 +431,7 @@ Save/Load config flag indicating that default values are also included
 ### WITH_DEFAULTS <a href="#with_defaults-e9932c88bf13" id="with_defaults-e9932c88bf13"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag WITH_DEFAULTS;
+WITH_DEFAULTS(1 << 3);
 ```
 
 Save/Load config flag indicating that default values are included as
@@ -440,7 +440,7 @@ Save/Load config flag indicating that default values are included as
 ### WITH_OPER <a href="#with_oper-3283e53d6412" id="with_oper-3283e53d6412"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag WITH_OPER;
+WITH_OPER(1 << 7);
 ```
 
 Load config flag used in conjunction with [`MAAPI_CONFIG_XML`](MaapiConfigFlag.md#maapi_config_xml-5293149632cc) to
@@ -450,7 +450,7 @@ Load config flag used in conjunction with [`MAAPI_CONFIG_XML`](MaapiConfigFlag.m
 ### XML_FORMAT <a href="#xml_format-96c70b32b8b4" id="xml_format-96c70b32b8b4"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag XML_FORMAT;
+XML_FORMAT(1 << 0);
 ```
 
 Save/Load config flag indicating XML configuration format.
@@ -458,7 +458,7 @@ Save/Load config flag indicating XML configuration format.
 ### XML_PRETTY <a href="#xml_pretty-eb9cabeb3345" id="xml_pretty-eb9cabeb3345"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag XML_PRETTY;
+XML_PRETTY(1 << 9);
 ```
 
 The configuration format is pretty printed XML.
@@ -466,7 +466,7 @@ The configuration format is pretty printed XML.
 ### XPATH <a href="#xpath-9a88fbc67981" id="xpath-9a88fbc67981"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiConfigFlag XPATH;
+XPATH(1 << 8);
 ```
 
 The fmtpath and remaining arguments give an XPath filter instead of a

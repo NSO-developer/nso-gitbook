@@ -71,7 +71,7 @@ Enum containing all possible node values.
 ### C_BINARY <a href="#c_binary-9c42f8dc3bdb" id="c_binary-9c42f8dc3bdb"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_BINARY;
+C_BINARY(39);
 ```
 
 (yang:object-identifier)
@@ -80,7 +80,7 @@ public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_BINARY;
 ### C_BIT32 <a href="#c_bit32-29a2689dc15e" id="c_bit32-29a2689dc15e"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_BIT32;
+C_BIT32(29);
 ```
 
 uint32_t (bits size 32)
@@ -88,7 +88,7 @@ uint32_t (bits size 32)
 ### C_BIT64 <a href="#c_bit64-70b79203504c" id="c_bit64-70b79203504c"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_BIT64;
+C_BIT64(30);
 ```
 
 uint64_t (bits size 64)
@@ -96,7 +96,7 @@ uint64_t (bits size 64)
 ### C_BOOL <a href="#c_bool-be84e9b010a0" id="c_bool-be84e9b010a0"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_BOOL;
+C_BOOL(17);
 ```
 
 (inet:ipv6-address)
@@ -105,7 +105,7 @@ public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_BOOL;
 ### C_BUF <a href="#c_buf-c58953b79e0c" id="c_buf-c58953b79e0c"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_BUF;
+C_BUF(5);
 ```
 
 confd_buf_t (string ...)
@@ -113,7 +113,7 @@ confd_buf_t (string ...)
 ### C_CDBBEGIN <a href="#c_cdbbegin-956a0b6ebb35" id="c_cdbbegin-956a0b6ebb35"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_CDBBEGIN;
+C_CDBBEGIN(37);
 ```
 
 as C_XMLBEGIN), with CDB instance index
@@ -121,7 +121,7 @@ as C_XMLBEGIN), with CDB instance index
 ### C_DATE <a href="#c_date-4c69e050d4e8" id="c_date-4c69e050d4e8"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_DATE;
+C_DATE(20);
 ```
 
 (yang:date-and-time)
@@ -130,7 +130,7 @@ public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_DATE;
 ### C_DATETIME <a href="#c_datetime-156ea17a91da" id="c_datetime-156ea17a91da"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_DATETIME;
+C_DATETIME(19);
 ```
 
 struct confd_datetime
@@ -138,7 +138,7 @@ struct confd_datetime
 ### C_DECIMAL64 <a href="#c_decimal64-ebc3c7cd4ac6" id="c_decimal64-ebc3c7cd4ac6"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_DECIMAL64;
+C_DECIMAL64(43);
 ```
 
 struct confd_decimal64 (decimal64)
@@ -146,7 +146,7 @@ struct confd_decimal64 (decimal64)
 ### C_DEFAULT <a href="#c_default-3d6ce27bf987" id="c_default-3d6ce27bf987"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_DEFAULT;
+C_DEFAULT(42);
 ```
 
 (inet:ipv6-prefix)
@@ -155,7 +155,7 @@ public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_DEFAULT;
 ### C_DOUBLE <a href="#c_double-c2bc476402bc" id="c_double-c2bc476402bc"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_DOUBLE;
+C_DOUBLE(14);
 ```
 
 double (xs:float),xs:double)
@@ -163,7 +163,7 @@ double (xs:float),xs:double)
 ### C_DURATION <a href="#c_duration-ce55f65c6b8a" id="c_duration-ce55f65c6b8a"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_DURATION;
+C_DURATION(27);
 ```
 
 struct confd_duration (xs:duration)
@@ -171,7 +171,7 @@ struct confd_duration (xs:duration)
 ### C_EMPTY <a href="#c_empty-04cb84b3e72e" id="c_empty-04cb84b3e72e"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_EMPTY;
+C_EMPTY(53);
 ```
 
 empty type
@@ -179,7 +179,7 @@ empty type
 ### C_ENUM_HASH <a href="#c_enum_hash-fd8bf053674f" id="c_enum_hash-fd8bf053674f"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_ENUM_HASH;
+C_ENUM_HASH(28);
 ```
 
 uint32_t (string enumerations)
@@ -187,7 +187,7 @@ uint32_t (string enumerations)
 ### C_GDAY <a href="#c_gday-86bccc1db644" id="c_gday-86bccc1db644"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_GDAY;
+C_GDAY(24);
 ```
 
 struct confd_gDay (xs:gDay)
@@ -195,7 +195,7 @@ struct confd_gDay (xs:gDay)
 ### C_GMONTH <a href="#c_gmonth-ad68e96e478e" id="c_gmonth-ad68e96e478e"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_GMONTH;
+C_GMONTH(26);
 ```
 
 struct confd_gMonthDay (xs:gMonth)
@@ -203,7 +203,7 @@ struct confd_gMonthDay (xs:gMonth)
 ### C_GMONTHDAY <a href="#c_gmonthday-acf5d60b9d11" id="c_gmonthday-acf5d60b9d11"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_GMONTHDAY;
+C_GMONTHDAY(25);
 ```
 
 struct confd_gMonth (xs:gMonthDay)
@@ -211,7 +211,7 @@ struct confd_gMonth (xs:gMonthDay)
 ### C_GYEAR <a href="#c_gyear-afa7295e241b" id="c_gyear-afa7295e241b"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_GYEAR;
+C_GYEAR(22);
 ```
 
 struct confd_gYear (xs:gYear)
@@ -219,7 +219,7 @@ struct confd_gYear (xs:gYear)
 ### C_GYEARMONTH <a href="#c_gyearmonth-a1d7f6b4f0b6" id="c_gyearmonth-a1d7f6b4f0b6"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_GYEARMONTH;
+C_GYEARMONTH(21);
 ```
 
 struct confd_gYearMonth (xs:gYearMonth)
@@ -227,7 +227,7 @@ struct confd_gYearMonth (xs:gYearMonth)
 ### C_IDENTITYREF <a href="#c_identityref-3520f61f7223" id="c_identityref-3520f61f7223"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_IDENTITYREF;
+C_IDENTITYREF(44);
 ```
 
 struct confd_identityref (identityref)
@@ -235,7 +235,7 @@ struct confd_identityref (identityref)
 ### C_INT16 <a href="#c_int16-2530845569d2" id="c_int16-2530845569d2"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_INT16;
+C_INT16(7);
 ```
 
 int16_t   (int16)
@@ -243,7 +243,7 @@ int16_t   (int16)
 ### C_INT32 <a href="#c_int32-de628ccc938d" id="c_int32-de628ccc938d"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_INT32;
+C_INT32(8);
 ```
 
 int32_t   (int32)
@@ -251,7 +251,7 @@ int32_t   (int32)
 ### C_INT64 <a href="#c_int64-f7d718932ce0" id="c_int64-f7d718932ce0"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_INT64;
+C_INT64(9);
 ```
 
 int64_t   (int64)
@@ -259,7 +259,7 @@ int64_t   (int64)
 ### C_INT8 <a href="#c_int8-9ef7487d9472" id="c_int8-9ef7487d9472"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_INT8;
+C_INT8(6);
 ```
 
 int8_t    (int8)
@@ -267,7 +267,7 @@ int8_t    (int8)
 ### C_IPV4 <a href="#c_ipv4-e60175020f57" id="c_ipv4-e60175020f57"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_IPV4;
+C_IPV4(15);
 ```
 
 struct in_addr in NBO
@@ -275,7 +275,7 @@ struct in_addr in NBO
 ### C_IPV4PREFIX <a href="#c_ipv4prefix-6f86a4c2f327" id="c_ipv4prefix-6f86a4c2f327"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_IPV4PREFIX;
+C_IPV4PREFIX(40);
 ```
 
 struct confd_ipv4_prefix
@@ -283,7 +283,7 @@ struct confd_ipv4_prefix
 ### C_IPV6 <a href="#c_ipv6-71c516a5d9ce" id="c_ipv6-71c516a5d9ce"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_IPV6;
+C_IPV6(16);
 ```
 
 (inet:ipv4-address)
@@ -292,7 +292,7 @@ public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_IPV6;
 ### C_IPV6PREFIX <a href="#c_ipv6prefix-dd3dc43094e9" id="c_ipv6prefix-dd3dc43094e9"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_IPV6PREFIX;
+C_IPV6PREFIX(41);
 ```
 
 (inet:ipv4-prefix)
@@ -301,7 +301,7 @@ public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_IPV6PREFIX;
 ### C_LIST <a href="#c_list-c50b3e6ad605" id="c_list-c50b3e6ad605"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_LIST;
+C_LIST(31);
 ```
 
 confd_list (leaf-list)
@@ -309,7 +309,7 @@ confd_list (leaf-list)
 ### C_NOEXISTS <a href="#c_noexists-50615ff6ae47" id="c_noexists-50615ff6ae47"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_NOEXISTS;
+C_NOEXISTS(1);
 ```
 
 end marker
@@ -317,7 +317,7 @@ end marker
 ### C_OBJECTREF <a href="#c_objectref-909686402be3" id="c_objectref-909686402be3"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_OBJECTREF;
+C_OBJECTREF(34);
 ```
 
 struct confd_hkeypath*
@@ -325,7 +325,7 @@ struct confd_hkeypath*
 ### C_OID <a href="#c_oid-de0626b8567a" id="c_oid-de0626b8567a"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_OID;
+C_OID(38);
 ```
 
 struct confd_snmp_oid*
@@ -333,7 +333,7 @@ struct confd_snmp_oid*
 ### C_PTR <a href="#c_ptr-168bfef51be1" id="c_ptr-168bfef51be1"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_PTR;
+C_PTR(36);
 ```
 
 see cdb_get_values in confd_lib_cdb(3)
@@ -341,7 +341,7 @@ see cdb_get_values in confd_lib_cdb(3)
 ### C_QNAME <a href="#c_qname-e18a80cb76c1" id="c_qname-e18a80cb76c1"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_QNAME;
+C_QNAME(18);
 ```
 
 struct confd_qname (xs:QName)
@@ -349,7 +349,7 @@ struct confd_qname (xs:QName)
 ### C_STR <a href="#c_str-f76c8abc5cfa" id="c_str-f76c8abc5cfa"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_STR;
+C_STR(4);
 ```
 
 NUL-terminated strings
@@ -357,7 +357,7 @@ NUL-terminated strings
 ### C_SYMBOL <a href="#c_symbol-d8a4fb5bb591" id="c_symbol-d8a4fb5bb591"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_SYMBOL;
+C_SYMBOL(3);
 ```
 
 not yet used
@@ -365,7 +365,7 @@ not yet used
 ### C_TIME <a href="#c_time-472b08d2e79d" id="c_time-472b08d2e79d"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_TIME;
+C_TIME(23);
 ```
 
 struct confd_time (xs:time)
@@ -373,7 +373,7 @@ struct confd_time (xs:time)
 ### C_UINT16 <a href="#c_uint16-ec9fdb05f348" id="c_uint16-ec9fdb05f348"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_UINT16;
+C_UINT16(11);
 ```
 
 uint16_t (uint16)
@@ -381,7 +381,7 @@ uint16_t (uint16)
 ### C_UINT32 <a href="#c_uint32-b770cb5b940c" id="c_uint32-b770cb5b940c"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_UINT32;
+C_UINT32(12);
 ```
 
 uint32_t (uint32)
@@ -389,7 +389,7 @@ uint32_t (uint32)
 ### C_UINT64 <a href="#c_uint64-6ac181a4dbc1" id="c_uint64-6ac181a4dbc1"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_UINT64;
+C_UINT64(13);
 ```
 
 uint64_t (uint64)
@@ -397,7 +397,7 @@ uint64_t (uint64)
 ### C_UINT8 <a href="#c_uint8-5e431f64f690" id="c_uint8-5e431f64f690"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_UINT8;
+C_UINT8(10);
 ```
 
 uint8_t  (uint8)
@@ -405,7 +405,7 @@ uint8_t  (uint8)
 ### C_UNION <a href="#c_union-b0683fa72214" id="c_union-b0683fa72214"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_UNION;
+C_UNION(35);
 ```
 
 (instance-identifier)
@@ -414,7 +414,7 @@ public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_UNION;
 ### C_XMLBEGIN <a href="#c_xmlbegin-9fc8dd337b02" id="c_xmlbegin-9fc8dd337b02"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_XMLBEGIN;
+C_XMLBEGIN(32);
 ```
 
 struct xml_tag), start of container
@@ -422,7 +422,7 @@ struct xml_tag), start of container
 ### C_XMLBEGINDEL <a href="#c_xmlbegindel-5bbf74c496a6" id="c_xmlbegindel-5bbf74c496a6"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_XMLBEGINDEL;
+C_XMLBEGINDEL(45);
 ```
 
 as C_XMLBEGIN, but for a deleted list instance
@@ -430,7 +430,7 @@ as C_XMLBEGIN, but for a deleted list instance
 ### C_XMLEND <a href="#c_xmlend-66eaaa180ef6" id="c_xmlend-66eaaa180ef6"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_XMLEND;
+C_XMLEND(33);
 ```
 
 struct xml_tag), end of container
@@ -438,7 +438,7 @@ struct xml_tag), end of container
 ### C_XMLMOVEAFTER <a href="#c_xmlmoveafter-cf9f92fd3452" id="c_xmlmoveafter-cf9f92fd3452"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_XMLMOVEAFTER;
+C_XMLMOVEAFTER(52);
 ```
 
 struct xml_tag
@@ -446,7 +446,7 @@ struct xml_tag
 ### C_XMLMOVEFIRST <a href="#c_xmlmovefirst-1623434ea746" id="c_xmlmovefirst-1623434ea746"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_XMLMOVEFIRST;
+C_XMLMOVEFIRST(51);
 ```
 
 struct xml_tag
@@ -454,7 +454,7 @@ struct xml_tag
 ### C_XMLTAG <a href="#c_xmltag-e9c7e1e0757e" id="c_xmltag-e9c7e1e0757e"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.CSShallowType C_XMLTAG;
+C_XMLTAG(2);
 ```
 
 struct xml_tag
