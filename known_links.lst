@@ -46,6 +46,7 @@ https://github.com/NSO-developer/nso-examples/tree/6.7/nano-services/basic-vrout
 https://github.com/NSO-developer/nso-examples/tree/6.7/nano-services/link-migration
 https://github.com/NSO-developer/nso-examples/tree/6.7/nano-services/netsim-vrouter
 https://github.com/NSO-developer/nso-examples/tree/6.7/northbound-interfaces/commit-parameters
+https://github.com/NSO-developer/nso-examples/tree/6.7/northbound-interfaces/restconf-netconf-notifications
 https://github.com/NSO-developer/nso-examples/tree/6.7/northbound-interfaces/snmp-alarm
 https://github.com/NSO-developer/nso-examples/tree/6.7/scaling-performance/conflict-retry
 https://github.com/NSO-developer/nso-examples/tree/6.7/scaling-performance/perf-bulkcreate
