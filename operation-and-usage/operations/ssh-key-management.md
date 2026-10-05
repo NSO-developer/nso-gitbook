@@ -36,7 +36,7 @@ A host key is usable only when its corresponding algorithm is enabled under `/nc
 
 The algorithms allowed for the built-in SSH server are configured under `/ncs-config/ssh/algorithms` in `ncs.conf`. Separate settings control the server host-key, key-exchange, MAC, and encryption algorithms. Each setting contains a comma-separated preference list; its order determines the order advertised by the server during negotiation.
 
-The effective algorithm set can be smaller than the configured set. In FIPS mode, an algorithm must also be permitted by the applicable FIPS restrictions. A server host-key algorithm additionally requires a corresponding private key. See [`ncs.conf(5)`](../../resources/man/ncs.conf.5.md) for the release-specific defaults and recognized values.
+The effective algorithm set can be smaller than the configured set. In FIPS mode, an algorithm must also be permitted by the applicable FIPS restrictions. A server host-key algorithm additionally requires a corresponding private key. See [`ncs.conf(5)`](../../man/section5.md#ncs.conf) for the release-specific defaults and recognized values.
 
 These settings apply only to the NSO built-in SSH server. When an external SSH server such as OpenSSH terminates a connection, configure its algorithms using that server's configuration.
 

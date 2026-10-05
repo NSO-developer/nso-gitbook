@@ -40,6 +40,7 @@ https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services
 https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services/basic-vrouter
 https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services/link-migration
 https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services/netsim-vrouter
+https://github.com/NSO-developer/nso-examples/tree/6.4/northbound-interfaces/restconf-netconf-notifications
 https://github.com/NSO-developer/nso-examples/tree/6.4/northbound-interfaces/snmp-alarm
 https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/cdb-on-demand
 https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/conflict-retry
