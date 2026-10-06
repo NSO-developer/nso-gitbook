@@ -22,7 +22,7 @@
 
 `ncsc -c [-o BinFile] [--read-only] [--verbose] [-I Dir] [--include-file BinFile] [--fail-on-warnings] [--warn-on-type-errors ] [--warn-on-access-mismatch ] [--mib-annotation MibA] [-f FxsFileOrDir...] -- MibFile FxsFile`
 
-`ncsc --ncs-compile-bundle Directory [--yangpath YangDir] [--fail-on-warnings] [--ncs-skip-template] [--ncs-skip-statistics] [--ncs-skip-config] [--lax-revsion-merge] [--ncs-depend-package PackDir] [--ncs-apply-deviations] [--ncs-no-apply-deviations] [--allow-interop-issues] --ncs-device-type netconf | snmp-ned | generic-ned | cli-ned --ncs-ned-id ModName:IdentityName --ncs-device-dir Directory`
+`ncsc --ncs-compile-bundle Directory [--yangpath YangDir] [--fail-on-warnings] [--ncs-skip-template] [--ncs-skip-statistics] [--ncs-skip-config] [--lax-revsion-merge] [--ncs-depend-package PackDir] [--ncs-apply-deviations] [--ncs-no-apply-deviations] [--allow-interop-issues] [--ncs-compilation-workers Number | system] --ncs-device-type netconf | snmp-ned | generic-ned | cli-ned --ncs-ned-id ModName:IdentityName --ncs-device-dir Directory`
 
 `ncsc --ncs-compile-mib-bundle Directory [--fail-on-warnings] [--ncs-skip-template] [--ncs-skip-statistics] [--ncs-skip-config] --ncs-device-type netconf | snmp-ned | generic-ned | cli-ned --ncs-device-dir Directory`
 
@@ -611,6 +611,15 @@ the end result may be that NCS is incompatible with the managed devices.
 `--ncs-depend-package PackageDir` When a package has references to a
 YANG module in another package, use this flag when compiling the
 package.
+
+`--ncs-compilation-workers Number | system` Sets the maximum number of
+workers used in parallel while transforming and compiling YANG modules
+with `--ncs-compile-bundle`. The default is `1`. The value `system`
+selects a system-dependent limit.
+
+The `NCS_COMPILATION_WORKERS` environment variable accepts the same
+values and is used when the command-line option is omitted. When both
+are provided, the command-line option takes precedence.
 
 `--ncs-apply-deviations` This option has no effect, since deviations are
 applied by default. It is only present for backward compatibility.
