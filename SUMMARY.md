@@ -81,11 +81,11 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.116 2026-10-01](cisco-ios/README.md)
+  * [README v6.116.1 2026-10-08](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.77.9 2026-09-10](cisco-iosxr/README.md)
+  * [README v7.77.10 2026-10-08](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -167,7 +167,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.87.4 2026-10-01](huawei-vrp/README.md)
+  * [README v6.87.5 2026-10-08](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
