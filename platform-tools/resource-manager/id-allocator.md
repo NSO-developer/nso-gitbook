@@ -35,6 +35,8 @@ resource-pools id-pool some-pool
  exclude 170 170
 ```
 
+From RM 5.2.2, a **new** ID selected from an existing pool respects excludes changed earlier in the same NSO transaction. An ID request may name multiple ID pools; the chosen ID must be usable in all of them. See [Resource Manager 5.2 updates](updates-5.2.md) for the scope and compatibility notes.
+
 ## Allocate Action
 
 Manual allocation or pre-allocation is possible with the use of the `/resource-pools/find-id` action. If `allocate` parameter is specified, the allocation is persisted right away. Otherwise, a free resource is returned if found, however, it is **not** allocated.
@@ -166,4 +168,12 @@ resource-pools id-pool some-pool
  range end 199
  alarms low-threshold-odd-alarm 20
  alarms low-threshold-even-alarm 20
+```
+
+## Pool Metrics
+
+The per-pool `get-metrics` action calculates total, available, and available percentage on demand. It was already available in RM 5.1.0; it is not a new 5.2.2 feature.
+
+```text
+admin@ncs# resource-pools id-pool <pool-name> get-metrics
 ```

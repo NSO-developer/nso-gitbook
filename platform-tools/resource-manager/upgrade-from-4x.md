@@ -4,6 +4,8 @@ description: Migrate from Resource Manager 4.x to 5.
 
 # Upgrade from 4.x
 
+This page covers migration from Resource Manager 4.x to 5.x. For a later upgrade from 5.1 to 5.2, see [Resource Manager 5.2 updates](updates-5.2.md), including the quarantine-default compatibility note.
+
 Resource Manager 5 introduces the `find-id` and `find-ip` actions and thus no longer requires committing the allocation request before a resource is assigned. This approach makes the allocation process fully synchronous, greatly simplifying operation and integration with application code.
 
 However, this change is not backward compatible with existing application/service code:
@@ -169,4 +171,3 @@ admin@ncs# resource-pools find-id allocation-name <allocationName>\
 ### Synchronous Operation
 
 If your service code relies on the asynchronous operation of Resource Manager for anything other than resource allocation by the `id-allocator` or `ip-address-allocator`, you should use [Nano Services](https://nso-docs.cisco.com/guides/development/core-concepts/nano-services).
-

@@ -3,7 +3,7 @@ description: Manage resource allocation in NSO.
 icon: scanner-touchscreen
 ---
 
-# Resource Manager (5.1)
+# Resource Manager (5.2.2)
 
 The NSO Resource Manager implements assignment of individual resources, such as VLAN numbers or IP addresses, from a pool of values defined in NSO. Since the implementation and pool definitions live in NSO, it presents a simple, lightweight alternative to integrating with external purpose-built systems.
 
@@ -13,7 +13,7 @@ The package provides support for management of two types of resources out of the
 * [ip-allocator.md](ip-allocator.md "mention") for managing IP addresses and prefixes.
 
 {% hint style="info" %}
-The latest version of NSO Resource Manager is 5.1. It is recommended to always upgrade to the latest version of the package to access new features and stay up to date with security updates.
+The latest Resource Manager version covered by this guide is 5.2.2. See [Resource Manager 5.2 updates](updates-5.2.md) for release changes and compatibility notes before upgrading from 5.1.
 {% endhint %}
 
 ## Introduction <a href="#d5e17" id="d5e17"></a>
@@ -69,7 +69,12 @@ This mechanism is used to pre-allocate or reserve resources. The unique `allocat
 
 Since the allocation request may fail, such as when there are no resources left in the pool, the action response contains the `success` leaf and, in case of successful allocation, the assigned resource. &#x20;
 
-Upon allocating a resource, the `allocation` list of the resource pool is updated:
+Upon allocating a resource, the `allocation` list of the resource pool is updated. Since RM 5.1.0, allocation entries are hidden from the ordinary CLI display. Run `unhide debug` in the CLI session before displaying them:
+
+```text
+admin@ncs# unhide debug
+admin@ncs# show running-config resource-pools id-pool vlans
+```
 
 ```
 resource-pools id-pool vlans
@@ -85,7 +90,7 @@ When used programmatically as part of service provisioning, each allocation entr
 
 ### Allocation Options
 
-When performing an allocation using the allocation action or programmatic API, you can specify multiple resource pools. The pools must be of the same type. The allocation procedure then tries to allocate the same resource in all the specified pools.
+An ID allocation can request the same ID from several ID pools. An IP allocation requests an address or prefix from one IP address pool. The ID allocator finds a resource usable in every specified ID pool.
 
 A pool can also define an allocation method for resources. If unspecified, the default is the "first-free" method, due to historical reasons. This method tries to reuse the lowest available resources first, which usually results in quick reuse of just-released resources and thus minimizes fragmentation. In scenarios, where this is undesirable, "sequential" (round-robin) allocation method allocates resources one-by-one, minimizing reuse instead. For example:
 
@@ -102,12 +107,12 @@ Some allocator mechanisms also provide additional options, such as the possibili
 Options for all allocation requests (regardless of allocating mechanism):
 
 * `allocation-name`: Unique name for the allocation.
-* `pool`: A pool to allocate resources from. Some mechanisms support specifying multiple pools.
+* `pool`: The pool to allocate from. ID requests may specify multiple ID pools; IP requests specify one IP pool.
 * `resource`: The desired resource value to allocate. May be unspecified to assign automatically.
 
 ### Deallocation <a href="#d5e52" id="d5e52"></a>
 
-To release resources back to the pool, you must delete the entry in the `allocation` list. This is necessary for manually allocated resources; for service-allocated resources that use the programmatic API, this is done automatically by the FASTMAP algorithm on service removal.
+To release resources back to the pool, you must delete the entry in the `allocation` list. This is necessary for manually allocated resources; for service-allocated resources that use the programmatic API, this is done automatically by the FASTMAP algorithm on service removal. Run `unhide debug` in the CLI session before accessing a hidden allocation entry for manual deletion.
 
 Example of manually releasing resources:
 

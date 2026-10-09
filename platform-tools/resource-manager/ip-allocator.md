@@ -31,6 +31,8 @@ resource-pools ip-address-pool some-pool
 !
 ```
 
+From RM 5.2.2, a **new** IP address or prefix selected from an existing pool respects excludes changed earlier in the same NSO transaction. An IP request names one IP address pool. See [Resource Manager 5.2 updates](updates-5.2.md) for the scope and compatibility notes.
+
 ## Allocate Action
 
 Manual allocation or pre-allocation is possible with the use of the `/resource-pools/find-ip` action. If `allocate` parameter is specified, the allocation is persisted right away. Otherwise, a free resource is returned if found, however, it is **not** allocated.
@@ -38,13 +40,11 @@ Manual allocation or pre-allocation is possible with the use of the `/resource-p
 The request must specify either a specific resource or requested prefix length:
 
 ```shell
-admin@ncs# resource-pools find-ip allocation-name my-value pool [ some-pool ]\
- resource 192.0.2.1/32
+admin@ncs# resource-pools find-ip allocation-name my-value pool some-pool resource 192.0.2.1/32
 ```
 
 ```shell
-admin@ncs# resource-pools find-ip allocation-name my-value pool [ some-pool ]\
- prefix-length 30
+admin@ncs# resource-pools find-ip allocation-name my-value pool some-pool prefix-length 30
 ```
 
 The action shares the allocation engine with the programmatic API but is primarily designed for manual use, e.g. through the CLI. In the service code, use programmatic API instead.
@@ -120,7 +120,7 @@ IpAllocation my_value_request = rm_allocator.ip("192.0.2.1/32");
 You must also select a resource pool to assign the value from:
 
 ```java
-IdAllocation my_value_request = rm_allocator.ip().pool("some-pool");
+IpAllocation my_value_request = rm_allocator.ip().pool("some-pool");
 ```
 
 Finally, allocate an actual value by calling `allocate()` with the allocation name:
@@ -131,3 +131,11 @@ ConfObject my_value = my_value_request.allocate("my-value");
 ```
 {% endtab %}
 {% endtabs %}
+
+## Pool Metrics
+
+The per-pool `get-metrics` action calculates total, available, and available percentage on demand. It was already available in RM 5.1.0; it is not a new 5.2.2 feature.
+
+```text
+admin@ncs# resource-pools ip-address-pool <pool-name> get-metrics
+```

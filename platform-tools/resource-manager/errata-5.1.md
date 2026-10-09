@@ -1,6 +1,6 @@
 # Errata (5.1)
 
-In the current Resource Manager 5.1 release, a resource can remain visible under `quarantine-resource` after the quarantine timer has expired, even though the same resource is already available for allocation in the pool.
+In Resource Manager 5.1, a resource can remain visible under `quarantine-resource` after the quarantine timer has expired, even though the same resource is already available for allocation in the pool. RM 5.2.0 introduced scheduled cleanup when quarantine is enabled and a manual expired-record cleanup action. See [Resource Manager 5.2 updates](updates-5.2.md). The workaround below is retained for the historical 5.1 behavior; this note does not establish that every stale-entry case is resolved in 5.2.
 
 **Workarounds**
 
@@ -19,4 +19,3 @@ For IP pools:&#x20;
 Disable: `delete resource-pools id-pool <pool-name> alarms`
 
 Enable: `set resource-pools id-pool <pool-name> alarms enabled`
-
