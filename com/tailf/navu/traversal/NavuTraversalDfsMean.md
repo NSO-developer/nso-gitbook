@@ -10,9 +10,7 @@ Types: [NavuTraversalMean](NavuTraversalMean.md#navutraversalmean-65fcdcfa38d1)
 This implements the `NavuTraversalMean` for DFS
  (Depth-first traversal).
 
-
-
- The  means of which
+The  means of which
  to traverse the NAVU tree is through Depth-first traversal
 
 ## Members

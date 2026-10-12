@@ -58,7 +58,7 @@ Creation of a plan component.
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### PlanComponent(NavuNode, String, String, ConfObjectRef) <a href="#plancomponent-5e61ba53deeb" id="plancomponent-5e61ba53deeb"></a>
 
@@ -105,7 +105,7 @@ This method supplies a state to the specific component.
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### appendState(String, String, String) <a href="#appendstate-5142e7e1bad6" id="appendstate-5142e7e1bad6"></a>
 
@@ -190,7 +190,7 @@ Setting status to ncs:failed for a specific state in the plan component
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### setNotReached(String) <a href="#setnotreached-9b7c14c0c58a" id="setnotreached-9b7c14c0c58a"></a>
 
@@ -214,7 +214,7 @@ Setting status to ncs:not-reached for a specific state in the
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### setReached(String) <a href="#setreached-d2df729907ae" id="setreached-d2df729907ae"></a>
 
@@ -234,4 +234,4 @@ Setting status to ncs:reached for a specific state in the plan component
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`

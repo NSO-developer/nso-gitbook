@@ -116,7 +116,7 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 **Throws**
 
-- `NcsException`
+- `com.tailf.ncs.NcsException`
 
 ### getSubscriptionName() <a href="#getsubscriptionname-b6fdef58df3d" id="getsubscriptionname-b6fdef58df3d"></a>
 
@@ -135,6 +135,14 @@ public void notifReceived(com.tailf.navu.NavuContainer event) throws com.tailf.n
 ```
 
 Types: [NavuContainer](../../navu/NavuContainer.md#navucontainer-8e321756755f), [NcsException](../NcsException.md#ncsexception-d2b40ca98ea5)
+
+*Description from* [`NavuEventCallback.notifReceived(com.tailf.navu.NavuContainer)`](../NavuEventCallback.md#notifreceived-df06be623526)
+
+This callback method is received to each cdb notification that correspond
+ to the annotated deviceName and subscription name. Note, that a "\*" as
+ name implies wildcard - that any name will match.
+
+ The method get as parameter the event in a NavuContainer
 
 **Parameters**
 

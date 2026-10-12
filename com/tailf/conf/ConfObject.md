@@ -77,7 +77,6 @@ Base class of the Conf data type classes. This class is used to represent an
 **Methods**:
 
 - [clone\(\)](#clone-164c86c45e9b)
-- [compare\(ConfObject, ConfObject\)](#compare-e78552baa2bf)
 - [decode\(ConfEObject\)](#decode-609792d36602)
 - [decode\(ConfEObject, ConfPath\)](#decode-a814ebf64edc)
 - [decode\(ConfEObject, String\)](#decode-9b92f1de40d8)
@@ -399,21 +398,6 @@ public static final int J_XMLTAG = 2;
 ```java
 public Object clone()
 ```
-
-### compare(ConfObject, ConfObject) <a href="#compare-e78552baa2bf" id="compare-e78552baa2bf"></a>
-
-**Package-private**
-
-```java
-static int compare(com.tailf.conf.ConfObject val1, com.tailf.conf.ConfObject val2)
-```
-
-Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
-
-**Parameters**
-
-- `com.tailf.conf.ConfObject val1`
-- `com.tailf.conf.ConfObject val2`
 
 ### decode(ConfEObject) <a href="#decode-609792d36602" id="decode-609792d36602"></a>
 

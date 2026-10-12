@@ -33,13 +33,13 @@ protected Formats()
 ### arguments <a href="#arguments-28ffa3c54d2c" id="arguments-28ffa3c54d2c"></a>
 
 ```java
-public Object[] arguments = null;
+public Object[] arguments;
 ```
 
 ### fmt <a href="#fmt-94d3250bd2b9" id="fmt-94d3250bd2b9"></a>
 
 ```java
-public String fmt = null;
+public String fmt;
 ```
 
 

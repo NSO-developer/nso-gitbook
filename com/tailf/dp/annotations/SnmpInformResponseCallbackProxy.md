@@ -119,13 +119,17 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 **Throws**
 
-- `DpCallbackException`
+- `com.tailf.dp.DpCallbackException`
 
 ### id() <a href="#id-1352448ec267" id="id-1352448ec267"></a>
 
 ```java
 public String id()
 ```
+
+*Description from* [`DpSnmpInformResponseCallback.id()`](../DpSnmpInformResponseCallback.md#id-1352448ec267)
+
+The id of the SNMP inform callback.
 
 ### mask() <a href="#mask-24c2fa29c6af" id="mask-24c2fa29c6af"></a>
 
@@ -146,11 +150,22 @@ public void result(
 
 Types: [ConfETuple](../../proto/ConfETuple.md#confetuple-b1f9702a82a1), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
+*Description from* [`DpSnmpInformResponseCallback.result(Integer, com.tailf.proto.ConfETuple, Boolean)`](../DpSnmpInformResponseCallback.md#result-633f0f760c10)
+
+This callback provides the application with possibility to to take
+ actions based on the result of an inform request for a specific receiver.
+
 **Parameters**
 
-- `Integer ref`
-- `com.tailf.proto.ConfETuple target`
-- `Boolean gotResponse`
+- `Integer ref` - A reference assigned by the caller of the SNMP inform request
+see [`DpSnmpNotifier#send(
+            String, com.tailf.conf.SnmpVarbind[], Integer)`](../DpSnmpNotifier.md#send-616c3e8b0825)
+- `com.tailf.proto.ConfETuple target` - the receiver returning the result.
+- `Boolean gotResponse` - if we got a response or not from the target.
+
+**Throws**
+
+- `com.tailf.dp.DpCallbackException` - Callback method failed.
 
 ### targets(Integer, ConfETuple[]) <a href="#targets-aaa64a3aa8f3" id="targets-aaa64a3aa8f3"></a>
 
@@ -164,7 +179,16 @@ public void targets(
 
 Types: [ConfETuple](../../proto/ConfETuple.md#confetuple-b1f9702a82a1), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
+*Description from* [`DpSnmpInformResponseCallback.targets(Integer, com.tailf.proto.ConfETuple[])`](../DpSnmpInformResponseCallback.md#targets-aaa64a3aa8f3)
+
+This callback provides the application with possibility to to take
+ actions based on the intended targets of an inform request.
+
 **Parameters**
 
-- `Integer ref`
-- `com.tailf.proto.ConfETuple[] targets`
+- `Integer ref` - A reference assigned by the
+- `com.tailf.proto.ConfETuple[] targets` - the intended receivers of the inform request.
+
+**Throws**
+
+- `com.tailf.dp.DpCallbackException` - Callback method failed.

@@ -11,6 +11,10 @@ This interface is used with the diffIterate method in Maapi. It allows a way
  to iterate through a set of changes and have a user provided method applied
  on each of them.
 
+**Related classes**
+
+- [NavuContainer](../navu/NavuContainer.md#navucontainer-8e321756755f)
+
 **See also:** [`Maapi#diffIterate(int,MaapiDiffIterate)`](Maapi.md#diffiterate-8d4d9d07b552)
 
 ## Members
@@ -24,7 +28,7 @@ This interface is used with the diffIterate method in Maapi. It allows a way
 ### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object) <a href="#iterate-d80a566b7e0a" id="iterate-d80a566b7e0a"></a>
 
 ```java
-public abstract com.tailf.conf.DiffIterateResultFlag iterate(
+com.tailf.conf.DiffIterateResultFlag iterate(
     com.tailf.conf.ConfObject[] kp,
     com.tailf.conf.DiffIterateOperFlag op,
     com.tailf.conf.ConfObject oldValue,

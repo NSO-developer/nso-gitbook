@@ -33,31 +33,31 @@ The Nano service context object.
 ### decodeComponentProperties() <a href="#decodecomponentproperties-92dc7d27cfae" id="decodecomponentproperties-92dc7d27cfae"></a>
 
 ```java
-public abstract java.util.Properties decodeComponentProperties()
+java.util.Properties decodeComponentProperties()
 ```
 
 ### getComponentName() <a href="#getcomponentname-7c7a8acb1be7" id="getcomponentname-7c7a8acb1be7"></a>
 
 ```java
-public abstract String getComponentName()
+String getComponentName()
 ```
 
 ### getComponentType() <a href="#getcomponenttype-8cb31666621f" id="getcomponenttype-8cb31666621f"></a>
 
 ```java
-public abstract String getComponentType()
+String getComponentType()
 ```
 
 ### getState() <a href="#getstate-6661a5722798" id="getstate-6661a5722798"></a>
 
 ```java
-public abstract String getState()
+String getState()
 ```
 
 ### getStateNode() <a href="#getstatenode-69968ad036f3" id="getstatenode-69968ad036f3"></a>
 
 ```java
-public abstract com.tailf.navu.NavuNode getStateNode() throws com.tailf.conf.ConfException
+com.tailf.navu.NavuNode getStateNode() throws com.tailf.conf.ConfException
 ```
 
 Types: [NavuNode](../../navu/NavuNode.md#navunode-73944820c8db), [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
@@ -65,7 +65,7 @@ Types: [NavuNode](../../navu/NavuNode.md#navunode-73944820c8db), [ConfException]
 ### setFailed() <a href="#setfailed-87e27ea56b52" id="setfailed-87e27ea56b52"></a>
 
 ```java
-public abstract void setFailed() throws com.tailf.dp.DpCallbackException
+void setFailed() throws com.tailf.dp.DpCallbackException
 ```
 
 Types: [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
@@ -73,7 +73,7 @@ Types: [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15
 ### setNotReached() <a href="#setnotreached-82612c28e78a" id="setnotreached-82612c28e78a"></a>
 
 ```java
-public abstract void setNotReached() throws com.tailf.dp.DpCallbackException
+void setNotReached() throws com.tailf.dp.DpCallbackException
 ```
 
 Types: [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
@@ -81,7 +81,7 @@ Types: [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15
 ### setReached() <a href="#setreached-d006785646d0" id="setreached-d006785646d0"></a>
 
 ```java
-public abstract void setReached() throws com.tailf.dp.DpCallbackException
+void setReached() throws com.tailf.dp.DpCallbackException
 ```
 
 Types: [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)

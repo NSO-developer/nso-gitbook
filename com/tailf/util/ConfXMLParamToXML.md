@@ -9,24 +9,22 @@ Utility class to transform `ConfXMLParam[]`
  *DOM* (`org.w3c.dom.Document`) or to a string
  *XML* representation.
 
- A fragment refer to part of a *XML* document that may be useful to
+A fragment refer to part of a *XML* document that may be useful to
  use interchange in the absence of the rest of the XML
  document.
 
- A fragment must be well-balanced and may or may not contain a surrounding
+A fragment must be well-balanced and may or may not contain a surrounding
  root element. In either case a root element will always be created
  and it will always be the documents direct descendant node.
 
- The parent tag may be supplied or omitted. If omitted
+The parent tag may be supplied or omitted. If omitted
  a root element will be created with the name "fragment" without
  any namespace.
 
-
-
 ```
-  fragment
-   ...
-  /fragment
+ <fragment>
+  ...
+ </fragment>
 ```
 
 **See also:** [`ConfXMLParamValue`](../conf/ConfXMLParamValue.md#confxmlparamvalue-9f41fb2668c9), [`ConfXMLParamStart`](../conf/ConfXMLParamStart.md#confxmlparamstart-05eace141688), [`ConfXMLParamStop`](../conf/ConfXMLParamStop.md#confxmlparamstop-d1e86c4fdecc), [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [`ConfXMLParamLeaf`](../conf/ConfXMLParamLeaf.md#confxmlparamleaf-107412653048)
@@ -65,7 +63,7 @@ public void clear()
 ```
 
 Clears the state of the instance of this class which permits
- multiple invocation of `toXML(ConfXMLParam[],boolean)`.
+ multiple invocation of [`toXML(ConfXMLParam[],boolean)`](ConfXMLParamToXML.md#toxml-37f46ad3cde5).
 
 ### serialize(Document, OutputStream) <a href="#serialize-55bd4c595c9d" id="serialize-55bd4c595c9d"></a>
 
@@ -89,7 +87,7 @@ Flushes the source document `doc` to
 
 **Throws**
 
-- `ConfException` - if occurred while flushing the document
+- `com.tailf.conf.ConfException` - if occurred while flushing the document
 
 ### serialize(Document, Writer) <a href="#serialize-d15119ec5ca5" id="serialize-d15119ec5ca5"></a>
 
@@ -113,7 +111,7 @@ Flushes the source document `doc` to
 
 **Throws**
 
-- `ConfException` - if occurred while flushing the document
+- `com.tailf.conf.ConfException` - if occurred while flushing the document
 
 ### toXML(ConfXMLParam[]) <a href="#toxml-122580fde7a8" id="toxml-122580fde7a8"></a>
 
@@ -129,27 +127,21 @@ Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [ConfE
 Transforms the supplied parameter `ConfXMLParam[]`
  to a document (`Document`).
 
- The `root` tag which encloses the structure will be set
+The `root` tag which encloses the structure will be set
  to a dummy tag *fragment*.
 
+> ```
+>  <fragment>
+>   ...
+>  </fragment>
+> ```
 
-
-```
-  fragment
-   ...
-  /fragment
-```
-
-
-
-
- If another root tag is desired use the method
- [`toXML(ConfXMLParam[],String,String)`](../conf/ConfXMLParam.md#toxml-e7cef9be4b1e) where
+If another root tag is desired use the method
+ [`toXML(ConfXMLParam[],String,String)`](ConfXMLParamToXML.md#toxml-e7cef9be4b1e) where
  root tag `name` and namespace `uri` string
  could be supplied and will be the root Node of the *Document*.
 
-
- Excludes tags with empty leaf values from the document.
+Excludes tags with empty leaf values from the document.
 
 **Parameters**
 
@@ -160,7 +152,7 @@ Transforms the supplied parameter `ConfXMLParam[]`
 
 **Throws**
 
-- `ConfException` - If some error occurred
+- `com.tailf.conf.ConfException` - If some error occurred
 
 ### toXML(ConfXMLParam[], boolean) <a href="#toxml-37f46ad3cde5" id="toxml-37f46ad3cde5"></a>
 
@@ -177,23 +169,17 @@ Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [ConfE
 Transforms the supplied parameter `ConfXMLParam[]`
  to a document (`Document`).
 
- The `root` tag which encloses the structure will be set
+The `root` tag which encloses the structure will be set
  to a dummy tag *fragment*.
 
+> ```
+>  <fragment>
+>   ...
+>  </fragment>
+> ```
 
-
-
-```
-  fragment
-   ...
-  /fragment
-```
-
-
-
-
- If another root tag is desired use the method
- [`toXML(ConfXMLParam[],String,String)`](../conf/ConfXMLParam.md#toxml-e7cef9be4b1e) where
+If another root tag is desired use the method
+ [`toXML(ConfXMLParam[],String,String)`](ConfXMLParamToXML.md#toxml-e7cef9be4b1e) where
  root tag `name` and namespace `uri` string
  could be supplied and will
  be the root Node of the returning `Document`.
@@ -202,13 +188,13 @@ Transforms the supplied parameter `ConfXMLParam[]`
 
 - `com.tailf.conf.ConfXMLParam[] param` - The target array to be converted
 - `boolean includeEmpty` - Include empty leaf values
-        as `ConfNoExists.toString()`
+as `ConfNoExists.toString()`
 
 **Returns:** The resulting `Document`
 
 **Throws**
 
-- `ConfException` - If some error occurred
+- `com.tailf.conf.ConfException` - If some error occurred
 
 ### toXML(ConfXMLParam[], String, String) <a href="#toxml-e7cef9be4b1e" id="toxml-e7cef9be4b1e"></a>
 
@@ -238,7 +224,7 @@ Transforms the supplied `ConfXMLParam[]`
 
 **Throws**
 
-- `ConfException` - if a error occurred
+- `com.tailf.conf.ConfException` - if a error occurred
 
 ### toXML(ConfXMLParam[], String, String, boolean) <a href="#toxml-5c273ed8be98" id="toxml-5c273ed8be98"></a>
 
@@ -268,4 +254,4 @@ Transforms the supplied parameter `ConfXMLParam[]`
 
 **Throws**
 
-- `ConfException` - if error occurred
+- `com.tailf.conf.ConfException` - if error occurred

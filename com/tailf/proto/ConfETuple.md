@@ -10,8 +10,7 @@ Types: [ConfEObject](ConfEObject.md#confeobject-2a9c0d03e350)
 Provides a Java representation of E tuples. Tuples are created from one or
  more arbitrary E terms.
 
-
- The arity of the tuple is the number of elements it contains. Elements are
+The arity of the tuple is the number of elements it contains. Elements are
  indexed from 0 to (arity-1) and can be retrieved individually by using the
  appropriate index.
 
@@ -23,10 +22,6 @@ Provides a Java representation of E tuples. Tuples are created from one or
 - [ConfETuple\(ConfEObject\[\]\)](#confetuple-09ff5654dca7)
 - [ConfETuple\(ConfEObject\[\], int, int\)](#confetuple-338ae357f4f3)
 - [ConfETuple\(ConfInputStream\)](#confetuple-8cbdf89cb4e7)
-
-**Fields**:
-
-- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
 
 **Methods**:
 
@@ -115,19 +110,8 @@ Create a tuple from a stream containing an tuple encoded in E external
 
 **Throws**
 
-- `ConfEDecodeException` - if the buffer does not contain a valid external
-                representation of an E tuple.
-
-
-## Fields
-
-### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
-
-**Package-private**
-
-```java
-static final long serialVersionUID = 9163498658004915935;
-```
+- `com.tailf.proto.ConfEDecodeException` - if the buffer does not contain a valid external
+representation of an E tuple.
 
 
 ## Methods
@@ -161,7 +145,7 @@ Get the specified element from the tuple.
 **Parameters**
 
 - `int i` - the index of the requested element. Tuple elements are
-            numbered as array elements, starting at 0.
+numbered as array elements, starting at 0.
 
 **Returns:** the requested element, of null if i is not a valid element index.
 
@@ -205,7 +189,7 @@ Determine if two tuples are equal. Tuples are equal if they have the same
 - `Object o` - the tuple to compare to.
 
 **Returns:** true if the tuples have the same arity and all the elements are
-         equal.
+equal.
 
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 

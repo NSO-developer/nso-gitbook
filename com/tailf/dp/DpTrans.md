@@ -17,12 +17,6 @@ The transaction context.
 
 ## Members
 
-**Constructors**:
-
-- [DpTrans\(\)](#dptrans-e828adde331b)
-- [DpTrans\(Dp, int, int, int, int, int, DpUserInfo\)](#dptrans-d3592aa18486)
-- [DpTrans\(Dp, int, int, int, int, int, DpUserInfo, boolean\)](#dptrans-f65e37999f51)
-
 **Fields**:
 
 - [dp](#dp-08e185dd74a1)
@@ -72,86 +66,12 @@ The transaction context.
 - [setTransactionUserOpaque\(Object\)](#settransactionuseropaque-ce392ad59d2e)
 - [transReplyOK\(\)](#transreplyok-92425e2f5c67)
 
-## Constructors
-
-### DpTrans() <a href="#dptrans-e828adde331b" id="dptrans-e828adde331b"></a>
-
-**Package-private**
-
-```java
-DpTrans()
-```
-
-Constructor.
-
-### DpTrans(Dp, int, int, int, int, int, DpUserInfo) <a href="#dptrans-d3592aa18486" id="dptrans-d3592aa18486"></a>
-
-**Package-private**
-
-```java
-DpTrans(
-    com.tailf.dp.Dp dp,
-    int thandle,
-    int qref,
-    int mode,
-    int dbname,
-    int op,
-    com.tailf.dp.DpUserInfo uinfo
-)
-```
-
-Types: [Dp](Dp.md#dp-64c27347820e), [DpUserInfo](DpUserInfo.md#dpuserinfo-c59746285a6e)
-
-Lots of parameters here. But since only Dp should be allowed to
- create the transaction there's no need to do anything about it.
-
-**Parameters**
-
-- `com.tailf.dp.Dp dp`
-- `int thandle`
-- `int qref`
-- `int mode`
-- `int dbname`
-- `int op`
-- `com.tailf.dp.DpUserInfo uinfo`
-
-### DpTrans(Dp, int, int, int, int, int, DpUserInfo, boolean) <a href="#dptrans-f65e37999f51" id="dptrans-f65e37999f51"></a>
-
-**Package-private**
-
-```java
-DpTrans(
-    com.tailf.dp.Dp dp,
-    int thandle,
-    int qref,
-    int mode,
-    int dbname,
-    int op,
-    com.tailf.dp.DpUserInfo uinfo,
-    boolean hideInactive
-)
-```
-
-Types: [Dp](Dp.md#dp-64c27347820e), [DpUserInfo](DpUserInfo.md#dpuserinfo-c59746285a6e)
-
-**Parameters**
-
-- `com.tailf.dp.Dp dp`
-- `int thandle`
-- `int qref`
-- `int mode`
-- `int dbname`
-- `int op`
-- `com.tailf.dp.DpUserInfo uinfo`
-- `boolean hideInactive`
-
-
 ## Fields
 
 ### dp <a href="#dp-08e185dd74a1" id="dp-08e185dd74a1"></a>
 
 ```java
-protected com.tailf.dp.Dp dp = null;
+protected com.tailf.dp.Dp dp;
 ```
 
 Types: [Dp](Dp.md#dp-64c27347820e)
@@ -159,61 +79,61 @@ Types: [Dp](Dp.md#dp-64c27347820e)
 ### index <a href="#index-686aa5fc2ebe" id="index-686aa5fc2ebe"></a>
 
 ```java
-protected int index = null;
+protected int index;
 ```
 
 ### lastDid <a href="#lastdid-6917f8e438c1" id="lastdid-6917f8e438c1"></a>
 
 ```java
-protected int lastDid = null;
+protected int lastDid;
 ```
 
 ### lastOp <a href="#lastop-060a1e1a3a08" id="lastop-060a1e1a3a08"></a>
 
 ```java
-protected int lastOp = null;
+protected int lastOp;
 ```
 
 ### lastProtoOp <a href="#lastprotoop-7ea33fd79285" id="lastprotoop-7ea33fd79285"></a>
 
 ```java
-protected int lastProtoOp = null;
+protected int lastProtoOp;
 ```
 
 ### lastQref <a href="#lastqref-3c8dd4583e23" id="lastqref-3c8dd4583e23"></a>
 
 ```java
-protected int lastQref = null;
+protected int lastQref;
 ```
 
 ### opaque <a href="#opaque-3dfa88ab46e3" id="opaque-3dfa88ab46e3"></a>
 
 ```java
-protected String opaque = null;
+protected String opaque;
 ```
 
 ### socket <a href="#socket-64a86aac790a" id="socket-64a86aac790a"></a>
 
 ```java
-protected java.net.Socket socket = null;
+protected java.net.Socket socket;
 ```
 
 ### stop <a href="#stop-4f9f43a7ef4c" id="stop-4f9f43a7ef4c"></a>
 
 ```java
-protected boolean stop = null;
+protected boolean stop;
 ```
 
 ### thandle <a href="#thandle-4150943e9d30" id="thandle-4150943e9d30"></a>
 
 ```java
-protected int thandle = null;
+protected int thandle;
 ```
 
 ### uinfo <a href="#uinfo-ed78ce702727" id="uinfo-ed78ce702727"></a>
 
 ```java
-protected com.tailf.dp.DpUserInfo uinfo = null;
+protected com.tailf.dp.DpUserInfo uinfo;
 ```
 
 Types: [DpUserInfo](DpUserInfo.md#dpuserinfo-c59746285a6e)
@@ -259,8 +179,8 @@ A data callback should normally complete "quickly", since e.g. the
 
 **Throws**
 
-- `IOException`
-- `DpCallbackException`
+- `java.io.IOException`
+- `com.tailf.dp.DpCallbackException`
 
 ### getDBName() <a href="#getdbname-65ff0bdb2339" id="getdbname-65ff0bdb2339"></a>
 
@@ -272,11 +192,10 @@ The database name.
 
  Is always either of:
 
-
-- [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28) -
-    - [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486) -
-      - [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93) -
-        - [`Conf#DB_NONE`](../conf/Conf.md#db_none-5069c3fe4466) -
+- [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28) \-
+- [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486) \-
+- [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93) \-
+- [`Conf#DB_NONE`](../conf/Conf.md#db_none-5069c3fe4466) \-
 
 ### getDeviceType() <a href="#getdevicetype-c8eec3b01523" id="getdevicetype-c8eec3b01523"></a>
 
@@ -581,7 +500,7 @@ A possibility to give a specified worker socket
  the transaction is created.
  Only use this method from within the DpTransCallback.init() method.
 
- If this option is used the Socket needs to be
+If this option is used the Socket needs to be
  connected to ConfD/NCS.
 
 **Parameters**

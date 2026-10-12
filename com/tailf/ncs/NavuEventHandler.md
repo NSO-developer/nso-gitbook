@@ -9,36 +9,30 @@ This class represents the a running daemon where it provides the means
  for user callback to react on NCS CDB notification that arrives
  asynchronously from a device.
 
- The NCS device manager has built-in support for device notifications.
+The NCS device manager has built-in support for device notifications.
  Notifications are a means for the managed devices to send structured data
  asynchronously to the manager. NCS has native support for NETCONF event
  notifications (see RFC 5277) but can also receive notifications
  from other protocols implemented by the Network Element Drivers.
 
- The basic mode of operation is that the manager subscribes to one or
+The basic mode of operation is that the manager subscribes to one or
  more named notification channels that are announced by the managed device.
 
  A user needs to setup a subscription to a named notification
  channel announced by the managed device. This is done for example with
  the CLI:
 
-
-
-
-```
-   configure
-  % set device device "device-name" notifications subscription \
-     "if" stream "interface"
-```
-
-
-
+> ```
+>  > configure
+>  %> set device device "device-name" notifications subscription \
+>     "if" stream "interface"
+> ```
 
  Where `"if"` is the unique name of a subscription and
  the `interface` is the announced stream name by the
  managed device.
 
- When the managed device sends notifications northbound the
+When the managed device sends notifications northbound the
  notifications arrives at the path:
  /ncs:devices/device{device-name}/notifications
   /received-notifications/notification{event-time sequence-no}
@@ -46,47 +40,43 @@ This class represents the a running daemon where it provides the means
  notification and `event-time` the time when the specific
  notification was generated at the device.
 
- A `NavuEventHandler` make use of a `CdbSubscriber`
- which subscribe to the notification table at
+A `NavuEventHandler` make use of a `CdbSubscriber`
+ which subscribe to the notification table at\
 
  /ncs:devices/device/notifications/received-notifications
  /notification.
 
- To be able to react on the received notifications we need to start
+To be able to react on the received notifications we need to start
  a instance of `NavuEventHandler` after a user has
  registered the reacting callback.
 
-
-
 ```
- NavuEventHandler neh = new NavuEventHandler(s);
+NavuEventHandler neh = new NavuEventHandler(s);
 
- MyEventCB mycb = new MyEventCB();
- neh.registerInterfaceCallback(deviceName, subscriptionName,
-  new NavuEventCallback () {
-         public void notifReceieved ( NavuContainer event )
-                     throws NcsException {
-                ..
-           }
+MyEventCB mycb = new MyEventCB();
+neh.registerInterfaceCallback(deviceName, subscriptionName,
+ new NavuEventCallback () {
+        public void notifReceieved ( NavuContainer event )
+                    throws NcsException {
+               ..
+          }
 
-     });
+    });
 
 
-   neh.start();
+  neh.start();
 ```
-
-
 
 
  A user provided implementation of a [`NavuEventCallback`](NavuEventCallback.md#navueventcallback-f83ce6fd0d42) is
  registered with the
- `registerInterfaceCallback(String,String,NavuEventCallback)`
+ [`registerInterfaceCallback(String,String,NavuEventCallback)`](NavuEventHandler.md#registerinterfacecallback-266c7a185b0e)
  method. Optionally a plain java pojo could be annotated
  with the annotation [`EventCallback`](annotations/EventCallback.md#eventcallback-db4e4246d0c8) and
  registered the annotated instance with
  [`registerAnnotatedCallbacks(Object)`](NavuEventHandler.md#registerannotatedcallbacks-ffaebadbfc42).
 
- When registering a reacting callback user needs to provide the
+When registering a reacting callback user needs to provide the
  device name and the stream name in either the explicitly
  `registerInterfaceCallback` method or
  through the annotated java pojo. If the callback needs to received
@@ -94,13 +84,13 @@ This class represents the a running daemon where it provides the means
  an asterisk could be supplied ( or annotated ) as the parameter
  to the registered methods.
 
- As soon as the notifications arrives the user implementation of the
+As soon as the notifications arrives the user implementation of the
  `NavuEventCallback`
  [`NavuEventCallback#notifReceived(NavuContainer)`](NavuEventCallback.md#notifreceived-df06be623526) is invoked
  by the NavuEventHandler for the device and stream the callback
  is interested in.
 
- The NavuContainer represents the list entries:
+The NavuContainer represents the list entries:\
 
  /ncs:devices/device{device-name}/notifications
    /received-notifications/notification{event-time sequence-no}.
@@ -160,6 +150,7 @@ Create an instance of the NavuEventHandler with a
 ### NavuEventHandler(String, int, String) <a href="#navueventhandler-e6148b2b8e5e" id="navueventhandler-e6148b2b8e5e"></a>
 
 ```java
+@Deprecated
 public NavuEventHandler(
     String host,
     int port,
@@ -262,22 +253,20 @@ The main method of the NavuEventHandler is a notification probe that
 
  Example (with wildcard for deviceName and subscriptionName):
 
-
-
 ```
- $java com.tailf.ncs.NavuEventHandler <DeviceName> <SubscriptionName>
+$java com.tailf.ncs.NavuEventHandler <DeviceName> <SubscriptionName>
 
- or if all notification should be retrieved
+or if all notification should be retrieved
 
- $java com.tailf.ncs.NavuEventHandler "\*" "\*"
+$java com.tailf.ncs.NavuEventHandler "\*" "\*"
 
- to connect via a specific Unix socket path (Local IPC)
+to connect via a specific Unix socket path (Local IPC)
 
- $java com.tailf.ncs.NavuEventHandler "\*" "\*" /path/to/socket
+$java com.tailf.ncs.NavuEventHandler "\*" "\*" /path/to/socket
 
- to connect via TCP (both host and port required)
+to connect via TCP (both host and port required)
 
- $java com.tailf.ncs.NavuEventHandler "\*" "\*" 127.0.0.1 4569
+$java com.tailf.ncs.NavuEventHandler "\*" "\*" 127.0.0.1 4569
 ```
 
 **Parameters**
@@ -296,20 +285,16 @@ Method to register pojo classes as notification callbacks. This method
  expects the callback method in the pojo class to be annotated using the
  EventCallback annotation. Example :
 
-
-
 ```
- public class myclass {
- ...
-    EventCallback(deviceName="xyz", subscriptionName="sub1",
- callType=EventCBType.NOTIF_RECEIVED)
-    public void myNotifReceived(NavuContainer event) throws NcsException {
-    ...
-    }
- }
+public class myclass {
+...
+   @EventCallback(deviceName="xyz", subscriptionName="sub1",
+callType=EventCBType.NOTIF_RECEIVED)
+   public void myNotifReceived(NavuContainer event) throws NcsException {
+   ...
+   }
+}
 ```
-
-
 
  This technique makes it possible to use any pojo as callback object.
  Note, however that invocation of the callback method is performed using
@@ -321,7 +306,7 @@ Method to register pojo classes as notification callbacks. This method
 
 **Throws**
 
-- `NcsException`
+- `com.tailf.ncs.NcsException`
 
 ### registerInterfaceCallback(String, String, NavuEventCallback) <a href="#registerinterfacecallback-266c7a185b0e" id="registerinterfacecallback-266c7a185b0e"></a>
 
@@ -348,7 +333,7 @@ Method to register classes that implements the `NavuEventHandler`
   from.
 - `String subscriptionName` - The announced stream name from the device.
 - `com.tailf.ncs.NavuEventCallback callback` - User provided implementation of the
-    NavuEventCallback.
+NavuEventCallback.
 
 ### run() <a href="#run-b6dbda048863" id="run-b6dbda048863"></a>
 
@@ -364,12 +349,12 @@ public void start()
 
 Starts this `NavuEventHandler` to receive notifications.
 
- After the registration of user provided callbacks has been
+After the registration of user provided callbacks has been
  done this method must be called to be able for this
  `NavuEventhandler` to receive notifications when it arrives
  to NCS CDB.
 
- This method will start the underlying
+This method will start the underlying
  `CdbSubscriber` asynchronously, if the underlying
  subscriber is not has already started.
 
@@ -382,20 +367,14 @@ public void stop()
 Stop the underlying subscriber that this `NavuEventHandler`
  is using.
 
- This call will end retrieval of notifications,
+This call will end retrieval of notifications,
  stopping the underlying `CdbSubscriber`. A restart
  of this NavuEventHandler is not possible as long as the underlying
  CdbSubscriber is not shut down.
 
- When using a `NavuEventHandler` in a
+When using a `NavuEventHandler` in a
  `ApplicationComponent` where a `finish` call by
  the Finish-Thread is issued it is important to release or kill
  all the threads that the ApplicationComponent has started thus
  a `stop` call must followed by a shutdown on the
  underlying ExectuorService.
-
-
-## Nested Types
-
-- [EventIterator](NavuEventHandler/EventIterator.md#eventiterator-77ded33d8f63)
-- [InternalEventCB](NavuEventHandler/InternalEventCB.md#internaleventcb-abf2cc138ac7)

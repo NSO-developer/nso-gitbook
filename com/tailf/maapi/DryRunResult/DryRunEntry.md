@@ -6,10 +6,6 @@ public static class com.tailf.maapi.DryRunResult.DryRunEntry
 
 ## Members
 
-**Constructors**:
-
-- [DryRunEntry\(String, Type, String\)](#dryrunentry-719d1bc10043)
-
 **Methods**:
 
 - [getData\(\)](#getdata-8ef0e36ab01b)
@@ -20,25 +16,6 @@ public static class com.tailf.maapi.DryRunResult.DryRunEntry
 **Nested Types**:
 
 - [Type](DryRunEntry/Type.md#type-e2b37c882bf2)
-
-## Constructors
-
-### DryRunEntry(String, Type, String) <a href="#dryrunentry-719d1bc10043" id="dryrunentry-719d1bc10043"></a>
-
-**Package-private**
-
-```java
-DryRunEntry(String name, com.tailf.maapi.DryRunResult.DryRunEntry.Type type, String data)
-```
-
-Types: [Type](DryRunEntry/Type.md#type-e2b37c882bf2)
-
-**Parameters**
-
-- `String name`
-- `com.tailf.maapi.DryRunResult.DryRunEntry.Type type`
-- `String data`
-
 
 ## Methods
 
@@ -68,14 +45,14 @@ Types: [Type](DryRunEntry/Type.md#type-e2b37c882bf2)
 
 Return whether the result is for a device/node.
 
- The type could be any of the following:
+The type could be any of the following:
 
- `DryRunEntry#DEVICE` means that the data is for the device.
+[`Type#DEVICE`](DryRunEntry/Type.md#device-530223f65d97) means that the data is for the device.
 
- `DryRunEntry#LOCAL_NODE` means that the data is for the
+[`Type#LOCAL_NODE`](DryRunEntry/Type.md#local_node-0394590310ba) means that the data is for the
  local-node.
 
- `DryRunEntry#LSA_NODE` means that the data is for the
+[`Type#LSA_NODE`](DryRunEntry/Type.md#lsa_node-ce1c2350351b) means that the data is for the
  lsa-node.
 
 ### getTypeAsString() <a href="#gettypeasstring-ea437139f174" id="gettypeasstring-ea437139f174"></a>
@@ -85,8 +62,3 @@ public String getTypeAsString()
 ```
 
 Return the type as a string.
-
-
-## Nested Types
-
-- [Type](DryRunEntry/Type.md#type-e2b37c882bf2)

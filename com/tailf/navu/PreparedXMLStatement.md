@@ -5,94 +5,82 @@ public class com.tailf.navu.PreparedXMLStatement
 ```
 
 This class represents a parsed XML-string, optionally with parameterized
- values. The string ? denotes a value that is unknown at the
- time when the XML-string is parsed. The ?-strings
+ values. The string "?" denotes a value that is unknown at the
+ time when the XML-string is parsed. The "?"-strings
  can be replaced by actual values at a later time.
 
-
- The `put()` method is used to replace a ? parameter
+The `put()` method is used to replace a "?" parameter
  with its actual `ConfValue`. The parameter index is zero-based.
 
-
- When all ? parameters have been replaced,
+When all "?" parameters have been replaced,
  `setValues()` can be issued which will insert or replace
  (if values already exist) the configuration tree specified by the
  XML-string at the location where `prepareXMLCall` was
  called.
 
-
- If a parameter is not replaced by a value before a `setValues()`
+If a parameter is not replaced by a value before a `setValues()`
  occurs, the value is treated as a [`ConfDefault`](../conf/ConfDefault.md#confdefault-2e2c2aa1733d).
 
-
- No validation of data types occurs when `put()` is called, but
+No validation of data types occurs when `put()` is called, but
  `setValues()` will fail if a parameter is set to a type other
  than the one mandated by the YANG-model.
 
-
-
-
-
-```
- module mtest {
-   namespace "http://tail-f.com/test/mtest/1.0";
-   prefix mtest;
-
-   import ietf-inet-types {
-     prefix inet;
-   }
-
-   container mtest {
-     container servers {
-       list server {
-         key name;
-         max-elements 64;
-         leaf name {
-           type string;
-         }
-         leaf ip {
-           type inet:host;
-           mandatory true;
-         }
-         leaf port {
-           type inet:port-number;
-           default 80;
-         }
-         list interface {
-           key name;
-           max-elements 8;
-           leaf name {
-             type string;
-           }
-           leaf mtu {
-             type int64;
-             default 1500;
-           }
-         }
-       }
-     }
-   }
- }
-```
-
-
-
-
-
-```
-
- PreparedXMLStatement xmlst =
-     serversNavuNode.prepareXMLCall("<server>"
-                                    + "<name>?</name>"
-                                    + "<ip>?</ip>"
-                                    + "<port>?</port>"
-                                    + "</server>");
-
- xmlst.put(0, "www1");
- xmlst.put(1, new ConfIPv4("192.168.10.12"));
- xmlst.put(2, new ConfUInt16(80));
- xmlst.setValues();
-```
+> ```
+> module mtest {
+>   namespace "http://tail-f.com/test/mtest/1.0";
+>   prefix mtest;
+>
+>   import ietf-inet-types {
+>     prefix inet;
+>   }
+>
+>   container mtest {
+>     container servers {
+>       list server {
+>         key name;
+>         max-elements 64;
+>         leaf name {
+>           type string;
+>         }
+>         leaf ip {
+>           type inet:host;
+>           mandatory true;
+>         }
+>         leaf port {
+>           type inet:port-number;
+>           default 80;
+>         }
+>         list interface {
+>           key name;
+>           max-elements 8;
+>           leaf name {
+>             type string;
+>           }
+>           leaf mtu {
+>             type int64;
+>             default 1500;
+>           }
+>         }
+>       }
+>     }
+>   }
+> }
+> ```
+>
+> ```
+>
+> PreparedXMLStatement xmlst =
+>     serversNavuNode.prepareXMLCall("<server>"
+>                                    + "<name>?</name>"
+>                                    + "<ip>?</ip>"
+>                                    + "<port>?</port>"
+>                                    + "</server>");
+>
+> xmlst.put(0, "www1");
+> xmlst.put(1, new ConfIPv4("192.168.10.12"));
+> xmlst.put(2, new ConfUInt16(80));
+> xmlst.setValues();
+> ```
 
 ## Members
 
@@ -200,7 +188,7 @@ When all of the parameterized values have been filled in,
 **Parameters**
 
 - `com.tailf.navu.NavuContext context` - NavuContext object that the setValues() operation should
-                use
+use
 
 ### setValues(NavuNode) <a href="#setvalues-5afe5d05dd50" id="setvalues-5afe5d05dd50"></a>
 
@@ -210,7 +198,7 @@ public void setValues(com.tailf.navu.NavuNode node) throws com.tailf.navu.NavuEx
 
 Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-Similar to `setValues(NavuContext)` but uses the context of
+Similar to [`setValues(NavuContext)`](PreparedXMLStatement.md#setvalues-24042b0e5576) but uses the context of
  the supplied node.
 
 **Parameters**
@@ -235,12 +223,12 @@ public void sharedSetValues(com.tailf.navu.NavuContext context) throws com.tailf
 
 Types: [NavuContext](NavuContext.md#navucontext-2974e9f92a9e), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-Variant of `setValues(NavuContext)` with FastMap support.
+Variant of [`setValues(NavuContext)`](PreparedXMLStatement.md#setvalues-24042b0e5576) with FastMap support.
 
 **Parameters**
 
 - `com.tailf.navu.NavuContext context` - NavuContext object that the sharedSetValues()
-                operation should use
+operation should use
 
 ### sharedSetValues(NavuNode) <a href="#sharedsetvalues-28aec52d6350" id="sharedsetvalues-28aec52d6350"></a>
 
@@ -250,7 +238,7 @@ public void sharedSetValues(com.tailf.navu.NavuNode node) throws com.tailf.navu.
 
 Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-Variant of `setValues(NavuNode)` with FastMap support.
+Variant of [`setValues(NavuNode)`](PreparedXMLStatement.md#setvalues-5afe5d05dd50) with FastMap support.
 
 **Parameters**
 

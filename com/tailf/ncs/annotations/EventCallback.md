@@ -22,7 +22,7 @@ Annotation class for Event Callbacks Attributes are deviceName,
 ### callType() <a href="#calltype-0d0f9b61a036" id="calltype-0d0f9b61a036"></a>
 
 ```java
-public abstract com.tailf.ncs.proto.EventCBType[] callType()
+com.tailf.ncs.proto.EventCBType[] callType()
 ```
 
 Types: [EventCBType](../proto/EventCBType.md#eventcbtype-2b91d6aed05c)
@@ -30,11 +30,11 @@ Types: [EventCBType](../proto/EventCBType.md#eventcbtype-2b91d6aed05c)
 ### deviceName() <a href="#devicename-e1bdeb253d0a" id="devicename-e1bdeb253d0a"></a>
 
 ```java
-public abstract String deviceName()
+String deviceName() default "*"
 ```
 
 ### subscriptionName() <a href="#subscriptionname-2f5dadeb6aba" id="subscriptionname-2f5dadeb6aba"></a>
 
 ```java
-public abstract String subscriptionName()
+String subscriptionName() default "*"
 ```

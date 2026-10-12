@@ -59,7 +59,7 @@ Types: [ConfNamespace](../../../conf/ConfNamespace.md#confnamespace-51b928e168d1
 ### node <a href="#node-ff68e6a3ebc6" id="node-ff68e6a3ebc6"></a>
 
 ```java
-protected com.tailf.maapi.MaapiSchemas.CSNode node = null;
+protected com.tailf.maapi.MaapiSchemas.CSNode node;
 ```
 
 Types: [CSNode](../../../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)

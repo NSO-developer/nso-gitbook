@@ -5,8 +5,8 @@ public static enum com.tailf.maapi.Maapi.Verbosity
 ```
 
 To be used in:
- `reportProgress(int,Verbosity,String)`
- `reportServiceProgress(int,Verbosity,String,ConfPath)`
+ [`reportProgress(int,Verbosity,String)`](../Maapi.md#reportprogress-9b1dc56091be)
+ `#reportServiceProgress(int,Verbosity,String,ConfPath)`
 
 ## Members
 

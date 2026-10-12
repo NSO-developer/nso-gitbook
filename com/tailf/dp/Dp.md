@@ -10,226 +10,221 @@ This class implements the Data Provider API (DP).
  this class library is to provide callback hooks so that user-written
  code can be invoked to perform various tasks.
 
- ***NOTE: For NCS users the `Dp` class should not be used directly.
+***NOTE: For NCS users the `Dp` class should not be used directly.
  Instead written  callbacks  must be packaged in a .jar file and referred to
  by the `package-meta-data.xml`
  file loaded by NCS.***
 
- The class  library  is  also used to populate items in the YANG model
+The class  library  is  also used to populate items in the YANG model
  which are
  not data or configuration items, such  as  statistics  items.
 
- The  library  consists of a number of API methods whose purpose is to
+The  library  consists of a number of API methods whose purpose is to
  install different callback methods at different  points  in  the  XML
  tree which is the representation of the device configuration. Read more
  about callpoints in `tailf_yang_extensions(5)`.
 
-
- There are different types of callbacks that can be registered to perform
+There are different types of callbacks that can be registered to perform
  different tasks. Data callbacks are
  used to deliver data that is defined in the data model.
- If the data is statistics data, e.g. `&quot;config = false;&quot;`
+ If the data is statistics data, e.g. `"config = false;"`
  data,
  the callback objects only have to be able to respond to read requests,
  whereas if the data is configuration data, the callback objects must be able
  to also write data to persistent storage.
 
+To register a data callback in ConfD, we can do:
 
- To register a data callback in ConfD, we can do:
+---
 
+> ```
+> // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
+> Socket ctrl_socket= new Socket("127.0.0.1", port);
+> final Dp dp = new Dp("server_daemon", ctrl_socket);
+> dp.registerAnnotatedCallbacks(new SimpleTransCb());
+> dp.registerAnnotatedCallbacks(new SimpleDataCb());
+> dp.registerDone();
+> Thread dpTh = new Thread(new Runnable() {
+>     public void run() {
+>         try {
+>             while (true) dp.read();
+>         } catch (Exception e) {
+>             e.printStackTrace();
+>             return;
+>         }
+>     }
+> });
+> dpTh.start();
+> ```
 
-```
-   // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
-   Socket ctrl_socket= new Socket(127.0.0.1, port);
-   final Dp dp = new Dp(server_daemon, ctrl_socket);
-   dp.registerAnnotatedCallbacks(new SimpleTransCb());
-   dp.registerAnnotatedCallbacks(new SimpleDataCb());
-   dp.registerDone();
-   Thread dpTh = new Thread(new Runnable() {
-       public void run() {
-           try {
-               while (true) dp.read();
-           } catch (Exception e) {
-               e.printStackTrace();
-               return;
-           }
-       }
-   });
-   dpTh.start();
-```
+---
 
-
-
- To register a data callback in NCS , we must package the classes
+To register a data callback in NCS , we must package the classes
  in the .jar file and place it in the
  `package/my-package/private-jar` directory
  and reference the annotated callbacks in the
  `package/my-package/package-meta-data.xml`:
 
+---
 
+> ```
+> <ncs-package xmlns="http://tail-f.com/ns/ncs-packages">
+>   <name>My-package</name>
+>  <package-version>1.0</package-version>
+>  <description>Abstraction test</description>
+>  <ncs-min-version>2.0</ncs-min-version>
+>  <component>
+>    <name>MyCallbacks</name>
+>    <callback>
+>      <java-class-name>
+>        com.example.mypackage.SimpleTransCb
+>      </java-class-name>
+>      <java-class-name>
+>        com.example.mypackage.SysDataCb
+>      </java-class-name>
+>    </callback>
+>  </component>
+> </ncs-package>
+> ```
 
-```
- ncs-package xmlns="http://tail-f.com/ns/ncs-packages"
-   nameMy-package/name
-  package-version1.0/package-version
-  descriptionAbstraction test/description
-  ncs-min-version2.0/ncs-min-version
-  component
-    nameMyCallbacks/name
-    callback
-      java-class-name
-        com.example.mypackage.SimpleTransCb
-      /java-class-name
-      java-class-name
-        com.example.mypackage.SysDataCb
-      /java-class-name
-    /callback
-  /component
- /ncs-package
-```
+---
 
-
-
-
-
- Where the two classes MyTransCb and MyDataCb need to be annotated
+Where the two classes MyTransCb and MyDataCb need to be annotated
  to indicate what capabilities they have. The following code
  show the annotation used ( Applies to both ConfD/NCS):
 
+---
 
+> ```
+> public class MyTransCb {
+>
+>   @TransCallback(callType=TransCBType.INIT)
+>     public void init(DpTrans trans) throws DpCallbackException {
+>       trace("init(): userinfo= " + trans.getUserInfo());
+>     }
+>
+>   @TransCallback(callType=TransCBType.FINISH)
+>     public void finish(DpTrans trans) throws DpCallbackException {
+>       trace("finish()");
+>     }
+>  }
+>  // And so on ...
+> ```
 
-```
- public class MyTransCb {
+---
 
-   TransCallback(callType=TransCBType.INIT)
-     public void init(DpTrans trans) throws DpCallbackException {
-       trace(init(): userinfo=  + trans.getUserInfo());
-     }
-
-   TransCallback(callType=TransCBType.FINISH)
-     public void finish(DpTrans trans) throws DpCallbackException {
-       trace(finish());
-     }
-  }
-  // And so on ...
-```
-
-
-
- The `MyTransCb` methods `init` , `finish`
+The `MyTransCb` methods `init` , `finish`
  get called at the start and finish of each
  transactions. There exists a number of different possible entry
  points within the transaction. See @see TransCBType.
  And the data callbacks that need to be able to deliver the
  actual data. Given a data model that looks looks like:
 
+---
 
+> ```
+>
+> container servers {
+>   config false;
+>   tailf:callpoint simplecp {
+>   }
+>   list server {
+>     key name;
+>     max-elements 64;
+>     leaf name {
+>       type string;
+>     }
+>     leaf ip {
+>       type inet:ip-address;
+>     }
+>     leaf port {
+>       type inet:port-number;
+>     }
+>     leaf macaddr {
+>       type tailf:hex-list;
+>     }
+>     leaf snmpref {
+>       type yang:object-identifier;
+>       mandatory true;
+>     }
+>     leaf prefixmask {
+>       type tailf:octet-list;
+>       mandatory true;
+>     }
+>   }
+> }
+> ```
 
-```
+---
 
-   container servers {
-     config false;
-     tailf:callpoint simplecp {
-     }
-     list server {
-       key name;
-       max-elements 64;
-       leaf name {
-         type string;
-       }
-       leaf ip {
-         type inet:ip-address;
-       }
-       leaf port {
-         type inet:port-number;
-       }
-       leaf macaddr {
-         type tailf:hex-list;
-       }
-       leaf snmpref {
-         type yang:object-identifier;
-         mandatory true;
-       }
-       leaf prefixmask {
-         type tailf:octet-list;
-         mandatory true;
-       }
-     }
-   }
-```
+The callback class to deliver the data could look like:
 
+---
 
+> ```
+>
+> public class SimpleDataCb  {
+>
+>
+>     @DataCallback(callPoint="simplecp",
+>                        callType=DataCBType.ITERATOR)
+>     public Iterator<Object> iterator(DpTrans trans, ConfObject[] kp)
+>      throws DpCallbackException {
+>      return Foobar.iterator();
+>     }
+>
+>     @DataCallback(callPoint="simplecp",
+>                        callType=DataCBType.GET_NEXT)
+>     public ConfKey getKey(DpTrans trans, ConfObject[] kp, Object obj)
+>      throws DpCallbackException {
+>      Server s = (Server) obj;
+>      return new ConfKey( new ConfObject[] { new ConfBuf(s.name) });
+>     }
+>
+>
+>     @DataCallback(callPoint="simplecp",
+>                        callType=DataCBType.GET_ELEM)
+>     public ConfValue getElem(DpTrans trans, ConfObject[] kp)
+>      throws DpCallbackException {
+>         return Foobar.get(kp);
+>     }
+>
+>     @DataCallback(callPoint="simplecp",
+>                        callType=DataCBType.GET_OBJECT)
+>     public ConfValue[] getObject(DpTrans trans, ConfObject[] kp)
+>         throws DpCallbackException {
+>      String name = ((ConfKey) kp[0]).elementAt(0).toString();
+>      Server s = Foobar.findServer( name );
+>      if (s == null) return null;
+>      return getObject(trans, kp, s);
+>     }
+>
+>     @DataCallback(callPoint="simplecp",
+>     callType=DataCBType.GET_NEXT_OBJECT)
+>     public ConfValue[] getObject(DpTrans trans, ConfObject[] kp, Object obj)
+>      throws DpCallbackException {
+>      Server s = (Server) obj;
+>      return new ConfValue[] {
+>          new ConfBuf(s.name),
+>          new ConfIPv4( s.addr),
+>          new ConfUInt16( s.port),
+>          new ConfHexList( s.macaddr ),
+>     }
+> }
+> ```
 
+---
 
- The callback class to deliver the data could look like:
-
-
-
-
-```
-
- public class SimpleDataCb  {
-
-
-     DataCallback(callPoint=simplecp,
-                        callType=DataCBType.ITERATOR)
-     public IteratorObject iterator(DpTrans trans, ConfObject[] kp)
-      throws DpCallbackException {
-      return Foobar.iterator();
-     }
-
-     DataCallback(callPoint=simplecp,
-                        callType=DataCBType.GET_NEXT)
-     public ConfKey getKey(DpTrans trans, ConfObject[] kp, Object obj)
-      throws DpCallbackException {
-      Server s = (Server) obj;
-      return new ConfKey( new ConfObject[] { new ConfBuf(s.name) });
-     }
-
-
-     DataCallback(callPoint=simplecp,
-                        callType=DataCBType.GET_ELEM)
-     public ConfValue getElem(DpTrans trans, ConfObject[] kp)
-      throws DpCallbackException {
-         return Foobar.get(kp);
-     }
-
-     DataCallback(callPoint=simplecp,
-                        callType=DataCBType.GET_OBJECT)
-     public ConfValue[] getObject(DpTrans trans, ConfObject[] kp)
-         throws DpCallbackException {
-      String name = ((ConfKey) kp[0]).elementAt(0).toString();
-      Server s = Foobar.findServer( name );
-      if (s == null) return null;
-      return getObject(trans, kp, s);
-     }
-
-     DataCallback(callPoint=simplecp,
-     callType=DataCBType.GET_NEXT_OBJECT)
-     public ConfValue[] getObject(DpTrans trans, ConfObject[] kp, Object obj)
-      throws DpCallbackException {
-      Server s = (Server) obj;
-      return new ConfValue[] {
-          new ConfBuf(s.name),
-          new ConfIPv4( s.addr),
-          new ConfUInt16( s.port),
-          new ConfHexList( s.macaddr ),
-     }
- }
-```
-
-
-
-
- `Dp` uses `ThreadPoolExecutor` as managing its
+`Dp` uses `ThreadPoolExecutor` as managing its
  internal worker threads. `Dp` could be configured to prestart
  worker threads so the overhead of creating and starting threads is minimized.
 
- `Dp` delivers a task ([`DpTrans`](DpTrans.md#dptrans-bf19458d92ec),[`DpValidateTrans`](DpValidateTrans.md#dpvalidatetrans-a10fccde2ed1),
+`Dp` delivers a task ([`DpTrans`](DpTrans.md#dptrans-bf19458d92ec),[`DpValidateTrans`](DpValidateTrans.md#dpvalidatetrans-a10fccde2ed1),
  [`DpActionTrans`](DpActionTrans.md#dpactiontrans-b975ce2c2d93) to worker threads when requests comes
  from controller socket.
  '
- The worker threads could either wait for task to arrive to them or
+
+The worker threads could either wait for task to arrive to them or
  they could be started when needed.  `Dp` provides constructor for
  setting various parameters to tune the behavior of threads pool
 
@@ -237,8 +232,8 @@ This class implements the Data Provider API (DP).
 
 - [NcsDp](../ncs/NcsDp.md#ncsdp-836e17b982f3)
 
-**See also:** `java.util.concurrent.ThreadPoolExecutor,for information how the
- ExecutorService could be configured.`, [`ActionCBType`](proto/ActionCBType.md#actioncbtype-10d0222e8e66), [`DBCBType`](proto/DBCBType.md#dbcbtype-b9ff294018bf), [`DataCBType`](proto/DataCBType.md#datacbtype-1cb4e4ee7708), [`SnmpInformResponseCBType`](proto/SnmpInformResponseCBType.md#snmpinformresponsecbtype-ff6f60964bb4), [`TransCBType`](proto/TransCBType.md#transcbtype-23d0df519739), [`TransValidateCBType`](proto/TransValidateCBType.md#transvalidatecbtype-351144dc4150), [`ValidateCBType`](proto/ValidateCBType.md#validatecbtype-5b50c87e5fe9)
+**See also:** for information how the
+ ExecutorService could be configured\., [`ActionCBType`](proto/ActionCBType.md#actioncbtype-10d0222e8e66), [`DBCBType`](proto/DBCBType.md#dbcbtype-b9ff294018bf), [`DataCBType`](proto/DataCBType.md#datacbtype-1cb4e4ee7708), [`SnmpInformResponseCBType`](proto/SnmpInformResponseCBType.md#snmpinformresponsecbtype-ff6f60964bb4), [`TransCBType`](proto/TransCBType.md#transcbtype-23d0df519739), [`TransValidateCBType`](proto/TransValidateCBType.md#transvalidatecbtype-351144dc4150), [`ValidateCBType`](proto/ValidateCBType.md#validatecbtype-5b50c87e5fe9)
 
 ## Members
 
@@ -250,18 +245,11 @@ This class implements the Data Provider API (DP).
 
 **Fields**:
 
-- [DATA\_REPLY\_ERROR](#data_reply_error-63932073556f)
-- [DATA\_REPLY\_OK](#data_reply_ok-65fead4898f3)
-- [DATA\_REPLY\_VALUE](#data_reply_value-c1b655ca375d)
 - [workerThreadPool](#workerthreadpool-c5d6f7ed9a3d)
 
 **Methods**:
 
-- [allocWorkerSocket\(DpTrans\)](#allocworkersocket-174516f00d50)
-- [allocWorkerSocket\(DpTrans, Socket\)](#allocworkersocket-f2a88a81642d)
 - [close\(\)](#close-8107c6dc012b)
-- [closeWorkerSocket\(DpTrans\)](#closeworkersocket-dc01a44ce016)
-- [connectWorkerSocket\(Socket, int\)](#connectworkersocket-c43c1ab09de8)
 - [createNotifStream\(String\)](#createnotifstream-e828f1b79ea0)
 - [createNotifStream\(String, DpNotifReplayCallback\)](#createnotifstream-e4dac93288ec)
 - [createNotifStream\(String, DpNotifReplayCallback, Socket\)](#createnotifstream-24ebe812b6ae)
@@ -269,12 +257,9 @@ This class implements the Data Provider API (DP).
 - [createSnmpNotifier\(String, String, Object\)](#createsnmpnotifier-89f0d186fc8f)
 - [createSnmpNotifier\(String, String, Object, Socket\)](#createsnmpnotifier-666167fa4e78)
 - [freeWorkerSocket\(DpTrans\)](#freeworkersocket-7fceeb5a23c4)
-- [getActionCallback\(String\)](#getactioncallback-1afe38accd25)
-- [getActionCallback\(String, int\)](#getactioncallback-80fd3aa41080)
 - [getCtrlSocket\(\)](#getctrlsocket-bb621326ae1c)
 - [getDaemonId\(\)](#getdaemonid-289be546ab2e)
 - [getDataCallback\(ConfBuf, int\)](#getdatacallback-41b5ab75fca5)
-- [getDbCallback\(\)](#getdbcallback-bd46dc259b1a)
 - [getErrorMessageFormatter\(\)](#geterrormessageformatter-8c75ba6f07e5)
 - [getErrorVerbosity\(\)](#geterrorverbosity-defe49ca237d)
 - [getExceptionReporter\(\)](#getexceptionreporter-51bbec6b9ad7)
@@ -283,10 +268,7 @@ This class implements the Data Provider API (DP).
 - [getServiceCallback\(ConfBuf, int\)](#getservicecallback-3eeb502a337a)
 - [getServicePointMaapi\(\)](#getservicepointmaapi-021836eac222)
 - [getServicePointMaapi\(DpTrans\)](#getservicepointmaapi-16637fd1c239)
-- [getTransCallback\(\)](#gettranscallback-7890d71f94df)
-- [getTransValidateCallback\(\)](#gettransvalidatecallback-0eaee07d8d43)
 - [getUserInfo\(int\)](#getuserinfo-4df0372acaa8)
-- [getValpointCallback\(ConfBuf, int\)](#getvalpointcallback-5f5550918feb)
 - [getWorkerPool\(\)](#getworkerpool-1955a0c55497)
 - [getWorkerSocketFd\(Socket\)](#getworkersocketfd-fca29bd0a7bf)
 - [read\(\)](#read-b28b830b98d6)
@@ -302,17 +284,11 @@ This class implements the Data Provider API (DP).
 - [reRegisterAnnotatedMountedCbs\(DpMountIdInterface, Object\)](#reregisterannotatedmountedcbs-aafebd57912a)
 - [reRegisterAnnotatedRangeActionCallbacks\(Object\)](#reregisterannotatedrangeactioncallbacks-11af42e45a53)
 - [reRegisterAnnotatedRangeDataCallbacks\(Object\)](#reregisterannotatedrangedatacallbacks-35f84233e42f)
-- [runWithSocket\(DpTrans, DpWork, Socket\)](#runwithsocket-c07b7acd0039)
 - [setErrorVerbosity\(ErrorVerbosity\)](#seterrorverbosity-bab7950e55c8)
 - [setExceptionReporter\(DpExceptionReporter\)](#setexceptionreporter-d521ed21a6eb)
 - [setNumFreeWorkerSockets\(int\)](#setnumfreeworkersockets-1a22360e3897)
-- [setRejectedExecutionHandler\(RejectedExecutionHandler\)](#setrejectedexecutionhandler-8f7288278e17)
 - [shutDownThreadPool\(\)](#shutdownthreadpool-21f99643e601)
 - [shutDownThreadPoolNow\(\)](#shutdownthreadpoolnow-ad8e642d6ab4)
-
-**Nested Types**:
-
-- [DpWork](Dp/DpWork.md#dpwork-3b4d7060174c)
 
 ## Constructors
 
@@ -343,12 +319,12 @@ This constructor will initialize the Dp class library and connect to
  Dp dp = new Dp("xyz", new Socket("localhost", port));
  `
 
- If encrypted communication towards ConfD/NCS is desired,
+If encrypted communication towards ConfD/NCS is desired,
  an environment variable "CONFD_IPC_ACCESS_FILE" or "NCS_IPC_ACCESS_FILE"
  need to be set.
  This variable is expected to point to a file containing a secret salt.
   example:
-     export CONFD_IPC_ACCESS_FILE=./secret_file.txt
+export CONFD_IPC_ACCESS_FILE=./secret_file.txt
  An alternative to the environment variable is to set an java system
  property with the same name pointing to the file.
 
@@ -359,10 +335,10 @@ This constructor will initialize the Dp class library and connect to
 
 **Throws**
 
-- `DpException` - Failed to initialize connection.
-- `DpCallbackException` - Callback method failed.
-- `IOException` - Failed to read from control socket.
-- `ConfException` - Failed to decode or other internal failure.
+- `com.tailf.dp.DpException` - Failed to initialize connection.
+- `com.tailf.dp.DpCallbackException` - Callback method failed.
+- `java.io.IOException` - Failed to read from control socket.
+- `com.tailf.conf.ConfException` - Failed to decode or other internal failure.
 
 ### Dp(String, Socket, boolean) <a href="#dp-a5bd6c16fcf6" id="dp-a5bd6c16fcf6"></a>
 
@@ -386,20 +362,20 @@ This constructor will initialize the Dp class library and connect to
  5 seconds after a new socket is established this constructor should be
  called directly for a new socket.
 
- If encrypted communication towards ConfD/NCS is desired,
+If encrypted communication towards ConfD/NCS is desired,
  an environment variable "CONFD_IPC_ACCESS_FILE" or "NCS_IPC_ACCESS_FILE"
  need to be set.
  This variable is expected to point to a file containing a secret salt.
   example:
-     export CONFD_IPC_ACCESS_FILE=./secret_file.txt
+export CONFD_IPC_ACCESS_FILE=./secret_file.txt
  An alternative to the environment variable is to set an java system
  property with the same name pointing to the file.
 
- The thread pool behavior is that it prestarts 5 worker threads
+The thread pool behavior is that it prestarts 5 worker threads
  and poolsize could max grow to 256 working threads. Keep alive
  time is set to 60 sec.
 
- The keepAlive time is the idle time
+The keepAlive time is the idle time
  of a thread before it is terminated. This value is only in
  effect when current thread is greater than corePoolSize.
  The default Queue is ArrayBlockingQueue with a queue size
@@ -414,10 +390,10 @@ This constructor will initialize the Dp class library and connect to
 
 **Throws**
 
-- `DpException` - Failed to initialize connection to ConfD/NCS.
-- `DpCallbackException` - Callback method failed.
-- `IOException` - Failed to read from control socket.
-- `ConfException` - Failed to decode or other internal failure.
+- `com.tailf.dp.DpException` - Failed to initialize connection to ConfD/NCS.
+- `com.tailf.dp.DpCallbackException` - Callback method failed.
+- `java.io.IOException` - Failed to read from control socket.
+- `com.tailf.conf.ConfException` - Failed to decode or other internal failure.
 
 ### Dp(String, Socket, boolean, int, int, long, TimeUnit, BlockingQueue&lt;Runnable&gt;, boolean) <a href="#dp-c0bd46f94119" id="dp-c0bd46f94119"></a>
 
@@ -447,12 +423,12 @@ This constructor will initialize the Dp class library and connect to
  5 seconds after a new socket is established this constructor should be
  called directly for a new socket.
 
- If encrypted communication towards ConfD/NCS is desired,
+If encrypted communication towards ConfD/NCS is desired,
  an environment variable "CONFD_IPC_ACCESS_FILE" or "NCS_IPC_ACCESS_FILE"
  need to be set.
  This variable is expected to point to a file containing a secret salt.
   example:
-     export CONFD_IPC_ACCESS_FILE=./secret_file.txt
+export CONFD_IPC_ACCESS_FILE=./secret_file.txt
  An alternative to the environment variable is to set an java system
  property with the same name pointing to the file.
 
@@ -480,51 +456,27 @@ This constructor will initialize the Dp class library and connect to
 - `boolean isNcs` - set to true if the data provider is managed by NcsDpMux
 - `int minThreadPoolSize` - Minimum worker thread in the worker pool
 - `int maxThreadPoolSize` - Maximum worker thread in the worker pool. This parameter
-       works only when queue is bounded
+works only when queue is bounded
 - `long keepAliveTime` - idle time for a thread before it is terminated
 - `java.util.concurrent.TimeUnit unit` - keepAlive units time
 - `java.util.concurrent.BlockingQueue<Runnable> queue` - Queue that holds tasks. The use of this queue
-       interacts with pool sizing.
+interacts with pool sizing.
 - `boolean prestartCoreThreads`
 
 **Throws**
 
-- `DpException` - Failed to initialize connection to ConfD/NCS.
-- `DpCallbackException` - Callback method failed.
-- `IOException` - Failed to read from control socket.
-- `ConfException` - Failed to decode or other internal failure.
+- `com.tailf.dp.DpException` - Failed to initialize connection to ConfD/NCS.
+- `com.tailf.dp.DpCallbackException` - Callback method failed.
+- `java.io.IOException` - Failed to read from control socket.
+- `com.tailf.conf.ConfException` - Failed to decode or other internal failure.
 
 
 ## Fields
 
-### DATA_REPLY_ERROR <a href="#data_reply_error-63932073556f" id="data_reply_error-63932073556f"></a>
-
-**Package-private**
-
-```java
-static final int DATA_REPLY_ERROR = 105;
-```
-
-### DATA_REPLY_OK <a href="#data_reply_ok-65fead4898f3" id="data_reply_ok-65fead4898f3"></a>
-
-**Package-private**
-
-```java
-static final int DATA_REPLY_OK = 104;
-```
-
-### DATA_REPLY_VALUE <a href="#data_reply_value-c1b655ca375d" id="data_reply_value-c1b655ca375d"></a>
-
-**Package-private**
-
-```java
-static final int DATA_REPLY_VALUE = 103;
-```
-
 ### workerThreadPool <a href="#workerthreadpool-c5d6f7ed9a3d" id="workerthreadpool-c5d6f7ed9a3d"></a>
 
 ```java
-protected com.tailf.dp.DpWorkerThreadPool workerThreadPool = null;
+protected com.tailf.dp.DpWorkerThreadPool workerThreadPool;
 ```
 
 Types: [DpWorkerThreadPool](DpWorkerThreadPool.md#dpworkerthreadpool-05106327e3a1)
@@ -532,86 +484,11 @@ Types: [DpWorkerThreadPool](DpWorkerThreadPool.md#dpworkerthreadpool-05106327e3a
 
 ## Methods
 
-### allocWorkerSocket(DpTrans) <a href="#allocworkersocket-174516f00d50" id="allocworkersocket-174516f00d50"></a>
-
-**Package-private**
-
-```java
-synchronized java.net.Socket allocWorkerSocket(
-    com.tailf.dp.DpTrans trans
-)
-    throws com.tailf.dp.DpException, java.io.IOException
-```
-
-Types: [DpTrans](DpTrans.md#dptrans-bf19458d92ec), [DpException](DpException.md#dpexception-79c01c670be8)
-
-Allocate a new worker socket from a pool of open sockets.
- The returned socket is connected to ConfD/NCS.
-
-**Parameters**
-
-- `com.tailf.dp.DpTrans trans`
-
-### allocWorkerSocket(DpTrans, Socket) <a href="#allocworkersocket-f2a88a81642d" id="allocworkersocket-f2a88a81642d"></a>
-
-**Package-private**
-
-```java
-synchronized java.net.Socket allocWorkerSocket(
-    com.tailf.dp.DpTrans trans,
-    java.net.Socket workerSocket
-)
-    throws com.tailf.dp.DpException
-```
-
-Types: [DpTrans](DpTrans.md#dptrans-bf19458d92ec), [DpException](DpException.md#dpexception-79c01c670be8)
-
-This method is invoked from setSocket when user provides his own
- Socket. In this case we still need to make a fake file descriptor.
-
-**Parameters**
-
-- `com.tailf.dp.DpTrans trans`
-- `java.net.Socket workerSocket`
-
 ### close() <a href="#close-8107c6dc012b" id="close-8107c6dc012b"></a>
 
 ```java
 public void close()
 ```
-
-### closeWorkerSocket(DpTrans) <a href="#closeworkersocket-dc01a44ce016" id="closeworkersocket-dc01a44ce016"></a>
-
-**Package-private**
-
-```java
-synchronized void closeWorkerSocket(com.tailf.dp.DpTrans trans)
-```
-
-Types: [DpTrans](DpTrans.md#dptrans-bf19458d92ec)
-
-Close a worker socket and remove from running sockets.
-
-**Parameters**
-
-- `com.tailf.dp.DpTrans trans`
-
-### connectWorkerSocket(Socket, int) <a href="#connectworkersocket-c43c1ab09de8" id="connectworkersocket-c43c1ab09de8"></a>
-
-**Package-private**
-
-```java
-void connectWorkerSocket(java.net.Socket sock, int fd) throws com.tailf.dp.DpException
-```
-
-Types: [DpException](DpException.md#dpexception-79c01c670be8)
-
-Used by allocWorkerSocket() when a new socket is created.
-
-**Parameters**
-
-- `java.net.Socket sock`
-- `int fd`
 
 ### createNotifStream(String) <a href="#createnotifstream-e828f1b79ea0" id="createnotifstream-e828f1b79ea0"></a>
 
@@ -634,9 +511,9 @@ Creates (and registers) a notifications stream with ConfD/NCS.
 
 **Throws**
 
-- `DpCallbackException` - Callback method failed.
-- `IOException` - Failed to read from notification socket.
-- `ConfException` - Failed to decode or other internal failure.
+- `com.tailf.dp.DpCallbackException` - Callback method failed.
+- `java.io.IOException` - Failed to read from notification socket.
+- `com.tailf.conf.ConfException` - Failed to decode or other internal failure.
 
 **See also:** [`DpNotifStream`](DpNotifStream.md#dpnotifstream-35a75c06ae81)
 
@@ -664,9 +541,9 @@ Creates (and registers) a notifications stream with ConfD/NCS.
 
 **Throws**
 
-- `DpCallbackException` - Callback method failed.
-- `IOException` - Failed to read from notification socket.
-- `ConfException` - Failed to decode or other internal failure.
+- `com.tailf.dp.DpCallbackException` - Callback method failed.
+- `java.io.IOException` - Failed to read from notification socket.
+- `com.tailf.conf.ConfException` - Failed to decode or other internal failure.
 
 **See also:** [`DpNotifStream`](DpNotifStream.md#dpnotifstream-35a75c06ae81)
 
@@ -696,9 +573,9 @@ Creates (and registers) a notifications stream with ConfD/NCS.
 
 **Throws**
 
-- `DpCallbackException` - Callback method failed.
-- `IOException` - Failed to read from notification socket.
-- `ConfException` - Failed to decode or other internal failure.
+- `com.tailf.dp.DpCallbackException` - Callback method failed.
+- `java.io.IOException` - Failed to read from notification socket.
+- `com.tailf.conf.ConfException` - Failed to decode or other internal failure.
 
 **See also:** [`DpNotifStream`](DpNotifStream.md#dpnotifstream-35a75c06ae81)
 
@@ -723,8 +600,8 @@ Creates (and registers) a SNMP Notifer @see [`DpSnmpNotifier`](DpSnmpNotifier.md
 
 **Throws**
 
-- `IOException` - Failed to read from notification socket.
-- `ConfException` - Failed to decode or other internal failure.
+- `java.io.IOException` - Failed to read from notification socket.
+- `com.tailf.conf.ConfException` - Failed to decode or other internal failure.
 
 **See also:** [`DpSnmpNotifier`](DpSnmpNotifier.md#dpsnmpnotifier-f23b7ad8c372)
 
@@ -751,8 +628,8 @@ Creates (and registers) a SNMP Notifier @see [`DpSnmpNotifier`](DpSnmpNotifier.m
 
 **Throws**
 
-- `IOException` - Failed to read from notification socket.
-- `ConfException` - Failed to decode or other internal failure.
+- `java.io.IOException` - Failed to read from notification socket.
+- `com.tailf.conf.ConfException` - Failed to decode or other internal failure.
 
 **See also:** [`DpSnmpNotifier`](DpSnmpNotifier.md#dpsnmpnotifier-f23b7ad8c372)
 
@@ -782,8 +659,8 @@ Creates (and registers) a SNMP Notifier see [`DpSnmpNotifier`](DpSnmpNotifier.md
 
 **Throws**
 
-- `IOException` - Failed to read from notification socket.
-- `ConfException` - Failed to decode or other internal failure.
+- `java.io.IOException` - Failed to read from notification socket.
+- `com.tailf.conf.ConfException` - Failed to decode or other internal failure.
 
 **See also:** [`DpSnmpNotifier`](DpSnmpNotifier.md#dpsnmpnotifier-f23b7ad8c372)
 
@@ -800,43 +677,6 @@ Free up a worker socket, for use on other Transaction.
 **Parameters**
 
 - `com.tailf.dp.DpTrans trans`
-
-### getActionCallback(String) <a href="#getactioncallback-1afe38accd25" id="getactioncallback-1afe38accd25"></a>
-
-**Package-private**
-
-```java
-com.tailf.dp.DpActionCallback getActionCallback(String point) throws com.tailf.dp.DpException
-```
-
-Types: [DpActionCallback](DpActionCallback.md#dpactioncallback-62c4973947ec), [DpException](DpException.md#dpexception-79c01c670be8)
-
-Find the action callback for a callpoint.
-
-**Parameters**
-
-- `String point` - An action point name
-
-### getActionCallback(String, int) <a href="#getactioncallback-80fd3aa41080" id="getactioncallback-80fd3aa41080"></a>
-
-**Package-private**
-
-```java
-com.tailf.dp.DpActionCallback getActionCallback(
-    String point,
-    int index
-)
-    throws com.tailf.dp.DpException
-```
-
-Types: [DpActionCallback](DpActionCallback.md#dpactioncallback-62c4973947ec), [DpException](DpException.md#dpexception-79c01c670be8)
-
-Find the action callback for a callpoint.
-
-**Parameters**
-
-- `String point` - An action point name
-- `int index` - Index for position in actionpoint array
 
 ### getCtrlSocket() <a href="#getctrlsocket-bb621326ae1c" id="getctrlsocket-bb621326ae1c"></a>
 
@@ -876,18 +716,6 @@ Get the registered data callback with specified name and at index.
 
 - `com.tailf.conf.ConfBuf callpoint` - The name of the callpoint
 - `int index` - The index of callpoint
-
-### getDbCallback() <a href="#getdbcallback-bd46dc259b1a" id="getdbcallback-bd46dc259b1a"></a>
-
-**Package-private**
-
-```java
-com.tailf.dp.DpDbCallback getDbCallback() throws com.tailf.dp.DpException
-```
-
-Types: [DpDbCallback](DpDbCallback.md#dpdbcallback-7fcc01bd0281), [DpException](DpException.md#dpexception-79c01c670be8)
-
-Gets the registered db callback.
 
 ### getErrorMessageFormatter() <a href="#geterrormessageformatter-8c75ba6f07e5" id="geterrormessageformatter-8c75ba6f07e5"></a>
 
@@ -973,7 +801,7 @@ Get the registered service callback with specified name and at index.
 ### getServicePointMaapi() <a href="#getservicepointmaapi-021836eac222" id="getservicepointmaapi-021836eac222"></a>
 
 ```java
-public com.tailf.maapi.Maapi getServicePointMaapi() throws java.io.IOException, com.tailf.conf.ConfException
+public com.tailf.maapi.Maapi getServicePointMaapi()
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
@@ -994,30 +822,6 @@ Types: [Maapi](../maapi/Maapi.md#maapi-67bcbe89c42e), [DpTrans](DpTrans.md#dptra
 
 - `com.tailf.dp.DpTrans trans`
 
-### getTransCallback() <a href="#gettranscallback-7890d71f94df" id="gettranscallback-7890d71f94df"></a>
-
-**Package-private**
-
-```java
-com.tailf.dp.DpTransCallback getTransCallback() throws com.tailf.dp.DpException
-```
-
-Types: [DpTransCallback](DpTransCallback.md#dptranscallback-20e03cd7123b), [DpException](DpException.md#dpexception-79c01c670be8)
-
-Get the registered transaction callback.
-
-### getTransValidateCallback() <a href="#gettransvalidatecallback-0eaee07d8d43" id="gettransvalidatecallback-0eaee07d8d43"></a>
-
-**Package-private**
-
-```java
-com.tailf.dp.DpTransValidateCallback getTransValidateCallback() throws com.tailf.dp.DpException
-```
-
-Types: [DpTransValidateCallback](DpTransValidateCallback.md#dptransvalidatecallback-377cc1867a16), [DpException](DpException.md#dpexception-79c01c670be8)
-
-Get the registered transaction validate callback.
-
 ### getUserInfo(int) <a href="#getuserinfo-4df0372acaa8" id="getuserinfo-4df0372acaa8"></a>
 
 ```java
@@ -1031,27 +835,6 @@ Retrieves the user information.
 **Parameters**
 
 - `int usid` - User identifier
-
-### getValpointCallback(ConfBuf, int) <a href="#getvalpointcallback-5f5550918feb" id="getvalpointcallback-5f5550918feb"></a>
-
-**Package-private**
-
-```java
-com.tailf.dp.DpValpointCallback getValpointCallback(
-    com.tailf.conf.ConfBuf point,
-    int index
-)
-    throws com.tailf.dp.DpException
-```
-
-Types: [DpValpointCallback](DpValpointCallback.md#dpvalpointcallback-ee36356695e1), [ConfBuf](../conf/ConfBuf.md#confbuf-c460585d9115), [DpException](DpException.md#dpexception-79c01c670be8)
-
-Finds the valpoint callback.
-
-**Parameters**
-
-- `com.tailf.conf.ConfBuf point` - A valpoint name
-- `int index` - Index for position in valpoint array
 
 ### getWorkerPool() <a href="#getworkerpool-1955a0c55497" id="getworkerpool-1955a0c55497"></a>
 
@@ -1090,9 +873,9 @@ Receives data on the control socket which is connected to ConfD/NCS.
 
 **Throws**
 
-- `ConfException` - Failed to decode.
-- `SocketTimeoutException` - The control socket timed out.
-- `IOException` - Failed to read from control socket.
+- `com.tailf.conf.ConfException` - Failed to decode.
+- `java.net.SocketTimeoutException` - The control socket timed out.
+- `java.io.IOException` - Failed to read from control socket.
 
 ### registerAnnotatedCallbacks(Object) <a href="#registerannotatedcallbacks-ffaebadbfc42" id="registerannotatedcallbacks-ffaebadbfc42"></a>
 
@@ -1108,46 +891,38 @@ All Data, Trans, Action, Validate, TransValidate and DB callbacks
  All annotated methods with correct signature
  are registered. The method name is arbitrary.
 
-
- Example of a DataCallback:
-
+Example of a DataCallback:
 
 ```
- final class cbDataDemo {
-    DataCallback(callPoint="abc", callType=DataCBType.ITERATOR)
-    public IteratorObject abc(DpTrans trans, ConfObject[] kp) {
-        // Change this to the real implementation
-        return null;
-    }
+final class cbDataDemo {
+   @DataCallback(callPoint="abc", callType=DataCBType.ITERATOR)
+   public Iterator<Object> abc(DpTrans trans, ConfObject[] kp) {
+       // Change this to the real implementation
+       return null;
+   }
 
-    DataCallback(callPoint="abc", callType=DataCBType.GET_NEXT)
-    public ConfKey getKey(DpTrans trans, ConfObject[] kp, Object obj) {
-        // Change this to the real implementation
-        return null;
-    }
-    // And so on ...
- }
+   @DataCallback(callPoint="abc", callType=DataCBType.GET_NEXT)
+   public ConfKey getKey(DpTrans trans, ConfObject[] kp, Object obj) {
+       // Change this to the real implementation
+       return null;
+   }
+   // And so on ...
+}
 ```
 
+The respective annotations are
 
+- @DataCallback
+- @TransCallback
+- @ActionCallback
+- @ValidateCallback
+- @TransValidateCallback
+- @DBCallback
+- @AuthCallback
+- @ServiceCallback
 
- The respective annotations are
-
-
-- DataCallback
-- TransCallback
-- ActionCallback
-- ValidateCallback
-- TransValidateCallback
-- DBCallback
-- AuthCallback
-- ServiceCallback
-
-
-
- The callType defines the callback method and each
+The callType defines the callback method and each
  annotation has an Enum of legal values
-
 
 - [`DataCBType`](proto/DataCBType.md#datacbtype-1cb4e4ee7708)
 - [`TransCBType`](proto/TransCBType.md#transcbtype-23d0df519739)
@@ -1164,7 +939,7 @@ All Data, Trans, Action, Validate, TransValidate and DB callbacks
 
 **Throws**
 
-- `DpException`
+- `com.tailf.dp.DpException`
 
 ### registerAnnotatedCallbacks(String, Object) <a href="#registerannotatedcallbacks-e4aab67443c6" id="registerannotatedcallbacks-e4aab67443c6"></a>
 
@@ -1242,7 +1017,7 @@ DataCallbacks can be registered for a range of values using this method
 
 **Throws**
 
-- `DpException` - Failed to register range data callback.
+- `com.tailf.dp.DpException` - Failed to register range data callback.
 
 ### registerDone() <a href="#registerdone-a7e6840dacc7" id="registerdone-a7e6840dacc7"></a>
 
@@ -1259,7 +1034,7 @@ When we have registered all the callbacks for a daemon
 
 **Throws**
 
-- `DpException` - Failed with registerDone()
+- `com.tailf.dp.DpException` - Failed with registerDone()
 
 ### removeActionMaapi() <a href="#removeactionmaapi-ed4fc28fd600" id="removeactionmaapi-ed4fc28fd600"></a>
 
@@ -1285,7 +1060,7 @@ reRegisters an existing callback.
 
 **Throws**
 
-- `DpException`
+- `com.tailf.dp.DpException`
 
 ### reRegisterAnnotatedCallbacks(String, Object) <a href="#reregisterannotatedcallbacks-3db30c25ecf8" id="reregisterannotatedcallbacks-3db30c25ecf8"></a>
 
@@ -1337,7 +1112,7 @@ reRegisters an existing callback.
 
 **Throws**
 
-- `DpException`
+- `com.tailf.dp.DpException`
 
 ### reRegisterAnnotatedRangeDataCallbacks(Object) <a href="#reregisterannotatedrangedatacallbacks-35f84233e42f" id="reregisterannotatedrangedatacallbacks-35f84233e42f"></a>
 
@@ -1359,34 +1134,7 @@ reRegisters an existing callback.
 
 **Throws**
 
-- `DpException`
-
-### runWithSocket(DpTrans, DpWork, Socket) <a href="#runwithsocket-c07b7acd0039" id="runwithsocket-c07b7acd0039"></a>
-
-**Package-private**
-
-```java
-java.net.Socket runWithSocket(
-    com.tailf.dp.DpTrans dp,
-    com.tailf.dp.Dp.DpWork dpWork,
-    java.net.Socket socket
-)
-    throws Throwable
-```
-
-Types: [DpTrans](DpTrans.md#dptrans-bf19458d92ec), [DpWork](Dp/DpWork.md#dpwork-3b4d7060174c)
-
-The purpose of this method is to make sure the socket is still connected
- to ConfD/NCS before executing the callback.
-
- If the socket is disconnected, remove the socket from the pool and
- allocate a new socket that is connected to ConfD/NCS for the callback.
-
-**Parameters**
-
-- `com.tailf.dp.DpTrans dp`
-- `com.tailf.dp.Dp.DpWork dpWork`
-- `java.net.Socket socket`
+- `com.tailf.dp.DpException`
 
 ### setErrorVerbosity(ErrorVerbosity) <a href="#seterrorverbosity-bab7950e55c8" id="seterrorverbosity-bab7950e55c8"></a>
 
@@ -1434,18 +1182,6 @@ This method is used to control the number of workersockets that
 
 - `int numSockets` - number of sockets.
 
-### setRejectedExecutionHandler(RejectedExecutionHandler) <a href="#setrejectedexecutionhandler-8f7288278e17" id="setrejectedexecutionhandler-8f7288278e17"></a>
-
-**Package-private**
-
-```java
-void setRejectedExecutionHandler(java.util.concurrent.RejectedExecutionHandler handler)
-```
-
-**Parameters**
-
-- `java.util.concurrent.RejectedExecutionHandler handler`
-
 ### shutDownThreadPool() <a href="#shutdownthreadpool-21f99643e601" id="shutdownthreadpool-21f99643e601"></a>
 
 ```java
@@ -1466,9 +1202,4 @@ Attempts to stop all actively executing transactions,
  halts the processing of waiting transactions, and returns number
  of the tasks that were awaiting execution.
 
-**Returns:** - Number of awaiting transactions that was not executed.
-
-
-## Nested Types
-
-- [DpWork](Dp/DpWork.md#dpwork-3b4d7060174c)
+**Returns:** \- Number of awaiting transactions that was not executed.

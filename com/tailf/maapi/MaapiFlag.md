@@ -4,7 +4,7 @@
 public enum com.tailf.maapi.MaapiFlag
 ```
 
-Flags used by `Maapi#setFlags(int,EnumSet)` method to control
+Flags used by [`Maapi#setFlags(int,EnumSet)`](Maapi.md#setflags-1158755c6ac8) method to control
  read/write sessions.
 
 ## Members
@@ -36,9 +36,9 @@ CONFIG_ONLY((1 << 2));
 This flag will make the `Maapi.getXxx()` method return
  config nodes only.
 
- if we attempt to read operational data, it will be treated as if the
+if we attempt to read operational data, it will be treated as if the
  nodes did not exist. This is mainly useful in conjunction with
- [`Maapi#getObject(int,String,Object...)`](Maapi.md#getobject-8f535bb4e0e8) and list entries or
+ [`Maapi#getObject(int,String,Object...)`](Maapi.md#getobject-2a5e3632866b) and list entries or
  containers that have both config
  and operational data (the operational data nodes in the returned array
  will be of class [`ConfNoExists`](../conf/ConfNoExists.md#confnoexists-bdcf8f2c7ab9) (type J_NOEXISTS),
@@ -51,7 +51,7 @@ DELAYED_WHEN((1 << 6));
 ```
 
 This flag only takes effect when used in
- `Maapi#startTransFlags(int,int,int,EnumSet)` calls
+ [`Maapi#startTransFlags(int,int,int,EnumSet)`](Maapi.md#starttransflags-cd1ec7f9d8f8) calls
  and is only meaningful when applied to an read-write transaction.
 
  It will cause "delayed when" mode to be enabled from the beginning of
@@ -66,7 +66,7 @@ HIDE_ALL_HIDEGROUPS((1 << 8));
 ```
 
 This flag only takes effect when used in
- `Maapi#startTransFlags(int,int,int,EnumSet)` calls.
+ [`Maapi#startTransFlags(int,int,int,EnumSet)`](Maapi.md#starttransflags-cd1ec7f9d8f8) calls.
 
  It will hide all nodes with `tailf:hidden` statement from the
  dry-run result.
@@ -80,7 +80,7 @@ HIDE_INACTIVE((1 << 3));
 ```
 
 This flag only takes effect when used in
- `Maapi#startTransFlags(int,int,int,EnumSet)` calls
+ [`Maapi#startTransFlags(int,int,int,EnumSet)`](Maapi.md#starttransflags-cd1ec7f9d8f8) calls
  and only when starting a read-only transaction.
 
  It will hide configuration data that has the
@@ -96,16 +96,16 @@ HINT_BULK((1 << 0));
 This flag tells the server that we will be reading substantial amounts
  of data.
 
- The affect of setting this has the effect that the
+The affect of setting this has the effect that the
  [`DpDataCallback#getObject( DpTrans,ConfObject[])`](../dp/DpDataCallback.md#getobject-b2d87f9b9270) and
  [`DpDataCallback#iterator(DpTrans,ConfObject[])`](../dp/DpDataCallback.md#iterator-89c62926f3e8),
  [`DpDataCallback#getIteratorKey(
   DpTrans,ConfObject[],Object)`](../dp/DpDataCallback.md#getiteratorkey-6df7c38f65f8)
  callbacks (if available) are used towards external data providers
- when we call [`Maapi#getElem(int,String,Object...)`](Maapi.md#getelem-1415a215bb24) etc and
+ when we call [`Maapi#getElem(int,String,Object...)`](Maapi.md#getelem-fed33938e6b8) etc and
  [`Maapi#getNext(MaapiCursor)`](Maapi.md#getnext-94186d85d070).
 
- The [`Maapi#getObject(int,String,Object...)`](Maapi.md#getobject-8f535bb4e0e8)
+The [`Maapi#getObject(int,String,Object...)`](Maapi.md#getobject-2a5e3632866b)
  method always operates as if this flag was set.
 
 ### NO_DEFAULTS <a href="#no_defaults-60bc0f0feb09" id="no_defaults-60bc0f0feb09"></a>
@@ -117,7 +117,7 @@ NO_DEFAULTS((1 << 1));
 This flag specifies that we want to be informed when we read leafs with
  default values that have not had a value set.
 
- This is indicated by the returned value being of class
+This is indicated by the returned value being of class
  [`ConfDefault`](../conf/ConfDefault.md#confdefault-2e2c2aa1733d) (type J_DEFAULT) instead of the
  actual value. The default value for such leafs can be obtained from the
  [`Maapi#loadSchemas()`](Maapi.md#loadschemas-84ad3496a6f3) tree provided by the library.
@@ -129,7 +129,7 @@ SKIP_SUBSCRIBERS((1 << 9));
 ```
 
 This flag only takes effect when used in
- `Maapi#startTransFlags(int,int,int,EnumSet)` calls.
+ [`Maapi#startTransFlags(int,int,int,EnumSet)`](Maapi.md#starttransflags-cd1ec7f9d8f8) calls.
 
  It will disable subscribers for the given transaction, use with caution.
 

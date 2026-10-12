@@ -3,7 +3,6 @@
 ## Types
 
 - [MmapCSCase](MmapCSCase.md#mmapcscase-32ecb25f579a)
-- [MmapCSChoice](MmapCSChoice.md#mmapcschoice-47e12534067f)
 - [MmapCSMountPoint](MmapCSMountPoint.md#mmapcsmountpoint-aee8d6faee4d)
 - [MmapCSNode](MmapCSNode.md#mmapcsnode-cd078e4f36a9)
 - [MmapCSRoot](MmapCSRoot.md#mmapcsroot-5dca00b7053c)

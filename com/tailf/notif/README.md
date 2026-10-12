@@ -10,23 +10,22 @@ Package for subscription to asynchronous events.
   The following is a list of the different asynchronous event classes that
   can be delivered from the server to the application(s)
 
-
 - NOTIF_AUDIT - Audit events.
-    - NOTIF_COMMIT_DIFF - A complete diff compared to previous configuration.
-      - NOTIF_COMMIT_FAILED - Failed commit events.
-        - NOTIF_COMMIT_SIMPLE - Commit events.
-          - NOTIF_COMMIT_PROGRESS - Commit in progress events.
-            - NOTIF_CONFIRMED_COMMIT - Confirmed commit events.
-              - NOTIF_FORWARD_INFO - Forward northbound agent events.
-                - NOTIF_HA_INFO - Changes in ConfD/NCS's perception of the cluster
-  configuration.
-                  - NOTIF_HEARTBEAT - Heartbeat events.
-                    - NOTIF_SNMPA - SNMP agent audit log.
-                      - NOTIF_SUBAGENT_INFO - Subagent related events.
-                        - NOTIF_SYSLOG - Syslog events.
-                          - NOTIF_UPGRADE_EVENT - Upgrade events.
-                            - NOTIF_COMPACTION - Compaction events.
-                              - NOTIF_USER_SESSION - Whenever a user session is started or stopped.
+- NOTIF_COMMIT_DIFF - A complete diff compared to previous configuration.
+- NOTIF_COMMIT_FAILED - Failed commit events.
+- NOTIF_COMMIT_SIMPLE - Commit events.
+- NOTIF_COMMIT_PROGRESS - Commit in progress events.
+- NOTIF_CONFIRMED_COMMIT - Confirmed commit events.
+- NOTIF_FORWARD_INFO - Forward northbound agent events.
+- NOTIF_HA_INFO - Changes in ConfD/NCS's perception of the cluster
+    configuration.
+- NOTIF_HEARTBEAT - Heartbeat events.
+- NOTIF_SNMPA - SNMP agent audit log.
+- NOTIF_SUBAGENT_INFO - Subagent related events.
+- NOTIF_SYSLOG - Syslog events.
+- NOTIF_UPGRADE_EVENT - Upgrade events.
+- NOTIF_COMPACTION - Compaction events.
+- NOTIF_USER_SESSION - Whenever a user session is started or stopped.
 
 ## Types
 

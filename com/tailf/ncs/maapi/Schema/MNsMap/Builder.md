@@ -7,10 +7,6 @@ public static final class com.tailf.ncs.maapi.Schema.MNsMap.Builder
 
 ## Members
 
-**Constructors**:
-
-- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
-
 **Methods**:
 
 - [asReader\(\)](#asreader-b5c0f2a8d115)
@@ -22,31 +18,6 @@ public static final class com.tailf.ncs.maapi.Schema.MNsMap.Builder
 - [setEntries\(Reader\<Reader\>\)](#setentries-edf21be99f7c)
 - [setNsHash\(int\)](#setnshash-856e3c88b24a)
 - [setTagHash\(int\)](#settaghash-0e9cfe2575f5)
-
-## Constructors
-
-### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
-
-**Package-private**
-
-```java
-Builder(
-    org.capnproto.SegmentBuilder segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentBuilder segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-
 
 ## Methods
 

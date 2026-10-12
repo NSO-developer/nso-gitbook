@@ -7,10 +7,6 @@ public static final class com.tailf.ncs.maapi.Schema.Range.Builder
 
 ## Members
 
-**Constructors**:
-
-- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
-
 **Methods**:
 
 - [asReader\(\)](#asreader-b5c0f2a8d115)
@@ -22,31 +18,6 @@ public static final class com.tailf.ncs.maapi.Schema.Range.Builder
 - [setFlags\(byte\)](#setflags-920848b8d655)
 - [setHi\(Reader\)](#sethi-550fb8729c56)
 - [setLo\(Reader\)](#setlo-584c3fb11cf5)
-
-## Constructors
-
-### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
-
-**Package-private**
-
-```java
-Builder(
-    org.capnproto.SegmentBuilder segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentBuilder segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-
 
 ## Methods
 

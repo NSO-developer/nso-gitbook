@@ -8,22 +8,21 @@ The class `AlarmSink` represents a "sink" where
  `Alarm` objects are added in order to be written to the
  alarm table.
 
- The `AlarmSink`relieves the user of writing directly into
+The `AlarmSink`relieves the user of writing directly into
  the alarm table.
 
- An `AlarmSink` can be created in two ways: stand alone
+An `AlarmSink` can be created in two ways: stand alone
  or through `AlarmSinkCentral`.
 
-
 - **Stand alone**
- In this mode `AlarmSink` is created with a `Maapi`
- object which is used when writing to the alarm list.
+   In this mode `AlarmSink` is created with a `Maapi`
+   object which is used when writing to the alarm list.
 - **Through `AlarmSinkCentral`**
- In this mode, writing is handled by a proxy before it is written to
- the alarm list. The `AlarmSink` is created with its
- default constructor and submitting is always done indirectly through
- the `AlarmSinkCentral` which is always started in an
- NCS JVM.
+   In this mode, writing is handled by a proxy before it is written to
+   the alarm list. The `AlarmSink` is created with its
+   default constructor and submitting is always done indirectly through
+   the `AlarmSinkCentral` which is always started in an
+   NCS JVM.
 
 ## Members
 
@@ -36,8 +35,8 @@ The class `AlarmSink` represents a "sink" where
 **Methods**:
 
 - [submitAlarm\(Alarm\)](#submitalarm-aff190c46329)
-- [submitAlarm\(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List\<ManagedObject\>, List\<AlarmId\>, List\<ManagedObject\>, ConfDatetime, Attribute\[\]\)](#submitalarm-00b8df4003d0)
-- [submitAlarm\(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, String, List\<ManagedObject\>, List\<AlarmId\>, List\<ManagedObject\>, ConfDatetime, Attribute\[\]\)](#submitalarm-99f8171f0795)
+- [submitAlarm\(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List\<ManagedObject\>, List\<AlarmId\>, List\<ManagedObject\>, ConfDatetime, Attribute\.\.\.\)](#submitalarm-ebbe73388c07)
+- [submitAlarm\(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, String, List\<ManagedObject\>, List\<AlarmId\>, List\<ManagedObject\>, ConfDatetime, Attribute\.\.\.\)](#submitalarm-615a42fb8a1c)
 - [submitAlarmList\(List\<Alarm\>\)](#submitalarmlist-a59c291d1268)
 
 ## Constructors
@@ -52,8 +51,7 @@ Constructs an `AlarmSink`. This sink
  writes alarms to NCS indirectly using the thread local NcsMain
  instance `AlarmSinkCentral` object.
 
-
- **Note:** This constructor shall be the preferred constructor
+**Note:** This constructor shall be the preferred constructor
  used if you are writing alarms inside the NCS JVM i.e
  in a package component.
 
@@ -69,7 +67,7 @@ Construct an `AlarmSink` using the given
  `AlarmSinkCentral` object for writing alarms
  indirectly to the alarm list.
 
- The `AlarmSink` is standalone and does not
+The `AlarmSink` is standalone and does not
  use the `AlarmSinkCentral`.
 
 **Parameters**
@@ -87,7 +85,7 @@ Types: [Maapi](../../../maapi/Maapi.md#maapi-67bcbe89c42e), [NavuException](../.
 Construct an `AlarmSink` using the given `Maapi`
  object for writing alarms directly to the alarm list.
 
- The `AlarmSink` is standalone and does not
+The `AlarmSink` is standalone and does not
  use the `AlarmSinkCentral`.
 
 **Parameters**
@@ -120,11 +118,11 @@ Submits the specified `Alarm` into the alarm list.
 
 **Throws**
 
-- `NavuException`
-- `ConfException`
-- `IOException`
+- `com.tailf.navu.NavuException`
+- `com.tailf.conf.ConfException`
+- `java.io.IOException`
 
-### submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List&lt;ManagedObject&gt;, List&lt;AlarmId&gt;, List&lt;ManagedObject&gt;, ConfDatetime, Attribute[]) <a href="#submitalarm-00b8df4003d0" id="submitalarm-00b8df4003d0"></a>
+### submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List&lt;ManagedObject&gt;, List&lt;AlarmId&gt;, List&lt;ManagedObject&gt;, ConfDatetime, Attribute...) <a href="#submitalarm-ebbe73388c07" id="submitalarm-ebbe73388c07"></a>
 
 ```java
 public synchronized boolean submitAlarm(
@@ -138,7 +136,7 @@ public synchronized boolean submitAlarm(
     java.util.List<com.tailf.ncs.alarmman.common.AlarmId> relatedAlarms,
     java.util.List<com.tailf.ncs.alarmman.common.ManagedObject> rootCauseObjects,
     com.tailf.conf.ConfDatetime timeStamp,
-    com.tailf.ncs.alarmman.common.Attribute[] customAttributes
+    com.tailf.ncs.alarmman.common.Attribute... customAttributes
 )
     throws com.tailf.navu.NavuException, com.tailf.conf.ConfException, java.io.IOException
 ```
@@ -159,8 +157,8 @@ Submits the specified `Alarm` into the alarm list.
 - `com.tailf.ncs.alarmman.common.ManagedObject managedObject` - the managed object emitting the alarm.
 - `com.tailf.conf.ConfIdentityRef alarmtype` - the alarm type of the alarm.
 - `com.tailf.conf.ConfBuf specificProblem` - is used when the alarmtype cannot uniquely
-        identify the alarm type.  Normally, this is not the case,
-        and this leaf is the empty string.
+identify the alarm type.  Normally, this is not the case,
+and this leaf is the empty string.
 
  Status change within the alarm:
 - `com.tailf.ncs.alarmman.common.PerceivedSeverity severity` - the severity of the alarm.
@@ -168,21 +166,21 @@ Submits the specified `Alarm` into the alarm list.
 - `java.util.List<com.tailf.ncs.alarmman.common.ManagedObject> impactedObjects` - Objects that might be affected by this alarm
 - `java.util.List<com.tailf.ncs.alarmman.common.AlarmId> relatedAlarms` - Alarms related to this alarm
 - `java.util.List<com.tailf.ncs.alarmman.common.ManagedObject> rootCauseObjects` - Objects that are candidates for causing the
-                         alarm.
+alarm.
 - `com.tailf.conf.ConfDatetime timeStamp` - The time the status of the alarm changed,
-                         as reported by the device
-- `com.tailf.ncs.alarmman.common.Attribute[] customAttributes` - Custom attributes
+as reported by the device
+- `com.tailf.ncs.alarmman.common.Attribute... customAttributes` - Custom attributes
 
 **Returns:** boolean true/false wheather the submitting the specified
-       alarm was successful
+alarm was successful
 
 **Throws**
 
-- `IOException`
-- `ConfException`
-- `NavuException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
+- `com.tailf.navu.NavuException`
 
-### submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, String, List&lt;ManagedObject&gt;, List&lt;AlarmId&gt;, List&lt;ManagedObject&gt;, ConfDatetime, Attribute[]) <a href="#submitalarm-99f8171f0795" id="submitalarm-99f8171f0795"></a>
+### submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, String, List&lt;ManagedObject&gt;, List&lt;AlarmId&gt;, List&lt;ManagedObject&gt;, ConfDatetime, Attribute...) <a href="#submitalarm-615a42fb8a1c" id="submitalarm-615a42fb8a1c"></a>
 
 ```java
 public synchronized boolean submitAlarm(
@@ -196,7 +194,7 @@ public synchronized boolean submitAlarm(
     java.util.List<com.tailf.ncs.alarmman.common.AlarmId> relatedAlarms,
     java.util.List<com.tailf.ncs.alarmman.common.ManagedObject> rootCauseObjects,
     com.tailf.conf.ConfDatetime timeStamp,
-    com.tailf.ncs.alarmman.common.Attribute[] customAttributes
+    com.tailf.ncs.alarmman.common.Attribute... customAttributes
 )
     throws com.tailf.navu.NavuException, com.tailf.conf.ConfException, java.io.IOException
 ```
@@ -217,8 +215,8 @@ Submits the specified `Alarm` into the alarm list.
 - `com.tailf.ncs.alarmman.common.ManagedObject managedObject` - the managed object emitting the alarm.
 - `com.tailf.conf.ConfIdentityRef alarmtype` - the alarm type of the alarm.
 - `com.tailf.conf.ConfBuf specificProblem` - is used when the alarmtype cannot uniquely
-        identify the alarm type.  Normally, this is not the case,
-        and this leaf is the empty string.
+identify the alarm type.  Normally, this is not the case,
+and this leaf is the empty string.
 
  Status change within the alarm:
 - `com.tailf.ncs.alarmman.common.PerceivedSeverity severity` - the severity of the alarm.
@@ -226,19 +224,19 @@ Submits the specified `Alarm` into the alarm list.
 - `java.util.List<com.tailf.ncs.alarmman.common.ManagedObject> impactedObjects` - Objects that might be affected by this alarm
 - `java.util.List<com.tailf.ncs.alarmman.common.AlarmId> relatedAlarms` - Alarms related to this alarm
 - `java.util.List<com.tailf.ncs.alarmman.common.ManagedObject> rootCauseObjects` - Objects that are candidates for causing the
-                         alarm.
+alarm.
 - `com.tailf.conf.ConfDatetime timeStamp` - The time the status of the alarm changed,
-                         as reported by the device
-- `com.tailf.ncs.alarmman.common.Attribute[] customAttributes` - Custom attributes
+as reported by the device
+- `com.tailf.ncs.alarmman.common.Attribute... customAttributes` - Custom attributes
 
 **Returns:** boolean true/false wheather the submitting the specified
-       alarm was successful
+alarm was successful
 
 **Throws**
 
-- `IOException`
-- `ConfException`
-- `NavuException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
+- `com.tailf.navu.NavuException`
 
 ### submitAlarmList(List&lt;Alarm&gt;) <a href="#submitalarmlist-a59c291d1268" id="submitalarmlist-a59c291d1268"></a>
 
@@ -259,6 +257,6 @@ Submits a list of alarms
 
 **Throws**
 
-- `ConfException`
-- `IOException`
-- `NavuException`
+- `com.tailf.conf.ConfException`
+- `java.io.IOException`
+- `com.tailf.navu.NavuException`

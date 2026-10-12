@@ -24,7 +24,7 @@ This interface is used with the Iterate method in Maapi. It allows a way
 ### iterate(ConfObject[], ConfObject, ConfAttributeValue[], Object) <a href="#iterate-638caa8f5a2f" id="iterate-638caa8f5a2f"></a>
 
 ```java
-public abstract com.tailf.conf.ConfIterateResultFlag iterate(
+com.tailf.conf.ConfIterateResultFlag iterate(
     com.tailf.conf.ConfObject[] kp,
     com.tailf.conf.ConfObject value,
     com.tailf.conf.ConfAttributeValue[] attrs,

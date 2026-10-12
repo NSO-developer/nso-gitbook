@@ -7,10 +7,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder
 
 ## Members
 
-**Constructors**:
-
-- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
-
 **Methods**:
 
 - [asReader\(\)](#asreader-b5c0f2a8d115)
@@ -32,31 +28,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder
 - [setA7\(short\)](#seta7-6bbb104d9e3a)
 - [setA8\(short\)](#seta8-7bc7b767c00a)
 - [setPrefix\(byte\)](#setprefix-e20c09b64c12)
-
-## Constructors
-
-### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
-
-**Package-private**
-
-```java
-Builder(
-    org.capnproto.SegmentBuilder segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentBuilder segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-
 
 ## Methods
 

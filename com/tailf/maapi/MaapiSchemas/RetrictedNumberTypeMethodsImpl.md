@@ -42,7 +42,13 @@ public boolean validate(
 
 Types: [CSType](CSType.md#cstype-8bf086cc0595), [ConfValue](../../conf/ConfValue.md#confvalue-769292781c7d), [MaapiException](../MaapiException.md#maapiexception-af58eb4e109e)
 
+*Description from* [`CSTypeMethods.validate(com.tailf.maapi.MaapiSchemas.CSType, com.tailf.conf.ConfValue)`](CSTypeMethods.md#validate-d2696432436e)
+
+Validates ConfValue of with rules from CSType
+
 **Parameters**
 
 - `com.tailf.maapi.MaapiSchemas.CSType type`
 - `com.tailf.conf.ConfValue val`
+
+**Returns:** boolean true if valid

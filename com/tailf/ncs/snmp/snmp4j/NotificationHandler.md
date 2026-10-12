@@ -7,6 +7,12 @@ public interface com.tailf.ncs.snmp.snmp4j.NotificationHandler
 Interface that all Handlers must implement
  to be able to register for the NotificationReceiver
 
+**Related classes**
+
+- [FilterAckInforms](FilterAckInforms.md#filterackinforms-cd47a176f4bd)
+- [FilterKnownIPAddresses](FilterKnownIPAddresses.md#filterknownipaddresses-693e71797e53)
+- [FilterOutNonNotifications](FilterOutNonNotifications.md#filteroutnonnotifications-f53d7df96e64)
+
 ## Members
 
 **Methods**:
@@ -18,7 +24,7 @@ Interface that all Handlers must implement
 ### processPdu(EventContext, CommandResponderEvent, Object) <a href="#processpdu-6c9b32673c38" id="processpdu-6c9b32673c38"></a>
 
 ```java
-public abstract com.tailf.ncs.snmp.snmp4j.HandlerResponse processPdu(
+com.tailf.ncs.snmp.snmp4j.HandlerResponse processPdu(
     com.tailf.ncs.snmp.snmp4j.EventContext context,
     org.snmp4j.CommandResponderEvent event,
     Object opaque

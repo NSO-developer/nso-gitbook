@@ -75,7 +75,6 @@ DATA_CONTAINER - Corresponds to the YANG identityRef type.
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
 - [decode\(ConfEObject, String\)](ConfObject.md#decode-9b92f1de40d8) from ConfObject
@@ -93,7 +92,6 @@ DATA_CONTAINER - Corresponds to the YANG identityRef type.
 - [hashCode\(\)](#hashcode-ef797a217903)
 - [setConfNamespace\(ConfNamespace\)](#setconfnamespace-7fef1b53f52c)
 - [toString\(\)](#tostring-e9d48c5503ef)
-- [toString\(int\)](#tostring-477fa787d7c7)
 
 ## Constructors
 
@@ -172,15 +170,26 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
 
+*Description from* [`ConfValue.encode()`](ConfValue.md#encode-fbae522bba37)
+
+encode value.
+
 ### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
 ```
 
+*Description from* [`ConfValue.equals(Object)`](ConfValue.md#equals-fcd6492e0d6c)
+
+Determine if two ConfValue are equal. In general, ConfObjects are
+ equal if the components they consist of are equal.
+
 **Parameters**
 
-- `Object o`
+- `Object o` - The object to compare to.
+
+**Returns:** true if the objects are identical.
 
 ### getConfNamespace() <a href="#getconfnamespace-87556caf3223" id="getconfnamespace-87556caf3223"></a>
 
@@ -238,18 +247,4 @@ Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
 public String toString()
 ```
 
-### toString(int) <a href="#tostring-477fa787d7c7" id="tostring-477fa787d7c7"></a>
-
-**Package-private**
-
-```java
-String toString(int prevNs)
-```
-
-package-private version for printing list of keypaths (prefix not shown
- more than once in the beginning or when namespace is changed in middle of
- path)
-
-**Parameters**
-
-- `int prevNs`
+**Returns:** the printable representation of the object.

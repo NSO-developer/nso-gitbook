@@ -10,12 +10,12 @@ Types: [NavuContextBase](NavuContextBase.md#navucontextbase-0061e2b12534)
 This class controls how NAVU should read/write data to ncs.
  With data we mean configuration and/or operational data.
 
- All data (config/oper) can be read using a Maapi transaction
+All data (config/oper) can be read using a Maapi transaction
  towards the DB_RUNNING database. If this transaction is opened in
  MODE_READ_WRITE mode, then configuration data can be written with
  this same transaction.
 
- Another constructor [`NavuContext(Maapi)`](NavuContext.md#navucontext-af99f9cc97c7) exists as an option.
+Another constructor [`NavuContext(Maapi)`](NavuContext.md#navucontext-af99f9cc97c7) exists as an option.
  This constructor prepares a context and expects a [`Maapi`](../maapi/Maapi.md#maapi-67bcbe89c42e) instance
  with a started user session. Before using this type of context it is
  mandatory to call either [`NavuContext#startRunningTrans(int)`](NavuContext.md#startrunningtrans-f44b804de65a) or
@@ -36,23 +36,22 @@ This class controls how NAVU should read/write data to ncs.
  context created with the [`NavuContext(Maapi, int)`](NavuContext.md#navucontext-08f21a9fb7b4) constructor which
  is kept for backward compatibility.
 
- A typical scenario using the [`NavuContext(Maapi)`](NavuContext.md#navucontext-af99f9cc97c7) constructor
+A typical scenario using the [`NavuContext(Maapi)`](NavuContext.md#navucontext-af99f9cc97c7) constructor
  would be something like.
 
-
 ```
-      NavuContext context = new NavuContext(maapi);
-      int th context.startRunningTrans(Conf.MODE_READ_WRITE);
-      // if operational data should be written the above line should be
-      // replaced with:
-      // int th = context.startOperationalTrans(Conf.MODE_READ_WRITE);
+     NavuContext context = new NavuContext(maapi);
+     int th context.startRunningTrans(Conf.MODE_READ_WRITE);
+     // if operational data should be written the above line should be
+     // replaced with:
+     // int th = context.startOperationalTrans(Conf.MODE_READ_WRITE);
 
-      ... Using Navu ....
+     ... Using Navu ....
 
-      context.applyClearTrans();
-      // if nothing has been written to the transaction then nothing should
-      // be applied and and following call should be used instead
-      // context.finishClearTrans();
+     context.applyClearTrans();
+     // if nothing has been written to the transaction then nothing should
+     // be applied and and following call should be used instead
+     // context.finishClearTrans();
 ```
 
 ## Members
@@ -106,7 +105,7 @@ This class controls how NAVU should read/write data to ncs.
 - [getWriteOperSession\(\)](NavuContextBase.md#getwriteopersession-eb5d274da267) from NavuContextBase
 - [hasCdbSubscriber\(\)](NavuContextBase.md#hascdbsubscriber-3650a7c55283) from NavuContextBase
 - [idrefDerivedOrSelf\(NavuNode, ConfIdentityRef, String, Object\[\]\)](#idrefderivedorself-6a08c9a390be)
-- [initMaapiCursor\(NavuNode, String, Object\[\]\)](#initmaapicursor-dfdad1aa4163)
+- [initMaapiCursor\(NavuNode, String, Object\.\.\.\)](#initmaapicursor-518b82b30b35)
 - [insert\(NavuList, boolean, String, Object\[\]\)](#insert-55bd5e6f415f)
 - [isActAsSuper\(\)](NavuContextBase.md#isactassuper-ce02ade4553b) from NavuContextBase
 - [isCdb\(\)](NavuContextBase.md#iscdb-20ec16d14862) from NavuContextBase
@@ -217,7 +216,7 @@ This method applies any changes in this transaction (Commit) using
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### applyReplaceTrans() <a href="#applyreplacetrans-8ed9b5f50308" id="applyreplacetrans-8ed9b5f50308"></a>
 
@@ -242,7 +241,7 @@ This method applies (commit) and finish the transaction using
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### aquireReadTh() <a href="#aquirereadth-cbeb80470556" id="aquirereadth-cbeb80470556"></a>
 
@@ -331,7 +330,7 @@ Attach an existing transaction towards the [`Conf#DB_RUNNING`](../conf/Conf.md#d
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### clear() <a href="#clear-ca3baec040cb" id="clear-ca3baec040cb"></a>
 
@@ -366,7 +365,7 @@ Clears the internal transaction defined by
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### copy(NavuContext) <a href="#copy-87eecbcd063a" id="copy-87eecbcd063a"></a>
 
@@ -455,7 +454,7 @@ For an context with an attached transaction using
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### diffIterate(MaapiDiffIterate, NavuContext) <a href="#diffiterate-4cc73971858b" id="diffiterate-4cc73971858b"></a>
 
@@ -494,7 +493,7 @@ Finishes current trans using [`Maapi#finishTrans(int)`](../maapi/Maapi.md#finish
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### getCase(NavuChoice, String, ConfPath) <a href="#getcase-653069cc39c6" id="getcase-653069cc39c6"></a>
 
@@ -610,13 +609,13 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [ConfIdentityRef](../conf/
 - `String fmt`
 - `Object[] args`
 
-### initMaapiCursor(NavuNode, String, Object[]) <a href="#initmaapicursor-dfdad1aa4163" id="initmaapicursor-dfdad1aa4163"></a>
+### initMaapiCursor(NavuNode, String, Object...) <a href="#initmaapicursor-518b82b30b35" id="initmaapicursor-518b82b30b35"></a>
 
 ```java
 protected synchronized java.util.List<com.tailf.conf.ConfKey> initMaapiCursor(
     com.tailf.navu.NavuNode node,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws com.tailf.navu.NavuException
 ```
@@ -627,7 +626,7 @@ Types: [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867), [NavuNode](NavuNode.m
 
 - `com.tailf.navu.NavuNode node`
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 ### insert(NavuList, boolean, String, Object[]) <a href="#insert-55bd5e6f415f" id="insert-55bd5e6f415f"></a>
 
@@ -779,12 +778,12 @@ Types: [NavuContext](NavuContext.md#navucontext-2974e9f92a9e)
 
 Set the context attributes using another context object.
 
- This this operation will make an abrupt change in connection
+This this operation will make an abrupt change in connection
  type, transactions etc. Therefore it is the responsibility of
  the user to handle open transactions, locks, socket or any
  other resources that otherwise will be left orphaned.
 
- Note, that the context is normally set at the creation of the NAVU
+Note, that the context is normally set at the creation of the NAVU
  root node. The context is then shared between all child nodes and a
  change of context attributes will therefore affect all nodes in
  the current NAVU tree. This implies that data can become stale between
@@ -896,7 +895,7 @@ This method starts a transaction towards the [`Conf#DB_OPERATIONAL`](../conf/Con
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### startOperationalTrans(int, String, String, String, String) <a href="#startoperationaltrans-f0b7896eb7ea" id="startoperationaltrans-f0b7896eb7ea"></a>
 
@@ -949,7 +948,7 @@ This method starts a transaction towards the PRE_COMMIT_RUNNING
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### startPreCommitRunningTrans(String, String, String, String) <a href="#startprecommitrunningtrans-a6bcef757ab6" id="startprecommitrunningtrans-a6bcef757ab6"></a>
 
@@ -1000,7 +999,7 @@ This method starts a transaction towards the [`Conf#DB_RUNNING`](../conf/Conf.md
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### startRunningTrans(int, String, String, String, String) <a href="#startrunningtrans-0b37ed6a4aa8" id="startrunningtrans-0b37ed6a4aa8"></a>
 
@@ -1053,8 +1052,3 @@ Types: [MaapiXPathEvalTrace](../maapi/MaapiXPathEvalTrace.md#maapixpathevaltrace
 - `String query`
 - `Object initstate`
 - `String keyPath`
-
-
-## Nested Types
-
-- [DataMode](NavuContext/DataMode.md#datamode-25b2036cfd59)

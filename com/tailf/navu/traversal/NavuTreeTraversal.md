@@ -6,9 +6,7 @@ public class com.tailf.navu.traversal.NavuTreeTraversal
 
 Starting point for both *Active* and *Passive* mode traversal
 
-
-
- Starting class from which one can retrieve an iterator
+Starting class from which one can retrieve an iterator
  or create an instance for passive mode traversal.
  In passive mode, the user registers one or more filter methods which are
  called for each `NavuNode` encountered by the traversal.
@@ -69,14 +67,11 @@ Types: [NavuNode](../NavuNode.md#navunode-73944820c8db), [NavuContext](../NavuCo
 
 Retrieve an iterator to traverse the entire NAVU tree.
 
-
-
- This method should be used if we want to traverse
+This method should be used if we want to traverse
  the whole NAVU tree, i.e., every existing path for all loaded
  YANG models.
 
-
- This is the active mode of traversal, meaning it is up to the
+This is the active mode of traversal, meaning it is up to the
  user to retrieve the next node using the `getNext()`
  method on the iterator. The nodes are returned in depth-first
  order.
@@ -97,7 +92,6 @@ Types: [NavuNode](../NavuNode.md#navunode-73944820c8db)
 
 Retrieve an iterator to traverse part of a NAVU tree.
 
-
  This method should be used if we want to traverse
  a part of the tree starting from the children of
  supplied `NavuNode`. This is the active mode of
@@ -108,7 +102,7 @@ Retrieve an iterator to traverse part of a NAVU tree.
 **Parameters**
 
 - `com.tailf.navu.NavuNode startNode` - the starting `NavuNode`, which will be used
-                  as the root node for the iteration process
+as the root node for the iteration process
 
 **Returns:** iterator starting from the given `NavuNode`
 
@@ -134,8 +128,7 @@ Types: [NavuException](../NavuException.md#navuexception-d80fa0cb4f3f)
 
 Start the traversal process.
 
-
- For each NavuNode encountered by the process, all added filters
+For each NavuNode encountered by the process, all added filters
  will be invoked.
 
 **Returns:** Set of all visited paths

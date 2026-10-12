@@ -39,31 +39,31 @@ public ConfResponse()
 ### error <a href="#error-fc13f76f27a0" id="error-fc13f76f27a0"></a>
 
 ```java
-public boolean error = null;
+public boolean error;
 ```
 
 ### errorCode <a href="#errorcode-e873fccf9c64" id="errorcode-e873fccf9c64"></a>
 
 ```java
-public int errorCode = null;
+public int errorCode;
 ```
 
 ### errorString <a href="#errorstring-75eb40f0991a" id="errorstring-75eb40f0991a"></a>
 
 ```java
-public String errorString = null;
+public String errorString;
 ```
 
 ### op <a href="#op-7ac7f5ec86b1" id="op-7ac7f5ec86b1"></a>
 
 ```java
-public int op = null;
+public int op;
 ```
 
 ### term <a href="#term-06e3a07b3287" id="term-06e3a07b3287"></a>
 
 ```java
-public com.tailf.proto.ConfEObject term = null;
+public com.tailf.proto.ConfEObject term;
 ```
 
 Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)

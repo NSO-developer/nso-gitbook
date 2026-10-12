@@ -23,10 +23,6 @@ Provides a Java representation of E floats and doubles. E defines only one
 - [ConfEDouble\(ConfInputStream\)](#confedouble-5d29c11b7f1f)
 - [ConfEDouble\(double\)](#confedouble-2d502f9ddc23)
 
-**Fields**:
-
-- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
-
 **Methods**:
 
 - [clone\(\)](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
@@ -57,8 +53,8 @@ Create an E float from a stream containing a double encoded in E external
 
 **Throws**
 
-- `ConfEDecodeException` - if the buffer does not contain a valid external
-                representation of an E float.
+- `com.tailf.proto.ConfEDecodeException` - if the buffer does not contain a valid external
+representation of an E float.
 
 ### ConfEDouble(double) <a href="#confedouble-2d502f9ddc23" id="confedouble-2d502f9ddc23"></a>
 
@@ -71,17 +67,6 @@ Create an E float from the given double value.
 **Parameters**
 
 - `double d`
-
-
-## Fields
-
-### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
-
-**Package-private**
-
-```java
-static final long serialVersionUID = 132947104811974021;
-```
 
 
 ## Methods
@@ -139,7 +124,7 @@ Get the value, as a float.
 
 **Throws**
 
-- `ConfERangeException` - if the value cannot be represented as a float.
+- `com.tailf.proto.ConfERangeException` - if the value cannot be represented as a float.
 
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 

@@ -7,8 +7,7 @@ public class com.tailf.proto.ConfOutputStream
 Provides a stream for encoding E terms to external format, for transmission
  or storage.
 
-
- Note that this class is not synchronized, if you need synchronization you
+Note that this class is not synchronized, if you need synchronization you
  must provide it yourself.
 
 ## Members
@@ -26,7 +25,6 @@ Provides a stream for encoding E terms to external format, for transmission
 **Methods**:
 
 - [count\(\)](#count-9e5d07d4db9b)
-- [getConfInputStream\(int\)](#getconfinputstream-066a2b2f92ac)
 - [getPos\(\)](#getpos-ad2d7b30807f)
 - [poke4BE\(int, long\)](#poke4be-1599f0eb9562)
 - [reset\(\)](#reset-6927918ac70a)
@@ -43,7 +41,6 @@ Provides a stream for encoding E terms to external format, for transmission
 - [write\_any\(ConfEObject\)](#write_any-39f3c731f9af)
 - [write\_atom\(String\)](#write_atom-cb0e872c619b)
 - [write\_atom\(String, boolean\)](#write_atom-e9bc357deb03)
-- [write\_big\(BigInteger\)](#write_big-eef182ab6880)
 - [write\_binary\(byte\[\]\)](#write_binary-59f71b69853a)
 - [write\_boolean\(boolean\)](#write_boolean-85ed730c2c6c)
 - [write\_byte\(byte\)](#write_byte-b8a1b8055add)
@@ -53,7 +50,6 @@ Provides a stream for encoding E terms to external format, for transmission
 - [write\_int\(int\)](#write_int-ecbd574d3a55)
 - [write\_list\_head\(int\)](#write_list_head-8afa4a647bc5)
 - [write\_long\(long\)](#write_long-52726186f08e)
-- [write\_long\(long, boolean\)](#write_long-1566e4a476c3)
 - [write\_nil\(\)](#write_nil-454e0dfb8a20)
 - [write\_pid\(String, int, int, int, boolean\)](#write_pid-1e498a2fcff8)
 - [write\_port\(String, int, int\)](#write_port-f3d21f5605a4)
@@ -130,20 +126,6 @@ Get the number of bytes in the stream.
 
 **Returns:** the number of bytes in the stream.
 
-### getConfInputStream(int) <a href="#getconfinputstream-066a2b2f92ac" id="getconfinputstream-066a2b2f92ac"></a>
-
-**Package-private**
-
-```java
-com.tailf.proto.ConfInputStream getConfInputStream(int offset)
-```
-
-Types: [ConfInputStream](ConfInputStream.md#confinputstream-c4a961d10b62)
-
-**Parameters**
-
-- `int offset`
-
 ### getPos() <a href="#getpos-ad2d7b30807f" id="getpos-ad2d7b30807f"></a>
 
 ```java
@@ -167,17 +149,15 @@ Write the low four bytes of a value to the stream in bif endian order, at
  Normally this method should be used in conjunction with [getPos\(\)](ConfOutputStream.md#getpos-ad2d7b30807f), when is is necessary to insert data into the stream before it
  is known what the actual value should be. For example:
 
-
-
 ```
- int pos = s.getPos();
-      s.write4BE(0); // make space for length data,
-      // but final value is not yet known
+int pos = s.getPos();
+     s.write4BE(0); // make space for length data,
+     // but final value is not yet known
 
-      [ ...more write statements...]
+     [ ...more write statements...]
 
-      // later... when we know the length value
-      s.poke4BE(pos, length);
+     // later... when we know the length value
+     s.poke4BE(pos, length);
 ```
 
 **Parameters**
@@ -351,18 +331,6 @@ Write a string to the stream as an E atom.
 - `String atom` - the string to write.
 - `boolean isSmallUtf8` - whether to encode atoms using SMALL_ATOM_UTF8_EXT
 
-### write_big(BigInteger) <a href="#write_big-eef182ab6880" id="write_big-eef182ab6880"></a>
-
-**Package-private**
-
-```java
-void write_big(java.math.BigInteger big)
-```
-
-**Parameters**
-
-- `java.math.BigInteger big`
-
 ### write_binary(byte[]) <a href="#write_binary-59f71b69853a" id="write_binary-59f71b69853a"></a>
 
 ```java
@@ -476,19 +444,6 @@ Write a long to the stream.
 
 - `long l` - the long to use.
 
-### write_long(long, boolean) <a href="#write_long-1566e4a476c3" id="write_long-1566e4a476c3"></a>
-
-**Package-private**
-
-```java
-void write_long(long v, boolean unsigned)
-```
-
-**Parameters**
-
-- `long v`
-- `boolean unsigned`
-
 ### write_nil() <a href="#write_nil-454e0dfb8a20" id="write_nil-454e0dfb8a20"></a>
 
 ```java
@@ -510,9 +465,9 @@ Write an E PID to the stream.
 - `String node` - the nodename.
 - `int id` - an arbitrary number. Only the low order 15 bits will be used.
 - `int serial` - another arbitrary number. Only the low order 13 bits will be
-            used.
+used.
 - `int creation` - yet another arbitrary number. Only the low order 2 bits will
-            be used.
+be used.
 - `boolean isNew`
 
 ### write_port(String, int, int) <a href="#write_port-f3d21f5605a4" id="write_port-f3d21f5605a4"></a>
@@ -528,7 +483,7 @@ Write an E port to the stream.
 - `String node` - the nodename.
 - `int id` - an arbitrary number. Only the low order 28 bits will be used.
 - `int creation` - another arbitrary number. Only the low order 2 bits will be
-            used.
+used.
 
 ### write_ref(String, int, int) <a href="#write_ref-229e9927dc2e" id="write_ref-229e9927dc2e"></a>
 
@@ -543,7 +498,7 @@ Write an old style E ref to the stream.
 - `String node` - the nodename.
 - `int id` - an arbitrary number. Only the low order 18 bits will be used.
 - `int creation` - another arbitrary number. Only the low order 2 bits will be
-            used.
+used.
 
 ### write_ref(String, int[], int) <a href="#write_ref-f24efc920831" id="write_ref-f24efc920831"></a>
 
@@ -557,11 +512,11 @@ Write a new style (R6 and later) E ref to the stream.
 
 - `String node` - the nodename.
 - `int[] ids` - an array of arbitrary numbers. Only the low order 18 bits of
-            the first number will be used. If the array contains only one
-            number, an old style ref will be written instead. At most
-            three numbers will be read from the array.
+the first number will be used. If the array contains only one
+number, an old style ref will be written instead. At most
+three numbers will be read from the array.
 - `int creation` - another arbitrary number. Only the low order 2 bits will be
-            used.
+used.
 
 ### write_short(short) <a href="#write_short-0269bc417d02" id="write_short-0269bc417d02"></a>
 

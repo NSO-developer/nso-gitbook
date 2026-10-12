@@ -17,7 +17,7 @@ Transition action callback
 ### execute(String, String, Object) <a href="#execute-4f9764c84c43" id="execute-4f9764c84c43"></a>
 
 ```java
-public abstract void execute(String currentState, String newState, Object opaque) throws Exception
+void execute(String currentState, String newState, Object opaque) throws Exception
 ```
 
 Method called when a specific transition event occur

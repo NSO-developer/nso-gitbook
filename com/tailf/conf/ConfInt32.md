@@ -77,7 +77,6 @@ DATA_CONTAINER - Corresponds to the YANG int32 type.
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [compareTo\(ConfInt32\)](#compareto-48cc940d0b39)
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
@@ -139,15 +138,26 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
 
+*Description from* [`ConfValue.encode()`](ConfValue.md#encode-fbae522bba37)
+
+encode value.
+
 ### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
 ```
 
+*Description from* [`ConfValue.equals(Object)`](ConfValue.md#equals-fcd6492e0d6c)
+
+Determine if two ConfValue are equal. In general, ConfObjects are
+ equal if the components they consist of are equal.
+
 **Parameters**
 
-- `Object o`
+- `Object o` - The object to compare to.
+
+**Returns:** true if the objects are identical.
 
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
@@ -166,3 +176,5 @@ public int intValue()
 ```java
 public String toString()
 ```
+
+**Returns:** the printable representation of the object.

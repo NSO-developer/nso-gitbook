@@ -33,7 +33,7 @@ public PathKey()
 ### value <a href="#value-4bdfc955fc93" id="value-4bdfc955fc93"></a>
 
 ```java
-public com.tailf.conf.ConfObject value = null;
+public com.tailf.conf.ConfObject value;
 ```
 
 Types: [ConfObject](../../ConfObject.md#confobject-5433616953b2)

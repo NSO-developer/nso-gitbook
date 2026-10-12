@@ -6,18 +6,14 @@ public interface com.tailf.dp.DpTransValidateCallback
 
 This interface is used for the user validation callbacks.
 
- This library also support the registration of callbacks on validation points
+This library also support the registration of callbacks on validation points
  in the YANG model. A validation point is a point in the XML tree where
  ConfD/NCS will invoke a Java method to validate the configuration. The
  validation occurs before a transaction is committed.
 
-
-
 ```
- dp.registerTransValidateCallback( DpTransValidateCallback cb)
+dp.registerTransValidateCallback( DpTransValidateCallback cb)
 ```
-
-
 
  This method installs two callback methods. One method that gets called when
  the validation phase starts in a transaction and one when the validation
@@ -27,22 +23,22 @@ This interface is used for the user validation callbacks.
  MAAPI will be read from the shadow storage containing the not-yet-committed
  data.
 
- Similar to the init() callback for data providers, validators get invoked in
+Similar to the init() callback for data providers, validators get invoked in
  an init() method. It usually makes sense to attach a Maapi socket there.
 
-
-
 ```
- TransValidateCallback(callType = TransValidateCBType.INIT)
- public void init(DpTrans trans) {
-     Maapi.attach(maapi_socket, mtest__ns, trans.uinfo.usid);
- }
+@TransValidateCallback(callType = TransValidateCBType.INIT)
+public void init(DpTrans trans) {
+    Maapi.attach(maapi_socket, mtest__ns, trans.uinfo.usid);
+}
 ```
-
-
 
  We must also install an actual validation function for each validation point
  which is defined in the YANG model.
+
+**Related classes**
+
+- [TransValidateCallbackProxy](annotations/TransValidateCallbackProxy.md#transvalidatecallbackproxy-3da381c7456a)
 
 **See also:** [`DpValpointCallback`](DpValpointCallback.md#dpvalpointcallback-ee36356695e1), [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#registerannotatedcallbacks-ffaebadbfc42)
 
@@ -58,7 +54,7 @@ This interface is used for the user validation callbacks.
 ### init(DpTrans) <a href="#init-16fe8657859c" id="init-16fe8657859c"></a>
 
 ```java
-public abstract void init(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
+void init(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
 Types: [DpTrans](DpTrans.md#dptrans-bf19458d92ec), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
@@ -70,7 +66,7 @@ Types: [DpTrans](DpTrans.md#dptrans-bf19458d92ec), [DpCallbackException](DpCallb
 ### stop(DpTrans) <a href="#stop-1dfe2eb96fb9" id="stop-1dfe2eb96fb9"></a>
 
 ```java
-public abstract void stop(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
+void stop(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
 ```
 
 Types: [DpTrans](DpTrans.md#dptrans-bf19458d92ec), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)

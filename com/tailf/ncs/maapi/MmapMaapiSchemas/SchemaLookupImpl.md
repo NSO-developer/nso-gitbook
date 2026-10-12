@@ -13,11 +13,6 @@ Types: [SchemaLookup](SchemaLookup.md#schemalookup-3497dafb56ea)
 
 - [SchemaLookupImpl\(Map\<Integer,CSSchema\>, Map\<Integer,String\>\)](#schemalookupimpl-f665290474b5)
 
-**Fields**:
-
-- [hashToStringTab](#hashtostringtab-03883a433398)
-- [schemas](#schemas-d9de6465eb56)
-
 **Methods**:
 
 - [addMountPointChildren\(int, String, List\<CSNode\>\)](#addmountpointchildren-fd0424d46be4)
@@ -44,27 +39,6 @@ Types: [CSSchema](../../../maapi/MaapiSchemas/CSSchema.md#csschema-f51a58180f67)
 
 - `java.util.Map<Integer,com.tailf.maapi.MaapiSchemas.CSSchema> schemas`
 - `java.util.Map<Integer,String> hashToStringTab`
-
-
-## Fields
-
-### hashToStringTab <a href="#hashtostringtab-03883a433398" id="hashtostringtab-03883a433398"></a>
-
-**Package-private**
-
-```java
-java.util.Map<Integer,String> hashToStringTab = null;
-```
-
-### schemas <a href="#schemas-d9de6465eb56" id="schemas-d9de6465eb56"></a>
-
-**Package-private**
-
-```java
-java.util.Map<Integer,com.tailf.maapi.MaapiSchemas.CSSchema> schemas = null;
-```
-
-Types: [CSSchema](../../../maapi/MaapiSchemas/CSSchema.md#csschema-f51a58180f67)
 
 
 ## Methods

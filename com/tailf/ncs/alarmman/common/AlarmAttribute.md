@@ -49,4 +49,4 @@ Types: [ConfNamespace](../../../conf/ConfNamespace.md#confnamespace-51b928e168d1
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`

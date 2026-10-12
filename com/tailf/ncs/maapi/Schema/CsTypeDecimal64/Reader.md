@@ -7,42 +7,11 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Reader
 
 ## Members
 
-**Constructors**:
-
-- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
-
 **Methods**:
 
 - [getFractionDigits\(\)](#getfractiondigits-57dce19c4ffe)
 - [getRanges\(\)](#getranges-c1cd383e54a0)
 - [hasRanges\(\)](#hasranges-77bc63fe4ea8)
-
-## Constructors
-
-### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
-
-**Package-private**
-
-```java
-Reader(
-    org.capnproto.SegmentReader segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount,
-    int nestingLimit
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentReader segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-- `int nestingLimit`
-
 
 ## Methods
 

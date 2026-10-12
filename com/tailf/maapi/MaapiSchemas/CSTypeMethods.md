@@ -64,14 +64,14 @@ parse value located in str and convert to ConfValue, the value is
 
 **Parameters**
 
-- `com.tailf.maapi.MaapiSchemas.CSType type` - - type for the converted value
-- `String str` - - string representation of the value
+- `com.tailf.maapi.MaapiSchemas.CSType type` - \- type for the converted value
+- `String str` - \- string representation of the value
 
 **Returns:** ConfValue for the corresponding type
 
 **Throws**
 
-- `MaapiException`
+- `com.tailf.maapi.MaapiException`
 
 ### validate(CSType, ConfValue) <a href="#validate-d2696432436e" id="validate-d2696432436e"></a>
 
@@ -96,7 +96,7 @@ Validates ConfValue of with rules from CSType
 
 **Throws**
 
-- `MaapiException`
+- `com.tailf.maapi.MaapiException`
 
 ### valueToString(CSType, ConfValue) <a href="#valuetostring-f281f6b6d7d7" id="valuetostring-f281f6b6d7d7"></a>
 
@@ -110,7 +110,7 @@ convert to string representation for the corresponding Confvalue
 
 **Parameters**
 
-- `com.tailf.maapi.MaapiSchemas.CSType type` - - type for the converted value
-- `com.tailf.conf.ConfValue val` - - ConfValue
+- `com.tailf.maapi.MaapiSchemas.CSType type` - \- type for the converted value
+- `com.tailf.conf.ConfValue val` - \- ConfValue
 
 **Returns:** String representation of the value

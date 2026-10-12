@@ -7,41 +7,10 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeUnion.Reader
 
 ## Members
 
-**Constructors**:
-
-- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
-
 **Methods**:
 
 - [getTypeReferences\(\)](#gettypereferences-ba94c4f34d9c)
 - [hasTypeReferences\(\)](#hastypereferences-8e6b59641fe0)
-
-## Constructors
-
-### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
-
-**Package-private**
-
-```java
-Reader(
-    org.capnproto.SegmentReader segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount,
-    int nestingLimit
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentReader segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-- `int nestingLimit`
-
 
 ## Methods
 

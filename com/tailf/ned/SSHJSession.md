@@ -14,10 +14,6 @@ Class implementing the SSHClient.CliSession interface using
 
 ## Members
 
-**Constructors**:
-
-- [SSHJSession\(SSHJClient, NedWorker, NedConnectionBase, int, int\)](#sshjsession-fec161c6178e)
-
 **Fields**:
 
 - [log](#log-f86e8fa24169)
@@ -75,46 +71,12 @@ Class implementing the SSHClient.CliSession interface using
 - [traceInBufAppend\(String\)](#traceinbufappend-948da59d599a)
 - [traceInBufFlush\(\)](#traceinbufflush-5f53f59ed390)
 
-## Constructors
-
-### SSHJSession(SSHJClient, NedWorker, NedConnectionBase, int, int) <a href="#sshjsession-fec161c6178e" id="sshjsession-fec161c6178e"></a>
-
-**Package-private**
-
-```java
-SSHJSession(
-    com.tailf.ned.SSHJClient client,
-    com.tailf.ned.NedWorker worker,
-    com.tailf.ned.NedConnectionBase ned,
-    int width,
-    int height
-)
-    throws java.io.IOException
-```
-
-Types: [SSHJClient](SSHJClient.md#sshjclient-ed3ef5e4e5e7), [NedWorker](NedWorker.md#nedworker-b063de7c0998), [NedConnectionBase](NedConnectionBase.md#nedconnectionbase-3139efb66faf)
-
-Constructor accessible by the SSHJClient class.
-
-**Parameters**
-
-- `com.tailf.ned.SSHJClient client` - - The SSHJClient instance
-- `com.tailf.ned.NedWorker worker` - - The NED worker thread
-- `com.tailf.ned.NedConnectionBase ned` - - The NED instance
-- `int width` - - Terminal width
-- `int height` - - Terminal height
-
-**Throws**
-
-- `IOException`
-
-
 ## Fields
 
 ### log <a href="#log-f86e8fa24169" id="log-f86e8fa24169"></a>
 
 ```java
-protected static org.apache.logging.log4j.Logger log = null;
+protected static org.apache.logging.log4j.Logger log;
 ```
 
 
@@ -228,7 +190,7 @@ Checks if the input reader is ready for reading.
 
 **Throws**
 
-- `IOException` - if an I/O error occurs
+- `java.io.IOException` - if an I/O error occurs
 
 ### serverSideClosed() <a href="#serversideclosed-0dfe26b0733e" id="serversideclosed-0dfe26b0733e"></a>
 

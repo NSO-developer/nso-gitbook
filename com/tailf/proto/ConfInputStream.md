@@ -7,8 +7,7 @@ public class com.tailf.proto.ConfInputStream
 
 Provides a stream for decoding E terms from external format.
 
-
- Note that this class is not synchronized, if you need synchronization you
+Note that this class is not synchronized, if you need synchronization you
  must provide it yourself.
 
 ## Members
@@ -112,7 +111,7 @@ Look ahead one position in the stream without consuming the byte found
 
 **Throws**
 
-- `ConfEDecodeException` - if the next byte cannot be read.
+- `com.tailf.proto.ConfEDecodeException` - if the next byte cannot be read.
 
 ### read1() <a href="#read1-76d98112fce5" id="read1-76d98112fce5"></a>
 
@@ -128,7 +127,7 @@ Read a one byte integer from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next byte cannot be read.
+- `com.tailf.proto.ConfEDecodeException` - if the next byte cannot be read.
 
 ### read2BE() <a href="#read2be-87624a22731e" id="read2be-87624a22731e"></a>
 
@@ -144,7 +143,7 @@ Read a two byte big endian integer from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next byte cannot be read.
+- `com.tailf.proto.ConfEDecodeException` - if the next byte cannot be read.
 
 ### read2LE() <a href="#read2le-569d0a96b4e4" id="read2le-569d0a96b4e4"></a>
 
@@ -160,7 +159,7 @@ Read a two byte little endian integer from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next byte cannot be read.
+- `com.tailf.proto.ConfEDecodeException` - if the next byte cannot be read.
 
 ### read4BE() <a href="#read4be-2b9ce3ff5038" id="read4be-2b9ce3ff5038"></a>
 
@@ -176,7 +175,7 @@ Read a four byte big endian integer from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next byte cannot be read.
+- `com.tailf.proto.ConfEDecodeException` - if the next byte cannot be read.
 
 ### read4LE() <a href="#read4le-ca46fefc73b2" id="read4le-ca46fefc73b2"></a>
 
@@ -192,7 +191,7 @@ Read a four byte little endian integer from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next byte cannot be read.
+- `com.tailf.proto.ConfEDecodeException` - if the next byte cannot be read.
 
 ### read_any() <a href="#read_any-6429f2e0a641" id="read_any-6429f2e0a641"></a>
 
@@ -208,8 +207,8 @@ Read an arbitrary E term from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the stream does not contain a known E type at the next
-                position.
+- `com.tailf.proto.ConfEDecodeException` - if the stream does not contain a known E type at the next
+position.
 
 ### read_atom() <a href="#read_atom-7a1ab1363e25" id="read_atom-7a1ab1363e25"></a>
 
@@ -225,7 +224,7 @@ Read an E atom from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream is not an atom.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream is not an atom.
 
 ### read_big() <a href="#read_big-ea4cd63e86f0" id="read_big-ea4cd63e86f0"></a>
 
@@ -249,7 +248,7 @@ Read an E binary from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream is not a binary.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream is not a binary.
 
 ### read_boolean() <a href="#read_boolean-e1457cd2eec8" id="read_boolean-e1457cd2eec8"></a>
 
@@ -262,11 +261,11 @@ Types: [ConfEDecodeException](ConfEDecodeException.md#confedecodeexception-3e501
 Read an E atom from the stream and interpret the value as a boolean.
 
 **Returns:** true if the atom at the current position in the stream contains
-         the value 'true' (ignoring case), false otherwise.
+the value 'true' (ignoring case), false otherwise.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream is not an atom.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream is not an atom.
 
 ### read_byte() <a href="#read_byte-ccbde9bd7c37" id="read_byte-ccbde9bd7c37"></a>
 
@@ -282,7 +281,7 @@ Read one byte from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next byte cannot be read.
+- `com.tailf.proto.ConfEDecodeException` - if the next byte cannot be read.
 
 ### read_char() <a href="#read_char-89ee7c714f77" id="read_char-89ee7c714f77"></a>
 
@@ -298,8 +297,8 @@ Read a character from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream is not an integer that can
-                be represented as a char.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream is not an integer that can
+be represented as a char.
 
 ### read_double() <a href="#read_double-ed8d67eaa36d" id="read_double-ed8d67eaa36d"></a>
 
@@ -315,7 +314,7 @@ Read an E float from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream is not a float.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream is not a float.
 
 ### read_float() <a href="#read_float-db5805e7d389" id="read_float-db5805e7d389"></a>
 
@@ -331,7 +330,7 @@ Read an E float from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream is not a float.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream is not a float.
 
 ### read_int() <a href="#read_int-52389c5d26b4" id="read_int-52389c5d26b4"></a>
 
@@ -347,8 +346,8 @@ Read an integer from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream can not be represented as
-                an integer.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream can not be represented as
+an integer.
 
 ### read_list_head() <a href="#read_list_head-4c1fa82518be" id="read_list_head-4c1fa82518be"></a>
 
@@ -364,7 +363,7 @@ Read a list header from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream is not a list.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream is not a list.
 
 ### read_long() <a href="#read_long-7a1b9869cec7" id="read_long-7a1b9869cec7"></a>
 
@@ -380,8 +379,8 @@ Read a long from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream can not be
-                represented as a long.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream can not be
+represented as a long.
 
 ### read_long(boolean) <a href="#read_long-0dd206933659" id="read_long-0dd206933659"></a>
 
@@ -417,7 +416,7 @@ Read an empty list from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream is not an empty list.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream is not an empty list.
 
 ### read_pid() <a href="#read_pid-ad121f1992f0" id="read_pid-ad121f1992f0"></a>
 
@@ -433,7 +432,7 @@ Read an E pid from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream is not an E pid.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream is not an E pid.
 
 ### read_ref() <a href="#read_ref-044fef100aa5" id="read_ref-044fef100aa5"></a>
 
@@ -449,7 +448,7 @@ Read an E reference from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream is not an E reference.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream is not an E reference.
 
 ### read_short() <a href="#read_short-87bcf3ec74f3" id="read_short-87bcf3ec74f3"></a>
 
@@ -465,8 +464,8 @@ Read a short from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream can not be represented as a
-                short.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream can not be represented as a
+short.
 
 ### read_string() <a href="#read_string-223a6743c27e" id="read_string-223a6743c27e"></a>
 
@@ -482,7 +481,7 @@ Read a string from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream is not a string.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream is not a string.
 
 ### read_tuple_head() <a href="#read_tuple_head-c50f9ed9beb5" id="read_tuple_head-c50f9ed9beb5"></a>
 
@@ -498,7 +497,7 @@ Read a tuple header from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream is not a tuple.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream is not a tuple.
 
 ### read_uint() <a href="#read_uint-a42a72a36f43" id="read_uint-a42a72a36f43"></a>
 
@@ -514,8 +513,8 @@ Read an unsigned integer from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream can not be represented
-                as a positive integer.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream can not be represented
+as a positive integer.
 
 ### read_ulong() <a href="#read_ulong-d0c7d44596b0" id="read_ulong-d0c7d44596b0"></a>
 
@@ -531,8 +530,8 @@ Read an unsigned long from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream can not be represented as a
-                positive long.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream can not be represented as a
+positive long.
 
 ### read_ushort() <a href="#read_ushort-c2c654db673c" id="read_ushort-c2c654db673c"></a>
 
@@ -548,8 +547,8 @@ Read an unsigned short from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next term in the stream can not be represented as a
-                positive short.
+- `com.tailf.proto.ConfEDecodeException` - if the next term in the stream can not be represented as a
+positive short.
 
 ### readBE(int) <a href="#readbe-49e938e712e3" id="readbe-49e938e712e3"></a>
 
@@ -569,7 +568,7 @@ Read a big endian integer from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next byte cannot be read.
+- `com.tailf.proto.ConfEDecodeException` - if the next byte cannot be read.
 
 ### readLE(int) <a href="#readle-749de7f756b0" id="readle-749de7f756b0"></a>
 
@@ -589,7 +588,7 @@ Read a little endian integer from the stream.
 
 **Throws**
 
-- `ConfEDecodeException` - if the next byte cannot be read.
+- `com.tailf.proto.ConfEDecodeException` - if the next byte cannot be read.
 
 ### readN(byte[]) <a href="#readn-97646f66d503" id="readn-97646f66d503"></a>
 
@@ -610,7 +609,7 @@ Read an array of bytes from the stream. The method reads at most
 
 **Throws**
 
-- `ConfEDecodeException` - if the next byte cannot be read.
+- `com.tailf.proto.ConfEDecodeException` - if the next byte cannot be read.
 
 ### setPos(int) <a href="#setpos-a83f79498a31" id="setpos-a83f79498a31"></a>
 
@@ -623,8 +622,8 @@ Set the current position in the stream.
 **Parameters**
 
 - `int pos` - the position to move to in the stream. If pos indicates a
-            position beyond the end of the stream, the position is move to
-            the end of the stream instead. If pos is negative, the
-            position is moved to the beginning of the stream instead.
+position beyond the end of the stream, the position is move to
+the end of the stream instead. If pos is negative, the
+position is moved to the beginning of the stream instead.
 
 **Returns:** the previous position in the stream.

@@ -82,7 +82,7 @@ Instantiates an HaStateType from an integer value.
 
 **Parameters**
 
-- `int i` - - integer value representing the HaStateType
+- `int i` - \- integer value representing the HaStateType
 
 **Returns:** an HaStateType object
 

@@ -8,6 +8,11 @@ The service context object.
  This class contains methods to get the service and root NavuNodes as
  well as method to set the transaction timeout time.
 
+**Related classes**
+
+- [NanoServiceContext](NanoServiceContext.md#nanoservicecontext-10c84a5701dd)
+- [ServiceModificationContextImpl](ServiceModificationContextImpl.md#servicemodificationcontextimpl-1935e8396cc3)
+
 ## Members
 
 **Methods**:
@@ -22,7 +27,7 @@ The service context object.
 ### getNedIdByDeviceName(String) <a href="#getnedidbydevicename-11861342f251" id="getnedidbydevicename-11861342f251"></a>
 
 ```java
-public abstract String getNedIdByDeviceName(String name) throws com.tailf.conf.ConfException
+String getNedIdByDeviceName(String name) throws com.tailf.conf.ConfException
 ```
 
 Types: [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
@@ -34,7 +39,7 @@ Types: [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
 ### getRootNode() <a href="#getrootnode-eed9b3c70129" id="getrootnode-eed9b3c70129"></a>
 
 ```java
-public abstract com.tailf.navu.NavuNode getRootNode() throws com.tailf.conf.ConfException
+com.tailf.navu.NavuNode getRootNode() throws com.tailf.conf.ConfException
 ```
 
 Types: [NavuNode](../../navu/NavuNode.md#navunode-73944820c8db), [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
@@ -46,12 +51,12 @@ Returns the path root as a NavuNode with the
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### getServiceNode() <a href="#getservicenode-ffc6dd44e182" id="getservicenode-ffc6dd44e182"></a>
 
 ```java
-public abstract com.tailf.navu.NavuNode getServiceNode() throws com.tailf.conf.ConfException
+com.tailf.navu.NavuNode getServiceNode() throws com.tailf.conf.ConfException
 ```
 
 Types: [NavuNode](../../navu/NavuNode.md#navunode-73944820c8db), [ConfException](../../conf/ConfException.md#confexception-baeaab99f7f9)
@@ -63,15 +68,12 @@ Returns the current service path as a NavuNode with the
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### setTimeout(int) <a href="#settimeout-cbe758ecb5d8" id="settimeout-cbe758ecb5d8"></a>
 
 ```java
-public abstract void setTimeout(
-    int timeoutSeconds
-)
-    throws java.io.IOException, com.tailf.dp.DpCallbackException
+void setTimeout(int timeoutSeconds) throws java.io.IOException, com.tailf.dp.DpCallbackException
 ```
 
 Types: [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
@@ -91,5 +93,5 @@ The timeout for service calls (pre-modification/create/post-modification)
 
 **Throws**
 
-- `IOException`
-- `DpCallbackException`
+- `java.io.IOException`
+- `com.tailf.dp.DpCallbackException`

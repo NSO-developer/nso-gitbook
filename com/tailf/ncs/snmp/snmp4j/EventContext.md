@@ -6,6 +6,10 @@ public interface com.tailf.ncs.snmp.snmp4j.EventContext
 
 This interface describes the context for the notification event
 
+**Related classes**
+
+- [EventContextImpl](EventContextImpl.md#eventcontextimpl-b15973d3b2cd)
+
 ## Members
 
 **Methods**:
@@ -17,7 +21,7 @@ This interface describes the context for the notification event
 ### getDeviceName() <a href="#getdevicename-95c72ec0cf27" id="getdevicename-95c72ec0cf27"></a>
 
 ```java
-public abstract String getDeviceName()
+String getDeviceName()
 ```
 
 Get the device name for the current notification

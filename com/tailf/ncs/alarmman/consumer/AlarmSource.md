@@ -125,8 +125,7 @@ Types: [Alarm](../common/Alarm.md#alarm-e07586c3430f)
 Retrieves or waiting if necessary until an Alarm becomes
  available.
 
-
- Blocks the current thread indefinitely
+Blocks the current thread indefinitely
  until the operation can succeed.
 
 **Returns:** Alarm the next available alarm

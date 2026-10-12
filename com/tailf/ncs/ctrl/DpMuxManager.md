@@ -65,8 +65,6 @@ Stop and cleanup all components of this type
 public com.tailf.ncs.ctrl.DpPDEntry getPDEntry(String uniqueName)
 ```
 
-Types: [DpPDEntry](DpPDEntry.md#dppdentry-3d7fc55c80fc)
-
 Get component for name "package_name:component_name"
 
 **Parameters**

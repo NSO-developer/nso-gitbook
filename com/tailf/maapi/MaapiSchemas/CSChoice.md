@@ -6,10 +6,6 @@ public static class com.tailf.maapi.MaapiSchemas.CSChoice
 
 Class representing a Schema Choice
 
-**Related classes**
-
-- [MmapCSChoice](../../ncs/maapi/MmapCSChoice.md#mmapcschoice-47e12534067f)
-
 ## Members
 
 **Constructors**:
@@ -78,7 +74,7 @@ Types: [CSSchema](CSSchema.md#csschema-f51a58180f67), [CSNode](CSNode.md#csnode-
 ### case0 <a href="#case0-29ac777b3b38" id="case0-29ac777b3b38"></a>
 
 ```java
-protected com.tailf.maapi.MaapiSchemas.CSCase case0 = null;
+protected com.tailf.maapi.MaapiSchemas.CSCase case0;
 ```
 
 Types: [CSCase](CSCase.md#cscase-26937f56b18d)
@@ -86,7 +82,7 @@ Types: [CSCase](CSCase.md#cscase-26937f56b18d)
 ### defaultCase <a href="#defaultcase-5d8142d107fb" id="defaultcase-5d8142d107fb"></a>
 
 ```java
-protected com.tailf.maapi.MaapiSchemas.CSCase defaultCase = null;
+protected com.tailf.maapi.MaapiSchemas.CSCase defaultCase;
 ```
 
 Types: [CSCase](CSCase.md#cscase-26937f56b18d)

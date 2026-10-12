@@ -11,8 +11,8 @@ The NavuCursor is a helper class used within NAVU to simplify the
 
 **Constructors**:
 
-- [NavuCursor\(CdbSession, NavuNode, String, Object\[\]\)](#navucursor-a2344014c2ea)
-- [NavuCursor\(NavuContext, NavuNode, String, Object\[\]\)](#navucursor-94fad5f61492)
+- [NavuCursor\(CdbSession, NavuNode, String, Object\.\.\.\)](#navucursor-37a8d707ea7c)
+- [NavuCursor\(NavuContext, NavuNode, String, Object\.\.\.\)](#navucursor-9ebaccdc65ab)
 
 **Fields**:
 
@@ -24,14 +24,14 @@ The NavuCursor is a helper class used within NAVU to simplify the
 
 ## Constructors
 
-### NavuCursor(CdbSession, NavuNode, String, Object[]) <a href="#navucursor-a2344014c2ea" id="navucursor-a2344014c2ea"></a>
+### NavuCursor(CdbSession, NavuNode, String, Object...) <a href="#navucursor-37a8d707ea7c" id="navucursor-37a8d707ea7c"></a>
 
 ```java
 public NavuCursor(
     com.tailf.cdb.CdbSession cdbSession,
     com.tailf.navu.NavuNode node,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
 ```
 
@@ -44,16 +44,16 @@ Constructor to be used when in CDB mode.
 - `com.tailf.cdb.CdbSession cdbSession` - an active CDB session.
 - `com.tailf.navu.NavuNode node` - a NAVU node holding info regarding the schema.
 - `String fmt` - a list node string keypath
-- `Object[] arguments` - zero or more Object arguments to be substituted in fmt
+- `Object... arguments` - zero or more Object arguments to be substituted in fmt
 
-### NavuCursor(NavuContext, NavuNode, String, Object[]) <a href="#navucursor-94fad5f61492" id="navucursor-94fad5f61492"></a>
+### NavuCursor(NavuContext, NavuNode, String, Object...) <a href="#navucursor-9ebaccdc65ab" id="navucursor-9ebaccdc65ab"></a>
 
 ```java
 protected NavuCursor(
     com.tailf.navu.NavuContext context,
     com.tailf.navu.NavuNode node,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws com.tailf.navu.NavuException
 ```
@@ -66,13 +66,13 @@ Creates and reads all elements of a list node.
 
 - `com.tailf.navu.NavuContext context`
 - `com.tailf.navu.NavuNode node`
-- `String fmt` - - the absolute keypath of the cursor.
-- `Object[] arguments` - zero or more Object arguments to be substituted in fmt
+- `String fmt` - \- the absolute keypath of the cursor.
+- `Object... arguments` - zero or more Object arguments to be substituted in fmt
 
 **Throws**
 
-- `IOException` - if any socket failure occurs.
-- `ConfException` - if any maapi errors occur.
+- `java.io.IOException` - if any socket failure occurs.
+- `com.tailf.conf.ConfException` - if any maapi errors occur.
 
 
 ## Fields
@@ -80,7 +80,7 @@ Creates and reads all elements of a list node.
 ### keys <a href="#keys-b408c92f97e4" id="keys-b408c92f97e4"></a>
 
 ```java
-protected java.util.List<com.tailf.conf.ConfKey> keys = null;
+protected java.util.List<com.tailf.conf.ConfKey> keys;
 ```
 
 Types: [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867)

@@ -84,7 +84,6 @@ Class representing an element in a model. This class is used e.g
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
 - [decode\(ConfEObject, String\)](ConfObject.md#decode-9b92f1de40d8) from ConfObject
@@ -102,8 +101,6 @@ Class representing an element in a model. This class is used e.g
 - [setConfNamespace\(ConfNamespace\)](#setconfnamespace-7fef1b53f52c)
 - [setLenient\(boolean\)](#setlenient-7cd970533a41)
 - [toString\(\)](#tostring-e9d48c5503ef)
-- [toString\(ConfNamespace\)](#tostring-97a6a914714f)
-- [toString\(int\)](#tostring-477fa787d7c7)
 
 ## Constructors
 
@@ -318,32 +315,4 @@ public void setLenient(boolean lenient)
 public String toString()
 ```
 
-### toString(ConfNamespace) <a href="#tostring-97a6a914714f" id="tostring-97a6a914714f"></a>
-
-**Package-private**
-
-```java
-String toString(com.tailf.conf.ConfNamespace prevNsObj)
-```
-
-Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
-
-**Parameters**
-
-- `com.tailf.conf.ConfNamespace prevNsObj`
-
-### toString(int) <a href="#tostring-477fa787d7c7" id="tostring-477fa787d7c7"></a>
-
-**Package-private**
-
-```java
-String toString(int prevNs)
-```
-
-package-private version for printing list of keypaths (prefix not shown
- more than once in the beginning or when namespace is changed in middle of
- path)
-
-**Parameters**
-
-- `int prevNs`
+**Returns:** the printable representation of the object.

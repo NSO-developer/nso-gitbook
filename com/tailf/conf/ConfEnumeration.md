@@ -73,7 +73,6 @@ DATA_CONTAINER - Corresponds to the YANG Enumeration type.
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [compareTo\(ConfEnumeration\)](#compareto-1d190ddeef7e)
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
@@ -124,7 +123,7 @@ Constructor for ConfEnumeration.
 
 **Throws**
 
-- `ConfException` - Never, for API backwards compatibility.
+- `com.tailf.conf.ConfException` - Never, for API backwards compatibility.
 
 ### ConfEnumeration(String) <a href="#confenumeration-d75ad7199e37" id="confenumeration-d75ad7199e37"></a>
 
@@ -161,15 +160,26 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
 
+*Description from* [`ConfValue.encode()`](ConfValue.md#encode-fbae522bba37)
+
+encode value.
+
 ### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
 ```
 
+*Description from* [`ConfValue.equals(Object)`](ConfValue.md#equals-fcd6492e0d6c)
+
+Determine if two ConfValue are equal. In general, ConfObjects are
+ equal if the components they consist of are equal.
+
 **Parameters**
 
-- `Object o`
+- `Object o` - The object to compare to.
+
+**Returns:** true if the objects are identical.
 
 ### getEnumByLabel(ConfPath, String) <a href="#getenumbylabel-e5d8287d588c" id="getenumbylabel-e5d8287d588c"></a>
 
@@ -200,7 +210,7 @@ Get an ConfEnumeration from the string label at a given
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### getEnumByLabel(String, String) <a href="#getenumbylabel-a88365b46872" id="getenumbylabel-a88365b46872"></a>
 
@@ -231,7 +241,7 @@ Get an ConfEnumeration from the string label at a given
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### getLabelByEnum(ConfPath, ConfEnumeration) <a href="#getlabelbyenum-05e670d1aeff" id="getlabelbyenum-05e670d1aeff"></a>
 
@@ -262,7 +272,7 @@ Get the string label of an enumeration at a given
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### getLabelByEnum(String, ConfEnumeration) <a href="#getlabelbyenum-b3622f0dc16e" id="getlabelbyenum-b3622f0dc16e"></a>
 
@@ -292,7 +302,7 @@ Get the string label of an enumeration at a given
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### getOrdinalValue() <a href="#getordinalvalue-8885c94e3344" id="getordinalvalue-8885c94e3344"></a>
 
@@ -359,3 +369,5 @@ Get the string value for this enumeration.
 
  Otherwise it will be a representation of the
  ordinal value e.g "Enum(0)".
+
+**Returns:** the printable representation of the object.

@@ -109,10 +109,5 @@ Create a NavuNode from the parameter `child`
 
 **Parameters**
 
-- `com.tailf.maapi.MaapiSchemas.CSNode child` - - The child CSNode that
+- `com.tailf.maapi.MaapiSchemas.CSNode child` - \- The child CSNode that
 - `com.tailf.conf.ConfObject[] kpx`
-
-
-## Nested Types
-
-- [Formats](KeyPath2NavuNode/Formats.md#formats-699695f9b70f)

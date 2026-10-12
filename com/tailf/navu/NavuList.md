@@ -10,96 +10,77 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuListEntry](NavuListEn
 
 `NavuList` is a representation of the *YANG* list node.
 
- A `NavuList` holds a map of list entries,
+A `NavuList` holds a map of list entries,
  [`NavuListEntry`](NavuListEntry.md#navulistentry-6c6e1431f291), each associated with a key, [`ConfKey`](../conf/ConfKey.md#confkey-e4e1ca98e867), thus
  each child is indexed by its key and the individual entry is retrieved
- by the `elem(ConfKey)` method.
+ by the [`elem(ConfKey)`](NavuList.md#elem-172930b5966b) method.
 
- The `elem` method declares that it returns
+The `elem` method declares that it returns
  a [`NavuContainer`](NavuContainer.md#navucontainer-8e321756755f) but its underlying subtype is actually a
  [`NavuListEntry`](NavuListEntry.md#navulistentry-6c6e1431f291).
 
- `NavuList` also supports keyless lists (lists without keys).
+`NavuList` also supports keyless lists (lists without keys).
 
  If the *YANG* list is keyless, an individual child is retrieved
  through its "pseudo-key" which must always be of the type
  [`ConfInt64`](../conf/ConfInt64.md#confint64-0d4ed81a2e2f).
 
+> ```
+>  NavuList keyLessList = ...;
+>  ConfKey pseudo = new ConfKey(new ConfInt64(10));
+>
+>  NavuContainer entry10 = keyLessList.elem(pseudo);
+>
+>      assert(entry10.isListInstance());
+>      assert(entry10.getInfo().isListEntry());
+>
+>  NavuListEntry navuListEntry10 = (NavuListEntry) entry10;
+> ```
 
-
-
-```
-  NavuList keyLessList = ...;
-  ConfKey pseudo = new ConfKey(new ConfInt64(10));
-
-  NavuContainer entry10 = keyLessList.elem(pseudo);
-
-      assert(entry10.isListInstance());
-      assert(entry10.getInfo().isListEntry());
-
-  NavuListEntry navuListEntry10 = (NavuListEntry) entry10;
-```
-
-
-
-
- When accessing individual elements through `elem`,
+When accessing individual elements through `elem`,
  `NavuList` will only make one single `exists`
  call (over MAAPI or CDB depending on the context) to check the
  existence of the key, thus making the operation cheap.
 
-
- The set of children, or the list elements, are retrieved through
+The set of children, or the list elements, are retrieved through
  [`children()`](NavuList.md#children-7d31300d62c3), [`elements()`](NavuList.md#elements-1ac1cabc0e96) or by retrieving
  an iterator [`iterator()`](NavuList.md#iterator-188aa52d1f86).
 
-
-
-
-```
-  NavuList serverList = ...;
-
-  for (NavuNode childEntry : serverList.children()) {
-      // Do something with each child instance
-  }
-```
-
-
-
+> ```
+>  NavuList serverList = ...;
+>
+>  for (NavuNode childEntry : serverList.children()) {
+>      // Do something with each child instance
+>  }
+> ```
 
  `NavuList` also implements the `Iterable` interface
  which means that the child elements can be retrieved implicitly.
 
+> ```
+>  NavuList serverList = ...;
+>
+>  for (NavuNode childEntry : serverList) {
+>      // Do something with each child instance
+>  }
+> ```
 
-
-
-```
-  NavuList serverList = ...;
-
-  for (NavuNode childEntry : serverList) {
-      // Do something with each child instance
-  }
-```
-
-
-
-
- `NavuList` loads its children on demand but
+`NavuList` loads its children on demand but
  when invoking the methods `children`,
  `elements`, `encodeXML`, `entrySet`,
  `isEmpty`, `keySet`, `select`
  it must trigger a load of all its keys from the
  datastore. Use these methods with caution when the list is big.
 
- Consider using the `iterator` instead wherever possible.
+Consider using the `iterator` instead wherever possible.
 
 ## Members
 
 **Constructors**:
 
-- [NavuList\(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object\[\]\)](#navulist-441cdb57852f)
+- [NavuList\(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object\.\.\.\)](#navulist-e8b53449cee9)
 - [NavuList\(NavuContext, MaapiSchemas, CSNode, NavuNode, Formats\)](#navulist-4974496312b1)
-- [NavuList\(NavuContext, MaapiSchemas, CSNode, NavuNode, String, Object\[\]\)](#navulist-be9598ccb1c3)
+- [NavuList\(NavuContext, MaapiSchemas, CSNode, NavuNode, String, Object\.\.\.\)](#navulist-f50d4eac348e)
 
 **Fields**:
 
@@ -127,7 +108,6 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuListEntry](NavuListEn
 - [create\(ConfObject\)](#create-c10d5ef19510)
 - [create\(String\)](#create-7117d2531c85)
 - [create\(String\[\]\)](#create-bb5b4583dcf5)
-- [delete\(\)](NavuListEntry.md#delete-a9e76d49da61) from NavuListEntry
 - [delete\(ConfKey\)](#delete-e654021e5e2c)
 - [delete\(String\)](#delete-16af8bc13c9c)
 - [delete\(String\[\]\)](#delete-8d2acbf4221d)
@@ -145,10 +125,9 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuListEntry](NavuListEn
 - [getChangeFlag\(\)](#getchangeflag-33cadf5a32ba)
 - [getChanges\(NavuContext\)](NavuNode.md#getchanges-c106383f174d) from NavuNode
 - [getChanges\(NavuContext, boolean\)](NavuNode.md#getchanges-bcf5b6dbccf2) from NavuNode
-- [getChanges\(NavuContext, boolean, DiffIterateOperFlag\[\]\)](NavuNode.md#getchanges-9f13a683b086) from NavuNode
+- [getChanges\(NavuContext, boolean, DiffIterateOperFlag\.\.\.\)](NavuNode.md#getchanges-944155506885) from NavuNode
 - [getConfPath\(\)](NavuNode.md#getconfpath-c7ca3cb63c17) from NavuNode
 - [getInfo\(\)](NavuNode.md#getinfo-259a72b5d74c) from NavuNode
-- [getKey\(\)](NavuListEntry.md#getkey-9a8856159458) from NavuListEntry
 - [getKeyPath\(\)](NavuNode.md#getkeypath-4c9200912948) from NavuNode
 - [getName\(\)](NavuNode.md#getname-2634b18b4a25) from NavuNode
 - [getNavuNode\(ConfPath\)](NavuNode.md#getnavunode-d19ad1dd90fc) from NavuNode
@@ -208,7 +187,7 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuListEntry](NavuListEn
 
 ## Constructors
 
-### NavuList(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object[]) <a href="#navulist-441cdb57852f" id="navulist-441cdb57852f"></a>
+### NavuList(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object...) <a href="#navulist-e8b53449cee9" id="navulist-e8b53449cee9"></a>
 
 ```java
 protected NavuList(
@@ -218,7 +197,7 @@ protected NavuList(
     com.tailf.maapi.MaapiSchemas.CSNode node,
     com.tailf.navu.NavuNode parent,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
 ```
 
@@ -232,7 +211,7 @@ Types: [Maapi](../maapi/Maapi.md#maapi-67bcbe89c42e), [MaapiSchemas](../maapi/Ma
 - `com.tailf.maapi.MaapiSchemas.CSNode node`
 - `com.tailf.navu.NavuNode parent`
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 ### NavuList(NavuContext, MaapiSchemas, CSNode, NavuNode, Formats) <a href="#navulist-4974496312b1" id="navulist-4974496312b1"></a>
 
@@ -258,7 +237,7 @@ KeyPath2NavuNode specific constructor
 - `com.tailf.navu.NavuNode parent`
 - `com.tailf.navu.KeyPath2NavuNode.Formats fs`
 
-### NavuList(NavuContext, MaapiSchemas, CSNode, NavuNode, String, Object[]) <a href="#navulist-be9598ccb1c3" id="navulist-be9598ccb1c3"></a>
+### NavuList(NavuContext, MaapiSchemas, CSNode, NavuNode, String, Object...) <a href="#navulist-f50d4eac348e" id="navulist-f50d4eac348e"></a>
 
 ```java
 protected NavuList(
@@ -267,7 +246,7 @@ protected NavuList(
     com.tailf.maapi.MaapiSchemas.CSNode node,
     com.tailf.navu.NavuNode parent,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
 ```
 
@@ -280,7 +259,7 @@ Types: [NavuContext](NavuContext.md#navucontext-2974e9f92a9e), [MaapiSchemas](..
 - `com.tailf.maapi.MaapiSchemas.CSNode node`
 - `com.tailf.navu.NavuNode parent`
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 
 ## Methods
@@ -299,7 +278,7 @@ Returns all elements contained by the list node.
 
 **Throws**
 
-- `NavuException` - if the elements could not be retrieved
+- `com.tailf.navu.NavuException` - if the elements could not be retrieved
 
 ### containsNode(ConfKey) <a href="#containsnode-cc5638d33d8f" id="containsnode-cc5638d33d8f"></a>
 
@@ -339,10 +318,10 @@ Returns `true` if this `NavuList` maps a
 **Parameters**
 
 - `com.tailf.navu.NavuContainer node` - `NavuContainer` whose presence in this
-        `NavuList` is to be tested
+`NavuList` is to be tested
 
 **Returns:** `true` if this `NavuList` maps a keys to the
-         specified node
+specified node
 
 ### containsNode(String) <a href="#containsnode-445990dba920" id="containsnode-445990dba920"></a>
 
@@ -358,10 +337,10 @@ Returns `true` if this `NavuList` contains a mapping
 **Parameters**
 
 - `String keyStr` - a string representation of a key whose presence in this
-        `NavuList` is to be tested
+`NavuList` is to be tested
 
 **Returns:** `true` if this `NavuList` maps a  keys to the
-         specified node
+specified node
 
 ### containsNode(String[]) <a href="#containsnode-dfae76dca10c" id="containsnode-dfae76dca10c"></a>
 
@@ -374,17 +353,17 @@ Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 Returns `true` if this `NavuList` contains a mapping
  for the specified string representation of a key.
 
- This is a convenience method for lists with multiple element
+This is a convenience method for lists with multiple element
  key.
 
 **Parameters**
 
 - `String[] keyArr` - elements of the specified key contains string
-        representation of a key whose presence in this
-        `NavuList` is to be tested
+representation of a key whose presence in this
+`NavuList` is to be tested
 
 **Returns:** `true` if this `NavuList` maps a the specified
-        keys in the array
+keys in the array
 
 ### create(ConfKey) <a href="#create-c5469df729c3" id="create-c5469df729c3"></a>
 
@@ -399,31 +378,29 @@ Types: [NavuContainer](NavuContainer.md#navucontainer-8e321756755f), [ConfKey](.
 
 Create and return a new list element in this `NavuList`.
 
- We have 3 different variants of `create`.
+We have 3 different variants of `create`.
 
+1. `create()` This method will fail with a
+    [`NavuException`](NavuException.md#navuexception-d80fa0cb4f3f) with the error code set to
+    [`ErrorCode#ERR_ALREADY_EXISTS`](../conf/ErrorCode.md#err_already_exists-79abf22f339e) if the key already exists.
+2. `safeCreate()` Similar to `create()`
+    with the sole difference that is silently succeeds even if the
+    key already exists.
+3. `sharedCreate()` This method is useful when
+    creating structures from FASTMAP code, i.e., code that implements
+    the com.tailf.nsmux.NcsResourceFacingService interface.
+    The `sharedCreate()` method maintains a reference counter on
+    the created object. Furthermore, a backpointer attribute will be
+    created on the created object indicating which service(s) created the
+    object.
 
-2. `create()` This method will fail with a
- [`NavuException`](NavuException.md#navuexception-d80fa0cb4f3f) with the error code set to
- [`ErrorCode#ERR_ALREADY_EXISTS`](../conf/ErrorCode.md#err_already_exists-79abf22f339e) if the key already exists.
-
-   - `safeCreate()` Similar to `create()`
- with the sole difference that is silently succeeds even if the
- key already exists.
-
-     - `sharedCreate()` This method is useful when
- creating structures from FASTMAP code, i.e., code that implements
- the com.tailf.nsmux.NcsResourceFacingService interface.
- The `sharedCreate()` method maintains a reference counter on
- the created object. Furthermore, a backpointer attribute will be
- created on the created object indicating which service(s) created the
- object.
- All of the `create()` methods are overloaded with
+All of the `create()` methods are overloaded with
  convenience methods accepting keys of different types.
 
 **Parameters**
 
 - `com.tailf.conf.ConfKey key` - the key with which the newly created list entry is to be
-            associated
+associated
 
 **Returns:** the created list entry
 
@@ -438,13 +415,13 @@ public com.tailf.navu.NavuContainer create(
 
 Types: [NavuContainer](NavuContainer.md#navucontainer-8e321756755f), [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-Convenience variant of `create(ConfKey)` accepting a
+Convenience variant of [`create(ConfKey)`](NavuList.md#create-c5469df729c3) accepting a
  [`ConfObject`](../conf/ConfObject.md#confobject-5433616953b2) as the (single element) key.
 
 **Parameters**
 
 - `com.tailf.conf.ConfObject key` - the key with which the newly created list entry is to be
-            associated
+associated
 
 **Returns:** the created list entry
 
@@ -456,21 +433,21 @@ public com.tailf.navu.NavuContainer create(String keyStr) throws com.tailf.navu.
 
 Types: [NavuContainer](NavuContainer.md#navucontainer-8e321756755f), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-Convenience variant of `create(ConfKey)` accepting a
+Convenience variant of [`create(ConfKey)`](NavuList.md#create-c5469df729c3) accepting a
  string as the (single element) key.
 
- If the string is surrounded by curly braces, e.g. "{test}", they will
+If the string is surrounded by curly braces, e.g. "{test}", they will
  be removed. If this is not desired, another variant of create() should
  be used.
 
- The YANG type of the list key does not necessarily have to be a
+The YANG type of the list key does not necessarily have to be a
  string. The key string will be encoded as the proper YANG type according
  to the schema.
 
 **Parameters**
 
 - `String keyStr` - the key with which the newly created list entry is to be
-               associated
+associated
 
 **Returns:** the created list entry
 
@@ -482,13 +459,13 @@ public com.tailf.navu.NavuContainer create(String[] keyArr) throws com.tailf.nav
 
 Types: [NavuContainer](NavuContainer.md#navucontainer-8e321756755f), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-Convenience variant of `create(ConfKey)` accepting a
+Convenience variant of [`create(ConfKey)`](NavuList.md#create-c5469df729c3) accepting a
  string array as the key. Typically useful for multiple element keys.
 
 **Parameters**
 
 - `String[] keyArr` - the string array from which to create the key that the
-               newly created list entry is to be associated with
+newly created list entry is to be associated with
 
 **Returns:** the created list entry
 
@@ -516,7 +493,7 @@ Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 Deletes an element from the list.
 
- This is a convenience method for lists with single element
+This is a convenience method for lists with single element
  key. If the string is enclosed in curly braces like {test},
  the curly braces are stripped. If this not desired another
  overloaded method should be used.
@@ -581,7 +558,7 @@ Types: [NavuContainer](NavuContainer.md#navucontainer-8e321756755f), [NavuExcept
 
 Returns a list element according to the given key.
 
- This is a convenience method for lists with single element
+This is a convenience method for lists with single element
  key. If the string is enclosed in curly braces like {test},
  the curly braces are stripped. If this not desired another
  overloaded method should be used.
@@ -602,7 +579,7 @@ Types: [NavuContainer](NavuContainer.md#navucontainer-8e321756755f), [NavuExcept
 
 Returns a list element according to the given array of keys.
 
- This is a convenience method for lists with multiple element
+This is a convenience method for lists with multiple element
  keys.
 
 **Parameters**
@@ -614,7 +591,7 @@ Returns a list element according to the given array of keys.
 ### elements() <a href="#elements-1ac1cabc0e96" id="elements-1ac1cabc0e96"></a>
 
 ```java
-public java.util.Collection<com.tailf.navu.NavuContainer> elements() throws com.tailf.navu.NavuException
+public java.util.Collection<com.tailf.navu.NavuContainer> elements()
     throws com.tailf.navu.NavuException
 ```
 
@@ -622,18 +599,30 @@ Types: [NavuContainer](NavuContainer.md#navucontainer-8e321756755f), [NavuExcept
 
 Returns a shallow copy of all elements contained by the list node.
 
- The elements contained by this list node are not cloned
+The elements contained by this list node are not cloned
 
 **Returns:** a copy of the collection of list elements
 
 ### encodeValues() <a href="#encodevalues-7bd911383b1a" id="encodevalues-7bd911383b1a"></a>
 
 ```java
-public java.util.List<com.tailf.conf.ConfXMLParam> encodeValues() throws com.tailf.navu.NavuException
+public java.util.List<com.tailf.conf.ConfXMLParam> encodeValues()
     throws com.tailf.navu.NavuException
 ```
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
+
+*Description from* [`NavuNode.encodeValues()`](NavuNode.md#encodevalues-7bd911383b1a)
+
+Encodes the sub-tree including the current `NavuNode`
+ as the topmost `NavuNode` as a [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) array.
+
+As opposed to [`encodeXML()`](NavuNode.md#encodexml-bdbcd52c2505), the returned [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7)
+ array does contain values in the form of
+ [`ConfXMLParamValue`](../conf/ConfXMLParamValue.md#confxmlparamvalue-9f41fb2668c9)
+
+**Returns:** A list of [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) objects corresponding to the
+sub-tree of this node, including all values.
 
 ### encodeXML() <a href="#encodexml-bdbcd52c2505" id="encodexml-bdbcd52c2505"></a>
 
@@ -643,10 +632,36 @@ public java.util.List<com.tailf.conf.ConfXMLParam> encodeXML() throws com.tailf.
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
+*Description from* [`NavuNode.encodeXML()`](NavuNode.md#encodexml-bdbcd52c2505)
+
+Encodes the sub-tree including the current `NavuNode`
+ as the topmost `NavuNode` as a [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) array.
+
+The returned [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) array contains no values except
+ for list keys. The leaf elements are encoded as
+ [`ConfXMLParamLeaf`](../conf/ConfXMLParamLeaf.md#confxmlparamleaf-107412653048). Therefore, the returning
+ array can be used as a the input parameter to
+ [`getValues(ConfXMLParam[])`](NavuNode.md#getvalues-1eb02439a757) on the current node's parent.
+
+> ```
+> NavuNode node = ...;
+> ConfXMLParam[] cxa = node.encodeXML().toArray(new ConfXMLParam[0]);
+> // cxa contains a structure that does not contain values except for
+> // keys in list elements
+>
+> NavuNode parent = node.getParent();
+> ConfXMLParam[] cxb = parent.getValues(cxa);
+> // cxb contains the same sub-tree with all the values
+> ```
+
+**Returns:** A list of [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) objects
+corresponding to the sub-tree of this node, with no
+values except list keys.
+
 ### entrySet() <a href="#entryset-20b678143b7e" id="entryset-20b678143b7e"></a>
 
 ```java
-public java.util.Set<java.util.Map.Entry<com.tailf.conf.ConfKey,com.tailf.navu.NavuListEntry>> entrySet() throws com.tailf.navu.NavuException
+public java.util.Set<java.util.Map.Entry<com.tailf.conf.ConfKey,com.tailf.navu.NavuListEntry>> entrySet()
     throws com.tailf.navu.NavuException
 ```
 
@@ -671,10 +686,10 @@ Compares the specified object with this `NavuList`
 **Parameters**
 
 - `Object o` - the object to be compared for equality with this
-          `NavuList`
+`NavuList`
 
 **Returns:** `true` if the specified object is equal to this
-         `NavuList`
+`NavuList`
 
 ### exists() <a href="#exists-56968a4c7bda" id="exists-56968a4c7bda"></a>
 
@@ -686,7 +701,7 @@ Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 Tests for the existence of the List node in the instance tree.
 
- A list node can be contained inside a presence container.
+A list node can be contained inside a presence container.
  If the container is not created the
  `exists` will return false. Similary if a
  list node is contained within a case in choice that is
@@ -697,7 +712,7 @@ Tests for the existence of the List node in the instance tree.
 
 **Throws**
 
-- `NavuException` - on failure
+- `com.tailf.navu.NavuException` - on failure
 
 ### getChangeFlag() <a href="#getchangeflag-33cadf5a32ba" id="getchangeflag-33cadf5a32ba"></a>
 
@@ -709,6 +724,8 @@ Types: [DiffIterateOperFlag](../conf/DiffIterateOperFlag.md#diffiterateoperflag-
 
 See: [`NavuNode.getChangeFlag()`](NavuNode.md#getchangeflag-33cadf5a32ba)
 
+**Returns:** Flag for the latest change
+
 ### getParent() <a href="#getparent-45c1b196ed70" id="getparent-45c1b196ed70"></a>
 
 ```java
@@ -717,11 +734,27 @@ public com.tailf.navu.NavuNode getParent()
 
 Types: [NavuNode](NavuNode.md#navunode-73944820c8db)
 
+*Description from* [`NavuNode.getParent()`](NavuNode.md#getparent-45c1b196ed70)
+
+Returns the parent of the node.
+
+**Returns:** \- this node parent or null if this NavuNode represents
+ the root node.
+
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
+
+*Description from* [`NavuNode.hashCode()`](NavuNode.md#hashcode-ef797a217903)
+
+Return the hashCode of this NavuNode. For most nodes, the hash code is
+ based on the [`ConfPath`](../conf/ConfPath.md#confpath-327831c6fc7d) of the node. For module
+ root containers there is no `ConfPath` and instead the hash
+ code is based on the hash code of the module schema.
+
+**Returns:** The hashCode
 
 ### insert(ConfKey, boolean) <a href="#insert-d78425063c87" id="insert-d78425063c87"></a>
 
@@ -812,22 +845,22 @@ Types: [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867), [WhereTo](NavuList/Wh
 
 Move a list element to a new position in the list.
 
- The destination
+The destination
  can be at the beginning, the end or in a relation to another element.
- See: `move(String keyStr, WhereTo whereTo, String toStr)`
+ See: [`move(String keyStr, WhereTo whereTo, String toStr)`](NavuList.md#move-2e3f4f4fe7c9)
 
 **Parameters**
 
 - `com.tailf.conf.ConfKey key` - Move key according to whereTo
 - `com.tailf.navu.NavuList.WhereTo whereTo` - How the move should be performed. Move key
-                WhereTo.FIRST or WhereTo.LAST or move key
-                WhereTo.BEFORE or WhereTo.AFTER the element to.
+WhereTo.FIRST or WhereTo.LAST or move key
+WhereTo.BEFORE or WhereTo.AFTER the element to.
 - `com.tailf.conf.ConfKey to` - If the value of whereTo is WhereTo.FIRST or WhereTo.LAST
-                this argument ignored
+this argument ignored
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### move(String, WhereTo, String) <a href="#move-2e3f4f4fe7c9" id="move-2e3f4f4fe7c9"></a>
 
@@ -844,10 +877,10 @@ Types: [WhereTo](NavuList/WhereTo.md#whereto-ed479ce50b9a), [NavuException](Navu
 
 Move a list element to a new position in the list.
 
- The destination
+The destination
  can be at the beginning, the end or in a relation to another element.
  Elements are referenced by their string representation.
- See: `move(ConfKey key, WhereTo whereTo, ConfKey to)`
+ See: [`move(ConfKey key, WhereTo whereTo, ConfKey to)`](NavuList.md#move-dbba3e109e78)
  This is a convenience method for lists with single element
  key. If the string is enclosed in curly braces like {test},
  the curly braces are stripped. If this not desired another
@@ -857,14 +890,14 @@ Move a list element to a new position in the list.
 
 - `String keyStr` - Move keyStr according to whereTo
 - `com.tailf.navu.NavuList.WhereTo whereTo` - How the move should be performed. Move keyStr
-                WhereTo.FIRST or WhereTo.LAST or move keyStr
-                WhereTo.BEFORE or WhereTo.AFTER the element toStr.
+WhereTo.FIRST or WhereTo.LAST or move keyStr
+WhereTo.BEFORE or WhereTo.AFTER the element toStr.
 - `String toStr` - If the value of whereTo is WhereTo.FIRST or WhereTo.LAST
-                this argument ignored
+this argument ignored
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### refresh() <a href="#refresh-3852c3f76c8e" id="refresh-3852c3f76c8e"></a>
 
@@ -900,16 +933,16 @@ public com.tailf.navu.NavuContainer safeCreate(
 
 Types: [NavuContainer](NavuContainer.md#navucontainer-8e321756755f), [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-Variant of `create(ConfKey)` that succeeds even if the
+Variant of [`create(ConfKey)`](NavuList.md#create-c5469df729c3) that succeeds even if the
  key already exists.
 
 **Parameters**
 
 - `com.tailf.conf.ConfKey key` - the key with which the newly created list entry is to be
-            associated
+associated
 
 **Returns:** the created list entry or, if it already exists, the list entry
-         corresponding to the given key, `key`
+corresponding to the given key, `key`
 
 ### safeCreate(ConfObject) <a href="#safecreate-217b89495744" id="safecreate-217b89495744"></a>
 
@@ -922,16 +955,16 @@ public com.tailf.navu.NavuContainer safeCreate(
 
 Types: [NavuContainer](NavuContainer.md#navucontainer-8e321756755f), [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-Variant of `create(ConfObject)` that succeeds even if
+Variant of [`create(ConfObject)`](NavuList.md#create-c10d5ef19510) that succeeds even if
  the key already exists.
 
 **Parameters**
 
 - `com.tailf.conf.ConfObject key` - the key with which the newly created list entry is to be
-            associated
+associated
 
 **Returns:** the created list entry or, if it already exists, the list entry
-         corresponding to the given key, `key`
+corresponding to the given key, `key`
 
 ### safeCreate(String) <a href="#safecreate-e4235ee54874" id="safecreate-e4235ee54874"></a>
 
@@ -947,10 +980,10 @@ Variant of [`create(String)`](NavuList.md#create-7117d2531c85) that succeeds eve
 **Parameters**
 
 - `String keyStr` - the string representation of the key value with which the
-               newly created list entry is to be associated
+newly created list entry is to be associated
 
 **Returns:** the created list entry or, if it already exists, the list entry
-         corresponding to the given key, `key`
+corresponding to the given key, `key`
 
 ### safeCreate(String[]) <a href="#safecreate-04a6751c7a49" id="safecreate-04a6751c7a49"></a>
 
@@ -966,10 +999,10 @@ Variant of [`create(String[])`](NavuList.md#create-bb5b4583dcf5) that succeeds e
 **Parameters**
 
 - `String[] keyArr` - the string array from which to create the key that the
-               newly created list entry is to be associated with
+newly created list entry is to be associated with
 
 **Returns:** the created list entry or, if it already exists, the list entry
-         corresponding to the given key, `keyArr`
+corresponding to the given key, `keyArr`
 
 ### select(ConfObject[]) <a href="#select-336dd76cd112" id="select-336dd76cd112"></a>
 
@@ -986,6 +1019,8 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [ConfObject](../conf/ConfO
 
 - `com.tailf.conf.ConfObject[] kp`
 
+**Returns:** a collection a nodes matching a Regular Expression query
+
 ### select(List&lt;String&gt;) <a href="#select-e81f36150174" id="select-e81f36150174"></a>
 
 ```java
@@ -999,7 +1034,9 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuExcept
 
 **Parameters**
 
-- `java.util.List<String> path`
+- `java.util.List<String> path` - a list of regular expression.
+
+**Returns:** a collection a nodes marching the query
 
 ### select(String) <a href="#select-5031325154b9" id="select-5031325154b9"></a>
 
@@ -1014,7 +1051,9 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuExcept
 
 **Parameters**
 
-- `String path`
+- `String path` - a "/" separated regular expression.
+
+**Returns:** a collection a nodes marching the query
 
 ### setChange(List&lt;ConfObject&gt;, DiffIterateOperFlag, ConfValue, NavuContext) <a href="#setchange-0bbeb54ebc15" id="setchange-0bbeb54ebc15"></a>
 
@@ -1067,17 +1106,17 @@ public com.tailf.navu.NavuContainer sharedCreate(
 
 Types: [NavuContainer](NavuContainer.md#navucontainer-8e321756755f), [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-Variant of `create(ConfKey)` that succeeds even if the
+Variant of [`create(ConfKey)`](NavuList.md#create-c5469df729c3) that succeeds even if the
  key already exists, and also maintains a reference counter
  on the object.
 
 **Parameters**
 
 - `com.tailf.conf.ConfKey key` - the key with which the newly created list entry is to be
-            associated
+associated
 
 **Returns:** the created list entry or, if it already exists, the list entry
-         corresponding to the given key, `key`
+corresponding to the given key, `key`
 
 ### sharedCreate(ConfObject) <a href="#sharedcreate-f382ccaab8f7" id="sharedcreate-f382ccaab8f7"></a>
 
@@ -1090,17 +1129,17 @@ public com.tailf.navu.NavuContainer sharedCreate(
 
 Types: [NavuContainer](NavuContainer.md#navucontainer-8e321756755f), [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-Variant of `create(ConfObject)` that succeeds even if the
+Variant of [`create(ConfObject)`](NavuList.md#create-c10d5ef19510) that succeeds even if the
  key already exists, and also maintains a reference counter
  on the object.
 
 **Parameters**
 
 - `com.tailf.conf.ConfObject key` - the key with which the newly created list entry is to be
-            associated
+associated
 
 **Returns:** the created list entry or, if it already exists, the list entry
-         corresponding to the given key, `key`
+corresponding to the given key, `key`
 
 ### sharedCreate(String) <a href="#sharedcreate-931ab178735a" id="sharedcreate-931ab178735a"></a>
 
@@ -1117,10 +1156,10 @@ Variant of [`create(String)`](NavuList.md#create-7117d2531c85) that succeeds eve
 **Parameters**
 
 - `String keyStr` - the string representation of the key value with which
-               the newly created list entry is to be associated
+the newly created list entry is to be associated
 
 **Returns:** the created list entry or, if it already exists, the list entry
-         corresponding to the given key, `key`
+corresponding to the given key, `key`
 
 ### sharedCreate(String[]) <a href="#sharedcreate-6bd749aafdff" id="sharedcreate-6bd749aafdff"></a>
 
@@ -1140,10 +1179,10 @@ Variant of [`create(String[])`](NavuList.md#create-bb5b4583dcf5) that succeeds e
 **Parameters**
 
 - `String[] keyArr` - the string array from which to create the key that the
-               newly created list entry is to be associated with
+newly created list entry is to be associated with
 
 **Returns:** the created list entry or, if it already exists, the list entry
-         corresponding to the given key, `keyArr`
+corresponding to the given key, `keyArr`
 
 ### size() <a href="#size-c6d8505255fd" id="size-c6d8505255fd"></a>
 
@@ -1174,8 +1213,3 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuExcept
 **Parameters**
 
 - `com.tailf.navu.NavuNode child`
-
-
-## Nested Types
-
-- [WhereTo](NavuList/WhereTo.md#whereto-ed479ce50b9a)

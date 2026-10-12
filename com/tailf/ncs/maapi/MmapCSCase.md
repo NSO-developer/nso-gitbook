@@ -71,6 +71,13 @@ public java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> getNodes()
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 
+*Description from* [`CSCase.getNodes()`](../../maapi/MaapiSchemas/CSCase.md#getnodes-0d0e9b3adfd1)
+
+get List of the nodes defined in this Case. The list is a list of
+ CSNode objects.
+
+**Returns:** List of nodes
+
 ### setFirstChoice(CSChoice) <a href="#setfirstchoice-d4a33b33b18f" id="setfirstchoice-d4a33b33b18f"></a>
 
 ```java

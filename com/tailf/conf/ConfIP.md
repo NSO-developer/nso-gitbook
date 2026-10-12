@@ -75,7 +75,6 @@ DATA_CONTAINER - Base class for ConfIPv4 and ConfIPv6 containers
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
 - [decode\(ConfEObject, String\)](ConfObject.md#decode-9b92f1de40d8) from ConfObject
@@ -108,6 +107,10 @@ public abstract com.tailf.proto.ConfEObject encode()
 ```
 
 Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
+
+*Description from* [`ConfValue.encode()`](ConfValue.md#encode-fbae522bba37)
+
+encode value.
 
 ### getAddress() <a href="#getaddress-08b11cceec4c" id="getaddress-08b11cceec4c"></a>
 

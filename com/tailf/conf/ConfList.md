@@ -74,7 +74,6 @@ DATA_CONTAINER - Corresponds to the YANG leaf-list.
 
 - [addElem\(ConfObject\)](#addelem-02ad7a1ca33a)
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [compareTo\(ConfList\)](#compareto-e983880b8475)
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
@@ -192,15 +191,26 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
 
+*Description from* [`ConfValue.encode()`](ConfValue.md#encode-fbae522bba37)
+
+encode value.
+
 ### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
 ```
 
+*Description from* [`ConfValue.equals(Object)`](ConfValue.md#equals-fcd6492e0d6c)
+
+Determine if two ConfValue are equal. In general, ConfObjects are
+ equal if the components they consist of are equal.
+
 **Parameters**
 
-- `Object o`
+- `Object o` - The object to compare to.
+
+**Returns:** true if the objects are identical.
 
 ### get(int) <a href="#get-5bd20d94a8b1" id="get-5bd20d94a8b1"></a>
 
@@ -259,14 +269,14 @@ Move a list element to a new position in the list. The destination
 
 - `com.tailf.conf.ConfObject n` - object to move according to WhereTo
 - `com.tailf.conf.ConfList.WhereTo where` - How the move should be performed. Move object
-        WhereTo.FIRST or WhereTo.LAST or move object
-        WhereTo.BEFORE or WhereTo.AFTER the element to.
+WhereTo.FIRST or WhereTo.LAST or move object
+WhereTo.BEFORE or WhereTo.AFTER the element to.
 - `com.tailf.conf.ConfObject to` - If the value of whereTo is WhereTo.FIRST or WhereTo.LAST
-        this argument ignored
+this argument ignored
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### set(int, ConfObject) <a href="#set-1cd8a8c79368" id="set-1cd8a8c79368"></a>
 
@@ -287,7 +297,4 @@ Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
 public String toString()
 ```
 
-
-## Nested Types
-
-- [WhereTo](ConfList/WhereTo.md#whereto-ed479ce50b9a)
+**Returns:** the printable representation of the object.

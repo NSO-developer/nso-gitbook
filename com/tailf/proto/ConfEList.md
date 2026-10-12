@@ -11,8 +11,7 @@ Types: [ConfEObject](ConfEObject.md#confeobject-2a9c0d03e350)
 Provides a Java representation of E lists. Lists are created from zero or
  more arbitrary E terms.
 
-
- The arity of the list is the number of elements it contains.
+The arity of the list is the number of elements it contains.
 
 ## Members
 
@@ -24,10 +23,6 @@ Provides a Java representation of E lists. Lists are created from zero or
 - [ConfEList\(ConfEObject\[\], int, int\)](#confelist-23ce111a3f2d)
 - [ConfEList\(ConfInputStream\)](#confelist-4ee5cf06b592)
 - [ConfEList\(String\)](#confelist-abe60ec15a23)
-
-**Fields**:
-
-- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
 
 **Methods**:
 
@@ -116,8 +111,8 @@ Create a list from a stream containing an list encoded in E external
 
 **Throws**
 
-- `ConfEDecodeException` - if the buffer does not contain a valid external
-                representation of an E list.
+- `com.tailf.proto.ConfEDecodeException` - if the buffer does not contain a valid external
+representation of an E list.
 
 ### ConfEList(String) <a href="#confelist-abe60ec15a23" id="confelist-abe60ec15a23"></a>
 
@@ -130,17 +125,6 @@ Create a list of characters.
 **Parameters**
 
 - `String str` - the characters from which to create the list.
-
-
-## Fields
-
-### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
-
-**Package-private**
-
-```java
-static final long serialVersionUID = 5999112769036676548;
-```
 
 
 ## Methods
@@ -174,7 +158,7 @@ Get the specified element from the list.
 **Parameters**
 
 - `int i` - the index of the requested element. List elements are numbered
-            as array elements, starting at 0.
+as array elements, starting at 0.
 
 **Returns:** the requested element, of null if i is not a valid element index.
 
@@ -220,7 +204,7 @@ Determine if two lists are equal. Lists are equal if they have the same
 - `Object o` - the list to compare to.
 
 **Returns:** true if the lists have the same arity and all the elements are
-         equal.
+equal.
 
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 

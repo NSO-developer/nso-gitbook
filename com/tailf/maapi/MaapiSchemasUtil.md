@@ -42,25 +42,20 @@ Main method, downloads all schemas from the server using
  Maapi.loadSchemas, recurses through all schema trees and prints types and
  node info.
 
- Run as:
+Run as:
 
+> ```
+> java com.tailf.maapi.MaapiSchemasUtil [hostname_or_ip, [port]]
+> ```
 
-
-
-```
- java com.tailf.maapi.MaapiSchemasUtil [hostname_or_ip, [port]]
-```
-
-
-
- Where `hostname_or_ip` is the name or ip of the server
+Where `hostname_or_ip` is the name or ip of the server
  (default 127.0.0.1) and `port` is the server port
  (default 4565)
 
 **Parameters**
 
 - `String[] args` - String array optionally containing the hostname and the
-             port of the server
+port of the server
 
 ### printChildren(int, CSNode) <a href="#printchildren-569289dd47f3" id="printchildren-569289dd47f3"></a>
 

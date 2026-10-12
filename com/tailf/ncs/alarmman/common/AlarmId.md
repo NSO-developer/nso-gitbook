@@ -7,8 +7,6 @@ public class com.tailf.ncs.alarmman.common.AlarmId
 Represents the unique identity of an NCS alarm. An NCS alarm is uniquely
  identified by the following properties:
 
-
-
 - managed-device
 - alarm-type
 - managed-object
@@ -113,13 +111,11 @@ A unique Alarm instance is the combination of a [`ManagedDevice`](ManagedDevice.
  a [`ManagedObject`](ManagedObject.md#managedobject-fef83f36bfab), an alarm-type ([`ConfIdentityRef`](../../../conf/ConfIdentityRef.md#confidentityref-1a367056e764)) and
  a specific-problem ([`ConfBuf`](../../../conf/ConfBuf.md#confbuf-c460585d9115)).
 
-
- This method compares the specified object with this AlarmId for equality.
+This method compares the specified object with this AlarmId for equality.
  Returns `true` if and only if the specified object is also an
  AlarmId and the four properties also test true for equality.
 
-
- Specifically, this implementation first checks if the specified object is
+Specifically, this implementation first checks if the specified object is
  this AlarmId. If so, it returns `true`; if not, it checks if the
  specified object is an AlarmId. If not, it returns `false`; if so,
  it compares managedDevice, managedObject, alarmType and

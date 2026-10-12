@@ -64,8 +64,8 @@ GET_ATTRS(DpProto.MASK_DATA_GET_ATTRS);
 ```
 
 Bit flag for the
- `DpDataCallback#getAttrs(
- DpTrans, ConfObject[], java.util.List)` method.
+ [`DpDataCallback#getAttrs(
+ DpTrans, ConfObject[], java.util.List)`](../DpDataCallback.md#getattrs-47ef46821576) method.
 
 ### GET_CASE <a href="#get_case-9ef2ae59c94b" id="get_case-9ef2ae59c94b"></a>
 

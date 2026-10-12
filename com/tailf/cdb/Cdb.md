@@ -10,53 +10,44 @@ Types: [MountIdInterface](../conf/MountIdInterface.md#mountidinterface-113d1b54d
 This class represents a connection to `ConfD/NCS` built in
  XML database.
 
- A connection is established upon a new instance of this class providing
+A connection is established upon a new instance of this class providing
  a `Socket` as its argument to the constructor. An object of this
  class is usually called a *"cdb socket"*.
 
-
- There are mainly two things that can be achieved through
+There are mainly two things that can be achieved through
  a connection to `CDB`:
 
+- ***Starting a CDB Session*** \- A CDB session is used to read
+   configuration data, or read/write operational data. These are short-lived
+   sessions that are established though a call to [`startSession()`](Cdb.md#startsession-ee121903dcfa).
+   The entire configuration part of CDB is locked for writing while any
+   CDB read session is active. Use the [`startSession(CdbDBType)`](Cdb.md#startsession-6f137bd83c44)
+   method to create a new session to
+   read configuration data and read and write operational data.
+
+  It is important to consider that a `CdbSession`
+   has one-to-one relationship
+   with a `Cdb` so before opening additional `CdbSession`
+   one has to close previous opened.
+
+  ```
+      Cdb cdbReadSocket = new Cdb ( "MyReadCdbSocket",
+                              new Socket ( host ,port) );
+
+      // Start Cdb session against running
+       CdbSession cdbSession =
+              cdbReadSocket.startSession ( CdbDBType.CDB_RUNNING );
 
 
-- ***Starting a CDB Session*** - A CDB session is used to read
- configuration data, or read/write operational data. These are short-lived
- sessions that are established though a call to [`startSession()`](Cdb.md#startsession-ee121903dcfa).
- The entire configuration part of CDB is locked for writing while any
- CDB read session is active. Use the `startSession(CdbDBType)`
- method to create a new session to
- read configuration data and read and write operational data.
-
-
- It is important to consider that a `CdbSession`
- has one-to-one relationship
- with a `Cdb` so before opening additional `CdbSession`
- one has to close previous opened.
-
-
-
-```
-     Cdb cdbReadSocket = new Cdb ( "MyReadCdbSocket",
-                             new Socket ( host ,port) );
-
-     // Start Cdb session against running
-      CdbSession cdbSession =
-             cdbReadSocket.startSession ( CdbDBType.CDB_RUNNING );
-
-
-       // read some values from CDB .
-       cdbSession.endSession();
-     cdbReadSocket.getSocket().close();
-```
-
-
-
-   - ***CDB Subscription*** - The subscription functionality
- makes it
- possible to receive events/notifications of CDB configuration changes.
- [`newSubscription()`](Cdb.md#newsubscription-6053c3ae88bb) method to create a new Cdb subscription to
- subscribe on CDB configuration changes.
+        // read some values from CDB .
+        cdbSession.endSession();
+      cdbReadSocket.getSocket().close();
+  ```
+- ***CDB Subscription*** \- The subscription functionality
+   makes it
+   possible to receive events/notifications of CDB configuration changes.
+   [`newSubscription()`](Cdb.md#newsubscription-6053c3ae88bb) method to create a new Cdb subscription to
+   subscribe on CDB configuration changes.
 
 **See also:** [`CdbSession`](CdbSession.md#cdbsession-9ffa54666283), [`CdbSubscription`](CdbSubscription.md#cdbsubscription-f17c8fe4dc81)
 
@@ -122,20 +113,20 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 Creates a new instance of a `Cdb` socket supplying a
  established open socket to ConfD/NCS daemon.
 
- The `name` parameter is just a string which may
+The `name` parameter is just a string which may
  occur in certain error/debug messages i.e for example in
  the *devel.log*.
 
- When establishing a connection to ConfD/NCS the
+When establishing a connection to ConfD/NCS the
  [`MaapiSchemas`](../maapi/MaapiSchemas.md#maapischemas-821ac70b83b7) will be loaded once automatically
  by the library.
 
- If encrypted communication towards ConfD/NCS is desired,
+If encrypted communication towards ConfD/NCS is desired,
  an environment variable "CONFD_IPC_ACCESS_FILE" or "NCS_IPC_ACCESS_FILE"
  need to be set.
  This variable is expected to point to a file containing a secret salt.
   example:
-     export CONFD_IPC_ACCESS_FILE=./secret_file.txt
+export CONFD_IPC_ACCESS_FILE=./secret_file.txt
  An alternative to the environment variable is to set an java system
  property with the same name pointing to the file.
 
@@ -146,10 +137,10 @@ Creates a new instance of a `Cdb` socket supplying a
 
 **Throws**
 
-- `ConfException` - If ConfD/NCS refuses to establish
-         connection the reason could be obtained through
-         `ConfException#getMessage()`
-- `IOException` - signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - If ConfD/NCS refuses to establish
+connection the reason could be obtained through
+`ConfException#getMessage()`
+- `java.io.IOException` - signals I/O exception on the underlying socket
 
 ### Cdb(String, SocketAddress) <a href="#cdb-d6bb494b3f32" id="cdb-d6bb494b3f32"></a>
 
@@ -166,20 +157,20 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 Creates a new instance of a `Cdb` socket supplying an
  address to the ConfD/NCS server.
 
- The `name` parameter is just a string which may
+The `name` parameter is just a string which may
  occur in certain error/debug messages i.e for example in
  the *devel.log*.
 
- When establishing a connection to ConfD/NCS the
+When establishing a connection to ConfD/NCS the
  [`MaapiSchemas`](../maapi/MaapiSchemas.md#maapischemas-821ac70b83b7) will be loaded once automatically
  by the library.
 
- If encrypted communication towards ConfD/NCS is desired,
+If encrypted communication towards ConfD/NCS is desired,
  an environment variable "CONFD_IPC_ACCESS_FILE" or "NCS_IPC_ACCESS_FILE"
  need to be set.
  This variable is expected to point to a file containing a secret salt.
   example:
-     export CONFD_IPC_ACCESS_FILE=./secret_file.txt
+export CONFD_IPC_ACCESS_FILE=./secret_file.txt
  An alternative to the environment variable is to set an java system
  property with the same name pointing to the file.
 
@@ -190,10 +181,10 @@ Creates a new instance of a `Cdb` socket supplying an
 
 **Throws**
 
-- `ConfException` - If ConfD/NCS refuses to establish
-         connection the reason could be obtained through
-         `ConfException#getMessage()`
-- `IOException` - signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - If ConfD/NCS refuses to establish
+connection the reason could be obtained through
+`ConfException#getMessage()`
+- `java.io.IOException` - signals I/O exception on the underlying socket
 
 
 ## Methods
@@ -229,8 +220,8 @@ Write raw bytes for an opcode.
 
 **Throws**
 
-- `ConfException` - Protocol error
-- `IOException` - I/O error
+- `com.tailf.conf.ConfException` - Protocol error
+- `java.io.IOException` - I/O error
 
 ### close() <a href="#close-8107c6dc012b" id="close-8107c6dc012b"></a>
 
@@ -242,7 +233,7 @@ Closes the resources held by this `Cdb` socket.
 
 **Throws**
 
-- `IOException` - If I/O Error when closing resources
+- `java.io.IOException` - If I/O Error when closing resources
  held by this `Cdb` socket
 
 ### endSession() <a href="#endsession-1853baeb5d28" id="endsession-1853baeb5d28"></a>
@@ -264,7 +255,7 @@ Types: [CdbCompactionInfo](CdbCompactionInfo.md#cdbcompactioninfo-5ec90640fdd8),
 
 Retrieves compaction information on a CDB file
 
- The method retrieves compaction information on the CDB file
+The method retrieves compaction information on the CDB file
  specified by `dbfile`.
 
 **Parameters**
@@ -275,8 +266,8 @@ Retrieves compaction information on a CDB file
 
 **Throws**
 
-- `CdbException` - Failed to get compaction info
-- `IOException` - Failed to read/write on the cdb socket
+- `com.tailf.cdb.CdbException` - Failed to get compaction info
+- `java.io.IOException` - Failed to read/write on the cdb socket
 
 ### getCurrentSession() <a href="#getcurrentsession-2d75e562d728" id="getcurrentsession-2d75e562d728"></a>
 
@@ -290,7 +281,7 @@ Retrieve the current `CdbSession` started on this
   `Cdb` socket.
 
 **Returns:** The current CdbSession started on this Cdb, null
-       if no current CdbSession is started on this Cdb Socket.
+if no current CdbSession is started on this Cdb Socket.
 
 ### getMountId(ConfPath) <a href="#getmountid-83243c09b7c3" id="getmountid-83243c09b7c3"></a>
 
@@ -313,7 +304,7 @@ Retrieve mount identifiers for a path.
 
 **Throws**
 
-- `ConfException` - On retrieval error
+- `com.tailf.conf.ConfException` - On retrieval error
 
 ### getName() <a href="#getname-2634b18b4a25" id="getname-2634b18b4a25"></a>
 
@@ -328,14 +319,15 @@ Retrieve the name of this `Cdb` socket.
 ### getPhase() <a href="#getphase-5492112b72e7" id="getphase-5492112b72e7"></a>
 
 ```java
-public synchronized com.tailf.cdb.CdbPhase getPhase() throws com.tailf.conf.ConfException, java.io.IOException
+public synchronized com.tailf.cdb.CdbPhase getPhase()
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
 Types: [CdbPhase](CdbPhase.md#cdbphase-a1a97094371f), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Returns the start-phase CDB database is currently in.
- Also if CDB is in *phase 0*
+
+Also if CDB is in *phase 0*
  and has initiated an init transaction (to load any init files) the flag
  [`CdbPhase#FLAG_INIT`](CdbPhase.md#flag_init-fb43c5f6fc84) is set in the flags field correspondingly if
  an upgrade session is started the [`CdbPhase#FLAG_UPGRADE`](CdbPhase.md#flag_upgrade-4218f2511062) is set.
@@ -344,8 +336,8 @@ Returns the start-phase CDB database is currently in.
 
 **Throws**
 
-- `CdbException` - Failed to get phase
-- `IOException` - Failed to read/write cdb socket
+- `com.tailf.cdb.CdbException` - Failed to get phase
+- `java.io.IOException` - Failed to read/write cdb socket
 
 ### getSocket() <a href="#getsocket-d7da2de81b81" id="getsocket-d7da2de81b81"></a>
 
@@ -360,7 +352,7 @@ Retrieve the underlying socket used by this `Cdb` instance
 ### getTxId() <a href="#gettxid-1817ce3409ba" id="gettxid-1817ce3409ba"></a>
 
 ```java
-public synchronized com.tailf.cdb.CdbTxId getTxId() throws com.tailf.conf.ConfException, java.io.IOException
+public synchronized com.tailf.cdb.CdbTxId getTxId()
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -369,8 +361,7 @@ Types: [CdbTxId](CdbTxId.md#cdbtxid-d5b5c859de80), [ConfException](../conf/ConfE
 Returns a *CdbTxid* object which represents the last transaction
  id from *CDB*.
 
-
- This function can be used if we are forced to reconnect to
+This function can be used if we are forced to reconnect to
  *CDB*. If the transaction id we read is identical to
  the last id we had prior to loosing the *CDB* sockets we
  don't have to reload our managed object data.
@@ -379,13 +370,13 @@ Returns a *CdbTxid* object which represents the last transaction
 
 **Throws**
 
-- `CdbException` - Failed to get the last transaction id
-- `IOException` - Failed to read/write cdb socket
+- `com.tailf.cdb.CdbException` - Failed to get the last transaction id
+- `java.io.IOException` - Failed to read/write cdb socket
 
 ### initiateCompaction() <a href="#initiatecompaction-2acf1b3661eb" id="initiatecompaction-2acf1b3661eb"></a>
 
 ```java
-public synchronized void initiateCompaction() throws com.tailf.conf.ConfException, java.io.IOException
+public synchronized void initiateCompaction()
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -393,13 +384,13 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Initiates compaction on CDB files:
 
- The method initiates compaction on all CDB files
+The method initiates compaction on all CDB files
  defined as `CdbDbfileType`.
 
 **Throws**
 
-- `CdbException` - Failed to initiate the compaction
-- `IOException` - Failed to read/write on the cdb socket
+- `com.tailf.cdb.CdbException` - Failed to initiate the compaction
+- `java.io.IOException` - Failed to read/write on the cdb socket
 
 ### initiateDbfileCompaction(CdbDbfileType) <a href="#initiatedbfilecompaction-324563a7582a" id="initiatedbfilecompaction-324563a7582a"></a>
 
@@ -414,7 +405,7 @@ Types: [CdbDbfileType](CdbDbfileType.md#cdbdbfiletype-a0872754369c), [ConfExcept
 
 Initiates compaction on a CDB file.
 
- The method initiates compaction on the CDB file
+The method initiates compaction on the CDB file
  specified by `dbfile`.
 
 **Parameters**
@@ -423,8 +414,8 @@ Initiates compaction on a CDB file.
 
 **Throws**
 
-- `CdbException` - Failed to initiate the compaction
-- `IOException` - Failed to read/write on the cdb socket
+- `com.tailf.cdb.CdbException` - Failed to initiate the compaction
+- `java.io.IOException` - Failed to read/write on the cdb socket
 
 ### isUseHTags() <a href="#isusehtags-9ad9d9c20c62" id="isusehtags-9ad9d9c20c62"></a>
 
@@ -460,7 +451,7 @@ protected synchronized com.tailf.conf.ConfResponse requestTerm(
 Types: [ConfResponse](../conf/ConfResponse.md#confresponse-fd02dad17b49), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Send a request. This is the same as
- `requestTerm(int, boolean, ConfEObject)` but with no arguments
+ [`requestTerm(int, boolean, ConfEObject)`](Cdb.md#requestterm-79e4f0cddbef) but with no arguments
  and with isRel set to false (this is done in ConfInternal).
 
 **Parameters**
@@ -471,8 +462,8 @@ Send a request. This is the same as
 
 **Throws**
 
-- `ConfException` - Protocol/Server error
-- `IOException` - I/O error
+- `com.tailf.conf.ConfException` - Protocol/Server error
+- `java.io.IOException` - I/O error
 
 ### requestTerm(int, boolean, ConfEObject) <a href="#requestterm-79e4f0cddbef" id="requestterm-79e4f0cddbef"></a>
 
@@ -500,8 +491,8 @@ Send a request with a term argument specifying relative/absolute path
 
 **Throws**
 
-- `ConfException` - Protocol/Server error
-- `IOException` - I/O error
+- `com.tailf.conf.ConfException` - Protocol/Server error
+- `java.io.IOException` - I/O error
 
 ### requestTerm(int, ConfEObject) <a href="#requestterm-a8fce80da6f1" id="requestterm-a8fce80da6f1"></a>
 
@@ -526,8 +517,8 @@ Send a request with a single term argument.
 
 **Throws**
 
-- `ConfException` - Protocol/ConfD error
-- `IOException` - I/O error
+- `com.tailf.conf.ConfException` - Protocol/ConfD error
+- `java.io.IOException` - I/O error
 
 ### setTimeout(int) <a href="#settimeout-cbe758ecb5d8" id="settimeout-cbe758ecb5d8"></a>
 
@@ -558,10 +549,10 @@ A timeout for cdb client actions can be specified via the config file.
 
 **Throws**
 
-- `ConfException` - if the server rejects the new timeout or a protocol
-         error occurs
-- `IOException` - if an I/O error occurs while sending the request or
-         receiving the response
+- `com.tailf.conf.ConfException` - if the server rejects the new timeout or a protocol
+error occurs
+- `java.io.IOException` - if an I/O error occurs while sending the request or
+receiving the response
 
 ### setUseForCdbUpgrade() <a href="#setuseforcdbupgrade-381558675127" id="setuseforcdbupgrade-381558675127"></a>
 
@@ -604,7 +595,7 @@ Set this Cdb to use HKeyPath
 ### startSession() <a href="#startsession-ee121903dcfa" id="startsession-ee121903dcfa"></a>
 
 ```java
-public com.tailf.cdb.CdbSession startSession() throws com.tailf.conf.ConfException, java.io.IOException
+public com.tailf.cdb.CdbSession startSession()
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -618,10 +609,10 @@ Starts a new *CDB Session* on an already
 
 **Throws**
 
-- `IOException` - If an I/O error occurs on the underlying socket
-         while initiating the session.
-- `ConfException` - If ConfD/NCS rejects or fails to create the
-         session.
+- `java.io.IOException` - If an I/O error occurs on the underlying socket
+while initiating the session.
+- `com.tailf.conf.ConfException` - If ConfD/NCS rejects or fails to create the
+session.
 
 ### startSession(CdbDBType) <a href="#startsession-6f137bd83c44" id="startsession-6f137bd83c44"></a>
 
@@ -637,7 +628,7 @@ Types: [CdbSession](CdbSession.md#cdbsession-9ffa54666283), [CdbDBType](CdbDBTyp
 Starts a new *CDB Session* on an already
  established `Cdb`.
 
- The method starts a new session against the datastore
+The method starts a new session against the datastore
  specified by `dbtype`.
 
 **Parameters**
@@ -648,10 +639,10 @@ Starts a new *CDB Session* on an already
 
 **Throws**
 
-- `IOException` - If an I/O error occurs on the underlying socket
-         while initiating the session.
-- `ConfException` - If ConfD/NCS rejects or fails to create the
-         session.
+- `java.io.IOException` - If an I/O error occurs on the underlying socket
+while initiating the session.
+- `com.tailf.conf.ConfException` - If ConfD/NCS rejects or fails to create the
+session.
 
 ### startSession(CdbDBType, EnumSet&lt;CdbLockType&gt;) <a href="#startsession-5269b0eb8b16" id="startsession-5269b0eb8b16"></a>
 
@@ -668,12 +659,11 @@ Types: [CdbSession](CdbSession.md#cdbsession-9ffa54666283), [CdbDBType](CdbDBTyp
 Starts a new *CDB Session* on an already
  established `Cdb`.
 
- The method starts a new session against the datastore
+The method starts a new session against the datastore
  specified by `dbtype` with the locktype specified
  by the `lockflags`.
 
-
- While it is possible to use this method to start a session towards
+While it is possible to use this method to start a session towards
  a configuration database type with no locking at all, this is
  strongly discouraged in general, since it means that even the values
  read in a single multi-value request (e.g. `getObject()`)
@@ -693,15 +683,15 @@ Starts a new *CDB Session* on an already
 
 **Throws**
 
-- `IOException` - If an I/O error occurs on the underlying socket
-         while initiating the session.
-- `ConfException` - If ConfD/NCS rejects or fails to create the
-         session.
+- `java.io.IOException` - If an I/O error occurs on the underlying socket
+while initiating the session.
+- `com.tailf.conf.ConfException` - If ConfD/NCS rejects or fails to create the
+session.
 
 ### startUpgradeSession() <a href="#startupgradesession-d9903213d87a" id="startupgradesession-d9903213d87a"></a>
 
 ```java
-public com.tailf.cdb.CdbUpgradeSession startUpgradeSession() throws com.tailf.conf.ConfException, java.io.IOException
+public com.tailf.cdb.CdbUpgradeSession startUpgradeSession()
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -714,10 +704,10 @@ Similar to [`startSession()`](Cdb.md#startsession-ee121903dcfa) but always retur
 
 **Throws**
 
-- `IOException` - If an I/O error occurs on the underlying socket
-         while initiating the session.
-- `ConfException` - If ConfD/NCS rejects or fails to create the
-         session.
+- `java.io.IOException` - If an I/O error occurs on the underlying socket
+while initiating the session.
+- `com.tailf.conf.ConfException` - If ConfD/NCS rejects or fails to create the
+session.
 
 ### startUpgradeSession(CdbDBType) <a href="#startupgradesession-7352cb5553ec" id="startupgradesession-7352cb5553ec"></a>
 
@@ -730,7 +720,7 @@ public com.tailf.cdb.CdbUpgradeSession startUpgradeSession(
 
 Types: [CdbUpgradeSession](CdbUpgradeSession.md#cdbupgradesession-a832ac9abf0d), [CdbDBType](CdbDBType.md#cdbdbtype-5ae1aed3f97a), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
-Similar to `startSession(CdbDBType)` but always returns
+Similar to [`startSession(CdbDBType)`](Cdb.md#startsession-6f137bd83c44) but always returns
  a CdbUpgradeSession.
 
 **Parameters**
@@ -741,10 +731,10 @@ Similar to `startSession(CdbDBType)` but always returns
 
 **Throws**
 
-- `IOException` - If an I/O error occurs on the underlying socket
-         while initiating the session.
-- `ConfException` - If ConfD/NCS rejects or fails to create the
-         session.
+- `java.io.IOException` - If an I/O error occurs on the underlying socket
+while initiating the session.
+- `com.tailf.conf.ConfException` - If ConfD/NCS rejects or fails to create the
+session.
 
 ### startUpgradeSession(CdbDBType, EnumSet&lt;CdbLockType&gt;) <a href="#startupgradesession-8358fca8dbd6" id="startupgradesession-8358fca8dbd6"></a>
 
@@ -758,7 +748,7 @@ public com.tailf.cdb.CdbUpgradeSession startUpgradeSession(
 
 Types: [CdbUpgradeSession](CdbUpgradeSession.md#cdbupgradesession-a832ac9abf0d), [CdbDBType](CdbDBType.md#cdbdbtype-5ae1aed3f97a), [CdbLockType](CdbLockType.md#cdblocktype-1d165621c0a3), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
-Similar to `startSession(CdbDBType, EnumSet)` but always returns
+Similar to [`startSession(CdbDBType, EnumSet)`](Cdb.md#startsession-5269b0eb8b16) but always returns
  a CdbUpgradeSession.
 
 **Parameters**
@@ -770,10 +760,10 @@ Similar to `startSession(CdbDBType, EnumSet)` but always returns
 
 **Throws**
 
-- `IOException` - If an I/O error occurs on the underlying socket
-         while initiating the session.
-- `ConfException` - If ConfD/NCS rejects or fails to create the
-         session.
+- `java.io.IOException` - If an I/O error occurs on the underlying socket
+while initiating the session.
+- `com.tailf.conf.ConfException` - If ConfD/NCS rejects or fails to create the
+session.
 
 ### termRead(int) <a href="#termread-0a27f7f4c68c" id="termread-0a27f7f4c68c"></a>
 
@@ -796,8 +786,8 @@ Read a term response for a prior write.
 
 **Throws**
 
-- `ConfException` - Protocol/ConfD error
-- `IOException` - I/O error
+- `com.tailf.conf.ConfException` - Protocol/ConfD error
+- `java.io.IOException` - I/O error
 
 ### termWrite(int, ConfEObject) <a href="#termwrite-e14731c35ead" id="termwrite-e14731c35ead"></a>
 
@@ -820,8 +810,8 @@ Write a term.
 
 **Throws**
 
-- `ConfException` - Protocol/ConfD error
-- `IOException` - I/O error
+- `com.tailf.conf.ConfException` - Protocol/ConfD error
+- `java.io.IOException` - I/O error
 
 ### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
@@ -844,20 +834,20 @@ public synchronized void triggerOperSubscriptions(
 
 Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
-Function similar to `triggerOperSubscriptions(int[], EnumSet)`
+Function similar to [`triggerOperSubscriptions(int[], EnumSet)`](Cdb.md#triggeropersubscriptions-e7869fd4a9dd)
  with the difference that this function will never wait to acquire a lock
  and therefore fail and throw an Exception if Cdb is locked.
 
 **Parameters**
 
-- `int[] spointArray` - int[] array of subscription points or null
+- `int[] spointArray` - int\[\] array of subscription points or null
 
 **Throws**
 
-- `ConfException` - if triggering fails due to invalid subscription
-         point(s) or Cdb being locked
-- `IOException` - if an I/O error occurs while communicating with the
-         server
+- `com.tailf.conf.ConfException` - if triggering fails due to invalid subscription
+point(s) or Cdb being locked
+- `java.io.IOException` - if an I/O error occurs while communicating with the
+server
 
 ### triggerOperSubscriptions(int[], EnumSet&lt;CdbLockType&gt;) <a href="#triggeropersubscriptions-e7869fd4a9dd" id="triggeropersubscriptions-e7869fd4a9dd"></a>
 
@@ -889,15 +879,15 @@ Function to trigger operational subscriptions in similar to
 
 **Parameters**
 
-- `int[] spointArray` - int[] array of subscription points or null
+- `int[] spointArray` - int\[\] array of subscription points or null
 - `java.util.EnumSet<com.tailf.cdb.CdbLockType> lockflags` - null or EnumSet.of(CdbLockType.LOCK_WAIT)
 
 **Throws**
 
-- `ConfException` - if triggering fails due to invalid subscription
-         point(s) or lock acquisition failure
-- `IOException` - if an I/O error occurs while communicating with the
-         server
+- `com.tailf.conf.ConfException` - if triggering fails due to invalid subscription
+point(s) or lock acquisition failure
+- `java.io.IOException` - if an I/O error occurs while communicating with the
+server
 
 ### triggerSubscriptions(int[]) <a href="#triggersubscriptions-b7a5ff565df7" id="triggersubscriptions-b7a5ff565df7"></a>
 
@@ -912,22 +902,21 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Triggers Cdb subscription for configuration data.
 
- This method makes it possible to trigger *CDB subscriptions* for
+This method makes it possible to trigger *CDB subscriptions* for
  configuration data even though the configuration has not been modified.
 
-
- The caller will trigger all subscription points passed in the
+The caller will trigger all subscription points passed in the
  `spointArray` array (or all subscribers if the array is
  of zero length) in priority
  order, and the call will not return until the last subscriber has called
  [`CdbSubscription#sync(CdbSubscriptionSyncType)`](CdbSubscription.md#sync-e4ae9cc34a8a).
 
-  The call is blocking and doesn't return until all subscribers have
+The call is blocking and doesn't return until all subscribers have
   acknowledged the notification. That means that it is not possible
   to use the method in a  cdb subscriber thread
   since it would cause a deadlock.
 
- The subscription notification generated by this "synthetic" trigger
+The subscription notification generated by this "synthetic" trigger
  will seem like a regular subscription notification to a subscription
  client. As such, it is possible to use
  `diffIterate` to traverse the changeset. CDB will make up
@@ -935,7 +924,7 @@ Triggers Cdb subscription for configuration data.
  be set, and all list entries and presence
  containers will appear as if they are created.
 
- If the client is a two-phase subscriber, a prepare notification will
+If the client is a two-phase subscriber, a prepare notification will
  first be delivered and if any client aborts this synthetic
  transaction further delivery of subscription
  notification is suspended and an exception is returned to the caller of
@@ -955,12 +944,12 @@ Triggers Cdb subscription for configuration data.
 
 **Throws**
 
-- `ConfException` - If one or more subscription ids is passed in
+- `com.tailf.conf.ConfException` - If one or more subscription ids is passed in
  the  `subids` array that are
  not valid, an `CdbException` will be thrown with error code
  (`getErrorCode`) set to `CONFD_ERR_PROTOUSAGE`
  will be returned and no subscriptions will be triggered
-- `IOException` - On I/O error.
+- `java.io.IOException` - On I/O error.
 
 ### waitStart() <a href="#waitstart-b5e7e06c0c83" id="waitstart-b5e7e06c0c83"></a>
 
@@ -973,12 +962,12 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 This call waits until start-phase 1 is completed and *CDB*
  is available.
 
- If *CDB* already is available
- (i.e. start-phase = 1) the call returns
+If *CDB* already is available
+ (i.e. start-phase \>= 1) the call returns
  immediately. This can be used by a CDB client who is not synchronously
  started and only wants to wait until it can read its configuration.
 
 **Throws**
 
-- `CdbException` - Failed to waitStart for some reason
-- `IOException` - Failed to read/write on the underlying socket
+- `com.tailf.cdb.CdbException` - Failed to waitStart for some reason
+- `java.io.IOException` - Failed to read/write on the underlying socket

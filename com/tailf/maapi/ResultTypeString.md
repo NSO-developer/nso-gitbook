@@ -9,38 +9,33 @@ Types: [ResultType](ResultType.md#resulttype-1a8a08651698)
 
 XPath Result in string format. This format
  is specified trough `ReslutTypeString.class` as a parameter
- to `Maapi#queryStart(int,String,String,int,int,List,Class)`
+ to [`Maapi#queryStart(int,String,String,int,int,List,Class)`](Maapi.md#querystart-87abe9e2ad2a)
 
-
- Example:
-
+Example:
 
 ```
-  QueryResult<ResultTypeString> qR4 =
-      maapi.queryStart(th,&quot;/mtest/servers/server[ip='1.2.3.4']&quot;,
-                       &quot;/&quot;,3,1,
-                       Arrays.asList(&quot;name&quot;,
-                                     &quot;ip&quot;,
-                                     &quot;port&quot;),
-                       ResultTypeString.class);
-  for(QueryResult.Entry entry : qR4){
-      List<ResultTypeString> rsValue = entry.value();
-      for(ResultTypeString typ: rsValue){
-          String str = typ.stringValue();
-          System.out.println(&quot;value is : &quot; + str);
-      }
-  }
+ QueryResult<ResultTypeString> qR4 =
+     maapi.queryStart(th,"/mtest/servers/server[ip='1.2.3.4']",
+                      "/",3,1,
+                      Arrays.asList("name",
+                                    "ip",
+                                    "port"),
+                      ResultTypeString.class);
+ for(QueryResult.Entry entry : qR4){
+     List<ResultTypeString> rsValue = entry.value();
+     for(ResultTypeString typ: rsValue){
+         String str = typ.stringValue();
+         System.out.println("value is : " + str);
+     }
+ }
 ```
 
-
-
-
- This result type is just the resulting string of evaluatioin the
+This result type is just the resulting string of evaluatioin the
  select XPath expression evaluates to. This means that care must be
  taken so that the combination of select expression and return
  types actually yield sensible results
- (for example 1 + 2 is a valid select XPath expression, and would
- result in the string 3 when setting the result type to
+ (for example "1 + 2" is a valid select XPath expression, and would
+ result in the string "3" when setting the result type to
  `ResultTypeString`
  but it is not a node, and thus have no hkeypath, tag, or value).
 
@@ -55,5 +50,5 @@ XPath Result in string format. This format
 ### stringValue() <a href="#stringvalue-a6efca13ec08" id="stringvalue-a6efca13ec08"></a>
 
 ```java
-public abstract String stringValue()
+String stringValue()
 ```

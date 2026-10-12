@@ -11,11 +11,6 @@ Child entry, stored in a continuous area of memory after a level record.
 
 ## Members
 
-**Constructors**:
-
-- [Child\(\)](#child-7aab3b03a8c5)
-- [Child\(Source, int, int\)](#child-ad55798fd08a)
-
 **Methods**:
 
 - [getIdx\(\)](#getidx-97576e8cb221)
@@ -23,34 +18,6 @@ Child entry, stored in a continuous area of memory after a level record.
 - [getNs\(\)](#getns-59b97eae2a4a)
 - [getOff\(\)](#getoff-578b9943fd00)
 - [getTag\(\)](#gettag-315f45956d6f)
-- [read\(Source, int\)](#read-c048381a08bd)
-
-## Constructors
-
-### Child() <a href="#child-7aab3b03a8c5" id="child-7aab3b03a8c5"></a>
-
-**Package-private**
-
-```java
-Child()
-```
-
-### Child(Source, int, int) <a href="#child-ad55798fd08a" id="child-ad55798fd08a"></a>
-
-**Package-private**
-
-```java
-Child(com.tailf.ncs.maapi.MmapSchema.Source src, int pos, int idx)
-```
-
-Types: [Source](Source.md#source-12fbee2b6a88)
-
-**Parameters**
-
-- `com.tailf.ncs.maapi.MmapSchema.Source src`
-- `int pos`
-- `int idx`
-
 
 ## Methods
 
@@ -83,18 +50,3 @@ public int getOff()
 ```java
 public int getTag()
 ```
-
-### read(Source, int) <a href="#read-c048381a08bd" id="read-c048381a08bd"></a>
-
-**Package-private**
-
-```java
-final void read(com.tailf.ncs.maapi.MmapSchema.Source src, int pos)
-```
-
-Types: [Source](Source.md#source-12fbee2b6a88)
-
-**Parameters**
-
-- `com.tailf.ncs.maapi.MmapSchema.Source src`
-- `int pos`

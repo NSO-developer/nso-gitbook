@@ -10,7 +10,7 @@ This class handles YANG presentation and setting of YANG choices.
 
 **Constructors**:
 
-- [NavuChoice\(NavuContext, CSChoice, String, Object\[\]\)](#navuchoice-f2ceb003f1e5)
+- [NavuChoice\(NavuContext, CSChoice, String, Object\.\.\.\)](#navuchoice-222fda87ea72)
 
 **Fields**:
 
@@ -44,14 +44,14 @@ This class handles YANG presentation and setting of YANG choices.
 
 ## Constructors
 
-### NavuChoice(NavuContext, CSChoice, String, Object[]) <a href="#navuchoice-f2ceb003f1e5" id="navuchoice-f2ceb003f1e5"></a>
+### NavuChoice(NavuContext, CSChoice, String, Object...) <a href="#navuchoice-222fda87ea72" id="navuchoice-222fda87ea72"></a>
 
 ```java
 protected NavuChoice(
     com.tailf.navu.NavuContext context,
     com.tailf.maapi.MaapiSchemas.CSChoice choice,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -65,7 +65,7 @@ Creates a Navu presentation of a schema choice node.
 - `com.tailf.navu.NavuContext context`
 - `com.tailf.maapi.MaapiSchemas.CSChoice choice` - a schema choice node to derive the data from.
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 
 ## Fields
@@ -73,7 +73,7 @@ Creates a Navu presentation of a schema choice node.
 ### cases <a href="#cases-d2f5ba8c8b15" id="cases-d2f5ba8c8b15"></a>
 
 ```java
-protected java.util.List<com.tailf.maapi.MaapiSchemas.CSCase> cases = null;
+protected java.util.List<com.tailf.maapi.MaapiSchemas.CSCase> cases;
 ```
 
 Types: [CSCase](../maapi/MaapiSchemas/CSCase.md#cscase-26937f56b18d)
@@ -109,7 +109,7 @@ Checks if a choice is contained in a case of this choice.
 
 **Parameters**
 
-- `com.tailf.maapi.MaapiSchemas.CSChoice choice` - - the schema choice to check for.
+- `com.tailf.maapi.MaapiSchemas.CSChoice choice` - \- the schema choice to check for.
 
 **Returns:** true if is contained.
 
@@ -125,7 +125,7 @@ Checks if a node is contained directly within this choice.
 
 **Parameters**
 
-- `com.tailf.maapi.MaapiSchemas.CSNode node` - - the schema node to check for.
+- `com.tailf.maapi.MaapiSchemas.CSNode node` - \- the schema node to check for.
 
 **Returns:** true if is contained.
 

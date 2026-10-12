@@ -73,13 +73,13 @@ public static final int CLEAR_MOUNT_ID_CACHE = 15;
 ### command <a href="#command-82a38d31596c" id="command-82a38d31596c"></a>
 
 ```java
-public int command = null;
+public int command;
 ```
 
 ### data <a href="#data-4415a4d33c53" id="data-4415a4d33c53"></a>
 
 ```java
-public com.tailf.proto.ConfEObject data = null;
+public com.tailf.proto.ConfEObject data;
 ```
 
 Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
@@ -129,7 +129,7 @@ public static final int RELOAD_SCHEMA = 6;
 ### requestId <a href="#requestid-4b247ba15f86" id="requestid-4b247ba15f86"></a>
 
 ```java
-public int requestId = null;
+public int requestId;
 ```
 
 ### RERUN <a href="#rerun-dc3d68f96819" id="rerun-dc3d68f96819"></a>

@@ -19,10 +19,6 @@ Provides a Java representation of E refs. There are two styles of E refs, old
 - [ConfERef\(String, int, int\)](#conferef-8d974ce14696)
 - [ConfERef\(String, int\[\], int\)](#conferef-c26fc44f32e1)
 
-**Fields**:
-
-- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
-
 **Methods**:
 
 - [clone\(\)](#clone-164c86c45e9b)
@@ -56,8 +52,8 @@ Create an E ref from a stream containing a ref encoded in E external
 
 **Throws**
 
-- `ConfEDecodeException` - if the buffer does not contain a valid external
-                representation of an E ref.
+- `com.tailf.proto.ConfEDecodeException` - if the buffer does not contain a valid external
+representation of an E ref.
 
 ### ConfERef(String, int, int) <a href="#conferef-8d974ce14696" id="conferef-8d974ce14696"></a>
 
@@ -72,7 +68,7 @@ Create an old style E ref from its components.
 - `String node` - the nodename.
 - `int id` - an arbitrary number. Only the low order 18 bits will be used.
 - `int creation` - another arbitrary number. Only the low order 2 bits will be
-            used.
+used.
 
 ### ConfERef(String, int[], int) <a href="#conferef-c26fc44f32e1" id="conferef-c26fc44f32e1"></a>
 
@@ -86,22 +82,11 @@ Create a new style E ref from its components.
 
 - `String node` - the nodename.
 - `int[] ids` - an array of arbitrary numbers. Only the low order 18 bits of
-            the first number will be used. If the array contains only one
-            number, an old style ref will be written instead. At most
-            three numbers will be read from the array.
+the first number will be used. If the array contains only one
+number, an old style ref will be written instead. At most
+three numbers will be read from the array.
 - `int creation` - another arbitrary number. Only the low order 2 bits will be
-            used.
-
-
-## Fields
-
-### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
-
-**Package-private**
-
-```java
-static final long serialVersionUID = -7022666480768586521;
-```
+used.
 
 
 ## Methods
@@ -208,6 +193,6 @@ public String toString()
 ```
 
 Get the string representation of the ref. E refs are printed as
- #Refnode.id
+ #Ref\<node.id\>
 
 **Returns:** the string representation of the ref.

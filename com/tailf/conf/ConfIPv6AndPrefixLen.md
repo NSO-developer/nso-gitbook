@@ -11,23 +11,20 @@ Types: [ConfIPAndPrefixLen](ConfIPAndPrefixLen.md#confipandprefixlen-dbeb26ceb9c
 DATA_CONTAINER - Corresponds to the YANG tailf:ipv6-address-and-prefix-length
  type.
 
-
-
 ```
-  type string {
-    pattern '((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}'
-          + '((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|'
-          + '(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}'
-          + '(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))'
-          + '(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))';
-    pattern '(([^:]+:){6}(([^:]+:[^:]+)|(.*\..*)))|'
-          + '((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)'
-          + '(/.+)';
-  }
+ type string {
+   pattern '((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}'
+         + '((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|'
+         + '(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}'
+         + '(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))'
+         + '(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))';
+   pattern '(([^:]+:){6}(([^:]+:[^:]+)|(.*\..*)))|'
+         + '((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)'
+         + '(/.+)';
+ }
 ```
 
-
-  The ipv6-address-and-prefix-length type represents a combination
+The ipv6-address-and-prefix-length type represents a combination
   of an IPv6 address and a prefix length. The prefix length is given
   by the number following the slash character and must be less than
   or equal to 128.
@@ -97,7 +94,6 @@ DATA_CONTAINER - Corresponds to the YANG tailf:ipv6-address-and-prefix-length
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [compareTo\(ConfIPv6AndPrefixLen\)](#compareto-a05010bf930b)
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
@@ -213,15 +209,26 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
 
+*Description from* [`ConfValue.encode()`](ConfValue.md#encode-fbae522bba37)
+
+encode value.
+
 ### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
 ```
 
+*Description from* [`ConfValue.equals(Object)`](ConfValue.md#equals-fcd6492e0d6c)
+
+Determine if two ConfValue are equal. In general, ConfObjects are
+ equal if the components they consist of are equal.
+
 **Parameters**
 
-- `Object o`
+- `Object o` - The object to compare to.
+
+**Returns:** true if the objects are identical.
 
 ### getAddress() <a href="#getaddress-08b11cceec4c" id="getaddress-08b11cceec4c"></a>
 
@@ -252,3 +259,5 @@ public int hashCode()
 ```java
 public String toString()
 ```
+
+**Returns:** the printable representation of the object.

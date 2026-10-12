@@ -54,11 +54,10 @@ public int getDatabase()
 
 Database type:
 
-
 - [`Conf#DB_NONE`](../conf/Conf.md#db_none-5069c3fe4466)
-   - [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
-     - [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28)
-       - [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486)
+- [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
+- [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28)
+- [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486)
 
 ### getUserInfo() <a href="#getuserinfo-3ecef1f24d3d" id="getuserinfo-3ecef1f24d3d"></a>
 

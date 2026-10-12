@@ -93,10 +93,17 @@ public Object equal(Object left, Object right) throws com.tailf.conf.ConfExcepti
 
 Types: [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
+*Description from* [`Compiler.equal(Object, Object)`](Compiler.md#equal-799a2136c547)
+
+Produces an EXPRESSION object representing the comparison:
+ *left* equals to *right*
+
 **Parameters**
 
-- `Object left`
-- `Object right`
+- `Object left` - is an EXPRESSION object
+- `Object right` - is an EXPRESSION object
+
+**Returns:** Object
 
 ### expressionPath(Object, Object[], Object[]) <a href="#expressionpath-5bf270c9d4c4" id="expressionpath-5bf270c9d4c4"></a>
 
@@ -104,11 +111,17 @@ Types: [ConfException](ConfException.md#confexception-baeaab99f7f9)
 public Object expressionPath(Object expression, Object[] predicates, Object[] steps)
 ```
 
+*Description from* [`Compiler.expressionPath(Object, Object[], Object[])`](Compiler.md#expressionpath-5bf270c9d4c4)
+
+Produces an EXPRESSION object representing a filter expression
+
 **Parameters**
 
-- `Object expression`
-- `Object[] predicates`
-- `Object[] steps`
+- `Object expression` - is an EXPRESSION object
+- `Object[] predicates` - are EXPRESSION objects
+- `Object[] steps` - are STEP objects
+
+**Returns:** Object
 
 ### function(int, Object[]) <a href="#function-2c16049fa829" id="function-2c16049fa829"></a>
 
@@ -116,10 +129,17 @@ public Object expressionPath(Object expression, Object[] predicates, Object[] st
 public Object function(int code, Object[] args)
 ```
 
+*Description from* [`Compiler.function(int, Object[])`](Compiler.md#function-2c16049fa829)
+
+Produces an EXPRESSION object representing the computation of
+ a core function with the supplied arguments.
+
 **Parameters**
 
-- `int code`
-- `Object[] args`
+- `int code` - is one of FUNCTION\_... constants
+- `Object[] args` - are EXPRESSION objects
+
+**Returns:** Object
 
 ### function(Object, Object[]) <a href="#function-1cc89eb447db" id="function-1cc89eb447db"></a>
 
@@ -127,10 +147,17 @@ public Object function(int code, Object[] args)
 public Object function(Object name, Object[] args)
 ```
 
+*Description from* [`Compiler.function(Object, Object[])`](Compiler.md#function-1cc89eb447db)
+
+Produces an EXPRESSION object representing the computation of
+ a library function with the supplied arguments.
+
 **Parameters**
 
-- `Object name`
-- `Object[] args`
+- `Object name` - is a QNAME object (function name)
+- `Object[] args` - are EXPRESSION objects
+
+**Returns:** Object
 
 ### getKP() <a href="#getkp-45b2f95adae4" id="getkp-45b2f95adae4"></a>
 
@@ -146,9 +173,15 @@ Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
 public Object literal(String value)
 ```
 
+*Description from* [`Compiler.literal(String)`](Compiler.md#literal-ad0286a2ebc5)
+
+Produces an EXPRESSION object that represents a string constant.
+
 **Parameters**
 
-- `String value`
+- `String value` - String literal
+
+**Returns:** Object
 
 ### locationPath(boolean, Object[]) <a href="#locationpath-62efb77d2c40" id="locationpath-62efb77d2c40"></a>
 
@@ -156,10 +189,16 @@ public Object literal(String value)
 public Object locationPath(boolean absolute, Object[] steps)
 ```
 
+*Description from* [`Compiler.locationPath(boolean, Object[])`](Compiler.md#locationpath-62efb77d2c40)
+
+Produces an EXPRESSION object representing a location path
+
 **Parameters**
 
-- `boolean absolute`
-- `Object[] steps`
+- `boolean absolute` - indicates whether the path is absolute
+- `Object[] steps` - are STEP objects
+
+**Returns:** Object
 
 ### nodeNameTest(Object) <a href="#nodenametest-d6890d3b8e88" id="nodenametest-d6890d3b8e88"></a>
 
@@ -167,9 +206,15 @@ public Object locationPath(boolean absolute, Object[] steps)
 public Object nodeNameTest(Object qname)
 ```
 
+*Description from* [`Compiler.nodeNameTest(Object)`](Compiler.md#nodenametest-d6890d3b8e88)
+
+Produces a NODE_TEST object that represents a node name test.
+
 **Parameters**
 
-- `Object qname`
+- `Object qname` - is a QNAME object
+
+**Returns:** Object
 
 ### nodeTypeTest(int) <a href="#nodetypetest-6d6b838bb52c" id="nodetypetest-6d6b838bb52c"></a>
 
@@ -177,9 +222,15 @@ public Object nodeNameTest(Object qname)
 public Object nodeTypeTest(int nodeType)
 ```
 
+*Description from* [`Compiler.nodeTypeTest(int)`](Compiler.md#nodetypetest-6d6b838bb52c)
+
+Produces a NODE_TEST object that represents a node type test.
+
 **Parameters**
 
-- `int nodeType`
+- `int nodeType` - is a NODE_TEST object
+
+**Returns:** Object
 
 ### number(String) <a href="#number-249f888e69f1" id="number-249f888e69f1"></a>
 
@@ -187,9 +238,15 @@ public Object nodeTypeTest(int nodeType)
 public Object number(String value)
 ```
 
+*Description from* [`Compiler.number(String)`](Compiler.md#number-249f888e69f1)
+
+Produces an EXPRESSION object that represents a numeric constant.
+
 **Parameters**
 
-- `String value`
+- `String value` - numeric String
+
+**Returns:** Object
 
 ### qname(String, String) <a href="#qname-1189e6474a0b" id="qname-1189e6474a0b"></a>
 
@@ -203,10 +260,16 @@ public Object qname(
 
 Types: [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
+*Description from* [`Compiler.qname(String, String)`](Compiler.md#qname-1189e6474a0b)
+
+Produces an QNAME that represents a name with an optional prefix.
+
 **Parameters**
 
-- `String prefix`
-- `String tagName`
+- `String prefix` - String prefix
+- `String tagName` - String name
+
+**Returns:** Object
 
 ### step(int, Object, Object[]) <a href="#step-476841714396" id="step-476841714396"></a>
 
@@ -214,8 +277,14 @@ Types: [ConfException](ConfException.md#confexception-baeaab99f7f9)
 public Object step(int axis, Object nodeTest, Object[] predicates)
 ```
 
+*Description from* [`Compiler.step(int, Object, Object[])`](Compiler.md#step-476841714396)
+
+Produces a STEP object that represents a node test.
+
 **Parameters**
 
-- `int axis`
-- `Object nodeTest`
-- `Object[] predicates`
+- `int axis` - is one of the AXIS\_... constants
+- `Object nodeTest` - is a NODE_TEST object
+- `Object[] predicates` - are EXPRESSION objects
+
+**Returns:** Object

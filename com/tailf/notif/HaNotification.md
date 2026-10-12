@@ -122,14 +122,13 @@ public int getHAInfoType()
 
 HA information type.
 
-
 - [`HA_INFO_NOPRIMARY`](HaNotification.md#ha_info_noprimary-07eeb1051c35)
-   - [`HA_INFO_SECONDARY_DIED`](HaNotification.md#ha_info_secondary_died-65cb8286382f)
-     - [`HA_INFO_SECONDARY_ARRIVED`](HaNotification.md#ha_info_secondary_arrived-79ce1c211781)
-       - [`HA_INFO_SECONDARY_INITIALIZED`](HaNotification.md#ha_info_secondary_initialized-fec5b4b7f257)
-         - [`HA_INFO_IS_PRIMARY`](HaNotification.md#ha_info_is_primary-480d29bb9a77)
-           - [`HA_INFO_IS_NONE`](HaNotification.md#ha_info_is_none-7887b586b950)
-             - [`HA_INFO_BESECONDARY_RESULT`](HaNotification.md#ha_info_besecondary_result-d7c07f4fc293)
+- [`HA_INFO_SECONDARY_DIED`](HaNotification.md#ha_info_secondary_died-65cb8286382f)
+- [`HA_INFO_SECONDARY_ARRIVED`](HaNotification.md#ha_info_secondary_arrived-79ce1c211781)
+- [`HA_INFO_SECONDARY_INITIALIZED`](HaNotification.md#ha_info_secondary_initialized-fec5b4b7f257)
+- [`HA_INFO_IS_PRIMARY`](HaNotification.md#ha_info_is_primary-480d29bb9a77)
+- [`HA_INFO_IS_NONE`](HaNotification.md#ha_info_is_none-7887b586b950)
+- [`HA_INFO_BESECONDARY_RESULT`](HaNotification.md#ha_info_besecondary_result-d7c07f4fc293)
 
 ### getHANode() <a href="#gethanode-71f215e50750" id="gethanode-71f215e50750"></a>
 

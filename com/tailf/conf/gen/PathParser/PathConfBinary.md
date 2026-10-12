@@ -106,3 +106,5 @@ public PathConfBinary(String str)
 ```java
 public String toString()
 ```
+
+**Returns:** the printable representation of the object.

@@ -4,7 +4,7 @@
 public enum com.tailf.maapi.CLIPathCmdFlag
 ```
 
-Flags used in `Maapi#CLIPathCmd(int,EnumSet,String,Object... )`
+Flags used in [`Maapi#CLIPathCmd(int,EnumSet,String,Object... )`](Maapi.md#clipathcmd-321e6a4d920a)
 
 ## Members
 

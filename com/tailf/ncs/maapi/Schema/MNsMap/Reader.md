@@ -7,43 +7,12 @@ public static final class com.tailf.ncs.maapi.Schema.MNsMap.Reader
 
 ## Members
 
-**Constructors**:
-
-- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
-
 **Methods**:
 
 - [getEntries\(\)](#getentries-f554b7f62e3d)
 - [getNsHash\(\)](#getnshash-f6f3e3ae1e6b)
 - [getTagHash\(\)](#gettaghash-8f057919039c)
 - [hasEntries\(\)](#hasentries-ccf5edf194a9)
-
-## Constructors
-
-### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
-
-**Package-private**
-
-```java
-Reader(
-    org.capnproto.SegmentReader segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount,
-    int nestingLimit
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentReader segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-- `int nestingLimit`
-
 
 ## Methods
 

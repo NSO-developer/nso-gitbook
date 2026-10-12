@@ -9,8 +9,7 @@ Types: [InstancePath](InstancePath.md#instancepath-7694a1545db3)
 
 DATA_CONTAINER - Corresponds to the YANG instance-identifier type.
 
-
- Class Representing an XPath path. This class only supports a
+Class Representing an XPath path. This class only supports a
  restriction of the XPath 1.0 grammar.
 
 ## Members
@@ -119,13 +118,11 @@ Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
 Returns an array of `ConfTag` and `ConfKey`
  objects which represents the path in reverted order.
 
-
- This method requires that the path is absolute and that
+This method requires that the path is absolute and that
  the schema prefix for the root element is defined, if not
  a `ConfException` is thrown.
 
-
- The `ConfKey` is composed of the proper
+The `ConfKey` is composed of the proper
  `ConfValue` types which are determined by the
  loaded schema. However, if this the schema information is not available,
  and the type therefore cannot be determined the key elements are
@@ -138,6 +135,17 @@ Returns an array of `ConfTag` and `ConfKey`
 ```java
 public int hashCode()
 ```
+
+*Description from* [`InstancePath.hashCode()`](InstancePath.md#hashcode-ef797a217903)
+
+Returns a hash code value for the path. This method is
+ supported for the benefit of hash tables such as those provided by
+ `java.util.Hashtable`.
+
+ The hash code is calculated from its component of `ConfTag`
+ and `ConfKey`.
+
+**Returns:** a hash code value for this object.
 
 ### toKeyPathString() <a href="#tokeypathstring-bcccb457e808" id="tokeypathstring-bcccb457e808"></a>
 

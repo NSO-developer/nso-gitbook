@@ -63,11 +63,11 @@ Add keys for a list entry.
 **Parameters**
 
 - `java.util.List<String> keyList` - `List<String>` of keys for an entry,
-                must be of size keySize
+must be of size keySize
 
 **Throws**
 
-- `DpCallbackException`
+- `com.tailf.dp.DpCallbackException`
 
 ### addEntryKeyValues(String[]) <a href="#addentrykeyvalues-863ff2f2eb03" id="addentrykeyvalues-863ff2f2eb03"></a>
 
@@ -85,8 +85,8 @@ Add keys for a list entry.
 
 **Parameters**
 
-- `String[] keyValues` - String[] of keys for this list entry,
-                  must be of keySize length
+- `String[] keyValues` - String\[\] of keys for this list entry,
+must be of keySize length
 
 ### encode() <a href="#encode-fbae522bba37" id="encode-fbae522bba37"></a>
 

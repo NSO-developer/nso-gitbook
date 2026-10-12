@@ -19,7 +19,6 @@ The NedMux is used as the interface between NCS and the NedConnections.
 **Methods**:
 
 - [addToConnectionList\(NedConnectionBase\)](#addtoconnectionlist-0d53d864a35a)
-- [dorun\(\)](#dorun-4965d2173fd3)
 - [getConnection\(int\)](#getconnection-a8fbfff22e02)
 - [getErrorMessageFormatter\(\)](#geterrormessageformatter-8c75ba6f07e5)
 - [getErrorVerbosity\(\)](#geterrorverbosity-defe49ca237d)
@@ -69,14 +68,6 @@ This makes the mux aware of a new connection and returns
 **Parameters**
 
 - `com.tailf.ned.NedConnectionBase con`
-
-### dorun() <a href="#dorun-4965d2173fd3" id="dorun-4965d2173fd3"></a>
-
-**Package-private**
-
-```java
-void dorun() throws Exception
-```
 
 ### getConnection(int) <a href="#getconnection-a8fbfff22e02" id="getconnection-a8fbfff22e02"></a>
 

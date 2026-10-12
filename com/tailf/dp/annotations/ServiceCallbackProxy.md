@@ -99,12 +99,32 @@ public java.util.Properties create(
 
 Types: [ServiceContext](../services/ServiceContext.md#servicecontext-f7734df4f22b), [NavuNode](../../navu/NavuNode.md#navunode-73944820c8db), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
+*Description from* [`DpServiceCallback.create(com.tailf.dp.services.ServiceContext, com.tailf.navu.NavuNode, com.tailf.navu.NavuNode, java.util.Properties)`](../DpServiceCallback.md#create-4ddbd09c0e51)
+
+Create callback method.
+ This method is called when a service instance committed due to a create
+ or update event.
+
+ This method returns a opaque as a Properties object that can be null.
+ If not null it is stored persistently by Ncs.
+ This object is then delivered as argument to new calls of the create
+ method for this service (fastmap algorithm).
+ This way the user can store and later modify persistent data outside
+ the service model that might be needed.
+
 **Parameters**
 
-- `com.tailf.dp.services.ServiceContext context`
-- `com.tailf.navu.NavuNode service`
-- `com.tailf.navu.NavuNode root`
-- `java.util.Properties opaque`
+- `com.tailf.dp.services.ServiceContext context` - \- The current ServiceContext object
+- `com.tailf.navu.NavuNode service` - \- The NavuNode references the service node.
+- `com.tailf.navu.NavuNode root` - \- This NavuNode references the ncs root.
+- `java.util.Properties opaque` - \- Parameter contains a Properties object.
+This object may be used to transfer
+additional information between consecutive
+calls to the create callback.  It is always
+null in the first call. I.e. when the service
+is first created.
+
+**Returns:** Properties the returning opaque instance
 
 ### delete(ServiceContext, NavuNode, Properties) <a href="#delete-ec7143c7c683" id="delete-ec7143c7c683"></a>
 
@@ -157,7 +177,7 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 **Throws**
 
-- `DpCallbackException`
+- `com.tailf.dp.DpCallbackException`
 
 ### getServicePoint() <a href="#getservicepoint-4b0d670b9506" id="getservicepoint-4b0d670b9506"></a>
 
@@ -175,6 +195,14 @@ Retrieve the callback servicepoint
 public int mask()
 ```
 
+*Description from* [`DpServiceCallback.mask()`](../DpServiceCallback.md#mask-24c2fa29c6af)
+
+Mask of flags for each method that is supported by this callback:
+
+- [`M_CREATE`](../DpServiceCallback.md#m_create-741f9c6b07dc)
+- [`M_PRE_MODIFICATION`](../DpServiceCallback.md#m_pre_modification-f78525f61907)
+- [`M_POST_MODIFICATION`](../DpServiceCallback.md#m_post_modification-94386bb8ea4a)
+
 ### postModification(ServiceContext, ServiceOperationType, ConfPath, Properties) <a href="#postmodification-271e17afdb57" id="postmodification-271e17afdb57"></a>
 
 ```java
@@ -189,12 +217,31 @@ public java.util.Properties postModification(
 
 Types: [ServiceContext](../services/ServiceContext.md#servicecontext-f7734df4f22b), [ServiceOperationType](../services/ServiceOperationType.md#serviceoperationtype-76755b5b3de9), [ConfPath](../../conf/ConfPath.md#confpath-327831c6fc7d), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
+*Description from* [`DpServiceCallback.postModification(com.tailf.dp.services.ServiceContext, com.tailf.dp.services.ServiceOperationType, com.tailf.conf.ConfPath, java.util.Properties)`](../DpServiceCallback.md#postmodification-271e17afdb57)
+
+Post modification callback
+ If registered this method will be called after a CREATE, UPDATE or
+ DELETE of the service. This is also called with a service context that
+ is of the original transaction. This implies that changes written into
+ this transaction will stay persistent outside of the fastmap algorithm.
+ I.e. will be left untouched by the fastmap algorithm.
+
+ This can be useful e.g. for allocations that should be stored and
+ existing also when the service instance is removed.
+
 **Parameters**
 
-- `com.tailf.dp.services.ServiceContext context`
-- `com.tailf.dp.services.ServiceOperationType operation`
-- `com.tailf.conf.ConfPath path`
-- `java.util.Properties opaque`
+- `com.tailf.dp.services.ServiceContext context` - \- The current ServiceContext object
+- `com.tailf.dp.services.ServiceOperationType operation` - \- Type of operation (CREATE,UPDATE,DELETE)
+- `com.tailf.conf.ConfPath path` - \- ConfPath object referring to the services path
+- `java.util.Properties opaque` - \- Parameter contains a Properties object.
+This object may be used to transfer
+additional information between consecutive
+calls to the create callback.  It is always
+null in the first call. I.e. when the service
+is first created.
+
+**Returns:** Properties - the returning opaque instance
 
 ### preModification(ServiceContext, ServiceOperationType, ConfPath, Properties) <a href="#premodification-92ab0a35864a" id="premodification-92ab0a35864a"></a>
 
@@ -210,18 +257,41 @@ public java.util.Properties preModification(
 
 Types: [ServiceContext](../services/ServiceContext.md#servicecontext-f7734df4f22b), [ServiceOperationType](../services/ServiceOperationType.md#serviceoperationtype-76755b5b3de9), [ConfPath](../../conf/ConfPath.md#confpath-327831c6fc7d), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
+*Description from* [`DpServiceCallback.preModification(com.tailf.dp.services.ServiceContext, com.tailf.dp.services.ServiceOperationType, com.tailf.conf.ConfPath, java.util.Properties)`](../DpServiceCallback.md#premodification-92ab0a35864a)
+
+Pre modification callback
+ If registered this method will be called before a CREATE, UPDATE or
+ DELETE of the service. This is also called with a service context that
+ is of the original transaction. This implies that changes written into
+ this transaction will stay persistent outside of the fastmap algorithm.
+ I.e. will be left untouched by the fastmap algorithm.
+
+ This can be useful e.g. for allocations that should be stored and
+ existing also when the service instance is removed.
+
 **Parameters**
 
-- `com.tailf.dp.services.ServiceContext context`
-- `com.tailf.dp.services.ServiceOperationType operation`
-- `com.tailf.conf.ConfPath path`
-- `java.util.Properties opaque`
+- `com.tailf.dp.services.ServiceContext context` - \- The current ServiceContext object
+- `com.tailf.dp.services.ServiceOperationType operation` - \- Type of operation (CREATE,UPDATE,DELETE)
+- `com.tailf.conf.ConfPath path` - \- ConfPath object referring to the services path
+- `java.util.Properties opaque` - \- Parameter contains a Properties object.
+This object may be used to transfer
+additional information between consecutive
+calls to the create callback.  It is always
+null in the first call. I.e. when the service
+is first created.
+
+**Returns:** Properties - the returning opaque instance
 
 ### servicepoint() <a href="#servicepoint-33fbd1d46c70" id="servicepoint-33fbd1d46c70"></a>
 
 ```java
 public String servicepoint()
 ```
+
+*Description from* [`DpServiceCallback.servicepoint()`](../DpServiceCallback.md#servicepoint-33fbd1d46c70)
+
+The name of the servicepoint
 
 ### update(ServiceContext, NavuNode, NavuNode, Properties) <a href="#update-8a22de5c1ca0" id="update-8a22de5c1ca0"></a>
 

@@ -26,7 +26,6 @@ Provides a Java representation of E atoms. Atoms can be created from strings
 **Fields**:
 
 - [MAX\_ATOM\_LENGTH](#max_atom_length-b3ed4a748361)
-- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
 
 **Methods**:
 
@@ -70,8 +69,8 @@ Create an atom from a stream containing an atom encoded in E external
 
 **Throws**
 
-- `ConfEDecodeException` - if the buffer does not contain a valid external
-                representation of an E atom.
+- `com.tailf.proto.ConfEDecodeException` - if the buffer does not contain a valid external
+representation of an E atom.
 
 ### ConfEAtom(String) <a href="#confeatom-4bbef374d858" id="confeatom-4bbef374d858"></a>
 
@@ -88,7 +87,7 @@ Create an atom from the given string.
 **Throws**
 
 - `IllegalArgumentException` - if the string contains more than
-                [MAX\_ATOM\_LENGTH](ConfEAtom.md#max_atom_length-b3ed4a748361) characters.
+[MAX\_ATOM\_LENGTH](ConfEAtom.md#max_atom_length-b3ed4a748361) characters.
 
 
 ## Fields
@@ -100,14 +99,6 @@ public static final int MAX_ATOM_LENGTH = 255;
 ```
 
 The maximum allowed length of an atom, in characters
-
-### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
-
-**Package-private**
-
-```java
-static final long serialVersionUID = -3204386396807876641;
-```
 
 
 ## Methods
@@ -121,7 +112,7 @@ public String atomValue()
 Get the actual string contained in this object.
 
 **Returns:** the raw string contained in this object, without regard to E
-         quoting rules.
+quoting rules.
 
 **See also:** [`toString`](ConfEAtom.md#tostring-e9d48c5503ef)
 
@@ -134,8 +125,8 @@ public boolean booleanValue()
 The boolean value of this atom.
 
 **Returns:** the value of this atom expressed as a boolean value. If the atom
-         consists of the characters "true" (independent of case) the value
-         will be true. For any other values, the value will be false.
+consists of the characters "true" (independent of case) the value
+will be true. For any other values, the value will be false.
 
 ### encode(ConfOutputStream) <a href="#encode-cb1ad9eb7771" id="encode-cb1ad9eb7771"></a>
 

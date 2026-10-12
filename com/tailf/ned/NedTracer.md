@@ -4,6 +4,10 @@
 public interface com.tailf.ned.NedTracer
 ```
 
+**Related classes**
+
+- [NedWorker](NedWorker.md#nedworker-b063de7c0998)
+
 ## Members
 
 **Methods**:
@@ -15,7 +19,7 @@ public interface com.tailf.ned.NedTracer
 ### trace(String, String, String) <a href="#trace-4c88f986a203" id="trace-4c88f986a203"></a>
 
 ```java
-public abstract void trace(String msg, String direction, String deviceId)
+void trace(String msg, String direction, String deviceId)
 ```
 
 **Parameters**

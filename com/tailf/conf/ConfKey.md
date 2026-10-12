@@ -79,7 +79,6 @@ This class represents a list key or a leaf-list element.
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
 - [decode\(ConfEObject, String\)](ConfObject.md#decode-9b92f1de40d8) from ConfObject
@@ -184,7 +183,7 @@ public boolean equals(Object o)
 
 Indicates whether a `ConfKey` is "equal to" this.
 
- A `ConfKey` is equals this if its components
+A `ConfKey` is equals this if its components
  are equals.
 
 **Parameters**

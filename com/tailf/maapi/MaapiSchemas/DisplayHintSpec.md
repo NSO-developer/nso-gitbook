@@ -40,29 +40,29 @@ protected DisplayHintSpec(byte repeat, int length, byte format, byte seperator, 
 ### format <a href="#format-d089b20f34fb" id="format-d089b20f34fb"></a>
 
 ```java
-protected char format = null;
+protected char format;
 ```
 
 ### length <a href="#length-2195c2c888cc" id="length-2195c2c888cc"></a>
 
 ```java
-protected int length = null;
+protected int length;
 ```
 
 ### repeat <a href="#repeat-bc6d3f8a5c03" id="repeat-bc6d3f8a5c03"></a>
 
 ```java
-protected byte repeat = null;
+protected byte repeat;
 ```
 
 ### seperator <a href="#seperator-62c2e3d10341" id="seperator-62c2e3d10341"></a>
 
 ```java
-protected char seperator = null;
+protected char seperator;
 ```
 
 ### terminator <a href="#terminator-ebeeb56c9e82" id="terminator-ebeeb56c9e82"></a>
 
 ```java
-protected char terminator = null;
+protected char terminator;
 ```

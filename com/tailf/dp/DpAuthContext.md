@@ -24,7 +24,7 @@ Authentication context class. The DpAuthCallback.auth() callback method is
 - [getReason\(\)](#getreason-5eb89e7b2733)
 - [getUserInfo\(\)](#getuserinfo-3ecef1f24d3d)
 - [isSuccess\(\)](#issuccess-92b05032c7ec)
-- [setError\(String, Object\[\]\)](#seterror-3f96aececb3d)
+- [setError\(String, Object\.\.\.\)](#seterror-5345c405d7f7)
 
 ## Constructors
 
@@ -83,7 +83,7 @@ If success is true, the AAA authentication succeeded, and groups is an
  authentication succeeds and the user is logged in. If it returns false
  (or an invalid return value), the authentication fails.
 
-**Returns:** String[] groups
+**Returns:** String\[\] groups
 
 ### getLogNo() <a href="#getlogno-0a53380cc549" id="getlogno-0a53380cc549"></a>
 
@@ -106,24 +106,22 @@ public String getMethod()
 
 The method string gives the authentication method used, as follows:
 
-
-
 ```
-  "password"
-     Password authentication. This generic term is used if the
-     authentication failed.
+ "password"
+    Password authentication. This generic term is used if the
+    authentication failed.
 
-  "local", "pam", "external"
-     Password authentication. On successful authentication, the specific
-     method that succeeded is given. See the AAA chapter in the User
-     Guide for an explanation of these methods.
+ "local", "pam", "external"
+    Password authentication. On successful authentication, the specific
+    method that succeeded is given. See the AAA chapter in the User
+    Guide for an explanation of these methods.
 
-  "publickey"
-     Public key authentication via the internal SSH server.
+ "publickey"
+    Public key authentication via the internal SSH server.
 
-  Other
-     Authentication with an unknown or unsupported method with this name
-     was attempted via the internal SSH server.
+ Other
+    Authentication with an unknown or unsupported method with this name
+    was attempted via the internal SSH server.
 ```
 
 **Returns:** String method
@@ -180,13 +178,13 @@ success is true if the user is accepted so far (before call of auth()
 
  return boolean true if success
 
-### setError(String, Object[]) <a href="#seterror-3f96aececb3d" id="seterror-3f96aececb3d"></a>
+### setError(String, Object...) <a href="#seterror-5345c405d7f7" id="seterror-5345c405d7f7"></a>
 
 ```java
-public void setError(String fmt, Object[] arguments)
+public void setError(String fmt, Object... arguments)
 ```
 
 **Parameters**
 
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`

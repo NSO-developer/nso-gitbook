@@ -76,7 +76,6 @@ DATA_CONTAINER - Corresponds to the YANG tailf:octet-list type.
 
 - [bytesValue\(\)](ConfBinary.md#bytesvalue-5430ca82d2de) from ConfBinary
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [compareTo\(ConfBinary\)](ConfBinary.md#compareto-58d210e19aa1) from ConfBinary
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
@@ -145,3 +144,5 @@ public String toString()
 
 Format a octetList as octets separated with dots, as for example:
  "1.2.4.192.255.0"
+
+**Returns:** the printable representation of the object.

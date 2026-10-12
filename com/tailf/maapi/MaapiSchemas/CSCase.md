@@ -71,7 +71,7 @@ Types: [CSSchema](CSSchema.md#csschema-f51a58180f67), [CSChoice](CSChoice.md#csc
 ### firstChoice <a href="#firstchoice-22665f28e22e" id="firstchoice-22665f28e22e"></a>
 
 ```java
-protected com.tailf.maapi.MaapiSchemas.CSChoice firstChoice = null;
+protected com.tailf.maapi.MaapiSchemas.CSChoice firstChoice;
 ```
 
 Types: [CSChoice](CSChoice.md#cschoice-7d5d5dd71270)

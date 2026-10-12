@@ -5,8 +5,8 @@ public enum com.tailf.conf.DiffIterateFlags
 ```
 
 Enumeration flags us by
- `CdbSubscription#diffIterate(
-  int,CdbDiffIterate,EnumSet,Object)` to control the behavior of iterate
+ [`CdbSubscription#diffIterate(
+  int,CdbDiffIterate,EnumSet,Object)`](../cdb/CdbSubscription.md#diffiterate-ca2d7f4353f7) to control the behavior of iterate
  over changes made in CDB data.
 
 ## Members
@@ -42,7 +42,7 @@ ITER_WANT_ANCESTOR_DELETE(1 << 1);
 Control if the deleted of a ancestor will trigger a subscription
  iteration.
 
- The flag `ITER_WANT_ANCESTOR_DELETE` is passed to
+The flag `ITER_WANT_ANCESTOR_DELETE` is passed to
  `diffIterate` method which specifies that a subscription should
  be triggered because an ancestor was deleted subscription will also
  generate a call to `iterate`, and in this case `kp`
@@ -92,14 +92,14 @@ Include the previous value for modification of a leaf/leaf-list
  value.
 
  If the flags is provided to
- `CdbSubscription#diffIterate(
-  int ,CdbDiffIterate,EnumSet,Object)`
+ [`CdbSubscription#diffIterate(
+  int ,CdbDiffIterate,EnumSet,Object)`](../cdb/CdbSubscription.md#diffiterate-ca2d7f4353f7)
  The old value is supplied to the call to
  [`CdbDiffIterate#iterate(ConfObject[],
   DiffIterateOperFlag, ConfObject,ConfObject,Object)`](../cdb/CdbDiffIterate.md#iterate-d80a566b7e0a)
  if a value have changed.
 
- For operational data subscriptions, the `ITER_WANT_PREV` flag
+For operational data subscriptions, the `ITER_WANT_PREV` flag
  is ignored, and old value is always null - there is no equivalent
  to [`CdbDBType#CDB_PRE_COMMIT_RUNNING`](../cdb/CdbDBType.md#cdb_pre_commit_running-68ec740136a8) that holds
  "old" operational data method.

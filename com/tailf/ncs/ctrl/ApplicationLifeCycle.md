@@ -12,8 +12,6 @@ public class com.tailf.ncs.ctrl.ApplicationLifeCycle
 
 **Methods**:
 
-- [executeFinish\(\)](#executefinish-948f271cdb79)
-- [executeInit\(\)](#executeinit-90c55b7a9847)
 - [executeRun\(\)](#executerun-bd9fb2d93200)
 - [getFinishThread\(\)](#getfinishthread-cafe0239d0c3)
 - [getInitError\(\)](#getiniterror-db29a0beb4a2)
@@ -42,32 +40,6 @@ Types: [NcsMain](../NcsMain.md#ncsmain-eb814813aed4), [ApplicationComponent](../
 
 
 ## Methods
-
-### executeFinish() <a href="#executefinish-948f271cdb79" id="executefinish-948f271cdb79"></a>
-
-**Package-private**
-
-```java
-void executeFinish()
-```
-
-Triggers the execution of the ApplicationComponent.finish() method.
- Creates a "finish-thread" (new thread) and execute
- ApplicationComponent.finish() method on it.
- The finish threads purpose is to release the executeThread and also
- calls interrupt on it.
-
-### executeInit() <a href="#executeinit-90c55b7a9847" id="executeinit-90c55b7a9847"></a>
-
-**Package-private**
-
-```java
-void executeInit()
-```
-
-Triggers the execution of the ApplicationComponent init() method
- Creates a "helper-thread" (new thread) and starts it
- in its Thread.run it executes the init method
 
 ### executeRun() <a href="#executerun-bd9fb2d93200" id="executerun-bd9fb2d93200"></a>
 

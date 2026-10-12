@@ -197,8 +197,3 @@ protected StringBuilder toString(StringBuilder builder)
 **Parameters**
 
 - `StringBuilder builder`
-
-
-## Nested Types
-
-- [Type](NedShowFilter/Type.md#type-e2b37c882bf2)

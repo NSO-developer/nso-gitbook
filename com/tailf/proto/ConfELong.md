@@ -31,10 +31,6 @@ Provides a Java representation of E integral types. E does not distinguish
 - [ConfELong\(ConfInputStream\)](#confelong-14be370f839d)
 - [ConfELong\(long\)](#confelong-ef6be4714c98)
 
-**Fields**:
-
-- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
-
 **Methods**:
 
 - [byteValue\(\)](#bytevalue-a56aac956c5c)
@@ -70,8 +66,8 @@ Create an E integer from a stream containing an integer encoded in E
 
 **Throws**
 
-- `ConfEDecodeException` - if the buffer does not contain a valid external
-                representation of an E integer.
+- `com.tailf.proto.ConfEDecodeException` - if the buffer does not contain a valid external
+representation of an E integer.
 
 ### ConfELong(long) <a href="#confelong-ef6be4714c98" id="confelong-ef6be4714c98"></a>
 
@@ -84,17 +80,6 @@ Create an E integer from the given value.
 **Parameters**
 
 - `long l` - the long value to use.
-
-
-## Fields
-
-### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
-
-**Package-private**
-
-```java
-static final long serialVersionUID = 1610466859236755096;
-```
 
 
 ## Methods
@@ -113,7 +98,7 @@ Get this number as a byte.
 
 **Throws**
 
-- `ConfERangeException` - if the value is too large to be represented as a byte.
+- `com.tailf.proto.ConfERangeException` - if the value is too large to be represented as a byte.
 
 ### charValue() <a href="#charvalue-4b3a6b868fe4" id="charvalue-4b3a6b868fe4"></a>
 
@@ -129,7 +114,7 @@ Get this number as a char.
 
 **Throws**
 
-- `ConfERangeException` - if the value is too large to be represented as a char.
+- `com.tailf.proto.ConfERangeException` - if the value is too large to be represented as a char.
 
 ### encode(ConfOutputStream) <a href="#encode-cb1ad9eb7771" id="encode-cb1ad9eb7771"></a>
 
@@ -144,7 +129,7 @@ Convert this number to the equivalent E external representation.
 **Parameters**
 
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded number should be
-            written.
+written.
 
 ### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
@@ -181,7 +166,7 @@ Get this number as an int.
 
 **Throws**
 
-- `ConfERangeException` - if the value is too large to be represented as an int.
+- `com.tailf.proto.ConfERangeException` - if the value is too large to be represented as an int.
 
 ### longValue() <a href="#longvalue-636bfe2d6862" id="longvalue-636bfe2d6862"></a>
 
@@ -207,7 +192,7 @@ Get this number as a short.
 
 **Throws**
 
-- `ConfERangeException` - if the value is too large to be represented as a short.
+- `com.tailf.proto.ConfERangeException` - if the value is too large to be represented as a short.
 
 ### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
@@ -233,8 +218,8 @@ Get this number as a non-negative int.
 
 **Throws**
 
-- `ConfERangeException` - if the value is too large to be represented as an int, or
-                if the value is negative.
+- `com.tailf.proto.ConfERangeException` - if the value is too large to be represented as an int, or
+if the value is negative.
 
 ### uShortValue() <a href="#ushortvalue-5c27a3934662" id="ushortvalue-5c27a3934662"></a>
 
@@ -250,5 +235,5 @@ Get this number as a non-negative short.
 
 **Throws**
 
-- `ConfERangeException` - if the value is too large to be represented as a short, or
-                if the value is negative.
+- `com.tailf.proto.ConfERangeException` - if the value is too large to be represented as a short, or
+if the value is negative.

@@ -29,7 +29,7 @@ CREATE(DpNanoServiceCallback.M_NANO_CREATE);
 
 Indicates nano service create callback.
 
- See [`DpNanoServiceCallback#create(NanoServiceContext, NavuNode,
+See [`DpNanoServiceCallback#create(NanoServiceContext, NavuNode,
  NavuNode, Properties, Properties)`](../DpNanoServiceCallback.md#create-45a9e9003e1d)
 
 ### DELETE <a href="#delete-17bb47048092" id="delete-17bb47048092"></a>
@@ -40,7 +40,7 @@ DELETE(DpNanoServiceCallback.M_NANO_DELETE);
 
 Indicates nano service delete callback.
 
- See [`DpNanoServiceCallback#delete(NanoServiceContext, NavuNode,
+See [`DpNanoServiceCallback#delete(NanoServiceContext, NavuNode,
  NavuNode, Properties, Properties)`](../DpNanoServiceCallback.md#delete-4ba929210861)
 
 

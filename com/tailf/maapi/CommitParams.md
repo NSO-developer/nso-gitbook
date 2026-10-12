@@ -150,7 +150,7 @@ public Long getCommitQueueSyncTimeout()
 Get commit queue synchronous mode of operation custom timeout.
 
 **Returns:** The timeout in seconds. -1 means infinity. If no value has
-         been set null is returned.
+been set null is returned.
 
 ### getConfirmNetworkStateMode() <a href="#getconfirmnetworkstatemode-67298d410942" id="getconfirmnetworkstatemode-67298d410942"></a>
 
@@ -187,7 +187,7 @@ Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7)
 Get all commit parameters as a list of [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7).
 
 **Returns:** List of [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) representing the current
-         commit parameters.
+commit parameters.
 
 ### getDryRunOutformat() <a href="#getdryrunoutformat-270c3885ad1f" id="getdryrunoutformat-270c3885ad1f"></a>
 
@@ -324,12 +324,13 @@ Re-deploy all services affected by discovered out-of-band data?
 ### isConfirmNetworkStateReEvaluatePolicies() <a href="#isconfirmnetworkstatereevaluatepolicies-04e8c08913bc" id="isconfirmnetworkstatereevaluatepolicies-04e8c08913bc"></a>
 
 ```java
+@Deprecated
 public boolean isConfirmNetworkStateReEvaluatePolicies()
 ```
 
 Is confirm-network-state with re-evaluate-policies enabled
 
-**Deprecated:** Use `getConfirmNetworkStateMode()` instead.
+**Deprecated:** Use [`CommitParams`](CommitParams.md#getconfirmnetworkstatemode-67298d410942) instead.
 
 ### isDryRun() <a href="#isdryrun-c582ac0a71e9" id="isdryrun-c582ac0a71e9"></a>
 
@@ -350,7 +351,7 @@ public boolean isDryRunReverse()
 Check if the dry-run should produce a reverse diff.
 
 **Returns:** true if the produced diff should be reverse,
-         false otherwise.
+false otherwise.
 
 ### isNoDeploy() <a href="#isnodeploy-f061e1761bdb" id="isnodeploy-f061e1761bdb"></a>
 
@@ -382,7 +383,7 @@ Check if the configuration should only be written to CDB, not
  actually pushed to the device.
 
 **Returns:** true if the configuration should not be pused to the
-         device, false otherwise.
+device, false otherwise.
 
 ### isNoOutOfSyncCheck() <a href="#isnooutofsynccheck-133ddf8b9fba" id="isnooutofsynccheck-133ddf8b9fba"></a>
 
@@ -603,6 +604,7 @@ Re-deploy all services affected by discovered out-of-band data
 ### setConfirmNetworkStateReEvaluatePolicies() <a href="#setconfirmnetworkstatereevaluatepolicies-897562013182" id="setconfirmnetworkstatereevaluatepolicies-897562013182"></a>
 
 ```java
+@Deprecated
 public void setConfirmNetworkStateReEvaluatePolicies()
 ```
 
@@ -610,7 +612,7 @@ Check that the parts of the device configuration read and/or modified
  are up-to-date in CDB before pushing the configuration change to the
  device and re-evaluate out-of-band policies of effected services.
 
-**Deprecated:** Use [`ConfirmNetworkStateMode`](CommitParams/ConfirmNetworkStateMode.md#confirmnetworkstatemode-f61ccbe3a7e4) instead.
+**Deprecated:** Use [`CommitParams`](CommitParams.md#setconfirmnetworkstatemode-69df21e2c75f) instead.
 
 ### setConfirmNetworkStateScope(ConfirmNetworkStateScope) <a href="#setconfirmnetworkstatescope-8d3822d01a41" id="setconfirmnetworkstatescope-8d3822d01a41"></a>
 
@@ -858,12 +860,3 @@ Set with-service-meta-data commit parameter.
 ```java
 public String toString()
 ```
-
-
-## Nested Types
-
-- [CommitQueueErrorOption](CommitParams/CommitQueueErrorOption.md#commitqueueerroroption-c09325b4a347)
-- [ConfirmNetworkStateMode](CommitParams/ConfirmNetworkStateMode.md#confirmnetworkstatemode-f61ccbe3a7e4)
-- [ConfirmNetworkStateScope](CommitParams/ConfirmNetworkStateScope.md#confirmnetworkstatescope-758c42054a3e)
-- [DryRunOutformat](CommitParams/DryRunOutformat.md#dryrunoutformat-41adee760922)
-- [NoOverwriteScope](CommitParams/NoOverwriteScope.md#nooverwritescope-b02f8090321d)

@@ -61,7 +61,7 @@ public Notification()
 ### type <a href="#type-6ebb3673fbb6" id="type-6ebb3673fbb6"></a>
 
 ```java
-protected com.tailf.notif.NotificationType type = null;
+protected com.tailf.notif.NotificationType type;
 ```
 
 Types: [NotificationType](NotificationType.md#notificationtype-1f10f57e184d)

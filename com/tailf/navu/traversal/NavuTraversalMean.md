@@ -4,6 +4,11 @@
 public interface com.tailf.navu.traversal.NavuTraversalMean
 ```
 
+**Related classes**
+
+- [NavuTraversalBfsMean](NavuTraversalBfsMean.md#navutraversalbfsmean-ea7481a5cc40)
+- [NavuTraversalDfsMean](NavuTraversalDfsMean.md#navutraversaldfsmean-0966a625a51d)
+
 ## Members
 
 **Methods**:
@@ -15,7 +20,7 @@ public interface com.tailf.navu.traversal.NavuTraversalMean
 ### traverse(NavuNode, List&lt;TraversalFilter&gt;) <a href="#traverse-e72c3ea2612b" id="traverse-e72c3ea2612b"></a>
 
 ```java
-public abstract java.util.Set<String> traverse(
+java.util.Set<String> traverse(
     com.tailf.navu.NavuNode root,
     java.util.List<com.tailf.navu.traversal.TraversalFilter> filter
 )

@@ -106,15 +106,15 @@ Is invoked by NCS to abort the configuration to the state before the
 **Parameters**
 
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the NedTracer
-    API and can be used in, for example, the SSHSession as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the NedTracer
+API and can be used in, for example, the SSHSession as a tracer.
 - `String data` - is the commands for taking the config back to the previous
-    state. The commands are generated using the YANG data
-    model in combination with the tailf: extensions to guide the
-    mapping.
+state. The commands are generated using the YANG data
+model in combination with the tailf: extensions to guide the
+mapping.
 
 ### initNoConnect(String, NedMux, NedWorker) <a href="#initnoconnect-d8b0c37173df" id="initnoconnect-d8b0c37173df"></a>
 
@@ -146,9 +146,9 @@ Make a new instance of Ned object without establishing a connection
 - `String deviceId` - name of device
 - `com.tailf.ned.NedMux mux`
 - `com.tailf.ned.NedWorker worker` - The NedWorker instance currently responsible for driving the
-    communication between NCS and the device. This NedWorker instance
-    should be used when communicating with the NCS, ie for sending
-    responses, errors, and trace messages.
+communication between NCS and the device. This NedWorker instance
+should be used when communicating with the NCS, ie for sending
+responses, errors, and trace messages.
 
 **Returns:** the NED instance
 
@@ -184,7 +184,7 @@ Used by the connection pool to find a matching connection. If
 - `String ruser` - name of user to connect as
 - `String pass` - password to use when connecting
 - `String secpass` - secondary password to use when entering config mode,
-        set to empty string if not configured in the authgroup
+set to empty string if not configured in the authgroup
 - `String keydir`
 - `boolean trace` - indicates if raw trace messages should be generated or not
 - `int connectTimeout` - in milliseconds
@@ -233,20 +233,20 @@ Establish a new connection to a device and send response to
 - `String ruser` - name of user to connect as
 - `String pass` - password to use when connecting
 - `String secpass` - secondary password to use when entering config mode,
-        set to empty string if not configured in the authgroup
+set to empty string if not configured in the authgroup
 - `String publicKeyDir` - directory to read public keys. null if password is
-        given
+given
 - `boolean trace` - indicates if raw trace messages should be generated or not
 - `int connectTimeout` - in milliseconds
 - `int readTimeout` - in milliseconds
 - `int writeTimeout` - in milliseconds
 - `com.tailf.ned.NedMux mux`
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the NedTracer
-    API and can be used in, for example, the SSHSession as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the NedTracer
+API and can be used in, for example, the SSHSession as a tracer.
 
 **Returns:** the connection instance
 
@@ -268,30 +268,30 @@ Is invoked by NCS to take the configuration to a new state. The Ned may
  configuration to its previous state. The device should invoke the
  w.prepareResponse() when the operation is completed.
 
-        initialize (prepare transaction)
-              / \
-             /   uninitialize (undo preparations)
-            v
-        prepare (send data to device)
-            /   \
-           v     v
-        abort | commit(send confirmed commit (ios would do noop))
-                 /   \
-                v     v
-            revert | persist (send confirming commit)
+initialize (prepare transaction)
+/ \\
+/   uninitialize (undo preparations)
+v
+prepare (send data to device)
+/   \\
+v     v
+abort | commit(send confirmed commit (ios would do noop))
+/   \\
+v     v
+revert | persist (send confirming commit)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the NedTracer
-    API and can be used in, for example, the SSHSession as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the NedTracer
+API and can be used in, for example, the SSHSession as a tracer.
 - `String data` - is the CLI commands for transforming the configuration to
-    a new state. The commands are generated using the YANG data
-    model in combination with the tailf: extensions to guide the
-    mapping.
+a new state. The commands are generated using the YANG data
+model in combination with the tailf: extensions to guide the
+mapping.
 
 ### prepareDry(NedWorker, String) <a href="#preparedry-169e1f01784c" id="preparedry-169e1f01784c"></a>
 
@@ -316,17 +316,17 @@ Is invoked by NCS to tell the NED what actions it should take towards
 **Parameters**
 
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the
-    [`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
-    API and can be used in, for example, the [`SSHSession`](SSHSession.md#sshsession-2d9642a66770)
-    as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the
+[`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
+API and can be used in, for example, the [`SSHSession`](SSHSession.md#sshsession-2d9642a66770)
+as a tracer.
 - `String data` - is the CLI commands for transforming the configuration to
-    a new state. The commands are generated using the YANG data
-    model in combination with the tailf: extensions to guide the
-    mapping.
+a new state. The commands are generated using the YANG data
+model in combination with the tailf: extensions to guide the
+mapping.
 
 ### revert(NedWorker, String) <a href="#revert-5ad837ca98a4" id="revert-5ad837ca98a4"></a>
 
@@ -348,13 +348,13 @@ Is invoked by NCS to undo the changes introduced in the last commit
 **Parameters**
 
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the NedTracer
-    API and can be used in, for example, the SSHSession as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the NedTracer
+API and can be used in, for example, the SSHSession as a tracer.
 - `String data` - is the commands for taking the config back to the previous
-    state.
+state.
 
 ### show(NedWorker, String) <a href="#show-5a497cd9b854" id="show-5a497cd9b854"></a>
 
@@ -371,13 +371,13 @@ Extract parts of the configuration and send it to NCS. The response
 **Parameters**
 
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the NedTracer
-    API and can be used in, for example, the SSHSession as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the NedTracer
+API and can be used in, for example, the SSHSession as a tracer.
 - `String toptag` - is the top level tag indicating which part of the config
-    should be extracted.
+should be extracted.
 
 ### showOffline(NedWorker, String, String) <a href="#showoffline-4a83874bc32c" id="showoffline-4a83874bc32c"></a>
 
@@ -394,13 +394,13 @@ Extract parts of the configuration and send it to NCS. The response
 **Parameters**
 
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the NedTracer
-    API and can be used in, for example, the SSHSession as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the NedTracer
+API and can be used in, for example, the SSHSession as a tracer.
 - `String toptag` - is the top level tag indicating which part of the config
-    should be extracted.
+should be extracted.
 - `String data` - is the CLI commands in native format.
 
 ### showPartial(NedWorker, ConfPath[]) <a href="#showpartial-aa998f554abd" id="showpartial-aa998f554abd"></a>
@@ -418,13 +418,13 @@ Extract parts of the configuration and send it to NCS. The response
 **Parameters**
 
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the NedTracer
-    API and can be used in, for example, the SSHSession as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the NedTracer
+API and can be used in, for example, the SSHSession as a tracer.
 - `com.tailf.conf.ConfPath[] paths` - are paths to filter the various parts of the configuration tree
-    that should be extracted.
+that should be extracted.
 
 ### showPartial(NedWorker, ConfPath[], String[]) <a href="#showpartial-d37a025ae7ee" id="showpartial-d37a025ae7ee"></a>
 
@@ -446,12 +446,12 @@ Extract parts of the configuration and send it to NCS. The response
 **Parameters**
 
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the NedTracer
-    API and can be used in, for example, the SSHSession as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the NedTracer
+API and can be used in, for example, the SSHSession as a tracer.
 - `com.tailf.conf.ConfPath[] paths` - are paths to filter the various parts of the configuration tree
-    that should be extracted.
+that should be extracted.
 - `String[] cmdpaths` - are cmd paths to filter the various parts of the configuration tree
-    that should be extracted.
+that should be extracted.

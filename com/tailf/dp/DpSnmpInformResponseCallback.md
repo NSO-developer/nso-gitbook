@@ -6,6 +6,10 @@ public interface com.tailf.dp.DpSnmpInformResponseCallback
 
 This interface is used for the SNMP notifier callbacks.
 
+**Related classes**
+
+- [SnmpInformResponseCallbackProxy](annotations/SnmpInformResponseCallbackProxy.md#snmpinformresponsecallbackproxy-9806cafa9d82)
+
 **Since:** 3.2.0
 
 **See also:** [`Dp#createSnmpNotifier(String, String, Object)`](Dp.md#createsnmpnotifier-89f0d186fc8f)
@@ -24,7 +28,7 @@ This interface is used for the SNMP notifier callbacks.
 ### id() <a href="#id-1352448ec267" id="id-1352448ec267"></a>
 
 ```java
-public abstract String id()
+String id()
 ```
 
 The id of the SNMP inform callback.
@@ -32,13 +36,13 @@ The id of the SNMP inform callback.
 ### mask() <a href="#mask-24c2fa29c6af" id="mask-24c2fa29c6af"></a>
 
 ```java
-public abstract int mask()
+int mask()
 ```
 
 ### result(Integer, ConfETuple, Boolean) <a href="#result-633f0f760c10" id="result-633f0f760c10"></a>
 
 ```java
-public abstract void result(
+void result(
     Integer ref,
     com.tailf.proto.ConfETuple target,
     Boolean gotResponse
@@ -54,19 +58,19 @@ This callback provides the application with possibility to to take
 **Parameters**
 
 - `Integer ref` - A reference assigned by the caller of the SNMP inform request
-            see [`DpSnmpNotifier#send(
+see [`DpSnmpNotifier#send(
             String, com.tailf.conf.SnmpVarbind[], Integer)`](DpSnmpNotifier.md#send-616c3e8b0825)
 - `com.tailf.proto.ConfETuple target` - the receiver returning the result.
 - `Boolean gotResponse` - if we got a response or not from the target.
 
 **Throws**
 
-- `DpCallbackException` - Callback method failed.
+- `com.tailf.dp.DpCallbackException` - Callback method failed.
 
 ### targets(Integer, ConfETuple[]) <a href="#targets-aaa64a3aa8f3" id="targets-aaa64a3aa8f3"></a>
 
 ```java
-public abstract void targets(
+void targets(
     Integer ref,
     com.tailf.proto.ConfETuple[] targets
 )
@@ -85,4 +89,4 @@ This callback provides the application with possibility to to take
 
 **Throws**
 
-- `DpCallbackException` - Callback method failed.
+- `com.tailf.dp.DpCallbackException` - Callback method failed.

@@ -9,20 +9,9 @@ Factory for constructing ConfValue (default and ranges) and Schema objects
 
 ## Members
 
-**Constructors**:
-
-- [MmapSchemaFactory\(MmapSchema, SchemaLookup\)](#mmapschemafactory-02496b09ceb8)
-
 **Methods**:
 
-- [findChild\(MmapCSNode, CSMNsMap, int\)](#findchild-59723d77ce04)
-- [findChild\(MmapCSNode, int, int\)](#findchild-f5cfc441caa5)
 - [getChildren\(Level\)](#getchildren-f609229c3d1b)
-- [getHashDb\(\)](#gethashdb-e75daa0effae)
-- [getMnsMapDb\(\)](#getmnsmapdb-908581232215)
-- [getMountPointDb\(\)](#getmountpointdb-32131a12db04)
-- [getNsDb\(\)](#getnsdb-3babeb353172)
-- [getRootLevel\(\)](#getrootlevel-e49164e18650)
 - [lookupCSTypes\(Reader\<Reader\>\)](#lookupcstypes-60e79757ffda)
 - [makeCSChoice\(CSNode, CSCase, Reader\<Reader\>\)](#makecschoice-d388221a3673)
 - [makeCSNode\(MmapCSNode, Child\)](#makecsnode-0bd521678531)
@@ -42,68 +31,7 @@ Factory for constructing ConfValue (default and ranges) and Schema objects
 - [makeCSTypeString\(Reader, CSType\)](#makecstypestring-bf018492601d)
 - [makeCSTypeUnion\(Reader, CSType\)](#makecstypeunion-55d1543c92b9)
 
-## Constructors
-
-### MmapSchemaFactory(MmapSchema, SchemaLookup) <a href="#mmapschemafactory-02496b09ceb8" id="mmapschemafactory-02496b09ceb8"></a>
-
-**Package-private**
-
-```java
-MmapSchemaFactory(
-    com.tailf.ncs.maapi.MmapSchema mmapSchema,
-    com.tailf.ncs.maapi.MmapMaapiSchemas.SchemaLookup schemaLookup
-)
-```
-
-Types: [MmapSchema](MmapSchema.md#mmapschema-8adb607d0eb6), [SchemaLookup](MmapMaapiSchemas/SchemaLookup.md#schemalookup-3497dafb56ea)
-
-**Parameters**
-
-- `com.tailf.ncs.maapi.MmapSchema mmapSchema`
-- `com.tailf.ncs.maapi.MmapMaapiSchemas.SchemaLookup schemaLookup`
-
-
 ## Methods
-
-### findChild(MmapCSNode, CSMNsMap, int) <a href="#findchild-59723d77ce04" id="findchild-59723d77ce04"></a>
-
-**Package-private**
-
-```java
-com.tailf.ncs.maapi.MmapSchema.Child findChild(
-    com.tailf.ncs.maapi.MmapCSNode parent,
-    com.tailf.maapi.MaapiSchemas.CSMNsMap mnsMap,
-    int htag
-)
-```
-
-Types: [Child](MmapSchema/Child.md#child-3362e9a5c263), [MmapCSNode](MmapCSNode.md#mmapcsnode-cd078e4f36a9), [CSMNsMap](../../maapi/MaapiSchemas/CSMNsMap.md#csmnsmap-1123c939e6bb)
-
-**Parameters**
-
-- `com.tailf.ncs.maapi.MmapCSNode parent`
-- `com.tailf.maapi.MaapiSchemas.CSMNsMap mnsMap`
-- `int htag`
-
-### findChild(MmapCSNode, int, int) <a href="#findchild-f5cfc441caa5" id="findchild-f5cfc441caa5"></a>
-
-**Package-private**
-
-```java
-com.tailf.ncs.maapi.MmapSchema.Child findChild(
-    com.tailf.ncs.maapi.MmapCSNode parent,
-    int hns,
-    int htag
-)
-```
-
-Types: [Child](MmapSchema/Child.md#child-3362e9a5c263), [MmapCSNode](MmapCSNode.md#mmapcsnode-cd078e4f36a9)
-
-**Parameters**
-
-- `com.tailf.ncs.maapi.MmapCSNode parent`
-- `int hns`
-- `int htag`
 
 ### getChildren(Level) <a href="#getchildren-f609229c3d1b" id="getchildren-f609229c3d1b"></a>
 
@@ -118,58 +46,6 @@ Types: [Child](MmapSchema/Child.md#child-3362e9a5c263), [Level](MmapSchema/Level
 **Parameters**
 
 - `com.tailf.ncs.maapi.MmapSchema.Level level`
-
-### getHashDb() <a href="#gethashdb-e75daa0effae" id="gethashdb-e75daa0effae"></a>
-
-**Package-private**
-
-```java
-com.tailf.ncs.maapi.Schema.HashDb.Reader getHashDb() throws com.tailf.ncs.maapi.MmapSchemaException
-```
-
-Types: [Reader](Schema/HashDb/Reader.md#reader-b2467a96ddff), [MmapSchemaException](MmapSchemaException.md#mmapschemaexception-d3943c962514)
-
-### getMnsMapDb() <a href="#getmnsmapdb-908581232215" id="getmnsmapdb-908581232215"></a>
-
-**Package-private**
-
-```java
-com.tailf.ncs.maapi.Schema.MNsMapDb.Reader getMnsMapDb() throws com.tailf.ncs.maapi.MmapSchemaException
-    throws com.tailf.ncs.maapi.MmapSchemaException
-```
-
-Types: [Reader](Schema/MNsMapDb/Reader.md#reader-b2467a96ddff), [MmapSchemaException](MmapSchemaException.md#mmapschemaexception-d3943c962514)
-
-### getMountPointDb() <a href="#getmountpointdb-32131a12db04" id="getmountpointdb-32131a12db04"></a>
-
-**Package-private**
-
-```java
-com.tailf.ncs.maapi.Schema.MountPointDb.Reader getMountPointDb() throws com.tailf.ncs.maapi.MmapSchemaException
-    throws com.tailf.ncs.maapi.MmapSchemaException
-```
-
-Types: [Reader](Schema/MountPointDb/Reader.md#reader-b2467a96ddff), [MmapSchemaException](MmapSchemaException.md#mmapschemaexception-d3943c962514)
-
-### getNsDb() <a href="#getnsdb-3babeb353172" id="getnsdb-3babeb353172"></a>
-
-**Package-private**
-
-```java
-com.tailf.ncs.maapi.Schema.NsDb.Reader getNsDb() throws com.tailf.ncs.maapi.MmapSchemaException
-```
-
-Types: [Reader](Schema/NsDb/Reader.md#reader-b2467a96ddff), [MmapSchemaException](MmapSchemaException.md#mmapschemaexception-d3943c962514)
-
-### getRootLevel() <a href="#getrootlevel-e49164e18650" id="getrootlevel-e49164e18650"></a>
-
-**Package-private**
-
-```java
-com.tailf.ncs.maapi.MmapSchema.Level getRootLevel()
-```
-
-Types: [Level](MmapSchema/Level.md#level-1f9faf6c902d)
 
 ### lookupCSTypes(Reader&lt;Reader&gt;) <a href="#lookupcstypes-60e79757ffda" id="lookupcstypes-60e79757ffda"></a>
 

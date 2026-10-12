@@ -38,11 +38,11 @@ public CLICmdToPathResult(String ns, String path)
 ### ns <a href="#ns-8a46ea397979" id="ns-8a46ea397979"></a>
 
 ```java
-public String ns = null;
+public String ns;
 ```
 
 ### path <a href="#path-d27aef81ec30" id="path-d27aef81ec30"></a>
 
 ```java
-public String path = null;
+public String path;
 ```

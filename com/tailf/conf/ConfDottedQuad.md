@@ -10,18 +10,14 @@ Types: [ConfValue](ConfValue.md#confvalue-769292781c7d), [ConfDottedQuad](ConfDo
 
 DATA_CONTAINER - Corresponds to the YANG dotted-quad type.
 
-
-
 ```
-    type string {
-      pattern
-          '(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}'
-        + '([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])';
-      }
-    }
+   type string {
+     pattern
+         '(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}'
+       + '([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])';
+     }
+   }
 ```
-
-
 
  An unsigned 32-bit number expressed in the dotted-quad
  notation, i.e., four octets written as decimal numbers
@@ -92,7 +88,6 @@ DATA_CONTAINER - Corresponds to the YANG dotted-quad type.
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [compareTo\(ConfDottedQuad\)](#compareto-f6d41d0130e5)
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
@@ -199,15 +194,26 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
 
+*Description from* [`ConfValue.encode()`](ConfValue.md#encode-fbae522bba37)
+
+encode value.
+
 ### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
 ```
 
+*Description from* [`ConfValue.equals(Object)`](ConfValue.md#equals-fcd6492e0d6c)
+
+Determine if two ConfValue are equal. In general, ConfObjects are
+ equal if the components they consist of are equal.
+
 **Parameters**
 
-- `Object o`
+- `Object o` - The object to compare to.
+
+**Returns:** true if the objects are identical.
 
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
@@ -223,3 +229,5 @@ public String toString()
 
 Format a dottedQuad as octets separated with dots, as for example:
  "1.2.4.192"
+
+**Returns:** the printable representation of the object.

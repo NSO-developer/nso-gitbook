@@ -2,46 +2,42 @@
 
 Data types and utilities for communication with the server.
 
- The base class for all Conf terms is ConfObject. Not all Conf terms can
+The base class for all Conf terms is ConfObject. Not all Conf terms can
  contain a value. The ones that do all inherit the abstract class ConfValue.
  The inheritance hierarchy looks like this:
 
-
-
 ```
- ConfObject
-         |
-         +--ConfValue
-         |         |
-         |         +--ConfXYZ
-         |         |
-         |         :    :
-         |         :    :
-         |         |
-         |         +--Conf
-         |
-         +--ConfKey
-         |
-         +--ConfTag
-         |
-         +--ConfTypeDescriptor
-         |
-         +--ConfXMLParam
-                   |
-                   +--ConfXMLParamStart
-                   |         |
-                   |         +-- ConfXMLParamCdbStart
-                   |
-                   +--ConfXMLParamStop
-                   |
-                   +--ConfXMLParamLeaf
-                   |
-                   +--ConfXMLParamValue
+ConfObject
+        |
+        +--ConfValue
+        |         |
+        |         +--ConfXYZ
+        |         |
+        |         :    :
+        |         :    :
+        |         |
+        |         +--Conf
+        |
+        +--ConfKey
+        |
+        +--ConfTag
+        |
+        +--ConfTypeDescriptor
+        |
+        +--ConfXMLParam
+                  |
+                  +--ConfXMLParamStart
+                  |         |
+                  |         +-- ConfXMLParamCdbStart
+                  |
+                  +--ConfXMLParamStop
+                  |
+                  +--ConfXMLParamLeaf
+                  |
+                  +--ConfXMLParamValue
 ```
 
-
-
- In addition to the term and value classes there are some utility classes in
+In addition to the term and value classes there are some utility classes in
  this package.
 
 ## Types

@@ -134,7 +134,7 @@ Returns the absolute or relative destination of a move operation.
 
 **Throws**
 
-- `NedException`
+- `com.tailf.ned.NedException`
 
 ### getOpDone() <a href="#getopdone-6611ced4926a" id="getopdone-6611ced4926a"></a>
 

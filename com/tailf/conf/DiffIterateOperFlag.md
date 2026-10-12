@@ -14,7 +14,7 @@ The modification flags supplied by the library to
  DiffIterateOperFlag,com.tailf.conf.ConfObject,
  com.tailf.conf.ConfObject,Object)`](../maapi/MaapiDiffIterate.md#iterate-d80a566b7e0a).
 
- The current modification applies to the supplied path
+The current modification applies to the supplied path
  `ConfObject[]`.
 
 ## Members
@@ -66,8 +66,8 @@ The list entry, presence container, or optional leaf has been deleted.
   the `iterate` method will not called at all if the delete
   was above the subscription point. However if the flag
   [`DiffIterateFlags#ITER_WANT_ANCESTOR_DELETE`](DiffIterateFlags.md#iter_want_ancestor_delete-8aeb50c9a808) is passed to
-  `CdbSubscription#diffIterate(
-  int,CdbDiffIterate,EnumSet,Object)`
+  [`CdbSubscription#diffIterate(
+  int,CdbDiffIterate,EnumSet,Object)`](../cdb/CdbSubscription.md#diffiterate-ca2d7f4353f7)
   then deletes that trigger a descendant subscription will also
   generate a call to `iterate`.
 

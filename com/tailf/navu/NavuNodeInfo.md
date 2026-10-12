@@ -35,7 +35,6 @@ This class contains meta information for a node.
 - [isLeafref\(\)](#isleafref-631e9c131138)
 - [isList\(\)](#islist-c36bce63b506)
 - [isListEntry\(\)](#islistentry-b9733acc1ea9)
-- [isListEntry\(boolean\)](#islistentry-cfb71a385976)
 - [isModule\(\)](#ismodule-387434ee044f)
 - [isNotif\(\)](#isnotif-8c0813ed9a18)
 - [isOper\(\)](#isoper-578628dfb332)
@@ -269,18 +268,6 @@ Checks if a node is a list node.
 public boolean isListEntry()
 ```
 
-### isListEntry(boolean) <a href="#islistentry-cfb71a385976" id="islistentry-cfb71a385976"></a>
-
-**Package-private**
-
-```java
-void isListEntry(boolean listEntry)
-```
-
-**Parameters**
-
-- `boolean listEntry`
-
 ### isModule() <a href="#ismodule-387434ee044f" id="ismodule-387434ee044f"></a>
 
 ```java
@@ -344,8 +331,3 @@ public String printNodeType()
 ```java
 public String toString()
 ```
-
-
-## Nested Types
-
-- [NavuNodeType](NavuNodeInfo/NavuNodeType.md#navunodetype-6744525a3747)

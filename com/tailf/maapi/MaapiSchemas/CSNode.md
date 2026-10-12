@@ -120,7 +120,7 @@ Types: [CSSchema](CSSchema.md#csschema-f51a58180f67), [CSNodeInfo](CSNodeInfo.md
 ### firstChild <a href="#firstchild-0586a0455621" id="firstchild-0586a0455621"></a>
 
 ```java
-protected com.tailf.maapi.MaapiSchemas.CSNode firstChild = null;
+protected com.tailf.maapi.MaapiSchemas.CSNode firstChild;
 ```
 
 Types: [CSNode](CSNode.md#csnode-f12d9ad69c28)
@@ -128,7 +128,7 @@ Types: [CSNode](CSNode.md#csnode-f12d9ad69c28)
 ### nextSibling <a href="#nextsibling-2acba50f3dbb" id="nextsibling-2acba50f3dbb"></a>
 
 ```java
-protected com.tailf.maapi.MaapiSchemas.CSNode nextSibling = null;
+protected com.tailf.maapi.MaapiSchemas.CSNode nextSibling;
 ```
 
 Types: [CSNode](CSNode.md#csnode-f12d9ad69c28)
@@ -136,7 +136,7 @@ Types: [CSNode](CSNode.md#csnode-f12d9ad69c28)
 ### parentNode <a href="#parentnode-eec3fae29e9e" id="parentnode-eec3fae29e9e"></a>
 
 ```java
-protected com.tailf.maapi.MaapiSchemas.CSNode parentNode = null;
+protected com.tailf.maapi.MaapiSchemas.CSNode parentNode;
 ```
 
 Types: [CSNode](CSNode.md#csnode-f12d9ad69c28)
@@ -144,7 +144,7 @@ Types: [CSNode](CSNode.md#csnode-f12d9ad69c28)
 ### tag <a href="#tag-4c1656782674" id="tag-4c1656782674"></a>
 
 ```java
-protected String tag = null;
+protected String tag;
 ```
 
 
@@ -405,8 +405,7 @@ Types: [CSNode](CSNode.md#csnode-f12d9ad69c28)
 Retrieves siblings for this node as List or null
  if no siblings exists.
 
-
- Includes the current node in the List.
+Includes the current node in the List.
 
 **Returns:** List of sibling nodes including the current (this)
  node

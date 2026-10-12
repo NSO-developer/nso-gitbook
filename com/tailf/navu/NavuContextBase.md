@@ -55,7 +55,7 @@ This class is the base class for [`NavuContext`](NavuContext.md#navucontext-2974
 - [getWriteOperSession\(\)](#getwriteopersession-eb5d274da267)
 - [hasCdbSubscriber\(\)](#hascdbsubscriber-3650a7c55283)
 - [idrefDerivedOrSelf\(NavuNode, ConfIdentityRef, String, Object\[\]\)](#idrefderivedorself-6a08c9a390be)
-- [initMaapiCursor\(NavuNode, String, Object\[\]\)](#initmaapicursor-dfdad1aa4163)
+- [initMaapiCursor\(NavuNode, String, Object\.\.\.\)](#initmaapicursor-518b82b30b35)
 - [insert\(NavuList, boolean, String, Object\[\]\)](#insert-55bd5e6f415f)
 - [isActAsSuper\(\)](#isactassuper-ce02ade4553b)
 - [isCdb\(\)](#iscdb-20ec16d14862)
@@ -95,12 +95,12 @@ Types: [Cdb](../cdb/Cdb.md#cdb-cb7fc41768c9)
 Constructor for running NAVU with the `Cdb`
  mode.
 
- As this constructor takes a `Cdb`
+As this constructor takes a `Cdb`
  but it is never touched i.e no new Cdb sessions are opened
  on the supplied socket. Instead a new `Cdb` socket is
  constructed and used for new sessions.
 
-  The Cdb sockets will be named "supplied-name"-pool:x
+The Cdb sockets will be named "supplied-name"-pool:x
   where "supplied-name" is the name of the supplied
   `Cdb` socket name ( cdb.getName() ). The string
   "-pool:x" is appended where x is a internal integer counter.
@@ -151,7 +151,7 @@ Types: [Maapi](../maapi/Maapi.md#maapi-67bcbe89c42e)
 Constructor for running NAVU with the `Maapi`
  mode.
 
- As this constructor takes a transaction handle as
+As this constructor takes a transaction handle as
  its second parameter it implies that either a attached
  transaction is used or a started transaction is opened.
 
@@ -167,7 +167,7 @@ Constructor for running NAVU with the `Maapi`
 ### unsetCaseInChoice <a href="#unsetcaseinchoice-6309da590bfe" id="unsetcaseinchoice-6309da590bfe"></a>
 
 ```java
-public com.tailf.navu.NavuContextBase.UnSetCaseInChoice unsetCaseInChoice = null;
+public com.tailf.navu.NavuContextBase.UnSetCaseInChoice unsetCaseInChoice;
 ```
 
 Types: [UnSetCaseInChoice](NavuContextBase/UnSetCaseInChoice.md#unsetcaseinchoice-f6b21f3bb1fe)
@@ -432,7 +432,7 @@ If the context is created with
  [`NavuContextBase#NavuContextBase(CdbSession)`](NavuContextBase.md#navucontextbase-00da29370b33)
  this session will be returned.
  Otherwise retrieves a CdbSession for reading CDB_RUNNING database with
- the default locks if not defined by `setReadConfLocks(EnumSet)`
+ the default locks if not defined by [`setReadConfLocks(EnumSet)`](NavuContextBase.md#setreadconflocks-43f86af9b510)
 
 **Returns:** CdbSession
 
@@ -445,7 +445,7 @@ public com.tailf.cdb.CdbSession getReadOperSession()
 Types: [CdbSession](../cdb/CdbSession.md#cdbsession-9ffa54666283)
 
 Retrieves a CdbSession for reading CDB_OPERATIONAL database with the
- default locks if not defined by `setReadOperLocks(EnumSet)`
+ default locks if not defined by [`setReadOperLocks(EnumSet)`](NavuContextBase.md#setreadoperlocks-9c615c121ad2)
 
 **Returns:** CdbSession
 
@@ -483,7 +483,7 @@ public com.tailf.cdb.CdbSession getWriteOperSession()
 Types: [CdbSession](../cdb/CdbSession.md#cdbsession-9ffa54666283)
 
 Retrieves a CdbSession for writing CDB_OPERATIONAL database with the
- default locks if not defined by `setWriteOperLocks(EnumSet)`
+ default locks if not defined by [`setWriteOperLocks(EnumSet)`](NavuContextBase.md#setwriteoperlocks-d3a3d78b7d7d)
 
 **Returns:** CdbSession
 
@@ -514,13 +514,13 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [ConfIdentityRef](../conf/
 - `String fmt`
 - `Object[] args`
 
-### initMaapiCursor(NavuNode, String, Object[]) <a href="#initmaapicursor-dfdad1aa4163" id="initmaapicursor-dfdad1aa4163"></a>
+### initMaapiCursor(NavuNode, String, Object...) <a href="#initmaapicursor-518b82b30b35" id="initmaapicursor-518b82b30b35"></a>
 
 ```java
 protected java.util.List<com.tailf.conf.ConfKey> initMaapiCursor(
     com.tailf.navu.NavuNode node,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws com.tailf.navu.NavuException
 ```
@@ -531,7 +531,7 @@ Types: [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867), [NavuNode](NavuNode.m
 
 - `com.tailf.navu.NavuNode node`
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 ### insert(NavuList, boolean, String, Object[]) <a href="#insert-55bd5e6f415f" id="insert-55bd5e6f415f"></a>
 
@@ -661,12 +661,12 @@ Types: [NavuContextBase](NavuContextBase.md#navucontextbase-0061e2b12534)
 
 Set the context attributes using another context object.
 
- This this operation will make an abrupt change in connection
+This this operation will make an abrupt change in connection
  type, transactions etc. Therefore it is the responsibility of
  the user to handle open transactions, locks, socket or any
  other resources that otherwise will be left orphaned.
 
- Note, that the context is normally set at the creation of the NAVU
+Note, that the context is normally set at the creation of the NAVU
  root node. The context is then shared between all child nodes and a
  change of context attributes will therefore affect all nodes in
  the current NAVU tree. This implies that data can become stale between
@@ -747,7 +747,7 @@ Set the behavior of how a unset case in choice should be
 **Parameters**
 
 - `com.tailf.navu.NavuContextBase.UnSetCaseInChoice unSetChoiceInCase` - the specified option for behavior
-                                        of unset case in choice
+of unset case in choice
 
 ### setReadConfLocks(EnumSet&lt;CdbLockType&gt;) <a href="#setreadconflocks-43f86af9b510" id="setreadconflocks-43f86af9b510"></a>
 
@@ -841,8 +841,3 @@ Types: [MaapiXPathEvalTrace](../maapi/MaapiXPathEvalTrace.md#maapixpathevaltrace
 - `String query`
 - `Object initstate`
 - `String keyPath`
-
-
-## Nested Types
-
-- [UnSetCaseInChoice](NavuContextBase/UnSetCaseInChoice.md#unsetcaseinchoice-f6b21f3bb1fe)

@@ -18,6 +18,10 @@ With this interface we can register a callback with ConfDs AAA subsystem, to
  invocation keeps failing for some reason, all authentication attempts will
  fail.
 
+**Related classes**
+
+- [AuthCallbackProxy](annotations/AuthCallbackProxy.md#authcallbackproxy-476912f068a7)
+
 **See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
@@ -31,7 +35,7 @@ With this interface we can register a callback with ConfDs AAA subsystem, to
 ### auth(DpAuthContext) <a href="#auth-34bd42ec3143" id="auth-34bd42ec3143"></a>
 
 ```java
-public abstract boolean auth(com.tailf.dp.DpAuthContext atx) throws com.tailf.dp.DpCallbackException
+boolean auth(com.tailf.dp.DpAuthContext atx) throws com.tailf.dp.DpCallbackException
 ```
 
 Types: [DpAuthContext](DpAuthContext.md#dpauthcontext-74214c38995b), [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)
@@ -49,4 +53,4 @@ The auth() callback is invoked with an instance to an authentication
 
 **Throws**
 
-- `DpCallbackException` - if an error occurs during processing
+- `com.tailf.dp.DpCallbackException` - if an error occurs during processing

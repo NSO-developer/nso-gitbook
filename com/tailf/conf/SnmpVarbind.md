@@ -7,10 +7,9 @@ public class com.tailf.conf.SnmpVarbind
 The SnmpVarbind is a data structure for holding an SNMP variable binding
  which is on either of the forms:
 
-
 - Variable - Value
-   - OID - Value
-     - Column - RowIndex - Value
+- OID - Value
+- Column - RowIndex - Value
 
 ## Members
 

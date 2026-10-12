@@ -72,9 +72,18 @@ public void abort(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackExce
 
 Types: [DpTrans](../DpTrans.md#dptrans-bf19458d92ec), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
+*Description from* [`DpTransCallback.abort(com.tailf.dp.DpTrans)`](../DpTransCallback.md#abort-be36f552f23c)
+
+This  callback  is  responsible  for
+ undoing  whatever  was  done in the prepare() phase.
+
 **Parameters**
 
-- `com.tailf.dp.DpTrans trans`
+- `com.tailf.dp.DpTrans trans` - Transaction
+
+**Throws**
+
+- `com.tailf.dp.DpCallbackException` - Callback method failed.
 
 ### addActionCapability(TransCBType) <a href="#addactioncapability-2e8b6a8286db" id="addactioncapability-2e8b6a8286db"></a>
 
@@ -112,9 +121,18 @@ public void commit(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackExc
 
 Types: [DpTrans](../DpTrans.md#dptrans-bf19458d92ec), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
+*Description from* [`DpTransCallback.commit(com.tailf.dp.DpTrans)`](../DpTransCallback.md#commit-5e7631b9a7e8)
+
+This  callback  is  responsible  for
+ undoing  whatever  was  done in the prepare() phase.
+
 **Parameters**
 
-- `com.tailf.dp.DpTrans trans`
+- `com.tailf.dp.DpTrans trans` - Transaction
+
+**Throws**
+
+- `com.tailf.dp.DpCallbackException` - Callback method failed.
 
 ### finish(DpTrans) <a href="#finish-1001d416be96" id="finish-1001d416be96"></a>
 
@@ -124,9 +142,18 @@ public void finish(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackExc
 
 Types: [DpTrans](../DpTrans.md#dptrans-bf19458d92ec), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
+*Description from* [`DpTransCallback.finish(com.tailf.dp.DpTrans)`](../DpTransCallback.md#finish-1001d416be96)
+
+This  callback  is  responsible  for
+ releasing  resources  allocated in the init() phase.
+
 **Parameters**
 
-- `com.tailf.dp.DpTrans trans`
+- `com.tailf.dp.DpTrans trans` - Transaction
+
+**Throws**
+
+- `com.tailf.dp.DpCallbackException` - Callback method failed.
 
 ### getBackupObject() <a href="#getbackupobject-a6fb23c24524" id="getbackupobject-a6fb23c24524"></a>
 
@@ -160,7 +187,7 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 **Throws**
 
-- `DpCallbackException`
+- `com.tailf.dp.DpCallbackException`
 
 ### init(DpTrans) <a href="#init-16fe8657859c" id="init-16fe8657859c"></a>
 
@@ -170,15 +197,39 @@ public void init(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackExcep
 
 Types: [DpTrans](../DpTrans.md#dptrans-bf19458d92ec), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
+*Description from* [`DpTransCallback.init(com.tailf.dp.DpTrans)`](../DpTransCallback.md#init-16fe8657859c)
+
+The  callback must indicate which WORKER_SOCKET
+ should be used for future communications  in  this  transaction.
+ This  is  the  mechanism which is used by Conf to distribute
+ work among multiple worker threads in the database  application.
+
 **Parameters**
 
-- `com.tailf.dp.DpTrans trans`
+- `com.tailf.dp.DpTrans trans` - Transaction
+
+**Throws**
+
+- `com.tailf.dp.DpCallbackException` - Callback method failed.
 
 ### mask() <a href="#mask-24c2fa29c6af" id="mask-24c2fa29c6af"></a>
 
 ```java
 public int mask()
 ```
+
+*Description from* [`DpTransCallback.mask()`](../DpTransCallback.md#mask-24c2fa29c6af)
+
+Mask of flags for each method that is supported by this callback:
+
+- [`M_INIT`](../DpTransCallback.md#m_init-13cacf7e79fd)
+- [`M_TRANS_LOCK`](../DpTransCallback.md#m_trans_lock-d3e5dbe7a854)
+- [`M_TRANS_UNLOCK`](../DpTransCallback.md#m_trans_unlock-3304819d44bd)
+- [`M_WRITE_START`](../DpTransCallback.md#m_write_start-dde742bd8183)
+- [`M_PREPARE`](../DpTransCallback.md#m_prepare-151ace1a1f08)
+- [`M_ABORT`](../DpTransCallback.md#m_abort-7b4607723e90)
+- [`M_COMMIT`](../DpTransCallback.md#m_commit-a638c60fa850)
+- [`M_FINISH`](../DpTransCallback.md#m_finish-f4213d20ec3b)
 
 ### prepare(DpTrans) <a href="#prepare-ab366f6ce7ea" id="prepare-ab366f6ce7ea"></a>
 
@@ -188,9 +239,21 @@ public void prepare(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackEx
 
 Types: [DpTrans](../DpTrans.md#dptrans-bf19458d92ec), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
+*Description from* [`DpTransCallback.prepare(com.tailf.dp.DpTrans)`](../DpTransCallback.md#prepare-ab366f6ce7ea)
+
+If we have multiple sources of data  it  is  highly  recommended
+ that the callback is implemented.  The callback is called at the
+ end of the transaction, when all read and write  operations  for
+ the  transaction  have been performed and the transaction should
+ prepare to commit.
+
 **Parameters**
 
-- `com.tailf.dp.DpTrans trans`
+- `com.tailf.dp.DpTrans trans` - Transaction
+
+**Throws**
+
+- `com.tailf.dp.DpCallbackException` - Callback method failed.
 
 ### transLock(DpTrans) <a href="#translock-dc59c2c0e5f8" id="translock-dc59c2c0e5f8"></a>
 
@@ -200,9 +263,26 @@ public void transLock(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallback
 
 Types: [DpTrans](../DpTrans.md#dptrans-bf19458d92ec), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
+*Description from* [`DpTransCallback.transLock(com.tailf.dp.DpTrans)`](../DpTransCallback.md#translock-dc59c2c0e5f8)
+
+This callback is invoked when the validation phase of the transaction
+ starts.  If the underlying database supports real transactions,
+ it is usually appropriate to start such a native transaction here.
+
+ The transaction enters VALIDATE state, where the system will  perform
+ a series of read() operations.
+
+The trans lock is set until either transUnlock() or finish() is
+ called. the system ensures that a  transLock  is  set  on  a  single
+ transaction only.
+
 **Parameters**
 
-- `com.tailf.dp.DpTrans trans`
+- `com.tailf.dp.DpTrans trans` - Transaction
+
+**Throws**
+
+- `com.tailf.dp.DpCallbackException` - Callback method failed.
 
 ### transUnlock(DpTrans) <a href="#transunlock-d0b9be30b219" id="transunlock-d0b9be30b219"></a>
 
@@ -212,9 +292,24 @@ public void transUnlock(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallba
 
 Types: [DpTrans](../DpTrans.md#dptrans-bf19458d92ec), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
+*Description from* [`DpTransCallback.transUnlock(com.tailf.dp.DpTrans)`](../DpTransCallback.md#transunlock-d0b9be30b219)
+
+This  callback  is called when the validation of the transaction
+ failed, or the validation is triggered explicitly (i.e. not part
+ of  a  user  can enter invalid data. Transactions that originate
+ from NETCONF will never trigger this callback.  If the  underlying
+ database supports real transactions and they are used, the
+ transaction should be aborted here.
+
+The transaction re-enters READ state.
+
 **Parameters**
 
-- `com.tailf.dp.DpTrans trans`
+- `com.tailf.dp.DpTrans trans` - Transaction
+
+**Throws**
+
+- `com.tailf.dp.DpCallbackException` - Callback method failed.
 
 ### writeStart(DpTrans) <a href="#writestart-5fee67274be5" id="writestart-5fee67274be5"></a>
 
@@ -224,6 +319,20 @@ public void writeStart(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbac
 
 Types: [DpTrans](../DpTrans.md#dptrans-bf19458d92ec), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
 
+*Description from* [`DpTransCallback.writeStart(com.tailf.dp.DpTrans)`](../DpTransCallback.md#writestart-5fee67274be5)
+
+This callback is invoked when the validation succeeded  and  the
+ write  phase of the transaction starts.  If the underlying database
+ supports real transactions, it is  usually  appropriate  to
+ start such a native transaction here.
+
+The  transaction  enters  the WRITE state. No more read() operations
+ will be performed by the system.
+
 **Parameters**
 
-- `com.tailf.dp.DpTrans trans`
+- `com.tailf.dp.DpTrans trans` - Transaction
+
+**Throws**
+
+- `com.tailf.dp.DpCallbackException` - Callback method failed.

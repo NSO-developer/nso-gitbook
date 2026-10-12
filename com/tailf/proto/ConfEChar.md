@@ -16,10 +16,6 @@ Provides a Java representation of E integral types.
 - [ConfEChar\(char\)](#confechar-52e84b3e8fb6)
 - [ConfEChar\(ConfInputStream\)](#confechar-325c8699be13)
 
-**Fields**:
-
-- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
-
 **Methods**:
 
 - [byteValue\(\)](ConfELong.md#bytevalue-a56aac956c5c) from ConfELong
@@ -70,17 +66,6 @@ Create an E integer from a stream containing an integer encoded in E
 
 **Throws**
 
-- `ConfEDecodeException` - if the buffer does not contain a valid external
-                representation of an E integer.
-- `ConfERangeException` - if the value is too large to be represented as a char.
-
-
-## Fields
-
-### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
-
-**Package-private**
-
-```java
-static final long serialVersionUID = 3225337815669398204;
-```
+- `com.tailf.proto.ConfEDecodeException` - if the buffer does not contain a valid external
+representation of an E integer.
+- `com.tailf.proto.ConfERangeException` - if the value is too large to be represented as a char.

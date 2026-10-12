@@ -34,7 +34,6 @@ mmap version of CSNode for accessing data from capnproto schema file
 - [equals\(Object\)](../../maapi/MaapiSchemas/CSNode.md#equals-fcd6492e0d6c) from CSNode
 - [getChild\(int\)](#getchild-65485672c186)
 - [getChild\(int, int\)](#getchild-689133990b1b)
-- [getChildIdx\(\)](#getchildidx-4d2ec6d906ee)
 - [getChildren\(\)](#getchildren-fe2038dff10d)
 - [getChildren\(List\<String\>\)](../../maapi/MaapiSchemas/CSNode.md#getchildren-41cf83dd1b0d) from CSNode
 - [getChoices\(\)](../../maapi/MaapiSchemas/CSNode.md#getchoices-818fb3fccb86) from CSNode
@@ -42,7 +41,6 @@ mmap version of CSNode for accessing data from capnproto schema file
 - [getFirstChild\(\)](#getfirstchild-710377dd9fb6)
 - [getKey\(int\)](../../maapi/MaapiSchemas/CSNode.md#getkey-11aad55949c3) from CSNode
 - [getKeys\(\)](../../maapi/MaapiSchemas/CSNode.md#getkeys-a24b9d377db7) from CSNode
-- [getLevel\(\)](#getlevel-28ca1b08d456)
 - [getMaxOccurs\(\)](../../maapi/MaapiSchemas/CSNode.md#getmaxoccurs-365e8c5a408f) from CSNode
 - [getMinOccurs\(\)](../../maapi/MaapiSchemas/CSNode.md#getminoccurs-cac79959dff8) from CSNode
 - [getNextSibling\(\)](#getnextsibling-e2f43ef28bf0)
@@ -128,7 +126,7 @@ Types: [MmapSchemaFactory](MmapSchemaFactory.md#mmapschemafactory-d8c770e838b5),
 ### mmapSchemaFactory <a href="#mmapschemafactory-3b893f1e4057" id="mmapschemafactory-3b893f1e4057"></a>
 
 ```java
-protected final com.tailf.ncs.maapi.MmapSchemaFactory mmapSchemaFactory = null;
+protected final com.tailf.ncs.maapi.MmapSchemaFactory mmapSchemaFactory;
 ```
 
 Types: [MmapSchemaFactory](MmapSchemaFactory.md#mmapschemafactory-d8c770e838b5)
@@ -144,9 +142,16 @@ public com.tailf.maapi.MaapiSchemas.CSNode getChild(int tagHash)
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 
+*Description from* [`CSNode.getChild(int)`](../../maapi/MaapiSchemas/CSNode.md#getchild-65485672c186)
+
+Retrieve a child with the specified tag
+ Returns null if no child exists.
+
 **Parameters**
 
 - `int tagHash`
+
+**Returns:** Child node
 
 ### getChild(int, int) <a href="#getchild-689133990b1b" id="getchild-689133990b1b"></a>
 
@@ -156,18 +161,17 @@ public com.tailf.maapi.MaapiSchemas.CSNode getChild(int nsHash, int tagHash)
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 
+*Description from* [`CSNode.getChild(int, int)`](../../maapi/MaapiSchemas/CSNode.md#getchild-689133990b1b)
+
+Retrieve a child with the specified namespace and tag
+ Returns null if no child exists.
+
 **Parameters**
 
 - `int nsHash`
 - `int tagHash`
 
-### getChildIdx() <a href="#getchildidx-4d2ec6d906ee" id="getchildidx-4d2ec6d906ee"></a>
-
-**Package-private**
-
-```java
-int getChildIdx()
-```
+**Returns:** Child node
 
 ### getChildren() <a href="#getchildren-fe2038dff10d" id="getchildren-fe2038dff10d"></a>
 
@@ -177,6 +181,13 @@ public java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> getChildren()
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 
+*Description from* [`CSNode.getChildren()`](../../maapi/MaapiSchemas/CSNode.md#getchildren-fe2038dff10d)
+
+Retrieves children for this node as List or
+ null if no children exists.
+
+**Returns:** List of children nodes
+
 ### getFirstChild() <a href="#getfirstchild-710377dd9fb6" id="getfirstchild-710377dd9fb6"></a>
 
 ```java
@@ -184,16 +195,6 @@ protected com.tailf.maapi.MaapiSchemas.CSNode getFirstChild()
 ```
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
-
-### getLevel() <a href="#getlevel-28ca1b08d456" id="getlevel-28ca1b08d456"></a>
-
-**Package-private**
-
-```java
-com.tailf.ncs.maapi.MmapSchema.Level getLevel()
-```
-
-Types: [Level](MmapSchema/Level.md#level-1f9faf6c902d)
 
 ### getNextSibling() <a href="#getnextsibling-e2f43ef28bf0" id="getnextsibling-e2f43ef28bf0"></a>
 
@@ -211,6 +212,12 @@ public com.tailf.maapi.MaapiSchemas.CSNodeInfo getNodeInfo()
 
 Types: [CSNodeInfo](../../maapi/MaapiSchemas/CSNodeInfo.md#csnodeinfo-aad17d6161cc)
 
+*Description from* [`CSNode.getNodeInfo()`](../../maapi/MaapiSchemas/CSNode.md#getnodeinfo-82c0a80aac8a)
+
+Retrieves the node information
+
+**Returns:** CSNodeInfo node information about current (this) node
+
 ### getParentNode() <a href="#getparentnode-452921385cc4" id="getparentnode-452921385cc4"></a>
 
 ```java
@@ -219,6 +226,12 @@ public com.tailf.maapi.MaapiSchemas.CSNode getParentNode()
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 
+*Description from* [`CSNode.getParentNode()`](../../maapi/MaapiSchemas/CSNode.md#getparentnode-452921385cc4)
+
+Retrieves the parent node for this node
+
+**Returns:** CSNode parent or null if this a root node
+
 ### getSiblings() <a href="#getsiblings-f467dd8b6a33" id="getsiblings-f467dd8b6a33"></a>
 
 ```java
@@ -226,3 +239,13 @@ public java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> getSiblings()
 ```
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
+
+*Description from* [`CSNode.getSiblings()`](../../maapi/MaapiSchemas/CSNode.md#getsiblings-f467dd8b6a33)
+
+Retrieves siblings for this node as List or null
+ if no siblings exists.
+
+Includes the current node in the List.
+
+**Returns:** List of sibling nodes including the current (this)
+ node

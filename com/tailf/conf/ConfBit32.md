@@ -75,12 +75,10 @@ DATA_CONTAINER - Corresponds to the YANG bit32 type. A small bitset
 - [byteArrayValue\(\)](ConfBits.md#bytearrayvalue-2e0fef980288) from ConfBits
 - [clearBit\(long\)](ConfBits.md#clearbit-5db4b507737e) from ConfBits
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [compareTo\(ConfBits\)](ConfBits.md#compareto-66b77461fdc7) from ConfBits
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
 - [decode\(ConfEObject, String\)](ConfObject.md#decode-9b92f1de40d8) from ConfObject
-- [encode\(\)](ConfValue.md#encode-fbae522bba37) from ConfValue
 - [equals\(Object\)](#equals-fcd6492e0d6c)
 - [getBitNamesByValue\(ConfPath, ConfBits\)](ConfBits.md#getbitnamesbyvalue-3ba6b28839a1) from ConfBits
 - [getBitNamesByValue\(String, ConfBits\)](ConfBits.md#getbitnamesbyvalue-c649f67dc799) from ConfBits
@@ -121,7 +119,7 @@ public ConfBit32(String str) throws com.tailf.conf.ConfException
 Types: [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
 String constructor for ConfBit32.
- The string representation is expected to be 'bin0x...'
+ The string representation is expected to be 'bin\<0x...\>'
  with the hexadecimal representation of the bitset in little endian order.
 
 **Parameters**
@@ -130,7 +128,7 @@ String constructor for ConfBit32.
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 
 ## Methods
@@ -145,7 +143,9 @@ Equals method for ConfBit32
 
 **Parameters**
 
-- `Object o`
+- `Object o` - The object to compare to.
+
+**Returns:** true if the objects are identical.
 
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 

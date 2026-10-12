@@ -7,10 +7,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Reader
 
 ## Members
 
-**Constructors**:
-
-- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
-
 **Methods**:
 
 - [getA1\(\)](#geta1-f8b8009a6bc7)
@@ -22,33 +18,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Reader
 - [getA7\(\)](#geta7-84843d409266)
 - [getA8\(\)](#geta8-c03708d8a2bb)
 - [getPrefix\(\)](#getprefix-9268091e0223)
-
-## Constructors
-
-### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
-
-**Package-private**
-
-```java
-Reader(
-    org.capnproto.SegmentReader segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount,
-    int nestingLimit
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentReader segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-- `int nestingLimit`
-
 
 ## Methods
 

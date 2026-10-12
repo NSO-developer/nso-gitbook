@@ -15,60 +15,48 @@ The NCS resource manager able to create Maapi and Cdb objects
  An example of an cdb instance which is a unique instance for
  every object instance of the container class:
 
-
-
 ```
- public class MyContainerClass {
+public class MyContainerClass {
 
-     @Resource(type=ResourceType.CDB, scope=Scope.INSTANCE)
-     private Cdb cdb;
-     ...
- }
+    @Resource(type=ResourceType.CDB, scope=Scope.INSTANCE)
+    private Cdb cdb;
+    ...
+}
 ```
 
-
-
- If this class is not referred to in a package-meta-data.xml for
+If this class is not referred to in a package-meta-data.xml for
  some Ncs package, then the resource manager registration has to be
  manual:
 
-
-
 ```
- MyContainerClass myC = new MyContainerClass();
- ResourceManager.registerResources(myC);
+MyContainerClass myC = new MyContainerClass();
+ResourceManager.registerResources(myC);
 ```
 
-
-
- It is also possible have the same resource shared by several container
+It is also possible have the same resource shared by several container
  instances within the same NCS package.
  In this case the resource should be of type CONTEXT and have
  a qualifier name which can be used as reference:
 
-
-
 ```
- public class MyContainerClass1 {
+public class MyContainerClass1 {
 
-     @Resource(type=ResourceType.MAAPI,
-               scope=Scope.CONTEXT, qualifier="MyMaapi")
-     private Maapi theMaapi;
-     ...
- }
+    @Resource(type=ResourceType.MAAPI,
+              scope=Scope.CONTEXT, qualifier="MyMaapi")
+    private Maapi theMaapi;
+    ...
+}
 
- public class MyContainerClass2 {
+public class MyContainerClass2 {
 
-     @Resource(type=ResourceType.MAAPI,
-               scope=Scope.CONTEXT, qualifier="MyMaapi")
-     private Maapi aMaapi;
-     ...
- }
+    @Resource(type=ResourceType.MAAPI,
+              scope=Scope.CONTEXT, qualifier="MyMaapi")
+    private Maapi aMaapi;
+    ...
+}
 ```
 
-
-
- In this case all instances of both class MyContainerClass1 and
+In this case all instances of both class MyContainerClass1 and
  MyContainerClass2 will share the same unique Maapi instance.
 
 ## Members
@@ -235,6 +223,7 @@ Types: [Maapi](../maapi/Maapi.md#maapi-67bcbe89c42e), [Scope](annotations/Scope.
 ### getResourceManager() <a href="#getresourcemanager-eb64f13b2c87" id="getresourcemanager-eb64f13b2c87"></a>
 
 ```java
+@Deprecated
 public static com.tailf.ncs.ResourceManager getResourceManager()
 ```
 
@@ -278,8 +267,8 @@ This method will inject resources into annotated fields of
 **Throws**
 
 - `IllegalAccessException`
-- `ConfException`
-- `IOException`
+- `com.tailf.conf.ConfException`
+- `java.io.IOException`
 
 ### run() <a href="#run-b6dbda048863" id="run-b6dbda048863"></a>
 

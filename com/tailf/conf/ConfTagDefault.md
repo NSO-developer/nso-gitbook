@@ -72,7 +72,6 @@ Class representing an element in a model. This class is used to indicate
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [compareTo\(ConfTagDefault\)](#compareto-faec48f817d8)
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
@@ -91,8 +90,6 @@ Class representing an element in a model. This class is used to indicate
 - [setConfNamespace\(ConfNamespace\)](ConfTag.md#setconfnamespace-7fef1b53f52c) from ConfTag
 - [setLenient\(boolean\)](ConfTag.md#setlenient-7cd970533a41) from ConfTag
 - [toString\(\)](#tostring-e9d48c5503ef)
-- [toString\(ConfNamespace\)](ConfTag.md#tostring-97a6a914714f) from ConfTag
-- [toString\(int\)](ConfTag.md#tostring-477fa787d7c7) from ConfTag
 
 ## Constructors
 
@@ -131,9 +128,17 @@ Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
 public boolean equals(Object o)
 ```
 
+*Description from* [`ConfTag.equals(Object)`](ConfTag.md#equals-fcd6492e0d6c)
+
+Determine if two ConfTags are equal.
+ Two ConfTag are equals if their tagname and nsUri are equals.
+ or if tag values and ns values are the same.
+
 **Parameters**
 
-- `Object o`
+- `Object o` - ConfObjectRef that is to be compared to.
+
+**Returns:** true if the objects are identical.
 
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
@@ -146,3 +151,5 @@ public int hashCode()
 ```java
 public String toString()
 ```
+
+**Returns:** the printable representation of the object.

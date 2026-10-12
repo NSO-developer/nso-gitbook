@@ -142,9 +142,3 @@ Epoch timestamp of when the transaction started, given in microseconds.
 ```java
 public String toString()
 ```
-
-
-## Nested Types
-
-- [CompactionFile](CompactionNotification/CompactionFile.md#compactionfile-19e286d90f5f)
-- [CompactionType](CompactionNotification/CompactionType.md#compactiontype-0d05e41610fa)

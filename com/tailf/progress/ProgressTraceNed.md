@@ -10,18 +10,17 @@ Types: [ProgressTrace](ProgressTrace.md#progresstrace-46ae962fa75d)
 The purpose of ` ProgressTraceNed ` class
  is to make it easy for a NED to interact with NSO's
  progress trace framework with the concept of spans.
-
+ 
  An new event or span requires a device id and a
  device phase. The device id is set in the class constructor
  [`ProgressTraceNed#ProgressTraceNed(Maapi, String)`](ProgressTraceNed.md#progresstracened-035453e18770),
  and the device phase is set using
  [`ProgressTraceNed#setPhase(String)`](ProgressTraceNed.md#setphase-06ea7510d166) method. For example:
 
-
 ```
- ProgressTraceNed progress = new ProgressTraceNed(maapi, "mydev");
- progress.setPhase("connect");
- progress.event("connect");
+ProgressTraceNed progress = new ProgressTraceNed(maapi, "mydev");
+progress.setPhase("connect");
+progress.event("connect");
 ```
 
 **See also:** [`ProgressTrace`](ProgressTrace.md#progresstrace-46ae962fa75d)
@@ -70,8 +69,8 @@ Creates a new instance of `ProgressTraceNed`
 
 **Throws**
 
-- `ConfException` - is thrown if device Id is either
-            `null` or empty
+- `com.tailf.conf.ConfException` - is thrown if device Id is either
+`null` or empty
 
 
 ## Methods
@@ -92,9 +91,9 @@ Report an event
 
 **Throws**
 
-- `IOException`
-- `ConfException`
-- `IOException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
+- `java.io.IOException`
 
 ### event(Verbosity, String) <a href="#event-9f8a52e74d94" id="event-9f8a52e74d94"></a>
 
@@ -113,14 +112,14 @@ Report an event
 **Parameters**
 
 - `com.tailf.maapi.Maapi.Verbosity verbosity` - at which verbosity level the
-         message should be reported
+message should be reported
 - `String message` - message to report
 
 **Throws**
 
-- `ConfException` - is thrown if either
-            device Id or device phase is not set.
-- `IOException`
+- `com.tailf.conf.ConfException` - is thrown if either
+device Id or device phase is not set.
+- `java.io.IOException`
 
 ### event(Verbosity, String, Attributes) <a href="#event-cdc8c9e968cd" id="event-cdc8c9e968cd"></a>
 
@@ -140,16 +139,16 @@ Report an event
 **Parameters**
 
 - `com.tailf.maapi.Maapi.Verbosity verbosity` - at which verbosity level the
-         message should be reported
+message should be reported
 - `String message` - message to report
 - `com.tailf.progress.Attributes attributes` - attributes of the events.
-        This can be `null`.
+This can be `null`.
 
 **Throws**
 
-- `ConfException` - is thrown if either
-            device Id or device phase is not set.
-- `IOException`
+- `com.tailf.conf.ConfException` - is thrown if either
+device Id or device phase is not set.
+- `java.io.IOException`
 
 ### setDeviceId(String) <a href="#setdeviceid-d5a05ed041f8" id="setdeviceid-d5a05ed041f8"></a>
 
@@ -193,13 +192,13 @@ Start a new span
 - `String message` - message of the span
 
 **Returns:** a [`Span`](Span.md#span-1e8b02bddf13) object that is used
-         for `endSpan`
+for [`endSpan`](ProgressTrace.md#endspan-832d21f903c3)
 
 **Throws**
 
-- `ConfException` - is thrown if either
-            device Id or device phase is not set.
-- `IOException`
+- `com.tailf.conf.ConfException` - is thrown if either
+device Id or device phase is not set.
+- `java.io.IOException`
 
 ### startSpan(Verbosity, String) <a href="#startspan-b310d5a59dbf" id="startspan-b310d5a59dbf"></a>
 
@@ -218,17 +217,17 @@ Start a new span
 **Parameters**
 
 - `com.tailf.maapi.Maapi.Verbosity verbosity` - at which verbosity level the
-         message should be reported
+message should be reported
 - `String message` - message of the span
 
 **Returns:** a [`Span`](Span.md#span-1e8b02bddf13) object that can used
-         in `endSpan`
+in [`endSpan`](ProgressTrace.md#endspan-832d21f903c3)
 
 **Throws**
 
-- `ConfException` - is thrown if either
-            device Id or device phase is not set.
-- `IOException`
+- `com.tailf.conf.ConfException` - is thrown if either
+device Id or device phase is not set.
+- `java.io.IOException`
 
 ### startSpan(Verbosity, String, Attributes, Span[]) <a href="#startspan-ec78710be35e" id="startspan-ec78710be35e"></a>
 
@@ -249,18 +248,18 @@ Start a new span
 **Parameters**
 
 - `com.tailf.maapi.Maapi.Verbosity verbosity` - at which verbosity level the
-         message should be reported
+message should be reported
 - `String message` - message of the span
 - `com.tailf.progress.Attributes attributes` - attributes of the span
-        This can be `null`.
+This can be `null`.
 - `com.tailf.progress.Span[] links` - list of linked spans
-        This can be `null`.
+This can be `null`.
 
 **Returns:** a [`Span`](Span.md#span-1e8b02bddf13) object that can used
-         in `endSpan`
+in [`endSpan`](ProgressTrace.md#endspan-832d21f903c3)
 
 **Throws**
 
-- `ConfException` - is thrown if either
-            device Id or device phase is not set.
-- `IOException`
+- `com.tailf.conf.ConfException` - is thrown if either
+device Id or device phase is not set.
+- `java.io.IOException`

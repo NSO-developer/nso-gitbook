@@ -7,21 +7,21 @@ public class com.tailf.ncs.alarmman.consumer.AlarmSourceCentral
 
 The consuming part of the *Alarm API*.
 
- This class acts as a proxy where incoming alarms are dispatched or
+This class acts as a proxy where incoming alarms are dispatched or
  forwarded to all registered [`AlarmSource`](AlarmSource.md#alarmsource-f5bcbf5bed9e) attached to it.
 
-  One `AlarmSourceCentral ` (and corresponding
+One `AlarmSourceCentral ` (and corresponding
  [`AlarmSinkCentral`](../producer/AlarmSinkCentral.md#alarmsinkcentral-a7b03cb7fde1)) is always present
  in the *NCS JVM* and it is started when *NCS JVM* is started.
 
- It is also possible to start `AlarmSourceCentral`
+It is also possible to start `AlarmSourceCentral`
  outside the *NCS JVM*.
 
- Each client [`AlarmSource`](AlarmSource.md#alarmsource-f5bcbf5bed9e) that is attached to
+Each client [`AlarmSource`](AlarmSource.md#alarmsource-f5bcbf5bed9e) that is attached to
  a `AlarmSourceCentral` gets its own queue to
  check for incoming alarms.
 
- The `AlarmSourceCentral` maintains or handles
+The `AlarmSourceCentral` maintains or handles
  the client queues, for each incoming alarm to *CDB*
  it creates a new instance of [`Alarm`](../common/Alarm.md#alarm-e07586c3430f) and puts the
  new instance into all the client queues that are attached to this
@@ -68,13 +68,13 @@ Creates a new AlarmSourceCentral object.
 **Parameters**
 
 - `int alarmQueueLen` - maximum length of the out queues to the
-                      subscribes.
+subscribes.
 - `com.tailf.cdb.Cdb cdb` - the *CDB* socket to subscribe over.
 
 **Throws**
 
-- `IOException` - if the CDB connection fails.
-- `ConfException` - if the CDB subscription fails.
+- `java.io.IOException` - if the CDB connection fails.
+- `com.tailf.conf.ConfException` - if the CDB subscription fails.
 
 
 ## Methods
@@ -82,6 +82,7 @@ Creates a new AlarmSourceCentral object.
 ### getAlarmQueue() <a href="#getalarmqueue-86ea427127cc" id="getalarmqueue-86ea427127cc"></a>
 
 ```java
+@Deprecated
 public static java.util.concurrent.ArrayBlockingQueue<com.tailf.ncs.alarmman.common.Alarm> getAlarmQueue()
 ```
 
@@ -96,6 +97,7 @@ Returns a new alarm queue.
 ### getAlarmSource(int, Cdb) <a href="#getalarmsource-3dbc04cb0fba" id="getalarmsource-3dbc04cb0fba"></a>
 
 ```java
+@Deprecated
 public static synchronized com.tailf.ncs.alarmman.consumer.AlarmSourceCentral getAlarmSource(
     int alarmQueueLen,
     com.tailf.cdb.Cdb cdb
@@ -116,9 +118,9 @@ Retrieves the alarm source central object.
 
 **Throws**
 
-- `IOException` - if there is an I/O error
-- `NavuException` - if there is a Navu error
-- `ConfException` - if there is a protocol error
+- `java.io.IOException` - if there is an I/O error
+- `com.tailf.navu.NavuException` - if there is a Navu error
+- `com.tailf.conf.ConfException` - if there is a protocol error
 
 **Deprecated:** Use [`NcsMain#getSourceCentral()`](../../NcsMain.md#getsourcecentral-0714ef465cc3) instead.
 
@@ -132,7 +134,7 @@ Types: [Alarm](../common/Alarm.md#alarm-e07586c3430f)
 
 Creates a new queue and adds it to the AlarmSource.
 
-**Returns:** ArrayBlockingQueue
+**Returns:** ArrayBlockingQueue\<Alarm\>
 
 ### isAlive() <a href="#isalive-264918864856" id="isalive-264918864856"></a>
 
@@ -147,6 +149,7 @@ Returns true if the AlarmSourceCentral is running.
 ### returnAlarmQueue(ArrayBlockingQueue&lt;Alarm&gt;) <a href="#returnalarmqueue-4561d0dee1d9" id="returnalarmqueue-4561d0dee1d9"></a>
 
 ```java
+@Deprecated
 public static void returnAlarmQueue(
     java.util.concurrent.ArrayBlockingQueue<com.tailf.ncs.alarmman.common.Alarm> queue
 )
@@ -160,7 +163,7 @@ Returns the queue.
 
 - `java.util.concurrent.ArrayBlockingQueue<com.tailf.ncs.alarmman.common.Alarm> queue` - the queue to return.
 
-**Deprecated:** Use `returnQueue(ArrayBlockingQueue<Alarm>)` instead.
+**Deprecated:** Use [`returnQueue(ArrayBlockingQueue<Alarm>)`](AlarmSourceCentral.md#returnqueue-87db70115c92) instead.
 
 ### returnQueue(ArrayBlockingQueue&lt;Alarm&gt;) <a href="#returnqueue-87db70115c92" id="returnqueue-87db70115c92"></a>
 
@@ -202,8 +205,3 @@ public synchronized void stop()
 ```
 
 Stops the AlarmSourceCentral.
-
-
-## Nested Types
-
-- [AlarmDispatcher](AlarmSourceCentral/AlarmDispatcher.md#alarmdispatcher-46e75216df0e)

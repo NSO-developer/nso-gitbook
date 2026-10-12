@@ -4,20 +4,20 @@
 public class com.tailf.navu.NavuParser
 ```
 
-XML parser capable of producing a ConfXMLParam[] from an xml snippet.
+XML parser capable of producing a ConfXMLParam\[\] from an xml snippet.
 
- The XML input can be provided in two forms:
-
+The XML input can be provided in two forms:
 
 - A complete fragment rooted at the start node, e.g.
-     `<server xmlns="..."><name>s1</name></server>`
-   - A fragment of the children only, e.g.
-     `<name>s1</name>`
- In both cases, the start node identifies the root schema node.
+  `<server xmlns="..."><name>s1</name></server>`
+- A fragment of the children only, e.g.
+  `<name>s1</name>`
+
+In both cases, the start node identifies the root schema node.
  The parser normalizes the input internally so that both forms
  produce the same result.
 
- Normally this class should not be used directly, instead
+Normally this class should not be used directly, instead
  [`NavuNode#getValues(String)`](NavuNode.md#getvalues-c03de090764d), [`NavuNode#setValues(String)`](NavuNode.md#setvalues-3ec9581ce266) and
  [`PreparedXMLStatement`](PreparedXMLStatement.md#preparedxmlstatement-abf8aaf04b3a) will give necessary support for xml snippets.
 
@@ -58,12 +58,12 @@ Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28), [ConfPath]
 
 Constructor for the XML parser.
 
- The xml snippet may optionally include a root tag corresponding
+The xml snippet may optionally include a root tag corresponding
  to the start CSNode. If present, it is treated as a wrapper and
  stripped. If absent, the snippet is assumed to contain the
  children of the start node directly.
 
- Exception: if the start node has a child with the same name
+Exception: if the start node has a child with the same name
  (e.g. `container parent { container parent {...} }`), the
  element is only stripped as a wrapper when its XML children belong
  to the start node's schema. Otherwise it is kept as content for
@@ -71,33 +71,32 @@ Constructor for the XML parser.
 
  The parser works in one of five modes:
 
-
 - *[`MODE_GET`](NavuParser.md#mode_get-f993d996e8d3)*
 
- Parsing the xml as preparation for a
-  [`NavuNode#getValues(ConfXMLParam[])`](NavuNode.md#getvalues-1eb02439a757) request.
+  Parsing the xml as preparation for a
+    [`NavuNode#getValues(ConfXMLParam[])`](NavuNode.md#getvalues-1eb02439a757) request.
 - *[`MODE_SET`](NavuParser.md#mode_set-a3c0f3ec95f7)*
 
- Parsing the xml as preparation for a
-  [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#setvalues-50d8edffa795) request.
+  Parsing the xml as preparation for a
+    [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#setvalues-50d8edffa795) request.
 - *[`MODE_SET_PREPARE`](NavuParser.md#mode_set_prepare-91e45bef1d55)*
 
- Parsing the xml as preparation for a
-  [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#setvalues-50d8edffa795) request.
-  In this mode the xml snippet is expected to contain "?" as leaf values
-  to be superposed before using the output.
-  This superposing is handled by the [`PreparedXMLStatement`](PreparedXMLStatement.md#preparedxmlstatement-abf8aaf04b3a) class
-  which should be used in this case
+  Parsing the xml as preparation for a
+    [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#setvalues-50d8edffa795) request.
+    In this mode the xml snippet is expected to contain "?" as leaf values
+    to be superposed before using the output.
+    This superposing is handled by the [`PreparedXMLStatement`](PreparedXMLStatement.md#preparedxmlstatement-abf8aaf04b3a) class
+    which should be used in this case
 - *[`MODE_SET_ACTION_PARAM`](NavuParser.md#mode_set_action_param-2b8bfb16378e)*
 
- Parsing the xml as preparation for a
-  [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#setvalues-50d8edffa795) request.
-  In this mode the xml is an action's or rpc's parameters
+  Parsing the xml as preparation for a
+    [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#setvalues-50d8edffa795) request.
+    In this mode the xml is an action's or rpc's parameters
 - *[`MODE_SET_ACTION_RESULT`](NavuParser.md#mode_set_action_result-51a0a8eb8d0a)*
 
- Parsing the xml as preparation for a
-  [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#setvalues-50d8edffa795) request.
-  In this mode the xml is an action's or rpc's result
+  Parsing the xml as preparation for a
+    [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#setvalues-50d8edffa795) request.
+    In this mode the xml is an action's or rpc's result
 
 **Parameters**
 
@@ -105,13 +104,13 @@ Constructor for the XML parser.
 - `com.tailf.maapi.MaapiSchemas.CSNode node` - the root node start parsing from
 - `com.tailf.conf.ConfPath path`
 - `int mode` - one of [`MODE_GET`](NavuParser.md#mode_get-f993d996e8d3), [`MODE_SET`](NavuParser.md#mode_set-a3c0f3ec95f7),
-                    [`MODE_SET_PREPARE`](NavuParser.md#mode_set_prepare-91e45bef1d55),
-                    [`MODE_SET_ACTION_PARAM`](NavuParser.md#mode_set_action_param-2b8bfb16378e) or
-                    [`MODE_SET_ACTION_RESULT`](NavuParser.md#mode_set_action_result-51a0a8eb8d0a)
+[`MODE_SET_PREPARE`](NavuParser.md#mode_set_prepare-91e45bef1d55),
+[`MODE_SET_ACTION_PARAM`](NavuParser.md#mode_set_action_param-2b8bfb16378e) or
+[`MODE_SET_ACTION_RESULT`](NavuParser.md#mode_set_action_result-51a0a8eb8d0a)
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 
 ## Fields
@@ -178,10 +177,10 @@ public com.tailf.conf.ConfXMLParam[] parse() throws com.tailf.navu.NavuException
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-Parses the xml and produces ConfXMLParam[]
+Parses the xml and produces ConfXMLParam\[\]
 
-**Returns:** ConfXMLParam[] array corresponding to the xml snippet.
+**Returns:** ConfXMLParam\[\] array corresponding to the xml snippet.
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`

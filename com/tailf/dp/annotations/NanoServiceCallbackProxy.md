@@ -96,6 +96,10 @@ Add callback action method to proxy
 public String componentType()
 ```
 
+*Description from* [`DpNanoServiceCallback.componentType()`](../DpNanoServiceCallback.md#componenttype-59add484020d)
+
+The name of the plan component
+
 ### create(NanoServiceContext, NavuNode, NavuNode, Properties, Properties) <a href="#create-45a9e9003e1d" id="create-45a9e9003e1d"></a>
 
 ```java
@@ -110,6 +114,10 @@ public java.util.Properties create(
 ```
 
 Types: [NanoServiceContext](../services/NanoServiceContext.md#nanoservicecontext-10c84a5701dd), [NavuNode](../../navu/NavuNode.md#navunode-73944820c8db), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
+
+*Description from* [`DpNanoServiceCallback.create(com.tailf.dp.services.NanoServiceContext, com.tailf.navu.NavuNode, com.tailf.navu.NavuNode, java.util.Properties, java.util.Properties)`](../DpNanoServiceCallback.md#create-45a9e9003e1d)
+
+Nano Create callback method.
 
 **Parameters**
 
@@ -133,6 +141,10 @@ public java.util.Properties delete(
 ```
 
 Types: [NanoServiceContext](../services/NanoServiceContext.md#nanoservicecontext-10c84a5701dd), [NavuNode](../../navu/NavuNode.md#navunode-73944820c8db), [DpCallbackException](../DpCallbackException.md#dpcallbackexception-faf15838e5cb)
+
+*Description from* [`DpNanoServiceCallback.delete(com.tailf.dp.services.NanoServiceContext, com.tailf.navu.NavuNode, com.tailf.navu.NavuNode, java.util.Properties, java.util.Properties)`](../DpNanoServiceCallback.md#delete-4ba929210861)
+
+Nano Delete callback method.
 
 **Parameters**
 
@@ -174,7 +186,7 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 **Throws**
 
-- `DpCallbackException`
+- `com.tailf.dp.DpCallbackException`
 
 ### getServicePoint() <a href="#getservicepoint-4b0d670b9506" id="getservicepoint-4b0d670b9506"></a>
 
@@ -192,14 +204,29 @@ Retrieve the callback servicepoint
 public int mask()
 ```
 
+*Description from* [`DpNanoServiceCallback.mask()`](../DpNanoServiceCallback.md#mask-24c2fa29c6af)
+
+Mask of flags for each method that is supported by this callback:
+
+- [`M_NANO_CREATE`](../DpNanoServiceCallback.md#m_nano_create-f69a2979f8b0)
+- [`M_NANO_DELETE`](../DpNanoServiceCallback.md#m_nano_delete-d890c83a3d57)
+
 ### servicepoint() <a href="#servicepoint-33fbd1d46c70" id="servicepoint-33fbd1d46c70"></a>
 
 ```java
 public String servicepoint()
 ```
 
+*Description from* [`DpNanoServiceCallback.servicepoint()`](../DpNanoServiceCallback.md#servicepoint-33fbd1d46c70)
+
+The name of the servicepoint
+
 ### state() <a href="#state-54117dea2388" id="state-54117dea2388"></a>
 
 ```java
 public String state()
 ```
+
+*Description from* [`DpNanoServiceCallback.state()`](../DpNanoServiceCallback.md#state-54117dea2388)
+
+The name of the a certain plan component state

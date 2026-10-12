@@ -52,7 +52,7 @@ public NotificationCfg(int heartbeatInterval, int healthCheckInterval)
 Creates a NotificationCfg instance with only the
  heartbeatInterval and healthCheckInterval. This
  constructor exist for the internal use of the
- `Notif#Notif(java.net.Socket, java.util.EnumSet, int, int)`
+ [`Notif#Notif(java.net.Socket, java.util.EnumSet, int, int)`](Notif.md#notif-844954eeba89)
  constructor
 
 **Parameters**

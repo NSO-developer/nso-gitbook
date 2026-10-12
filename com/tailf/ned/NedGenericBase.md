@@ -99,7 +99,7 @@ Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998), [NedEditOp](NedEditOp.m
 
 Is invoked by NCS to abort the current transaction and
  bring the configuration back to the state before the
- previous prepare\(\)
+ previous [prepare\(\)](NedGenericBase.md#prepare-8183aeaecd08)
  invocation. The NCS has calculated the changes needed
  to reach that state from the current state. The instance may choose
  to use these commands, or use some other mechanism to reach the same
@@ -110,15 +110,15 @@ Is invoked by NCS to abort the current transaction and
 **Parameters**
 
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the
-    [`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
-    API and can be used in, for example, the
-    [`SSHSession`](SSHSession.md#sshsession-2d9642a66770) as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the
+[`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
+API and can be used in, for example, the
+[`SSHSession`](SSHSession.md#sshsession-2d9642a66770) as a tracer.
 - `com.tailf.ned.NedEditOp[] ops` - is the edit operations needed for taking the config back to the
-    previous state.
+previous state.
 
 ### initNoConnect(String, NedMux, NedWorker) <a href="#initnoconnect-d8b0c37173df" id="initnoconnect-d8b0c37173df"></a>
 
@@ -150,9 +150,9 @@ Make a new instance of Ned object without establishing a connection
 - `String deviceId` - name of device
 - `com.tailf.ned.NedMux mux`
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication between NCS and the device. This NedWorker instance
-    should be used when communicating with the NCS, ie for sending
-    responses, errors, and trace messages.
+communication between NCS and the device. This NedWorker instance
+should be used when communicating with the NCS, ie for sending
+responses, errors, and trace messages.
 
 **Returns:** the NED instance
 
@@ -227,13 +227,13 @@ Establish a new connection to a device and send response to
 - `int writeTimeout` - in milliseconds
 - `com.tailf.ned.NedMux mux`
 - `com.tailf.ned.NedWorker worker` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the
-    [`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
-    API and can be used in, for example, the
-    [`SSHSession`](SSHSession.md#sshsession-2d9642a66770) as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the
+[`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
+API and can be used in, for example, the
+[`SSHSession`](SSHSession.md#sshsession-2d9642a66770) as a tracer.
 
 **Returns:** the connection instance
 
@@ -260,28 +260,28 @@ Is invoked by NCS to take the configuration to a new state. The Ned may
  method [prepareResponse\(\)](NedWorker.md#prepareresponse-7eadf3b8db0f) in `NedWorker w`
  when the operation is completed.
 
-        initialize (prepare transaction)
-              / \
-             /   uninitialize (undo preparations)
-            v
-        prepare (send data to device)
-            /   \
-           v     v
-        abort | commit(send confirmed commit (ios would do noop))
-                 /   \
-                v     v
-            revert | persist (send confirming commit)
+initialize (prepare transaction)
+/ \\
+/   uninitialize (undo preparations)
+v
+prepare (send data to device)
+/   \\
+v     v
+abort | commit(send confirmed commit (ios would do noop))
+/   \\
+v     v
+revert | persist (send confirming commit)
 
 **Parameters**
 
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the
-    [`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
-    API and can be used in, for example, the [`SSHSession`](SSHSession.md#sshsession-2d9642a66770)
-    as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the
+[`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
+API and can be used in, for example, the [`SSHSession`](SSHSession.md#sshsession-2d9642a66770)
+as a tracer.
 - `com.tailf.ned.NedEditOp[] ops` - Edit operations representing the changes to the configuration.
 
 ### prepareDry(NedWorker, NedEditOp[]) <a href="#preparedry-30cbc3061895" id="preparedry-30cbc3061895"></a>
@@ -309,13 +309,13 @@ Is invoked by NCS to ask the NED what actions it would take towards
 **Parameters**
 
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the
-    [`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
-    API and can be used in, for example, the [`SSHSession`](SSHSession.md#sshsession-2d9642a66770)
-    as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the
+[`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
+API and can be used in, for example, the [`SSHSession`](SSHSession.md#sshsession-2d9642a66770)
+as a tracer.
 - `com.tailf.ned.NedEditOp[] ops` - Edit operations representing the changes to the configuration.
 
 ### revert(NedWorker, NedEditOp[]) <a href="#revert-1495750cd3ae" id="revert-1495750cd3ae"></a>
@@ -333,7 +333,7 @@ Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998), [NedEditOp](NedEditOp.m
 Is invoked by NCS to undo the changes introduced in the last commit
  operation (communicated to the NED in the prepare method invocation).
  The difference between
- abort\(\)
+ [abort\(\)](NedGenericBase.md#abort-dc5cf5855d78)
  and revert() is that revert() is invoked after
  [commit\(\)](NedConnectionBase.md#commit-7dc36c07ab47)
  (but before persist), whereas abort() is invoked before
@@ -347,15 +347,15 @@ Is invoked by NCS to undo the changes introduced in the last commit
 **Parameters**
 
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the
-    [`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
-    API and can be used in, for example, the
-    [`SSHSession`](SSHSession.md#sshsession-2d9642a66770) as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the
+[`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
+API and can be used in, for example, the
+[`SSHSession`](SSHSession.md#sshsession-2d9642a66770) as a tracer.
 - `com.tailf.ned.NedEditOp[] ops` - is the edit operations for taking the config back to the previous
-    state.
+state.
 
 ### show(NedWorker, int) <a href="#show-1eadf587f1ff" id="show-1eadf587f1ff"></a>
 
@@ -376,15 +376,15 @@ Read parts of the configuration and applies it to the transaction
 **Parameters**
 
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the
-    [`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
-    API and can be used in, for example, the
-    [`SSHSession`](SSHSession.md#sshsession-2d9642a66770) as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the
+[`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
+API and can be used in, for example, the
+[`SSHSession`](SSHSession.md#sshsession-2d9642a66770) as a tracer.
 - `int th` - is a transaction id that can be used with the Maapi library for
-    accessing a transaction.
+accessing a transaction.
 
 ### showOffline(NedWorker, int, String) <a href="#showoffline-b72264b54a34" id="showoffline-b72264b54a34"></a>
 
@@ -405,15 +405,15 @@ Read parts of the configuration and applies it to the
 **Parameters**
 
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the
-    [`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
-    API and can be used in, for example, the
-    [`SSHSession`](SSHSession.md#sshsession-2d9642a66770) as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the
+[`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
+API and can be used in, for example, the
+[`SSHSession`](SSHSession.md#sshsession-2d9642a66770) as a tracer.
 - `int th` - is a transaction id that can be used with the Maapi library for
-    accessing a transaction.
+accessing a transaction.
 - `String data` - are the configuration in native format.
 
 ### showPartial(NedWorker, int, ConfPath[]) <a href="#showpartial-550edaaf3468" id="showpartial-550edaaf3468"></a>
@@ -440,14 +440,14 @@ Read parts of the configuration and applies it to the transaction
 **Parameters**
 
 - `com.tailf.ned.NedWorker w` - The NedWorker instance currently responsible for driving the
-    communication
-    between NCS and the device. This NedWorker instance should be
-    used when communicating with the NCS, ie for sending responses,
-    errors, and trace messages. It is also implements the
-    [`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
-    API and can be used in, for example, the
-    [`SSHSession`](SSHSession.md#sshsession-2d9642a66770) as a tracer.
+communication
+between NCS and the device. This NedWorker instance should be
+used when communicating with the NCS, ie for sending responses,
+errors, and trace messages. It is also implements the
+[`NedTracer`](NedTracer.md#nedtracer-f8730263f5f2)
+API and can be used in, for example, the
+[`SSHSession`](SSHSession.md#sshsession-2d9642a66770) as a tracer.
 - `int th` - is a transaction id that can be used with the Maapi library for
-    accessing a transaction.
+accessing a transaction.
 - `com.tailf.conf.ConfPath[] paths` - are paths to filter the various parts of the configuration tree
-    that are relevant to write into the transaction.
+that are relevant to write into the transaction.

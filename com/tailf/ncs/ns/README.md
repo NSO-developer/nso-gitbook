@@ -3,11 +3,10 @@
 This package comprises name-space classes generated from the NCS YANG models.
  These classes feature:
 
-
 - String constants for the node names of the NCS YANG models.
-   - int hashes for the node names of the NCS YANG models.
-     - int constants for the enumerated values of the NCS YANG models.
-       - A hash to string map of the NCS YANG models
+- int hashes for the node names of the NCS YANG models.
+- int constants for the enumerated values of the NCS YANG models.
+- A hash to string map of the NCS YANG models
 
 ## Types
 

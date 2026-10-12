@@ -9,133 +9,115 @@ Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
 
 Represents the base class of a flat XML structure.
 
- This class is used to represent arbitrary XML trees, typically
+This class is used to represent arbitrary XML trees, typically
  used as input/output parameters to YANG rpc/action statements.
  It is also used in methods that set/get multiple values in one call.
 
- Subclasses to this class represents node elements or
+Subclasses to this class represents node elements or
  entries in a [`ConfXMLParam`](ConfXMLParam.md#confxmlparam-f5f4394b46a7) array. An array
  of this type form a flat XML structure.
 
- The array is populated, normally through a "depth first" traversal of
+The array is populated, normally through a "depth first" traversal of
  the data tree, as follows:
 
-
 - Optional leafs or presence containers that do not exist are
- omitted entirely from the array.
+   omitted entirely from the array.
+- List and container nodes use one array element where the value
+   has type [`ConfXMLParamStart`](ConfXMLParamStart.md#confxmlparamstart-05eace141688), and `tag` and
+   `ns` set according to the node name followed by array
+   elements for the sub-nodes according to this list, followed by one
+   array element where the value has type
+   [`ConfXMLParamStop`](ConfXMLParamStop.md#confxmlparamstop-d1e86c4fdecc), and `tag` and `ns`
+   set according to the node name.
 
-   - List and container nodes use one array element where the value
- has type [`ConfXMLParamStart`](ConfXMLParamStart.md#confxmlparamstart-05eace141688), and `tag` and
- `ns` set according to the node name followed by array
- elements for the sub-nodes according to this list, followed by one
- array element where the value has type
- [`ConfXMLParamStop`](ConfXMLParamStop.md#confxmlparamstop-d1e86c4fdecc), and `tag` and `ns`
- set according to the node name.
+  > ```
+  > ConfXMLParam[] params =
+  >     new ConfXMLParam[] {
+  >         new ConfXMLParamStart(...),
+  >         .
+  >         .
+  >         new ConfXMLParamStop(...),
+  >         new ConfXMLParamStart(...),
+  >         .
+  >         .
+  >         new ConfXMLParamStop(...),
+  >         new ConfXMLParamStart(...),
+  >         .
+  >         .
+  >         new ConfXMLParamStop(...),
+  >         };
+  > ```
 
+  Each start and stop corresponds to a opening and closing tag
+   in XML.
+- Leafs with a type other than empty uses the instance
+   [`ConfXMLParamValue`](ConfXMLParamValue.md#confxmlparamvalue-9f41fb2668c9) for value element and `tag` and
+   `ns` according to the node name and additional
+   `value` set according to the leaf name.
+- Leafs of type empty use an array element where the value has
+   type [`ConfXMLParamLeaf`](ConfXMLParamLeaf.md#confxmlparamleaf-107412653048), and `tag` and
+   `ns` set according to the leaf name.
 
-
-
-```
- ConfXMLParam[] params =
-     new ConfXMLParam[] {
-         new ConfXMLParamStart(...),
-         .
-         .
-         new ConfXMLParamStop(...),
-         new ConfXMLParamStart(...),
-         .
-         .
-         new ConfXMLParamStop(...),
-         new ConfXMLParamStart(...),
-         .
-         .
-         new ConfXMLParamStop(...),
-         };
-```
-
-
-
- Each start and stop corresponds to a opening and closing tag
- in XML.
-
-     - Leafs with a type other than empty uses the instance
- [`ConfXMLParamValue`](ConfXMLParamValue.md#confxmlparamvalue-9f41fb2668c9) for value element and `tag` and
- `ns` according to the node name and additional
- `value` set according to the leaf name.
-
-       - Leafs of type empty use an array element where the value has
- type [`ConfXMLParamLeaf`](ConfXMLParamLeaf.md#confxmlparamleaf-107412653048), and `tag` and
- `ns` set according to the leaf name.
-
- Note that the list or container node corresponding to the complete array
+Note that the list or container node corresponding to the complete array
  is not included in the array. In some usages, non-optional nodes may
  also be omitted from the array.
 
- Consider the following model:
+Consider the following model:
 
+> ```
+>  module foo {
+>   namespace "http://foo.org/yang/servers
+>   prefix fo;
+>   import ietf-inet-types {
+>     prefix inet;
+>   }
+>   import tailf-common {
+>     prefix tailf;
+>   }
+>
+>  container servers {
+>    list server {
+>        key name;
+>        max-elements 64;
+>
+>         leaf name {
+>           type string;
+>         }
+>         leaf ip {
+>           type inet:host;
+>           mandatory true;
+>         }
+>         leaf port {
+>          type inet:port-number;
+>        }
+>      }
+>    }
+> }
+> ```
 
+A instance the XML-document of the above could look like:
 
-```
-  module foo {
-   namespace "http://foo.org/yang/servers
-   prefix fo;
-   import ietf-inet-types {
-     prefix inet;
-   }
-   import tailf-common {
-     prefix tailf;
-   }
+> ```
+>  <servers xmlns="http://foo.org/yang/servers">
+>    <fo:server>
+>       <fo:name>www0</fo:name>
+>       <fo:ip>192.168.0.2</fo:ip>
+>       <fo:port>80</fo:port>
+>   </fo:server>
+>   <fo:server>
+>       <fo:name>www1</fo:name>
+>       <fo:ip>192.168.0.3</fo:ip>
+>       <fo:port>8080</fo:port>
+>   </fo:server>
+>   <fo:server>
+>       <fo:name>www2</fo:name>
+>       <fo:ip>192.168.0.3</fo:ip>
+>       <fo:port>8081<fo:port>
+>   </fo:server>
+>  </fo:servers>
+> ```
 
-  container servers {
-    list server {
-        key name;
-        max-elements 64;
-
-         leaf name {
-           type string;
-         }
-         leaf ip {
-           type inet:host;
-           mandatory true;
-         }
-         leaf port {
-          type inet:port-number;
-        }
-      }
-    }
- }
-```
-
-
-
- A instance the XML-document of the above could look like:
-
-
-
-```
-  servers xmlns="http://foo.org/yang/servers"
-    fo:server
-       fo:namewww0/fo:name
-       fo:ip192.168.0.2/fo:ip
-       fo:port80/fo:port
-   /fo:server
-   fo:server
-       fo:namewww1/fo:name
-       fo:ip192.168.0.3/fo:ip
-       fo:port8080/fo:port
-   /fo:server
-   fo:server
-       fo:namewww2/fo:name
-       fo:ip192.168.0.3/fo:ip
-       fo:port8081fo:port
-   /fo:server
-  /fo:servers
-```
-
-
-
-
- To be able to encode the above XML instance document to a
+To be able to encode the above XML instance document to a
  `ConfXMLParam[]` structure we need to populate a
  `ConfXMLParam` array with opening XML tags
  with instances of `ConfXMLParamStart`, closing tags
@@ -143,209 +125,193 @@ Represents the base class of a flat XML structure.
  a container and list entry, as stated above.
  To express the values we need instances of `ConfXMLParamValue`.
 
- The above XML snippet would be populated as follow:
+The above XML snippet would be populated as follow:
 
-
-
-```
- int i = 0;
- foo ns = new foo(); //instance of the generated namespace
- final int hash = ns.hash;
- ConfXMLParam[] xml = new ConfXMLParam[17];
-  xml[i++] = new ConfXMLParamStart(hash,ns._servers);
-
-  xml[i++] = new ConfXMLParamStart(hash,ns._server);
-  xml[i++] = new ConfXMLParamValue(hash,ns._name, new ConfBuf("www0"));
-  xml[i++] = new ConfXMLParamValue(hash,ns._ip, new ConfBuf("192.168.0.2"));
-  xml[i++] = new ConfXMLParamValue(hash,ns._port,new ConfUInt16(80));
-  xml[i++] = new ConfXMLParamStop(hash,ns._server);
-
-  xml[i++] = new ConfXMLParamStart(hash,ns._server);
-  xml[i++] = new ConfXMLParamValue(hash,ns._name, new ConfBuf("www1"));
-  xml[i++] = new ConfXMLParamValue(hash,ns._ip, new ConfBuf("192.168.0.3"));
-  xml[i++] = new ConfXMLParamValue(hash,ns._port,new ConfUInt16(8080));
-  xml[i++] = new ConfXMLParamStop(hash,ns._server);
-
-  xml[i++] = new ConfXMLParamStart(hash,ns._server);
-  xml[i++] = new ConfXMLParamValue(hash,ns._name, new ConfBuf("www2"));
-  xml[i++] = new ConfXMLParamValue(hash,ns._ip, new ConfBuf("192.168.0.4"));
-  xml[i++] = new ConfXMLParamValue(hash,ns._port,new ConfUInt16(8081));
-  xml[i++] = new ConfXMLParamStop(hash,ns._server);
-
-  xml[i++] = new ConfXMLParamStop(hash,ns._servers);
-```
-
-
-
+> ```
+> int i = 0;
+> foo ns = new foo(); //instance of the generated namespace
+> final int hash = ns.hash;
+> ConfXMLParam[] xml = new ConfXMLParam[17];
+>  xml[i++] = new ConfXMLParamStart(hash,ns._servers);
+>
+>  xml[i++] = new ConfXMLParamStart(hash,ns._server);
+>  xml[i++] = new ConfXMLParamValue(hash,ns._name, new ConfBuf("www0"));
+>  xml[i++] = new ConfXMLParamValue(hash,ns._ip, new ConfBuf("192.168.0.2"));
+>  xml[i++] = new ConfXMLParamValue(hash,ns._port,new ConfUInt16(80));
+>  xml[i++] = new ConfXMLParamStop(hash,ns._server);
+>
+>  xml[i++] = new ConfXMLParamStart(hash,ns._server);
+>  xml[i++] = new ConfXMLParamValue(hash,ns._name, new ConfBuf("www1"));
+>  xml[i++] = new ConfXMLParamValue(hash,ns._ip, new ConfBuf("192.168.0.3"));
+>  xml[i++] = new ConfXMLParamValue(hash,ns._port,new ConfUInt16(8080));
+>  xml[i++] = new ConfXMLParamStop(hash,ns._server);
+>
+>  xml[i++] = new ConfXMLParamStart(hash,ns._server);
+>  xml[i++] = new ConfXMLParamValue(hash,ns._name, new ConfBuf("www2"));
+>  xml[i++] = new ConfXMLParamValue(hash,ns._ip, new ConfBuf("192.168.0.4"));
+>  xml[i++] = new ConfXMLParamValue(hash,ns._port,new ConfUInt16(8081));
+>  xml[i++] = new ConfXMLParamStop(hash,ns._server);
+>
+>  xml[i++] = new ConfXMLParamStop(hash,ns._servers);
+> ```
 
  Each `ConfXMLParamStart` (opening tag)  must end with a
  `ConfXMLParamStop` (end tag).
 
- As stated above the correct populated `ConfXMLParam`
+As stated above the correct populated `ConfXMLParam`
  is used for populate a subtree within one method call, for example
  [`Maapi#setValues(int,ConfXMLParam[],ConfPath)`](../maapi/Maapi.md#setvalues-27a83fbfcc37) or we could
  extract multiple values in one call, for example
- `Maapi#getValues(int, ConfXMLParam[],String,Object...)` or
+ [`Maapi#getValues(int, ConfXMLParam[],String,Object...)`](../maapi/Maapi.md#getvalues-6a19b41a7dbf) or
  with MAAPI.
 
- And with CDB
+And with CDB
  [`CdbSession#setValues(ConfXMLParam[],ConfPath)`](../cdb/CdbSession.md#setvalues-0755e36fbd2c).
 
- The `ConfXMLParam` array is also used in
+The `ConfXMLParam` array is also used in
 
  [`CdbSession#getValues(ConfXMLParam[],ConfPath)`](../cdb/CdbSession.md#getvalues-b30d01896278)
  to retrieve multiple values in one call.
 
- When we need to extract or retrieve multiple values
+When we need to extract or retrieve multiple values
  the `ConfXMLParamValue` is not known before hand thus
  we replace the `ConfXMLParamValue` with instances of
  `ConfXMLParamLeaf` before we issue a get request.
 
- For Example:
+For Example:
 
-
-
-```
- int i = 0;
- foo ns = new foo(); //instance of the generated namespace
- final int hash = ns.hash;
- ConfXMLParam[] xml = new ConfXMLParam[17];
-  xml[i++] = new ConfXMLParamStart(hash,ns._servers);
-
-  xml[i++] = new ConfXMLParamStart(hash,ns._server);
-  xml[i++] = new ConfXMLParamValue(hash,ns._name, new ConfBuf("www0"));
-  xml[i++] = new ConfXMLParamLeaf(hash,ns._ip);
-  xml[i++] = new ConfXMLParamLeaf(hash,ns._port);
-  xml[i++] = new ConfXMLParamStop(hash,ns._server);
-
-  xml[i++] = new ConfXMLParamStart(hash,ns._server);
-  xml[i++] = new ConfXMLParamValue(hash,ns._name, new ConfBuf("www1"));
-  xml[i++] = new ConfXMLParamLeaf(hash,ns._ip);
-  xml[i++] = new ConfXMLParamLeaf(hash,ns._port);
-  xml[i++] = new ConfXMLParamStop(hash,ns._server);
-
-  xml[i++] = new ConfXMLParamStart(hash,ns._server);
-  xml[i++] = new ConfXMLParamValue(hash,ns._name, new ConfBuf("www2"));
-  xml[i++] = new ConfXMLParamLeaf(hash,ns._ip);
-  xml[i++] = new ConfXMLParamLeaf(hash,ns._port);
-  xml[i++] = new ConfXMLParamStop(hash,ns._server);
-
-  xml[i++] = new ConfXMLParamStop(hash,ns._servers);
-
-  ConfXMLParam[] returnValues =
-      maapi.getValues(th,xml,new ConfPath(thepath));
-```
-
-
-
+> ```
+> int i = 0;
+> foo ns = new foo(); //instance of the generated namespace
+> final int hash = ns.hash;
+> ConfXMLParam[] xml = new ConfXMLParam[17];
+>  xml[i++] = new ConfXMLParamStart(hash,ns._servers);
+>
+>  xml[i++] = new ConfXMLParamStart(hash,ns._server);
+>  xml[i++] = new ConfXMLParamValue(hash,ns._name, new ConfBuf("www0"));
+>  xml[i++] = new ConfXMLParamLeaf(hash,ns._ip);
+>  xml[i++] = new ConfXMLParamLeaf(hash,ns._port);
+>  xml[i++] = new ConfXMLParamStop(hash,ns._server);
+>
+>  xml[i++] = new ConfXMLParamStart(hash,ns._server);
+>  xml[i++] = new ConfXMLParamValue(hash,ns._name, new ConfBuf("www1"));
+>  xml[i++] = new ConfXMLParamLeaf(hash,ns._ip);
+>  xml[i++] = new ConfXMLParamLeaf(hash,ns._port);
+>  xml[i++] = new ConfXMLParamStop(hash,ns._server);
+>
+>  xml[i++] = new ConfXMLParamStart(hash,ns._server);
+>  xml[i++] = new ConfXMLParamValue(hash,ns._name, new ConfBuf("www2"));
+>  xml[i++] = new ConfXMLParamLeaf(hash,ns._ip);
+>  xml[i++] = new ConfXMLParamLeaf(hash,ns._port);
+>  xml[i++] = new ConfXMLParamStop(hash,ns._server);
+>
+>  xml[i++] = new ConfXMLParamStop(hash,ns._servers);
+>
+>  ConfXMLParam[] returnValues =
+>      maapi.getValues(th,xml,new ConfPath(thepath));
+> ```
 
  Note in the above example the list key must be known before hand.
 
- Another usage of the (Conf)XML-Structure is to invoke an action
- for example [`Maapi#requestAction(ConfXMLParam[],String,Object...)`](../maapi/Maapi.md#requestaction-76bbfd533fa4)
+Another usage of the (Conf)XML-Structure is to invoke an action
+ for example [`Maapi#requestAction(ConfXMLParam[],String,Object...)`](../maapi/Maapi.md#requestaction-2e8d68e7facd)
  of a Identifies a model element as a parameter. This is the base class
  for representing modeled parameters.
 
  Consider the following yang model:
 
-
 ```
- module cs {
-     namespace "http://example.com/test/cs/1.0";
-     prefix cs;
-     import tailf-common {
-         prefix tailf;
-     }
+module cs {
+    namespace "http://example.com/test/cs/1.0";
+    prefix cs;
+    import tailf-common {
+        prefix tailf;
+    }
 
-     typedef math_op {
-         type enumeration {
-             enum add;
-             enum sub;
-             enum mul;
-             enum div;
-             enum square;
-         }
-     }
+    typedef math_op {
+        type enumeration {
+            enum add;
+            enum sub;
+            enum mul;
+            enum div;
+            enum square;
+        }
+    }
 
-     container system {
-         list computer {
-             key name;
-             leaf name {
-                 type string;
-             }
-             tailf:action math {
-                 tailf:actionpoint math_cs;
-                 input {
-                     list operation {
-                         min-elements 1;
-                         max-elements 3;
-                         leaf number {
-                             type int32;
-                             mandatory true;
-                         }
-                         leaf type {
-                             type math_op;
-                             mandatory true;
-                         }
-                         leaf-list operands {
-                             type int16;
-                         }
-                     }
-                 }
-                 output {
-                     container result {
-                         presence "";
-                         leaf number {
-                             type int32;
-                             mandatory true;
-                         }
-                         leaf type {
-                             type math_op;
-                             mandatory true;
-                         }
-                         leaf value {
-                             type int16;
-                             mandatory true;
-                         }
-                     }
-                 }
-             }
-         }
-     }
- }
+    container system {
+        list computer {
+            key name;
+            leaf name {
+                type string;
+            }
+            tailf:action math {
+                tailf:actionpoint math_cs;
+                input {
+                    list operation {
+                        min-elements 1;
+                        max-elements 3;
+                        leaf number {
+                            type int32;
+                            mandatory true;
+                        }
+                        leaf type {
+                            type math_op;
+                            mandatory true;
+                        }
+                        leaf-list operands {
+                            type int16;
+                        }
+                    }
+                }
+                output {
+                    container result {
+                        presence "";
+                        leaf number {
+                            type int32;
+                            mandatory true;
+                        }
+                        leaf type {
+                            type math_op;
+                            mandatory true;
+                        }
+                        leaf value {
+                            type int16;
+                            mandatory true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 ```
-
-
 
  The following is a example of how to assemble the action parameters into
  and array of ConfXMLParam and its subclasses. The example shows how to
  populate two list entries:
 
-
 ```
- ConfNamespace n = new cs();
- ConfXMLParam[] params =
-     new ConfXMLParam[] {
-         new ConfXMLParamStart(n, cs.cs_operation_),
-         new ConfXMLParamValue(n, cs.cs_number_,  new ConfInt32(13)),
-         new ConfXMLParamValue(n, cs.cs_type_,    new ConfEnumeration(0)),
-         new ConfXMLParamValue(n, cs.cs_operands_,
-                               new ConfList(new ConfObject[] {
-                                            new ConfInt16(13),
-                                            new ConfInt16(25) })),
-         new ConfXMLParamStop(n, cs.cs_operation_),
+ConfNamespace n = new cs();
+ConfXMLParam[] params =
+    new ConfXMLParam[] {
+        new ConfXMLParamStart(n, cs.cs_operation_),
+        new ConfXMLParamValue(n, cs.cs_number_,  new ConfInt32(13)),
+        new ConfXMLParamValue(n, cs.cs_type_,    new ConfEnumeration(0)),
+        new ConfXMLParamValue(n, cs.cs_operands_,
+                              new ConfList(new ConfObject[] {
+                                           new ConfInt16(13),
+                                           new ConfInt16(25) })),
+        new ConfXMLParamStop(n, cs.cs_operation_),
 
-         new ConfXMLParamStart(n, cs.cs_operation_),
-         new ConfXMLParamValue(n, cs.cs_number_,  new ConfInt32(14)),
-         new ConfXMLParamValue(n, cs.cs_type_,    new ConfEnumeration(0)),
-         new ConfXMLParamValue(n, cs.cs_operands_,
-                               new ConfList(new ConfObject[] {
-                                            new ConfInt16(15),
-                                            new ConfInt16(28) })),
-         new ConfXMLParamStop(n, cs.cs_operation_)};
+        new ConfXMLParamStart(n, cs.cs_operation_),
+        new ConfXMLParamValue(n, cs.cs_number_,  new ConfInt32(14)),
+        new ConfXMLParamValue(n, cs.cs_type_,    new ConfEnumeration(0)),
+        new ConfXMLParamValue(n, cs.cs_operands_,
+                              new ConfList(new ConfObject[] {
+                                           new ConfInt16(15),
+                                           new ConfInt16(28) })),
+        new ConfXMLParamStop(n, cs.cs_operation_)};
 ```
-
-
 
  It is also possible to delete leafs and presence containers by setting the
  value of the corresponding ConfXMLParamValue to ConfNoExist().
@@ -353,18 +319,16 @@ Represents the base class of a flat XML structure.
  The key value of the list element that is about to be deleted is surrounded
  by a ConfXMLParamStartDel() and a ConfParamStop as in:
 
-
-
 ```
- int i = 0;
- foo ns = new foo(); //instance of the generated namespace
- final int hash = ns.hash;
- ConfXMLParam[] xml = new ConfXMLParam[] {
-        new ConfXMLParamStartDel(hash,ns._servers),
-        new ConfXMLParamValue(hash,ns._name, new ConfBuf("www1")),
-        new ConfXMLParamStop(hash,ns._server)
-    };
-  maapi.setValues(th,xml,new ConfPath(thepath));
+int i = 0;
+foo ns = new foo(); //instance of the generated namespace
+final int hash = ns.hash;
+ConfXMLParam[] xml = new ConfXMLParam[] {
+       new ConfXMLParamStartDel(hash,ns._servers),
+       new ConfXMLParamValue(hash,ns._name, new ConfBuf("www1")),
+       new ConfXMLParamStop(hash,ns._server)
+   };
+ maapi.setValues(th,xml,new ConfPath(thepath));
 ```
 
 **Related classes**
@@ -454,7 +418,6 @@ Represents the base class of a flat XML structure.
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
 - [decode\(ConfEObject, String\)](ConfObject.md#decode-9b92f1de40d8) from ConfObject
@@ -696,7 +659,7 @@ Types: [XMLParamType](XMLParamType.md#xmlparamtype-3881bed6e84d)
 ### namespace <a href="#namespace-9b66d2318bf6" id="namespace-9b66d2318bf6"></a>
 
 ```java
-protected com.tailf.conf.ConfNamespace namespace = null;
+protected com.tailf.conf.ConfNamespace namespace;
 ```
 
 Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
@@ -704,31 +667,31 @@ Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
 ### ns <a href="#ns-8a46ea397979" id="ns-8a46ea397979"></a>
 
 ```java
-protected Integer ns = null;
+protected Integer ns;
 ```
 
 ### prefix <a href="#prefix-f4cd8051dc9a" id="prefix-f4cd8051dc9a"></a>
 
 ```java
-protected String prefix = null;
+protected String prefix;
 ```
 
 ### tag <a href="#tag-4c1656782674" id="tag-4c1656782674"></a>
 
 ```java
-protected Integer tag = null;
+protected Integer tag;
 ```
 
 ### tagString <a href="#tagstring-998457362c04" id="tagstring-998457362c04"></a>
 
 ```java
-protected String tagString = null;
+protected String tagString;
 ```
 
 ### val <a href="#val-a02e160da60f" id="val-a02e160da60f"></a>
 
 ```java
-protected com.tailf.conf.ConfObject val = null;
+protected com.tailf.conf.ConfObject val;
 ```
 
 Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
@@ -828,7 +791,7 @@ public com.tailf.proto.ConfEObject encodeHKP()
 Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
 
 Encode this ConfXMLParam to HKP representation
- (i.e hashbased [ns | tag] where where ns and tag are both
+ (i.e hashbased \[ns | tag\] where where ns and tag are both
  in long). This does not rely on ConfNamespace.
 
 ### encodeHKP(ConfXMLParam[]) <a href="#encodehkp-ebc927cd1ccf" id="encodehkp-ebc927cd1ccf"></a>
@@ -925,9 +888,16 @@ Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350), [ConfXML
 public boolean equals(Object o)
 ```
 
+*Description from* [`ConfObject.equals(Object)`](ConfObject.md#equals-fcd6492e0d6c)
+
+Determine if two Conf objects are equal. In general, Conf objects are
+ equal if the components they consist of are equal.
+
 **Parameters**
 
-- `Object o`
+- `Object o` - the object to compare to.
+
+**Returns:** true if the objects are identical.
 
 ### getConfNamespace() <a href="#getconfnamespace-87556caf3223" id="getconfnamespace-87556caf3223"></a>
 
@@ -1039,17 +1009,17 @@ Return String `DOM` document representation of a
 
 **Parameters**
 
-- `com.tailf.conf.ConfXMLParam[] params` - - A array of populated `ConfXMLParam`
-                 or null if null is given or empty string is the length
-                 0
+- `com.tailf.conf.ConfXMLParam[] params` - \- A array of populated `ConfXMLParam`
+or null if null is given or empty string is the length
+0
 
 **Returns:** A XML string representation of the supplied
-         `ConfXMLParam` document
+`ConfXMLParam` document
 
 **Throws**
 
-- `ConfException` - If the the populated array is not well
-                        structured
+- `com.tailf.conf.ConfException` - If the the populated array is not well
+structured
 
 ### toDOM(ConfXMLParam[], String, String) <a href="#todom-a2de025173ef" id="todom-a2de025173ef"></a>
 
@@ -1074,24 +1044,26 @@ Return String `DOM` representation of a
 **Parameters**
 
 - `com.tailf.conf.ConfXMLParam[] params` - A array of populated `ConfXMLParam`
-                 or null if null is given or empty string is the length
-                 0
+or null if null is given or empty string is the length
+0
 - `String parentNode` - A parent tag that represent the root node.
 - `String parentURI` - The ur of the parent node
 
 **Returns:** A `DOM` document representation of the supplied
-           `ConfXMLParam` array paramter
+`ConfXMLParam` array paramter
 
 **Throws**
 
-- `ConfException` - If the the populated array is not well
-                        structured
+- `com.tailf.conf.ConfException` - If the the populated array is not well
+structured
 
 ### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()
 ```
+
+**Returns:** the printable representation of the object.
 
 ### toXML(ConfXMLParam[]) <a href="#toxml-122580fde7a8" id="toxml-122580fde7a8"></a>
 
@@ -1108,16 +1080,16 @@ Return String XML representation of a (Conf)XML-structure. A
 
 **Parameters**
 
-- `com.tailf.conf.ConfXMLParam[] params` - - A array of populated `ConfXMLParam`
-                 or null if null is given or empty string is the length
-                 0
+- `com.tailf.conf.ConfXMLParam[] params` - \- A array of populated `ConfXMLParam`
+or null if null is given or empty string is the length
+0
 
 **Returns:** A XML string representation of this fragment document
 
 **Throws**
 
-- `ConfException` - If the the populated array is not well
-                        structured
+- `com.tailf.conf.ConfException` - If the the populated array is not well
+structured
 
 ### toXML(ConfXMLParam[], String, String) <a href="#toxml-e7cef9be4b1e" id="toxml-e7cef9be4b1e"></a>
 
@@ -1141,15 +1113,15 @@ Return String XML representation of a (Conf)XML-structure. A
 **Parameters**
 
 - `com.tailf.conf.ConfXMLParam[] params` - A array of populated `ConfXMLParam`
-                 or null if null is given or empty string is the length
-                 0
+or null if null is given or empty string is the length
+0
 - `String parentNode` - A parent tag that represent the root node.
 - `String parentURI` - The ur of the parent node
 
 **Throws**
 
-- `ConfException` - If the the populated array is not well
-                        structured
+- `com.tailf.conf.ConfException` - If the the populated array is not well
+structured
 
 ### toXMLParams(String, ConfPath) <a href="#toxmlparams-bec6ecc54070" id="toxmlparams-bec6ecc54070"></a>
 
@@ -1163,17 +1135,17 @@ public static com.tailf.conf.ConfXMLParam[] toXMLParams(
 
 Types: [ConfXMLParam](ConfXMLParam.md#confxmlparam-f5f4394b46a7), [ConfPath](ConfPath.md#confpath-327831c6fc7d), [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
-Converts an xml snippet to a corresponding ConfXMLParam[].
- The resulting ConfXMLParam[] is prepared for a getValues() call.
+Converts an xml snippet to a corresponding ConfXMLParam\[\].
+ The resulting ConfXMLParam\[\] is prepared for a getValues() call.
 
- The XML input can be provided in two forms:
-
+The XML input can be provided in two forms:
 
 - A complete fragment rooted at the path node, e.g.
-     `<server xmlns="..."><name>s1</name></server>`
-   - A fragment of the children only, e.g.
-     `<name>s1</name>`
- In both cases, the path identifies the root schema node.
+  `<server xmlns="..."><name>s1</name></server>`
+- A fragment of the children only, e.g.
+  `<name>s1</name>`
+
+In both cases, the path identifies the root schema node.
 
 **Parameters**
 
@@ -1181,11 +1153,11 @@ Converts an xml snippet to a corresponding ConfXMLParam[].
    at or below the path node
 - `com.tailf.conf.ConfPath path` - Start node (or root path) of the XML document
 
-**Returns:** The resulting ConfXMLParam[]
+**Returns:** The resulting ConfXMLParam\[\]
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### toXMLParams(String, ConfPath, int) <a href="#toxmlparams-61a6fdf75a13" id="toxmlparams-61a6fdf75a13"></a>
 
@@ -1200,20 +1172,20 @@ public static com.tailf.conf.ConfXMLParam[] toXMLParams(
 
 Types: [ConfXMLParam](ConfXMLParam.md#confxmlparam-f5f4394b46a7), [ConfPath](ConfPath.md#confpath-327831c6fc7d), [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
-Converts an xml snippet to a corresponding ConfXMLParam[].
- The mode parameter controls whether this ConfXMLParam[] should be
+Converts an xml snippet to a corresponding ConfXMLParam\[\].
+ The mode parameter controls whether this ConfXMLParam\[\] should be
  prepared for a getValues() call or for a setValues() call using
  using [`XMLtoConfXMLParam#MODE_GET`](../util/XMLtoConfXMLParam.md#mode_get-f993d996e8d3) or
   [`XMLtoConfXMLParam#MODE_SET`](../util/XMLtoConfXMLParam.md#mode_set-a3c0f3ec95f7) respectively.
 
- The XML input can be provided in two forms:
-
+The XML input can be provided in two forms:
 
 - A complete fragment rooted at the path node, e.g.
-     `<server xmlns="..."><name>s1</name></server>`
-   - A fragment of the children only, e.g.
-     `<name>s1</name>`
- In both cases, the path identifies the root schema node.
+  `<server xmlns="..."><name>s1</name></server>`
+- A fragment of the children only, e.g.
+  `<name>s1</name>`
+
+In both cases, the path identifies the root schema node.
 
 **Parameters**
 
@@ -1223,8 +1195,8 @@ Converts an xml snippet to a corresponding ConfXMLParam[].
 - `int mode` - one of [`XMLtoConfXMLParam#MODE_GET`](../util/XMLtoConfXMLParam.md#mode_get-f993d996e8d3) or
   [`XMLtoConfXMLParam#MODE_SET`](../util/XMLtoConfXMLParam.md#mode_set-a3c0f3ec95f7)
 
-**Returns:** The resulting ConfXMLParam[]
+**Returns:** The resulting ConfXMLParam\[\]
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`

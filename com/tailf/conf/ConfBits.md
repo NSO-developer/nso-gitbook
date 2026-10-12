@@ -83,12 +83,10 @@ DATA_CONTAINER - This is the superclass for all bits types i.e.
 - [byteArrayValue\(\)](#bytearrayvalue-2e0fef980288)
 - [clearBit\(long\)](#clearbit-5db4b507737e)
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [compareTo\(ConfBits\)](#compareto-66b77461fdc7)
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
 - [decode\(ConfEObject, String\)](ConfObject.md#decode-9b92f1de40d8) from ConfObject
-- [encode\(\)](ConfValue.md#encode-fbae522bba37) from ConfValue
 - [equals\(Object\)](#equals-fcd6492e0d6c)
 - [getBitNamesByValue\(ConfPath, ConfBits\)](#getbitnamesbyvalue-3ba6b28839a1)
 - [getBitNamesByValue\(String, ConfBits\)](#getbitnamesbyvalue-c649f67dc799)
@@ -134,7 +132,7 @@ protected ConfBits(String str) throws com.tailf.conf.ConfException
 Types: [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
 String constructor for ConfBitBig.
- The string representation is expected to be 'bin0x...>'
+ The string representation is expected to be 'bin\<0x...\>'
  with the hexadecimal representation of the bitset in little endian order.
 
 **Parameters**
@@ -143,7 +141,7 @@ String constructor for ConfBitBig.
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 
 ## Fields
@@ -151,7 +149,7 @@ String constructor for ConfBitBig.
 ### val <a href="#val-a02e160da60f" id="val-a02e160da60f"></a>
 
 ```java
-protected byte[] val = null;
+protected byte[] val;
 ```
 
 
@@ -185,7 +183,7 @@ Clear bit at position pos in bitset. The bitset must initially been
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### compareTo(ConfBits) <a href="#compareto-66b77461fdc7" id="compareto-66b77461fdc7"></a>
 
@@ -211,7 +209,9 @@ Equals method
 
 **Parameters**
 
-- `Object o`
+- `Object o` - The object to compare to.
+
+**Returns:** true if the objects are identical.
 
 ### getBitNamesByValue(ConfPath, ConfBits) <a href="#getbitnamesbyvalue-3ba6b28839a1" id="getbitnamesbyvalue-3ba6b28839a1"></a>
 
@@ -241,7 +241,7 @@ Get a string of bitnames like  bitnames like "bit1 bit2 ...", i.e
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### getBitNamesByValue(String, ConfBits) <a href="#getbitnamesbyvalue-c649f67dc799" id="getbitnamesbyvalue-c649f67dc799"></a>
 
@@ -255,7 +255,7 @@ public static String getBitNamesByValue(
 
 Types: [ConfBits](ConfBits.md#confbits-fa772b723e51), [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
-Like `getBitNamesByValue(ConfPath, ConfBits)` but takes a path
+Like [`getBitNamesByValue(ConfPath, ConfBits)`](ConfBits.md#getbitnamesbyvalue-3ba6b28839a1) but takes a path
  string pointing to the bitset in the schema.
 
 **Parameters**
@@ -267,7 +267,7 @@ Like `getBitNamesByValue(ConfPath, ConfBits)` but takes a path
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### getValueByBitNamesString(ConfPath, String) <a href="#getvaluebybitnamesstring-12ca247b9d9d" id="getvaluebybitnamesstring-12ca247b9d9d"></a>
 
@@ -298,7 +298,7 @@ Get an ConfBits from the string of bitnames like "bit1 bit2 ...", i.e
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### getValueByBitNamesString(String, String) <a href="#getvaluebybitnamesstring-c0e8ef407b4c" id="getvaluebybitnamesstring-c0e8ef407b4c"></a>
 
@@ -312,7 +312,7 @@ public static com.tailf.conf.ConfBits getValueByBitNamesString(
 
 Types: [ConfBits](ConfBits.md#confbits-fa772b723e51), [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
-Like `getValueByBitNamesString(ConfPath, String)` but takes a path
+Like [`getValueByBitNamesString(ConfPath, String)`](ConfBits.md#getvaluebybitnamesstring-12ca247b9d9d) but takes a path
  string pointing to the bitset in the schema.
 
 **Parameters**
@@ -324,7 +324,7 @@ Like `getValueByBitNamesString(ConfPath, String)` but takes a path
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
@@ -355,7 +355,7 @@ Check if bit is set at position pos in bitset.
 
 **Throws**
 
-- `ConfException` - Never, for API backwards compatibility.
+- `com.tailf.conf.ConfException` - Never, for API backwards compatibility.
 
 ### isBitSetSafe(long) <a href="#isbitsetsafe-dbd99a7b4cbe" id="isbitsetsafe-dbd99a7b4cbe"></a>
 
@@ -392,7 +392,7 @@ Set bit at position pos in bitset. The bitset must initially been
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
@@ -401,4 +401,6 @@ public String toString()
 ```
 
 toString method. The string representation for bitset is
- 'bin0x...' with hexadecimal representation in little endian order
+ 'bin\<0x...\>' with hexadecimal representation in little endian order
+
+**Returns:** the printable representation of the object.

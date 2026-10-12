@@ -9,30 +9,32 @@ Types: [ResultType](ResultType.md#resulttype-1a8a08651698)
 
 XPath Result in keypath format.
 
- This format is specified trough `ReslutTypeKeyPath.class`
+This format is specified trough `ReslutTypeKeyPath.class`
  as a parameter
- to `Maapi#queryStart(int,String,String,int,int,List,Class)`
+ to [`Maapi#queryStart(int,String,String,int,int,List,Class)`](Maapi.md#querystart-87abe9e2ad2a)
 
-
- Example:
-
+Example:
 
 ```
-  QueryResult<ResultTypeKeyPath> qR4 =
-      maapi.queryStart(th,&quot;/mtest/servers/server[ip='1.2.3.4']&quot;,
-                       &quot;/&quot;,3,1,
-                       Arrays.asList(&quot;name&quot;,
-                                     &quot;ip&quot;,
-                                     &quot;port&quot;),
-                       ResultTypeKeyPath.class);
-  for(QueryResult.Entry entry : qR4){
-      List<ResultTypeKeyPath> rsValue = entry.value();
-      for(ResultTypeKeyPath typ: rsValue){
-          ConfObject[] v0 = typ.keyPath();
-          System.out.println(&quot;path = &quot; + Arrays.toString(v0));
-      }
-  }
+ QueryResult<ResultTypeKeyPath> qR4 =
+     maapi.queryStart(th,"/mtest/servers/server[ip='1.2.3.4']",
+                      "/",3,1,
+                      Arrays.asList("name",
+                                    "ip",
+                                    "port"),
+                      ResultTypeKeyPath.class);
+ for(QueryResult.Entry entry : qR4){
+     List<ResultTypeKeyPath> rsValue = entry.value();
+     for(ResultTypeKeyPath typ: rsValue){
+         ConfObject[] v0 = typ.keyPath();
+         System.out.println("path = " + Arrays.toString(v0));
+     }
+ }
 ```
+
+**Related classes**
+
+- [ResultTypeKeyPathValue](ResultTypeKeyPathValue.md#resulttypekeypathvalue-73a624076b63)
 
 ## Members
 
@@ -45,7 +47,7 @@ XPath Result in keypath format.
 ### keyPath() <a href="#keypath-df48f9bfdabb" id="keypath-df48f9bfdabb"></a>
 
 ```java
-public abstract com.tailf.conf.ConfObject[] keyPath()
+com.tailf.conf.ConfObject[] keyPath()
 ```
 
 Types: [ConfObject](../conf/ConfObject.md#confobject-5433616953b2)

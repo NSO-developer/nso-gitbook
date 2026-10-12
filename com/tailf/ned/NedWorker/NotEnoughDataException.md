@@ -29,5 +29,5 @@ public NotEnoughDataException()
 ### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
 
 ```java
-public static final long serialVersionUID = 1;
+public static final long serialVersionUID = 1L;
 ```

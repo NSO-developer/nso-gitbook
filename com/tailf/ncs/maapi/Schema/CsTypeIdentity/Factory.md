@@ -15,7 +15,6 @@ Types: [Builder](Builder.md#builder-21f09e83781d), [Reader](Reader.md#reader-b24
 
 **Methods**:
 
-- [asReader\(\)](Builder.md#asreader-b5c0f2a8d115) from Builder
 - [asReader\(Builder\)](#asreader-f4266b8be929)
 - [constructBuilder\(SegmentBuilder, int, int, int, short\)](#constructbuilder-5a2abf3209f9)
 - [constructReader\(SegmentReader, int, int, int, short, int\)](#constructreader-fbce6f4f912a)

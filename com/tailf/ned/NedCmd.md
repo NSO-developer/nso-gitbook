@@ -279,7 +279,7 @@ public static final int KEEP_ALIVE = 30;
 ### KNOWN_ALGOS <a href="#known_algos-f36151104250" id="known_algos-f36151104250"></a>
 
 ```java
-public static final String[] KNOWN_ALGOS = null;
+public static final String[] KNOWN_ALGOS;
 ```
 
 ### NEW_THREAD <a href="#new_thread-f592910983cd" id="new_thread-f592910983cd"></a>
@@ -938,9 +938,3 @@ public boolean verifyServerHostKey(
 - `int port`
 - `String serverHostKeyAlgorithm`
 - `byte[] serverHostKey`
-
-
-## Nested Types
-
-- [NedPublicKey](NedCmd/NedPublicKey.md#nedpublickey-99f8875cf44d)
-- [NedSSHAlgorithms](NedCmd/NedSSHAlgorithms.md#nedsshalgorithms-7bd74eef0d12)

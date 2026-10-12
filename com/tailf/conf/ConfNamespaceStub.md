@@ -71,25 +71,25 @@ public ConfNamespaceStub(int hash, String id, String uri, String prefix)
 ### hash <a href="#hash-f73624869884" id="hash-f73624869884"></a>
 
 ```java
-public final int hash = null;
+public final int hash;
 ```
 
 ### id <a href="#id-048276095f61" id="id-048276095f61"></a>
 
 ```java
-public final String id = null;
+public final String id;
 ```
 
 ### prefix <a href="#prefix-f4cd8051dc9a" id="prefix-f4cd8051dc9a"></a>
 
 ```java
-public final String prefix = null;
+public final String prefix;
 ```
 
 ### uri <a href="#uri-0e8d1758ed1a" id="uri-0e8d1758ed1a"></a>
 
 ```java
-public final String uri = null;
+public final String uri;
 ```
 
 

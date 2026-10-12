@@ -3,10 +3,9 @@
 Data provider API package, for implementation of callbacks for validations,
  actions, transformation etc.
 
+Validation.
 
- Validation.
-
- The database stores device configuration data. Some device configuration
+The database stores device configuration data. Some device configuration
  data is truly critical for the correct operations of the device.
  Misconfiguring a network device may lead to a situation where the device is
  no longer connected to the network. Before committing configuration data it
@@ -15,24 +14,23 @@ Data provider API package, for implementation of callbacks for validations,
  software which reads the configuration data need not check the validity of
  the configuration.
 
- Actions.
+Actions.
 
- When we want to define operations that do not affect the configuration data
+When we want to define operations that do not affect the configuration data
  store, we can use the tailf:action statement in the YANG data model. The
  action definition specifies how the action is invoked, including input and
  output parameters (if any). Once defined, the action is available for
  invocation from all of NETCONF, CLI and Web UI.
 
+Transformations.
 
- Transformations.
-
- When building new variants of an old product, we often have a situation
+When building new variants of an old product, we often have a situation
  where we have large amounts of application code, which reads configuration
  data from some datastore and we do not want to make any changes to the
  application code, we merely wish to expose a different view of the same
  configuration data.
 
- Another common situation is when we have application code which requires
+Another common situation is when we have application code which requires
  more configuration data than we wish to expose through the northbound
  management interfaces. The application reads and use a number of
  configuration items that do not make sense to expose through the different

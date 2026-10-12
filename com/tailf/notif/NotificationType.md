@@ -77,7 +77,7 @@ NOTIF_AUDIT_NETWORK_SYNC(1L << 29);
 
 Flag in eventmask which is used in combination with the
   NOTIF_AUDIT_NETWORK flag and then implies that the method
-  `Notif#syncAuditNetworkNotification(int usid)`
+  [`Notif#syncAuditNetworkNotification(int usid)`](Notif.md#syncauditnetworknotification-86a6d4e5bafc)
   must be called for each notification or else the user session
   will hang indefinitely
 
@@ -89,7 +89,7 @@ NOTIF_AUDIT_SYNC(1L << 17);
 
 Flag in eventmask which is used in combination with the
   NOTIF_AUDIT flag and then implies that the method
-  `Notif#syncAuditNotification(int usid)`
+  [`Notif#syncAuditNotification(int usid)`](Notif.md#syncauditnotification-0078171f2fe7)
   must be called for each notification or else the user session
   will hang indefinitely
 

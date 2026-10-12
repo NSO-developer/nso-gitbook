@@ -17,7 +17,7 @@ public @interface com.tailf.conf.IterateFlags
 ### flags() <a href="#flags-edbfa2eca0ea" id="flags-edbfa2eca0ea"></a>
 
 ```java
-public abstract com.tailf.conf.DiffIterateFlags[] flags()
+com.tailf.conf.DiffIterateFlags[] flags()
 ```
 
 Types: [DiffIterateFlags](DiffIterateFlags.md#diffiterateflags-79473c9fdab6)

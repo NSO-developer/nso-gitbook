@@ -7,10 +7,6 @@ public static final class com.tailf.ncs.maapi.Schema.Range.Reader
 
 ## Members
 
-**Constructors**:
-
-- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
-
 **Methods**:
 
 - [getFlags\(\)](#getflags-3c1ca90fd29c)
@@ -18,33 +14,6 @@ public static final class com.tailf.ncs.maapi.Schema.Range.Reader
 - [getLo\(\)](#getlo-bfe1c987d87a)
 - [hasHi\(\)](#hashi-5d9a1cd214ca)
 - [hasLo\(\)](#haslo-5c413cde5b09)
-
-## Constructors
-
-### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
-
-**Package-private**
-
-```java
-Reader(
-    org.capnproto.SegmentReader segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount,
-    int nestingLimit
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentReader segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-- `int nestingLimit`
-
 
 ## Methods
 

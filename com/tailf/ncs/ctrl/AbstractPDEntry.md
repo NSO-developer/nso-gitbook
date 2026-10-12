@@ -11,7 +11,6 @@ Base class for Ncs package component meta data
 **Related classes**
 
 - [AppPDEntry](AppPDEntry.md#apppdentry-fb5d42b84e3c)
-- [DpPDEntry](DpPDEntry.md#dppdentry-3d7fc55c80fc)
 - [NedPDEntry](NedPDEntry.md#nedpdentry-af34e0aea42b)
 - [ServicePDEntry](ServicePDEntry.md#servicepdentry-4f187dfd4f44)
 
@@ -101,7 +100,7 @@ public java.util.List<Object> getInstances()
 
 Get class instances for thus component
 
-**Returns:** List current instances
+**Returns:** List\<Object\> current instances
 
 ### isRunning() <a href="#isrunning-02db4ec84a8d" id="isrunning-02db4ec84a8d"></a>
 
@@ -129,7 +128,7 @@ Instantiate classes for this component
 
 **Throws**
 
-- `NcsException`
+- `com.tailf.ncs.NcsException`
 
 ### reload() <a href="#reload-b0cf67aa2f64" id="reload-b0cf67aa2f64"></a>
 

@@ -13,11 +13,6 @@ The DpAccumulate object is used for accumulating operations on database from
 
 ## Members
 
-**Constructors**:
-
-- [DpAccumulate\(String, int, ConfObject\[\]\)](#dpaccumulate-de9e3eaafa4b)
-- [DpAccumulate\(String, int, ConfObject\[\], ConfValue\)](#dpaccumulate-1fee939d1993)
-
 **Fields**:
 
 - [CREATE](#create-815a8a632c4b)
@@ -31,47 +26,6 @@ The DpAccumulate object is used for accumulating operations on database from
 - [getOperation\(\)](#getoperation-baf0e4738a2a)
 - [getValue\(\)](#getvalue-d93864668c40)
 - [toString\(\)](#tostring-e9d48c5503ef)
-
-## Constructors
-
-### DpAccumulate(String, int, ConfObject[]) <a href="#dpaccumulate-de9e3eaafa4b" id="dpaccumulate-de9e3eaafa4b"></a>
-
-**Package-private**
-
-```java
-DpAccumulate(String callpoint, int op, com.tailf.conf.ConfObject[] kp)
-```
-
-Types: [ConfObject](../conf/ConfObject.md#confobject-5433616953b2)
-
-**Parameters**
-
-- `String callpoint`
-- `int op`
-- `com.tailf.conf.ConfObject[] kp`
-
-### DpAccumulate(String, int, ConfObject[], ConfValue) <a href="#dpaccumulate-1fee939d1993" id="dpaccumulate-1fee939d1993"></a>
-
-**Package-private**
-
-```java
-DpAccumulate(
-    String callpoint,
-    int op,
-    com.tailf.conf.ConfObject[] kp,
-    com.tailf.conf.ConfValue value
-)
-```
-
-Types: [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d)
-
-**Parameters**
-
-- `String callpoint`
-- `int op`
-- `com.tailf.conf.ConfObject[] kp`
-- `com.tailf.conf.ConfValue value`
-
 
 ## Fields
 
@@ -119,7 +73,7 @@ public com.tailf.conf.ConfObject[] getKP()
 Types: [ConfObject](../conf/ConfObject.md#confobject-5433616953b2)
 
 The keypath consisting of an array of ConfTag and/or ConfKey objects.
- Where kp[0] is the leaf.
+ Where kp\[0\] is the leaf.
 
 ### getOperation() <a href="#getoperation-baf0e4738a2a" id="getoperation-baf0e4738a2a"></a>
 

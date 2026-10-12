@@ -57,14 +57,14 @@ Returns a subarray from the `original` array
 
  Copies the specified range of the specified array into a new array.
 
- The initial index of the range (`from`) must lie between zero
+The initial index of the range (`from`) must lie between zero
  and `original.length`, inclusive.
 
  The value at `original[from]` is placed into the initial
  element of the copy
  (unless `from == original.length` or `from == to`).
 
- Values from subsequent elements in the original array are placed into
+Values from subsequent elements in the original array are placed into
  subsequent elements in the copy.  The final index of the range
  (`to`), which must be greater than or equal to `from`,
  may be greater than `original.length`, in which case
@@ -72,7 +72,7 @@ Returns a subarray from the `original` array
  greater than or equal to `original.length - from`.  The length
  of the returned array will be `to - from`.
 
-  The resulting array is of exactly the same class as the original
+The resulting array is of exactly the same class as the original
  array.
 
 **Type Parameters**
@@ -84,15 +84,15 @@ Returns a subarray from the `original` array
 - `T[] original` - the array from which a range is to be copied
 - `int from` - the initial index of the range to be copied, inclusive
 - `int to` - the final index of the range to be copied, exclusive.
-     (This index may lie outside the array.)
+(This index may lie outside the array.)
 
 **Returns:** a new array containing the specified range from the original
  array,
-     truncated or padded with nulls to obtain the required length
+truncated or padded with nulls to obtain the required length
 
 **Throws**
 
 - `ArrayIndexOutOfBoundsException` - if `from < 0`
-     or `from > original.length`
+or `from > original.length`
 - `IllegalArgumentException` - if `from > to`
 - `NullPointerException` - if `original` is null

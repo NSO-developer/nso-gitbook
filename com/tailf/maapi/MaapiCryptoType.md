@@ -77,7 +77,7 @@ Decrypt an encrypted string using the given key and IV. The encrypted
 - `byte[] key` - The key to use for decryption.
 - `String encrypted` - The string to decrypt.
 - `byte[] iv` - The fixed IV to use for decryption or null if the IV
-           is included in the encrypted string.
+is included in the encrypted string.
 
 **Returns:** The decrypted value as a string.
 
@@ -97,7 +97,7 @@ Encrypt a plaintext string using a supplied key.
 - `String plaintext` - The plaintext value to encrypt.
 
 **Returns:** The encrypted and base64 encoded value as a string with
-         a prefix detailing the encryption algoritm used.
+a prefix detailing the encryption algoritm used.
 
 ### find(String) <a href="#find-e05e0e781b51" id="find-e05e0e781b51"></a>
 
@@ -116,7 +116,7 @@ Find the crypto type corresponding for an encrypted string. Will check
 - `String encrypted` - The encrypted string to find the crypto type for.
 
 **Returns:** A [`MaapiCryptoType`](MaapiCryptoType.md#maapicryptotype-eed6b72aa0d2) object or null if the type could not
-         be found from the encrypted string.
+be found from the encrypted string.
 
 ### fixedIV(String) <a href="#fixediv-d3170dc48d0b" id="fixediv-d3170dc48d0b"></a>
 

@@ -15,7 +15,7 @@ ConfCleaner manages a set of object references and corresponding
 
 **Methods**:
 
-- [register\(Object, AutoCloseable, AutoCloseable\[\]\)](#register-15a1a2f775a2)
+- [register\(Object, AutoCloseable, AutoCloseable\.\.\.\)](#register-99ae5792c394)
 - [register\(Object, Runnable\)](#register-2ca26b8e3d14)
 
 **Nested Types**:
@@ -27,19 +27,19 @@ ConfCleaner manages a set of object references and corresponding
 ### CLEANER <a href="#cleaner-c7d3b501b7a6" id="cleaner-c7d3b501b7a6"></a>
 
 ```java
-public static final java.lang.ref.Cleaner CLEANER = null;
+public static final java.lang.ref.Cleaner CLEANER;
 ```
 
 
 ## Methods
 
-### register(Object, AutoCloseable, AutoCloseable[]) <a href="#register-15a1a2f775a2" id="register-15a1a2f775a2"></a>
+### register(Object, AutoCloseable, AutoCloseable...) <a href="#register-99ae5792c394" id="register-99ae5792c394"></a>
 
 ```java
 public static java.lang.ref.Cleaner.Cleanable register(
     Object obj,
     AutoCloseable closeable,
-    AutoCloseable[] closeables
+    AutoCloseable... closeables
 )
 ```
 
@@ -50,7 +50,7 @@ Registers an auto closeable object that will be closed when
 
 - `Object obj` - the object to monitor
 - `AutoCloseable closeable`
-- `AutoCloseable[] closeables`
+- `AutoCloseable... closeables`
 
 **Returns:** a Cleanable instance
 
@@ -69,8 +69,3 @@ Registers an object and a cleaning action to run when the
 - `Runnable action`
 
 **Returns:** a Cleanable instance
-
-
-## Nested Types
-
-- [Closer](ConfCleaner/Closer.md#closer-4586af715fa1)

@@ -28,10 +28,6 @@ This exception is thrown when parse errors are encountered.
 - [expectedTokenSequences](#expectedtokensequences-869b21f3e4e1)
 - [tokenImage](#tokenimage-c13f534d4471)
 
-**Methods**:
-
-- [add\_escapes\(String\)](#add_escapes-6d7387de134e)
-
 ## Constructors
 
 ### ParseException() <a href="#parseexception-7765e2a79d08" id="parseexception-7765e2a79d08"></a>
@@ -70,8 +66,6 @@ public ParseException(
 )
 ```
 
-Types: [Token](Token.md#token-b7a155cc1a5e)
-
 This constructor is used by the method "generateParseException"
  in the generated parser.  Calling this constructor generates
  a new object of this type with the fields "currentToken",
@@ -89,10 +83,8 @@ This constructor is used by the method "generateParseException"
 ### currentToken <a href="#currenttoken-4ec0f6257b86" id="currenttoken-4ec0f6257b86"></a>
 
 ```java
-public com.tailf.conf.dbg.Token currentToken = null;
+public com.tailf.conf.dbg.Token currentToken;
 ```
-
-Types: [Token](Token.md#token-b7a155cc1a5e)
 
 This is the last token that has been consumed successfully.  If
  this object has been created due to a parse error, the token
@@ -101,7 +93,7 @@ This is the last token that has been consumed successfully.  If
 ### EOL <a href="#eol-4031ee2a7b21" id="eol-4031ee2a7b21"></a>
 
 ```java
-protected static String EOL = null;
+protected static String EOL;
 ```
 
 The end of line string for this machine.
@@ -109,7 +101,7 @@ The end of line string for this machine.
 ### expectedTokenSequences <a href="#expectedtokensequences-869b21f3e4e1" id="expectedtokensequences-869b21f3e4e1"></a>
 
 ```java
-public int[][] expectedTokenSequences = null;
+public int[][] expectedTokenSequences;
 ```
 
 Each entry in this array is an array of integers.  Each array
@@ -119,28 +111,9 @@ Each entry in this array is an array of integers.  Each array
 ### tokenImage <a href="#tokenimage-c13f534d4471" id="tokenimage-c13f534d4471"></a>
 
 ```java
-public String[] tokenImage = null;
+public String[] tokenImage;
 ```
 
 This is a reference to the "tokenImage" array of the generated
  parser within which the parse error occurred.  This array is
  defined in the generated ...Constants interface.
-
-
-## Methods
-
-### add_escapes(String) <a href="#add_escapes-6d7387de134e" id="add_escapes-6d7387de134e"></a>
-
-**Package-private**
-
-```java
-static String add_escapes(String str)
-```
-
-Used to convert raw characters to their escaped version
- when these raw version cannot be used as part of an ASCII
- string literal.
-
-**Parameters**
-
-- `String str`

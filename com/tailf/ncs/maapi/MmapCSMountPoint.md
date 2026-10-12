@@ -29,7 +29,6 @@ mmap version of CSMountPoint ensuring getChildren specifics are overridden
 - [equals\(Object\)](../../maapi/MaapiSchemas/CSNode.md#equals-fcd6492e0d6c) from CSNode
 - [getChild\(int\)](MmapCSNode.md#getchild-65485672c186) from MmapCSNode
 - [getChild\(int, int\)](MmapCSNode.md#getchild-689133990b1b) from MmapCSNode
-- [getChildIdx\(\)](MmapCSNode.md#getchildidx-4d2ec6d906ee) from MmapCSNode
 - [getChildren\(\)](#getchildren-fe2038dff10d)
 - [getChildren\(List\<String\>\)](#getchildren-41cf83dd1b0d)
 - [getChoices\(\)](../../maapi/MaapiSchemas/CSNode.md#getchoices-818fb3fccb86) from CSNode
@@ -37,7 +36,6 @@ mmap version of CSMountPoint ensuring getChildren specifics are overridden
 - [getFirstChild\(\)](MmapCSNode.md#getfirstchild-710377dd9fb6) from MmapCSNode
 - [getKey\(int\)](../../maapi/MaapiSchemas/CSNode.md#getkey-11aad55949c3) from CSNode
 - [getKeys\(\)](../../maapi/MaapiSchemas/CSNode.md#getkeys-a24b9d377db7) from CSNode
-- [getLevel\(\)](MmapCSNode.md#getlevel-28ca1b08d456) from MmapCSNode
 - [getMaxOccurs\(\)](../../maapi/MaapiSchemas/CSNode.md#getmaxoccurs-365e8c5a408f) from CSNode
 - [getMinOccurs\(\)](../../maapi/MaapiSchemas/CSNode.md#getminoccurs-cac79959dff8) from CSNode
 - [getNextSibling\(\)](MmapCSNode.md#getnextsibling-e2f43ef28bf0) from MmapCSNode
@@ -130,6 +128,13 @@ public java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> getChildren()
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 
+*Description from* [`CSNode.getChildren()`](../../maapi/MaapiSchemas/CSNode.md#getchildren-fe2038dff10d)
+
+Retrieves children for this node as List or
+ null if no children exists.
+
+**Returns:** List of children nodes
+
 ### getChildren(List&lt;String&gt;) <a href="#getchildren-41cf83dd1b0d" id="getchildren-41cf83dd1b0d"></a>
 
 ```java
@@ -140,6 +145,13 @@ public java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> getChildren(
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 
+*Description from* [`CSNode.getChildren(java.util.List<String>)`](../../maapi/MaapiSchemas/CSNode.md#getchildren-41cf83dd1b0d)
+
+Retrieves children for this node given a mount id as List or
+ null if no children exists.
+
 **Parameters**
 
 - `java.util.List<String> mountIds`
+
+**Returns:** List of children nodes

@@ -18,7 +18,7 @@ Maapi retryable operation that will be called repeatadly until no
 ### execute(Maapi, int) <a href="#execute-3f0f8a96b258" id="execute-3f0f8a96b258"></a>
 
 ```java
-public abstract boolean execute(
+boolean execute(
     com.tailf.maapi.Maapi maapi,
     int tid
 )

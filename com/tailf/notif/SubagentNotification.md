@@ -75,9 +75,8 @@ public int getSubAgentInfoType()
 
 Subagent information type:
 
-
 - [`SUBAGENT_INFO_UP`](SubagentNotification.md#subagent_info_up-ce217614ea1e)
-   - [`SUBAGENT_INFO_DOWN`](SubagentNotification.md#subagent_info_down-cf76d2628896)
+- [`SUBAGENT_INFO_DOWN`](SubagentNotification.md#subagent_info_down-cf76d2628896)
 
 ### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 

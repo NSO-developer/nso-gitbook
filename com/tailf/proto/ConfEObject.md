@@ -27,10 +27,6 @@ Base class of the E data type classes. This class is used to represent an
 
 - [ConfEObject\(\)](#confeobject-316d32c106b3)
 
-**Fields**:
-
-- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
-
 **Methods**:
 
 - [clone\(\)](#clone-164c86c45e9b)
@@ -45,17 +41,6 @@ Base class of the E data type classes. This class is used to represent an
 
 ```java
 public ConfEObject()
-```
-
-
-## Fields
-
-### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
-
-**Package-private**
-
-```java
-static final long serialVersionUID = -8435938572339430044;
 ```
 
 
@@ -90,8 +75,8 @@ Read binary data in the E external format, and produce a corresponding E
 
 **Throws**
 
-- `ConfEDecodeException` - if the stream does not contain a valid representation of
-                an E term.
+- `com.tailf.proto.ConfEDecodeException` - if the stream does not contain a valid representation of
+an E term.
 
 ### encode(ConfOutputStream) <a href="#encode-cb1ad9eb7771" id="encode-cb1ad9eb7771"></a>
 
@@ -131,5 +116,5 @@ public abstract String toString()
 ```
 
 **Returns:** the printable representation of the object. This is usually
-         similar to the representation used by E for the same type of
-         object.
+similar to the representation used by E for the same type of
+object.

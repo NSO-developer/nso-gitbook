@@ -40,7 +40,7 @@ Types: [ErrorVerbosity](ErrorVerbosity.md#errorverbosity-7dabb9fc7bcd)
 Get the default verbosity level for reported errors
  This governs error verbosity for all Formatters which has not
  specifically set their local verbosity level with
- `setErrorVerbosity(ErrorVerbosity)`
+ [`setErrorVerbosity(ErrorVerbosity)`](ErrorMessageFormatter.md#seterrorverbosity-bab7950e55c8)
 
 **Returns:** the default ErrorVerbosity
 
@@ -83,7 +83,7 @@ Types: [ErrorVerbosity](ErrorVerbosity.md#errorverbosity-7dabb9fc7bcd)
 Set the default verbosity level for reported errors
  This governs error verbosity for all Formatters which has not
  specifically set their local verbosity level with
- `setErrorVerbosity(ErrorVerbosity)`
+ [`setErrorVerbosity(ErrorVerbosity)`](ErrorMessageFormatter.md#seterrorverbosity-bab7950e55c8)
 
 **Parameters**
 

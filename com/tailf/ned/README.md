@@ -22,7 +22,6 @@ Network Element Drivers package
 - [NedWorker](NedWorker.md#nedworker-b063de7c0998)
 - [SSHClient](SSHClient.md#sshclient-f4dbfb53c66b)
 - [SSHConnection](SSHConnection.md#sshconnection-b3d3a2094429)
-- [SSHJClient](SSHJClient.md#sshjclient-ed3ef5e4e5e7)
 - [SSHJSession](SSHJSession.md#sshjsession-7e69508c20af)
 - [SSHSession](SSHSession.md#sshsession-2d9642a66770)
 - [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)

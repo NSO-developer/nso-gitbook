@@ -78,10 +78,9 @@ public int getForwardType()
 
 forward event type:
 
-
 - [`FORWARD_INFO_UP`](ForwardNotification.md#forward_info_up-b2e514baf4d4)
-   - [`FORWARD_INFO_DOWN`](ForwardNotification.md#forward_info_down-50e32f7b843b)
-     - [`FORWARD_INFO_FAILED`](ForwardNotification.md#forward_info_failed-471dfab75a59)
+- [`FORWARD_INFO_DOWN`](ForwardNotification.md#forward_info_down-50e32f7b843b)
+- [`FORWARD_INFO_FAILED`](ForwardNotification.md#forward_info_failed-471dfab75a59)
 
 ### getTarget() <a href="#gettarget-c226120ea942" id="gettarget-c226120ea942"></a>
 

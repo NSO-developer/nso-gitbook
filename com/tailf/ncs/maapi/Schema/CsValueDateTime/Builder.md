@@ -7,10 +7,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDateTime.Builder
 
 ## Members
 
-**Constructors**:
-
-- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
-
 **Methods**:
 
 - [asReader\(\)](#asreader-b5c0f2a8d115)
@@ -32,31 +28,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDateTime.Builder
 - [setTimezone\(byte\)](#settimezone-c58c111fac16)
 - [setTimezoneMinutes\(byte\)](#settimezoneminutes-69e0ed31afd1)
 - [setYear\(short\)](#setyear-ecdf80e7189d)
-
-## Constructors
-
-### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
-
-**Package-private**
-
-```java
-Builder(
-    org.capnproto.SegmentBuilder segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentBuilder segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-
 
 ## Methods
 

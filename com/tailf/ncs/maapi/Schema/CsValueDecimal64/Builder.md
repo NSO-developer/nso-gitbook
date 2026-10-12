@@ -7,10 +7,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDecimal64.Builder
 
 ## Members
 
-**Constructors**:
-
-- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
-
 **Methods**:
 
 - [asReader\(\)](#asreader-b5c0f2a8d115)
@@ -18,31 +14,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDecimal64.Builder
 - [getValue\(\)](#getvalue-d93864668c40)
 - [setFractionDigits\(byte\)](#setfractiondigits-4268b060f4fc)
 - [setValue\(long\)](#setvalue-0eb87343a952)
-
-## Constructors
-
-### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
-
-**Package-private**
-
-```java
-Builder(
-    org.capnproto.SegmentBuilder segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentBuilder segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-
 
 ## Methods
 

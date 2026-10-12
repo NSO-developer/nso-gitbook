@@ -10,46 +10,42 @@ Reply structure container for completion callbacks.
 
   Which one to use depend on the actionpoint and the specific invocation.
 
-  An example of the usage of this class is as follows:
+An example of the usage of this class is as follows:
 
-  Having a YANG model snippet like the following:
-
-
-```
-  container application {
-    leaf file-name {
-      type string;
-      tailf:cli-completion-actionpoint "file-complete" {
-        tailf:cli-completion-id "path";
-      }
-    }
-  }
-```
-
-
-  The corresponding completion action is as follows:
-
-
+Having a YANG model snippet like the following:
 
 ```
-  ActionCallback(callPoint = "file-complete",
-                 callType = ActionCBType.COMPLETION)
-  public Completion completion(DpActionTrans actx, char cliStyle,
-                               String token, char completionChar,
-                               ConfObject[] kp, String cmdPath,
-                               String cmdParamId, ConfQname simpleType,
-                               String extra) throws DpCallbackException {
-     ....
-     // User processing of the completion
-     ....
-     CompletionReply reply = Completion.newReply();
-     reply.addCompletion("completion-entry1", null);
-     ...
-     reply.addCompletion("completion-entryN", null);
-     reply.setCompletionInfo("my-info");
-     reply.setCompletionDesc("my-description");
-     return reply;
-  }
+ container application {
+   leaf file-name {
+     type string;
+     tailf:cli-completion-actionpoint "file-complete" {
+       tailf:cli-completion-id "path";
+     }
+   }
+ }
+```
+
+The corresponding completion action is as follows:
+
+```
+ @ActionCallback(callPoint = "file-complete",
+                callType = ActionCBType.COMPLETION)
+ public Completion completion(DpActionTrans actx, char cliStyle,
+                              String token, char completionChar,
+                              ConfObject[] kp, String cmdPath,
+                              String cmdParamId, ConfQname simpleType,
+                              String extra) throws DpCallbackException {
+    ....
+    // User processing of the completion
+    ....
+    CompletionReply reply = Completion.newReply();
+    reply.addCompletion("completion-entry1", null);
+    ...
+    reply.addCompletion("completion-entryN", null);
+    reply.setCompletionInfo("my-info");
+    reply.setCompletionDesc("my-description");
+    return reply;
+ }
 ```
 
 **Related classes**
@@ -70,7 +66,6 @@ Reply structure container for completion callbacks.
 - [newDefaultReply\(\)](#newdefaultreply-5583906bcd7c)
 - [newRangeEnumReply\(int\)](#newrangeenumreply-5c101dba6437)
 - [newReply\(\)](#newreply-15892c4ebb44)
-- [validate\(\)](#validate-dc7ca5eb97ec)
 
 ## Constructors
 
@@ -150,13 +145,3 @@ The [`CompletionReply`](CompletionReply.md#completionreply-21386c591079) instanc
  helper methods before it can be sent as a response.
 
 **Returns:** CompletionReply
-
-### validate() <a href="#validate-dc7ca5eb97ec" id="validate-dc7ca5eb97ec"></a>
-
-**Package-private**
-
-```java
-abstract void validate() throws com.tailf.dp.DpCallbackException
-```
-
-Types: [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)

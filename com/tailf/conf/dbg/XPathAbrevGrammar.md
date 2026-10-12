@@ -2,10 +2,7 @@
 
 ```java
 public class com.tailf.conf.dbg.XPathAbrevGrammar
-    implements com.tailf.conf.dbg.XPathAbrevGrammarConstants
 ```
-
-Types: [XPathAbrevGrammarConstants](XPathAbrevGrammarConstants.md#xpathabrevgrammarconstants-75bbcfc11d48)
 
 ## Members
 
@@ -18,39 +15,38 @@ Types: [XPathAbrevGrammarConstants](XPathAbrevGrammarConstants.md#xpathabrevgram
 
 **Fields**:
 
-- [AXIS\_ANCESTOR](XPathAbrevGrammarConstants.md#axis_ancestor-62c59dd9b2e3) from XPathAbrevGrammarConstants
-- [AXIS\_ANCESTOR\_OR\_SELF](XPathAbrevGrammarConstants.md#axis_ancestor_or_self-8a86e8f77b65) from XPathAbrevGrammarConstants
-- [AXIS\_ATTRIBUTE](XPathAbrevGrammarConstants.md#axis_attribute-a05946445c05) from XPathAbrevGrammarConstants
-- [AXIS\_CHILD](XPathAbrevGrammarConstants.md#axis_child-b30db2353719) from XPathAbrevGrammarConstants
-- [AXIS\_DESCENDANT](XPathAbrevGrammarConstants.md#axis_descendant-15e7b43dd049) from XPathAbrevGrammarConstants
-- [AXIS\_DESCENDANT\_OR\_SELF](XPathAbrevGrammarConstants.md#axis_descendant_or_self-9f6c29a66ab9) from XPathAbrevGrammarConstants
-- [AXIS\_FOLLOWING](XPathAbrevGrammarConstants.md#axis_following-a1c4549e0b7e) from XPathAbrevGrammarConstants
-- [AXIS\_FOLLOWING\_SIBLING](XPathAbrevGrammarConstants.md#axis_following_sibling-15c026a27921) from XPathAbrevGrammarConstants
-- [AXIS\_NAMESPACE](XPathAbrevGrammarConstants.md#axis_namespace-fca116cb0837) from XPathAbrevGrammarConstants
-- [AXIS\_PARENT](XPathAbrevGrammarConstants.md#axis_parent-a46c866285ba) from XPathAbrevGrammarConstants
-- [AXIS\_PRECEDING](XPathAbrevGrammarConstants.md#axis_preceding-928fdaa9975d) from XPathAbrevGrammarConstants
-- [AXIS\_PRECEDING\_SIBLING](XPathAbrevGrammarConstants.md#axis_preceding_sibling-d98b9bd3ec33) from XPathAbrevGrammarConstants
-- [AXIS\_SELF](XPathAbrevGrammarConstants.md#axis_self-e8df13365b56) from XPathAbrevGrammarConstants
-- [BaseChar](XPathAbrevGrammarConstants.md#basechar-40e1261471a6) from XPathAbrevGrammarConstants
-- [CombiningChar](XPathAbrevGrammarConstants.md#combiningchar-04353df29e46) from XPathAbrevGrammarConstants
-- [DEFAULT](XPathAbrevGrammarConstants.md#default-5965fc85722b) from XPathAbrevGrammarConstants
-- [Digit](XPathAbrevGrammarConstants.md#digit-d562fa9fa27a) from XPathAbrevGrammarConstants
-- [EOF](XPathAbrevGrammarConstants.md#eof-e4ab74e8c3eb) from XPathAbrevGrammarConstants
-- [EQ](XPathAbrevGrammarConstants.md#eq-27379a35bac0) from XPathAbrevGrammarConstants
-- [Extender](XPathAbrevGrammarConstants.md#extender-16833fdff759) from XPathAbrevGrammarConstants
-- [FUNCTION\_CURRENT](XPathAbrevGrammarConstants.md#function_current-756d70c6837c) from XPathAbrevGrammarConstants
-- [Ideographic](XPathAbrevGrammarConstants.md#ideographic-9e9a508c5c4b) from XPathAbrevGrammarConstants
-- [jj\_input\_stream](#jj_input_stream-a656fd5e96db)
+- [AXIS\_ANCESTOR](#axis_ancestor-62c59dd9b2e3)
+- [AXIS\_ANCESTOR\_OR\_SELF](#axis_ancestor_or_self-8a86e8f77b65)
+- [AXIS\_ATTRIBUTE](#axis_attribute-a05946445c05)
+- [AXIS\_CHILD](#axis_child-b30db2353719)
+- [AXIS\_DESCENDANT](#axis_descendant-15e7b43dd049)
+- [AXIS\_DESCENDANT\_OR\_SELF](#axis_descendant_or_self-9f6c29a66ab9)
+- [AXIS\_FOLLOWING](#axis_following-a1c4549e0b7e)
+- [AXIS\_FOLLOWING\_SIBLING](#axis_following_sibling-15c026a27921)
+- [AXIS\_NAMESPACE](#axis_namespace-fca116cb0837)
+- [AXIS\_PARENT](#axis_parent-a46c866285ba)
+- [AXIS\_PRECEDING](#axis_preceding-928fdaa9975d)
+- [AXIS\_PRECEDING\_SIBLING](#axis_preceding_sibling-d98b9bd3ec33)
+- [AXIS\_SELF](#axis_self-e8df13365b56)
+- [BaseChar](#basechar-40e1261471a6)
+- [CombiningChar](#combiningchar-04353df29e46)
+- [DEFAULT](#default-5965fc85722b)
+- [Digit](#digit-d562fa9fa27a)
+- [EOF](#eof-e4ab74e8c3eb)
+- [EQ](#eq-27379a35bac0)
+- [Extender](#extender-16833fdff759)
+- [FUNCTION\_CURRENT](#function_current-756d70c6837c)
+- [Ideographic](#ideographic-9e9a508c5c4b)
 - [jj\_nt](#jj_nt-9db0740275fe)
-- [Letter](XPathAbrevGrammarConstants.md#letter-b7da983a0a77) from XPathAbrevGrammarConstants
-- [Literal](XPathAbrevGrammarConstants.md#literal-d5804337bb25) from XPathAbrevGrammarConstants
-- [NCName](XPathAbrevGrammarConstants.md#ncname-61cf3f5186ac) from XPathAbrevGrammarConstants
-- [Number](XPathAbrevGrammarConstants.md#number-d1bd19560532) from XPathAbrevGrammarConstants
-- [SLASH](XPathAbrevGrammarConstants.md#slash-3c7d823f3e28) from XPathAbrevGrammarConstants
+- [Letter](#letter-b7da983a0a77)
+- [Literal](#literal-d5804337bb25)
+- [NCName](#ncname-61cf3f5186ac)
+- [Number](#number-d1bd19560532)
+- [SLASH](#slash-3c7d823f3e28)
 - [token](#token-93f8344c37b8)
 - [token\_source](#token_source-65d526092316)
-- [tokenImage](XPathAbrevGrammarConstants.md#tokenimage-c13f534d4471) from XPathAbrevGrammarConstants
-- [UnicodeDigit](XPathAbrevGrammarConstants.md#unicodedigit-85441abdb275) from XPathAbrevGrammarConstants
+- [tokenImage](#tokenimage-c13f534d4471)
+- [UnicodeDigit](#unicodedigit-85441abdb275)
 
 **Methods**:
 
@@ -94,7 +90,6 @@ Types: [XPathAbrevGrammarConstants](XPathAbrevGrammarConstants.md#xpathabrevgram
 
 **Nested Types**:
 
-- [JJCalls](XPathAbrevGrammar/JJCalls.md#jjcalls-1cdac36bbc39)
 - [MyCompiler](XPathAbrevGrammar/MyCompiler.md#mycompiler-143644d69d61)
 
 ## Constructors
@@ -142,8 +137,6 @@ Constructor.
 public XPathAbrevGrammar(com.tailf.conf.dbg.XPathAbrevGrammarTokenManager tm)
 ```
 
-Types: [XPathAbrevGrammarTokenManager](XPathAbrevGrammarTokenManager.md#xpathabrevgrammartokenmanager-88e4a4841144)
-
 Constructor with generated Token Manager.
 
 **Parameters**
@@ -153,45 +146,261 @@ Constructor with generated Token Manager.
 
 ## Fields
 
-### jj_input_stream <a href="#jj_input_stream-a656fd5e96db" id="jj_input_stream-a656fd5e96db"></a>
-
-**Package-private**
+### AXIS_ANCESTOR <a href="#axis_ancestor-62c59dd9b2e3" id="axis_ancestor-62c59dd9b2e3"></a>
 
 ```java
-com.tailf.conf.dbg.JavaCharStream jj_input_stream = null;
+public static final int AXIS_ANCESTOR = 20;
 ```
 
-Types: [JavaCharStream](JavaCharStream.md#javacharstream-b90e6870657d)
+RegularExpression Id.
+
+### AXIS_ANCESTOR_OR_SELF <a href="#axis_ancestor_or_self-8a86e8f77b65" id="axis_ancestor_or_self-8a86e8f77b65"></a>
+
+```java
+public static final int AXIS_ANCESTOR_OR_SELF = 26;
+```
+
+RegularExpression Id.
+
+### AXIS_ATTRIBUTE <a href="#axis_attribute-a05946445c05" id="axis_attribute-a05946445c05"></a>
+
+```java
+public static final int AXIS_ATTRIBUTE = 21;
+```
+
+RegularExpression Id.
+
+### AXIS_CHILD <a href="#axis_child-b30db2353719" id="axis_child-b30db2353719"></a>
+
+```java
+public static final int AXIS_CHILD = 18;
+```
+
+RegularExpression Id.
+
+### AXIS_DESCENDANT <a href="#axis_descendant-15e7b43dd049" id="axis_descendant-15e7b43dd049"></a>
+
+```java
+public static final int AXIS_DESCENDANT = 25;
+```
+
+RegularExpression Id.
+
+### AXIS_DESCENDANT_OR_SELF <a href="#axis_descendant_or_self-9f6c29a66ab9" id="axis_descendant_or_self-9f6c29a66ab9"></a>
+
+```java
+public static final int AXIS_DESCENDANT_OR_SELF = 29;
+```
+
+RegularExpression Id.
+
+### AXIS_FOLLOWING <a href="#axis_following-a1c4549e0b7e" id="axis_following-a1c4549e0b7e"></a>
+
+```java
+public static final int AXIS_FOLLOWING = 24;
+```
+
+RegularExpression Id.
+
+### AXIS_FOLLOWING_SIBLING <a href="#axis_following_sibling-15c026a27921" id="axis_following_sibling-15c026a27921"></a>
+
+```java
+public static final int AXIS_FOLLOWING_SIBLING = 27;
+```
+
+RegularExpression Id.
+
+### AXIS_NAMESPACE <a href="#axis_namespace-fca116cb0837" id="axis_namespace-fca116cb0837"></a>
+
+```java
+public static final int AXIS_NAMESPACE = 22;
+```
+
+RegularExpression Id.
+
+### AXIS_PARENT <a href="#axis_parent-a46c866285ba" id="axis_parent-a46c866285ba"></a>
+
+```java
+public static final int AXIS_PARENT = 19;
+```
+
+RegularExpression Id.
+
+### AXIS_PRECEDING <a href="#axis_preceding-928fdaa9975d" id="axis_preceding-928fdaa9975d"></a>
+
+```java
+public static final int AXIS_PRECEDING = 23;
+```
+
+RegularExpression Id.
+
+### AXIS_PRECEDING_SIBLING <a href="#axis_preceding_sibling-d98b9bd3ec33" id="axis_preceding_sibling-d98b9bd3ec33"></a>
+
+```java
+public static final int AXIS_PRECEDING_SIBLING = 28;
+```
+
+RegularExpression Id.
+
+### AXIS_SELF <a href="#axis_self-e8df13365b56" id="axis_self-e8df13365b56"></a>
+
+```java
+public static final int AXIS_SELF = 17;
+```
+
+RegularExpression Id.
+
+### BaseChar <a href="#basechar-40e1261471a6" id="basechar-40e1261471a6"></a>
+
+```java
+public static final int BaseChar = 12;
+```
+
+RegularExpression Id.
+
+### CombiningChar <a href="#combiningchar-04353df29e46" id="combiningchar-04353df29e46"></a>
+
+```java
+public static final int CombiningChar = 14;
+```
+
+RegularExpression Id.
+
+### DEFAULT <a href="#default-5965fc85722b" id="default-5965fc85722b"></a>
+
+```java
+public static final int DEFAULT = 0;
+```
+
+Lexical state.
+
+### Digit <a href="#digit-d562fa9fa27a" id="digit-d562fa9fa27a"></a>
+
+```java
+public static final int Digit = 9;
+```
+
+RegularExpression Id.
+
+### EOF <a href="#eof-e4ab74e8c3eb" id="eof-e4ab74e8c3eb"></a>
+
+```java
+public static final int EOF = 0;
+```
+
+End of File.
+
+### EQ <a href="#eq-27379a35bac0" id="eq-27379a35bac0"></a>
+
+```java
+public static final int EQ = 7;
+```
+
+RegularExpression Id.
+
+### Extender <a href="#extender-16833fdff759" id="extender-16833fdff759"></a>
+
+```java
+public static final int Extender = 16;
+```
+
+RegularExpression Id.
+
+### FUNCTION_CURRENT <a href="#function_current-756d70c6837c" id="function_current-756d70c6837c"></a>
+
+```java
+public static final int FUNCTION_CURRENT = 30;
+```
+
+RegularExpression Id.
+
+### Ideographic <a href="#ideographic-9e9a508c5c4b" id="ideographic-9e9a508c5c4b"></a>
+
+```java
+public static final int Ideographic = 13;
+```
+
+RegularExpression Id.
 
 ### jj_nt <a href="#jj_nt-9db0740275fe" id="jj_nt-9db0740275fe"></a>
 
 ```java
-public com.tailf.conf.dbg.Token jj_nt = null;
+public com.tailf.conf.dbg.Token jj_nt;
 ```
 
-Types: [Token](Token.md#token-b7a155cc1a5e)
-
 Next token.
+
+### Letter <a href="#letter-b7da983a0a77" id="letter-b7da983a0a77"></a>
+
+```java
+public static final int Letter = 11;
+```
+
+RegularExpression Id.
+
+### Literal <a href="#literal-d5804337bb25" id="literal-d5804337bb25"></a>
+
+```java
+public static final int Literal = 8;
+```
+
+RegularExpression Id.
+
+### NCName <a href="#ncname-61cf3f5186ac" id="ncname-61cf3f5186ac"></a>
+
+```java
+public static final int NCName = 31;
+```
+
+RegularExpression Id.
+
+### Number <a href="#number-d1bd19560532" id="number-d1bd19560532"></a>
+
+```java
+public static final int Number = 10;
+```
+
+RegularExpression Id.
+
+### SLASH <a href="#slash-3c7d823f3e28" id="slash-3c7d823f3e28"></a>
+
+```java
+public static final int SLASH = 6;
+```
+
+RegularExpression Id.
 
 ### token <a href="#token-93f8344c37b8" id="token-93f8344c37b8"></a>
 
 ```java
-public com.tailf.conf.dbg.Token token = null;
+public com.tailf.conf.dbg.Token token;
 ```
-
-Types: [Token](Token.md#token-b7a155cc1a5e)
 
 Current token.
 
 ### token_source <a href="#token_source-65d526092316" id="token_source-65d526092316"></a>
 
 ```java
-public com.tailf.conf.dbg.XPathAbrevGrammarTokenManager token_source = null;
+public com.tailf.conf.dbg.XPathAbrevGrammarTokenManager token_source;
 ```
 
-Types: [XPathAbrevGrammarTokenManager](XPathAbrevGrammarTokenManager.md#xpathabrevgrammartokenmanager-88e4a4841144)
-
 Generated Token Manager.
+
+### tokenImage <a href="#tokenimage-c13f534d4471" id="tokenimage-c13f534d4471"></a>
+
+```java
+public static final String[] tokenImage;
+```
+
+Literal token values.
+
+### UnicodeDigit <a href="#unicodedigit-85441abdb275" id="unicodedigit-85441abdb275"></a>
+
+```java
+public static final int UnicodeDigit = 15;
+```
+
+RegularExpression Id.
 
 
 ## Methods
@@ -199,7 +408,7 @@ Generated Token Manager.
 ### AbbreviatedAxisSpecifier() <a href="#abbreviatedaxisspecifier-2077ffc46a36" id="abbreviatedaxisspecifier-2077ffc46a36"></a>
 
 ```java
-public final int AbbreviatedAxisSpecifier() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException
+public final int AbbreviatedAxisSpecifier()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException
 ```
 
@@ -208,7 +417,7 @@ Types: [ParseException](ParseException.md#parseexception-451af1d737ad), [ConfExc
 ### AbsoluteLocationPath() <a href="#absolutelocationpath-4e8bf87fbecb" id="absolutelocationpath-4e8bf87fbecb"></a>
 
 ```java
-public final Object AbsoluteLocationPath() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object AbsoluteLocationPath()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -225,7 +434,7 @@ Types: [ParseException](ParseException.md#parseexception-451af1d737ad)
 ### AxisSpecifier() <a href="#axisspecifier-3422df92e1f5" id="axisspecifier-3422df92e1f5"></a>
 
 ```java
-public final int AxisSpecifier() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException
+public final int AxisSpecifier()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException
 ```
 
@@ -234,7 +443,7 @@ Types: [ParseException](ParseException.md#parseexception-451af1d737ad), [ConfExc
 ### CoreFunctionCall() <a href="#corefunctioncall-bbc848cd7f68" id="corefunctioncall-bbc848cd7f68"></a>
 
 ```java
-public final Object CoreFunctionCall() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException
+public final Object CoreFunctionCall()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException
 ```
 
@@ -267,7 +476,7 @@ Enable tracing.
 ### EqualityExpr() <a href="#equalityexpr-01aa6828049d" id="equalityexpr-01aa6828049d"></a>
 
 ```java
-public final Object EqualityExpr() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object EqualityExpr()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -276,7 +485,7 @@ Types: [ParseException](ParseException.md#parseexception-451af1d737ad), [ConfExc
 ### Expression() <a href="#expression-202b8d891679" id="expression-202b8d891679"></a>
 
 ```java
-public final Object Expression() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object Expression()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -285,7 +494,7 @@ Types: [ParseException](ParseException.md#parseexception-451af1d737ad), [ConfExc
 ### FilterExpr() <a href="#filterexpr-2734d9da846d" id="filterexpr-2734d9da846d"></a>
 
 ```java
-public final Object FilterExpr() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object FilterExpr()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -294,7 +503,7 @@ Types: [ParseException](ParseException.md#parseexception-451af1d737ad), [ConfExc
 ### FunctionCall() <a href="#functioncall-b53ad6cb019a" id="functioncall-b53ad6cb019a"></a>
 
 ```java
-public final Object FunctionCall() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object FunctionCall()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -303,7 +512,7 @@ Types: [ParseException](ParseException.md#parseexception-451af1d737ad), [ConfExc
 ### FunctionName() <a href="#functionname-e065b916e82a" id="functionname-e065b916e82a"></a>
 
 ```java
-public final Object FunctionName() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object FunctionName()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -325,8 +534,6 @@ Generate ParseException.
 public final com.tailf.conf.dbg.Token getNextToken()
 ```
 
-Types: [Token](Token.md#token-b7a155cc1a5e)
-
 Get the next Token.
 
 ### getToken(int) <a href="#gettoken-dc7acf63f451" id="gettoken-dc7acf63f451"></a>
@@ -334,8 +541,6 @@ Get the next Token.
 ```java
 public final com.tailf.conf.dbg.Token getToken(int index)
 ```
-
-Types: [Token](Token.md#token-b7a155cc1a5e)
 
 Get the specific Token.
 
@@ -346,7 +551,7 @@ Get the specific Token.
 ### LocationPath() <a href="#locationpath-35ea9d0f3255" id="locationpath-35ea9d0f3255"></a>
 
 ```java
-public final Object LocationPath() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object LocationPath()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -411,7 +616,7 @@ Types: [ParseException](ParseException.md#parseexception-451af1d737ad), [ConfExc
 ### parseExpression() <a href="#parseexpression-09140d7abc03" id="parseexpression-09140d7abc03"></a>
 
 ```java
-public final Object parseExpression() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object parseExpression()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -420,7 +625,7 @@ Types: [ParseException](ParseException.md#parseexception-451af1d737ad), [ConfExc
 ### PathExpr() <a href="#pathexpr-2e73edb0ff0c" id="pathexpr-2e73edb0ff0c"></a>
 
 ```java
-public final Object PathExpr() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object PathExpr()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -429,7 +634,7 @@ Types: [ParseException](ParseException.md#parseexception-451af1d737ad), [ConfExc
 ### Predicate() <a href="#predicate-c03c201960b0" id="predicate-c03c201960b0"></a>
 
 ```java
-public final Object Predicate() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object Predicate()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -438,7 +643,7 @@ Types: [ParseException](ParseException.md#parseexception-451af1d737ad), [ConfExc
 ### PrimaryExpr() <a href="#primaryexpr-1e465f74325b" id="primaryexpr-1e465f74325b"></a>
 
 ```java
-public final Object PrimaryExpr() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object PrimaryExpr()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -447,7 +652,7 @@ Types: [ParseException](ParseException.md#parseexception-451af1d737ad), [ConfExc
 ### QName() <a href="#qname-7107ceb3aca9" id="qname-7107ceb3aca9"></a>
 
 ```java
-public final Object QName() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object QName()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -456,7 +661,7 @@ Types: [ParseException](ParseException.md#parseexception-451af1d737ad), [ConfExc
 ### QName_Without_CoreFunctions() <a href="#qname_without_corefunctions-158727e2e312" id="qname_without_corefunctions-158727e2e312"></a>
 
 ```java
-public final Object QName_Without_CoreFunctions() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object QName_Without_CoreFunctions()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -505,8 +710,6 @@ Reinitialise.
 public void ReInit(com.tailf.conf.dbg.XPathAbrevGrammarTokenManager tm)
 ```
 
-Types: [XPathAbrevGrammarTokenManager](XPathAbrevGrammarTokenManager.md#xpathabrevgrammartokenmanager-88e4a4841144)
-
 Reinitialise.
 
 **Parameters**
@@ -516,7 +719,7 @@ Reinitialise.
 ### RelationalExpr() <a href="#relationalexpr-1f528ea442a1" id="relationalexpr-1f528ea442a1"></a>
 
 ```java
-public final Object RelationalExpr() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object RelationalExpr()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -525,7 +728,7 @@ Types: [ParseException](ParseException.md#parseexception-451af1d737ad), [ConfExc
 ### RelativeLocationPath() <a href="#relativelocationpath-dddce07a8f49" id="relativelocationpath-dddce07a8f49"></a>
 
 ```java
-public final Object RelativeLocationPath() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object RelativeLocationPath()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
@@ -554,14 +757,8 @@ Trace enabled.
 ### WildcardName() <a href="#wildcardname-8dffbb9f4b24" id="wildcardname-8dffbb9f4b24"></a>
 
 ```java
-public final Object WildcardName() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
+public final Object WildcardName()
     throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
 ```
 
 Types: [ParseException](ParseException.md#parseexception-451af1d737ad), [ConfException](../ConfException.md#confexception-baeaab99f7f9)
-
-
-## Nested Types
-
-- [JJCalls](XPathAbrevGrammar/JJCalls.md#jjcalls-1cdac36bbc39)
-- [MyCompiler](XPathAbrevGrammar/MyCompiler.md#mycompiler-143644d69d61)

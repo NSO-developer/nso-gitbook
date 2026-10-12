@@ -16,10 +16,6 @@ Provides a Java representation of E integral types.
 - [ConfEUShort\(ConfInputStream\)](#confeushort-ad7e7e5b6889)
 - [ConfEUShort\(short\)](#confeushort-3d6adcb58c0d)
 
-**Fields**:
-
-- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
-
 **Methods**:
 
 - [byteValue\(\)](ConfELong.md#bytevalue-a56aac956c5c) from ConfELong
@@ -58,10 +54,10 @@ Create an E integer from a stream containing an integer encoded in E
 
 **Throws**
 
-- `ConfEDecodeException` - if the buffer does not contain a valid external
-                representation of an E integer.
-- `ConfERangeException` - if the value is too large to be represented as a short, or
-                the value is negative.
+- `com.tailf.proto.ConfEDecodeException` - if the buffer does not contain a valid external
+representation of an E integer.
+- `com.tailf.proto.ConfERangeException` - if the value is too large to be represented as a short, or
+the value is negative.
 
 ### ConfEUShort(short) <a href="#confeushort-3d6adcb58c0d" id="confeushort-3d6adcb58c0d"></a>
 
@@ -79,15 +75,4 @@ Create an E integer from the given value.
 
 **Throws**
 
-- `ConfERangeException` - if the value is negative.
-
-
-## Fields
-
-### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
-
-**Package-private**
-
-```java
-static final long serialVersionUID = 300370950578307246;
-```
+- `com.tailf.proto.ConfERangeException` - if the value is negative.

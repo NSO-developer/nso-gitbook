@@ -8,19 +8,16 @@ public class com.tailf.ncs.alarmman.producer.AlarmSinkCentral
 An `AlarmSinkCentral` represent a central "proxy"
  for created `AlarmSink`'s.
 
- When `AlarmSink`'s is created ( with the default
+When `AlarmSink`'s is created ( with the default
  constructor ), they are attched to the `AlarmSinkCentral`
  singleton instance which writes alarms directly into the
  alarm list on behalf of the attached `AlarmSink` instances.
 
  The benefit of using the `AlarmSinkCentral` is:
 
-
 - User do not need to create Cdb objects when creating
- `AlarmSink`
+   `AlarmSink`
 - Possible to buffer alarms for faster throughput.
-
-
 
  **NOTE:** A `AlarmSinkCentral` is available
  in NCS JVM.
@@ -91,8 +88,8 @@ Creates an NCS alarm sink.
 - `com.tailf.maapi.Maapi maapi` - the Maapi instance used to write alarm info
 - `int alarmBufSize` - the size of the alarm buffer
 - `long alarmBufTimeout` - timeout in seconds after which the buffer
-                        will be submitted if there are no new alarms
-                        in the queue
+will be submitted if there are no new alarms
+in the queue
 
 
 ## Fields
@@ -100,7 +97,7 @@ Creates an NCS alarm sink.
 ### legacyCdb <a href="#legacycdb-3cfd1fe66d3d" id="legacycdb-3cfd1fe66d3d"></a>
 
 ```java
-protected com.tailf.cdb.Cdb legacyCdb = null;
+protected com.tailf.cdb.Cdb legacyCdb;
 ```
 
 Types: [Cdb](../../../cdb/Cdb.md#cdb-cb7fc41768c9)

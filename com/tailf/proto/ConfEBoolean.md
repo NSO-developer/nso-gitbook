@@ -21,7 +21,6 @@ Provides a Java representation of E booleans, which are special cases of
 **Fields**:
 
 - [MAX\_ATOM\_LENGTH](ConfEAtom.md#max_atom_length-b3ed4a748361) from ConfEAtom
-- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
 
 **Methods**:
 
@@ -67,16 +66,5 @@ Create a boolean from a stream containing an atom encoded in E external
 
 **Throws**
 
-- `ConfEDecodeException` - if the buffer does not contain a valid external
-                representation of an E atom.
-
-
-## Fields
-
-### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
-
-**Package-private**
-
-```java
-static final long serialVersionUID = 1087178844844988393;
-```
+- `com.tailf.proto.ConfEDecodeException` - if the buffer does not contain a valid external
+representation of an E atom.

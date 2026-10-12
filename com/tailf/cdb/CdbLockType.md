@@ -7,35 +7,27 @@ public enum com.tailf.cdb.CdbLockType
 DB lock type flag for *Cdb Sessions* which controls locking of
  sessions.
 
-
- `LOCK_SESSION` or `LOCK REQUESTS`
+`LOCK_SESSION` or `LOCK REQUESTS`
  are mutually exclusive and  controls if the lock should be held for the
  complete session or for each request respectively.
 
-
-
- `LOCK_WAIT` can be combined with either
+`LOCK_WAIT` can be combined with either
  `LOCK_SESSION` or `LOCK_REQUEST `
  to control if lock requests should block and wait for lock. Default
  behavior is to fail if lock cannot be obtained.
 
-
-
- `LOCK_PARTIAL` can be combined
+`LOCK_PARTIAL` can be combined
  with `LOCK_REQUEST` to control the lock to hold only for
  the subtree from the point of access for the request.
  Default behavior is that the complete CDB database is locked.
 
-
-
- Locks are combined using EnumSet
+Locks are combined using EnumSet
  for example as
 
-
 ```
-  EnumSet<CdbLockType> eSet = EnumSet.of(CdbLockType.LOCK_REQUEST,
-                                         CdbLockType.LOCK_PARTIAL,
-                                         CdbLockType.LOCK_WAIT);
+ EnumSet<CdbLockType> eSet = EnumSet.of(CdbLockType.LOCK_REQUEST,
+                                        CdbLockType.LOCK_PARTIAL,
+                                        CdbLockType.LOCK_WAIT);
 ```
 
 ## Members

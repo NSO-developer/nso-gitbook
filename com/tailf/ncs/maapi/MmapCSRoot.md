@@ -11,10 +11,6 @@ mmap version of CSRoot.
 
 ## Members
 
-**Constructors**:
-
-- [MmapCSRoot\(MmapSchemaFactory, Level, int, int, String, Reader, int, CSSchema, List\<CSNode\>\)](#mmapcsroot-5f1a8bedf3a1)
-
 **Fields**:
 
 - [firstChild](../../maapi/MaapiSchemas/CSNode.md#firstchild-0586a0455621) from CSNode
@@ -28,7 +24,6 @@ mmap version of CSRoot.
 - [equals\(Object\)](../../maapi/MaapiSchemas/CSNode.md#equals-fcd6492e0d6c) from CSNode
 - [getChild\(int\)](MmapCSNode.md#getchild-65485672c186) from MmapCSNode
 - [getChild\(int, int\)](MmapCSNode.md#getchild-689133990b1b) from MmapCSNode
-- [getChildIdx\(\)](MmapCSNode.md#getchildidx-4d2ec6d906ee) from MmapCSNode
 - [getChildren\(\)](MmapCSNode.md#getchildren-fe2038dff10d) from MmapCSNode
 - [getChildren\(List\<String\>\)](../../maapi/MaapiSchemas/CSNode.md#getchildren-41cf83dd1b0d) from CSNode
 - [getChoices\(\)](../../maapi/MaapiSchemas/CSNode.md#getchoices-818fb3fccb86) from CSNode
@@ -36,7 +31,6 @@ mmap version of CSRoot.
 - [getFirstChild\(\)](MmapCSNode.md#getfirstchild-710377dd9fb6) from MmapCSNode
 - [getKey\(int\)](../../maapi/MaapiSchemas/CSNode.md#getkey-11aad55949c3) from CSNode
 - [getKeys\(\)](../../maapi/MaapiSchemas/CSNode.md#getkeys-a24b9d377db7) from CSNode
-- [getLevel\(\)](MmapCSNode.md#getlevel-28ca1b08d456) from MmapCSNode
 - [getMaxOccurs\(\)](../../maapi/MaapiSchemas/CSNode.md#getmaxoccurs-365e8c5a408f) from CSNode
 - [getMinOccurs\(\)](../../maapi/MaapiSchemas/CSNode.md#getminoccurs-cac79959dff8) from CSNode
 - [getNextSibling\(\)](#getnextsibling-e2f43ef28bf0)
@@ -82,41 +76,6 @@ mmap version of CSRoot.
 - [printNodeType\(\)](../../maapi/MaapiSchemas/CSNode.md#printnodetype-6ac11a229979) from CSNode
 - [toString\(\)](../../maapi/MaapiSchemas/CSNode.md#tostring-e9d48c5503ef) from CSNode
 
-## Constructors
-
-### MmapCSRoot(MmapSchemaFactory, Level, int, int, String, Reader, int, CSSchema, List&lt;CSNode&gt;) <a href="#mmapcsroot-5f1a8bedf3a1" id="mmapcsroot-5f1a8bedf3a1"></a>
-
-**Package-private**
-
-```java
-MmapCSRoot(
-    com.tailf.ncs.maapi.MmapSchemaFactory mmapSchemaFactory,
-    com.tailf.ncs.maapi.MmapSchema.Level level,
-    int childIdx,
-    int tagHash,
-    String tag,
-    com.tailf.ncs.maapi.Schema.Cs.Reader csr,
-    int csIdx,
-    com.tailf.maapi.MaapiSchemas.CSSchema schema,
-    java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> siblings
-)
-```
-
-Types: [MmapSchemaFactory](MmapSchemaFactory.md#mmapschemafactory-d8c770e838b5), [Level](MmapSchema/Level.md#level-1f9faf6c902d), [Reader](Schema/Cs/Reader.md#reader-b2467a96ddff), [CSSchema](../../maapi/MaapiSchemas/CSSchema.md#csschema-f51a58180f67), [CSNode](../../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
-
-**Parameters**
-
-- `com.tailf.ncs.maapi.MmapSchemaFactory mmapSchemaFactory`
-- `com.tailf.ncs.maapi.MmapSchema.Level level`
-- `int childIdx`
-- `int tagHash`
-- `String tag`
-- `com.tailf.ncs.maapi.Schema.Cs.Reader csr`
-- `int csIdx`
-- `com.tailf.maapi.MaapiSchemas.CSSchema schema`
-- `java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> siblings`
-
-
 ## Methods
 
 ### getNextSibling() <a href="#getnextsibling-e2f43ef28bf0" id="getnextsibling-e2f43ef28bf0"></a>
@@ -135,9 +94,16 @@ public com.tailf.maapi.MaapiSchemas.CSNode getSibling(int tagHash)
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 
+*Description from* [`CSNode.getSibling(int)`](../../maapi/MaapiSchemas/CSNode.md#getsibling-d70180ff4183)
+
+Retrieves sibling with specified tag or null
+ if no sibling exists.
+
 **Parameters**
 
 - `int tagHash`
+
+**Returns:** a node
 
 ### getSiblings() <a href="#getsiblings-f467dd8b6a33" id="getsiblings-f467dd8b6a33"></a>
 
@@ -146,3 +112,13 @@ public java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> getSiblings()
 ```
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
+
+*Description from* [`CSNode.getSiblings()`](../../maapi/MaapiSchemas/CSNode.md#getsiblings-f467dd8b6a33)
+
+Retrieves siblings for this node as List or null
+ if no siblings exists.
+
+Includes the current node in the List.
+
+**Returns:** List of sibling nodes including the current (this)
+ node

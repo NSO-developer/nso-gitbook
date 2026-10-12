@@ -7,8 +7,7 @@ public interface com.tailf.dp.DpDataFindNextIterator
 
 Extended Iterator interface used to get `findNext` functionality.
 
-
- This class is expected to be the return value of the
+This class is expected to be the return value of the
  DP Data Provider method
  [`DpDataCallback#iterator(DpTrans, ConfObject[], ConfFindNextType,
  ConfKey)`](DpDataCallback.md#iterator-5d250fbe6a8b)
@@ -31,7 +30,7 @@ Extended Iterator interface used to get `findNext` functionality.
 ### findNext(DpTrans, ConfObject[], ConfFindNextType, ConfKey) <a href="#findnext-76a998cf9bff" id="findnext-76a998cf9bff"></a>
 
 ```java
-public abstract Object findNext(
+Object findNext(
     com.tailf.dp.DpTrans trans,
     com.tailf.conf.ConfObject[] kp,
     com.tailf.conf.ConfFindNextType type,

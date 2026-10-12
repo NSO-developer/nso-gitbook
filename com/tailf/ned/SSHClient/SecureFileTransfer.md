@@ -21,52 +21,52 @@ SSHCLient file transfer interface
 ### get(String) <a href="#get-e86cd4d90bf3" id="get-e86cd4d90bf3"></a>
 
 ```java
-public abstract String get(String file) throws java.io.IOException
+String get(String file) throws java.io.IOException
 ```
 
 Get a file from a remote peer.
 
 **Parameters**
 
-- `String file` - - File name including path
+- `String file` - \- File name including path
 
 **Returns:** A string with the file content
 
 **Throws**
 
-- `IOException`
+- `java.io.IOException`
 
 ### put(String, String) <a href="#put-5593beca1d56" id="put-5593beca1d56"></a>
 
 ```java
-public default void put(String buffer, String file) throws java.io.IOException
+default void put(String buffer, String file) throws java.io.IOException
 ```
 
 Put a file with default permissions on a remote peer.
 
 **Parameters**
 
-- `String buffer` - - The content to put in the remote file
-- `String file` - - The remote file name including path.
+- `String buffer` - \- The content to put in the remote file
+- `String file` - \- The remote file name including path.
 
 **Throws**
 
-- `IOException`
+- `java.io.IOException`
 
 ### put(String, String, int) <a href="#put-cd56c61d877c" id="put-cd56c61d877c"></a>
 
 ```java
-public abstract void put(String buffer, String file, int mode) throws java.io.IOException
+void put(String buffer, String file, int mode) throws java.io.IOException
 ```
 
 Put a file on a remote peer.
 
 **Parameters**
 
-- `String buffer` - - The content to put in the remote file
-- `String file` - - The remote file name including path.
-- `int mode` - - File permissions
+- `String buffer` - \- The content to put in the remote file
+- `String file` - \- The remote file name including path.
+- `int mode` - \- File permissions
 
 **Throws**
 
-- `IOException`
+- `java.io.IOException`

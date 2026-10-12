@@ -7,10 +7,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsValue.Reader
 
 ## Members
 
-**Constructors**:
-
-- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
-
 **Methods**:
 
 - [getBinary\(\)](#getbinary-f332a896a1bb)
@@ -138,33 +134,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsValue.Reader
 - [isXmlMoveFirst\(\)](#isxmlmovefirst-7c07b98bd060)
 - [isXmltag\(\)](#isxmltag-da0707b0ae43)
 - [which\(\)](#which-0b2d23db5ed0)
-
-## Constructors
-
-### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
-
-**Package-private**
-
-```java
-Reader(
-    org.capnproto.SegmentReader segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount,
-    int nestingLimit
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentReader segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-- `int nestingLimit`
-
 
 ## Methods
 

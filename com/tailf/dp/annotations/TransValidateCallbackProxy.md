@@ -103,7 +103,7 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 **Throws**
 
-- `DpCallbackException`
+- `com.tailf.dp.DpCallbackException`
 
 ### init(DpTrans) <a href="#init-16fe8657859c" id="init-16fe8657859c"></a>
 

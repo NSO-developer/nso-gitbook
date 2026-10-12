@@ -153,14 +153,13 @@ public int getDatastore()
 
 Name of the datastore for which the transaction is started:
 
-
 - [`Conf#DB_NONE`](../conf/Conf.md#db_none-5069c3fe4466)
-   - [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
-     - [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28)
-       - [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486)
-         - [`Conf#DB_OPERATIONAL`](../conf/Conf.md#db_operational-0d12377eea71)
-           - [`Conf#DB_PRE_COMMIT_RUNNING`](../conf/Conf.md#db_pre_commit_running-0244b447e03f)
-             - [`Conf#DB_INTENDED`](../conf/Conf.md#db_intended-3fa310253bdb)
+- [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
+- [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28)
+- [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486)
+- [`Conf#DB_OPERATIONAL`](../conf/Conf.md#db_operational-0d12377eea71)
+- [`Conf#DB_PRE_COMMIT_RUNNING`](../conf/Conf.md#db_pre_commit_running-0244b447e03f)
+- [`Conf#DB_INTENDED`](../conf/Conf.md#db_intended-3fa310253bdb)
 
 ### getDatastoreStr() <a href="#getdatastorestr-c8f9783fbc77" id="getdatastorestr-c8f9783fbc77"></a>
 
@@ -259,7 +258,7 @@ public String getTraceId()
 ```
 
 Per request unique trace id, included in headers and
-       entries for relevant logs.
+entries for relevant logs.
 
 ### getTransactionId() <a href="#gettransactionid-c986b15287a0" id="gettransactionid-c986b15287a0"></a>
 
@@ -274,8 +273,3 @@ Transaction id.
 ```java
 public String toString()
 ```
-
-
-## Nested Types
-
-- [ProgressEventType](ProgressNotification/ProgressEventType.md#progresseventtype-502fa6a49262)

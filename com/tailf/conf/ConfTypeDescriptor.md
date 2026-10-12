@@ -11,15 +11,13 @@ Conf value type descriptor. This class is used to represent the type of an
  arbitrary Conf value. It also contains helper methods to create ConfValue
  classes from String representations
 
- *
+ \*
 
- Example:
-
-
+Example:
 
 ```
- ConfTypeDescriptor typeDesc = new ConfTypeDescriptor(ConfObject.J_BUF);
- ConfBuf buf = (ConfBuf) typeDesc.newInstance(Hello);
+ConfTypeDescriptor typeDesc = new ConfTypeDescriptor(ConfObject.J_BUF);
+ConfBuf buf = (ConfBuf) typeDesc.newInstance("Hello");
 ```
 
 ## Members
@@ -83,7 +81,6 @@ Conf value type descriptor. This class is used to represent the type of an
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
 - [decode\(ConfEObject, String\)](ConfObject.md#decode-9b92f1de40d8) from ConfObject
@@ -108,7 +105,7 @@ Constructor for ConfTypeDescriptor class
 **Parameters**
 
 - `int type` - int representation for ConfValue type
-            [`ConfObject`](ConfObject.md#confobject-5433616953b2)
+[`ConfObject`](ConfObject.md#confobject-5433616953b2)
 
 
 ## Methods
@@ -127,9 +124,16 @@ Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
 public boolean equals(Object o)
 ```
 
+*Description from* [`ConfObject.equals(Object)`](ConfObject.md#equals-fcd6492e0d6c)
+
+Determine if two Conf objects are equal. In general, Conf objects are
+ equal if the components they consist of are equal.
+
 **Parameters**
 
-- `Object o`
+- `Object o` - the object to compare to.
+
+**Returns:** true if the objects are identical.
 
 ### getConfTypeDescriptor(ConfObject) <a href="#getconftypedescriptor-4b309980c132" id="getconftypedescriptor-4b309980c132"></a>
 
@@ -145,7 +149,7 @@ Generates a ConfTypeDescriptor representing the type of a specified
 **Parameters**
 
 - `com.tailf.conf.ConfObject o` - ConfObject instance from which a ConfTypeDescriptor should be
-            generated
+generated
 
 **Returns:** the ConfTypeDescriptor or null if ConfObject is of unknown type
 
@@ -156,7 +160,7 @@ public int getType()
 ```
 
 **Returns:** int representation for ConfValue type
-         [`ConfObject`](ConfObject.md#confobject-5433616953b2)
+[`ConfObject`](ConfObject.md#confobject-5433616953b2)
 
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
@@ -183,10 +187,12 @@ Creates a new ConfValue instance of the type described by this
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
 ```java
 public String toString()
 ```
+
+**Returns:** the printable representation of the object.

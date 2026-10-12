@@ -9,20 +9,16 @@ Package with methods for connecting to the configuration database.
  CDB will also automatically release the lock if the socket is closed for
  some other reason, such as program termination.
 
-
-
 ```
- // Setup socket to server
- Socket s = new Socket(localhost, 4565);
- Cdb cdb = new Cdb(test, s);
- CdbSession session = cdb.startSession();
- session.cd(/mtest/servers/);
- ConfValue val = session.getElem(server{www}/ip);
- session.endSession();
- s.close();
+// Setup socket to server
+Socket s = new Socket("localhost", 4565);
+Cdb cdb = new Cdb("test", s);
+CdbSession session = cdb.startSession();
+session.cd("/mtest/servers/");
+ConfValue val = session.getElem("server{www}/ip");
+session.endSession();
+s.close();
 ```
-
-
 
  The CDB subscription mechanism allows an external program to be notified
  when different parts

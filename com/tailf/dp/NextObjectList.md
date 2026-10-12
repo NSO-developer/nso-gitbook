@@ -10,6 +10,10 @@ Instances of classes implementing this interface can be used as
  [`DpDataCallback#getIteratorObjectList`](DpDataCallback.md#getiteratorobjectlist-17a0707464f1)
  method.
 
+**Related classes**
+
+- [NextObjectArrayList](NextObjectArrayList.md#nextobjectarraylist-28f6c867871e)
+
 **See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
@@ -23,7 +27,7 @@ Instances of classes implementing this interface can be used as
 ### getTimeout() <a href="#gettimeout-c6606d7f7c00" id="gettimeout-c6606d7f7c00"></a>
 
 ```java
-public abstract int getTimeout()
+int getTimeout()
 ```
 
 This method is used by the library to read the timeout value (in

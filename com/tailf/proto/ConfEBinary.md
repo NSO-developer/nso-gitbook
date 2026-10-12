@@ -19,10 +19,6 @@ Provides a Java representation of E binaries. Anything that can be
 - [ConfEBinary\(Object\)](#confebinary-879efbf3bf5f)
 - [ConfEBinary\(String\)](#confebinary-d6e30703f244)
 
-**Fields**:
-
-- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
-
 **Methods**:
 
 - [binaryValue\(\)](#binaryvalue-33c968bac7b6)
@@ -67,8 +63,8 @@ Create a binary from a stream containing a binary encoded in E external
 
 **Throws**
 
-- `ConfEDecodeException` - if the buffer does not contain a valid external
-                representation of an E binary.
+- `com.tailf.proto.ConfEDecodeException` - if the buffer does not contain a valid external
+representation of an E binary.
 
 ### ConfEBinary(Object) <a href="#confebinary-879efbf3bf5f" id="confebinary-879efbf3bf5f"></a>
 
@@ -92,17 +88,6 @@ public ConfEBinary(String s)
 **Parameters**
 
 - `String s`
-
-
-## Fields
-
-### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
-
-**Package-private**
-
-```java
-static final long serialVersionUID = -3781009633593609217;
-```
 
 
 ## Methods
@@ -136,7 +121,7 @@ Convert this binary to the equivalent E external representation.
 **Parameters**
 
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded binary should be
-            written.
+written.
 
 ### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
@@ -163,7 +148,7 @@ Get the java Object from the binary. If the binary contains a serialized
  Java object, then this method will recreate the object.
 
 **Returns:** the java Object represented by this binary, or null if the binary
-         does not represent a Java Object.
+does not represent a Java Object.
 
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
@@ -198,6 +183,6 @@ public String toString()
 ```
 
 Get the string representation of this binary object. A binary is printed
- as #BinN, where N is the number of bytes contained in the object.
+ as #Bin\<N\>, where N is the number of bytes contained in the object.
 
 **Returns:** the E string representation of this binary.

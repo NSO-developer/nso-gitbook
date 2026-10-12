@@ -36,7 +36,7 @@ public CsValueIPv4Prefix()
 ### factory <a href="#factory-1649195a6f6e" id="factory-1649195a6f6e"></a>
 
 ```java
-public static final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Factory factory = null;
+public static final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Factory factory;
 ```
 
 Types: [Factory](CsValueIPv4Prefix/Factory.md#factory-1787784624e8)
@@ -44,7 +44,7 @@ Types: [Factory](CsValueIPv4Prefix/Factory.md#factory-1787784624e8)
 ### listFactory <a href="#listfactory-b96025f1568b" id="listfactory-b96025f1568b"></a>
 
 ```java
-public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder,com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Reader> listFactory = null;
+public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder,com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Reader> listFactory;
 ```
 
 Types: [Builder](CsValueIPv4Prefix/Builder.md#builder-21f09e83781d), [Reader](CsValueIPv4Prefix/Reader.md#reader-b2467a96ddff)
@@ -52,12 +52,5 @@ Types: [Builder](CsValueIPv4Prefix/Builder.md#builder-21f09e83781d), [Reader](Cs
 ### STRUCT_SIZE <a href="#struct_size-06830f6b9d3b" id="struct_size-06830f6b9d3b"></a>
 
 ```java
-public static final org.capnproto.StructSize STRUCT_SIZE = null;
+public static final org.capnproto.StructSize STRUCT_SIZE;
 ```
-
-
-## Nested Types
-
-- [Builder](CsValueIPv4Prefix/Builder.md#builder-21f09e83781d)
-- [Factory](CsValueIPv4Prefix/Factory.md#factory-1787784624e8)
-- [Reader](CsValueIPv4Prefix/Reader.md#reader-b2467a96ddff)

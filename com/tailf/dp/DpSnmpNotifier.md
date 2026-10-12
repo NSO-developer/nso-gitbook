@@ -7,84 +7,72 @@ public class com.tailf.dp.DpSnmpNotifier
 
 The application can send SNMP notifications and inform requests.
 
- This class implements SNMP notification. The purpose of this class to provide
+This class implements SNMP notification. The purpose of this class to provide
  a mechanism for sending SNMP notifications.
 
- Example: 1 - Send SNMP V1 Notification.
-
-
+Example: 1 - Send SNMP V1 Notification.
 
 ```
-  // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
-  Socket s1 = new Socket(localhost, port);
-  Dp dp1 = new Dp(snmp_MYNAME, s1);
-  // Create notification notifier.
-  // std_v1_trap must exist in notify_init.xml.
-  DpSnmpNotifier notifier1 = dp1.createSnmpNotifier(std_v1_trap,
-                                                    );
+ // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
+ Socket s1 = new Socket("localhost", port);
+ Dp dp1 = new Dp("snmp_MYNAME", s1);
+ // Create notification notifier.
+ // std_v1_trap must exist in notify_init.xml.
+ DpSnmpNotifier notifier1 = dp1.createSnmpNotifier("std_v1_trap",
+                                                   "");
 
-  // Sense a cold start notification.
-  notifier1.send(coldStart, new SnmpVarbind[] {});
+ // Sense a cold start notification.
+ notifier1.send("coldStart", new SnmpVarbind[] {});
 ```
-
-
 
  Example 2: - Send SNMP Inform Request
 
  Using the following Snmp inform response callback:
 
-
 ```
-  public class MySnmpInformResponseCallback {
+ public class MySnmpInformResponseCallback {
 
-      SnmpInformResponseCallback(callPoint = snmp_inform,
-                              callType = { SnmpInformResponseCBType.TARGETS })
-      public void targets(Integer ref, ConfETuple[] targets)
-      throws DpCallbackException {
-          // Add implementation here
-      }
+     @SnmpInformResponseCallback(callPoint = "snmp_inform",
+                             callType = { SnmpInformResponseCBType.TARGETS })
+     public void targets(Integer ref, ConfETuple[] targets)
+     throws DpCallbackException {
+         // Add implementation here
+     }
 
-      SnmpInformResponseCallback(callPoint = snmp_inform,
-                              callType = { SnmpInformResponseCBType.RESULT })
-      public void result(Integer ref, ConfETuple target, Boolean gotResponse)
-      throws DpCallbackException {
-          // Add implementation here
-      }
-  }
+     @SnmpInformResponseCallback(callPoint = "snmp_inform",
+                             callType = { SnmpInformResponseCBType.RESULT })
+     public void result(Integer ref, ConfETuple target, Boolean gotResponse)
+     throws DpCallbackException {
+         // Add implementation here
+     }
+ }
 ```
-
-
 
  We can send an Snmp inform
 
-
 ```
-  // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
-  Socket s2 = new Socket(localhost, port);
-  Dp dp2 = new Dp(snmp_MYNAME, s2);
-  // Register callback handling targets and result.
-  MySnmpInformResponseCallback myCb = new MySnmpInformResponseCallback();
+ // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
+ Socket s2 = new Socket("localhost", port);
+ Dp dp2 = new Dp("snmp_MYNAME", s2);
+ // Register callback handling targets and result.
+ MySnmpInformResponseCallback myCb = new MySnmpInformResponseCallback();
 
-  // Create notification notifier. std_v2_notification must exist in
-  // notify_init.xml and support V2
-  DpSnmpNotifier notifier2 =
-      dp2.createSnmpNotifier(std_v2_notification,
-                             , myCb);
-  // Send SNMP inform request.
-  // notif1 must exist in a MIB in the configuration.
-  notifier2.send(notif,
-                 new SnmpVarbind[] {
-                 new SnmpVarbind(Integer32, new ConfInt32(32))},
-                 10);
+ // Create notification notifier. std_v2_notification must exist in
+ // notify_init.xml and support V2
+ DpSnmpNotifier notifier2 =
+     dp2.createSnmpNotifier("std_v2_notification",
+                            "", myCb);
+ // Send SNMP inform request.
+ // notif1 must exist in a MIB in the configuration.
+ notifier2.send("notif",
+                new SnmpVarbind[] {
+                new SnmpVarbind("Integer32", new ConfInt32(32))},
+                10);
 ```
 
 **Since:** 3.2.0
 
 ## Members
-
-**Constructors**:
-
-- [DpSnmpNotifier\(String, String, DpSnmpInformResponseCallback, Socket\)](#dpsnmpnotifier-d883475eb7e7)
 
 **Methods**:
 
@@ -98,36 +86,6 @@ The application can send SNMP notifications and inform requests.
 - [setFD\(int\)](#setfd-501c97b6d464)
 - [setSocket\(Socket\)](#setsocket-183068848e4c)
 - [setSourceAddress\(ConfIP\)](#setsourceaddress-a903bc69b65e)
-
-## Constructors
-
-### DpSnmpNotifier(String, String, DpSnmpInformResponseCallback, Socket) <a href="#dpsnmpnotifier-d883475eb7e7" id="dpsnmpnotifier-d883475eb7e7"></a>
-
-**Package-private**
-
-```java
-DpSnmpNotifier(
-    String notifyName,
-    String contextName,
-    com.tailf.dp.DpSnmpInformResponseCallback informCb,
-    java.net.Socket socket
-)
-```
-
-Types: [DpSnmpInformResponseCallback](DpSnmpInformResponseCallback.md#dpsnmpinformresponsecallback-bd4d651a8d7b)
-
-This constructor will initialize the DpSnmpNotifier class.
-
-**Parameters**
-
-- `String notifyName` - the notify_init.xml notify name.
-- `String contextName` - SNMP-NOTIFICATION-MIB context.
-- `com.tailf.dp.DpSnmpInformResponseCallback informCb` - the inform callback to be used. null if no callback is
-            provided.
-- `java.net.Socket socket`
-
-**Since:** 3.2.0
-
 
 ## Methods
 
@@ -198,8 +156,8 @@ Send SNMP notification. Sends a notification to the management targets
 **Parameters**
 
 - `String notification` - is the notification name. For example "coldStart" or
-            "warmStart". This symbolic name of a notification must be
-            defined in a MIB that is loaded into the agent.
+"warmStart". This symbolic name of a notification must be
+defined in a MIB that is loaded into the agent.
 - `com.tailf.conf.SnmpVarbind[] varbinds` - An array of variable bindings
 
 **Since:** 3.2.0
@@ -229,12 +187,12 @@ Send SNMP notification with the option to receive an Inform Response.
 **Parameters**
 
 - `String notification` - is the notification name. For example "coldStart" or
-            "warmStart". This symbolic name of a notification must be
-            defined in a MIB that is loaded into the agent.
+"warmStart". This symbolic name of a notification must be
+defined in a MIB that is loaded into the agent.
 - `com.tailf.conf.SnmpVarbind[] varbinds` - an array of variable bindings
 - `Integer ref` - a reference provided by the caller. This reference is provided
-            provided in the callback methods on
-            [`DpSnmpInformResponseCallback`](DpSnmpInformResponseCallback.md#dpsnmpinformresponsecallback-bd4d651a8d7b)
+provided in the callback methods on
+[`DpSnmpInformResponseCallback`](DpSnmpInformResponseCallback.md#dpsnmpinformresponsecallback-bd4d651a8d7b)
 
 **Since:** 3.2.0
 

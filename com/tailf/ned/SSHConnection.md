@@ -199,18 +199,18 @@ public synchronized ch.ethz.ssh2.ConnectionInfo connect(
 
 Overridden connect method
  see ch.ethz.ssh2.Connection.connect(ServerHostKeyVerifier verifier,
-                                     int connectTimeout,
-                                     int kexTimeout)
+int connectTimeout,
+int kexTimeout)
 
 **Parameters**
 
 - `ch.ethz.ssh2.ServerHostKeyVerifier verifier` - ServerHostKeyVerifier is ignored - host key
-        verification will be carried out in accordance with the
-        configuration for this device in NCS.
+verification will be carried out in accordance with the
+configuration for this device in NCS.
 - `int connectTimeout` - Connect timeout in milliseconds, Zero means no
-        timeout
+timeout
 - `int kexTimeout` - Key exchange timeout in milliseconds, Zero means no
-        timeout
+timeout
 
  This method also handles authentication via the password/public key set
  for the remote user.

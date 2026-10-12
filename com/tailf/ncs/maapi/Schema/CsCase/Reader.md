@@ -7,10 +7,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsCase.Reader
 
 ## Members
 
-**Constructors**:
-
-- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
-
 **Methods**:
 
 - [getChoices\(\)](#getchoices-818fb3fccb86)
@@ -19,33 +15,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsCase.Reader
 - [getNodes\(\)](#getnodes-0d0e9b3adfd1)
 - [hasChoices\(\)](#haschoices-6534dc5f2f55)
 - [hasNodes\(\)](#hasnodes-0c3a4b7d62ab)
-
-## Constructors
-
-### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
-
-**Package-private**
-
-```java
-Reader(
-    org.capnproto.SegmentReader segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount,
-    int nestingLimit
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentReader segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-- `int nestingLimit`
-
 
 ## Methods
 

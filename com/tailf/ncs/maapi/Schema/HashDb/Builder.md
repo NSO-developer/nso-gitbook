@@ -7,10 +7,6 @@ public static final class com.tailf.ncs.maapi.Schema.HashDb.Builder
 
 ## Members
 
-**Constructors**:
-
-- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
-
 **Methods**:
 
 - [asReader\(\)](#asreader-b5c0f2a8d115)
@@ -18,31 +14,6 @@ public static final class com.tailf.ncs.maapi.Schema.HashDb.Builder
 - [hasEntries\(\)](#hasentries-ccf5edf194a9)
 - [initEntries\(int\)](#initentries-f2a53bc0911b)
 - [setEntries\(Reader\<Reader\>\)](#setentries-c70fb0133ac9)
-
-## Constructors
-
-### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
-
-**Package-private**
-
-```java
-Builder(
-    org.capnproto.SegmentBuilder segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentBuilder segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-
 
 ## Methods
 

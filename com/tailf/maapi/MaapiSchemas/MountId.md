@@ -22,7 +22,7 @@ public static class com.tailf.maapi.MaapiSchemas.MountId
 ### ROOT_MOUNT_ID <a href="#root_mount_id-478db221c3a5" id="root_mount_id-478db221c3a5"></a>
 
 ```java
-public static final com.tailf.maapi.MaapiSchemas.MountId ROOT_MOUNT_ID = null;
+public static final com.tailf.maapi.MaapiSchemas.MountId ROOT_MOUNT_ID;
 ```
 
 Types: [MountId](MountId.md#mountid-702a10803d00)

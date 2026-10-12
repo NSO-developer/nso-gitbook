@@ -8,43 +8,22 @@ Types: [ResultType](../ResultType.md#resulttype-1a8a08651698)
 
 Represent result entry in a XPath query.
 
- Each XPath query result contains multiple entries.
+Each XPath query result contains multiple entries.
 
-
- A entry contains a `ListE` of the result type
+A entry contains a `List<E>` of the result type
  `E` (is the same type `T` specified
  in the last parameter of
- `Maapi#queryStart(int,String,String,int,int,List,Class)`).
+ [`Maapi#queryStart(int,String,String,int,int,List,Class)`](../Maapi.md#querystart-87abe9e2ad2a)).
 
-
- Each entry in the `ListE` is the
- evaluating XPath result from the `selects` (ListT)
+Each entry in the `List<E>` is the
+ evaluating XPath result from the `selects` (List\<T\>)
  parameter in `queryStart`.
 
 ## Members
 
-**Constructors**:
-
-- [Entry\(List\<E\>\)](#entry-3c15f85e762c)
-
 **Methods**:
 
 - [value\(\)](#value-9e1512d1a0ce)
-
-## Constructors
-
-### Entry(List&lt;E&gt;) <a href="#entry-3c15f85e762c" id="entry-3c15f85e762c"></a>
-
-**Package-private**
-
-```java
-Entry(java.util.List<E> list)
-```
-
-**Parameters**
-
-- `java.util.List<E> list`
-
 
 ## Methods
 

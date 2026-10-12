@@ -73,7 +73,6 @@ DATA_CONTAINER - Corresponds to the YANG date-and-time type.
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [compareTo\(ConfDatetime\)](#compareto-43622009e5d1)
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
@@ -132,15 +131,15 @@ public ConfDatetime(
 
 **Parameters**
 
-- `int year` - -
-- `int month` - - month from 1 to 12
-- `int day` - -
-- `int hour` - -
-- `int min` - -
-- `int sec` - -
+- `int year` - \-
+- `int month` - \- month from 1 to 12
+- `int day` - \-
+- `int hour` - \-
+- `int min` - \-
+- `int sec` - \-
 - `int micro`
-- `int timezone` - - Timezone Hour in unit hours
-- `int timezoneMinutes` - - Timezone Minutes in unit minutes
+- `int timezone` - \- Timezone Hour in unit hours
+- `int timezoneMinutes` - \- Timezone Minutes in unit minutes
 
 ### ConfDatetime(String) <a href="#confdatetime-d9bfdff5ab83" id="confdatetime-d9bfdff5ab83"></a>
 
@@ -175,15 +174,26 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
 
+*Description from* [`ConfValue.encode()`](ConfValue.md#encode-fbae522bba37)
+
+encode value.
+
 ### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
 ```
 
+*Description from* [`ConfValue.equals(Object)`](ConfValue.md#equals-fcd6492e0d6c)
+
+Determine if two ConfValue are equal. In general, ConfObjects are
+ equal if the components they consist of are equal.
+
 **Parameters**
 
-- `Object o`
+- `Object o` - The object to compare to.
+
+**Returns:** true if the objects are identical.
 
 ### getConfDatetime() <a href="#getconfdatetime-4da636349f79" id="getconfdatetime-4da636349f79"></a>
 
@@ -238,7 +248,7 @@ public int getTimezone()
 ```
 
 **Returns:** The Hour timezone in hours, for example
-          02:00 will return 2 hours
+02:00 will return 2 hours
 
 ### getTimezoneMinutes() <a href="#gettimezoneminutes-b20d3de8d152" id="gettimezoneminutes-b20d3de8d152"></a>
 
@@ -247,7 +257,7 @@ public int getTimezoneMinutes()
 ```
 
 **Returns:** The Minutes timezone in minutes, for example
-         02:30 will return 30 minutes
+02:30 will return 30 minutes
 
 ### getYear() <a href="#getyear-584af4457cda" id="getyear-584af4457cda"></a>
 
@@ -272,3 +282,5 @@ public boolean isTimezoneSet()
 ```java
 public String toString()
 ```
+
+**Returns:** the printable representation of the object.

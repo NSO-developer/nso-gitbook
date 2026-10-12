@@ -106,9 +106,22 @@ Register a callback into this dp.
 public boolean reportException(Throwable e)
 ```
 
+*Description from* [`DpExceptionReporter.reportException(Throwable)`](../../dp/DpExceptionReporter.md#reportexception-f2030dd5aa98)
+
+Method called when exceptions are catched in the internal threads
+ started in the Dp.read() method.
+
+ If this callback is registered the Dp will delegate the handling
+ of the exception to this method and the returning boolean defines if
+ the Dp thread should throw a RuntimeException with the catched
+ exception as cause
+
 **Parameters**
 
-- `Throwable e`
+- `Throwable e` - the catched exception
+
+**Returns:** boolean if true the Dp thread will throw a new RuntimeException
+ with exception e as cause
 
 ### reRegister(Object) <a href="#reregister-ec513c61f987" id="reregister-ec513c61f987"></a>
 

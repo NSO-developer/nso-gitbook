@@ -12,36 +12,35 @@ DATA_CONTAINER - Corresponds to the YANG instance-identifier type.
 
  Corresponds to the YANG instance-identifier type
 
-
 ```
 
 
-    The following are examples of instance identifiers:
+   The following are examples of instance identifiers:
 
-        // instance-identifier for a container
-         /ex:system/ex:services/ex:ssh
+       // instance-identifier for a container
+        /ex:system/ex:services/ex:ssh
 
-        // instance-identifier for a leaf
-         /ex:system/ex:services/ex:ssh/ex:port
+       // instance-identifier for a leaf
+        /ex:system/ex:services/ex:ssh/ex:port
 
-       // instance-identifier for a list entry
-        /ex:system/ex:user[ex:name='fred']
+      // instance-identifier for a list entry
+       /ex:system/ex:user[ex:name='fred']
 
-        // instance-identifier for a leaf in a list entry
-     /ex:system/ex:user[ex:name='fred']/ex:type
+       // instance-identifier for a leaf in a list entry
+    /ex:system/ex:user[ex:name='fred']/ex:type
 
-        // instance-identifier for a list entry with two keys
-     /ex:system/server[ip='192.0.2.1'][port='80']/system/
-       server[ip='192.0.2.1' ex:port='80']
+       // instance-identifier for a list entry with two keys
+    /ex:system/server[ip='192.0.2.1'][port='80']/system/
+      server[ip='192.0.2.1' ex:port='80']
 
-   // instance-identifier for a leaf-list entry
-      /ex:system/ex:services/ex:ssh/ex:cipher[.='blowfish-cbc']
+  // instance-identifier for a leaf-list entry
+     /ex:system/ex:services/ex:ssh/ex:cipher[.='blowfish-cbc']
 
-      // instance-identifier for a list entry without keys
-       /ex:stats/ex:port[3]
+     // instance-identifier for a list entry without keys
+      /ex:stats/ex:port[3]
 
-       // instance-identifier for a leaf-list entry
-      /ex:system/ex:services/ex:ssh/ex:cipher[.='blowfish-cbc']
+      // instance-identifier for a leaf-list entry
+     /ex:system/ex:services/ex:ssh/ex:cipher[.='blowfish-cbc']
 ```
 
 ## Members
@@ -109,7 +108,6 @@ DATA_CONTAINER - Corresponds to the YANG instance-identifier type.
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [compareTo\(ConfObjectRef\)](#compareto-c2036e4c3394)
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
@@ -172,7 +170,7 @@ Construct a ConfObjectRef from a given Absolute ConfPath.
 
 **Throws**
 
-- `ConfException` - if the given path is relative.
+- `com.tailf.conf.ConfException` - if the given path is relative.
 
 ### ConfObjectRef(String) <a href="#confobjectref-74fd21358172" id="confobjectref-74fd21358172"></a>
 
@@ -226,15 +224,26 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
 
+*Description from* [`ConfValue.encode()`](ConfValue.md#encode-fbae522bba37)
+
+encode value.
+
 ### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
 ```
 
+*Description from* [`ConfValue.equals(Object)`](ConfValue.md#equals-fcd6492e0d6c)
+
+Determine if two ConfValue are equal. In general, ConfObjects are
+ equal if the components they consist of are equal.
+
 **Parameters**
 
-- `Object o`
+- `Object o` - The object to compare to.
+
+**Returns:** true if the objects are identical.
 
 ### getElems() <a href="#getelems-030df7d28888" id="getelems-030df7d28888"></a>
 
@@ -255,3 +264,5 @@ public int hashCode()
 ```java
 public String toString()
 ```
+
+**Returns:** the printable representation of the object.

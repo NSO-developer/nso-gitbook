@@ -9,11 +9,11 @@ Generic finite state machine
  String triplets.
 
  For example as
- FSM fsm = new FSM(new String[][] {
-                   {"BIRTH",     null,          null},
-                   {"BIRTH",     "HELLO_EVENT", "GREETINGS"},
-                   {"GREETINGS", "HELLO_EVENT", "GREETINGS"},
-                   {"GREETINGS", "BYE_EVENT",   "GOODBYE"}});
+ FSM fsm = new FSM(new String\[\]\[\] {
+{"BIRTH",     null,          null},
+{"BIRTH",     "HELLO_EVENT", "GREETINGS"},
+{"GREETINGS", "HELLO_EVENT", "GREETINGS"},
+{"GREETINGS", "BYE_EVENT",   "GOODBYE"}});
 
   The first FromState-Event-ToState triplet is the initial state
   for the FSM and no event or to-state needs to be defined for this state
@@ -43,7 +43,7 @@ Generic finite state machine
 - [event\(String\)](#event-35c2a3878e07)
 - [event\(String, Object\)](#event-c2c97f01bc7c)
 - [getCurrentStateName\(\)](#getcurrentstatename-ca0e5e591731)
-- [isState\(String\[\]\)](#isstate-fb89c494ed4d)
+- [isState\(String\.\.\.\)](#isstate-4b5ce5155983)
 - [main\(String\[\]\)](#main-1503518a8568)
 
 ## Constructors
@@ -144,17 +144,17 @@ Get current state
 
 **Returns:** current stateName
 
-### isState(String[]) <a href="#isstate-fb89c494ed4d" id="isstate-fb89c494ed4d"></a>
+### isState(String...) <a href="#isstate-4b5ce5155983" id="isstate-4b5ce5155983"></a>
 
 ```java
-public boolean isState(String[] state)
+public boolean isState(String... state)
 ```
 
 Check if current state is one of named states
 
 **Parameters**
 
-- `String[] state` - variable number if stateName to check equality
+- `String... state` - variable number if stateName to check equality
 
 **Returns:** true if current state is one of named states
 

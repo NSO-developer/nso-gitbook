@@ -16,10 +16,6 @@ Provides a Java representation of E integral types.
 - [ConfEShort\(ConfInputStream\)](#confeshort-9b2f8ff9c5b9)
 - [ConfEShort\(short\)](#confeshort-ca5228fbbb9a)
 
-**Fields**:
-
-- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
-
 **Methods**:
 
 - [byteValue\(\)](ConfELong.md#bytevalue-a56aac956c5c) from ConfELong
@@ -58,9 +54,9 @@ Create an E integer from a stream containing an integer encoded in E
 
 **Throws**
 
-- `ConfEDecodeException` - if the buffer does not contain a valid external
-                representation of an E integer.
-- `ConfERangeException` - if the value is too large to be represented as a short.
+- `com.tailf.proto.ConfEDecodeException` - if the buffer does not contain a valid external
+representation of an E integer.
+- `com.tailf.proto.ConfERangeException` - if the value is too large to be represented as a short.
 
 ### ConfEShort(short) <a href="#confeshort-ca5228fbbb9a" id="confeshort-ca5228fbbb9a"></a>
 
@@ -73,14 +69,3 @@ Create an E integer from the given value.
 **Parameters**
 
 - `short s` - the short value to use.
-
-
-## Fields
-
-### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
-
-**Package-private**
-
-```java
-static final long serialVersionUID = 7162345156603088099;
-```

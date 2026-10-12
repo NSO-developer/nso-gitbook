@@ -223,6 +223,7 @@ Default path for NCS Local IPC (Unix domain socket).
 ### NCS_PORT <a href="#ncs_port-a3ad2496735b" id="ncs_port-a3ad2496735b"></a>
 
 ```java
+@Deprecated(since="6.7", forRemoval=true)
 public static final int NCS_PORT = 4569;
 ```
 
@@ -349,7 +350,7 @@ public static String kpToString(com.tailf.conf.ConfObject[] kp)
 
 Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
 
-Converts a keypath Object[] kp into a string.
+Converts a keypath Object\[\] kp into a string.
  A keypath is an array of either ConfTag or ConfKey objects.
  Mostly used for debugging keypaths.
  Notice that a keypath array is always reversed,

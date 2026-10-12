@@ -56,8 +56,8 @@ Creates a notification describing a Call Home event.
 
 **Parameters**
 
-- `int infoType` - one of the CALL_HOME_* constants indicating the event
-        type
+- `int infoType` - one of the CALL_HOME\_\* constants indicating the event
+type
 - `String device` - device name (present for connected/disconnected events)
 - `java.net.InetAddress ip` - remote IP address of the connection
 - `com.tailf.conf.ConfObject ipValue` - ConfObject representing the IP (supports both v4/v6)
@@ -113,10 +113,9 @@ public int getInfoType()
 
 Info type:
 
-
 - [`CALL_HOME_DEVICE_CONNECTED`](CallHomeInfoNotification.md#call_home_device_connected-deac5719fac8)
-   - [`CALL_HOME_UNKNOWN_DEVICE`](CallHomeInfoNotification.md#call_home_unknown_device-b75ce9edca85)
-     - [`CALL_HOME_DEVICE_DISCONNECTED`](CallHomeInfoNotification.md#call_home_device_disconnected-7a5953fa30bd)
+- [`CALL_HOME_UNKNOWN_DEVICE`](CallHomeInfoNotification.md#call_home_unknown_device-b75ce9edca85)
+- [`CALL_HOME_DEVICE_DISCONNECTED`](CallHomeInfoNotification.md#call_home_device_disconnected-7a5953fa30bd)
 
 **Returns:** info type constant
 

@@ -9,8 +9,7 @@ Types: [ConfPath](ConfPath.md#confpath-327831c6fc7d)
 
 Class Representing a KeyPath path.
 
-
- This is a simplified variant of [`ConfPath`](ConfPath.md#confpath-327831c6fc7d) for use with
+This is a simplified variant of [`ConfPath`](ConfPath.md#confpath-327831c6fc7d) for use with
  [`CdbUpgradeSession`](../cdb/CdbUpgradeSession.md#cdbupgradesession-a832ac9abf0d).
  During a cdb upgrade, it may be necessary to migrate data from nodes that
  are about to be deleted. As these nodes are not present in the maapi
@@ -25,7 +24,7 @@ Class Representing a KeyPath path.
 **Constructors**:
 
 - [ConfCdbUpgradePath\(List\<PathElement\>\)](#confcdbupgradepath-f58f3d6a1fe9)
-- [ConfCdbUpgradePath\(String, Object\[\]\)](#confcdbupgradepath-f5d885884ea7)
+- [ConfCdbUpgradePath\(String, Object\.\.\.\)](#confcdbupgradepath-47756f2aaa95)
 
 **Fields**:
 
@@ -85,10 +84,10 @@ Types: [PathElement](gen/PathParser/PathElement.md#pathelement-30082145995b)
 
 - `java.util.List<com.tailf.conf.gen.PathParser.PathElement> pl`
 
-### ConfCdbUpgradePath(String, Object[]) <a href="#confcdbupgradepath-f5d885884ea7" id="confcdbupgradepath-f5d885884ea7"></a>
+### ConfCdbUpgradePath(String, Object...) <a href="#confcdbupgradepath-47756f2aaa95" id="confcdbupgradepath-47756f2aaa95"></a>
 
 ```java
-public ConfCdbUpgradePath(String fmt, Object[] arguments) throws com.tailf.conf.ConfException
+public ConfCdbUpgradePath(String fmt, Object... arguments) throws com.tailf.conf.ConfException
 ```
 
 Types: [ConfException](ConfException.md#confexception-baeaab99f7f9)
@@ -96,7 +95,7 @@ Types: [ConfException](ConfException.md#confexception-baeaab99f7f9)
 **Parameters**
 
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 
 ## Methods
@@ -113,7 +112,7 @@ Appends suffix path to existing keypath
 
 **Parameters**
 
-- `String s`
+- `String s` - path to append
 
 ### clone() <a href="#clone-164c86c45e9b" id="clone-164c86c45e9b"></a>
 
@@ -157,3 +156,5 @@ public String toXPathString()
 A ConfCdbUpgradePath cannot be converted to an xpath string as this
  requires access to the schema. This method will always throw an
  exception.
+
+**Returns:** XPath string representation

@@ -6,6 +6,10 @@ public interface com.tailf.dp.DpValpointCallback
 
 This interface is used for the user valpoint callbacks.
 
+**Related classes**
+
+- [ValidateCallbackProxy](annotations/ValidateCallbackProxy.md#validatecallbackproxy-5b4cc6884dc1)
+
 **See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
@@ -20,7 +24,7 @@ This interface is used for the user valpoint callbacks.
 ### validate(DpTrans, ConfObject[], ConfValue) <a href="#validate-1a546d06dca5" id="validate-1a546d06dca5"></a>
 
 ```java
-public abstract void validate(
+void validate(
     com.tailf.dp.DpTrans trans,
     com.tailf.conf.ConfObject[] kp,
     com.tailf.conf.ConfValue newval
@@ -40,7 +44,7 @@ The validate() callback should validate the values and throw a
  interactively present the user with a choice - whereby the transaction
  can be aborted.
 
- If the transaction originates from NETCONF - which does not have any
+If the transaction originates from NETCONF - which does not have any
  interactive capabilities, the warnings are ignored. The warnings are
  primarily intended to alert inexperienced users that attempt to make -
  dangerous - configuration changes. There can be multiple warnings from
@@ -54,14 +58,14 @@ The validate() callback should validate the values and throw a
 
 **Throws**
 
-- `DpCallbackException` - If the validation fails
-- `DpCallbackWarningException` - If a warning should be propagated to the originator of the
-             transaction.
+- `com.tailf.dp.DpCallbackException` - If the validation fails
+- `com.tailf.dp.DpCallbackWarningException` - If a warning should be propagated to the originator of the
+transaction.
 
 ### valpoint() <a href="#valpoint-a064c4954648" id="valpoint-a064c4954648"></a>
 
 ```java
-public abstract String valpoint()
+String valpoint()
 ```
 
 The name of the valpoint.

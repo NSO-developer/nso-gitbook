@@ -12,10 +12,6 @@ A `NavuList` holds this representation of a entry as its
 
 ## Members
 
-**Constructors**:
-
-- [NavuListEntry\(NavuContext, CSNode, NavuNode, ConfKey, String, Object\[\]\)](#navulistentry-6558a2da572b)
-
 **Fields**:
 
 - [arguments](NavuNode.md#arguments-28ffa3c54d2c) from NavuNode
@@ -28,7 +24,6 @@ A `NavuList` holds this representation of a entry as its
 - [isCreated](NavuContainer.md#iscreated-783ec1e767bb) from NavuContainer
 - [isRefreshed](NavuContainer.md#isrefreshed-17594a091fc4) from NavuContainer
 - [isRootModulesPopulated](NavuContainer.md#isrootmodulespopulated-1578b44f189f) from NavuContainer
-- [key](NavuContainer.md#key-41a461f20bc2) from NavuContainer
 - [map](NavuContainer.md#map-7fec112b12da) from NavuContainer
 - [mountId](NavuNode.md#mountid-a6b63dedba52) from NavuNode
 - [myConfPath](NavuNode.md#myconfpath-cec7a88dfaf3) from NavuNode
@@ -65,7 +60,7 @@ A `NavuList` holds this representation of a entry as its
 - [getChangeFlag\(\)](NavuNode.md#getchangeflag-33cadf5a32ba) from NavuNode
 - [getChanges\(NavuContext\)](NavuNode.md#getchanges-c106383f174d) from NavuNode
 - [getChanges\(NavuContext, boolean\)](NavuNode.md#getchanges-bcf5b6dbccf2) from NavuNode
-- [getChanges\(NavuContext, boolean, DiffIterateOperFlag\[\]\)](NavuNode.md#getchanges-9f13a683b086) from NavuNode
+- [getChanges\(NavuContext, boolean, DiffIterateOperFlag\.\.\.\)](NavuNode.md#getchanges-944155506885) from NavuNode
 - [getConfPath\(\)](NavuNode.md#getconfpath-c7ca3cb63c17) from NavuNode
 - [getInfo\(\)](NavuNode.md#getinfo-259a72b5d74c) from NavuNode
 - [getKey\(\)](#getkey-9a8856159458)
@@ -87,7 +82,6 @@ A `NavuList` holds this representation of a entry as its
 - [isCreated\(\)](NavuContainer.md#iscreated-bc9b3cb40910) from NavuContainer
 - [isEmpty\(\)](NavuContainer.md#isempty-4dde48126244) from NavuContainer
 - [isListInstance\(\)](NavuContainer.md#islistinstance-16ea9625f0d2) from NavuContainer
-- [isNodeNavuLocal\(\)](NavuContainer.md#isnodenavulocal-3af8ba5398d1) from NavuContainer
 - [iterate\(ConfObject\[\], DiffIterateOperFlag, ConfObject, ConfObject, Object\)](NavuContainer.md#iterate-d80a566b7e0a) from NavuContainer
 - [keySet\(\)](NavuContainer.md#keyset-66de8917ecb8) from NavuContainer
 - [leaf\(ConfNamespace, String\)](NavuContainer.md#leaf-da3758f37f21) from NavuContainer
@@ -125,37 +119,6 @@ A `NavuList` holds this representation of a entry as its
 - [xPathSelect\(String\)](NavuNode.md#xpathselect-0fb26b9f41e0) from NavuNode
 - [xPathSelectIterate\(String, NavuNodeSetIterate\)](NavuNode.md#xpathselectiterate-12547f34f47c) from NavuNode
 
-## Constructors
-
-### NavuListEntry(NavuContext, CSNode, NavuNode, ConfKey, String, Object[]) <a href="#navulistentry-6558a2da572b" id="navulistentry-6558a2da572b"></a>
-
-**Package-private**
-
-```java
-NavuListEntry(
-    com.tailf.navu.NavuContext context,
-    com.tailf.maapi.MaapiSchemas.CSNode listCsNode,
-    com.tailf.navu.NavuNode parent,
-    com.tailf.conf.ConfKey key,
-    String fmt,
-    Object[] arguments
-)
-```
-
-Types: [NavuContext](NavuContext.md#navucontext-2974e9f92a9e), [CSNode](../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28), [NavuNode](NavuNode.md#navunode-73944820c8db), [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867)
-
-Constructor for child container.
-
-**Parameters**
-
-- `com.tailf.navu.NavuContext context`
-- `com.tailf.maapi.MaapiSchemas.CSNode listCsNode`
-- `com.tailf.navu.NavuNode parent`
-- `com.tailf.conf.ConfKey key`
-- `String fmt`
-- `Object[] arguments`
-
-
 ## Methods
 
 ### delete() <a href="#delete-a9e76d49da61" id="delete-a9e76d49da61"></a>
@@ -192,10 +155,10 @@ Compares the specified object with this `NavuListEntry`
 **Parameters**
 
 - `Object o` - object to be compared for equality with this
-          `NavuListEntry`
+`NavuListEntry`
 
 **Returns:** `true` if the specified object is equal to this
-         `NavuListEntry`
+`NavuListEntry`
 
 ### getKey() <a href="#getkey-9a8856159458" id="getkey-9a8856159458"></a>
 
@@ -215,3 +178,12 @@ Return the associate key that this NavuList
 ```java
 public int hashCode()
 ```
+
+*Description from* [`NavuNode.hashCode()`](NavuNode.md#hashcode-ef797a217903)
+
+Return the hashCode of this NavuNode. For most nodes, the hash code is
+ based on the [`ConfPath`](../conf/ConfPath.md#confpath-327831c6fc7d) of the node. For module
+ root containers there is no `ConfPath` and instead the hash
+ code is based on the hash code of the module schema.
+
+**Returns:** The hashCode

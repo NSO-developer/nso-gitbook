@@ -5,7 +5,7 @@ public static class com.tailf.maapi.MaapiSchemas.CSNamedType
 ```
 
 Class representing a named type. A named type is represented as a
- name, type pair, where the name is a string and the type an
+ \<name, type\> pair, where the name is a string and the type an
  instance of CSType.
 
 ## Members

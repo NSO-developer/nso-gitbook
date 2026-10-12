@@ -21,7 +21,7 @@ Annotation class for Trans Callbacks Attribute is callType
 ### callType() <a href="#calltype-0d0f9b61a036" id="calltype-0d0f9b61a036"></a>
 
 ```java
-public abstract com.tailf.dp.proto.TransCBType[] callType()
+com.tailf.dp.proto.TransCBType[] callType()
 ```
 
 Types: [TransCBType](../proto/TransCBType.md#transcbtype-23d0df519739)

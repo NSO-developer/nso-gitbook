@@ -23,10 +23,6 @@ Provides a Java representation of E integral types. E does not distinguish
 - [ConfEBig\(byte\[\]\)](#confebig-97bb5b05e82f)
 - [ConfEBig\(ConfInputStream\)](#confebig-c2dca078cfcf)
 
-**Fields**:
-
-- [serialVersionUID](ConfEObject.md#serialversionuid-b9f0e1ec001d) from ConfEObject
-
 **Methods**:
 
 - [bigValue\(\)](#bigvalue-eee3ffc9c3fa)
@@ -61,7 +57,7 @@ Create an E integer from the given value.
 
 **Parameters**
 
-- `byte[] val` - - byte array representing the big value
+- `byte[] val` - \- byte array representing the big value
 
 ### ConfEBig(ConfInputStream) <a href="#confebig-c2dca078cfcf" id="confebig-c2dca078cfcf"></a>
 
@@ -80,8 +76,8 @@ Create an E integer from a stream containing an integer encoded in E
 
 **Throws**
 
-- `ConfEDecodeException` - if the buffer does not contain a valid external
-                representation of an E integer.
+- `com.tailf.proto.ConfEDecodeException` - if the buffer does not contain a valid external
+representation of an E integer.
 
 
 ## Methods
@@ -109,7 +105,7 @@ Convert this number to the equivalent E external representation.
 **Parameters**
 
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded number should be
-            written.
+written.
 
 ### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 

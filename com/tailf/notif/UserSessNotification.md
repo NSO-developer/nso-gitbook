@@ -99,11 +99,10 @@ public int getDatabase()
 
 Database type:
 
-
 - [`Conf#DB_NONE`](../conf/Conf.md#db_none-5069c3fe4466)
-   - [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
-     - [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28)
-       - [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486)
+- [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
+- [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28)
+- [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486)
 
 ### getUserInfo() <a href="#getuserinfo-3ecef1f24d3d" id="getuserinfo-3ecef1f24d3d"></a>
 
@@ -123,13 +122,12 @@ public int getUserSessionType()
 
 User session event type:
 
-
 - [`USER_SESS_START`](UserSessNotification.md#user_sess_start-d8b438e37824)
-   - [`USER_SESS_STOP`](UserSessNotification.md#user_sess_stop-78fe6cc524c3)
-     - [`USER_SESS_LOCK`](UserSessNotification.md#user_sess_lock-34c897714a94)
-       - [`USER_SESS_UNLOCK`](UserSessNotification.md#user_sess_unlock-aa3ec8c61fe5)
-         - [`USER_SESS_START_TRANS`](UserSessNotification.md#user_sess_start_trans-99506d33777a)
-           - [`USER_SESS_STOP_TRANS`](UserSessNotification.md#user_sess_stop_trans-87c697cda9df)
+- [`USER_SESS_STOP`](UserSessNotification.md#user_sess_stop-78fe6cc524c3)
+- [`USER_SESS_LOCK`](UserSessNotification.md#user_sess_lock-34c897714a94)
+- [`USER_SESS_UNLOCK`](UserSessNotification.md#user_sess_unlock-aa3ec8c61fe5)
+- [`USER_SESS_START_TRANS`](UserSessNotification.md#user_sess_start_trans-99506d33777a)
+- [`USER_SESS_STOP_TRANS`](UserSessNotification.md#user_sess_stop_trans-87c697cda9df)
 
 ### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 

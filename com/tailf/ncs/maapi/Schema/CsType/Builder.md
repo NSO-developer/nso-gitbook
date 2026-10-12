@@ -7,10 +7,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsType.Builder
 
 ## Members
 
-**Constructors**:
-
-- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
-
 **Methods**:
 
 - [asReader\(\)](#asreader-b5c0f2a8d115)
@@ -26,31 +22,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsType.Builder
 - [setName\(String\)](#setname-c76ccfcb9f18)
 - [setNs\(int\)](#setns-3c6980dbfd35)
 - [setParent\(Reader\)](#setparent-9ed68f47e1db)
-
-## Constructors
-
-### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
-
-**Package-private**
-
-```java
-Builder(
-    org.capnproto.SegmentBuilder segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentBuilder segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-
 
 ## Methods
 

@@ -67,17 +67,17 @@ Types: [ConfNamespace](../conf/ConfNamespace.md#confnamespace-51b928e168d1), [Co
 
 **Parameters**
 
-- `int extendedErrorCode` - - One of `ERRCODE_IN_USE`,
-            `ERRCODE_RESOURCE_DENIED`,
-            `ERRCODE_INCONSISTENT_VALUE`,
-            `ERRCODE_ACCESS_DENIED`,
-            `ERRCODE_DATA_MISSING`,
-            `ERRCODE_INTERRUPT`,
-            `ERRCODE_APPLICATION` or
-            `ERRCODE_APPLICATION_INTERNAL`
-- `com.tailf.conf.ConfNamespace appNS` - - not implemented, should be null
-- `String appTag` - - not implemented, should be null
-- `com.tailf.conf.ConfException ex` - - cause exception
+- `int extendedErrorCode` - \- One of `ERRCODE_IN_USE`,
+`ERRCODE_RESOURCE_DENIED`,
+`ERRCODE_INCONSISTENT_VALUE`,
+`ERRCODE_ACCESS_DENIED`,
+`ERRCODE_DATA_MISSING`,
+`ERRCODE_INTERRUPT`,
+`ERRCODE_APPLICATION` or
+`ERRCODE_APPLICATION_INTERNAL`
+- `com.tailf.conf.ConfNamespace appNS` - \- not implemented, should be null
+- `String appTag` - \- not implemented, should be null
+- `com.tailf.conf.ConfException ex` - \- cause exception
 
 ### CdbExtendedException(int, ConfNamespace, String, String) <a href="#cdbextendedexception-dcf45499af32" id="cdbextendedexception-dcf45499af32"></a>
 
@@ -94,17 +94,17 @@ Types: [ConfNamespace](../conf/ConfNamespace.md#confnamespace-51b928e168d1)
 
 **Parameters**
 
-- `int extendedErrorCode` - - One of `ERRCODE_IN_USE`,
-            `ERRCODE_RESOURCE_DENIED`,
-            `ERRCODE_INCONSISTENT_VALUE`,
-            `ERRCODE_ACCESS_DENIED`,
-            `ERRCODE_DATA_MISSING`,
-            `ERRCODE_INTERRUPT`,
-            `ERRCODE_APPLICATION` or
-            `ERRCODE_APPLICATION_INTERNAL`
-- `com.tailf.conf.ConfNamespace appNS` - - not implemented, should be null
-- `String appTag` - - not implemented, should be null
-- `String msg` - - informative text describing this exception
+- `int extendedErrorCode` - \- One of `ERRCODE_IN_USE`,
+`ERRCODE_RESOURCE_DENIED`,
+`ERRCODE_INCONSISTENT_VALUE`,
+`ERRCODE_ACCESS_DENIED`,
+`ERRCODE_DATA_MISSING`,
+`ERRCODE_INTERRUPT`,
+`ERRCODE_APPLICATION` or
+`ERRCODE_APPLICATION_INTERNAL`
+- `com.tailf.conf.ConfNamespace appNS` - \- not implemented, should be null
+- `String appTag` - \- not implemented, should be null
+- `String msg` - \- informative text describing this exception
 
 ### CdbExtendedException(int, String) <a href="#cdbextendedexception-03279c6b0750" id="cdbextendedexception-03279c6b0750"></a>
 
@@ -114,15 +114,15 @@ public CdbExtendedException(int extendedErrorCode, String msg)
 
 **Parameters**
 
-- `int extendedErrorCode` - - One of `ERRCODE_IN_USE`,
-            `ERRCODE_RESOURCE_DENIED`,
-            `ERRCODE_INCONSISTENT_VALUE`,
-            `ERRCODE_ACCESS_DENIED`,
-            `ERRCODE_DATA_MISSING`,
-            `ERRCODE_INTERRUPT`,
-            `ERRCODE_APPLICATION` or
-            `ERRCODE_APPLICATION_INTERNAL`
-- `String msg` - - informative text describing this exception
+- `int extendedErrorCode` - \- One of `ERRCODE_IN_USE`,
+`ERRCODE_RESOURCE_DENIED`,
+`ERRCODE_INCONSISTENT_VALUE`,
+`ERRCODE_ACCESS_DENIED`,
+`ERRCODE_DATA_MISSING`,
+`ERRCODE_INTERRUPT`,
+`ERRCODE_APPLICATION` or
+`ERRCODE_APPLICATION_INTERNAL`
+- `String msg` - \- informative text describing this exception
 
 
 ## Fields
@@ -190,7 +190,7 @@ public static final int ERRCODE_RESOURCE_DENIED = 1;
 ### extendedErrorCode <a href="#extendederrorcode-3db0588d19ba" id="extendederrorcode-3db0588d19ba"></a>
 
 ```java
-public int extendedErrorCode = null;
+public int extendedErrorCode;
 ```
 
 
@@ -223,7 +223,7 @@ public String getExtendedErrorCodeString()
 Get string representation of this exception error code.
 
 **Returns:** String representation of the errorcode for this extended
-         exception
+exception
 
 ### mk(int, ConfNamespace, String, ConfResponse) <a href="#mk-45b8f9041391" id="mk-45b8f9041391"></a>
 
@@ -240,16 +240,16 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9), [Co
 
 **Parameters**
 
-- `int extendedErrorCode` - - One of `ERRCODE_IN_USE`,
-            `ERRCODE_RESOURCE_DENIED`,
-            `ERRCODE_INCONSISTENT_VALUE`,
-            `ERRCODE_ACCESS_DENIED`,
-            `ERRCODE_DATA_MISSING`,
-            `ERRCODE_INTERRUPT`,
-            `ERRCODE_APPLICATION` or
-            `ERRCODE_APPLICATION_INTERNAL`
-- `com.tailf.conf.ConfNamespace appNS` - - not implemented, should be null
-- `String appTag` - - not implemented, should be null
-- `com.tailf.conf.ConfResponse r` - - cause response
+- `int extendedErrorCode` - \- One of `ERRCODE_IN_USE`,
+`ERRCODE_RESOURCE_DENIED`,
+`ERRCODE_INCONSISTENT_VALUE`,
+`ERRCODE_ACCESS_DENIED`,
+`ERRCODE_DATA_MISSING`,
+`ERRCODE_INTERRUPT`,
+`ERRCODE_APPLICATION` or
+`ERRCODE_APPLICATION_INTERNAL`
+- `com.tailf.conf.ConfNamespace appNS` - \- not implemented, should be null
+- `String appTag` - \- not implemented, should be null
+- `com.tailf.conf.ConfResponse r` - \- cause response
 
 **Returns:** ConfException - the resulting exception

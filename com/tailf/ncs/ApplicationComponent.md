@@ -27,7 +27,7 @@ User defined Applications should implement this interface that
 ### finish() <a href="#finish-8c785ae2e6bb" id="finish-8c785ae2e6bb"></a>
 
 ```java
-public abstract void finish() throws Exception
+void finish() throws Exception
 ```
 
 This method is called by the Ncs Java vm when the thread
@@ -41,7 +41,7 @@ This method is called by the Ncs Java vm when the thread
 ### init() <a href="#init-e3919b885d98" id="init-e3919b885d98"></a>
 
 ```java
-public abstract void init() throws Exception
+void init() throws Exception
 ```
 
 This method is called by the Ncs Java vm before the

@@ -19,7 +19,7 @@ This class is used by
 ### iterate(NavuXPathContext) <a href="#iterate-adeee70ee872" id="iterate-adeee70ee872"></a>
 
 ```java
-public abstract void iterate(com.tailf.navu.NavuXPathContext ctx)
+void iterate(com.tailf.navu.NavuXPathContext ctx)
 ```
 
 Types: [NavuXPathContext](NavuXPathContext.md#navuxpathcontext-b07e9b4d6361)

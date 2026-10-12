@@ -10,6 +10,10 @@ Types: [CliSession](../CliSession.md#clisession-1e55c4457237)
 The SSH CLI session interface.
  Inherited from the old SSHSession implementation.
 
+**Related classes**
+
+- [SSHJSession](../SSHJSession.md#sshjsession-7e69508c20af)
+
 ## Members
 
 **Fields**:
@@ -73,7 +77,7 @@ The SSH CLI session interface.
 ### MODE_OCRNL <a href="#mode_ocrnl-2476ec5d2765" id="mode_ocrnl-2476ec5d2765"></a>
 
 ```java
-public static final String MODE_OCRNL = "ocrnl";
+static final String MODE_OCRNL = "ocrnl";
 ```
 
 Newline modes supported by the CLI session
@@ -81,13 +85,13 @@ Newline modes supported by the CLI session
 ### MODE_ONLRET <a href="#mode_onlret-96689b9dd127" id="mode_onlret-96689b9dd127"></a>
 
 ```java
-public static final String MODE_ONLRET = "onlret";
+static final String MODE_ONLRET = "onlret";
 ```
 
 ### MODE_ONOCR <a href="#mode_onocr-54f46cfe0a80" id="mode_onocr-54f46cfe0a80"></a>
 
 ```java
-public static final String MODE_ONOCR = "onocr";
+static final String MODE_ONOCR = "onocr";
 ```
 
 
@@ -96,7 +100,7 @@ public static final String MODE_ONOCR = "onocr";
 ### expect(Pattern) <a href="#expect-98936155685a" id="expect-98936155685a"></a>
 
 ```java
-public default String expect(
+default String expect(
     java.util.regex.Pattern p
 )
     throws com.tailf.ned.SSHSessionException, java.io.IOException
@@ -111,7 +115,7 @@ Types: [SSHSessionException](../SSHSessionException.md#sshsessionexception-971db
 ### expect(Pattern, boolean, int) <a href="#expect-ae0bda32ace3" id="expect-ae0bda32ace3"></a>
 
 ```java
-public default String expect(
+default String expect(
     java.util.regex.Pattern p,
     boolean include,
     int timeout
@@ -130,7 +134,7 @@ Types: [SSHSessionException](../SSHSessionException.md#sshsessionexception-971db
 ### expect(Pattern, boolean, int, NedWorker) <a href="#expect-7eb828b58e63" id="expect-7eb828b58e63"></a>
 
 ```java
-public default String expect(
+default String expect(
     java.util.regex.Pattern p,
     boolean include,
     int timeout,
@@ -151,7 +155,7 @@ Types: [NedWorker](../NedWorker.md#nedworker-b063de7c0998), [SSHSessionException
 ### expect(Pattern, NedWorker) <a href="#expect-a363c018c396" id="expect-a363c018c396"></a>
 
 ```java
-public default String expect(
+default String expect(
     java.util.regex.Pattern p,
     com.tailf.ned.NedWorker worker
 )
@@ -168,7 +172,7 @@ Types: [NedWorker](../NedWorker.md#nedworker-b063de7c0998), [SSHSessionException
 ### expect(Pattern[]) <a href="#expect-8149faa90d9d" id="expect-8149faa90d9d"></a>
 
 ```java
-public default com.tailf.ned.NedExpectResult expect(
+default com.tailf.ned.NedExpectResult expect(
     java.util.regex.Pattern[] p
 )
     throws com.tailf.ned.SSHSessionException, java.io.IOException
@@ -183,7 +187,7 @@ Types: [NedExpectResult](../NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [S
 ### expect(Pattern[], boolean, int) <a href="#expect-5cc2e4122c7b" id="expect-5cc2e4122c7b"></a>
 
 ```java
-public default com.tailf.ned.NedExpectResult expect(
+default com.tailf.ned.NedExpectResult expect(
     java.util.regex.Pattern[] p,
     boolean include,
     int timeout
@@ -202,7 +206,7 @@ Types: [NedExpectResult](../NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [S
 ### expect(Pattern[], boolean, int, boolean) <a href="#expect-7b0546ada421" id="expect-7b0546ada421"></a>
 
 ```java
-public default com.tailf.ned.NedExpectResult expect(
+default com.tailf.ned.NedExpectResult expect(
     java.util.regex.Pattern[] p,
     boolean include,
     int timeout,
@@ -223,7 +227,7 @@ Types: [NedExpectResult](../NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [S
 ### expect(Pattern[], boolean, int, boolean, NedWorker) <a href="#expect-8367e41003a6" id="expect-8367e41003a6"></a>
 
 ```java
-public default com.tailf.ned.NedExpectResult expect(
+default com.tailf.ned.NedExpectResult expect(
     java.util.regex.Pattern[] p,
     boolean include,
     int timeout,
@@ -246,7 +250,7 @@ Types: [NedExpectResult](../NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [N
 ### expect(Pattern[], boolean, int, NedWorker) <a href="#expect-6c58bada9cc6" id="expect-6c58bada9cc6"></a>
 
 ```java
-public default com.tailf.ned.NedExpectResult expect(
+default com.tailf.ned.NedExpectResult expect(
     java.util.regex.Pattern[] p,
     boolean include,
     int timeout,
@@ -267,7 +271,7 @@ Types: [NedExpectResult](../NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [N
 ### expect(Pattern[], NedWorker) <a href="#expect-b0896c6a7b2a" id="expect-b0896c6a7b2a"></a>
 
 ```java
-public default com.tailf.ned.NedExpectResult expect(
+default com.tailf.ned.NedExpectResult expect(
     java.util.regex.Pattern[] p,
     com.tailf.ned.NedWorker worker
 )
@@ -284,10 +288,7 @@ Types: [NedExpectResult](../NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [N
 ### expect(String) <a href="#expect-5f5d11ad490b" id="expect-5f5d11ad490b"></a>
 
 ```java
-public default String expect(
-    String str
-)
-    throws com.tailf.ned.SSHSessionException, java.io.IOException
+default String expect(String str) throws com.tailf.ned.SSHSessionException, java.io.IOException
 ```
 
 Types: [SSHSessionException](../SSHSessionException.md#sshsessionexception-971db2359ab1)
@@ -299,7 +300,7 @@ Types: [SSHSessionException](../SSHSessionException.md#sshsessionexception-971db
 ### expect(String, boolean, boolean, int) <a href="#expect-b7ee8aa21949" id="expect-b7ee8aa21949"></a>
 
 ```java
-public default String expect(
+default String expect(
     String str,
     boolean include,
     boolean full,
@@ -320,7 +321,7 @@ Types: [SSHSessionException](../SSHSessionException.md#sshsessionexception-971db
 ### expect(String, boolean, boolean, int, NedWorker) <a href="#expect-a44ee9613d91" id="expect-a44ee9613d91"></a>
 
 ```java
-public default String expect(
+default String expect(
     String str,
     boolean include,
     boolean full,
@@ -343,7 +344,7 @@ Types: [NedWorker](../NedWorker.md#nedworker-b063de7c0998), [SSHSessionException
 ### expect(String, boolean, int) <a href="#expect-16cd2f682137" id="expect-16cd2f682137"></a>
 
 ```java
-public default String expect(
+default String expect(
     String str,
     boolean include,
     int timeout
@@ -362,7 +363,7 @@ Types: [SSHSessionException](../SSHSessionException.md#sshsessionexception-971db
 ### expect(String, boolean, int, NedWorker) <a href="#expect-6e2d86346550" id="expect-6e2d86346550"></a>
 
 ```java
-public default String expect(
+default String expect(
     String str,
     boolean include,
     int timeout,
@@ -383,7 +384,7 @@ Types: [NedWorker](../NedWorker.md#nedworker-b063de7c0998), [SSHSessionException
 ### expect(String, int) <a href="#expect-37295e1967db" id="expect-37295e1967db"></a>
 
 ```java
-public default String expect(
+default String expect(
     String str,
     int timeout
 )
@@ -400,7 +401,7 @@ Types: [SSHSessionException](../SSHSessionException.md#sshsessionexception-971db
 ### expect(String, int, NedWorker) <a href="#expect-4ba232d952f7" id="expect-4ba232d952f7"></a>
 
 ```java
-public default String expect(
+default String expect(
     String str,
     int timeout,
     com.tailf.ned.NedWorker worker
@@ -419,7 +420,7 @@ Types: [NedWorker](../NedWorker.md#nedworker-b063de7c0998), [SSHSessionException
 ### expect(String, NedWorker) <a href="#expect-6426c41e07e7" id="expect-6426c41e07e7"></a>
 
 ```java
-public default String expect(
+default String expect(
     String str,
     com.tailf.ned.NedWorker worker
 )
@@ -436,7 +437,7 @@ Types: [NedWorker](../NedWorker.md#nedworker-b063de7c0998), [SSHSessionException
 ### expect(String[]) <a href="#expect-740d81a74e4b" id="expect-740d81a74e4b"></a>
 
 ```java
-public default com.tailf.ned.NedExpectResult expect(
+default com.tailf.ned.NedExpectResult expect(
     String[] str
 )
     throws com.tailf.ned.SSHSessionException, java.io.IOException
@@ -451,7 +452,7 @@ Types: [NedExpectResult](../NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [S
 ### expect(String[], boolean, int) <a href="#expect-f6cb6c02c198" id="expect-f6cb6c02c198"></a>
 
 ```java
-public default com.tailf.ned.NedExpectResult expect(
+default com.tailf.ned.NedExpectResult expect(
     String[] str,
     boolean include,
     int timeout
@@ -470,7 +471,7 @@ Types: [NedExpectResult](../NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [S
 ### expect(String[], boolean, int, NedWorker) <a href="#expect-90d4e3ee7ac2" id="expect-90d4e3ee7ac2"></a>
 
 ```java
-public default com.tailf.ned.NedExpectResult expect(
+default com.tailf.ned.NedExpectResult expect(
     String[] str,
     boolean include,
     int timeout,
@@ -491,7 +492,7 @@ Types: [NedExpectResult](../NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [N
 ### expect(String[], NedWorker) <a href="#expect-4485477b99db" id="expect-4485477b99db"></a>
 
 ```java
-public default com.tailf.ned.NedExpectResult expect(
+default com.tailf.ned.NedExpectResult expect(
     String[] str,
     com.tailf.ned.NedWorker worker
 )
@@ -508,7 +509,7 @@ Types: [NedExpectResult](../NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [N
 ### flush() <a href="#flush-a4d76f158943" id="flush-a4d76f158943"></a>
 
 ```java
-public default void flush()
+default void flush()
 ```
 
 Signals that the final chunk of data has to be printed to the output
@@ -518,37 +519,37 @@ Signals that the final chunk of data has to be printed to the output
 ### getErrorStream() <a href="#geterrorstream-8577e8676bda" id="geterrorstream-8577e8676bda"></a>
 
 ```java
-public abstract java.io.InputStream getErrorStream()
+java.io.InputStream getErrorStream()
 ```
 
 ### getInputStream() <a href="#getinputstream-cb1d1fa14d56" id="getinputstream-cb1d1fa14d56"></a>
 
 ```java
-public abstract java.io.InputStream getInputStream()
+java.io.InputStream getInputStream()
 ```
 
 ### getLine() <a href="#getline-6cb6167e418b" id="getline-6cb6167e418b"></a>
 
 ```java
-public abstract StringBuilder getLine()
+StringBuilder getLine()
 ```
 
 ### getOutputStream() <a href="#getoutputstream-b7e39f99be28" id="getoutputstream-b7e39f99be28"></a>
 
 ```java
-public abstract java.io.OutputStream getOutputStream()
+java.io.OutputStream getOutputStream()
 ```
 
 ### getReader() <a href="#getreader-ca9cb7876cc5" id="getreader-ca9cb7876cc5"></a>
 
 ```java
-public abstract java.io.BufferedReader getReader()
+java.io.BufferedReader getReader()
 ```
 
 ### getReadTimeout() <a href="#getreadtimeout-640fc089c1de" id="getreadtimeout-640fc089c1de"></a>
 
 ```java
-public abstract int getReadTimeout()
+int getReadTimeout()
 ```
 
 Interface methods that must be implemented
@@ -556,19 +557,19 @@ Interface methods that must be implemented
 ### getTermPrintlnMode() <a href="#gettermprintlnmode-bbc6ff231fae" id="gettermprintlnmode-bbc6ff231fae"></a>
 
 ```java
-public abstract String getTermPrintlnMode()
+String getTermPrintlnMode()
 ```
 
 ### getWriter() <a href="#getwriter-23ba297ab3e8" id="getwriter-23ba297ab3e8"></a>
 
 ```java
-public abstract java.io.PrintWriter getWriter()
+java.io.PrintWriter getWriter()
 ```
 
 ### logDebug(String) <a href="#logdebug-91653b5096b0" id="logdebug-91653b5096b0"></a>
 
 ```java
-public abstract void logDebug(String msg)
+void logDebug(String msg)
 ```
 
 **Parameters**
@@ -578,7 +579,7 @@ public abstract void logDebug(String msg)
 ### logInfo(String) <a href="#loginfo-32ae00d19c47" id="loginfo-32ae00d19c47"></a>
 
 ```java
-public abstract void logInfo(String msg)
+void logInfo(String msg)
 ```
 
 **Parameters**
@@ -588,7 +589,7 @@ public abstract void logInfo(String msg)
 ### print(int) <a href="#print-41f2f1534264" id="print-41f2f1534264"></a>
 
 ```java
-public default void print(int iVal)
+default void print(int iVal)
 ```
 
 Prints an integer (as text) to the output stream.
@@ -600,7 +601,7 @@ Prints an integer (as text) to the output stream.
 ### print(String) <a href="#print-b202251f9230" id="print-b202251f9230"></a>
 
 ```java
-public default void print(String s)
+default void print(String s)
 ```
 
 Prints text to the output stream.
@@ -612,7 +613,7 @@ Prints text to the output stream.
 ### println(int) <a href="#println-4c26ee676efb" id="println-4c26ee676efb"></a>
 
 ```java
-public default void println(int iVal)
+default void println(int iVal)
 ```
 
 Prints an integer (as text) to the output stream.
@@ -625,7 +626,7 @@ Prints an integer (as text) to the output stream.
 ### println(String) <a href="#println-15aea44318e6" id="println-15aea44318e6"></a>
 
 ```java
-public default void println(String s)
+default void println(String s)
 ```
 
 Print text to the output stream.
@@ -638,7 +639,7 @@ Print text to the output stream.
 ### ready() <a href="#ready-92162bd485a2" id="ready-92162bd485a2"></a>
 
 ```java
-public default boolean ready() throws java.io.IOException
+default boolean ready() throws java.io.IOException
 ```
 
 Interface methods with default implementation
@@ -646,7 +647,7 @@ Interface methods with default implementation
 ### ready(int) <a href="#ready-c585210c0993" id="ready-c585210c0993"></a>
 
 ```java
-public abstract boolean ready(int timeout) throws java.io.IOException
+boolean ready(int timeout) throws java.io.IOException
 ```
 
 **Parameters**
@@ -656,7 +657,7 @@ public abstract boolean ready(int timeout) throws java.io.IOException
 ### setReadTimeout(int) <a href="#setreadtimeout-4f6742da7687" id="setreadtimeout-4f6742da7687"></a>
 
 ```java
-public abstract void setReadTimeout(int readTimeout)
+void setReadTimeout(int readTimeout)
 ```
 
 **Parameters**
@@ -666,7 +667,7 @@ public abstract void setReadTimeout(int readTimeout)
 ### setTermPrintlnMode(String) <a href="#settermprintlnmode-36c6657337c2" id="settermprintlnmode-36c6657337c2"></a>
 
 ```java
-public abstract void setTermPrintlnMode(String mode)
+void setTermPrintlnMode(String mode)
 ```
 
 **Parameters**
@@ -676,7 +677,7 @@ public abstract void setTermPrintlnMode(String mode)
 ### trace(String, String) <a href="#trace-684478bdb6cc" id="trace-684478bdb6cc"></a>
 
 ```java
-public abstract void trace(String msg, String direction)
+void trace(String msg, String direction)
 ```
 
 **Parameters**
@@ -687,7 +688,7 @@ public abstract void trace(String msg, String direction)
 ### traceInBufAppend(String) <a href="#traceinbufappend-948da59d599a" id="traceinbufappend-948da59d599a"></a>
 
 ```java
-public abstract void traceInBufAppend(String msg)
+void traceInBufAppend(String msg)
 ```
 
 **Parameters**
@@ -697,5 +698,5 @@ public abstract void traceInBufAppend(String msg)
 ### traceInBufFlush() <a href="#traceinbufflush-5f53f59ed390" id="traceinbufflush-5f53f59ed390"></a>
 
 ```java
-public abstract void traceInBufFlush()
+void traceInBufFlush()
 ```

@@ -4,6 +4,12 @@
 public interface com.tailf.conf.MountIdInterface
 ```
 
+**Related classes**
+
+- [Cdb](../cdb/Cdb.md#cdb-cb7fc41768c9)
+- [CdbSubscription](../cdb/CdbSubscription.md#cdbsubscription-f17c8fe4dc81)
+- [MountIdCb](../maapi/MountIdCb.md#mountidcb-b2c40ac53111)
+
 ## Members
 
 **Methods**:
@@ -16,16 +22,13 @@ public interface com.tailf.conf.MountIdInterface
 ### acceptTagPath() <a href="#accepttagpath-3efa26ad697b" id="accepttagpath-3efa26ad697b"></a>
 
 ```java
-public abstract boolean acceptTagPath()
+boolean acceptTagPath()
 ```
 
 ### getMountId(ConfPath) <a href="#getmountid-83243c09b7c3" id="getmountid-83243c09b7c3"></a>
 
 ```java
-public abstract java.util.List<String> getMountId(
-    com.tailf.conf.ConfPath path
-)
-    throws com.tailf.conf.ConfException
+java.util.List<String> getMountId(com.tailf.conf.ConfPath path) throws com.tailf.conf.ConfException
 ```
 
 Types: [ConfPath](ConfPath.md#confpath-327831c6fc7d), [ConfException](ConfException.md#confexception-baeaab99f7f9)

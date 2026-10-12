@@ -9,16 +9,14 @@ Types: [CliSession](CliSession.md#clisession-1e55c4457237)
 
 A SSH  transport.
  This class uses the Ganymed SSH implementation.
- (
-     http://www.ganymed.ethz.ch/ssh2/)
+ ([http://www.ganymed.ethz.ch/ssh2/](http://www.ganymed.ethz.ch/ssh2/))
 
- Example:
-
+Example:
 
 ```
- SSHConnection c = new SSHConnection("127.0.0.1", 22);
- c.authenticateWithPassword("ola", "secret");
- SSHSession ssh = new SSHSession(c);
+SSHConnection c = new SSHConnection("127.0.0.1", 22);
+c.authenticateWithPassword("ola", "secret");
+SSHSession ssh = new SSHSession(c);
 ```
 
 ## Members
@@ -96,7 +94,7 @@ Constructor for SSH session object. This method creates a
 
 **Throws**
 
-- `IOException`
+- `java.io.IOException`
 
 ### SSHSession(SSHConnection, int, NedTracer, NedConnectionBase) <a href="#sshsession-5bfc258db6fa" id="sshsession-5bfc258db6fa"></a>
 
@@ -123,7 +121,7 @@ Constructor with an extra argument for a readTimeout timer.
 
 **Throws**
 
-- `IOException`
+- `java.io.IOException`
 
 ### SSHSession(SSHConnection, int, NedTracer, NedConnectionBase, int, int) <a href="#sshsession-5bbe10e388cd" id="sshsession-5bbe10e388cd"></a>
 
@@ -154,7 +152,7 @@ Constructor with extra terminal width and height arguments
 
 **Throws**
 
-- `IOException`
+- `java.io.IOException`
 
 ### SSHSession(SSHConnection, NedTracer, NedConnectionBase) <a href="#sshsession-fa053fc79631" id="sshsession-fa053fc79631"></a>
 
@@ -182,7 +180,7 @@ Constructor for SSH session object. This method creates a
 
 **Throws**
 
-- `IOException`
+- `java.io.IOException`
 
 
 ## Fields
@@ -190,7 +188,7 @@ Constructor for SSH session object. This method creates a
 ### readTimeout <a href="#readtimeout-0c3689315cf4" id="readtimeout-0c3689315cf4"></a>
 
 ```java
-protected int readTimeout = null;
+protected int readTimeout;
 ```
 
 
@@ -680,7 +678,7 @@ public int getReadTimeout()
 
 Return the readTimeout value that is used to read data from
  the ssh socket. If a read doesn't complete within the stipulated
- timeout an INMException is thrown *
+ timeout an INMException is thrown \*
 
 ### getSession() <a href="#getsession-d2df47d6a1b6" id="getsession-d2df47d6a1b6"></a>
 
@@ -695,16 +693,15 @@ Needed by users that need to monitor a session for EOF .
  that can be used to check the connection state of an ssh socket.
  Assuming a A Session object s:
 
-
 ```
- int conditionSet =
-     ChannelCondition.TIMEOUT ;amp
-     ChannelCondition.CLOSED ;amp
-     ChannelCondition.EOF;
-     conditionSet = s.waitForCondition(conditionSet, 1);
-  if (conditionSet != ChannelCondition.TIMEOUT) {
-      // We know the server closed it's end of the ssh
-      // socket
+int conditionSet =
+    ChannelCondition.TIMEOUT ;amp
+    ChannelCondition.CLOSED ;amp
+    ChannelCondition.EOF;
+    conditionSet = s.waitForCondition(conditionSet, 1);
+ if (conditionSet != ChannelCondition.TIMEOUT) {
+     // We know the server closed it's end of the ssh
+     // socket
 ```
 
 ### getSSHConnection() <a href="#getsshconnection-d215c3958a3d" id="getsshconnection-d215c3958a3d"></a>

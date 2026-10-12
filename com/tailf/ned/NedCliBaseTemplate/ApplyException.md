@@ -51,17 +51,17 @@ public ApplyException(String line, String msg, boolean isAtTop, boolean inConfig
 ### inConfigMode <a href="#inconfigmode-27e2e994c80d" id="inconfigmode-27e2e994c80d"></a>
 
 ```java
-public boolean inConfigMode = null;
+public boolean inConfigMode;
 ```
 
 ### isAtTop <a href="#isattop-08e91ce9deaa" id="isattop-08e91ce9deaa"></a>
 
 ```java
-public boolean isAtTop = null;
+public boolean isAtTop;
 ```
 
 ### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
 
 ```java
-public static final long serialVersionUID = 1285361782;
+public static final long serialVersionUID = 1285361782L;
 ```

@@ -10,20 +10,17 @@ Types: [ConfValue](ConfValue.md#confvalue-769292781c7d), [ConfHexString](ConfHex
 
 DATA_CONTAINER - Corresponds to the YANG `hex-string` type.
 
- A string of colon-separated hexa-decimal octets e.g. '4F:4C:41:71'.
+A string of colon-separated hexa-decimal octets e.g. '4F:4C:41:71'.
 
- A hex-list is defined as:
-
+A hex-list is defined as:
 
 ```
-  hex-string {
-     type string {
-      pattern '([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?';
-    }
-  }
+ hex-string {
+    type string {
+     pattern '([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?';
+   }
+ }
 ```
-
-
 
  A hexadecimal string with octets represented as hex digits
  separated by colons.  The canonical representation uses
@@ -93,7 +90,6 @@ DATA_CONTAINER - Corresponds to the YANG `hex-string` type.
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [compareTo\(ConfHexString\)](#compareto-105080d2b2e1)
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
@@ -186,15 +182,26 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
 
+*Description from* [`ConfValue.encode()`](ConfValue.md#encode-fbae522bba37)
+
+encode value.
+
 ### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
 ```
 
+*Description from* [`ConfValue.equals(Object)`](ConfValue.md#equals-fcd6492e0d6c)
+
+Determine if two ConfValue are equal. In general, ConfObjects are
+ equal if the components they consist of are equal.
+
 **Parameters**
 
-- `Object o`
+- `Object o` - The object to compare to.
+
+**Returns:** true if the objects are identical.
 
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
@@ -219,7 +226,7 @@ public String toString()
 
 Returns string representation of a `ConfHexString`.
 
- Format a HexString as hexadecimal values separated with colons, as for
+Format a HexString as hexadecimal values separated with colons, as for
  example: "00:4f:4c:41:ff".
 
 **Returns:** a string representation of this `ConfHexString`

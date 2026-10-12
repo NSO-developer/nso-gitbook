@@ -138,7 +138,7 @@ Get the NED error code from the given integer.
 **Throws**
 
 - `IllegalArgumentException` - if there is no corresponding
-         NED error code
+NED error code
 
 ### valueOf(String) <a href="#valueof-ac61b3547613" id="valueof-ac61b3547613"></a>
 

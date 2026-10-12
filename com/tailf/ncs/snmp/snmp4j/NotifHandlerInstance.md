@@ -34,7 +34,7 @@ Default constructor
 
 - `com.tailf.ncs.snmp.snmp4j.NotificationHandler responder` - a registered SnmpNotificationHandler
 - `Object opaque` - object passed to the handler at call
-               (or null if not applicable)
+(or null if not applicable)
 
 
 ## Methods

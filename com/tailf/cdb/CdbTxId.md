@@ -11,10 +11,6 @@ Data structure received from [`Cdb#getTxId()`](Cdb.md#gettxid-1817ce3409ba) meth
 
 ## Members
 
-**Constructors**:
-
-- [CdbTxId\(String, int, int, int\)](#cdbtxid-e81c281fc8c1)
-
 **Methods**:
 
 - [equals\(Object\)](#equals-fcd6492e0d6c)
@@ -24,26 +20,6 @@ Data structure received from [`Cdb#getTxId()`](Cdb.md#gettxid-1817ce3409ba) meth
 - [getS3\(\)](#gets3-2ee1ddf494a1)
 - [hashCode\(\)](#hashcode-ef797a217903)
 - [toString\(\)](#tostring-e9d48c5503ef)
-
-## Constructors
-
-### CdbTxId(String, int, int, int) <a href="#cdbtxid-e81c281fc8c1" id="cdbtxid-e81c281fc8c1"></a>
-
-**Package-private**
-
-```java
-CdbTxId(String node, int s1, int s2, int s3)
-```
-
-Constructor
-
-**Parameters**
-
-- `String node`
-- `int s1`
-- `int s2`
-- `int s3`
-
 
 ## Methods
 

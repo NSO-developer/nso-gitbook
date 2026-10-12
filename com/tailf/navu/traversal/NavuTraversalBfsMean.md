@@ -10,7 +10,7 @@ Types: [NavuTraversalMean](NavuTraversalMean.md#navutraversalmean-65fcdcfa38d1)
 This implements the `NavuTraversalMean` for BFS
  (Breath-first traversal). .
 
-  The  means of which
+The  means of which
  to traverse the NAVU tree is through Breadth-first traversal
 
 ## Members

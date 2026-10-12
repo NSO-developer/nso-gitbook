@@ -7,6 +7,10 @@ public interface com.tailf.dp.DpExceptionReporter
 Interface for the user of the Dp deamon to handle catched exceptions
  in the implicit threads started in the Dp.read() method
 
+**Related classes**
+
+- [NcsDpMux](../ncs/ctrl/NcsDpMux.md#ncsdpmux-e720f4e4e4fe)
+
 ## Members
 
 **Methods**:
@@ -18,7 +22,7 @@ Interface for the user of the Dp deamon to handle catched exceptions
 ### reportException(Throwable) <a href="#reportexception-f2030dd5aa98" id="reportexception-f2030dd5aa98"></a>
 
 ```java
-public abstract boolean reportException(Throwable e)
+boolean reportException(Throwable e)
 ```
 
 Method called when exceptions are catched in the internal threads

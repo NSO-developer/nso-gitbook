@@ -4,6 +4,10 @@
 public interface com.tailf.dp.DpMountIdInterface
 ```
 
+**Related classes**
+
+- [NcsDpMux](../ncs/ctrl/NcsDpMux.md#ncsdpmux-e720f4e4e4fe)
+
 ## Members
 
 **Methods**:
@@ -15,7 +19,7 @@ public interface com.tailf.dp.DpMountIdInterface
 ### retrieveMountId(Object) <a href="#retrievemountid-c38b7bcdc149" id="retrievemountid-c38b7bcdc149"></a>
 
 ```java
-public abstract String retrieveMountId(Object obj) throws com.tailf.dp.DpCallbackException
+String retrieveMountId(Object obj) throws com.tailf.dp.DpCallbackException
 ```
 
 Types: [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)

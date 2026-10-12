@@ -14,10 +14,6 @@ The action transaction context. Each action transaction is running in
 
 ## Members
 
-**Constructors**:
-
-- [DpActionTrans\(Dp, int, int, DpUserInfo, String, int, int\)](#dpactiontrans-c00d5e1600e9)
-
 **Fields**:
 
 - [dp](DpTrans.md#dp-08e185dd74a1) from DpTrans
@@ -76,40 +72,6 @@ The action transaction context. Each action transaction is running in
 - [setSocket\(Socket\)](DpTrans.md#setsocket-183068848e4c) from DpTrans
 - [setTransactionUserOpaque\(Object\)](DpTrans.md#settransactionuseropaque-ce392ad59d2e) from DpTrans
 - [transReplyOK\(\)](DpTrans.md#transreplyok-92425e2f5c67) from DpTrans
-
-## Constructors
-
-### DpActionTrans(Dp, int, int, DpUserInfo, String, int, int) <a href="#dpactiontrans-c00d5e1600e9" id="dpactiontrans-c00d5e1600e9"></a>
-
-**Package-private**
-
-```java
-DpActionTrans(
-    com.tailf.dp.Dp dp,
-    int qref,
-    int op,
-    com.tailf.dp.DpUserInfo uinfo,
-    String point,
-    int apIndex,
-    int thandle
-)
-```
-
-Types: [Dp](Dp.md#dp-64c27347820e), [DpUserInfo](DpUserInfo.md#dpuserinfo-c59746285a6e)
-
-Lots of parameters here. But since only Dp should be allowed to create
- the transaction there is no need to do anything about it.
-
-**Parameters**
-
-- `com.tailf.dp.Dp dp`
-- `int qref`
-- `int op`
-- `com.tailf.dp.DpUserInfo uinfo`
-- `String point`
-- `int apIndex`
-- `int thandle`
-
 
 ## Fields
 
@@ -171,8 +133,8 @@ Some action callbacks may require a significantly longer execution time
 
 **Throws**
 
-- `IOException`
-- `DpCallbackException`
+- `java.io.IOException`
+- `com.tailf.dp.DpCallbackException`
 
 ### changeActionState(int, int) <a href="#changeactionstate-efc056ab7ae2" id="changeactionstate-efc056ab7ae2"></a>
 
@@ -200,12 +162,10 @@ public synchronized int getActionState()
 Returns the current state of this action transaction.
  This can be one of:
 
-
-
 - [`STATE_NONE`](DpActionTrans.md#state_none-e3766e74c7f3)
-   - [`STATE_INIT`](DpActionTrans.md#state_init-6096426df4ec)
-     - [`STATE_ACTION`](DpActionTrans.md#state_action-60c550dd5e00)
-       - [`STATE_ABORTED`](DpActionTrans.md#state_aborted-f267bf6c0021)
+- [`STATE_INIT`](DpActionTrans.md#state_init-6096426df4ec)
+- [`STATE_ACTION`](DpActionTrans.md#state_action-60c550dd5e00)
+- [`STATE_ABORTED`](DpActionTrans.md#state_aborted-f267bf6c0021)
 
 **Returns:** action state
 

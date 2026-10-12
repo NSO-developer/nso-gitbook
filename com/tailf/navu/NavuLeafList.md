@@ -10,42 +10,38 @@ Types: [NavuLeaf](NavuLeaf.md#navuleaf-aa68380b180b), [ConfValue](../conf/ConfVa
 
 `NavuLeafList` is a representation of the *YANG* leaf-list.
 
- When accessing individual elements trough `containsNode`,
+When accessing individual elements trough `containsNode`,
  `NavuLeafList` will only make one single `exists`
  call (over MAAPI or CDB depending on the context) to check the
  existence of the key, thus making the operation cheap.
 
-
- The set of leaf-list entries can be retrieved through [`elements()`](NavuLeafList.md#elements-1ac1cabc0e96)
+The set of leaf-list entries can be retrieved through [`elements()`](NavuLeafList.md#elements-1ac1cabc0e96)
  or by retrieving an iterator [`iterator()`](NavuLeafList.md#iterator-188aa52d1f86). The difference between the
  two is that [`elements()`](NavuLeafList.md#elements-1ac1cabc0e96) will make a single call to retrieve all
  the leaf-list elements, while [`iterator()`](NavuLeafList.md#iterator-188aa52d1f86) will try to fetch
  leaf-list elements one by one using getNext() calls whenever possible.
 
-
-
-
-```
- NavuNode parent = ...;
- NavuLeafList someLeafList = parent.leafList(someNamespace._someLeafList);
-
- for (ConfValue value : someLeafList) {
-     // Here the elements will be fetched one by one
- }
-
- for (ConfValue value : someLeafList.elements()) {
-     // Here the elements will be fetched using a single call
-     // and stored in memory for the duration of the iteration
- }
-```
+> ```
+> NavuNode parent = ...;
+> NavuLeafList someLeafList = parent.leafList(someNamespace._someLeafList);
+>
+> for (ConfValue value : someLeafList) {
+>     // Here the elements will be fetched one by one
+> }
+>
+> for (ConfValue value : someLeafList.elements()) {
+>     // Here the elements will be fetched using a single call
+>     // and stored in memory for the duration of the iteration
+> }
+> ```
 
 ## Members
 
 **Constructors**:
 
-- [NavuLeafList\(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object\[\]\)](#navuleaflist-cd315e673ba7)
+- [NavuLeafList\(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object\.\.\.\)](#navuleaflist-853a8fb5f76b)
 - [NavuLeafList\(NavuContext, MaapiSchemas, CSNode, NavuNode, Formats\)](#navuleaflist-99a7288678b2)
-- [NavuLeafList\(NavuContext, MaapiSchemas, CSNode, NavuNode, String, Object\[\]\)](#navuleaflist-3b4d00f49b0d)
+- [NavuLeafList\(NavuContext, MaapiSchemas, CSNode, NavuNode, String, Object\.\.\.\)](#navuleaflist-49f51429ca2f)
 
 **Fields**:
 
@@ -77,7 +73,6 @@ Types: [NavuLeaf](NavuLeaf.md#navuleaf-aa68380b180b), [ConfValue](../conf/ConfVa
 - [delete\(String\)](#delete-16af8bc13c9c)
 - [deref\(\)](NavuLeaf.md#deref-2626f40058b1) from NavuLeaf
 - [elements\(\)](#elements-1ac1cabc0e96)
-- [encode\(\)](../conf/ConfValue.md#encode-fbae522bba37) from ConfValue
 - [encodeValues\(\)](NavuLeaf.md#encodevalues-7bd911383b1a) from NavuLeaf
 - [encodeXML\(\)](NavuLeaf.md#encodexml-bdbcd52c2505) from NavuLeaf
 - [equals\(Object\)](NavuLeaf.md#equals-fcd6492e0d6c) from NavuLeaf
@@ -86,7 +81,7 @@ Types: [NavuLeaf](NavuLeaf.md#navuleaf-aa68380b180b), [ConfValue](../conf/ConfVa
 - [getChangeFlag\(\)](NavuLeaf.md#getchangeflag-33cadf5a32ba) from NavuLeaf
 - [getChanges\(NavuContext\)](NavuNode.md#getchanges-c106383f174d) from NavuNode
 - [getChanges\(NavuContext, boolean\)](NavuNode.md#getchanges-bcf5b6dbccf2) from NavuNode
-- [getChanges\(NavuContext, boolean, DiffIterateOperFlag\[\]\)](NavuNode.md#getchanges-9f13a683b086) from NavuNode
+- [getChanges\(NavuContext, boolean, DiffIterateOperFlag\.\.\.\)](NavuNode.md#getchanges-944155506885) from NavuNode
 - [getConfPath\(\)](NavuNode.md#getconfpath-c7ca3cb63c17) from NavuNode
 - [getInfo\(\)](NavuNode.md#getinfo-259a72b5d74c) from NavuNode
 - [getKeyPath\(\)](NavuNode.md#getkeypath-4c9200912948) from NavuNode
@@ -95,10 +90,6 @@ Types: [NavuLeaf](NavuLeaf.md#navuleaf-aa68380b180b), [ConfValue](../conf/ConfVa
 - [getOldValue\(\)](NavuLeaf.md#getoldvalue-9e1eede07276) from NavuLeaf
 - [getParent\(\)](NavuLeaf.md#getparent-45c1b196ed70) from NavuLeaf
 - [getRootNS\(\)](NavuLeaf.md#getrootns-3f1d054cecd6) from NavuLeaf
-- [getStringByValue\(ConfPath, ConfValue\)](../conf/ConfValue.md#getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue\(String, ConfValue\)](../conf/ConfValue.md#getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString\(ConfPath, String\)](../conf/ConfValue.md#getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString\(String, String\)](../conf/ConfValue.md#getvaluebystring-7804643cb027) from ConfValue
 - [getValues\(ConfXMLParam\[\]\)](NavuNode.md#getvalues-1eb02439a757) from NavuNode
 - [getValues\(String\)](NavuLeaf.md#getvalues-c03de090764d) from NavuLeaf
 - [hashCode\(\)](NavuLeaf.md#hashcode-ef797a217903) from NavuLeaf
@@ -156,7 +147,7 @@ Types: [NavuLeaf](NavuLeaf.md#navuleaf-aa68380b180b), [ConfValue](../conf/ConfVa
 
 ## Constructors
 
-### NavuLeafList(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object[]) <a href="#navuleaflist-cd315e673ba7" id="navuleaflist-cd315e673ba7"></a>
+### NavuLeafList(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object...) <a href="#navuleaflist-853a8fb5f76b" id="navuleaflist-853a8fb5f76b"></a>
 
 ```java
 protected NavuLeafList(
@@ -166,7 +157,7 @@ protected NavuLeafList(
     com.tailf.maapi.MaapiSchemas.CSNode node,
     com.tailf.navu.NavuNode parent,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
 ```
 
@@ -180,7 +171,7 @@ Types: [Maapi](../maapi/Maapi.md#maapi-67bcbe89c42e), [MaapiSchemas](../maapi/Ma
 - `com.tailf.maapi.MaapiSchemas.CSNode node`
 - `com.tailf.navu.NavuNode parent`
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 ### NavuLeafList(NavuContext, MaapiSchemas, CSNode, NavuNode, Formats) <a href="#navuleaflist-99a7288678b2" id="navuleaflist-99a7288678b2"></a>
 
@@ -206,7 +197,7 @@ KeyPath2NavuNode specific constructor
 - `com.tailf.navu.NavuNode parent`
 - `com.tailf.navu.KeyPath2NavuNode.Formats fs`
 
-### NavuLeafList(NavuContext, MaapiSchemas, CSNode, NavuNode, String, Object[]) <a href="#navuleaflist-3b4d00f49b0d" id="navuleaflist-3b4d00f49b0d"></a>
+### NavuLeafList(NavuContext, MaapiSchemas, CSNode, NavuNode, String, Object...) <a href="#navuleaflist-49f51429ca2f" id="navuleaflist-49f51429ca2f"></a>
 
 ```java
 protected NavuLeafList(
@@ -215,7 +206,7 @@ protected NavuLeafList(
     com.tailf.maapi.MaapiSchemas.CSNode node,
     com.tailf.navu.NavuNode parent,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
 ```
 
@@ -228,7 +219,7 @@ Types: [NavuContext](NavuContext.md#navucontext-2974e9f92a9e), [MaapiSchemas](..
 - `com.tailf.maapi.MaapiSchemas.CSNode node`
 - `com.tailf.navu.NavuNode parent`
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 
 ## Methods
@@ -279,23 +270,20 @@ Types: [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d), [NavuException]
 
 Creates leaf-list entry.
 
- We have 3 different variants of `create`.
+We have 3 different variants of `create`.
 
-
-2. `create()` This method creates the leaf-list entry.
- If such entry already exists tt will fail with a [`NavuException`](NavuException.md#navuexception-d80fa0cb4f3f)
- with the error code set to [`ErrorCode#ERR_ALREADY_EXISTS`](../conf/ErrorCode.md#err_already_exists-79abf22f339e).
-
-   - `safeCreate()` similar to `create()`
- with the sole difference that is silently succeeds even if the
- leaf-list entry already exists.
-
-     - `sharedCreate()` This method is useful when
- creating element in FASTMAP code, i.e code that implements
- a FASTMAP service. The `sharedCreate()`
- method maintains a reference counter on the created object.
- Furthermore, and attribute "backpointer" will be created on the created
- leaf-list entry indicating which "service" created the object
+1. `create()` This method creates the leaf-list entry.
+    If such entry already exists tt will fail with a [`NavuException`](NavuException.md#navuexception-d80fa0cb4f3f)
+    with the error code set to [`ErrorCode#ERR_ALREADY_EXISTS`](../conf/ErrorCode.md#err_already_exists-79abf22f339e).
+2. `safeCreate()` similar to `create()`
+    with the sole difference that is silently succeeds even if the
+    leaf-list entry already exists.
+3. `sharedCreate()` This method is useful when
+    creating element in FASTMAP code, i.e code that implements
+    a FASTMAP service. The `sharedCreate()`
+    method maintains a reference counter on the created object.
+    Furthermore, and attribute "backpointer" will be created on the created
+    leaf-list entry indicating which "service" created the object
 
 **Parameters**
 
@@ -303,7 +291,7 @@ Creates leaf-list entry.
 
 **Throws**
 
-- `NavuException` - if any MAAPI operations fail during the
+- `com.tailf.navu.NavuException` - if any MAAPI operations fail during the
   create or IOException if socket errors would occur,
   or such entry already exists
 
@@ -317,23 +305,20 @@ Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 Creates leaf-list entry.
 
- We have 3 different variants of `create`.
+We have 3 different variants of `create`.
 
-
-2. `create()` This method creates the leaf-list entry.
- If such entry already exists tt will fail with a [`NavuException`](NavuException.md#navuexception-d80fa0cb4f3f)
- with the error code set to [`ErrorCode#ERR_ALREADY_EXISTS`](../conf/ErrorCode.md#err_already_exists-79abf22f339e).
-
-   - `safeCreate()` similar to `create()`
- with the sole difference that is silently succeeds even if the
- leaf-list entry already exists.
-
-     - `sharedCreate()` This method is useful when
- creating element in FASTMAP code, i.e code that implements
- a FASTMAP service. The `sharedCreate()`
- method maintains a reference counter on the created object.
- Furthermore, and attribute "backpointer" will be created on the created
- leaf-list entry indicating which "service" created the object
+1. `create()` This method creates the leaf-list entry.
+    If such entry already exists tt will fail with a [`NavuException`](NavuException.md#navuexception-d80fa0cb4f3f)
+    with the error code set to [`ErrorCode#ERR_ALREADY_EXISTS`](../conf/ErrorCode.md#err_already_exists-79abf22f339e).
+2. `safeCreate()` similar to `create()`
+    with the sole difference that is silently succeeds even if the
+    leaf-list entry already exists.
+3. `sharedCreate()` This method is useful when
+    creating element in FASTMAP code, i.e code that implements
+    a FASTMAP service. The `sharedCreate()`
+    method maintains a reference counter on the created object.
+    Furthermore, and attribute "backpointer" will be created on the created
+    leaf-list entry indicating which "service" created the object
 
 **Parameters**
 
@@ -342,7 +327,7 @@ Creates leaf-list entry.
 
 **Throws**
 
-- `NavuException` - if any MAAPI operations fail during the
+- `com.tailf.navu.NavuException` - if any MAAPI operations fail during the
   create or IOException if socket errors would occur,
   or such entry already exists.
 
@@ -362,7 +347,7 @@ Deletes an entry from the leaf-list.
 
 **Throws**
 
-- `NavuException` - If the method fails to delete the element.
+- `com.tailf.navu.NavuException` - If the method fails to delete the element.
 
 ### delete(String) <a href="#delete-16af8bc13c9c" id="delete-16af8bc13c9c"></a>
 
@@ -380,7 +365,7 @@ Deletes an entry from the leaf-list.
 
 **Throws**
 
-- `NavuException` - If the method fails to delete the element.
+- `com.tailf.navu.NavuException` - If the method fails to delete the element.
 
 ### elements() <a href="#elements-1ac1cabc0e96" id="elements-1ac1cabc0e96"></a>
 
@@ -396,7 +381,7 @@ Returns a copy of elements contained by the leaf-list node.
 
 **Throws**
 
-- `NavuException` - if the elements could not be retrieved.
+- `com.tailf.navu.NavuException` - if the elements could not be retrieved.
 
 ### isEmpty() <a href="#isempty-4dde48126244" id="isempty-4dde48126244"></a>
 
@@ -436,21 +421,21 @@ Types: [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d), [WhereTo](NavuL
 
 Move a leaf-list element to a new position.
 
- The destination can be at the beginning, the end or in a relation
+The destination can be at the beginning, the end or in a relation
  to another element.
 
 **Parameters**
 
 - `com.tailf.conf.ConfValue elem` - Move elem according to whereTo
 - `com.tailf.navu.NavuLeafList.WhereTo whereTo` - How the move should be performed. Move elem
-                WhereTo.FIRST or WhereTo.LAST or move elem
-                WhereTo.BEFORE or WhereTo.AFTER the element to.
+WhereTo.FIRST or WhereTo.LAST or move elem
+WhereTo.BEFORE or WhereTo.AFTER the element to.
 - `com.tailf.conf.ConfValue to` - If the value of whereTo is WhereTo.FIRST or WhereTo.LAST
-                this argument ignored
+this argument ignored
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### move(String, WhereTo, String) <a href="#move-7fc455d160ab" id="move-7fc455d160ab"></a>
 
@@ -467,23 +452,23 @@ Types: [WhereTo](NavuLeafList/WhereTo.md#whereto-ed479ce50b9a), [NavuException](
 
 Move a leaf-list element to a new position.
 
- The destination
+The destination
  can be at the beginning, the end or in a relation to another element.
  Elements are referenced by their string representation.
- See also: `move(ConfValue key, WhereTo whereTo, ConfValue to)`
+ See also: [`move(ConfValue key, WhereTo whereTo, ConfValue to)`](NavuLeafList.md#move-da549c25d390)
 
 **Parameters**
 
 - `String elemStr` - Move elemStr according to whereTo
 - `com.tailf.navu.NavuLeafList.WhereTo whereTo` - How the move should be performed. Move elemStr
-                WhereTo.FIRST or WhereTo.LAST or move elemStr
-                WhereTo.BEFORE or WhereTo.AFTER the element toStr.
+WhereTo.FIRST or WhereTo.LAST or move elemStr
+WhereTo.BEFORE or WhereTo.AFTER the element toStr.
 - `String toStr` - If the value of whereTo is WhereTo.FIRST or WhereTo.LAST
-                this argument ignored
+this argument ignored
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### safeCreate(ConfValue) <a href="#safecreate-3d8fab71365a" id="safecreate-3d8fab71365a"></a>
 
@@ -502,7 +487,7 @@ The variant of `create` that succeeds even if the
 
 **Throws**
 
-- `NavuException` - if any MAAPI operations fail during the
+- `com.tailf.navu.NavuException` - if any MAAPI operations fail during the
   create or IOException if socket errors would occur.
 
 ### safeCreate(String) <a href="#safecreate-e4235ee54874" id="safecreate-e4235ee54874"></a>
@@ -523,7 +508,7 @@ The variant of `create` that succeeds even if the
 
 **Throws**
 
-- `NavuException` - if any MAAPI operations fail during the
+- `com.tailf.navu.NavuException` - if any MAAPI operations fail during the
   create or IOException if socket errors would occur.
 
 ### sharedCreate(ConfValue) <a href="#sharedcreate-48ee43b1130f" id="sharedcreate-48ee43b1130f"></a>
@@ -546,7 +531,7 @@ The variant of `create` that succeeds even if the
 
 **Throws**
 
-- `NavuException` - if any MAAPI operations fail during the
+- `com.tailf.navu.NavuException` - if any MAAPI operations fail during the
   create or IOException if socket errors would occur.
 
 ### sharedCreate(String) <a href="#sharedcreate-931ab178735a" id="sharedcreate-931ab178735a"></a>
@@ -570,7 +555,7 @@ The variant of `create` that succeeds even if the
 
 **Throws**
 
-- `NavuException` - if any MAAPI operations fail during the
+- `com.tailf.navu.NavuException` - if any MAAPI operations fail during the
   create or IOException if socket errors would occur.
 
 ### size() <a href="#size-c6d8505255fd" id="size-c6d8505255fd"></a>
@@ -584,8 +569,3 @@ Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 Returns the number of leaf-list elements contained by the leaf-list.
 
 **Returns:** the number of elements.
-
-
-## Nested Types
-
-- [WhereTo](NavuLeafList/WhereTo.md#whereto-ed479ce50b9a)

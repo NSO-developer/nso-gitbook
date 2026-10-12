@@ -4,8 +4,8 @@
 public enum com.tailf.maapi.MaapiConfigFlag
 ```
 
-Flags used in `Maapi#saveConfig(int,EnumSet,String,Object... )`
- and `Maapi#loadConfig(int,EnumSet,String)`.
+Flags used in [`Maapi#saveConfig(int,EnumSet,String,Object... )`](Maapi.md#saveconfig-eabd7f81580a)
+ and [`Maapi#loadConfig(int,EnumSet,String)`](Maapi.md#loadconfig-0cd0ed8a64d0).
 
 ## Members
 
@@ -197,7 +197,7 @@ JUNIPER_CLI_CMD_FORMAT(1 << 24);
 
 The configuration format is Juniper-style set commands.
  Use this flag with [`Maapi#loadConfig`](Maapi.md#loadconfig-0cd0ed8a64d0), or
- [`Maapi#loadConfigCmds`](Maapi.md#loadconfigcmds-4c47d55451a5) to load
+ [`Maapi#loadConfigCmds`](Maapi.md#loadconfigcmds-503af14c6ecb) to load
  configuration expressed as Juniper "set" commands.
 
 ### JUNIPER_CLI_FORMAT <a href="#juniper_cli_format-861be2804daf" id="juniper_cli_format-861be2804daf"></a>
@@ -471,7 +471,7 @@ XPATH(1 << 8);
 
 The fmtpath and remaining arguments give an XPath filter instead of a
  keypath. XPath filtering for path to
- `Maapi#saveConfig(int,EnumSet,String,Object... )` can only be
+ [`Maapi#saveConfig(int,EnumSet,String,Object... )`](Maapi.md#saveconfig-eabd7f81580a) can only be
  used with [`MAAPI_CONFIG_XML`](MaapiConfigFlag.md#maapi_config_xml-5293149632cc) and
  [`MAAPI_CONFIG_XML_PRETTY`](MaapiConfigFlag.md#maapi_config_xml_pretty-6e369993cec8).
 

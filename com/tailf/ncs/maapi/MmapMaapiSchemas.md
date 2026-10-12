@@ -41,8 +41,8 @@ mmap version of MaapiSchemas trying to load the schema data using
 - [findCSNode\(CSNode, int, int\)](#findcsnode-052de3dda313)
 - [findCSNode\(CSNode, String, String\)](../../maapi/MaapiSchemas.md#findcsnode-5d43b475b623) from MaapiSchemas
 - [findCSNode\(MountIdInterface, String, List\<PathElement\>\)](../../maapi/MaapiSchemas.md#findcsnode-22bcb6b48b20) from MaapiSchemas
-- [findCSNode\(MountIdInterface, String, String, Object\[\]\)](../../maapi/MaapiSchemas.md#findcsnode-33ce42d47da2) from MaapiSchemas
-- [findCSNode\(String, String, Object\[\]\)](../../maapi/MaapiSchemas.md#findcsnode-9fc05e189266) from MaapiSchemas
+- [findCSNode\(MountIdInterface, String, String, Object\.\.\.\)](../../maapi/MaapiSchemas.md#findcsnode-5533d3752859) from MaapiSchemas
+- [findCSNode\(String, String, Object\.\.\.\)](../../maapi/MaapiSchemas.md#findcsnode-7484ce889b2b) from MaapiSchemas
 - [findCSRoot\(int\)](../../maapi/MaapiSchemas.md#findcsroot-e71c532d0a72) from MaapiSchemas
 - [findCSRoot\(String\)](../../maapi/MaapiSchemas.md#findcsroot-ed8e95df57fe) from MaapiSchemas
 - [findCSSchema\(int\)](../../maapi/MaapiSchemas.md#findcsschema-880b1533ffd2) from MaapiSchemas
@@ -74,7 +74,6 @@ mmap version of MaapiSchemas trying to load the schema data using
 
 **Nested Types**:
 
-- [MountPointKey](MmapMaapiSchemas/MountPointKey.md#mountpointkey-5feaacabad24)
 - [SchemaLookup](MmapMaapiSchemas/SchemaLookup.md#schemalookup-3497dafb56ea)
 - [SchemaLookupImpl](MmapMaapiSchemas/SchemaLookupImpl.md#schemalookupimpl-6c1679013471)
 
@@ -105,11 +104,18 @@ public com.tailf.maapi.MaapiSchemas.CSNode findCSNode(
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28), [CSMNsMap](../../maapi/MaapiSchemas/CSMNsMap.md#csmnsmap-1123c939e6bb)
 
+*Description from* [`MaapiSchemas.findCSNode(com.tailf.maapi.MaapiSchemas.CSNode, com.tailf.maapi.MaapiSchemas.CSMNsMap, String)`](../../maapi/MaapiSchemas.md#findcsnode-31950d190712)
+
+Retrieve a specific node with a given parent node identified by xmltag
+ all namespaces in a mnsmap and tagname
+
 **Parameters**
 
-- `com.tailf.maapi.MaapiSchemas.CSNode parent0`
+- `com.tailf.maapi.MaapiSchemas.CSNode parent0` - parent node
 - `com.tailf.maapi.MaapiSchemas.CSMNsMap mnsMap`
 - `String tag`
+
+**Returns:** CSNode or null if not found
 
 ### findCSNode(CSNode, int, int) <a href="#findcsnode-052de3dda313" id="findcsnode-052de3dda313"></a>
 
@@ -123,11 +129,20 @@ public com.tailf.maapi.MaapiSchemas.CSNode findCSNode(
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 
+*Description from* [`MaapiSchemas.findCSNode(com.tailf.maapi.MaapiSchemas.CSNode, int, int)`](../../maapi/MaapiSchemas.md#findcsnode-052de3dda313)
+
+Find and retrieves specific node in the schema information tree.
+
+ Retrieve a specific node with a given parent node identified by xmltag
+ namespace hash and tagname hash
+
 **Parameters**
 
-- `com.tailf.maapi.MaapiSchemas.CSNode parent0`
-- `int hns`
-- `int htag`
+- `com.tailf.maapi.MaapiSchemas.CSNode parent0` - parent node
+- `int hns` - namespace hash value
+- `int htag` - tag hash which value
+
+**Returns:** CSNode or null if not found
 
 ### init(Socket) <a href="#init-1f83ed7f5091" id="init-1f83ed7f5091"></a>
 
@@ -140,9 +155,21 @@ protected com.tailf.maapi.MaapiSchemas init(
 
 Types: [MaapiSchemas](../../maapi/MaapiSchemas.md#maapischemas-821ac70b83b7), [MaapiException](../../maapi/MaapiException.md#maapiexception-af58eb4e109e)
 
+*Description from* [`MaapiSchemas.init(java.net.Socket)`](../../maapi/MaapiSchemas.md#init-1f83ed7f5091)
+
+Initialization method for a new MaapiSchemas instance.
+
+ Only for internal usage.
+
 **Parameters**
 
-- `java.net.Socket socket`
+- `java.net.Socket socket` - Socket connected to NSO that should be used to load schemas
+
+**Returns:** An initialized instance
+
+**Throws**
+
+- `com.tailf.maapi.MaapiException` - if an error occurs during loading of schemas.
 
 ### init(String) <a href="#init-8e7ccd1565bf" id="init-8e7ccd1565bf"></a>
 
@@ -155,10 +182,3 @@ Types: [MaapiSchemas](../../maapi/MaapiSchemas.md#maapischemas-821ac70b83b7), [M
 **Parameters**
 
 - `String schemaPath`
-
-
-## Nested Types
-
-- [MountPointKey](MmapMaapiSchemas/MountPointKey.md#mountpointkey-5feaacabad24)
-- [SchemaLookup](MmapMaapiSchemas/SchemaLookup.md#schemalookup-3497dafb56ea)
-- [SchemaLookupImpl](MmapMaapiSchemas/SchemaLookupImpl.md#schemalookupimpl-6c1679013471)

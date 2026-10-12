@@ -6,11 +6,11 @@ public class com.tailf.maapi.MaapiCrypto
 
 Data encryption and decryption utility class.
 
- This class is instantiated using an existing [`Maapi`](Maapi.md#maapi-67bcbe89c42e) object.
+This class is instantiated using an existing [`Maapi`](Maapi.md#maapi-67bcbe89c42e) object.
 
- Encrypted strings can then be decrypted via the
+Encrypted strings can then be decrypted via the
  [`decrypt(String)`](MaapiCrypto.md#decrypt-fd5519daae0f) method and encrypted via the
- `encrypt(MaapiCryptoType, String)` method.
+ [`encrypt(MaapiCryptoType, String)`](MaapiCrypto.md#encrypt-6816a2fdb1cd) method.
 
 ## Members
 
@@ -76,7 +76,7 @@ Decrypt an encrypted string.
 
 **Throws**
 
-- `MaapiException` - On errors decrypting the encrypted string.
+- `com.tailf.maapi.MaapiException` - On errors decrypting the encrypted string.
 
 ### encrypt(MaapiCryptoType, String) <a href="#encrypt-6816a2fdb1cd" id="encrypt-6816a2fdb1cd"></a>
 
@@ -101,7 +101,7 @@ Encrypt a plaintext string.
 
 **Throws**
 
-- `MaapiException` - On errors encrypting the plaintext.
+- `com.tailf.maapi.MaapiException` - On errors encrypting the plaintext.
 
 ### getAes256Key() <a href="#getaes256key-babe38ca13d3" id="getaes256key-babe38ca13d3"></a>
 

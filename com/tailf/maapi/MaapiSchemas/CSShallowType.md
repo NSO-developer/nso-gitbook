@@ -75,7 +75,7 @@ C_BINARY(39);
 ```
 
 (yang:object-identifier)
-             confd_buf_t (binary ...)
+confd_buf_t (binary ...)
 
 ### C_BIT32 <a href="#c_bit32-29a2689dc15e" id="c_bit32-29a2689dc15e"></a>
 
@@ -100,7 +100,7 @@ C_BOOL(17);
 ```
 
 (inet:ipv6-address)
-             int       (boolean)
+int       (boolean)
 
 ### C_BUF <a href="#c_buf-c58953b79e0c" id="c_buf-c58953b79e0c"></a>
 
@@ -125,7 +125,7 @@ C_DATE(20);
 ```
 
 (yang:date-and-time)
-             struct confd_date (xs:date)
+struct confd_date (xs:date)
 
 ### C_DATETIME <a href="#c_datetime-156ea17a91da" id="c_datetime-156ea17a91da"></a>
 
@@ -150,7 +150,7 @@ C_DEFAULT(42);
 ```
 
 (inet:ipv6-prefix)
-             default value indicator
+default value indicator
 
 ### C_DOUBLE <a href="#c_double-c2bc476402bc" id="c_double-c2bc476402bc"></a>
 
@@ -287,7 +287,7 @@ C_IPV6(16);
 ```
 
 (inet:ipv4-address)
-             struct in6_addr in NBO
+struct in6_addr in NBO
 
 ### C_IPV6PREFIX <a href="#c_ipv6prefix-dd3dc43094e9" id="c_ipv6prefix-dd3dc43094e9"></a>
 
@@ -296,7 +296,7 @@ C_IPV6PREFIX(41);
 ```
 
 (inet:ipv4-prefix)
-             struct confd_ipv6_prefix
+struct confd_ipv6_prefix
 
 ### C_LIST <a href="#c_list-c50b3e6ad605" id="c_list-c50b3e6ad605"></a>
 
@@ -320,7 +320,7 @@ end marker
 C_OBJECTREF(34);
 ```
 
-struct confd_hkeypath*
+struct confd_hkeypath\*
 
 ### C_OID <a href="#c_oid-de0626b8567a" id="c_oid-de0626b8567a"></a>
 
@@ -328,7 +328,7 @@ struct confd_hkeypath*
 C_OID(38);
 ```
 
-struct confd_snmp_oid*
+struct confd_snmp_oid\*
 
 ### C_PTR <a href="#c_ptr-168bfef51be1" id="c_ptr-168bfef51be1"></a>
 
@@ -409,7 +409,7 @@ C_UNION(35);
 ```
 
 (instance-identifier)
-             (union) - not used in API
+(union) - not used in API
 
 ### C_XMLBEGIN <a href="#c_xmlbegin-9fc8dd337b02" id="c_xmlbegin-9fc8dd337b02"></a>
 

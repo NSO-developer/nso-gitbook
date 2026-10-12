@@ -68,7 +68,6 @@ Types: [ConfKey](ConfKey.md#confkey-e4e1ca98e867)
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
 - [decode\(ConfEObject, String\)](ConfObject.md#decode-9b92f1de40d8) from ConfObject
@@ -109,3 +108,12 @@ Types: [ConfObject](ConfObject.md#confobject-5433616953b2), [CSNode](../maapi/Ma
 ```java
 public String toString()
 ```
+
+*Description from* [`ConfKey.toString()`](ConfKey.md#tostring-e9d48c5503ef)
+
+Returns a string representation of the ConfKey. The key elements will
+ be quoted if necessary. Note however that this string representation is
+ available for backward compatibility and is unsuitable for use in
+ keypaths. Instead use [`toStrictlyQuotedString()`](ConfKey.md#tostrictlyquotedstring-c10aef71d8ba).
+
+**Returns:** String representation of the key

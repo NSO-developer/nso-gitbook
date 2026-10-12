@@ -54,8 +54,8 @@ Write service log entry with level debug.
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### error(NavuNode, String, ConfIdentityRef) <a href="#error-36ea172332a6" id="error-36ea172332a6"></a>
 
@@ -80,8 +80,8 @@ Write service log entry with level error.
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### info(NavuNode, String, ConfIdentityRef) <a href="#info-4b3af861e27b" id="info-4b3af861e27b"></a>
 
@@ -106,8 +106,8 @@ Write service log entry with level info.
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### trace(NavuNode, String, ConfIdentityRef) <a href="#trace-678d3c696ad3" id="trace-678d3c696ad3"></a>
 
@@ -132,8 +132,8 @@ Write service log entry with level trace.
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### warn(NavuNode, String, ConfIdentityRef) <a href="#warn-34f7ad4bc513" id="warn-34f7ad4bc513"></a>
 
@@ -158,5 +158,5 @@ Write service log entry with level warn.
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`

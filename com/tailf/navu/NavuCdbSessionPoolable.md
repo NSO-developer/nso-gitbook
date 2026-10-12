@@ -8,86 +8,68 @@ This `NavuCdbSessionPoolable` interface should be implemented by
  any class whose instance are intended to change the default behavior
  of how CdbSession object is created and used in NAVU.
 
- When using NAVU in with Cdb (passing Cdb object to constructor of
+When using NAVU in with Cdb (passing Cdb object to constructor of
  the NavuContext ) :
 
-
 ```
- Cdb cdb = ..;
- NavuContext ctx = new NavuContext(cdb);
+Cdb cdb = ..;
+NavuContext ctx = new NavuContext(cdb);
 ```
 
-
- The argument `cdb` object to the constructor of
+The argument `cdb` object to the constructor of
  `NavuContext` called the "root Cdb"  by default is
  not used directly. Which means no sessions are created on the root Cdb.
 
-
- Instead it acts as a key to a map too look up other Cdb objects that in
+Instead it acts as a key to a map too look up other Cdb objects that in
  turn starts sessions towards different datastores.
 
-
- The default implementation contains a map where the key is the
+The default implementation contains a map where the key is the
  "root Cdb" and the value is in turn another map (inner map).
 
- The "inner map" where its key is of the type `CdbDBType` contains
+The "inner map" where its key is of the type `CdbDBType` contains
  mapping between different datastores and a container that
  contains "local `Cdb` objects and corresponding
  `CdbSession`.
 
-
-
 ```
-   MapCdb,MapCdbDBType,SessionContainer map ..
+  Map>Cdb<,Map>CdbDBType,SessionContainer>> map ..
 ```
 
-
-
-
-
 ```
-    class SessionContainer {
-       CdbSession localSession;
-       Cdb        localCdb;
-       ...
-    }
+   class SessionContainer {
+      CdbSession localSession;
+      Cdb        localCdb;
+      ...
+   }
 ```
-
-
 
  When NAVU needs to retrieve a `CdbSession` it calls the static
  `NavuCdbSessionPool.getCdbSession()` which in turn calls the
  current implementation of this interface `getSession` method.
 
  The `getSession(Cdb,CdbDBType)` or
- `getSession(Cdb,CdbDBType,EnumSetCdbLockType)`
+ `getSession(Cdb,CdbDBType,EnumSet<CdbLockType>)`
  method must return a `CdbSession` towards the specified the
  datastore specified  by the second parameter.
 
-  The `removeCdbSessions(Cdb)` must release
+The `removeCdbSessions(Cdb)` must release
  the associated Cdb session for the corresponding Cdb, which is the
  corresponding method of `getSession(Cdb,CdbDBType)`.
 
-
- Regardless it is left to the implementation which
+Regardless it is left to the implementation which
  `Cdb` this `CdbSession` is originated from.
  The default implementation starts Cdb session from the "local Cdb".
  And what a "release" really means in case of
  `removeCdbSession(Cdb)`.
 
-
- The specify that a implementation should be used
+The specify that a implementation should be used
  the parameter `com.tailf.navu.cdb.sessionpool`
  should be set to a binary name ( for example com.foo.NavuCdbSessionPoolImpl)
  and should be passed to the jvm at startup:
 
-
-
 ```
- java -Dcom.tailf.navu.cdb.sessionpool=com.foo.NavuCdbSessionPoolImpl ...
+java -Dcom.tailf.navu.cdb.sessionpool=com.foo.NavuCdbSessionPoolImpl ...
 ```
-
-
 
  It should be noted that the bytecode of the implementation must be
  available in the system classpath or a exception will be thrown
@@ -107,7 +89,7 @@ This `NavuCdbSessionPoolable` interface should be implemented by
 ### getSession(Cdb, CdbDBType, EnumSet&lt;CdbLockType&gt;) <a href="#getsession-61014dfb12a7" id="getsession-61014dfb12a7"></a>
 
 ```java
-public abstract com.tailf.cdb.CdbSession getSession(
+com.tailf.cdb.CdbSession getSession(
     com.tailf.cdb.Cdb rootCdb,
     com.tailf.cdb.CdbDBType dbType,
     java.util.EnumSet<com.tailf.cdb.CdbLockType> locks
@@ -130,13 +112,13 @@ Returns a Cdb session to `dbType` datastore with
 
 **Throws**
 
-- `IOException` - on I/O failure
-- `ConfException` - on protocol error
+- `java.io.IOException` - on I/O failure
+- `com.tailf.conf.ConfException` - on protocol error
 
 ### poolInUse() <a href="#poolinuse-8d190a00726a" id="poolinuse-8d190a00726a"></a>
 
 ```java
-public abstract boolean poolInUse()
+boolean poolInUse()
 ```
 
 Returns true if the implementation pool is in use.
@@ -148,7 +130,7 @@ Returns true if the implementation pool is in use.
 ### removeAllForCdb(Cdb) <a href="#removeallforcdb-58157efc1de6" id="removeallforcdb-58157efc1de6"></a>
 
 ```java
-public abstract void removeAllForCdb(
+void removeAllForCdb(
     com.tailf.cdb.Cdb rootCdb
 )
     throws java.io.IOException, com.tailf.conf.ConfException
@@ -172,13 +154,13 @@ Removes or closes all CdbSession associated with the supplied Cdb.
 
 **Throws**
 
-- `IOException` - on I/O failure
-- `ConfException` - on protocol error
+- `java.io.IOException` - on I/O failure
+- `com.tailf.conf.ConfException` - on protocol error
 
 ### removeAllSessions() <a href="#removeallsessions-211f72fa9478" id="removeallsessions-211f72fa9478"></a>
 
 ```java
-public abstract void removeAllSessions() throws java.io.IOException, com.tailf.conf.ConfException
+void removeAllSessions() throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
 Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
@@ -190,5 +172,5 @@ Removes all established session held by any Cdb.
 
 **Throws**
 
-- `IOException` - on I/O failure
-- `ConfException` - on protocol error
+- `java.io.IOException` - on I/O failure
+- `com.tailf.conf.ConfException` - on protocol error

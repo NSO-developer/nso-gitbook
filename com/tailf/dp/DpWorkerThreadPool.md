@@ -38,12 +38,12 @@ Constructor for Thread pool.
 
 **Parameters**
 
-- `int corePoolSize` - - initial number of threads in the pool
-- `int maximumPoolSize` - - maximal number of threads in the pool
-- `long keepAliveTime` - - time in TimeUnit to wait for work,
+- `int corePoolSize` - \- initial number of threads in the pool
+- `int maximumPoolSize` - \- maximal number of threads in the pool
+- `long keepAliveTime` - \- time in TimeUnit to wait for work,
  if over corePoolSize
-- `java.util.concurrent.TimeUnit unit` - - The TimeUnit for keepAliveTime
-- `java.util.concurrent.BlockingQueue<Runnable> workQueue` - - queue for work waiting to process
+- `java.util.concurrent.TimeUnit unit` - \- The TimeUnit for keepAliveTime
+- `java.util.concurrent.BlockingQueue<Runnable> workQueue` - \- queue for work waiting to process
 
 
 ## Methods

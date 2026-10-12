@@ -11,7 +11,7 @@ Types: [ApplyResult](ApplyResult.md#applyresult-77b049ed4f17), [DryRunEntry](Dry
 Represents a successful invocation of the
  [`Maapi#applyTransParams(int, boolean, CommitParams)`](Maapi.md#applytransparams-6c20b7896663) method.
 
- The purpose of this class is to represent the result of a transaction
+The purpose of this class is to represent the result of a transaction
  without actually having committed the changes.
 
 ## Members
@@ -22,12 +22,8 @@ Represents a successful invocation of the
 
 **Methods**:
 
-- [getData\(\)](DryRunResult/DryRunEntry.md#getdata-8ef0e36ab01b) from DryRunEntry
 - [getFormat\(\)](#getformat-8617415c2f83)
 - [getFormatAsString\(\)](#getformatasstring-e50e8059b9b9)
-- [getName\(\)](DryRunResult/DryRunEntry.md#getname-2634b18b4a25) from DryRunEntry
-- [getType\(\)](DryRunResult/DryRunEntry.md#gettype-5a52f6f0d4c1) from DryRunEntry
-- [getTypeAsString\(\)](DryRunResult/DryRunEntry.md#gettypeasstring-ea437139f174) from DryRunEntry
 - [iterator\(\)](#iterator-188aa52d1f86)
 
 **Nested Types**:
@@ -65,18 +61,18 @@ Types: [Format](DryRunResult/Format.md#format-7125142f5ce6)
 
 Return the format of the dry-run result.
 
- The format could be any of the following:
+The format could be any of the following:
 
- [`Format#XML`](DryRunResult/Format.md#xml-b65914d05936) means that all changes in the whole data model is
+[`Format#XML`](DryRunResult/Format.md#xml-b65914d05936) means that all changes in the whole data model is
  displayed in NETCONF XML edit-config format.
 
- [`Format#CLI`](DryRunResult/Format.md#cli-0d593b2cecc2) means that all changes in the whole data model is
+[`Format#CLI`](DryRunResult/Format.md#cli-0d593b2cecc2) means that all changes in the whole data model is
  displayed in NCS CLI curly bracket format.
 
- [`Format#CLI_C`](DryRunResult/Format.md#cli_c-c2e13684a7a3) means that all changes in the whole data model
+[`Format#CLI_C`](DryRunResult/Format.md#cli_c-c2e13684a7a3) means that all changes in the whole data model
  is displayed in Cisco style CLI format.
 
- [`Format#NATIVE`](DryRunResult/Format.md#native-18aeb3ecd16f) means that only changes under
+[`Format#NATIVE`](DryRunResult/Format.md#native-18aeb3ecd16f) means that only changes under
   /devices/device/config is displayed in native device format.
 
 ### getFormatAsString() <a href="#getformatasstring-e50e8059b9b9" id="getformatasstring-e50e8059b9b9"></a>
@@ -97,9 +93,3 @@ Types: [DryRunEntry](DryRunResult/DryRunEntry.md#dryrunentry-2d08ec41ae5c)
 
 Retrieves an iterator from which one could iterate over the
  result.
-
-
-## Nested Types
-
-- [DryRunEntry](DryRunResult/DryRunEntry.md#dryrunentry-2d08ec41ae5c)
-- [Format](DryRunResult/Format.md#format-7125142f5ce6)

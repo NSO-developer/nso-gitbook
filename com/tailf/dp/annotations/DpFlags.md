@@ -24,7 +24,7 @@ Annotation class that allows to specify data provider flags to tweak
 ### noDefaults() <a href="#nodefaults-fa4b3f614c22" id="nodefaults-fa4b3f614c22"></a>
 
 ```java
-public abstract boolean noDefaults()
+boolean noDefaults() default false
 ```
 
 This parameter is used to turn off SET_ELEM and SET_CASE callbacks

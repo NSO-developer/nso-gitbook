@@ -10,9 +10,8 @@ Types: [CliSession](CliSession.md#clisession-1e55c4457237)
 A telnet  transport.
  Example:
 
-
 ```
- TelnetSession c = new TelnetSession("127.0.0.1", 23);
+TelnetSession c = new TelnetSession("127.0.0.1", 23);
 ```
 
 ## Members
@@ -85,7 +84,7 @@ Constructor for Telnet session object. This method creates a
 
 **Throws**
 
-- `IOException`
+- `java.io.IOException`
 
 ### TelnetSession(NedWorker, int, NedTracer, NedConnectionBase) <a href="#telnetsession-21f327968cad" id="telnetsession-21f327968cad"></a>
 
@@ -112,7 +111,7 @@ Constructor with an extra argument for a readTimeout timer.
 
 **Throws**
 
-- `IOException`
+- `java.io.IOException`
 
 ### TelnetSession(NedWorker, NedTracer, NedConnectionBase) <a href="#telnetsession-caa93be5f9d7" id="telnetsession-caa93be5f9d7"></a>
 
@@ -138,7 +137,7 @@ Constructor for Telnet session object. This method creates a
 
 **Throws**
 
-- `IOException`
+- `java.io.IOException`
 
 ### TelnetSession(NedWorker, String, int, NedTracer, NedConnectionBase) <a href="#telnetsession-3ec47bd8b865" id="telnetsession-3ec47bd8b865"></a>
 
@@ -167,7 +166,7 @@ Constructor with extra user name argument.
 
 **Throws**
 
-- `IOException`
+- `java.io.IOException`
 
 
 ## Fields
@@ -175,7 +174,7 @@ Constructor with extra user name argument.
 ### readTimeout <a href="#readtimeout-0c3689315cf4" id="readtimeout-0c3689315cf4"></a>
 
 ```java
-protected int readTimeout = null;
+protected int readTimeout;
 ```
 
 

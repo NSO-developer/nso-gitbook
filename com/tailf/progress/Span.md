@@ -6,9 +6,9 @@ public class com.tailf.progress.Span
 
 Class for `Span` information.
  A Span object is created and returned
- by a `ProgressTrace#startSpan`
+ by a [`ProgressTrace#startSpan`](ProgressTrace.md#startspan-a255151f7145)
  method, and is passed to
- `ProgressTrace#endSpan`
+ [`ProgressTrace#endSpan`](ProgressTrace.md#endspan-832d21f903c3)
 
 **Related classes**
 

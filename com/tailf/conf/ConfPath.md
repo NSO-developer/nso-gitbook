@@ -9,11 +9,10 @@ Types: [InstancePath](InstancePath.md#instancepath-7694a1545db3)
 
 Class Representing an KeyPath path.
 
-
-  String representations e.g `"/n:rootA/nodeB/listC{key1}/leafD"`
+String representations e.g `"/n:rootA/nodeB/listC{key1}/leafD"`
   User applications usually needs to construct string representations
   of paths in this way. To construct a `ConfPath` from this
-  representation use [`ConfPath(String, Object...)`](ConfPath.md#confpath-8a4fe6060eb3)
+  representation use [`ConfPath(String, Object...)`](ConfPath.md#confpath-5cf30af963fb)
 
 **Related classes**
 
@@ -25,17 +24,17 @@ Class Representing an KeyPath path.
 
 - [ConfPath\(\)](#confpath-7f970cc77a26)
 - [ConfPath\(Cdb, ConfObject\[\]\)](#confpath-4b73430ece5c)
-- [ConfPath\(Cdb, String, Object\[\]\)](#confpath-f2399b19143b)
+- [ConfPath\(Cdb, String, Object\.\.\.\)](#confpath-2d855e83abfb)
 - [ConfPath\(ConfEBinary\)](#confpath-9dfd225c2ca2)
 - [ConfPath\(ConfEList\)](#confpath-f04d38a4d2b2)
 - [ConfPath\(ConfObject\[\]\)](#confpath-a9a205b72c41)
 - [ConfPath\(ConfPath\)](#confpath-9ead5ec0063a)
 - [ConfPath\(Maapi, int, ConfObject\[\]\)](#confpath-e3b5d7d947e2)
-- [ConfPath\(Maapi, int, String, Object\[\]\)](#confpath-517b4240f396)
+- [ConfPath\(Maapi, int, String, Object\.\.\.\)](#confpath-ecde3967a956)
 - [ConfPath\(MountIdInterface, ConfObject\[\]\)](#confpath-ff4ee085d860)
 - [ConfPath\(MountIdInterface, List\<PathElement\>\)](#confpath-c79fb5d41889)
-- [ConfPath\(MountIdInterface, String, Object\[\]\)](#confpath-8eb451dafe31)
-- [ConfPath\(String, Object\[\]\)](#confpath-8a4fe6060eb3)
+- [ConfPath\(MountIdInterface, String, Object\.\.\.\)](#confpath-41c5e16d90ad)
+- [ConfPath\(String, Object\.\.\.\)](#confpath-5cf30af963fb)
 
 **Fields**:
 
@@ -102,13 +101,13 @@ Types: [Cdb](../cdb/Cdb.md#cdb-cb7fc41768c9), [ConfObject](ConfObject.md#confobj
 - `com.tailf.cdb.Cdb cdb`
 - `com.tailf.conf.ConfObject[] kp`
 
-### ConfPath(Cdb, String, Object[]) <a href="#confpath-f2399b19143b" id="confpath-f2399b19143b"></a>
+### ConfPath(Cdb, String, Object...) <a href="#confpath-2d855e83abfb" id="confpath-2d855e83abfb"></a>
 
 ```java
 public ConfPath(
     com.tailf.cdb.Cdb cdb,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws com.tailf.conf.ConfException
 ```
@@ -119,7 +118,7 @@ Types: [Cdb](../cdb/Cdb.md#cdb-cb7fc41768c9), [ConfException](ConfException.md#c
 
 - `com.tailf.cdb.Cdb cdb`
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 ### ConfPath(ConfEBinary) <a href="#confpath-9dfd225c2ca2" id="confpath-9dfd225c2ca2"></a>
 
@@ -139,7 +138,7 @@ Initialize a ConfPath.
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### ConfPath(ConfEList) <a href="#confpath-f04d38a4d2b2" id="confpath-f04d38a4d2b2"></a>
 
@@ -166,7 +165,7 @@ public ConfPath(com.tailf.conf.ConfObject[] kp)
 Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
 
 Initializes a new instance of this class from a given
- reverted ConfObject[] keypath where elements
+ reverted ConfObject\[\] keypath where elements
  is either `ConfTag` or
  `ConfKey`.
 
@@ -205,14 +204,14 @@ Types: [Maapi](../maapi/Maapi.md#maapi-67bcbe89c42e), [ConfObject](ConfObject.md
 - `int tid`
 - `com.tailf.conf.ConfObject[] kp`
 
-### ConfPath(Maapi, int, String, Object[]) <a href="#confpath-517b4240f396" id="confpath-517b4240f396"></a>
+### ConfPath(Maapi, int, String, Object...) <a href="#confpath-ecde3967a956" id="confpath-ecde3967a956"></a>
 
 ```java
 public ConfPath(
     com.tailf.maapi.Maapi maapi,
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws com.tailf.conf.ConfException
 ```
@@ -224,7 +223,7 @@ Types: [Maapi](../maapi/Maapi.md#maapi-67bcbe89c42e), [ConfException](ConfExcept
 - `com.tailf.maapi.Maapi maapi`
 - `int tid`
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 ### ConfPath(MountIdInterface, ConfObject[]) <a href="#confpath-ff4ee085d860" id="confpath-ff4ee085d860"></a>
 
@@ -255,13 +254,13 @@ Types: [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0), [P
 - `com.tailf.conf.MountIdInterface mountGetter`
 - `java.util.List<com.tailf.conf.gen.PathParser.PathElement> pl`
 
-### ConfPath(MountIdInterface, String, Object[]) <a href="#confpath-8eb451dafe31" id="confpath-8eb451dafe31"></a>
+### ConfPath(MountIdInterface, String, Object...) <a href="#confpath-41c5e16d90ad" id="confpath-41c5e16d90ad"></a>
 
 ```java
 public ConfPath(
     com.tailf.conf.MountIdInterface mountIdCb,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws com.tailf.conf.ConfException
 ```
@@ -272,12 +271,12 @@ Types: [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0), [C
 
 - `com.tailf.conf.MountIdInterface mountIdCb`
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
-### ConfPath(String, Object[]) <a href="#confpath-8a4fe6060eb3" id="confpath-8a4fe6060eb3"></a>
+### ConfPath(String, Object...) <a href="#confpath-5cf30af963fb" id="confpath-5cf30af963fb"></a>
 
 ```java
-public ConfPath(String fmt, Object[] arguments) throws com.tailf.conf.ConfException
+public ConfPath(String fmt, Object... arguments) throws com.tailf.conf.ConfException
 ```
 
 Types: [ConfException](ConfException.md#confexception-baeaab99f7f9)
@@ -285,31 +284,28 @@ Types: [ConfException](ConfException.md#confexception-baeaab99f7f9)
 Construct a `ConfPath` from a string path representation
  and of optional arguments.
 
-
- The path is expressed as a format string
+The path is expressed as a format string
  that could contain fixed text
  with zero to many embedded format specifiers.
 
-
- For each specifier one argument in the variable argument list is
+For each specifier one argument in the variable argument list is
  expected.
-
+ 
  format specifiers in the Java API is:
-
 
 - %d - requiring an integer parameter (type int) to be substituted.
 - %s - requiring a java.lang.String parameter to be substituted.
 - %x - requiring subclasses of type com.tailf.conf.ConfValue to be
- substituted.
+   substituted.
 
 **Parameters**
 
 - `String fmt` - path string representation
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 
 ## Methods
@@ -346,9 +342,9 @@ Appends suffix path to existing keypath
 
 - `String s` - path to append
 - `java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> pathNodes` - sorted list of all `CSNode` objects
-        contained in the resulting `ConfPath` object
-        after appending s. This list is used as a cache to speedup
-        `ConfPath` construction.
+contained in the resulting `ConfPath` object
+after appending s. This list is used as a cache to speedup
+`ConfPath` construction.
 
 ### chkDeferred() <a href="#chkdeferred-f66dc2317846" id="chkdeferred-f66dc2317846"></a>
 

@@ -9,7 +9,6 @@ Internal Management and control of Ncs Packages and components
 - [ApplicationMuxManager](ApplicationMuxManager.md#applicationmuxmanager-1cb698beb331)
 - [AppPDEntry](AppPDEntry.md#apppdentry-fb5d42b84e3c)
 - [DpMuxManager](DpMuxManager.md#dpmuxmanager-a830918ce722)
-- [DpPDEntry](DpPDEntry.md#dppdentry-3d7fc55c80fc)
 - [MuxManager](MuxManager.md#muxmanager-aab4b7a029ee)
 - [NcsComponentData](NcsComponentData.md#ncscomponentdata-b345f6915023)
 - [NcsCtrlException](NcsCtrlException.md#ncsctrlexception-5ca72987a4d7)

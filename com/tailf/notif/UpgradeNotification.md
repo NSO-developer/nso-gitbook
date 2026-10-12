@@ -86,12 +86,11 @@ public int getUpgradeType()
 
 Upgrade event type:
 
-
 - [`UPGRADE_INIT_STARTED`](UpgradeNotification.md#upgrade_init_started-b44e3b84ad61)
-   - [`UPGRADE_INIT_SUCCEEDED`](UpgradeNotification.md#upgrade_init_succeeded-d68a6ffb3124)
-     - [`UPGRADE_PERFORMED`](UpgradeNotification.md#upgrade_performed-a8adb28f5472)
-       - [`UPGRADE_COMMITED`](UpgradeNotification.md#upgrade_commited-36d3b51c70ed)
-         - [`UPGRADE_ABORTED`](UpgradeNotification.md#upgrade_aborted-71c09d46aad2)
+- [`UPGRADE_INIT_SUCCEEDED`](UpgradeNotification.md#upgrade_init_succeeded-d68a6ffb3124)
+- [`UPGRADE_PERFORMED`](UpgradeNotification.md#upgrade_performed-a8adb28f5472)
+- [`UPGRADE_COMMITED`](UpgradeNotification.md#upgrade_commited-36d3b51c70ed)
+- [`UPGRADE_ABORTED`](UpgradeNotification.md#upgrade_aborted-71c09d46aad2)
 
 ### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 

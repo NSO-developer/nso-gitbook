@@ -7,38 +7,37 @@ public class com.tailf.maapi.MaapiInputStream
 
 Represents configuration data input stream used to download configurations.
 
- This class is returned as result from
- `Maapi#saveConfig(int, java.util.EnumSet, String, Object...)` and
- [`Maapi#rollbackConfig(int, String, String...)`](Maapi.md#rollbackconfig-859e41b41c22).
+This class is returned as result from
+ [`Maapi#saveConfig(int, java.util.EnumSet, String, Object...)`](Maapi.md#saveconfig-eabd7f81580a) and
+ [`Maapi#rollbackConfig(int, String, String...)`](Maapi.md#rollbackconfig-913830d11c06).
 
- The application is expected to close the
+The application is expected to close the
  `MaapiInputStream` after usage, to assure that background socket
  is closed.
 
  The instance return will open a new socket to the end server.
 
-
 ```
- // String host = localhost;
- // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
- Socket s = new Socket(host, port);
- Maapi maapi = new Maapi(s);
- maapi.startUserSession(admin,
-     maapi,
-     new String[] { admin },
-     new SocketAddress(InetAddress.getLocalHost(), 0));
- int tid = maapi.startTrans(Conf.DB_RUNNING, Conf.MODE_READ_WRITE);
+// String host = "localhost";
+// int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
+Socket s = new Socket(host, port);
+Maapi maapi = new Maapi(s);
+maapi.startUserSession("admin",
+    "maapi",
+    new String[] { "admin" },
+    new SocketAddress(InetAddress.getLocalHost(), 0));
+int tid = maapi.startTrans(Conf.DB_RUNNING, Conf.MODE_READ_WRITE);
 
- // Save the entire configuration
- MaapiInputStream in = maapi.saveConfig(tid,
-                         EnumSet.of(MaapiConfigFlag.MAAPI_CONFIG_C));
+// Save the entire configuration
+MaapiInputStream in = maapi.saveConfig(tid,
+                        EnumSet.of(MaapiConfigFlag.MAAPI_CONFIG_C));
 
- while ( (bytesRead = is.read (buf, 0, buf.length)) != -1 )
-   // do something with the buf..
+while ( (bytesRead = is.read (buf, 0, buf.length)) != -1 )
+  // do something with the buf..
 
-  is.close();
- maapi.finishTrans(tid);
- s.close();
+ is.close();
+maapi.finishTrans(tid);
+s.close();
 ```
 
 ## Members
@@ -49,7 +48,6 @@ Represents configuration data input stream used to download configurations.
 
 **Methods**:
 
-- [getStreamId\(\)](#getstreamid-97befd015dba)
 - [hasReadAll\(\)](#hasreadall-90559f69e54d)
 - [read\(\)](#read-b28b830b98d6)
 - [read\(byte\[\], int, int\)](#read-0ea898e534b6)
@@ -80,19 +78,11 @@ Protected constructor for MaapiInputStream. Used internally by Maapi
 
 **Throws**
 
-- `IOException`
-- `MaapiException`
+- `java.io.IOException`
+- `com.tailf.maapi.MaapiException`
 
 
 ## Methods
-
-### getStreamId() <a href="#getstreamid-97befd015dba" id="getstreamid-97befd015dba"></a>
-
-**Package-private**
-
-```java
-int getStreamId()
-```
 
 ### hasReadAll() <a href="#hasreadall-90559f69e54d" id="hasreadall-90559f69e54d"></a>
 

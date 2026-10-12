@@ -14,10 +14,6 @@ The validate transaction context. Each transaction is running in separate
 
 ## Members
 
-**Constructors**:
-
-- [DpValidateTrans\(Dp, int, int, int, int, DpUserInfo\)](#dpvalidatetrans-3745a66aa93e)
-
 **Fields**:
 
 - [dp](DpTrans.md#dp-08e185dd74a1) from DpTrans
@@ -68,38 +64,6 @@ The validate transaction context. Each transaction is running in separate
 - [setTransactionUserOpaque\(Object\)](DpTrans.md#settransactionuseropaque-ce392ad59d2e) from DpTrans
 - [setValidationUserOpaque\(Object\)](#setvalidationuseropaque-1b3063fe7f25)
 - [transReplyOK\(\)](DpTrans.md#transreplyok-92425e2f5c67) from DpTrans
-
-## Constructors
-
-### DpValidateTrans(Dp, int, int, int, int, DpUserInfo) <a href="#dpvalidatetrans-3745a66aa93e" id="dpvalidatetrans-3745a66aa93e"></a>
-
-**Package-private**
-
-```java
-DpValidateTrans(
-    com.tailf.dp.Dp dp,
-    int thandle,
-    int qref,
-    int dbname,
-    int op,
-    com.tailf.dp.DpUserInfo uinfo
-)
-```
-
-Types: [Dp](Dp.md#dp-64c27347820e), [DpUserInfo](DpUserInfo.md#dpuserinfo-c59746285a6e)
-
-Lots of parameters here. But since only Dp should be allowed to create
- the transaction there is no need to do anything about it.
-
-**Parameters**
-
-- `com.tailf.dp.Dp dp`
-- `int thandle`
-- `int qref`
-- `int dbname`
-- `int op`
-- `com.tailf.dp.DpUserInfo uinfo`
-
 
 ## Methods
 

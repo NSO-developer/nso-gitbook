@@ -236,7 +236,7 @@ public static final String prefix = "ned";
 ### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
 
 ```java
-public static final long serialVersionUID = 1227394550;
+public static final long serialVersionUID = 1227394550L;
 ```
 
 ### uri <a href="#uri-0e8d1758ed1a" id="uri-0e8d1758ed1a"></a>

@@ -225,10 +225,3 @@ Types: [Varbind](SnmpaNotification/Varbind.md#varbind-54c1201bffe5)
 ```java
 public String toString()
 ```
-
-
-## Nested Types
-
-- [SnmpVar](SnmpaNotification/SnmpVar.md#snmpvar-63e4e33a3a0a)
-- [TrapInfo](SnmpaNotification/TrapInfo.md#trapinfo-b7d40e1a171a)
-- [Varbind](SnmpaNotification/Varbind.md#varbind-54c1201bffe5)

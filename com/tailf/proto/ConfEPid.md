@@ -17,10 +17,6 @@ Provides a Java representation of E pids.
 - [ConfEPid\(ConfInputStream\)](#confepid-b561633bc969)
 - [ConfEPid\(String, int, int, int, boolean\)](#confepid-d74983699e9a)
 
-**Fields**:
-
-- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
-
 **Methods**:
 
 - [clone\(\)](#clone-164c86c45e9b)
@@ -53,8 +49,8 @@ Create an E pid from a stream containing a pid encoded in E external
 
 **Throws**
 
-- `ConfEDecodeException` - if the buffer does not contain a valid external
-                representation of an E ref.
+- `com.tailf.proto.ConfEDecodeException` - if the buffer does not contain a valid external
+representation of an E ref.
 
 ### ConfEPid(String, int, int, int, boolean) <a href="#confepid-d74983699e9a" id="confepid-d74983699e9a"></a>
 
@@ -69,17 +65,6 @@ public ConfEPid(String node, int id, int serial, int creation, boolean isNew)
 - `int serial`
 - `int creation`
 - `boolean isNew`
-
-
-## Fields
-
-### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
-
-**Package-private**
-
-```java
-static final long serialVersionUID = -7022666480768586521;
-```
 
 
 ## Methods
@@ -172,6 +157,6 @@ public String toString()
 ```
 
 Get the string representation of the pid. E pids are printed as
- node.generation.id
+ \<node.generation.id\>
 
 **Returns:** the string representation of the pid.

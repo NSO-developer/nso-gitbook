@@ -7,7 +7,7 @@ public class com.tailf.ncs.snmp.snmp4j.NotificationReceiver
 This class mediated the use of Snmp4j
  for receiving and mapping of incoming snmp notifications.
 
- As such it sets up the notification receiving capabilities according
+As such it sets up the notification receiving capabilities according
  to the ncs configuration.
 
 ## Members
@@ -39,6 +39,7 @@ public void destroy()
 ### destroyNotificationReceiver() <a href="#destroynotificationreceiver-fc60e4855559" id="destroynotificationreceiver-fc60e4855559"></a>
 
 ```java
+@Deprecated
 public static synchronized void destroyNotificationReceiver()
 ```
 
@@ -56,12 +57,13 @@ Returns the set of snmp peer ip addresses
  for registered managed devices.
 
 **Returns:** set of ConfValue where the values are either of type
-         ConfIPv4 or ConfIPv6
+ConfIPv4 or ConfIPv6
 
 ### getNotificationReceiver() <a href="#getnotificationreceiver-c83248d8bc1a" id="getnotificationreceiver-c83248d8bc1a"></a>
 
 ```java
-public static com.tailf.ncs.snmp.snmp4j.NotificationReceiver getNotificationReceiver() throws com.tailf.ncs.NcsException
+@Deprecated
+public static com.tailf.ncs.snmp.snmp4j.NotificationReceiver getNotificationReceiver()
     throws com.tailf.ncs.NcsException
 ```
 
@@ -97,6 +99,7 @@ Factory method to get a NotificationReceiver instance.
 ### getNotificationReceiver(String, int) <a href="#getnotificationreceiver-62efe28b6fa5" id="getnotificationreceiver-62efe28b6fa5"></a>
 
 ```java
+@Deprecated
 public static com.tailf.ncs.snmp.snmp4j.NotificationReceiver getNotificationReceiver(
     String host,
     int port
@@ -176,7 +179,7 @@ This register method takes an ArrayList of NotificationHandlerInstances
 
 **Throws**
 
-- `NcsException`
+- `com.tailf.ncs.NcsException`
 
 ### register(NotificationHandler, Object) <a href="#register-426f8c48becc" id="register-426f8c48becc"></a>
 
@@ -204,8 +207,8 @@ This method is used to register handler callback classes to the
 
 **Parameters**
 
-- `com.tailf.ncs.snmp.snmp4j.NotificationHandler responder` - - handler class to process notifications
-- `Object opaque` - - object to pass to the handler at execution
+- `com.tailf.ncs.snmp.snmp4j.NotificationHandler responder` - \- handler class to process notifications
+- `Object opaque` - \- object to pass to the handler at execution
 
 ### start() <a href="#start-79e12dafe9f8" id="start-79e12dafe9f8"></a>
 
@@ -217,7 +220,7 @@ This method is called to start subscription on notifications
 
 **Throws**
 
-- `IOException`
+- `java.io.IOException`
 
 ### stop() <a href="#stop-a62ecc446f97" id="stop-a62ecc446f97"></a>
 
@@ -229,4 +232,4 @@ This method is called to stop subscription on notifications
 
 **Throws**
 
-- `IOException`
+- `java.io.IOException`

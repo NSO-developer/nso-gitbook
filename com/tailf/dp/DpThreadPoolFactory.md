@@ -17,10 +17,6 @@ The customized thread Factory
 
 - [DpThreadPoolFactory\(String\)](#dpthreadpoolfactory-210774692872)
 
-**Fields**:
-
-- [poolName](#poolname-1912413bc821)
-
 **Methods**:
 
 - [newThread\(Runnable\)](#newthread-d68745b22554)
@@ -36,17 +32,6 @@ public DpThreadPoolFactory(String poolName)
 **Parameters**
 
 - `String poolName`
-
-
-## Fields
-
-### poolName <a href="#poolname-1912413bc821" id="poolname-1912413bc821"></a>
-
-**Package-private**
-
-```java
-String poolName = null;
-```
 
 
 ## Methods

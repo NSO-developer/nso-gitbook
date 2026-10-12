@@ -7,10 +7,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsMeta.Builder
 
 ## Members
 
-**Constructors**:
-
-- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
-
 **Methods**:
 
 - [asReader\(\)](#asreader-b5c0f2a8d115)
@@ -21,31 +17,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsMeta.Builder
 - [initValue\(\)](#initvalue-a7755fffc529)
 - [setKey\(Reader\)](#setkey-aecf165a1c36)
 - [setKey\(String\)](#setkey-b33e905ae785)
-
-## Constructors
-
-### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
-
-**Package-private**
-
-```java
-Builder(
-    org.capnproto.SegmentBuilder segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentBuilder segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-
 
 ## Methods
 

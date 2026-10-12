@@ -22,7 +22,7 @@ Annotation class for Action Callbacks Attributes are callPoint and callType
 ### callPoint() <a href="#callpoint-c21f52042879" id="callpoint-c21f52042879"></a>
 
 ```java
-public abstract String callPoint()
+String callPoint()
 ```
 
 The name of the callpoint implementing the action
@@ -30,7 +30,7 @@ The name of the callpoint implementing the action
 ### callType() <a href="#calltype-0d0f9b61a036" id="calltype-0d0f9b61a036"></a>
 
 ```java
-public abstract com.tailf.dp.proto.ActionCBType[] callType()
+com.tailf.dp.proto.ActionCBType[] callType()
 ```
 
 Types: [ActionCBType](../proto/ActionCBType.md#actioncbtype-10d0222e8e66)

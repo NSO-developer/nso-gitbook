@@ -43,44 +43,30 @@ Constructor for management of an HA Cluster node. This constructor
  created the previous connection is closed and the cluster node is reset
  with the new token value.
 
-
- Since the ConfD/NCS daemon expects initialization within
+Since the ConfD/NCS daemon expects initialization within
  5 seconds after a new socket is established, this constructor should be
  called immediately for a new socket. For instance:
 
+> ```
+> // int port = Conf.PORT; // ConfD TCP;
+> //   NCS uses Conf.NCS_PATH (Unix socket)
+> Ha ha = new Ha(new Socket("localhost", port), "xyz");
+> ```
 
-
-
-```
- // int port = Conf.PORT; // ConfD TCP;
- //   NCS uses Conf.NCS_PATH (Unix socket)
- Ha ha = new Ha(new Socket("localhost", port), "xyz");
-```
-
-
-
-
- If encrypted communication towards ConfD/NCS is desired,
+If encrypted communication towards ConfD/NCS is desired,
  an environment variable "CONFD_IPC_ACCESS_FILE" or "NCS_IPC_ACCESS_FILE"
  need to be set.
  This variable is expected to point to a file containing a secret salt.
  Example:
 
+> ```
+> export CONFD_IPC_ACCESS_FILE=./secret_file.txt
+> ```
 
-
-
-```
- export CONFD_IPC_ACCESS_FILE=./secret_file.txt
-```
-
-
-
-
- An alternative to the environment variable is to set a java system
+An alternative to the environment variable is to set a java system
  property with the same name pointing to the file.
 
-
- Note, if this constructor fails the socket must be closed and a new
+Note, if this constructor fails the socket must be closed and a new
  socket created before the call is re-attempted.
 
 **Parameters**
@@ -160,8 +146,8 @@ Instruct an HA node to be a secondary to a named primary. The waitreply
 
 **Throws**
 
-- `IOException`
-- `HaException`
+- `java.io.IOException`
+- `com.tailf.ha.HaException`
 
 ### close() <a href="#close-8107c6dc012b" id="close-8107c6dc012b"></a>
 
@@ -190,7 +176,7 @@ This function must be used by the application to inform the HA subsystem
 ### status() <a href="#status-f7d72174690b" id="status-f7d72174690b"></a>
 
 ```java
-public synchronized com.tailf.ha.HaStatus status() throws java.io.IOException, com.tailf.ha.HaException
+public synchronized com.tailf.ha.HaStatus status()
     throws java.io.IOException, com.tailf.ha.HaException
 ```
 

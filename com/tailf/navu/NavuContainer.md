@@ -11,64 +11,46 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [MaapiDiffIterate](../maap
 `NavuContainer` is a representation of the *yang*
  construct *container,module* and *list-entry*.
 
- A `NavuContainer` is usually supplied or returned from
+A `NavuContainer` is usually supplied or returned from
  a method call. It can also be created using one of its constructors,
  typically [`NavuContainer(NavuContext)`](NavuContainer.md#navucontainer-5734bf951268).
 
  A `NavuContainer` is created with a `NavuContext`
  initialized with a `Maapi` socket:
 
+> ```
+>   NavuContext context = new NavuContext(maapi);
+>   context.startRunningTrans(Conf.MODE_READ_WRITE);
+>   NavuContainer root = new NavuContainer(context);
+> ```
 
-
-
-```
-   NavuContext context = new NavuContext(maapi);
-   context.startRunningTrans(Conf.MODE_READ_WRITE);
-   NavuContainer root = new NavuContainer(context);
-```
-
-
-
-
- As shown above, a transaction must be started before the context can be
+As shown above, a transaction must be started before the context can be
  used for navigating.
 
- A transaction can alternatively be started for operational data instead:
+A transaction can alternatively be started for operational data instead:
 
+> ```
+>   NavuContext context = new NavuContext(maapi);
+>   context.startOperationalTrans(Conf.MODE_READ_WRITE);
+>   NavuContainer root = new NavuContainer(context);
+> ```
 
-
-
-```
-   NavuContext context = new NavuContext(maapi);
-   context.startOperationalTrans(Conf.MODE_READ_WRITE);
-   NavuContainer root = new NavuContainer(context);
-```
-
-
-
-
- Either way, when a `NavuContainer` is created using the above
+Either way, when a `NavuContainer` is created using the above
  mentioned context, the object pointed to by `root` is the "root"
  of the *NAVU-Tree*.
 
- The root's children represent all of the loaded *modules*. To
+The root's children represent all of the loaded *modules*. To
  choose a particular module, the method [`container(Integer)`](NavuContainer.md#container-abb10ecdc3f6)
  must be called with the hash value of the corresponding module
  ([`ConfNamespace#hash()`](../conf/ConfNamespace.md#hash-88880b48029e)).
  This will return a new `NavuContainer` pointing to the root of
  the chosen module.
 
+> ```
+>   NavuContainer module = root.container(new Ncs().hash());
+> ```
 
-
-
-```
-   NavuContainer module = root.container(new Ncs().hash());
-```
-
-
-
-
- To continue further down to the next child, use
+To continue further down to the next child, use
  [`container(Integer)`](NavuContainer.md#container-abb10ecdc3f6), [`container(String)`](NavuContainer.md#container-76f5d191b16d),
  [`list(Integer)`](NavuContainer.md#list-7dc96bdbb69a), [`list(String)`](NavuContainer.md#list-2c1a74a3cf07) or [`leaf(Integer)`](NavuContainer.md#leaf-47fda8402c20),
  [`leaf(String)`](NavuContainer.md#leaf-ac189787d67d) as dictated by the YANG model.
@@ -76,17 +58,15 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [MaapiDiffIterate](../maap
  [`MaapiSchemas#hashToString(int)`](../maapi/MaapiSchemas.md#hashtostring-54eaaef71976) of the *Integer* parameter
  which is the hash value of the tag name.
 
- Usually the generated namespace classes static method are used for
- convenience. The absence of underscore (_) at the end of the
+Usually the generated namespace classes static method are used for
+ convenience. The absence of underscore (\_) at the end of the
  static field name indicates the integer version.
 
- Then continuing with the devices node:
+Then continuing with the devices node:
 
-
-
-```
-   NavuContainer devicesNode = module.container(Ncs._devices);
-```
+> ```
+>   NavuContainer devicesNode = module.container(Ncs._devices);
+> ```
 
 **Related classes**
 
@@ -98,11 +78,11 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [MaapiDiffIterate](../maap
 
 - [NavuContainer\(\)](#navucontainer-c89fa906ab01)
 - [NavuContainer\(Maapi, int, int\)](#navucontainer-cfcd7f6efb55)
-- [NavuContainer\(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object\[\]\)](#navucontainer-eceddc8da3ad)
+- [NavuContainer\(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object\.\.\.\)](#navucontainer-dd6f6c905a93)
 - [NavuContainer\(NavuContext\)](#navucontainer-5734bf951268)
 - [NavuContainer\(NavuContext, CSNode, NavuNode, Formats\)](#navucontainer-9b2631de44b3)
-- [NavuContainer\(NavuContext, CSNode, NavuNode, String, Object\[\]\)](#navucontainer-b87ee18b07c9)
-- [NavuContainer\(NavuContext, CSSchema, NavuNode, String, Object\[\]\)](#navucontainer-11ce3c1e636b)
+- [NavuContainer\(NavuContext, CSNode, NavuNode, String, Object\.\.\.\)](#navucontainer-c9217880c9d9)
+- [NavuContainer\(NavuContext, CSSchema, NavuNode, String, Object\.\.\.\)](#navucontainer-2bd9fb8a3a5c)
 
 **Fields**:
 
@@ -153,7 +133,7 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [MaapiDiffIterate](../maap
 - [getChangeFlag\(\)](NavuNode.md#getchangeflag-33cadf5a32ba) from NavuNode
 - [getChanges\(NavuContext\)](NavuNode.md#getchanges-c106383f174d) from NavuNode
 - [getChanges\(NavuContext, boolean\)](NavuNode.md#getchanges-bcf5b6dbccf2) from NavuNode
-- [getChanges\(NavuContext, boolean, DiffIterateOperFlag\[\]\)](NavuNode.md#getchanges-9f13a683b086) from NavuNode
+- [getChanges\(NavuContext, boolean, DiffIterateOperFlag\.\.\.\)](NavuNode.md#getchanges-944155506885) from NavuNode
 - [getConfPath\(\)](NavuNode.md#getconfpath-c7ca3cb63c17) from NavuNode
 - [getInfo\(\)](NavuNode.md#getinfo-259a72b5d74c) from NavuNode
 - [getKey\(\)](#getkey-9a8856159458)
@@ -175,7 +155,6 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [MaapiDiffIterate](../maap
 - [isCreated\(\)](#iscreated-bc9b3cb40910)
 - [isEmpty\(\)](#isempty-4dde48126244)
 - [isListInstance\(\)](#islistinstance-16ea9625f0d2)
-- [isNodeNavuLocal\(\)](#isnodenavulocal-3af8ba5398d1)
 - [iterate\(ConfObject\[\], DiffIterateOperFlag, ConfObject, ConfObject, Object\)](#iterate-d80a566b7e0a)
 - [keySet\(\)](#keyset-66de8917ecb8)
 - [leaf\(ConfNamespace, String\)](#leaf-da3758f37f21)
@@ -241,7 +220,7 @@ Constructor for a single namespace. Bypasses the
 - `int handle` - a valid transaction handle
 - `int rootHash` - the root hash of the *module*
 
-### NavuContainer(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object[]) <a href="#navucontainer-eceddc8da3ad" id="navucontainer-eceddc8da3ad"></a>
+### NavuContainer(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object...) <a href="#navucontainer-dd6f6c905a93" id="navucontainer-dd6f6c905a93"></a>
 
 ```java
 protected NavuContainer(
@@ -251,7 +230,7 @@ protected NavuContainer(
     com.tailf.maapi.MaapiSchemas.CSNode node,
     com.tailf.navu.NavuNode parent,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
 ```
 
@@ -265,7 +244,7 @@ Types: [Maapi](../maapi/Maapi.md#maapi-67bcbe89c42e), [MaapiSchemas](../maapi/Ma
 - `com.tailf.maapi.MaapiSchemas.CSNode node`
 - `com.tailf.navu.NavuNode parent`
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 ### NavuContainer(NavuContext) <a href="#navucontainer-5734bf951268" id="navucontainer-5734bf951268"></a>
 
@@ -281,7 +260,7 @@ Creates an *root* `NavuContainer` a starting point of
 **Parameters**
 
 - `com.tailf.navu.NavuContext context` - determines the Navigation restriction and
-        constraints
+constraints
 
 ### NavuContainer(NavuContext, CSNode, NavuNode, Formats) <a href="#navucontainer-9b2631de44b3" id="navucontainer-9b2631de44b3"></a>
 
@@ -305,7 +284,7 @@ KeyPath2NavuNode specific constructor
 - `com.tailf.navu.NavuNode parent`
 - `com.tailf.navu.KeyPath2NavuNode.Formats fs`
 
-### NavuContainer(NavuContext, CSNode, NavuNode, String, Object[]) <a href="#navucontainer-b87ee18b07c9" id="navucontainer-b87ee18b07c9"></a>
+### NavuContainer(NavuContext, CSNode, NavuNode, String, Object...) <a href="#navucontainer-c9217880c9d9" id="navucontainer-c9217880c9d9"></a>
 
 ```java
 protected NavuContainer(
@@ -313,7 +292,7 @@ protected NavuContainer(
     com.tailf.maapi.MaapiSchemas.CSNode node,
     com.tailf.navu.NavuNode parent,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
 ```
 
@@ -325,9 +304,9 @@ Types: [NavuContext](NavuContext.md#navucontext-2974e9f92a9e), [CSNode](../maapi
 - `com.tailf.maapi.MaapiSchemas.CSNode node`
 - `com.tailf.navu.NavuNode parent`
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
-### NavuContainer(NavuContext, CSSchema, NavuNode, String, Object[]) <a href="#navucontainer-11ce3c1e636b" id="navucontainer-11ce3c1e636b"></a>
+### NavuContainer(NavuContext, CSSchema, NavuNode, String, Object...) <a href="#navucontainer-2bd9fb8a3a5c" id="navucontainer-2bd9fb8a3a5c"></a>
 
 ```java
 protected NavuContainer(
@@ -335,7 +314,7 @@ protected NavuContainer(
     com.tailf.maapi.MaapiSchemas.CSSchema module,
     com.tailf.navu.NavuNode parent,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
 ```
 
@@ -347,7 +326,7 @@ Types: [NavuContext](NavuContext.md#navucontext-2974e9f92a9e), [CSSchema](../maa
 - `com.tailf.maapi.MaapiSchemas.CSSchema module`
 - `com.tailf.navu.NavuNode parent`
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 
 ## Fields
@@ -355,7 +334,7 @@ Types: [NavuContext](NavuContext.md#navucontext-2974e9f92a9e), [CSSchema](../maa
 ### changeMap <a href="#changemap-b5a294491f5a" id="changemap-b5a294491f5a"></a>
 
 ```java
-protected java.util.Map<com.tailf.conf.ConfKey,com.tailf.navu.NavuChange> changeMap = null;
+protected java.util.Map<com.tailf.conf.ConfKey,com.tailf.navu.NavuChange> changeMap;
 ```
 
 Types: [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867), [NavuChange](NavuChange.md#navuchange-03ae6b7f3c34)
@@ -363,37 +342,37 @@ Types: [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867), [NavuChange](NavuChan
 ### criteria <a href="#criteria-2aeaea96dbdb" id="criteria-2aeaea96dbdb"></a>
 
 ```java
-protected Integer[] criteria = null;
+protected Integer[] criteria;
 ```
 
 ### duplicateSet <a href="#duplicateset-c134c96c9fc5" id="duplicateset-c134c96c9fc5"></a>
 
 ```java
-protected java.util.HashSet<String> duplicateSet = null;
+protected java.util.HashSet<String> duplicateSet;
 ```
 
 ### isCreated <a href="#iscreated-783ec1e767bb" id="iscreated-783ec1e767bb"></a>
 
 ```java
-protected boolean isCreated = null;
+protected boolean isCreated;
 ```
 
 ### isRefreshed <a href="#isrefreshed-17594a091fc4" id="isrefreshed-17594a091fc4"></a>
 
 ```java
-protected boolean isRefreshed = null;
+protected boolean isRefreshed;
 ```
 
 ### isRootModulesPopulated <a href="#isrootmodulespopulated-1578b44f189f" id="isrootmodulespopulated-1578b44f189f"></a>
 
 ```java
-protected boolean isRootModulesPopulated = null;
+protected boolean isRootModulesPopulated;
 ```
 
 ### key <a href="#key-41a461f20bc2" id="key-41a461f20bc2"></a>
 
 ```java
-protected com.tailf.conf.ConfKey key = null;
+protected com.tailf.conf.ConfKey key;
 ```
 
 Types: [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867)
@@ -401,7 +380,7 @@ Types: [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867)
 ### map <a href="#map-7fec112b12da" id="map-7fec112b12da"></a>
 
 ```java
-protected java.util.Map<String,com.tailf.navu.NavuNode> map = null;
+protected java.util.Map<String,com.tailf.navu.NavuNode> map;
 ```
 
 Types: [NavuNode](NavuNode.md#navunode-73944820c8db)
@@ -409,7 +388,7 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db)
 ### name2Choice <a href="#name2choice-b90229c2e807" id="name2choice-b90229c2e807"></a>
 
 ```java
-protected java.util.Map<String,com.tailf.navu.NavuChoice> name2Choice = null;
+protected java.util.Map<String,com.tailf.navu.NavuChoice> name2Choice;
 ```
 
 Types: [NavuChoice](NavuChoice.md#navuchoice-e8914a50eee5)
@@ -417,7 +396,7 @@ Types: [NavuChoice](NavuChoice.md#navuchoice-e8914a50eee5)
 ### node2Choice <a href="#node2choice-8cbcd28d51b5" id="node2choice-8cbcd28d51b5"></a>
 
 ```java
-protected java.util.Map<com.tailf.maapi.MaapiSchemas.CSNode,com.tailf.navu.NavuChoice> node2Choice = null;
+protected java.util.Map<com.tailf.maapi.MaapiSchemas.CSNode,com.tailf.navu.NavuChoice> node2Choice;
 ```
 
 Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28), [NavuChoice](NavuChoice.md#navuchoice-e8914a50eee5)
@@ -425,13 +404,13 @@ Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28), [NavuChoic
 ### rootHash <a href="#roothash-a5a53d6abd62" id="roothash-a5a53d6abd62"></a>
 
 ```java
-protected int rootHash = null;
+protected int rootHash;
 ```
 
 ### sch <a href="#sch-fd99b9646745" id="sch-fd99b9646745"></a>
 
 ```java
-protected com.tailf.maapi.MaapiSchemas sch = null;
+protected com.tailf.maapi.MaapiSchemas sch;
 ```
 
 Types: [MaapiSchemas](../maapi/MaapiSchemas.md#maapischemas-821ac70b83b7)
@@ -458,9 +437,9 @@ Returns a reference to a subordinate `action` with
 
 **Throws**
 
-- `NavuException` - if the corresponding subordinate node is not
-         an action node or if there is no subordinate node
-         with the hash value `key`
+- `com.tailf.navu.NavuException` - if the corresponding subordinate node is not
+an action node or if there is no subordinate node
+with the hash value `key`
 
 ### action(String) <a href="#action-ac3b339033ab" id="action-ac3b339033ab"></a>
 
@@ -481,9 +460,9 @@ Returns a reference to a subordinate `action` with
 
 **Throws**
 
-- `NavuException` - if the corresponding subordinate node is not
-         a action node or if there is no subordinate node
-         with the name `key`
+- `com.tailf.navu.NavuException` - if the corresponding subordinate node is not
+a action node or if there is no subordinate node
+with the name `key`
 
 ### addModule(NavuContainer) <a href="#addmodule-379e17a46072" id="addmodule-379e17a46072"></a>
 
@@ -542,14 +521,12 @@ Returns a reference to a subordinate `container` with
  the name `containerName`, belonging to the namespace
  `ns`.
 
-
- Note that if `containerName` by itself uniquely identifies a
+Note that if `containerName` by itself uniquely identifies a
  subordinate container, that container will still have to belong to the
  namespace `ns` contrary to the functionality of the previous
  method using prefix and containerName.
 
-
- To get the namespace, you can use
+To get the namespace, you can use
  [`ConfNamespace#findNamespace(String)`](../conf/ConfNamespace.md#findnamespace-ffbcd6481b17)
  with the namespace identifier or URI.
 
@@ -562,10 +539,10 @@ Returns a reference to a subordinate `container` with
 
 **Throws**
 
-- `NavuException` - if the corresponding subordinate node is not
-         a container node or if there is no subordinate node
-         with the name `containerName` in the namespace
-         `ns`
+- `com.tailf.navu.NavuException` - if the corresponding subordinate node is not
+a container node or if there is no subordinate node
+with the name `containerName` in the namespace
+`ns`
 
 ### container(Integer) <a href="#container-abb10ecdc3f6" id="container-abb10ecdc3f6"></a>
 
@@ -594,9 +571,9 @@ Returns a reference to a subordinate `container` with
 
 **Throws**
 
-- `NavuException` - if the corresponding subordinate node is not
-         a container or if there is no subordinate node
-         with the hash value `key`
+- `com.tailf.navu.NavuException` - if the corresponding subordinate node is not
+a container or if there is no subordinate node
+with the hash value `key`
 
 ### container(String) <a href="#container-76f5d191b16d" id="container-76f5d191b16d"></a>
 
@@ -617,9 +594,9 @@ Returns a reference to a subordinate `container` with
 
 **Throws**
 
-- `NavuException` - if the corresponding subordinate node is not
-         a container node or if there is no subordinate node
-         with the name `key`
+- `com.tailf.navu.NavuException` - if the corresponding subordinate node is not
+a container node or if there is no subordinate node
+with the name `key`
 
 ### containsNode(NavuNode) <a href="#containsnode-f554fdc5bf96" id="containsnode-f554fdc5bf96"></a>
 
@@ -668,7 +645,7 @@ Creates an optional container.
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### delete() <a href="#delete-a9e76d49da61" id="delete-a9e76d49da61"></a>
 
@@ -684,16 +661,28 @@ Deletes an optional container.
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### encodeValues() <a href="#encodevalues-7bd911383b1a" id="encodevalues-7bd911383b1a"></a>
 
 ```java
-public java.util.List<com.tailf.conf.ConfXMLParam> encodeValues() throws com.tailf.navu.NavuException
+public java.util.List<com.tailf.conf.ConfXMLParam> encodeValues()
     throws com.tailf.navu.NavuException
 ```
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
+
+*Description from* [`NavuNode.encodeValues()`](NavuNode.md#encodevalues-7bd911383b1a)
+
+Encodes the sub-tree including the current `NavuNode`
+ as the topmost `NavuNode` as a [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) array.
+
+As opposed to [`encodeXML()`](NavuNode.md#encodexml-bdbcd52c2505), the returned [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7)
+ array does contain values in the form of
+ [`ConfXMLParamValue`](../conf/ConfXMLParamValue.md#confxmlparamvalue-9f41fb2668c9)
+
+**Returns:** A list of [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) objects corresponding to the
+sub-tree of this node, including all values.
 
 ### encodeXML() <a href="#encodexml-bdbcd52c2505" id="encodexml-bdbcd52c2505"></a>
 
@@ -703,10 +692,36 @@ public java.util.List<com.tailf.conf.ConfXMLParam> encodeXML() throws com.tailf.
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
+*Description from* [`NavuNode.encodeXML()`](NavuNode.md#encodexml-bdbcd52c2505)
+
+Encodes the sub-tree including the current `NavuNode`
+ as the topmost `NavuNode` as a [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) array.
+
+The returned [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) array contains no values except
+ for list keys. The leaf elements are encoded as
+ [`ConfXMLParamLeaf`](../conf/ConfXMLParamLeaf.md#confxmlparamleaf-107412653048). Therefore, the returning
+ array can be used as a the input parameter to
+ [`getValues(ConfXMLParam[])`](NavuNode.md#getvalues-1eb02439a757) on the current node's parent.
+
+> ```
+> NavuNode node = ...;
+> ConfXMLParam[] cxa = node.encodeXML().toArray(new ConfXMLParam[0]);
+> // cxa contains a structure that does not contain values except for
+> // keys in list elements
+>
+> NavuNode parent = node.getParent();
+> ConfXMLParam[] cxb = parent.getValues(cxa);
+> // cxb contains the same sub-tree with all the values
+> ```
+
+**Returns:** A list of [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) objects
+corresponding to the sub-tree of this node, with no
+values except list keys.
+
 ### entrySet() <a href="#entryset-20b678143b7e" id="entryset-20b678143b7e"></a>
 
 ```java
-public java.util.Set<java.util.Map.Entry<String,com.tailf.navu.NavuNode>> entrySet() throws com.tailf.navu.NavuException
+public java.util.Set<java.util.Map.Entry<String,com.tailf.navu.NavuNode>> entrySet()
     throws com.tailf.navu.NavuException
 ```
 
@@ -727,21 +742,18 @@ Compares the specified object with this `NavuContainer`
  is also a `NavuContainer` and either of the following
  is true:
 
-
-
 - Both nodes are modules according to [`NavuNodeInfo#isModule()`](NavuNodeInfo.md#ismodule-387434ee044f))
- and they have the same namespace URI.
-
-   - The nodes are not modules, and have identical [`ConfPath`](../conf/ConfPath.md#confpath-327831c6fc7d)
- instances.
+   and they have the same namespace URI.
+- The nodes are not modules, and have identical [`ConfPath`](../conf/ConfPath.md#confpath-327831c6fc7d)
+   instances.
 
 **Parameters**
 
 - `Object o` - the object to be compared for equality with this
-          `NavuContainer`
+`NavuContainer`
 
 **Returns:** `true` if the specified object is equal to this
-         `NavuContainer`
+`NavuContainer`
 
 ### exists() <a href="#exists-56968a4c7bda" id="exists-56968a4c7bda"></a>
 
@@ -757,7 +769,7 @@ Verifies the existence of container.
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### findChanges(NavuContext, Integer[]) <a href="#findchanges-e1e823411f98" id="findchanges-e1e823411f98"></a>
 
@@ -772,15 +784,17 @@ public java.util.Map<com.tailf.conf.ConfKey,com.tailf.navu.NavuChange> findChang
 Types: [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867), [NavuChange](NavuChange.md#navuchange-03ae6b7f3c34), [NavuContext](NavuContext.md#navucontext-2974e9f92a9e), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 Analyzes what changes has been done within this
- transaction. The prerequisites are: 
+ transaction. The prerequisites are:
 
 - This is the
- container of a module.    - That this container has been
- created using two MAAPI sockets.
+   container of a module.
+- That this container has been
+   created using two MAAPI sockets.
 
  Since deletes are already removed in current transactions a delete
  context is necessary to retrieve information about delete changes.
- The `delContext` is a NavuContext with a read transaction
+
+The `delContext` is a NavuContext with a read transaction
  on the running database to read deletes. If null delete changes will not
  be able to be retrieved.
 
@@ -796,7 +810,7 @@ Analyzes what changes has been done within this
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### get(String) <a href="#get-e86cd4d90bf3" id="get-e86cd4d90bf3"></a>
 
@@ -816,8 +830,8 @@ Returns a subordinate node with the name `nodeName`.
 
 **Throws**
 
-- `NavuException` - if subordinate node has no matching container
-         with the name `nodeName`
+- `com.tailf.navu.NavuException` - if subordinate node has no matching container
+with the name `nodeName`
 
 ### getKey() <a href="#getkey-9a8856159458" id="getkey-9a8856159458"></a>
 
@@ -840,6 +854,12 @@ public com.tailf.conf.ConfNamespace getRootNS()
 ```
 
 Types: [ConfNamespace](../conf/ConfNamespace.md#confnamespace-51b928e168d1)
+
+*Description from* [`NavuNode.getRootNS()`](NavuNode.md#getrootns-3f1d054cecd6)
+
+Returns the root namespace of the topmost ancestor.
+
+**Returns:** topmost namespace.
 
 ### getSchema(int) <a href="#getschema-d43ad42eba79" id="getschema-d43ad42eba79"></a>
 
@@ -879,7 +899,7 @@ Returns a collection of the "toplevel" choice elements of
 
 **Throws**
 
-- `NavuException` - if this container does not contains the
+- `com.tailf.navu.NavuException` - if this container does not contains the
  choice with the specified name `choice`
 
 ### getSelectCaseAsNavuNode(String) <a href="#getselectcaseasnavunode-46fa4e27d61f" id="getselectcaseasnavunode-46fa4e27d61f"></a>
@@ -899,7 +919,7 @@ Returns a collection of the top-level node elements of
  Returns null if no case is selected for the specified
  `choice` or if the selected case contains no nodes.
 
- Which of the subclasses NavuContainer, NavuList or NavuLeaf
+Which of the subclasses NavuContainer, NavuList or NavuLeaf
  that actually constitute this case is defined by the model
  or has to be tested.
 
@@ -912,7 +932,7 @@ Returns a collection of the top-level node elements of
 
 **Throws**
 
-- `NavuException` - if this container does not contains the
+- `com.tailf.navu.NavuException` - if this container does not contains the
  choice with the specified name `choice`
 
 ### getSelectedCase(String) <a href="#getselectedcase-3b005e9181ed" id="getselectedcase-3b005e9181ed"></a>
@@ -932,7 +952,7 @@ Returns the selected cases of  a given choice.
 
 - `String choice` - of the choice to get selected case for.
 
-**Returns:** - the selected case
+**Returns:** \- the selected case
 
 ### getUserSession() <a href="#getusersession-7a9eeeb92f85" id="getusersession-7a9eeeb92f85"></a>
 
@@ -949,7 +969,7 @@ Get the current Maapi user session if this container context uses
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### h2str(Integer) <a href="#h2str-3096e9ba352b" id="h2str-3096e9ba352b"></a>
 
@@ -979,6 +999,15 @@ Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#csnode-f12d9ad69c28)
 public int hashCode()
 ```
 
+*Description from* [`NavuNode.hashCode()`](NavuNode.md#hashcode-ef797a217903)
+
+Return the hashCode of this NavuNode. For most nodes, the hash code is
+ based on the [`ConfPath`](../conf/ConfPath.md#confpath-327831c6fc7d) of the node. For module
+ root containers there is no `ConfPath` and instead the hash
+ code is based on the hash code of the module schema.
+
+**Returns:** The hashCode
+
 ### isCreated() <a href="#iscreated-bc9b3cb40910" id="iscreated-bc9b3cb40910"></a>
 
 ```java
@@ -987,7 +1016,7 @@ protected boolean isCreated()
 
 Checks if the container has been created.
 
-**Returns:** true if it exists or if minOccurs > 0
+**Returns:** true if it exists or if minOccurs \> 0
 
 ### isEmpty() <a href="#isempty-4dde48126244" id="isempty-4dde48126244"></a>
 
@@ -1011,15 +1040,7 @@ Returns `true` if this `NavuContainer`
  represents a *list-entry*
 
 **Returns:** `true` if this `NavuContainer`
-         is a *list-entry* *false* otherwise
-
-### isNodeNavuLocal() <a href="#isnodenavulocal-3af8ba5398d1" id="isnodenavulocal-3af8ba5398d1"></a>
-
-**Package-private**
-
-```java
-boolean isNodeNavuLocal()
-```
+is a *list-entry* *false* otherwise
 
 ### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object) <a href="#iterate-d80a566b7e0a" id="iterate-d80a566b7e0a"></a>
 
@@ -1071,14 +1092,12 @@ Returns a reference to a subordinate `leaf` with
  the name `leafName`, belonging to the namespace
  `ns`.
 
-
- Note that if `leafName` by itself uniquely identifies a
+Note that if `leafName` by itself uniquely identifies a
  subordinate leaf, that leaf will still have to belong to the
  namespace `ns` contrary to the functionality of the previous
  method using prefix and leafName.
 
-
- To get the namespace, you can use
+To get the namespace, you can use
  [`ConfNamespace#findNamespace(String)`](../conf/ConfNamespace.md#findnamespace-ffbcd6481b17)
  with the namespace identifier or URI.
 
@@ -1091,10 +1110,10 @@ Returns a reference to a subordinate `leaf` with
 
 **Throws**
 
-- `NavuException` - if the corresponding subordinate node is not
-         a leaf node or if there is no subordinate node
-         with the name `key` in the namespace
-         `ns`
+- `com.tailf.navu.NavuException` - if the corresponding subordinate node is not
+a leaf node or if there is no subordinate node
+with the name `key` in the namespace
+`ns`
 
 ### leaf(Integer) <a href="#leaf-47fda8402c20" id="leaf-47fda8402c20"></a>
 
@@ -1115,9 +1134,9 @@ Returns a reference to a subordinate `leaf` with
 
 **Throws**
 
-- `NavuException` - if the corresponding subordinate node is not
-         a leaf node or if there is no subordinate node
-         with the hash value `key`
+- `com.tailf.navu.NavuException` - if the corresponding subordinate node is not
+a leaf node or if there is no subordinate node
+with the hash value `key`
 
 ### leaf(String) <a href="#leaf-ac189787d67d" id="leaf-ac189787d67d"></a>
 
@@ -1138,9 +1157,9 @@ Returns a reference to a subordinate `leaf` with
 
 **Throws**
 
-- `NavuException` - if the corresponding subordinate node is not
-         a leaf node or if there is no subordinate node
-         with the name `key`
+- `com.tailf.navu.NavuException` - if the corresponding subordinate node is not
+a leaf node or if there is no subordinate node
+with the name `key`
 
 ### leafList(ConfNamespace, String) <a href="#leaflist-a2d5ad836b3e" id="leaflist-a2d5ad836b3e"></a>
 
@@ -1158,14 +1177,12 @@ Returns a reference to a subordinate `leaf-list` with
  the name `leafListName`, belonging to the namespace
  `ns`.
 
-
- Note that if `leafListName` by itself uniquely identifies a
+Note that if `leafListName` by itself uniquely identifies a
  subordinate leaf-list, that leaf-list will still have to belong to the
  namespace `ns` contrary to the functionality of the previous
  method using prefix and leafListName.
 
-
- To get the namespace, you can use
+To get the namespace, you can use
  [`ConfNamespace#findNamespace(String)`](../conf/ConfNamespace.md#findnamespace-ffbcd6481b17)
  with the namespace identifier or URI.
 
@@ -1178,10 +1195,10 @@ Returns a reference to a subordinate `leaf-list` with
 
 **Throws**
 
-- `NavuException` - if the corresponding subordinate node is not
-         a leaf-list node or if there is no subordinate node
-         with the name `leafListName` in the namespace
-         `ns`
+- `com.tailf.navu.NavuException` - if the corresponding subordinate node is not
+a leaf-list node or if there is no subordinate node
+with the name `leafListName` in the namespace
+`ns`
 
 ### leafList(Integer) <a href="#leaflist-552c8007ecb4" id="leaflist-552c8007ecb4"></a>
 
@@ -1202,9 +1219,9 @@ Returns a reference to a subordinate `leaf-list` with
 
 **Throws**
 
-- `NavuException` - if the corresponding subordinate node is not
-         a leaf-list node or if there is no subordinate node
-         with the hash value `key`
+- `com.tailf.navu.NavuException` - if the corresponding subordinate node is not
+a leaf-list node or if there is no subordinate node
+with the hash value `key`
 
 ### leafList(String) <a href="#leaflist-5811cbb534ec" id="leaflist-5811cbb534ec"></a>
 
@@ -1225,9 +1242,9 @@ Returns a reference to a subordinate `leaf-list` with
 
 **Throws**
 
-- `NavuException` - if the corresponding subordinate node is not
-         a leaf-list node or if there is no subordinate node
-         with the name `key`
+- `com.tailf.navu.NavuException` - if the corresponding subordinate node is not
+a leaf-list node or if there is no subordinate node
+with the name `key`
 
 ### list(ConfNamespace, String) <a href="#list-6b15381fd14a" id="list-6b15381fd14a"></a>
 
@@ -1245,8 +1262,7 @@ Returns a reference to a subordinate `list` with
  the name `listName`, belonging to the namespace
  `ns`.
 
-
- Note that if `listName` by itself uniquely identifies a
+Note that if `listName` by itself uniquely identifies a
  subordinate list, that list will still have to belong to the
  namespace `ns` contrary to the functionality of the previous
  method using prefix and listName.
@@ -1260,10 +1276,10 @@ Returns a reference to a subordinate `list` with
 
 **Throws**
 
-- `NavuException` - if the corresponding subordinate node is not
-         a list node or if there is no subordinate node
-         with the name `listName` in the namespace
-         `ns`
+- `com.tailf.navu.NavuException` - if the corresponding subordinate node is not
+a list node or if there is no subordinate node
+with the name `listName` in the namespace
+`ns`
 
 ### list(Integer) <a href="#list-7dc96bdbb69a" id="list-7dc96bdbb69a"></a>
 
@@ -1284,9 +1300,9 @@ Returns a reference to a subordinate `list` with the
 
 **Throws**
 
-- `NavuException` - if the corresponding subordinate node is not
-         a list node or if there is no subordinate node
-         with the hash value `key`
+- `com.tailf.navu.NavuException` - if the corresponding subordinate node is not
+a list node or if there is no subordinate node
+with the hash value `key`
 
 ### list(String) <a href="#list-2c1a74a3cf07" id="list-2c1a74a3cf07"></a>
 
@@ -1307,9 +1323,9 @@ Returns a reference to a subordinate `list` with
 
 **Throws**
 
-- `NavuException` - if the corresponding subordinate node is not
-         a list node or if there is no subordinate node
-         with the name `key`
+- `com.tailf.navu.NavuException` - if the corresponding subordinate node is not
+a list node or if there is no subordinate node
+with the name `key`
 
 ### namespace(String) <a href="#namespace-e29ad62ed095" id="namespace-e29ad62ed095"></a>
 
@@ -1366,7 +1382,7 @@ The prefix specified here will be used when selecting a child
  to this NavuContainer and returns a reference to this NavuContainer
  object according to the given namespace prefix `nsPrefix`.
 
- Use this method when only the YANG prefix is known.
+Use this method when only the YANG prefix is known.
 
 **Parameters**
 
@@ -1376,8 +1392,8 @@ The prefix specified here will be used when selecting a child
 
 **Throws**
 
-- `NavuException` - if the namespace for the given prefix
-         cannot be found
+- `com.tailf.navu.NavuException` - if the namespace for the given prefix
+cannot be found
 
 ### refresh() <a href="#refresh-3852c3f76c8e" id="refresh-3852c3f76c8e"></a>
 
@@ -1412,7 +1428,7 @@ Creates an optional container. Will silently ignore the error
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### select(ConfObject[]) <a href="#select-336dd76cd112" id="select-336dd76cd112"></a>
 
@@ -1429,6 +1445,8 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [ConfObject](../conf/ConfO
 
 - `com.tailf.conf.ConfObject[] kp`
 
+**Returns:** a collection a nodes matching a Regular Expression query
+
 ### select(List&lt;String&gt;) <a href="#select-e81f36150174" id="select-e81f36150174"></a>
 
 ```java
@@ -1442,7 +1460,9 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuExcept
 
 **Parameters**
 
-- `java.util.List<String> path`
+- `java.util.List<String> path` - a list of regular expression.
+
+**Returns:** a collection a nodes marching the query
 
 ### select(String) <a href="#select-5031325154b9" id="select-5031325154b9"></a>
 
@@ -1457,7 +1477,9 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuExcept
 
 **Parameters**
 
-- `String path`
+- `String path` - a "/" separated regular expression.
+
+**Returns:** a collection a nodes marching the query
 
 ### setChange(List&lt;ConfObject&gt;, DiffIterateOperFlag, ConfValue, NavuContext) <a href="#setchange-0bbeb54ebc15" id="setchange-0bbeb54ebc15"></a>
 
@@ -1514,7 +1536,7 @@ Types: [NavuContainer](NavuContainer.md#navucontainer-8e321756755f), [NavuExcept
 
 Creates an optional container.
 
- Will silently ignore the error
+Will silently ignore the error
  when the container is not a presence container. It will also
  maintain a counter (as an attribute) counting how many times
  the same containers has been created. This makes this method very
@@ -1527,7 +1549,7 @@ Creates an optional container.
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### size() <a href="#size-c6d8505255fd" id="size-c6d8505255fd"></a>
 

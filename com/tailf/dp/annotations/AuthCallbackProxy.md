@@ -88,7 +88,7 @@ Delegates authentication callback to the registered POJO method.
 
 **Throws**
 
-- `DpCallbackException` - if the callback fails or is not implemented
+- `com.tailf.dp.DpCallbackException` - if the callback fails or is not implemented
 
 ### getAuthCallbackProxys(Object) <a href="#getauthcallbackproxys-4fdb572f55a0" id="getauthcallbackproxys-4fdb572f55a0"></a>
 
@@ -112,8 +112,8 @@ Get array of proxy objects from registered POJO callback.
 
 **Throws**
 
-- `DpCallbackException` - if method signatures don't match or
-                             annotation is invalid
+- `com.tailf.dp.DpCallbackException` - if method signatures don't match or
+annotation is invalid
 
 ### getBackupObject() <a href="#getbackupobject-a6fb23c24524" id="getbackupobject-a6fb23c24524"></a>
 

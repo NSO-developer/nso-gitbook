@@ -38,13 +38,13 @@ public ProgressAttributeValue()
 ### literal <a href="#literal-e8d51c77cbb2" id="literal-e8d51c77cbb2"></a>
 
 ```java
-protected String literal = null;
+protected String literal;
 ```
 
 ### number <a href="#number-d26a316da279" id="number-d26a316da279"></a>
 
 ```java
-protected Long number = null;
+protected Long number;
 ```
 
 

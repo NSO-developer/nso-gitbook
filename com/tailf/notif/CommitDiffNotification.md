@@ -12,7 +12,7 @@ Data structure for CommitDiff notifications.
 
  If this type of notifications are received it is
  important to call
- `Notif#diffNotificationDone(int thandle)`
+ [`Notif#diffNotificationDone(int thandle)`](Notif.md#diffnotificationdone-0053d5ba7865)
  with the received transaction handle or the transaction
  will hang indefinitely
 
@@ -79,11 +79,10 @@ public int getDatabase()
 
 Database type:
 
-
 - [`Conf#DB_NONE`](../conf/Conf.md#db_none-5069c3fe4466)
-   - [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
-     - [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28)
-       - [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486)
+- [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
+- [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28)
+- [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486)
 
 ### getLabel() <a href="#getlabel-72bf899bf6f1" id="getlabel-72bf899bf6f1"></a>
 

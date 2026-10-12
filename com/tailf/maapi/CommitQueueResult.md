@@ -10,7 +10,7 @@ Types: [ApplyResult](ApplyResult.md#applyresult-77b049ed4f17)
 Represents a successful invocation of the
  [`Maapi#applyTransParams(int, boolean, CommitParams)`](Maapi.md#applytransparams-6c20b7896663) method.
 
- The purpose of this class is to represent the result of a transaction where
+The purpose of this class is to represent the result of a transaction where
  the configuration change for the participating devices has been placed
  in the commit queue.
 
@@ -78,25 +78,25 @@ Types: [Status](CommitQueueResult/Status.md#status-84eaa40b9dbc)
 
 Return the status of the commit queue item.
 
- The status could be any of the following:
+The status could be any of the following:
 
- [`Status#NONE`](CommitQueueResult/Status.md#none-f29411358a7b) means that no device was
+[`Status#NONE`](CommitQueueResult/Status.md#none-f29411358a7b) means that no device was
  involved in the transaction.
 
- [`Status#ASYNC`](CommitQueueResult/Status.md#async-84416e99cf56) means that the transaction has
+[`Status#ASYNC`](CommitQueueResult/Status.md#async-84416e99cf56) means that the transaction has
  successfully placed the configuration change for the participating
  devices in the commit queue.
 
- [`Status#COMPLETED`](CommitQueueResult/Status.md#completed-a27eb844ceac) means that the queue item
+[`Status#COMPLETED`](CommitQueueResult/Status.md#completed-a27eb844ceac) means that the queue item
  was successfully completed.
 
- [`Status#TIMEOUT`](CommitQueueResult/Status.md#timeout-7555a653de51) means that the timer expired
+[`Status#TIMEOUT`](CommitQueueResult/Status.md#timeout-7555a653de51) means that the timer expired
  before the queue item was completed.
 
- [`Status#DELETED`](CommitQueueResult/Status.md#deleted-dafb9dab21f9) means that queue item was deleted
+[`Status#DELETED`](CommitQueueResult/Status.md#deleted-dafb9dab21f9) means that queue item was deleted
  from the queue.
 
- [`Status#FAILED`](CommitQueueResult/Status.md#failed-d300719affb0) means that the queue item failed.
+[`Status#FAILED`](CommitQueueResult/Status.md#failed-d300719affb0) means that the queue item failed.
  The [`CommitQueueResult#getFailedDevices()`](CommitQueueResult.md#getfaileddevices-70e71b879fad) method will provide
  the error reason for each failed device.
 
@@ -107,8 +107,3 @@ public String getStatusAsString()
 ```
 
 Return the status as a string.
-
-
-## Nested Types
-
-- [Status](CommitQueueResult/Status.md#status-84eaa40b9dbc)

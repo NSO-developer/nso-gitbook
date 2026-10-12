@@ -18,7 +18,7 @@ State action callback interface
 ### enterState(String, Object) <a href="#enterstate-ec1380c664b4" id="enterstate-ec1380c664b4"></a>
 
 ```java
-public abstract void enterState(String transitionName, Object opaque) throws Exception
+void enterState(String transitionName, Object opaque) throws Exception
 ```
 
 Method called each time this state is entered
@@ -35,7 +35,7 @@ Method called each time this state is entered
 ### leaveState(String, Object) <a href="#leavestate-8aeeca64138e" id="leavestate-8aeeca64138e"></a>
 
 ```java
-public abstract void leaveState(String transitionName, Object opaque) throws Exception
+void leaveState(String transitionName, Object opaque) throws Exception
 ```
 
 Method called each time this state is left

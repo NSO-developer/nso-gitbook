@@ -4,6 +4,12 @@
 public interface com.tailf.ned.CliSession
 ```
 
+**Related classes**
+
+- [CliSession](SSHClient/CliSession.md#clisession-1e55c4457237)
+- [SSHSession](SSHSession.md#sshsession-2d9642a66770)
+- [TelnetSession](TelnetSession.md#telnetsession-79ad40d9d7fd)
+
 ## Members
 
 **Methods**:
@@ -37,13 +43,13 @@ public interface com.tailf.ned.CliSession
 ### close() <a href="#close-8107c6dc012b" id="close-8107c6dc012b"></a>
 
 ```java
-public abstract void close()
+void close()
 ```
 
 ### expect(Pattern) <a href="#expect-98936155685a" id="expect-98936155685a"></a>
 
 ```java
-public abstract String expect(
+String expect(
     java.util.regex.Pattern p
 )
     throws java.io.IOException, com.tailf.ned.SSHSessionException
@@ -58,7 +64,7 @@ Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db235
 ### expect(Pattern, NedWorker) <a href="#expect-a363c018c396" id="expect-a363c018c396"></a>
 
 ```java
-public abstract String expect(
+String expect(
     java.util.regex.Pattern p,
     com.tailf.ned.NedWorker worker
 )
@@ -75,7 +81,7 @@ Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998), [SSHSessionException](S
 ### expect(Pattern[]) <a href="#expect-8149faa90d9d" id="expect-8149faa90d9d"></a>
 
 ```java
-public abstract com.tailf.ned.NedExpectResult expect(
+com.tailf.ned.NedExpectResult expect(
     java.util.regex.Pattern[] p
 )
     throws com.tailf.ned.SSHSessionException, java.io.IOException
@@ -90,7 +96,7 @@ Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [SSHS
 ### expect(Pattern[], boolean, int) <a href="#expect-5cc2e4122c7b" id="expect-5cc2e4122c7b"></a>
 
 ```java
-public abstract com.tailf.ned.NedExpectResult expect(
+com.tailf.ned.NedExpectResult expect(
     java.util.regex.Pattern[] p,
     boolean include,
     int timeout
@@ -109,7 +115,7 @@ Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [SSHS
 ### expect(Pattern[], boolean, int, NedWorker) <a href="#expect-6c58bada9cc6" id="expect-6c58bada9cc6"></a>
 
 ```java
-public abstract com.tailf.ned.NedExpectResult expect(
+com.tailf.ned.NedExpectResult expect(
     java.util.regex.Pattern[] p,
     boolean include,
     int timeout,
@@ -130,7 +136,7 @@ Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [NedW
 ### expect(Pattern[], NedWorker) <a href="#expect-b0896c6a7b2a" id="expect-b0896c6a7b2a"></a>
 
 ```java
-public abstract com.tailf.ned.NedExpectResult expect(
+com.tailf.ned.NedExpectResult expect(
     java.util.regex.Pattern[] p,
     com.tailf.ned.NedWorker worker
 )
@@ -147,10 +153,7 @@ Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [NedW
 ### expect(String) <a href="#expect-5f5d11ad490b" id="expect-5f5d11ad490b"></a>
 
 ```java
-public abstract String expect(
-    String str
-)
-    throws java.io.IOException, com.tailf.ned.SSHSessionException
+String expect(String str) throws java.io.IOException, com.tailf.ned.SSHSessionException
 ```
 
 Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
@@ -162,7 +165,7 @@ Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db235
 ### expect(String, boolean, boolean, int) <a href="#expect-b7ee8aa21949" id="expect-b7ee8aa21949"></a>
 
 ```java
-public abstract String expect(
+String expect(
     String str,
     boolean include,
     boolean full,
@@ -183,7 +186,7 @@ Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db235
 ### expect(String, boolean, boolean, int, NedWorker) <a href="#expect-a44ee9613d91" id="expect-a44ee9613d91"></a>
 
 ```java
-public abstract String expect(
+String expect(
     String str,
     boolean include,
     boolean full,
@@ -206,7 +209,7 @@ Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998), [SSHSessionException](S
 ### expect(String, boolean, int) <a href="#expect-16cd2f682137" id="expect-16cd2f682137"></a>
 
 ```java
-public abstract String expect(
+String expect(
     String str,
     boolean include,
     int timeout
@@ -225,11 +228,7 @@ Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db235
 ### expect(String, int) <a href="#expect-37295e1967db" id="expect-37295e1967db"></a>
 
 ```java
-public abstract String expect(
-    String str,
-    int timeout
-)
-    throws java.io.IOException, com.tailf.ned.SSHSessionException
+String expect(String str, int timeout) throws java.io.IOException, com.tailf.ned.SSHSessionException
 ```
 
 Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
@@ -242,7 +241,7 @@ Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db235
 ### expect(String, int, NedWorker) <a href="#expect-4ba232d952f7" id="expect-4ba232d952f7"></a>
 
 ```java
-public abstract String expect(
+String expect(
     String str,
     int timeout,
     com.tailf.ned.NedWorker worker
@@ -261,7 +260,7 @@ Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998), [SSHSessionException](S
 ### expect(String, NedWorker) <a href="#expect-6426c41e07e7" id="expect-6426c41e07e7"></a>
 
 ```java
-public abstract String expect(
+String expect(
     String str,
     com.tailf.ned.NedWorker worker
 )
@@ -278,7 +277,7 @@ Types: [NedWorker](NedWorker.md#nedworker-b063de7c0998), [SSHSessionException](S
 ### expect(String[]) <a href="#expect-740d81a74e4b" id="expect-740d81a74e4b"></a>
 
 ```java
-public abstract com.tailf.ned.NedExpectResult expect(
+com.tailf.ned.NedExpectResult expect(
     String[] str
 )
     throws java.io.IOException, com.tailf.ned.SSHSessionException
@@ -293,7 +292,7 @@ Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [SSHS
 ### expect(String[], boolean, int) <a href="#expect-f6cb6c02c198" id="expect-f6cb6c02c198"></a>
 
 ```java
-public abstract com.tailf.ned.NedExpectResult expect(
+com.tailf.ned.NedExpectResult expect(
     String[] str,
     boolean include,
     int timeout
@@ -312,7 +311,7 @@ Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [SSHS
 ### expect(String[], boolean, int, NedWorker) <a href="#expect-90d4e3ee7ac2" id="expect-90d4e3ee7ac2"></a>
 
 ```java
-public abstract com.tailf.ned.NedExpectResult expect(
+com.tailf.ned.NedExpectResult expect(
     String[] str,
     boolean include,
     int timeout,
@@ -333,7 +332,7 @@ Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [NedW
 ### expect(String[], NedWorker) <a href="#expect-4485477b99db" id="expect-4485477b99db"></a>
 
 ```java
-public abstract com.tailf.ned.NedExpectResult expect(
+com.tailf.ned.NedExpectResult expect(
     String[] str,
     com.tailf.ned.NedWorker worker
 )
@@ -350,13 +349,13 @@ Types: [NedExpectResult](NedExpectResult.md#nedexpectresult-cbdbaf0f9e87), [NedW
 ### flush() <a href="#flush-a4d76f158943" id="flush-a4d76f158943"></a>
 
 ```java
-public abstract void flush() throws java.io.IOException
+void flush() throws java.io.IOException
 ```
 
 ### print(String) <a href="#print-b202251f9230" id="print-b202251f9230"></a>
 
 ```java
-public abstract void print(String s) throws java.io.IOException, com.tailf.ned.SSHSessionException
+void print(String s) throws java.io.IOException, com.tailf.ned.SSHSessionException
 ```
 
 Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
@@ -368,7 +367,7 @@ Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db235
 ### println(String) <a href="#println-15aea44318e6" id="println-15aea44318e6"></a>
 
 ```java
-public abstract void println(String s) throws java.io.IOException, com.tailf.ned.SSHSessionException
+void println(String s) throws java.io.IOException, com.tailf.ned.SSHSessionException
 ```
 
 Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db2359ab1)
@@ -380,13 +379,13 @@ Types: [SSHSessionException](SSHSessionException.md#sshsessionexception-971db235
 ### serverSideClosed() <a href="#serversideclosed-0dfe26b0733e" id="serversideclosed-0dfe26b0733e"></a>
 
 ```java
-public abstract boolean serverSideClosed()
+boolean serverSideClosed()
 ```
 
 ### setTracer(NedTracer) <a href="#settracer-6943f9aadf68" id="settracer-6943f9aadf68"></a>
 
 ```java
-public abstract void setTracer(com.tailf.ned.NedTracer tracer)
+void setTracer(com.tailf.ned.NedTracer tracer)
 ```
 
 Types: [NedTracer](NedTracer.md#nedtracer-f8730263f5f2)

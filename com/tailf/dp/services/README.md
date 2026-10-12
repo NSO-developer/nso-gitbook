@@ -2,8 +2,7 @@
 
 Service callback specific context and utilities.
 
-
- These type classes are used in service callbacks.
+These type classes are used in service callbacks.
 
 ## Types
 

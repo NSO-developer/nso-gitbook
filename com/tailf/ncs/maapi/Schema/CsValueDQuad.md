@@ -36,7 +36,7 @@ public CsValueDQuad()
 ### factory <a href="#factory-1649195a6f6e" id="factory-1649195a6f6e"></a>
 
 ```java
-public static final com.tailf.ncs.maapi.Schema.CsValueDQuad.Factory factory = null;
+public static final com.tailf.ncs.maapi.Schema.CsValueDQuad.Factory factory;
 ```
 
 Types: [Factory](CsValueDQuad/Factory.md#factory-1787784624e8)
@@ -44,7 +44,7 @@ Types: [Factory](CsValueDQuad/Factory.md#factory-1787784624e8)
 ### listFactory <a href="#listfactory-b96025f1568b" id="listfactory-b96025f1568b"></a>
 
 ```java
-public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueDQuad.Builder,com.tailf.ncs.maapi.Schema.CsValueDQuad.Reader> listFactory = null;
+public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueDQuad.Builder,com.tailf.ncs.maapi.Schema.CsValueDQuad.Reader> listFactory;
 ```
 
 Types: [Builder](CsValueDQuad/Builder.md#builder-21f09e83781d), [Reader](CsValueDQuad/Reader.md#reader-b2467a96ddff)
@@ -52,12 +52,5 @@ Types: [Builder](CsValueDQuad/Builder.md#builder-21f09e83781d), [Reader](CsValue
 ### STRUCT_SIZE <a href="#struct_size-06830f6b9d3b" id="struct_size-06830f6b9d3b"></a>
 
 ```java
-public static final org.capnproto.StructSize STRUCT_SIZE = null;
+public static final org.capnproto.StructSize STRUCT_SIZE;
 ```
-
-
-## Nested Types
-
-- [Builder](CsValueDQuad/Builder.md#builder-21f09e83781d)
-- [Factory](CsValueDQuad/Factory.md#factory-1787784624e8)
-- [Reader](CsValueDQuad/Reader.md#reader-b2467a96ddff)

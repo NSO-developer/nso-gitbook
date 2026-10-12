@@ -2,10 +2,7 @@
 
 ```java
 public final class com.tailf.conf.gen.PathParser
-    implements com.tailf.conf.gen.PathParserConstants
 ```
-
-Types: [PathParserConstants](PathParserConstants.md#pathparserconstants-bdbbf565b32b)
 
 Path Parser.
 
@@ -18,32 +15,31 @@ Path Parser.
 - [PathParser\(InputStream, String\)](#pathparser-60a47d80f664)
 - [PathParser\(PathParserTokenManager\)](#pathparser-87dc448d0bb4)
 - [PathParser\(Reader\)](#pathparser-8195c9a0b35f)
-- [PathParser\(String, Object\[\]\)](#pathparser-e7ef3c34825a)
+- [PathParser\(String, Object\.\.\.\)](#pathparser-33ee1cafe074)
 
 **Fields**:
 
-- [CHAR](PathParserConstants.md#char-029984bb6c9e) from PathParserConstants
-- [CHAR2](PathParserConstants.md#char2-88635d8a54cf) from PathParserConstants
-- [COLON](PathParserConstants.md#colon-2c1dbe3aeee8) from PathParserConstants
-- [DEFAULT](PathParserConstants.md#default-5965fc85722b) from PathParserConstants
-- [EOF](PathParserConstants.md#eof-e4ab74e8c3eb) from PathParserConstants
-- [IDENTIFIER](PathParserConstants.md#identifier-73b18fdcf248) from PathParserConstants
-- [IDENTIFIER2](PathParserConstants.md#identifier2-8a04449a942b) from PathParserConstants
-- [INSIDE\_BRACES](PathParserConstants.md#inside_braces-126526a96a03) from PathParserConstants
-- [INSIDE\_QUOTE](PathParserConstants.md#inside_quote-1a887df059d8) from PathParserConstants
-- [jj\_input\_stream](#jj_input_stream-a656fd5e96db)
+- [CHAR](#char-029984bb6c9e)
+- [CHAR2](#char2-88635d8a54cf)
+- [COLON](#colon-2c1dbe3aeee8)
+- [DEFAULT](#default-5965fc85722b)
+- [EOF](#eof-e4ab74e8c3eb)
+- [IDENTIFIER](#identifier-73b18fdcf248)
+- [IDENTIFIER2](#identifier2-8a04449a942b)
+- [INSIDE\_BRACES](#inside_braces-126526a96a03)
+- [INSIDE\_QUOTE](#inside_quote-1a887df059d8)
 - [jj\_nt](#jj_nt-9db0740275fe)
-- [LBRACE](PathParserConstants.md#lbrace-29f2f43b91d0) from PathParserConstants
-- [LBRACKET](PathParserConstants.md#lbracket-2910754c7a67) from PathParserConstants
-- [PERCENT](PathParserConstants.md#percent-732182372b0c) from PathParserConstants
-- [PERCENT2](PathParserConstants.md#percent2-b22c5103c9d8) from PathParserConstants
-- [RBRACE](PathParserConstants.md#rbrace-0415afff6842) from PathParserConstants
-- [RBRACKET](PathParserConstants.md#rbracket-71ce92365b6c) from PathParserConstants
-- [SLASH](PathParserConstants.md#slash-3c7d823f3e28) from PathParserConstants
-- [STRLIT](PathParserConstants.md#strlit-d6078ea07628) from PathParserConstants
+- [LBRACE](#lbrace-29f2f43b91d0)
+- [LBRACKET](#lbracket-2910754c7a67)
+- [PERCENT](#percent-732182372b0c)
+- [PERCENT2](#percent2-b22c5103c9d8)
+- [RBRACE](#rbrace-0415afff6842)
+- [RBRACKET](#rbracket-71ce92365b6c)
+- [SLASH](#slash-3c7d823f3e28)
+- [STRLIT](#strlit-d6078ea07628)
 - [token](#token-93f8344c37b8)
 - [token\_source](#token_source-65d526092316)
-- [tokenImage](PathParserConstants.md#tokenimage-c13f534d4471) from PathParserConstants
+- [tokenImage](#tokenimage-c13f534d4471)
 
 **Methods**:
 
@@ -112,8 +108,6 @@ Constructor with InputStream and supplied encoding
 public PathParser(com.tailf.conf.gen.PathParserTokenManager tm)
 ```
 
-Types: [PathParserTokenManager](PathParserTokenManager.md#pathparsertokenmanager-048d8d4f37c4)
-
 Constructor with generated Token Manager.
 
 **Parameters**
@@ -132,59 +126,187 @@ Constructor.
 
 - `java.io.Reader stream`
 
-### PathParser(String, Object[]) <a href="#pathparser-e7ef3c34825a" id="pathparser-e7ef3c34825a"></a>
+### PathParser(String, Object...) <a href="#pathparser-33ee1cafe074" id="pathparser-33ee1cafe074"></a>
 
 ```java
-public PathParser(String s, Object[] args)
+public PathParser(String s, Object... args)
 ```
 
 **Parameters**
 
 - `String s`
-- `Object[] args`
+- `Object... args`
 
 
 ## Fields
 
-### jj_input_stream <a href="#jj_input_stream-a656fd5e96db" id="jj_input_stream-a656fd5e96db"></a>
-
-**Package-private**
+### CHAR <a href="#char-029984bb6c9e" id="char-029984bb6c9e"></a>
 
 ```java
-com.tailf.conf.gen.JavaCharStream jj_input_stream = null;
+public static final int CHAR = 7;
 ```
 
-Types: [JavaCharStream](JavaCharStream.md#javacharstream-b90e6870657d)
+RegularExpression Id.
+
+### CHAR2 <a href="#char2-88635d8a54cf" id="char2-88635d8a54cf"></a>
+
+```java
+public static final int CHAR2 = 19;
+```
+
+RegularExpression Id.
+
+### COLON <a href="#colon-2c1dbe3aeee8" id="colon-2c1dbe3aeee8"></a>
+
+```java
+public static final int COLON = 9;
+```
+
+RegularExpression Id.
+
+### DEFAULT <a href="#default-5965fc85722b" id="default-5965fc85722b"></a>
+
+```java
+public static final int DEFAULT = 0;
+```
+
+Lexical state.
+
+### EOF <a href="#eof-e4ab74e8c3eb" id="eof-e4ab74e8c3eb"></a>
+
+```java
+public static final int EOF = 0;
+```
+
+End of File.
+
+### IDENTIFIER <a href="#identifier-73b18fdcf248" id="identifier-73b18fdcf248"></a>
+
+```java
+public static final int IDENTIFIER = 6;
+```
+
+RegularExpression Id.
+
+### IDENTIFIER2 <a href="#identifier2-8a04449a942b" id="identifier2-8a04449a942b"></a>
+
+```java
+public static final int IDENTIFIER2 = 18;
+```
+
+RegularExpression Id.
+
+### INSIDE_BRACES <a href="#inside_braces-126526a96a03" id="inside_braces-126526a96a03"></a>
+
+```java
+public static final int INSIDE_BRACES = 1;
+```
+
+Lexical state.
+
+### INSIDE_QUOTE <a href="#inside_quote-1a887df059d8" id="inside_quote-1a887df059d8"></a>
+
+```java
+public static final int INSIDE_QUOTE = 2;
+```
+
+Lexical state.
 
 ### jj_nt <a href="#jj_nt-9db0740275fe" id="jj_nt-9db0740275fe"></a>
 
 ```java
-public com.tailf.conf.gen.Token jj_nt = null;
+public com.tailf.conf.gen.Token jj_nt;
 ```
 
-Types: [Token](Token.md#token-b7a155cc1a5e)
-
 Next token.
+
+### LBRACE <a href="#lbrace-29f2f43b91d0" id="lbrace-29f2f43b91d0"></a>
+
+```java
+public static final int LBRACE = 11;
+```
+
+RegularExpression Id.
+
+### LBRACKET <a href="#lbracket-2910754c7a67" id="lbracket-2910754c7a67"></a>
+
+```java
+public static final int LBRACKET = 12;
+```
+
+RegularExpression Id.
+
+### PERCENT <a href="#percent-732182372b0c" id="percent-732182372b0c"></a>
+
+```java
+public static final int PERCENT = 8;
+```
+
+RegularExpression Id.
+
+### PERCENT2 <a href="#percent2-b22c5103c9d8" id="percent2-b22c5103c9d8"></a>
+
+```java
+public static final int PERCENT2 = 20;
+```
+
+RegularExpression Id.
+
+### RBRACE <a href="#rbrace-0415afff6842" id="rbrace-0415afff6842"></a>
+
+```java
+public static final int RBRACE = 21;
+```
+
+RegularExpression Id.
+
+### RBRACKET <a href="#rbracket-71ce92365b6c" id="rbracket-71ce92365b6c"></a>
+
+```java
+public static final int RBRACKET = 13;
+```
+
+RegularExpression Id.
+
+### SLASH <a href="#slash-3c7d823f3e28" id="slash-3c7d823f3e28"></a>
+
+```java
+public static final int SLASH = 10;
+```
+
+RegularExpression Id.
+
+### STRLIT <a href="#strlit-d6078ea07628" id="strlit-d6078ea07628"></a>
+
+```java
+public static final int STRLIT = 23;
+```
+
+RegularExpression Id.
 
 ### token <a href="#token-93f8344c37b8" id="token-93f8344c37b8"></a>
 
 ```java
-public com.tailf.conf.gen.Token token = null;
+public com.tailf.conf.gen.Token token;
 ```
-
-Types: [Token](Token.md#token-b7a155cc1a5e)
 
 Current token.
 
 ### token_source <a href="#token_source-65d526092316" id="token_source-65d526092316"></a>
 
 ```java
-public com.tailf.conf.gen.PathParserTokenManager token_source = null;
+public com.tailf.conf.gen.PathParserTokenManager token_source;
 ```
 
-Types: [PathParserTokenManager](PathParserTokenManager.md#pathparsertokenmanager-048d8d4f37c4)
-
 Generated Token Manager.
+
+### tokenImage <a href="#tokenimage-c13f534d4471" id="tokenimage-c13f534d4471"></a>
+
+```java
+public static final String[] tokenImage;
+```
+
+Literal token values.
 
 
 ## Methods
@@ -253,8 +375,6 @@ Generate ParseException.
 public final com.tailf.conf.gen.Token getNextToken()
 ```
 
-Types: [Token](Token.md#token-b7a155cc1a5e)
-
 Get the next Token.
 
 ### getToken(int) <a href="#gettoken-dc7acf63f451" id="gettoken-dc7acf63f451"></a>
@@ -262,8 +382,6 @@ Get the next Token.
 ```java
 public final com.tailf.conf.gen.Token getToken(int index)
 ```
-
-Types: [Token](Token.md#token-b7a155cc1a5e)
 
 Get the specific Token.
 
@@ -298,7 +416,7 @@ Types: [ParseException](ParseException.md#parseexception-451af1d737ad)
 ### parse() <a href="#parse-29d7b3df4ae2" id="parse-29d7b3df4ae2"></a>
 
 ```java
-public final java.util.List<com.tailf.conf.gen.PathParser.PathElement> parse() throws com.tailf.conf.gen.ParseException
+public final java.util.List<com.tailf.conf.gen.PathParser.PathElement> parse()
     throws com.tailf.conf.gen.ParseException
 ```
 
@@ -337,8 +455,6 @@ Reinitialise.
 public void ReInit(com.tailf.conf.gen.PathParserTokenManager tm)
 ```
 
-Types: [PathParserTokenManager](PathParserTokenManager.md#pathparsertokenmanager-048d8d4f37c4)
-
 Reinitialise.
 
 **Parameters**
@@ -372,10 +488,3 @@ public final boolean trace_enabled()
 ```
 
 Trace enabled.
-
-
-## Nested Types
-
-- [PathConfBinary](PathParser/PathConfBinary.md#pathconfbinary-5ab7abfe8171)
-- [PathElement](PathParser/PathElement.md#pathelement-30082145995b)
-- [PathKey](PathParser/PathKey.md#pathkey-a9b70d1850aa)

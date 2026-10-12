@@ -9,31 +9,29 @@ Class Representing an path. A Path can be either a schema path
  model while an instance path points to an element in the
  instantiated model.
 
-
- The difference is that in the instance tree both elements and
+The difference is that in the instance tree both elements and
  data values are needed to point out a instance element.
 
-
- There are several ways to represent a path which are supported by
+There are several ways to represent a path which are supported by
  this class. The two most important being as a String or as a array of
  [`ConfTag`](ConfTag.md#conftag-73757b87bc93)/[`ConfKey`](ConfKey.md#confkey-e4e1ca98e867) values.
 
+- Instance of [`ConfEList`](../proto/ConfEList.md#confelist-78fa4ba3b3a8) \- Applications usually does
+   not have to deal with paths that are instances of `ConfEList`.\
 
-- Instance of [`ConfEList`](../proto/ConfEList.md#confelist-78fa4ba3b3a8) - Applications usually does
- not have to deal with paths that are instances of `ConfEList`.
- Constructors that have this type is usually for internal use:
- [`InstancePath(ConfEBinary)`](InstancePath.md#instancepath-e673bc5f9e5a),[`InstancePath(ConfEList)`](InstancePath.md#instancepath-5f1d4144a5af),
- [`InstancePath(ConfObject[])`](InstancePath.md#instancepath-578db36acd1b)
+   Constructors that have this type is usually for internal use:
+   [`InstancePath(ConfEBinary)`](InstancePath.md#instancepath-e673bc5f9e5a),[`InstancePath(ConfEList)`](InstancePath.md#instancepath-5f1d4144a5af),
+   [`InstancePath(ConfObject[])`](InstancePath.md#instancepath-578db36acd1b)
 - Reverted array of [`ConfObject`](ConfObject.md#confobject-5433616953b2) `ConfObject[]`
- where each element is either
- of the type [`ConfTag`](ConfTag.md#conftag-73757b87bc93) or [`ConfKey`](ConfKey.md#confkey-e4e1ca98e867). To determine which type
- a `instanceof` test is required. Usually the application
- need to deal with this representations in different callback
- implementations and it is always reverted. The library
- invokes the user defined callbacks with this type of representation as
- one of the parameters.
+   where each element is either
+   of the type [`ConfTag`](ConfTag.md#conftag-73757b87bc93) or [`ConfKey`](ConfKey.md#confkey-e4e1ca98e867). To determine which type
+   a `instanceof` test is required. Usually the application
+   need to deal with this representations in different callback
+   implementations and it is always reverted. The library
+   invokes the user defined callbacks with this type of representation as
+   one of the parameters.
 
- Application is seldom required to construct such arrays.
+  Application is seldom required to construct such arrays.
 
 **Related classes**
 
@@ -50,8 +48,8 @@ Class Representing an path. A Path can be either a schema path
 - [InstancePath\(MountIdInterface\)](#instancepath-c47f9e227234)
 - [InstancePath\(MountIdInterface, ConfObject\[\]\)](#instancepath-2505c812ffbf)
 - [InstancePath\(MountIdInterface, List\<PathElement\>\)](#instancepath-81d41046b20c)
-- [InstancePath\(MountIdInterface, String, Object\[\]\)](#instancepath-01c8746248ca)
-- [InstancePath\(String, Object\[\]\)](#instancepath-f1811b7c9fb8)
+- [InstancePath\(MountIdInterface, String, Object\.\.\.\)](#instancepath-afe2f95fcc80)
+- [InstancePath\(String, Object\.\.\.\)](#instancepath-a75294eb4bb2)
 
 **Fields**:
 
@@ -114,7 +112,7 @@ Initialize a InstancePath.
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### InstancePath(ConfEList) <a href="#instancepath-5f1d4144a5af" id="instancepath-5f1d4144a5af"></a>
 
@@ -141,7 +139,7 @@ public InstancePath(com.tailf.conf.ConfObject[] kp)
 Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
 
 Initializes a new instance of this class from a given
- reverted ConfObject[] keypath where elements
+ reverted ConfObject\[\] keypath where elements
  is either `ConfTag` or
  `ConfKey`.
 
@@ -190,13 +188,13 @@ Types: [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0), [P
 - `com.tailf.conf.MountIdInterface mountGetter`
 - `java.util.List<com.tailf.conf.gen.PathParser.PathElement> pl`
 
-### InstancePath(MountIdInterface, String, Object[]) <a href="#instancepath-01c8746248ca" id="instancepath-01c8746248ca"></a>
+### InstancePath(MountIdInterface, String, Object...) <a href="#instancepath-afe2f95fcc80" id="instancepath-afe2f95fcc80"></a>
 
 ```java
 protected InstancePath(
     com.tailf.conf.MountIdInterface mountGetter,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws com.tailf.conf.ConfException
 ```
@@ -207,12 +205,12 @@ Types: [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0), [C
 
 - `com.tailf.conf.MountIdInterface mountGetter`
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
-### InstancePath(String, Object[]) <a href="#instancepath-f1811b7c9fb8" id="instancepath-f1811b7c9fb8"></a>
+### InstancePath(String, Object...) <a href="#instancepath-a75294eb4bb2" id="instancepath-a75294eb4bb2"></a>
 
 ```java
-protected InstancePath(String fmt, Object[] arguments) throws com.tailf.conf.ConfException
+protected InstancePath(String fmt, Object... arguments) throws com.tailf.conf.ConfException
 ```
 
 Types: [ConfException](ConfException.md#confexception-baeaab99f7f9)
@@ -220,31 +218,28 @@ Types: [ConfException](ConfException.md#confexception-baeaab99f7f9)
 Construct a `InstancePath` from a string path representation
  and of optional arguments.
 
-
- The path is expressed as a format string
+The path is expressed as a format string
  that could contain fixed text
  with zero to many embedded format specifiers.
 
-
- For each specifier one argument in the variable argument list is
+For each specifier one argument in the variable argument list is
  expected.
-
+ 
  format specifiers in the Java API is:
-
 
 - %d - requiring an integer parameter (type int) to be substituted.
 - %s - requiring a java.lang.String parameter to be substituted.
 - %x - requiring subclasses of type com.tailf.conf.ConfValue to be
- substituted.
+   substituted.
 
 **Parameters**
 
 - `String fmt` - path string representation
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 
 ## Fields
@@ -252,43 +247,43 @@ Construct a `InstancePath` from a string path representation
 ### arguments <a href="#arguments-28ffa3c54d2c" id="arguments-28ffa3c54d2c"></a>
 
 ```java
-protected Object[] arguments = null;
+protected Object[] arguments;
 ```
 
 ### deferred <a href="#deferred-c2f16a111685" id="deferred-c2f16a111685"></a>
 
 ```java
-protected boolean deferred = null;
+protected boolean deferred;
 ```
 
 ### fmt <a href="#fmt-94d3250bd2b9" id="fmt-94d3250bd2b9"></a>
 
 ```java
-protected String fmt = null;
+protected String fmt;
 ```
 
 ### hasSchema <a href="#hasschema-a8c91f825ecf" id="hasschema-a8c91f825ecf"></a>
 
 ```java
-protected boolean hasSchema = null;
+protected boolean hasSchema;
 ```
 
 ### isRel <a href="#isrel-6f5c045b2036" id="isrel-6f5c045b2036"></a>
 
 ```java
-protected boolean isRel = null;
+protected boolean isRel;
 ```
 
 ### latestMountId <a href="#latestmountid-7642d01fb3f1" id="latestmountid-7642d01fb3f1"></a>
 
 ```java
-protected java.util.List<String> latestMountId = null;
+protected java.util.List<String> latestMountId;
 ```
 
 ### mountGetter <a href="#mountgetter-a3d01f18a1ec" id="mountgetter-a3d01f18a1ec"></a>
 
 ```java
-protected com.tailf.conf.MountIdInterface mountGetter = null;
+protected com.tailf.conf.MountIdInterface mountGetter;
 ```
 
 Types: [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0)
@@ -296,7 +291,7 @@ Types: [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0)
 ### pl <a href="#pl-952ffda3e648" id="pl-952ffda3e648"></a>
 
 ```java
-protected java.util.List<com.tailf.conf.gen.PathParser.PathElement> pl = null;
+protected java.util.List<com.tailf.conf.gen.PathParser.PathElement> pl;
 ```
 
 Types: [PathElement](gen/PathParser/PathElement.md#pathelement-30082145995b)
@@ -422,13 +417,11 @@ Types: [ConfObject](ConfObject.md#confobject-5433616953b2), [ConfException](Conf
 Returns an array of `ConfTag` and `ConfKey`
  objects which represents the path in reverted order.
 
-
- This method requires that the path is absolute and that
+This method requires that the path is absolute and that
  the schema prefix for the root element is defined, if not
  a `ConfException` is thrown.
 
-
- The `ConfKey` is composed of the proper
+The `ConfKey` is composed of the proper
  `ConfValue` types which are determined by the
  loaded schema. However, if this the schema information is not available,
  and the type therefore cannot be determined the key elements are
@@ -438,9 +431,9 @@ Returns an array of `ConfTag` and `ConfKey`
 
 **Throws**
 
-- `ConfException` - If schema information is not loaded,
-         the path is not valid or the parsed path
-         has no namespace information.
+- `com.tailf.conf.ConfException` - If schema information is not loaded,
+the path is not valid or the parsed path
+has no namespace information.
 
 ### getKP(List&lt;PathElement&gt;, boolean, boolean, MountIdInterface) <a href="#getkp-a23f67046fb4" id="getkp-a23f67046fb4"></a>
 
@@ -611,8 +604,3 @@ public String toXPathString()
 Returns this path object as an XPath string.
 
 **Returns:** XPath String representation
-
-
-## Nested Types
-
-- [OrdinalKey](InstancePath/OrdinalKey.md#ordinalkey-366c6ce27fe2)

@@ -6,6 +6,10 @@ public interface com.tailf.dp.DpServiceCallback
 
 This interface is used for the service callbacks.
 
+**Related classes**
+
+- [ServiceCallbackProxy](annotations/ServiceCallbackProxy.md#servicecallbackproxy-45fef1425737)
+
 **See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#registerannotatedcallbacks-ffaebadbfc42)
 
 ## Members
@@ -29,7 +33,7 @@ This interface is used for the service callbacks.
 ### M_CREATE <a href="#m_create-741f9c6b07dc" id="m_create-741f9c6b07dc"></a>
 
 ```java
-public static final int M_CREATE = 4;
+static final int M_CREATE = 4;
 ```
 
 Flags for the mask
@@ -37,13 +41,13 @@ Flags for the mask
 ### M_POST_MODIFICATION <a href="#m_post_modification-94386bb8ea4a" id="m_post_modification-94386bb8ea4a"></a>
 
 ```java
-public static final int M_POST_MODIFICATION = 2;
+static final int M_POST_MODIFICATION = 2;
 ```
 
 ### M_PRE_MODIFICATION <a href="#m_pre_modification-f78525f61907" id="m_pre_modification-f78525f61907"></a>
 
 ```java
-public static final int M_PRE_MODIFICATION = 1;
+static final int M_PRE_MODIFICATION = 1;
 ```
 
 
@@ -52,7 +56,7 @@ public static final int M_PRE_MODIFICATION = 1;
 ### create(ServiceContext, NavuNode, NavuNode, Properties) <a href="#create-4ddbd09c0e51" id="create-4ddbd09c0e51"></a>
 
 ```java
-public abstract java.util.Properties create(
+java.util.Properties create(
     com.tailf.dp.services.ServiceContext context,
     com.tailf.navu.NavuNode service,
     com.tailf.navu.NavuNode root,
@@ -76,39 +80,38 @@ Create callback method.
 
 **Parameters**
 
-- `com.tailf.dp.services.ServiceContext context` - - The current ServiceContext object
-- `com.tailf.navu.NavuNode service` - - The NavuNode references the service node.
-- `com.tailf.navu.NavuNode root` - - This NavuNode references the ncs root.
-- `java.util.Properties opaque` - - Parameter contains a Properties object.
-                  This object may be used to transfer
-                  additional information between consecutive
-                  calls to the create callback.  It is always
-                  null in the first call. I.e. when the service
-                  is first created.
+- `com.tailf.dp.services.ServiceContext context` - \- The current ServiceContext object
+- `com.tailf.navu.NavuNode service` - \- The NavuNode references the service node.
+- `com.tailf.navu.NavuNode root` - \- This NavuNode references the ncs root.
+- `java.util.Properties opaque` - \- Parameter contains a Properties object.
+This object may be used to transfer
+additional information between consecutive
+calls to the create callback.  It is always
+null in the first call. I.e. when the service
+is first created.
 
 **Returns:** Properties the returning opaque instance
 
 **Throws**
 
-- `DpCallbackException`
+- `com.tailf.dp.DpCallbackException`
 
 ### mask() <a href="#mask-24c2fa29c6af" id="mask-24c2fa29c6af"></a>
 
 ```java
-public abstract int mask()
+int mask()
 ```
 
 Mask of flags for each method that is supported by this callback:
 
-
 - [`M_CREATE`](DpServiceCallback.md#m_create-741f9c6b07dc)
-   - [`M_PRE_MODIFICATION`](DpServiceCallback.md#m_pre_modification-f78525f61907)
-     - [`M_POST_MODIFICATION`](DpServiceCallback.md#m_post_modification-94386bb8ea4a)
+- [`M_PRE_MODIFICATION`](DpServiceCallback.md#m_pre_modification-f78525f61907)
+- [`M_POST_MODIFICATION`](DpServiceCallback.md#m_post_modification-94386bb8ea4a)
 
 ### postModification(ServiceContext, ServiceOperationType, ConfPath, Properties) <a href="#postmodification-271e17afdb57" id="postmodification-271e17afdb57"></a>
 
 ```java
-public abstract java.util.Properties postModification(
+java.util.Properties postModification(
     com.tailf.dp.services.ServiceContext context,
     com.tailf.dp.services.ServiceOperationType operation,
     com.tailf.conf.ConfPath path,
@@ -131,26 +134,26 @@ Post modification callback
 
 **Parameters**
 
-- `com.tailf.dp.services.ServiceContext context` - - The current ServiceContext object
-- `com.tailf.dp.services.ServiceOperationType operation` - - Type of operation (CREATE,UPDATE,DELETE)
-- `com.tailf.conf.ConfPath path` - - ConfPath object referring to the services path
-- `java.util.Properties opaque` - - Parameter contains a Properties object.
-                      This object may be used to transfer
-                      additional information between consecutive
-                      calls to the create callback.  It is always
-                      null in the first call. I.e. when the service
-                      is first created.
+- `com.tailf.dp.services.ServiceContext context` - \- The current ServiceContext object
+- `com.tailf.dp.services.ServiceOperationType operation` - \- Type of operation (CREATE,UPDATE,DELETE)
+- `com.tailf.conf.ConfPath path` - \- ConfPath object referring to the services path
+- `java.util.Properties opaque` - \- Parameter contains a Properties object.
+This object may be used to transfer
+additional information between consecutive
+calls to the create callback.  It is always
+null in the first call. I.e. when the service
+is first created.
 
 **Returns:** Properties - the returning opaque instance
 
 **Throws**
 
-- `DpCallbackException`
+- `com.tailf.dp.DpCallbackException`
 
 ### preModification(ServiceContext, ServiceOperationType, ConfPath, Properties) <a href="#premodification-92ab0a35864a" id="premodification-92ab0a35864a"></a>
 
 ```java
-public abstract java.util.Properties preModification(
+java.util.Properties preModification(
     com.tailf.dp.services.ServiceContext context,
     com.tailf.dp.services.ServiceOperationType operation,
     com.tailf.conf.ConfPath path,
@@ -173,26 +176,26 @@ Pre modification callback
 
 **Parameters**
 
-- `com.tailf.dp.services.ServiceContext context` - - The current ServiceContext object
-- `com.tailf.dp.services.ServiceOperationType operation` - - Type of operation (CREATE,UPDATE,DELETE)
-- `com.tailf.conf.ConfPath path` - - ConfPath object referring to the services path
-- `java.util.Properties opaque` - - Parameter contains a Properties object.
-                      This object may be used to transfer
-                      additional information between consecutive
-                      calls to the create callback.  It is always
-                      null in the first call. I.e. when the service
-                      is first created.
+- `com.tailf.dp.services.ServiceContext context` - \- The current ServiceContext object
+- `com.tailf.dp.services.ServiceOperationType operation` - \- Type of operation (CREATE,UPDATE,DELETE)
+- `com.tailf.conf.ConfPath path` - \- ConfPath object referring to the services path
+- `java.util.Properties opaque` - \- Parameter contains a Properties object.
+This object may be used to transfer
+additional information between consecutive
+calls to the create callback.  It is always
+null in the first call. I.e. when the service
+is first created.
 
 **Returns:** Properties - the returning opaque instance
 
 **Throws**
 
-- `DpCallbackException`
+- `com.tailf.dp.DpCallbackException`
 
 ### servicepoint() <a href="#servicepoint-33fbd1d46c70" id="servicepoint-33fbd1d46c70"></a>
 
 ```java
-public abstract String servicepoint()
+String servicepoint()
 ```
 
 The name of the servicepoint

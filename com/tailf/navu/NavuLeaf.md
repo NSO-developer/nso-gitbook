@@ -12,7 +12,7 @@ The `NavuLeaf` class corresponds to the
  A `NavuLeaf` is a node in the NAVU-Tree that
  that does not have any children and holds a value.
 
- To retrieve a value the method [`value()`](NavuLeaf.md#value-9e1512d1a0ce) should be called
+To retrieve a value the method [`value()`](NavuLeaf.md#value-9e1512d1a0ce) should be called
  which on first invocation retrieves the value through the current context.
  Subsequent calls to the `value` method will return the "cached"
  value.
@@ -33,9 +33,9 @@ The `NavuLeaf` class corresponds to the
 
 **Constructors**:
 
-- [NavuLeaf\(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object\[\]\)](#navuleaf-6b9cb35562bb)
+- [NavuLeaf\(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object\.\.\.\)](#navuleaf-523b3c9cfee1)
 - [NavuLeaf\(NavuContext, MaapiSchemas, CSNode, NavuNode, Formats\)](#navuleaf-cdaff80a0d08)
-- [NavuLeaf\(NavuContext, MaapiSchemas, CSNode, NavuNode, String, Object\[\]\)](#navuleaf-76b0a4cfb596)
+- [NavuLeaf\(NavuContext, MaapiSchemas, CSNode, NavuNode, String, Object\.\.\.\)](#navuleaf-7f402c372d3b)
 
 **Fields**:
 
@@ -68,7 +68,7 @@ The `NavuLeaf` class corresponds to the
 - [getChangeFlag\(\)](#getchangeflag-33cadf5a32ba)
 - [getChanges\(NavuContext\)](NavuNode.md#getchanges-c106383f174d) from NavuNode
 - [getChanges\(NavuContext, boolean\)](NavuNode.md#getchanges-bcf5b6dbccf2) from NavuNode
-- [getChanges\(NavuContext, boolean, DiffIterateOperFlag\[\]\)](NavuNode.md#getchanges-9f13a683b086) from NavuNode
+- [getChanges\(NavuContext, boolean, DiffIterateOperFlag\.\.\.\)](NavuNode.md#getchanges-944155506885) from NavuNode
 - [getConfPath\(\)](NavuNode.md#getconfpath-c7ca3cb63c17) from NavuNode
 - [getInfo\(\)](NavuNode.md#getinfo-259a72b5d74c) from NavuNode
 - [getKeyPath\(\)](NavuNode.md#getkeypath-4c9200912948) from NavuNode
@@ -121,7 +121,7 @@ The `NavuLeaf` class corresponds to the
 
 ## Constructors
 
-### NavuLeaf(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object[]) <a href="#navuleaf-6b9cb35562bb" id="navuleaf-6b9cb35562bb"></a>
+### NavuLeaf(Maapi, int, MaapiSchemas, CSNode, NavuNode, String, Object...) <a href="#navuleaf-523b3c9cfee1" id="navuleaf-523b3c9cfee1"></a>
 
 ```java
 protected NavuLeaf(
@@ -131,7 +131,7 @@ protected NavuLeaf(
     com.tailf.maapi.MaapiSchemas.CSNode node,
     com.tailf.navu.NavuNode parent,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
 ```
 
@@ -148,7 +148,7 @@ This constructor creates a leaf node, and an attempt to read its
 - `com.tailf.maapi.MaapiSchemas.CSNode node` - the SCHEMA node information regarding this leaf node.
 - `com.tailf.navu.NavuNode parent` - the parent node.
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 ### NavuLeaf(NavuContext, MaapiSchemas, CSNode, NavuNode, Formats) <a href="#navuleaf-cdaff80a0d08" id="navuleaf-cdaff80a0d08"></a>
 
@@ -174,7 +174,7 @@ KeyPath2NavuNode specific constructor
 - `com.tailf.navu.NavuNode parent`
 - `com.tailf.navu.KeyPath2NavuNode.Formats fs`
 
-### NavuLeaf(NavuContext, MaapiSchemas, CSNode, NavuNode, String, Object[]) <a href="#navuleaf-76b0a4cfb596" id="navuleaf-76b0a4cfb596"></a>
+### NavuLeaf(NavuContext, MaapiSchemas, CSNode, NavuNode, String, Object...) <a href="#navuleaf-7f402c372d3b" id="navuleaf-7f402c372d3b"></a>
 
 ```java
 protected NavuLeaf(
@@ -183,7 +183,7 @@ protected NavuLeaf(
     com.tailf.maapi.MaapiSchemas.CSNode node,
     com.tailf.navu.NavuNode parent,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
 ```
 
@@ -198,7 +198,7 @@ Constructor.
 - `com.tailf.maapi.MaapiSchemas.CSNode node`
 - `com.tailf.navu.NavuNode parent`
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 
 ## Fields
@@ -206,13 +206,13 @@ Constructor.
 ### isRefreshed <a href="#isrefreshed-17594a091fc4" id="isrefreshed-17594a091fc4"></a>
 
 ```java
-protected boolean isRefreshed = null;
+protected boolean isRefreshed;
 ```
 
 ### val <a href="#val-a02e160da60f" id="val-a02e160da60f"></a>
 
 ```java
-protected com.tailf.conf.ConfValue val = null;
+protected com.tailf.conf.ConfValue val;
 ```
 
 Types: [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d)
@@ -232,7 +232,7 @@ Create an empty leaf node.
 
 **Throws**
 
-- `NavuException` - on failure to create
+- `com.tailf.navu.NavuException` - on failure to create
 
 ### delete() <a href="#delete-a9e76d49da61" id="delete-a9e76d49da61"></a>
 
@@ -248,7 +248,7 @@ Deletes a leaf.
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### deref() <a href="#deref-2626f40058b1" id="deref-2626f40058b1"></a>
 
@@ -265,11 +265,23 @@ Derefs a leafref and returns the referenced objects
 ### encodeValues() <a href="#encodevalues-7bd911383b1a" id="encodevalues-7bd911383b1a"></a>
 
 ```java
-public java.util.List<com.tailf.conf.ConfXMLParam> encodeValues() throws com.tailf.navu.NavuException
+public java.util.List<com.tailf.conf.ConfXMLParam> encodeValues()
     throws com.tailf.navu.NavuException
 ```
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
+
+*Description from* [`NavuNode.encodeValues()`](NavuNode.md#encodevalues-7bd911383b1a)
+
+Encodes the sub-tree including the current `NavuNode`
+ as the topmost `NavuNode` as a [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) array.
+
+As opposed to [`encodeXML()`](NavuNode.md#encodexml-bdbcd52c2505), the returned [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7)
+ array does contain values in the form of
+ [`ConfXMLParamValue`](../conf/ConfXMLParamValue.md#confxmlparamvalue-9f41fb2668c9)
+
+**Returns:** A list of [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) objects corresponding to the
+sub-tree of this node, including all values.
 
 ### encodeXML() <a href="#encodexml-bdbcd52c2505" id="encodexml-bdbcd52c2505"></a>
 
@@ -278,6 +290,32 @@ public java.util.List<com.tailf.conf.ConfXMLParam> encodeXML() throws com.tailf.
 ```
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
+
+*Description from* [`NavuNode.encodeXML()`](NavuNode.md#encodexml-bdbcd52c2505)
+
+Encodes the sub-tree including the current `NavuNode`
+ as the topmost `NavuNode` as a [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) array.
+
+The returned [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) array contains no values except
+ for list keys. The leaf elements are encoded as
+ [`ConfXMLParamLeaf`](../conf/ConfXMLParamLeaf.md#confxmlparamleaf-107412653048). Therefore, the returning
+ array can be used as a the input parameter to
+ [`getValues(ConfXMLParam[])`](NavuNode.md#getvalues-1eb02439a757) on the current node's parent.
+
+> ```
+> NavuNode node = ...;
+> ConfXMLParam[] cxa = node.encodeXML().toArray(new ConfXMLParam[0]);
+> // cxa contains a structure that does not contain values except for
+> // keys in list elements
+>
+> NavuNode parent = node.getParent();
+> ConfXMLParam[] cxb = parent.getValues(cxa);
+> // cxb contains the same sub-tree with all the values
+> ```
+
+**Returns:** A list of [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) objects
+corresponding to the sub-tree of this node, with no
+values except list keys.
 
 ### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
@@ -295,10 +333,10 @@ Compares the specified object with this `NavuLeaf`
 **Parameters**
 
 - `Object o` - the object to be compared for equality with this
-          `NavuLeaf`
+`NavuLeaf`
 
 **Returns:** `true` if the specified object is equal to this
-         `NavuLeaf`
+`NavuLeaf`
 
 ### exists() <a href="#exists-56968a4c7bda" id="exists-56968a4c7bda"></a>
 
@@ -310,9 +348,11 @@ Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 Tests for the existence of the leaf node.
 
+**Returns:** boolean
+
 **Throws**
 
-- `NavuException` - on failure
+- `com.tailf.navu.NavuException` - on failure
 
 ### getChangeFlag() <a href="#getchangeflag-33cadf5a32ba" id="getchangeflag-33cadf5a32ba"></a>
 
@@ -323,6 +363,8 @@ public com.tailf.conf.DiffIterateOperFlag getChangeFlag()
 Types: [DiffIterateOperFlag](../conf/DiffIterateOperFlag.md#diffiterateoperflag-d1cd8560c2ec)
 
 See: [`NavuNode.getChangeFlag()`](NavuNode.md#getchangeflag-33cadf5a32ba)
+
+**Returns:** Flag for the latest change
 
 ### getOldValue() <a href="#getoldvalue-9e1eede07276" id="getoldvalue-9e1eede07276"></a>
 
@@ -342,6 +384,13 @@ public com.tailf.navu.NavuNode getParent()
 
 Types: [NavuNode](NavuNode.md#navunode-73944820c8db)
 
+*Description from* [`NavuNode.getParent()`](NavuNode.md#getparent-45c1b196ed70)
+
+Returns the parent of the node.
+
+**Returns:** \- this node parent or null if this NavuNode represents
+ the root node.
+
 ### getRootNS() <a href="#getrootns-3f1d054cecd6" id="getrootns-3f1d054cecd6"></a>
 
 ```java
@@ -349,6 +398,12 @@ public com.tailf.conf.ConfNamespace getRootNS()
 ```
 
 Types: [ConfNamespace](../conf/ConfNamespace.md#confnamespace-51b928e168d1)
+
+*Description from* [`NavuNode.getRootNS()`](NavuNode.md#getrootns-3f1d054cecd6)
+
+Returns the root namespace of the topmost ancestor.
+
+**Returns:** topmost namespace.
 
 ### getValues(String) <a href="#getvalues-c03de090764d" id="getvalues-c03de090764d"></a>
 
@@ -358,15 +413,104 @@ public com.tailf.conf.ConfXMLParam[] getValues(String xml) throws com.tailf.navu
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
+*Description from* [`NavuNode.getValues(String)`](NavuNode.md#getvalues-c03de090764d)
+
+Read an arbitrary set of sub-elements of a container or list entry.
+
+The xml string must be pre-populated with tags
+ and parameterized values ("?") which indicate that
+ the operation should read the values of the corresponding tags.
+
+NOTE: The specified xml string should not contain the version tag
+ (\<?xml version="1.0" encoding="UTF-8"?\>) and do not wrap
+ xml string with current node tag.
+
+ Example - Get tree in a service model:
+
+> ```
+> list buzz-service {
+>   key name;
+>   leaf name {
+>     type string;
+>   }
+>   uses ncs:service-data;
+>   ncs:servicepoint buzz-service-servicepoint;
+>   container buzz {
+>     container servers {
+>       list server {
+>         key "srv-name";
+>         max-elements "64";
+>         leaf srv-name {
+>           type string;
+>         }
+>         leaf ip {
+>           type inet:host;
+>           mandatory true;
+>         }
+>         leaf port {
+>           type inet:port-number;
+>           default "80";
+>         }
+>         container foo {
+>           leaf bar {
+>             type int64;
+>             default "42";
+>           }
+>           leaf baz {
+>             type int64;
+>             default "7";
+>           }
+>         }
+>         list interface {
+>           key "if-name";
+>           max-elements "8";
+>           leaf if-name {
+>             type string;
+>           }
+>           leaf mtu {
+>             type int64;
+>             default "1500";
+>           }
+>         }
+>       }
+>     }
+>   }
+> }
+>
+> NavuContainer buzz =
+>     ncsRoot.container(buzzService.hash)
+>            .list(buzzService._buzz_service)
+>            .elem("service1")
+>            .container(buzzService._buzz);
+>
+> ConfXMLParam[] param =
+>     buzz.getValues("<buzz xmlns=\"http://com/example/buzzservice\">"
+>                    + "<servers><server><srv-name>www1</srv-name>"
+>                    + "<ip>?</ip></server><server>"
+>                    + "<srv-name>www2</srv-name><ip>?</ip>"
+>                    + "</server></servers></buzz>");
+> ```
+
 **Parameters**
 
-- `String xml`
+- `String xml` - XML structure corresponding to the part of the configuration
+tree that is to be fetched. May optionally include the
+root element matching this node, or just the children.
 
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
+
+*Description from* [`NavuNode.hashCode()`](NavuNode.md#hashcode-ef797a217903)
+
+Return the hashCode of this NavuNode. For most nodes, the hash code is
+ based on the [`ConfPath`](../conf/ConfPath.md#confpath-327831c6fc7d) of the node. For module
+ root containers there is no `ConfPath` and instead the hash
+ code is based on the hash code of the module schema.
+
+**Returns:** The hashCode
 
 ### idrefDerivedOrSelf(ConfIdentityRef) <a href="#idrefderivedorself-d788d4007702" id="idrefderivedorself-d788d4007702"></a>
 
@@ -427,7 +571,7 @@ Create an empty leaf node, silently succeeding
 
 **Throws**
 
-- `NavuException` - on failure to create
+- `com.tailf.navu.NavuException` - on failure to create
 
 ### select(ConfObject[]) <a href="#select-336dd76cd112" id="select-336dd76cd112"></a>
 
@@ -440,6 +584,8 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [ConfObject](../conf/ConfO
 **Parameters**
 
 - `com.tailf.conf.ConfObject[] query`
+
+**Returns:** a collection a nodes matching a Regular Expression query
 
 ### select(List&lt;String&gt;) <a href="#select-e81f36150174" id="select-e81f36150174"></a>
 
@@ -454,7 +600,9 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuExcept
 
 **Parameters**
 
-- `java.util.List<String> path`
+- `java.util.List<String> path` - a list of regular expression.
+
+**Returns:** a collection a nodes marching the query
 
 ### select(String) <a href="#select-5031325154b9" id="select-5031325154b9"></a>
 
@@ -469,7 +617,9 @@ Types: [NavuNode](NavuNode.md#navunode-73944820c8db), [NavuException](NavuExcept
 
 **Parameters**
 
-- `String path`
+- `String path` - a "/" separated regular expression.
+
+**Returns:** a collection a nodes marching the query
 
 ### set(ConfValue) <a href="#set-974b7071ae31" id="set-974b7071ae31"></a>
 
@@ -481,29 +631,29 @@ Types: [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d), [NavuException]
 
 Sets the value of the leaf node.
 
- When setting a leaf node the cached value inside the instance
+When setting a leaf node the cached value inside the instance
  is reflected. Subsequent calls to `value` retrieves
  the cached value.
 
- Setting a leaf value is only valid when writing to a
+Setting a leaf value is only valid when writing to a
  transaction or when writing to operational data store.
 
-  When writing to the operational data store the write
+When writing to the operational data store the write
  is done with the [`CdbLockType#LOCK_REQUEST`](../cdb/CdbLockType.md#lock_request-7644a883c14e) lock
  type set.
 
 **Parameters**
 
-- `com.tailf.conf.ConfValue val` - - the value to set
+- `com.tailf.conf.ConfValue val` - \- the value to set
 
 **Throws**
 
-- `NavuException` - If an error occurred when setting the leaf
+- `com.tailf.navu.NavuException` - If an error occurred when setting the leaf
  value the underlying/caused exception is wrapped inside
  the NavuException and should be retrieved through
  `getCause` method of Throwable.
 
-  An `IllegalArgumentException` is wrapped inside
+An `IllegalArgumentException` is wrapped inside
  a `NavuException` if writes is done to
  running with `NavuContext` created with
  `CdbSession` or `Cdb`.
@@ -531,7 +681,7 @@ Sets the value and tries to perform an update.
 
 **Throws**
 
-- `NavuException`
+- `com.tailf.navu.NavuException`
 
 ### setChange(List&lt;ConfObject&gt;, DiffIterateOperFlag, ConfValue, NavuContext) <a href="#setchange-0bbeb54ebc15" id="setchange-0bbeb54ebc15"></a>
 
@@ -565,8 +715,8 @@ Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 This method is almost identical to [`set(String)`](NavuLeaf.md#set-f04d84aad801) with the
   exception that the value should be wrapped inside XML tag.
 
-  For example to set the value "123" it needs to be wrapped
-  with "leaf-name123 /leaf-name.
+For example to set the value "123" it needs to be wrapped
+  with "\<leaf-name\>123 \</leaf-name\>.
 
 **Parameters**
 
@@ -586,7 +736,7 @@ Create an empty leaf node, silently succeeding
 
 **Throws**
 
-- `NavuException` - on failure to create
+- `com.tailf.navu.NavuException` - on failure to create
 
 ### sharedSet(ConfValue) <a href="#sharedset-fa8b98758fe5" id="sharedset-fa8b98758fe5"></a>
 
@@ -655,7 +805,7 @@ Returns the *effective* value on the first call,
  or cached value in the subsequent calls
  of this leaf.
 
- After this method has been called the first time
+After this method has been called the first time
  it stores the value in this object which means
  that subsequent calls to this method will return the
  cached value.
@@ -673,7 +823,7 @@ Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
 Returns the Schema aware string representation of a leaf.
 
- An example of the difference between this method and
+An example of the difference between this method and
  `toString()` is
  for `ConfEnumerations` where the schema aware
  representation is the label

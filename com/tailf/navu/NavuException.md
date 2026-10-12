@@ -12,7 +12,6 @@ Exception raised from the navu package
 **Related classes**
 
 - [IllegalParentNavuNodeException](IllegalParentNavuNodeException.md#illegalparentnavunodeexception-a74e9b9f6d4a)
-- [NavuSAXException](NavuSAXException.md#navusaxexception-11da52982a79)
 - [NoSuchNavuCaseException](NoSuchNavuCaseException.md#nosuchnavucaseexception-2ffd47d19768)
 - [NoSuchNavuChoiceException](NoSuchNavuChoiceException.md#nosuchnavuchoiceexception-553bbfa1348d)
 - [NoSuchNavuNodeException](NoSuchNavuNodeException.md#nosuchnavunodeexception-55702ea478b0)

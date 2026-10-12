@@ -7,46 +7,38 @@ public class com.tailf.maapi.Maapi
 
 This class implements the Management Agent API (MAAPI).
 
-
- The purpose of the class is twofold:
-
-
+The purpose of the class is twofold:
 
 - MAAPI can be used to implement our own proprietary
- management agent.
+   management agent.
 - We can also use Maapi to attach to already existing
- transactions, for example when we wish to implement semantic validation of
- data elements or implement a CLI wizard.
+   transactions, for example when we wish to implement semantic validation of
+   data elements or implement a CLI wizard.
 
-
-
-
- Example:
-
-
+Example:
 
 ```
- // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
- // Setup socket to server
- Socket s = new Socket(localhost, port);
+// int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
+// Setup socket to server
+Socket s = new Socket("localhost", port);
 
- // Start MAAPI session for admin user, originating from localhost
- Maapi maapi = new Maapi(s);
- maapi.startUserSession(admin,
-     maapi,
-     new String[] { admin },
-     new SocketAddress(InetAddress.getLocalHost(), 0),
-     MaapiUserSessionFlag.PROTO_TCP);
+// Start MAAPI session for admin user, originating from localhost
+Maapi maapi = new Maapi(s);
+maapi.startUserSession("admin",
+    "maapi",
+    new String[] { "admin" },
+    new SocketAddress(InetAddress.getLocalHost(), 0),
+    MaapiUserSessionFlag.PROTO_TCP);
 
- // Start a read transaction towards the running configuration.
- int tid = maapi.startTrans(Conf.DB_RUNNING, Conf.MODE_READ);
- // Set the namespace for the upcoming data operations
- maapi.setNamespace(tid, http://tail-f.com/test/mtest/1.0);
- // Read the maxLeaseTime setting in the running configuration.
- ConfObject r = maapi.getElem(tid, /mtest/servers/server{www}/ip);
- // Done, the transaction and user session is automatically
- // ended when the socket is closed.
- s.close();
+// Start a read transaction towards the running configuration.
+int tid = maapi.startTrans(Conf.DB_RUNNING, Conf.MODE_READ);
+// Set the namespace for the upcoming data operations
+maapi.setNamespace(tid, "http://tail-f.com/test/mtest/1.0");
+// Read the maxLeaseTime setting in the running configuration.
+ConfObject r = maapi.getElem(tid, "/mtest/servers/server{www}/ip");
+// Done, the transaction and user session is automatically
+// ended when the socket is closed.
+s.close();
 ```
 
 ## Members
@@ -104,7 +96,7 @@ This class implements the Management Agent API (MAAPI).
 - [candidateConfirmedCommitPersistent\(int, String, String\)](#candidateconfirmedcommitpersistent-119dbc0948e1)
 - [candidateReset\(\)](#candidatereset-b7aa1a8c94e7)
 - [candidateValidate\(\)](#candidatevalidate-58aea9fceaa1)
-- [cd\(int, String, Object\[\]\)](#cd-2b29dc1e94f8)
+- [cd\(int, String, Object\.\.\.\)](#cd-b2c808085176)
 - [clearOpCache\(\)](#clearopcache-4878d76fc012)
 - [clearOpCache\(ConfPath\)](#clearopcache-d6710dfdab1a)
 - [clearReadIntent\(int\)](#clearreadintent-b5b83aa4a4f8)
@@ -112,7 +104,7 @@ This class implements the Management Agent API (MAAPI).
 - [CLICmdToPath\(int, String\)](#clicmdtopath-90aed3e422a9)
 - [CLICmdToPath\(String\)](#clicmdtopath-28d97ca6f282)
 - [CLIDiffCmd\(int, int, ConfPath\)](#clidiffcmd-a74803e0854c)
-- [CLIPathCmd\(int, EnumSet\<CLIPathCmdFlag\>, String, Object\[\]\)](#clipathcmd-554037c1a7b8)
+- [CLIPathCmd\(int, EnumSet\<CLIPathCmdFlag\>, String, Object\.\.\.\)](#clipathcmd-321e6a4d920a)
 - [CLIPrompt\(int, String, boolean\)](#cliprompt-8bf975d68180)
 - [CLIPrompt\(int, String, boolean, int\)](#cliprompt-547c211c5c55)
 - [CLIPromptOneOf\(int, String, String\[\]\)](#clipromptoneof-7100649afe63)
@@ -130,49 +122,49 @@ This class implements the Management Agent API (MAAPI).
 - [copyTree\(int, boolean, ConfPath, ConfPath\)](#copytree-02a5a406c545)
 - [copyTree\(int, ConfPath, ConfPath\)](#copytree-9f5a27b7b6e6)
 - [create\(int, ConfPath\)](#create-88ad345c22c2)
-- [create\(int, String, Object\[\]\)](#create-fc0ad3b51c5b)
+- [create\(int, String, Object\.\.\.\)](#create-d9f1b233b4d1)
 - [delete\(int, ConfPath\)](#delete-84019aaada07)
-- [delete\(int, String, Object\[\]\)](#delete-7f7b4f7a3319)
+- [delete\(int, String, Object\.\.\.\)](#delete-c26755b10ff7)
 - [deleteAll\(int, MaapiDeleteAllFlag\)](#deleteall-b0d5e11220fb)
 - [deleteConfig\(int\)](#deleteconfig-124c36c44b6f)
-- [deref\(int, String, Object\[\]\)](#deref-570394700610)
+- [deref\(int, String, Object\.\.\.\)](#deref-fc0dd22a8f39)
 - [destroyCursor\(int, int, ConfPath\)](#destroycursor-e647eef13807)
 - [destroyCursor\(MaapiCursor\)](#destroycursor-175b7f0886db)
 - [detach\(int\)](#detach-a694e7ef7d65)
 - [diffIterate\(int, MaapiDiffIterate\)](#diffiterate-8d4d9d07b552)
-- [diffIterate\(int, MaapiDiffIterate, Object, String, Object\[\]\)](#diffiterate-08cf0eebfc90)
-- [diffIterate\(int, MaapiDiffIterate, String, Object\[\]\)](#diffiterate-12c0a67aa0f4)
+- [diffIterate\(int, MaapiDiffIterate, Object, String, Object\.\.\.\)](#diffiterate-cfbbdb4ba7d5)
+- [diffIterate\(int, MaapiDiffIterate, String, Object\.\.\.\)](#diffiterate-976da1e14b8e)
 - [diffIterate\(int, Object, EnumSet\<DiffIterateFlags\>, MaapiDiffIterate, ConfPath\)](#diffiterate-e06379c98286)
 - [disconnectRemote\(String\)](#disconnectremote-450face0b812)
 - [disconnectSockets\(int\[\]\)](#disconnectsockets-8b7e078ee89f)
-- [doDisplay\(int, String, Object\[\]\)](#dodisplay-3fd4ff100335)
+- [doDisplay\(int, String, Object\.\.\.\)](#dodisplay-634ca77635cd)
 - [endSpan\(Span, String\)](#endspan-1c44c700da19)
 - [endUserSession\(\)](#endusersession-0b0070df9e04)
 - [event\(int, Verbosity, String, ConfPath, Attributes\)](#event-a62f77a7eb2a)
 - [exists\(int, ConfPath\)](#exists-6846f84c441d)
-- [exists\(int, String, Object\[\]\)](#exists-40982ba2d871)
+- [exists\(int, String, Object\.\.\.\)](#exists-af6865128cd9)
 - [findNext\(MaapiCursor, ConfFindNextType, ConfKey\)](#findnext-8a93985facf5)
 - [finishTrans\(int\)](#finishtrans-0f920518d3c3)
-- [getAttrs\(int, ConfAttributeType\[\], String, Object\[\]\)](#getattrs-7e03f020d090)
+- [getAttrs\(int, ConfAttributeType\[\], String, Object\.\.\.\)](#getattrs-e3e2c28882dd)
 - [getAuthorizationInfo\(int\)](#getauthorizationinfo-80c04fd39233)
 - [getAutoNsList\(\)](#getautonslist-da00481c1d9a)
 - [getAutoNsList\(List\<ConfNamespace\>\)](#getautonslist-033586c41810)
 - [getAutoNsMap\(\)](#getautonsmap-587def34063e)
 - [getAutoNsPrefixMap\(\)](#getautonsprefixmap-6897b4989dfd)
 - [getCase\(int, String, ConfPath\)](#getcase-9be6344ce9aa)
-- [getCase\(int, String, String, Object\[\]\)](#getcase-9eae8c6bc653)
+- [getCase\(int, String, String, Object\.\.\.\)](#getcase-25e143fe16c9)
 - [getCLIInteraction\(int\)](#getcliinteraction-9602971a279d)
 - [getCwd\(int\)](#getcwd-dab6003742c3)
 - [getCwdPath\(int\)](#getcwdpath-c4bbc6c8fa08)
 - [getElem\(int, ConfPath\)](#getelem-174690e33535)
-- [getElem\(int, String, Object\[\]\)](#getelem-1415a215bb24)
+- [getElem\(int, String, Object\.\.\.\)](#getelem-fed33938e6b8)
 - [getMountId\(int, ConfPath\)](#getmountid-bcb13e926380)
 - [getMyUserSession\(\)](#getmyusersession-23a1a3d293a2)
 - [getNext\(MaapiCursor\)](#getnext-94186d85d070)
 - [getNsList\(\)](#getnslist-0345f486e876)
 - [getNumberOfInstances\(int, ConfPath\)](#getnumberofinstances-5a101b02e1dd)
-- [getNumberOfInstances\(int, String, Object\[\]\)](#getnumberofinstances-f0813061766e)
-- [getObject\(int, String, Object\[\]\)](#getobject-8f535bb4e0e8)
+- [getNumberOfInstances\(int, String, Object\.\.\.\)](#getnumberofinstances-679b98e895d1)
+- [getObject\(int, String, Object\.\.\.\)](#getobject-2a5e3632866b)
 - [getObjects\(MaapiCursor, int, int\)](#getobjects-8d530442b539)
 - [getReadIntent\(int\)](#getreadintent-eaf0d52ae3f6)
 - [getRollbackId\(int\)](#getrollbackid-cae38eb78c8e)
@@ -187,31 +179,31 @@ This class implements the Management Agent API (MAAPI).
 - [getUserSessionOpaque\(int\)](#getusersessionopaque-c7ddb1c3a4e0)
 - [getUserSessions\(\)](#getusersessions-4b7007a2fe5d)
 - [getValues\(int, T, ConfPath\)](#getvalues-4c7d173a5b38)
-- [getValues\(int, T, String, Object\[\]\)](#getvalues-33bfcad43c75)
+- [getValues\(int, T, String, Object\.\.\.\)](#getvalues-3ce35068f7ff)
 - [getValues\(int, T\[\], ConfPath\)](#getvalues-62ed915288bb)
-- [getValues\(int, T\[\], String, Object\[\]\)](#getvalues-975e171e6ece)
+- [getValues\(int, T\[\], String, Object\.\.\.\)](#getvalues-6a19b41a7dbf)
 - [hideGroup\(int, String\)](#hidegroup-70455383c885)
 - [init\(\)](#init-e3919b885d98)
 - [initUpgrade\(int, int\)](#initupgrade-56c030ff2fc5)
 - [inputStreamResult\(int, int\)](#inputstreamresult-abcc2b3f4a7e)
-- [insert\(int, boolean, String, Object\[\]\)](#insert-b0095c025c86)
-- [insert\(int, String, Object\[\]\)](#insert-8aab317d3021)
+- [insert\(int, boolean, String, Object\.\.\.\)](#insert-1ea934b9c319)
+- [insert\(int, String, Object\.\.\.\)](#insert-6a1ddffe6066)
 - [isCandidateModified\(\)](#iscandidatemodified-a17e4d850f34)
 - [isLockSet\(int\)](#islockset-66fbf05334ff)
 - [isRunningModified\(\)](#isrunningmodified-53004bab212a)
 - [iterate\(int, Object, EnumSet\<ConfIterateFlags\>, MaapiIterate, ConfPath\)](#iterate-f6278b19bafb)
 - [killUserSession\(int\)](#killusersession-4c91da836162)
 - [loadConfig\(int, EnumSet\<MaapiConfigFlag\>, String\)](#loadconfig-0cd0ed8a64d0)
-- [loadConfigCmds\(int, EnumSet\<MaapiConfigFlag\>, String, String, Object\[\]\)](#loadconfigcmds-4c47d55451a5)
+- [loadConfigCmds\(int, EnumSet\<MaapiConfigFlag\>, String, String, Object\.\.\.\)](#loadconfigcmds-503af14c6ecb)
 - [loadConfigStream\(int, EnumSet\<MaapiConfigFlag\>\)](#loadconfigstream-5250b4e7adae)
 - [loadSchemas\(\)](#loadschemas-84ad3496a6f3)
 - [loadSchemas\(String\[\]\)](#loadschemas-57d79f485410)
 - [lock\(int\)](#lock-51793ae61d79)
 - [lockPartial\(int, String\)](#lockpartial-1825ddb23210)
 - [lockPartial\(int, String\[\]\)](#lockpartial-855a7312fb52)
-- [move\(int, ConfKey, String, Object\[\]\)](#move-af8f50a08374)
-- [move\(int, String, String, Object\[\]\)](#move-9df5c1c81f8c)
-- [moveOrdered\(int, MoveWhereFlag, ConfKey, String, Object\[\]\)](#moveordered-f7458c93e17a)
+- [move\(int, ConfKey, String, Object\.\.\.\)](#move-c806e51393d7)
+- [move\(int, String, String, Object\.\.\.\)](#move-b3fe2762e85e)
+- [moveOrdered\(int, MoveWhereFlag, ConfKey, String, Object\.\.\.\)](#moveordered-652217fea86b)
 - [ncsApplyTemplate\(int, String, ConfPath, Properties, boolean\)](#ncsapplytemplate-17a602f0e3cd)
 - [ncsApplyTemplate\(int, String, ConfPath, Properties, String, boolean\)](#ncsapplytemplate-66d4f212d128)
 - [ncsGetTemplateVariables\(String\)](#ncsgettemplatevariables-e56e448a0ec3)
@@ -223,15 +215,15 @@ This class implements the Management Agent API (MAAPI).
 - [netconfSSHCallHome\(ConfObject, int\)](#netconfsshcallhome-30acdb9b05a8)
 - [netconfSSHCallHomeOpaque\(ConfObject, String, int\)](#netconfsshcallhomeopaque-199c8be24507)
 - [newCursor\(int, ConfPath\)](#newcursor-8b18daa02ae5)
-- [newCursor\(int, String, Object\[\]\)](#newcursor-8f0d3924978a)
+- [newCursor\(int, String, Object\.\.\.\)](#newcursor-5a95a4101aa4)
 - [newCursorWithFilter\(int, String, ConfPath\)](#newcursorwithfilter-59d94dbcd3ed)
-- [newCursorWithFilter\(int, String, String, Object\[\]\)](#newcursorwithfilter-6c2962969949)
+- [newCursorWithFilter\(int, String, String, Object\.\.\.\)](#newcursorwithfilter-06a0bf5dfa80)
 - [performUpgrade\(String\[\]\)](#performupgrade-f3fe8fdbc4c1)
 - [popd\(int\)](#popd-a8354c7232ff)
 - [prepareTrans\(int\)](#preparetrans-f5669cbf3002)
 - [prepareTrans\(int, int\)](#preparetrans-c4877a24ca10)
 - [prioMessage\(String, String\)](#priomessage-8b6028d17d54)
-- [pushd\(int, String, Object\[\]\)](#pushd-217b8af1923d)
+- [pushd\(int, String, Object\.\.\.\)](#pushd-c97b59c78dcd)
 - [queryStart\(int, String, String, int, int, List\<String\>, Class\<T\>\)](#querystart-87abe9e2ad2a)
 - [queryStart\(int, String, String, int, int, List\<String\>, List\<String\>, boolean, Class\<T\>\)](#querystart-5aa1b3de25ea)
 - [reloadConfig\(\)](#reloadconfig-f726d13d089d)
@@ -239,56 +231,56 @@ This class implements the Management Agent API (MAAPI).
 - [reloadSchemas\(String\[\]\)](#reloadschemas-d9542a782000)
 - [reopenLogs\(\)](#reopenlogs-41bee863dbe9)
 - [reportProgress\(int, Verbosity, String\)](#reportprogress-9b1dc56091be)
-- [requestAction\(ConfXMLParam\[\], int, String, Object\[\]\)](#requestaction-82e02abb5cf9)
-- [requestAction\(ConfXMLParam\[\], String, Object\[\]\)](#requestaction-76bbfd533fa4)
-- [requestAction\(List\<ConfXMLParam\>, int, String, Object\[\]\)](#requestaction-5870f5cf33eb)
-- [requestAction\(List\<ConfXMLParam\>, String, Object\[\]\)](#requestaction-71188d0da7ce)
-- [requestActionTh\(int, ConfXMLParam\[\], String, Object\[\]\)](#requestactionth-966694378325)
-- [requestActionTh\(int, List\<ConfXMLParam\>, String, Object\[\]\)](#requestactionth-07b010c43efc)
+- [requestAction\(ConfXMLParam\[\], int, String, Object\.\.\.\)](#requestaction-2d081987d081)
+- [requestAction\(ConfXMLParam\[\], String, Object\.\.\.\)](#requestaction-2e8d68e7facd)
+- [requestAction\(List\<ConfXMLParam\>, int, String, Object\.\.\.\)](#requestaction-b547a2892b74)
+- [requestAction\(List\<ConfXMLParam\>, String, Object\.\.\.\)](#requestaction-18fa8c5859ce)
+- [requestActionTh\(int, ConfXMLParam\[\], String, Object\.\.\.\)](#requestactionth-5eb95fc89050)
+- [requestActionTh\(int, List\<ConfXMLParam\>, String, Object\.\.\.\)](#requestactionth-db02a16b87d7)
 - [requestTerm\(int, ConfEObject\)](#requestterm-a8fce80da6f1)
 - [requestTerm\(int, int, boolean, ConfEObject\)](#requestterm-9be76a263e1e)
 - [revert\(int\)](#revert-72c8f2d56330)
-- [rollbackConfig\(int, String, String\[\]\)](#rollbackconfig-859e41b41c22)
+- [rollbackConfig\(int, String, String\.\.\.\)](#rollbackconfig-913830d11c06)
 - [safeCreate\(int, ConfPath\)](#safecreate-83138734c168)
-- [safeCreate\(int, String, Object\[\]\)](#safecreate-fd641bd6a26a)
-- [safeDelete\(int, String, Object\[\]\)](#safedelete-63e20fc90d9c)
+- [safeCreate\(int, String, Object\.\.\.\)](#safecreate-a7e156273f26)
+- [safeDelete\(int, String, Object\.\.\.\)](#safedelete-62cf8abadfc8)
 - [safeGetElem\(int, ConfPath\)](#safegetelem-dae7a1dfe2d6)
-- [safeGetElem\(int, String, Object\[\]\)](#safegetelem-f0faee5cac1f)
-- [safeGetObject\(int, String, Object\[\]\)](#safegetobject-adb85d9a574d)
+- [safeGetElem\(int, String, Object\.\.\.\)](#safegetelem-08b47e2fd944)
+- [safeGetObject\(int, String, Object\.\.\.\)](#safegetobject-2d3a4a14a11a)
 - [saveConfig\(int, EnumSet\<MaapiConfigFlag\>\)](#saveconfig-d9663132ee61)
 - [saveConfig\(int, EnumSet\<MaapiConfigFlag\>, ConfPath\)](#saveconfig-b6febd268628)
-- [saveConfig\(int, EnumSet\<MaapiConfigFlag\>, String, Object\[\]\)](#saveconfig-3292de5923e0)
-- [setAttr\(int, ConfAttributeValue, String, Object\[\]\)](#setattr-690596d9efb4)
+- [saveConfig\(int, EnumSet\<MaapiConfigFlag\>, String, Object\.\.\.\)](#saveconfig-eabd7f81580a)
+- [setAttr\(int, ConfAttributeValue, String, Object\.\.\.\)](#setattr-3399e8cc0b92)
 - [setComment\(int, String\)](#setcomment-c4c683b45db1)
 - [setDelayedWhen\(int, boolean\)](#setdelayedwhen-38f32854fd19)
 - [setElem\(int, ConfObject, ConfPath\)](#setelem-cec1d194abc2)
-- [setElem\(int, ConfObject, String, Object\[\]\)](#setelem-d51f890ac736)
+- [setElem\(int, ConfObject, String, Object\.\.\.\)](#setelem-ac92f93226d6)
 - [setElem\(int, String, ConfPath\)](#setelem-6e3977480252)
-- [setElem\(int, String, String, Object\[\]\)](#setelem-915c0b578eea)
+- [setElem\(int, String, String, Object\.\.\.\)](#setelem-6bdd4b683e5c)
 - [setFlags\(int, EnumSet\<MaapiFlag\>\)](#setflags-1158755c6ac8)
 - [setLabel\(int, String\)](#setlabel-929d364c78d7)
 - [setNamespace\(int, int\)](#setnamespace-d58798edaf04)
 - [setNamespace\(int, String\)](#setnamespace-edc25cbc3dfd)
 - [setNextUserSessionId\(int\)](#setnextusersessionid-f0914dda055b)
-- [setObject\(int, ConfObject\[\], String, Object\[\]\)](#setobject-93cfe3ccc1a9)
+- [setObject\(int, ConfObject\[\], String, Object\.\.\.\)](#setobject-d1283c87bb91)
 - [setReadIntent\(int, List\<String\>\)](#setreadintent-8a615528e4d7)
 - [setReadIntent\(int, String\)](#setreadintent-66ba57478cb6)
 - [setReadOnlyMode\(boolean\)](#setreadonlymode-fde2440b8220)
 - [setRunningDbStatus\(int\)](#setrunningdbstatus-fa121ea57064)
 - [setUserSession\(int\)](#setusersession-ff36c06a3ef4)
 - [setValues\(int, ConfXMLParam\[\], ConfPath\)](#setvalues-27a83fbfcc37)
-- [setValues\(int, ConfXMLParam\[\], String, Object\[\]\)](#setvalues-5a5e209f0f09)
+- [setValues\(int, ConfXMLParam\[\], String, Object\.\.\.\)](#setvalues-3a8464614897)
 - [setValues\(int, List\<ConfXMLParam\>, ConfPath\)](#setvalues-79c83d25babb)
-- [setValues\(int, List\<ConfXMLParam\>, String, Object\[\]\)](#setvalues-881fed8155cc)
+- [setValues\(int, List\<ConfXMLParam\>, String, Object\.\.\.\)](#setvalues-6a2c680a589a)
 - [sharedCreate\(int, ConfPath\)](#sharedcreate-4e9109f58b36)
-- [sharedCreate\(int, String, Object\[\]\)](#sharedcreate-a1cc616c4565)
+- [sharedCreate\(int, String, Object\.\.\.\)](#sharedcreate-1eca79d02871)
 - [sharedSetElem\(int, ConfObject, ConfPath\)](#sharedsetelem-5fcf55dfed0c)
-- [sharedSetElem\(int, ConfObject, String, Object\[\]\)](#sharedsetelem-f484c0aeee76)
-- [sharedSetElem\(int, String, String, Object\[\]\)](#sharedsetelem-33c0b474ee87)
+- [sharedSetElem\(int, ConfObject, String, Object\.\.\.\)](#sharedsetelem-4b1fe59063c5)
+- [sharedSetElem\(int, String, String, Object\.\.\.\)](#sharedsetelem-b09af6fac863)
 - [sharedSetValues\(int, ConfXMLParam\[\], ConfPath\)](#sharedsetvalues-d20611e05b40)
-- [sharedSetValues\(int, ConfXMLParam\[\], String, Object\[\]\)](#sharedsetvalues-db5ccd228a3e)
+- [sharedSetValues\(int, ConfXMLParam\[\], String, Object\.\.\.\)](#sharedsetvalues-bede67101068)
 - [sharedSetValues\(int, List\<ConfXMLParam\>, ConfPath\)](#sharedsetvalues-bfaa695e71b3)
-- [sharedSetValues\(int, List\<ConfXMLParam\>, String, Object\[\]\)](#sharedsetvalues-849a21e341c1)
+- [sharedSetValues\(int, List\<ConfXMLParam\>, String, Object\.\.\.\)](#sharedsetvalues-4eec94d5cd90)
 - [snmpaReload\(boolean\)](#snmpareload-4fd9a56bd262)
 - [snmpSendNotification\(String, String, String, SnmpVarbind\[\]\)](#snmpsendnotification-22a7246d4ba1)
 - [startPhase\(int\)](#startphase-752e85521d00)
@@ -320,8 +312,8 @@ This class implements the Management Agent API (MAAPI).
 - [waitStarted\(\)](#waitstarted-20657441709c)
 - [xpath2kpath\(String\)](#xpath2kpath-bc8a863e2978)
 - [xpath2kpath\_th\(int, String\)](#xpath2kpath_th-5ce14c8a3095)
-- [xpathEval\(int, MaapiXPathEvalResult, MaapiXPathEvalTrace, String, Object, String, Object\[\]\)](#xpatheval-8e8640817c0b)
-- [xpathEvalExpr\(int, String, MaapiXPathEvalTrace, String, Object\[\]\)](#xpathevalexpr-32b3542af9d6)
+- [xpathEval\(int, MaapiXPathEvalResult, MaapiXPathEvalTrace, String, Object, String, Object\.\.\.\)](#xpatheval-14ae42be9155)
+- [xpathEvalExpr\(int, String, MaapiXPathEvalTrace, String, Object\.\.\.\)](#xpathevalexpr-c27fe3fbd76f)
 
 **Nested Types**:
 
@@ -351,16 +343,16 @@ Creates a new instance of `Maapi` supplying a established
  Maapi maapi = new Maapi(new Socket("localhost", port));
  `
 
- When establishing a connection to ConfD/NCS the
+When establishing a connection to ConfD/NCS the
  [`MaapiSchemas`](MaapiSchemas.md#maapischemas-821ac70b83b7) will be loaded once automatically
  by the library.
 
- If encrypted communication towards ConfD/NCS is desired,
+If encrypted communication towards ConfD/NCS is desired,
  an environment variable "CONFD_IPC_ACCESS_FILE" or "NCS_IPC_ACCESS_FILE"
  need to be set.
  This variable is expected to point to a file containing a secret salt.
   example:
-     export CONFD_IPC_ACCESS_FILE=./secret_file.txt
+export CONFD_IPC_ACCESS_FILE=./secret_file.txt
  An alternative to the environment variable is to set an java system
  property with the same name pointing to the file.
 
@@ -370,10 +362,10 @@ Creates a new instance of `Maapi` supplying a established
 
 **Throws**
 
-- `ConfException` - If ConfD/NCS refuses to establish
-         connection the reason could be obtained through
-         `ConfException#getMessage()`
-- `ConfException` - signals problem connecting to ConfD/NCS
+- `com.tailf.conf.ConfException` - If ConfD/NCS refuses to establish
+connection the reason could be obtained through
+`ConfException#getMessage()`
+- `com.tailf.conf.ConfException` - signals problem connecting to ConfD/NCS
 
 ### Maapi(SocketAddress) <a href="#maapi-741da54ce5b9" id="maapi-741da54ce5b9"></a>
 
@@ -389,16 +381,16 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 Creates a new instance of `Maapi` supplying an address
  to the ConfD/NCS server.
 
- When establishing a connection to ConfD/NCS the
+When establishing a connection to ConfD/NCS the
  [`MaapiSchemas`](MaapiSchemas.md#maapischemas-821ac70b83b7) will be loaded once automatically
  by the library.
 
- If encrypted communication towards ConfD/NCS is desired,
+If encrypted communication towards ConfD/NCS is desired,
  an environment variable "CONFD_IPC_ACCESS_FILE" or "NCS_IPC_ACCESS_FILE"
  need to be set.
  This variable is expected to point to a file containing a secret salt.
   example:
-     export CONFD_IPC_ACCESS_FILE=./secret_file.txt
+export CONFD_IPC_ACCESS_FILE=./secret_file.txt
  An alternative to the environment variable is to set an java system
  property with the same name pointing to the file.
 
@@ -408,13 +400,13 @@ Creates a new instance of `Maapi` supplying an address
 
 **Throws**
 
-- `ConfException` - If ConfD/NCS refuses to establish
-         connection the reason could be obtained through
-         `ConfException#getMessage()`
-- `IOException` - signals I/O exception when creating the underlying
-                     socket
-- `ConfException` - signals problems creating the underlying socket or
-                       connecting to ConfD/NCS
+- `com.tailf.conf.ConfException` - If ConfD/NCS refuses to establish
+connection the reason could be obtained through
+`ConfException#getMessage()`
+- `java.io.IOException` - signals I/O exception when creating the underlying
+socket
+- `com.tailf.conf.ConfException` - signals problems creating the underlying socket or
+connecting to ConfD/NCS
 
 
 ## Fields
@@ -530,7 +522,7 @@ Flag to use in initUpgrade()
 ### maapiSchemasClass <a href="#maapischemasclass-28c23f540519" id="maapischemasclass-28c23f540519"></a>
 
 ```java
-public static Class<? extends com.tailf.maapi.MaapiSchemas> maapiSchemasClass = null;
+public static Class<? extends com.tailf.maapi.MaapiSchemas> maapiSchemasClass;
 ```
 
 Types: [MaapiSchemas](MaapiSchemas.md#maapischemas-821ac70b83b7)
@@ -561,12 +553,12 @@ When the ConfD/NCS AAA tree is populated by an external data provider,
 **Parameters**
 
 - `boolean synchronous` - Whether to wait for the daemon to complete reloading
-           the AAA data before returning.
+the AAA data before returning.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### abortTrans(int) <a href="#aborttrans-d310b7982d91" id="aborttrans-d310b7982d91"></a>
 
@@ -590,8 +582,8 @@ Abort a transaction specified by transaction handle `tid`.
 
 **Throws**
 
-- `MaapiException` - If the abort operation fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If the abort operation fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### abortUpgrade() <a href="#abortupgrade-4c0f0c13e771" id="abortupgrade-4c0f0c13e771"></a>
 
@@ -612,8 +604,8 @@ Note, This method is only applicable for Confd. For NCS, the In-service
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### applyTrans(int, boolean) <a href="#applytrans-94f52f2648ce" id="applytrans-94f52f2648ce"></a>
 
@@ -629,25 +621,22 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Apply a current transaction with transaction handle `tid`.
 
- Invoking the transaction methods in exactly the right order can
+Invoking the transaction methods in exactly the right order can
  be a bit complicated.
 
- The right order to invoke the methods is:
-
+The right order to invoke the methods is:
 
 - [`validateTrans(int,boolean,boolean)`](Maapi.md#validatetrans-8767da488cef)
 - [`prepareTrans(int)`](Maapi.md#preparetrans-f5669cbf3002)
 - [`commitTrans(int)`](Maapi.md#committrans-edd7d497abaf)
 - [`abortTrans(int)`](Maapi.md#aborttrans-d310b7982d91)
 
-
-
- Usually we do not require this fine grained control
+Usually we do not require this fine grained control
  over the two-phase commit protocol. It is easier to use
  `applyTrans`
  which validates, prepares and eventually aborts or commits.
 
- A call to `applyTrans` must also eventually be
+A call to `applyTrans` must also eventually be
  followed by a call to [`finishTrans(int)`](Maapi.md#finishtrans-0f920518d3c3) which will terminate
  the transaction.
 
@@ -659,7 +648,7 @@ Apply a current transaction with transaction handle `tid`.
  Calling `finishTrans` to terminate the
  transaction is sufficient.
 
- The parameter `keepopen` can optionally be set to true,
+The parameter `keepopen` can optionally be set to true,
  then the changes to the transaction are not discarded if
  validation fails. This feature is typically used by
  management applications that wish to present the validation errors to
@@ -671,13 +660,13 @@ Apply a current transaction with transaction handle `tid`.
 
 - `int tid` - Transaction id of transaction to commit
 - `boolean keepOpen` - If validation fails should the transaction be kept
-            open or not
+open or not
 
 **Throws**
 
-- `ConfException` - If the transaction is in badstate, for
+- `com.tailf.conf.ConfException` - If the transaction is in badstate, for
  example if `applyTrans` is called twice.
-- `IOException` - Signals I/O exception on the underlying socket
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### applyTrans(int, boolean, int) <a href="#applytrans-5868175f1f0b" id="applytrans-5868175f1f0b"></a>
 
@@ -695,40 +684,40 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 Apply a current transaction with transaction handle `tid`
  with additional flags (NCS Specific).
 
- Some NCS specific flags can be used:
+Some NCS specific flags can be used:
 
- [`COMMIT_NCS_NO_REVISION_DROP`](Maapi.md#commit_ncs_no_revision_drop-99240a81765e) means that NCS will not
+[`COMMIT_NCS_NO_REVISION_DROP`](Maapi.md#commit_ncs_no_revision_drop-99240a81765e) means that NCS will not
  run its data model revision algorithm, thus requiring all participating
  managed devices to have all parts of the data models for all data
  contained in this transaction, i.e., this flag forces NCS to never
  silently drop any data set operations towards a device.
 
- [`COMMIT_NCS_NO_DEPLOY`](Maapi.md#commit_ncs_no_deploy-fe5d11934928) means that NCS will commit without
+[`COMMIT_NCS_NO_DEPLOY`](Maapi.md#commit_ncs_no_deploy-fe5d11934928) means that NCS will commit without
  running the FASTMAP algorithm, i.e., write the
  service instance data without activating the service(s).
  The service(s) can later be re-deployed to write the
  changes of the service(s) to the network.
 
- [`COMMIT_NCS_NO_NETWORKING`](Maapi.md#commit_ncs_no_networking-5337030cc5aa) means that the NCS device
+[`COMMIT_NCS_NO_NETWORKING`](Maapi.md#commit_ncs_no_networking-5337030cc5aa) means that the NCS device
  manager will not see these changes. Even if transaction manipulates
  data below /devices/device/config, nothing will be sent to the
  managed devices. Thus this is a way to manipulate CDB in NCS without
  generating any southbound traffic.
 
- [`COMMIT_NCS_NO_OUT_OF_SYNC_CHECK`](Maapi.md#commit_ncs_no_out_of_sync_check-4ff4693de193) means that NCS will
+[`COMMIT_NCS_NO_OUT_OF_SYNC_CHECK`](Maapi.md#commit_ncs_no_out_of_sync_check-4ff4693de193) means that NCS will
  continue with the transaction even if NCS detects that a device's
  configuration is out of sync. The device's sync state is assumed
  to be unknown after such commit and the stored transaction id
  value is cleared.
 
- [`COMMIT_NCS_NO_OVERWRITE_WRITE_SET_ONLY`](Maapi.md#commit_ncs_no_overwrite_write_set_only-0228b05fbdba) means that NCS will
+[`COMMIT_NCS_NO_OVERWRITE_WRITE_SET_ONLY`](Maapi.md#commit_ncs_no_overwrite_write_set_only-0228b05fbdba) means that NCS will
  check that the data that should be modified has not changed on the
  device compared to NCS's view of the data. This is
  fine-granular sync check; NCS verifies that NCS and the
  device is in sync regarding the data that will be modified.
  If they are not in sync, the transaction is aborted.
 
- [`COMMIT_NCS_NO_OVERWRITE_WRITE_AND_FULL_READ_SET`](Maapi.md#commit_ncs_no_overwrite_write_and_full_read_set-47609363ce3c) means that
+[`COMMIT_NCS_NO_OVERWRITE_WRITE_AND_FULL_READ_SET`](Maapi.md#commit_ncs_no_overwrite_write_and_full_read_set-47609363ce3c) means that
  NCS will check that the data that should be modified or any data read
  when computing the device modifications has not changed on
  the device compared to NCS's view of the data. This is
@@ -736,7 +725,7 @@ Apply a current transaction with transaction handle `tid`
  device is in sync regarding the data that will be modified.
  If they are not in sync, the transaction is aborted.
 
- [`COMMIT_NCS_NO_OVERWRITE_WRITE_AND_SERVICE_READ_SET`](Maapi.md#commit_ncs_no_overwrite_write_and_service_read_set-599b4fc50ee9) means that
+[`COMMIT_NCS_NO_OVERWRITE_WRITE_AND_SERVICE_READ_SET`](Maapi.md#commit_ncs_no_overwrite_write_and_service_read_set-599b4fc50ee9) means that
  NCS will check that the data that should be modified or any data read
  by services run in the transaction has not changed on
  the device compared to NCS's view of the data. This is
@@ -744,14 +733,13 @@ Apply a current transaction with transaction handle `tid`
  device is in sync regarding the data that will be modified.
  If they are not in sync, the transaction is aborted.
 
- [`COMMIT_NCS_USE_LSA`](Maapi.md#commit_ncs_use_lsa-998f30efc74f) means that NCS will force handling LSA
+[`COMMIT_NCS_USE_LSA`](Maapi.md#commit_ncs_use_lsa-998f30efc74f) means that NCS will force handling LSA
  nodes as such.
 
- [`COMMIT_NCS_NO_LSA`](Maapi.md#commit_ncs_no_lsa-88834afe2914) means that NCS will not handle any of
+[`COMMIT_NCS_NO_LSA`](Maapi.md#commit_ncs_no_lsa-88834afe2914) means that NCS will not handle any of
  the LSA nodes as such. These nodes will be handled as any other device.
 
-
- [`COMMIT_NCS_RECONCILE_KEEP_NON_SERVICE_CONFIG`](Maapi.md#commit_ncs_reconcile_keep_non_service_config-920607f60083) means that all
+[`COMMIT_NCS_RECONCILE_KEEP_NON_SERVICE_CONFIG`](Maapi.md#commit_ncs_reconcile_keep_non_service_config-920607f60083) means that all
  data which existed before the service was created will now be owned by
  the service. When the service is removed that data will also be removed.
  In technical terms the reference count will be decreased by one for
@@ -759,8 +747,7 @@ Apply a current transaction with transaction handle `tid`
  service creation. Any manually configured data that exists below in the
  configuration tree will be kept.
 
-
- [`COMMIT_NCS_RECONCILE_DISCARD_NON_SERVICE_CONFIG`](Maapi.md#commit_ncs_reconcile_discard_non_service_config-c666106de8bd) means that
+[`COMMIT_NCS_RECONCILE_DISCARD_NON_SERVICE_CONFIG`](Maapi.md#commit_ncs_reconcile_discard_non_service_config-c666106de8bd) means that
  all data which existed before the service was created will now be owned
  by the service. When the service is removed that data will also be
  removed. In technical terms the reference count will be decreased by one
@@ -768,20 +755,19 @@ Apply a current transaction with transaction handle `tid`
  initial service creation. Any manually configured data that exists below
  in the configuration tree will be discarded.
 
-
- The flags are bits and can be ORed together.
+The flags are bits and can be ORed together.
 
 **Parameters**
 
 - `int tid` - Transaction id of transaction to commit
 - `boolean keepOpen` - If validation fails should the transaction be kept
-                 open or not
+open or not
 - `int flags` - Bitwise ORed flags
 
 **Throws**
 
-- `MaapiException` - If the transaction cannot be applied
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If the transaction cannot be applied
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### applyTransParams(int, boolean, CommitParams) <a href="#applytransparams-6c20b7896663" id="applytransparams-6c20b7896663"></a>
 
@@ -803,18 +789,18 @@ Apply a current transaction with transaction handle `tid`
 
 - `int tid` - Transaction id of transaction to commit
 - `boolean keepOpen` - If validation fails should the transaction be kept
-                 open or not
+open or not
 - `com.tailf.maapi.CommitParams params` - Commit parameters, see [`CommitParams`](CommitParams.md#commitparams-819d9b5483cc)
 
 **Returns:** An instance of [`DryRunResult`](DryRunResult.md#dryrunresult-28828490822f) if dry-run was requested.
-         An instance of [`CommitQueueResult`](CommitQueueResult.md#commitqueueresult-0daa10abf91a) if commit through
-         commit queue was requested. Otherwise an instance of
-         [`ApplyResult`](ApplyResult.md#applyresult-77b049ed4f17).
+An instance of [`CommitQueueResult`](CommitQueueResult.md#commitqueueresult-0daa10abf91a) if commit through
+commit queue was requested. Otherwise an instance of
+[`ApplyResult`](ApplyResult.md#applyresult-77b049ed4f17).
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### attach(int, int) <a href="#attach-0e2e60b563af" id="attach-0e2e60b563af"></a>
 
@@ -835,13 +821,13 @@ Same as [`attach(int, int, int)`](Maapi.md#attach-59771e44614d) with the excepti
 
 - `int tid` - Transaction identifier
 - `int nsi` - Namespace identifier. Use 0 if we don't care which
-            namespace is the default to choose if path elements
-            are not properly prefixed.
+namespace is the default to choose if path elements
+are not properly prefixed.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### attach(int, int, int) <a href="#attach-59771e44614d" id="attach-59771e44614d"></a>
 
@@ -858,22 +844,20 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Attach to a current transaction.
 
- While a transaction is executing, we have a number of situations
+While a transaction is executing, we have a number of situations
  where we wish to invoke user Java code which can interact in the
  transaction. One such situation is when we wish to write semantic
  validation code which is invoked in the validation phase of a
  transaction.
 
-  This code needs to execute within the context of the executing
+This code needs to execute within the context of the executing
  transaction, it must thus have access to the "shadow" storage where
   all not-yet-committed data is kept.
 
-
- This method attaches to a existing transaction. See user guide chapter
+This method attaches to a existing transaction. See user guide chapter
  "Semantic Validation" for example code.
 
-
- Another situation where we wish to attach to the executing transaction is
+Another situation where we wish to attach to the executing transaction is
  when we are using the notifications API and subscribe to notification of
  type `NOTIF_COMMIT_DIFF` and wish to read the committed
  diffs from the transaction.
@@ -882,14 +866,14 @@ Attach to a current transaction.
 
 - `int tid` - Transaction identifier
 - `int nsi` - Namespace identifier. Use 0 if we don't care which
-            namespace is the default to choose if path elements
-            are not properly prefixed.
+namespace is the default to choose if path elements
+are not properly prefixed.
 - `int usid` - Usid
 
 **Throws**
 
-- `MaapiException` - If attachment to the transaction fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If attachment to the transaction fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### attach(int, String) <a href="#attach-39f7255284db" id="attach-39f7255284db"></a>
 
@@ -913,8 +897,8 @@ Same as [`attach(int, String, int)`](Maapi.md#attach-cb83c464b289) with the exce
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### attach(int, String, int) <a href="#attach-cb83c464b289" id="attach-cb83c464b289"></a>
 
@@ -931,22 +915,20 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Attach to a current transaction.
 
- While a transaction is executing, we have a number of situations
+While a transaction is executing, we have a number of situations
  where we wish to invoke user Java code which can interact in the
  transaction. One such situation is when we wish to write semantic
  validation code which is invoked in the validation phase of a
  transaction.
 
-  This code needs to execute within the context of the executing
+This code needs to execute within the context of the executing
  transaction, it must thus have access to the "shadow" storage where
   all not-yet-committed data is kept.
 
-
- This method attaches to a existing transaction. See user guide chapter
+This method attaches to a existing transaction. See user guide chapter
  "Semantic Validation" for example code.
 
-
- Another situation where we wish to attach to the executing transaction is
+Another situation where we wish to attach to the executing transaction is
  when we are using the notifications API and subscribe to notification of
  type `NOTIF_COMMIT_DIFF` and wish to read the committed
  diffs from the transaction.
@@ -959,8 +941,8 @@ Attach to a current transaction.
 
 **Throws**
 
-- `MaapiException` - If attachment to the transaction fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If attachment to the transaction fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### attachInit() <a href="#attachinit-11064448310c" id="attachinit-11064448310c"></a>
 
@@ -972,15 +954,15 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Attach to transaction available in phase0.
 
- This method is used to attach the Maapi socket to the special
+This method is used to attach the Maapi socket to the special
  transaction available in phase0 used for CDB initialization and upgrade.
 
 **Returns:** the transaction handle for the init transaction
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
 
 ### authenticate(String, String) <a href="#authenticate-9b081cc66ee1" id="authenticate-9b081cc66ee1"></a>
 
@@ -995,11 +977,11 @@ public synchronized com.tailf.maapi.MaapiAuthentication authenticate(
 Types: [MaapiAuthentication](MaapiAuthentication.md#maapiauthentication-b8288dadf67d), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 If we are implementing a proprietary Management Agent with MAAPI API,
- the method `startUserSession(String,String,String[],SocketAddress,
- MaapiUserSessionFlag)` requires the application to tell ConfD/NCS
+ the method [`startUserSession(String,String,String[],SocketAddress,
+ MaapiUserSessionFlag)`](Maapi.md#startusersession-677e9394622e) requires the application to tell ConfD/NCS
  which groups the user are member of.
 
- ConfD/NCS itself has the capability to authenticate users.
+ConfD/NCS itself has the capability to authenticate users.
  It is possible for a MAAPI application to let
  ConfD/NCS authenticate the user, as per the AAA configuration in the
  system configuration file
@@ -1013,8 +995,8 @@ If we are implementing a proprietary Management Agent with MAAPI API,
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### authenticate2(String, String, InetAddress, int, String, MaapiUserSessionFlag) <a href="#authenticate2-84062b58a524" id="authenticate2-84062b58a524"></a>
 
@@ -1033,11 +1015,11 @@ public synchronized com.tailf.maapi.MaapiAuthentication authenticate2(
 Types: [MaapiAuthentication](MaapiAuthentication.md#maapiauthentication-b8288dadf67d), [MaapiUserSessionFlag](MaapiUserSessionFlag.md#maapiusersessionflag-ee298af54ca4), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 If we are implementing a proprietary Management Agent with MAAPI API, the
- method `startUserSession(String,String,String[],SocketAddress,
- MaapiUserSessionFlag)` requires the application to tell ConfD/NCS
+ method [`startUserSession(String,String,String[],SocketAddress,
+ MaapiUserSessionFlag)`](Maapi.md#startusersession-677e9394622e) requires the application to tell ConfD/NCS
  which groups the user are member of.
 
- ConfD/NCS itself has the capability to authenticate users.
+ConfD/NCS itself has the capability to authenticate users.
  It is possible for a MAAPI application to let
  ConfD/NCS authenticate the user, as per the AAA configuration in the
  system configuration file
@@ -1055,13 +1037,13 @@ If we are implementing a proprietary Management Agent with MAAPI API, the
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### candidateAbortCommit() <a href="#candidateabortcommit-2b2c1c4204e0" id="candidateabortcommit-2b2c1c4204e0"></a>
 
 ```java
-public synchronized void candidateAbortCommit() throws java.io.IOException, com.tailf.conf.ConfException
+public synchronized void candidateAbortCommit()
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
@@ -1071,8 +1053,8 @@ This function cancels a pending confirmed commit.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### candidateAbortCommitPersistent(String) <a href="#candidateabortcommitpersistent-5c9a841d3003" id="candidateabortcommitpersistent-5c9a841d3003"></a>
 
@@ -1095,8 +1077,8 @@ Cancel an ongoing persistent commit with the cookie given by persistId.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - If error. If the `errorCode` for the
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - If error. If the `errorCode` for the
  `ConfException` is `ConfException.ERR_NOEXISTS`
  it means that there is an ongoing persistent
  confirmed commit, but `persistId` did not give the
@@ -1116,8 +1098,8 @@ This function copies the candidate to running. It is also used to confirm
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### candidateCommitInfo(String, String) <a href="#candidatecommitinfo-9389711260f1" id="candidatecommitinfo-9389711260f1"></a>
 
@@ -1145,7 +1127,7 @@ This method can be used to set the "Label" and/or "Comment"
  Note: To ensure that the "Label" and/or "Comment" are stored
  in the rollback file in all cases when doing a confirmed commit,
  they must be given both with the confirmed commit (using
- `Maapi#candidateConfirmedCommitInfo`) and
+ [`Maapi#candidateConfirmedCommitInfo`](Maapi.md#candidateconfirmedcommitinfo-84908f457061)) and
  with the confirming commit (using this method).
 
 **Parameters**
@@ -1155,8 +1137,8 @@ This method can be used to set the "Label" and/or "Comment"
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - If error. If the `errorCode` for the
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - If error. If the `errorCode` for the
  `ConfException` is `ConfException.ERR_NOEXISTS`
  it means that there is an ongoing persistent confirmed commit,
  but `persistId` did not give the
@@ -1189,7 +1171,7 @@ This method can be used to set the "Label" and/or "Comment"
  Note: To ensure that the "Label" and/or "Comment" are stored
  in the rollback file in all cases when doing a confirmed commit,
  they must be given both with the confirmed commit (using
- `Maapi#candidateConfirmedCommitInfo`) and
+ [`Maapi#candidateConfirmedCommitInfo`](Maapi.md#candidateconfirmedcommitinfo-84908f457061)) and
  with the confirming commit (using this method).
 
 **Parameters**
@@ -1200,8 +1182,8 @@ This method can be used to set the "Label" and/or "Comment"
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - If error. If the `errorCode` for the
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - If error. If the `errorCode` for the
  `ConfException` is `ConfException.ERR_NOEXISTS`
  it means that there is an ongoing persistent confirmed commit,
  but `persistId` did not give the
@@ -1232,8 +1214,8 @@ Confirm an ongoing persistent commit with the cookie given by persistId.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - If error. If the `errorCode` for the
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - If error. If the `errorCode` for the
  `ConfException` is `ConfException.ERR_NOEXISTS`
  it means that there is an ongoing persistent confirmed commit,
  but `persistId` did not give the
@@ -1260,8 +1242,8 @@ This method also copies the candidate into running. However if a call to
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### candidateConfirmedCommitInfo(int, String, String) <a href="#candidateconfirmedcommitinfo-84908f457061" id="candidateconfirmedcommitinfo-84908f457061"></a>
 
@@ -1286,7 +1268,7 @@ This method does the same as
  Note: To ensure that the "Label" and/or "Comment" are stored in the
  rollback file in all cases when doing a confirmed commit, they must
  be given both with the confirmed commit (using this method) and
- with the confirming commit (using `candidateCommitInfo`).
+ with the confirming commit (using [`candidateCommitInfo`](Maapi.md#candidatecommitinfo-9389711260f1)).
 
 **Parameters**
 
@@ -1296,8 +1278,8 @@ This method does the same as
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - If error. If the `errorCode` for the
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - If error. If the `errorCode` for the
  `ConfException` is `ConfException.ERR_NOEXISTS`
  it means that there is an ongoing persistent
  confirmed commit, but `persistId` did not give the right
@@ -1328,7 +1310,7 @@ This method does the same as
  Note: To ensure that the "Label" and/or "Comment" are stored in the
  rollback file in all cases when doing a confirmed commit, they must
  be given both with the confirmed commit (using this method) and
- with the confirming commit (using `candidateCommitInfo`).
+ with the confirming commit (using [`candidateCommitInfo`](Maapi.md#candidatecommitinfo-9389711260f1)).
 
 **Parameters**
 
@@ -1340,8 +1322,8 @@ This method does the same as
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - If error. If the `errorCode` for the
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - If error. If the `errorCode` for the
  `ConfException` is `ConfException.ERR_NOEXISTS`
  it means that there is an ongoing persistent
  confirmed commit, but `persistId` did not give the right
@@ -1364,29 +1346,25 @@ This method can be used to start or extend a persistent confirmed
  commit, see the Tail-f Commit Capability section in the NETCONF Server
  chapter in the User Guide.
 
- The `persist` parameter sets the cookie for the
+The `persist` parameter sets the cookie for the
  persistent confirmed commit, while the `persistId` gives
  the cookie for an already ongoing persistent confirmed commit.
  This gives the following
  possibilities:
 
-
 - `persist = "cookie", persistId = null `
- Start a persistent confirmed commit
- with the cookie "cookie", or extend an already ongoing non-persistent
- confirmed commit and turn it into a persistent confirmed commit.
-
-   - `persist = "newcookie", persistId = "oldcookie"`
- Extend an ongoing
- persistent confirmed commit that uses the cookie "oldcookie" and change
- the cookie to "newcookie".
-
-     - `persist = null, persistId = "cookie"`
- Extend an ongoing persistent confirmed commit that uses the cookie
- "oldcookie" and turn it into a non-persistent confirmed commit.
-
-       - `persist = null, persistId = null` Does the same as
- [`candidateConfirmedCommit(int)`](Maapi.md#candidateconfirmedcommit-2ecf86dd82a1).
+   Start a persistent confirmed commit
+   with the cookie "cookie", or extend an already ongoing non-persistent
+   confirmed commit and turn it into a persistent confirmed commit.
+- `persist = "newcookie", persistId = "oldcookie"`
+   Extend an ongoing
+   persistent confirmed commit that uses the cookie "oldcookie" and change
+   the cookie to "newcookie".
+- `persist = null, persistId = "cookie"`
+   Extend an ongoing persistent confirmed commit that uses the cookie
+   "oldcookie" and turn it into a non-persistent confirmed commit.
+- `persist = null, persistId = null` Does the same as
+   [`candidateConfirmedCommit(int)`](Maapi.md#candidateconfirmedcommit-2ecf86dd82a1).
 
  Typical usage is to start a persistent confirmed commit with
  `persist = "cookie", persistId = null`, and to extend it
@@ -1402,8 +1380,8 @@ This method can be used to start or extend a persistent confirmed
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - If error. If the `errorCode` for the
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - If error. If the `errorCode` for the
  `ConfException` is `ConfException.ERR_NOEXISTS`
  it means that there is an ongoing persistent
  confirmed commit, but `persistId` did not give the right
@@ -1421,13 +1399,13 @@ This function copies running into candidate.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### candidateValidate() <a href="#candidatevalidate-58aea9fceaa1" id="candidatevalidate-58aea9fceaa1"></a>
 
 ```java
-public synchronized void candidateValidate() throws java.io.IOException, com.tailf.conf.ConfException
+public synchronized void candidateValidate()
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
@@ -1439,16 +1417,16 @@ This function validates the candidate. The function should only be used
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### cd(int, String, Object[]) <a href="#cd-2b29dc1e94f8" id="cd-2b29dc1e94f8"></a>
+### cd(int, String, Object...) <a href="#cd-b2c808085176" id="cd-b2c808085176"></a>
 
 ```java
 public synchronized void cd(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
@@ -1462,20 +1440,19 @@ This function mimics the behavior of the UNIX "cd" command. It changes
  than it is to perform the equivalent series of operations using absolute
  paths.
 
-
- The cd() function is also very useful when writing generic code for
+The cd() function is also very useful when writing generic code for
  accessing parts of the configuration tree.
 
 **Parameters**
 
 - `int tid` - Transaction Identifier
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `MaapiException` - If changing directory fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If changing directory fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### clearOpCache() <a href="#clearopcache-4878d76fc012" id="clearopcache-4878d76fc012"></a>
 
@@ -1485,13 +1462,13 @@ public synchronized void clearOpCache() throws java.io.IOException, com.tailf.co
 
 Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
-Same as `clearOpCache(ConfPath)`, with the only difference that
+Same as [`clearOpCache(ConfPath)`](Maapi.md#clearopcache-d6710dfdab1a), with the only difference that
  if clears all cached data from "/" and down.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### clearOpCache(ConfPath) <a href="#clearopcache-d6710dfdab1a" id="clearopcache-d6710dfdab1a"></a>
 
@@ -1515,8 +1492,8 @@ Request clearing of the operational data cache (see the Operational Data
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### clearReadIntent(int) <a href="#clearreadintent-b5b83aa4a4f8" id="clearreadintent-b5b83aa4a4f8"></a>
 
@@ -1537,8 +1514,8 @@ Clear the read intent for the transaction
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
 ### CLIAccounting(String, int, String) <a href="#cliaccounting-2a7079fd4705" id="cliaccounting-2a7079fd4705"></a>
 
@@ -1563,8 +1540,8 @@ Generate an audit log entry in the CLI audit log.
 
 **Throws**
 
-- `ConfException` - if operation fails
-- `IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if operation fails
+- `java.io.IOException` - if I/O error occurs
 
 ### CLICmdToPath(int, String) <a href="#clicmdtopath-90aed3e422a9" id="clicmdtopath-90aed3e422a9"></a>
 
@@ -1583,8 +1560,7 @@ Given a C- or I-style command, this method tries to determine the
  Returns a [`CLICmdToPathResult`](CLICmdToPathResult.md#clicmdtopathresult-3b4d365dbceb) object, containing the resulting
  namespace and the data-model path.
 
-
- If the string cannot be interpreted as a path an exception is thrown,
+If the string cannot be interpreted as a path an exception is thrown,
  indicating that the string is either an operational mode command, a
  configuration mode command, or just badly formatted. The string is
  interpreted in the context of the current running configuration.
@@ -1595,12 +1571,12 @@ Given a C- or I-style command, this method tries to determine the
 - `String cmd` - The command to interpret
 
 **Returns:** CLICmdToPathResult containing the namespace and path
-         corresponding to the command.
+corresponding to the command.
 
 **Throws**
 
-- `ConfException` - signals protocol/usage error
-- `IOException` - signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - signals protocol/usage error
+- `java.io.IOException` - signals I/O exception on the underlying socket
 
 ### CLICmdToPath(String) <a href="#clicmdtopath-28d97ca6f282" id="clicmdtopath-28d97ca6f282"></a>
 
@@ -1622,12 +1598,12 @@ Equivalent to [`CLICmdToPath(int, String)`](Maapi.md#clicmdtopath-90aed3e422a9) 
 - `String cmd` - The command to interpret
 
 **Returns:** CLICmdToPathResult containing the namespace and path
-         corresponding to the command.
+corresponding to the command.
 
 **Throws**
 
-- `ConfException` - signals protocol/usage error
-- `IOException` - signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - signals protocol/usage error
+- `java.io.IOException` - signals I/O exception on the underlying socket
 
 ### CLIDiffCmd(int, int, ConfPath) <a href="#clidiffcmd-a74803e0854c" id="clidiffcmd-a74803e0854c"></a>
 
@@ -1654,17 +1630,17 @@ Get the diff between two transactions as C-/I-style CLI commands.
 
 **Throws**
 
-- `ConfException` - if operation fails
-- `IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if operation fails
+- `java.io.IOException` - if I/O error occurs
 
-### CLIPathCmd(int, EnumSet&lt;CLIPathCmdFlag&gt;, String, Object[]) <a href="#clipathcmd-554037c1a7b8" id="clipathcmd-554037c1a7b8"></a>
+### CLIPathCmd(int, EnumSet&lt;CLIPathCmdFlag&gt;, String, Object...) <a href="#clipathcmd-321e6a4d920a" id="clipathcmd-321e6a4d920a"></a>
 
 ```java
 public synchronized String CLIPathCmd(
     int th,
     java.util.EnumSet<com.tailf.maapi.CLIPathCmdFlag> flags,
     String fmt,
-    Object[] args
+    Object... args
 )
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
@@ -1684,14 +1660,14 @@ Returns a string representing the C/I style CLI command that can be
    NON_RECURSIVE to prevent that all children to a container or list item
    are displayed.
 - `String fmt` - path to be formatted as CLI command
-- `Object[] args` - optional parameters for substitution in fmt
+- `Object... args` - optional parameters for substitution in fmt
 
 **Returns:** CLI command string
 
 **Throws**
 
-- `ConfException` - signals protocol/usage error
-- `IOException` - signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - signals protocol/usage error
+- `java.io.IOException` - signals I/O exception on the underlying socket
 
 ### CLIPrompt(int, String, boolean) <a href="#cliprompt-8bf975d68180" id="cliprompt-8bf975d68180"></a>
 
@@ -1708,12 +1684,12 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Prompts user for a string.
 
- The echo parameter is used to control if the
+The echo parameter is used to control if the
  input should be echoed or not. If set to 'true' all input will be visible
  and if set to 'false' only stars will be shown instead of the actual
  characters entered by the user. The resulting string will be returned.
 
- This function is intended to be called from inside an action callback
+This function is intended to be called from inside an action callback
  when invoked from the CLI.
 
 **Parameters**
@@ -1726,8 +1702,8 @@ Prompts user for a string.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### CLIPrompt(int, String, boolean, int) <a href="#cliprompt-547c211c5c55" id="cliprompt-547c211c5c55"></a>
 
@@ -1745,12 +1721,12 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Prompts user for a string.
 
- The echo parameter is used to control if the
+The echo parameter is used to control if the
  input should be echoed or not. If set to 'true' all input will be visible
  and if set to 'false' only stars will be shown instead of the actual
  characters entered by the user. The resulting string will be returned.
 
- This function is intended to be called from inside an action callback
+This function is intended to be called from inside an action callback
  when invoked from the CLI.
 
 **Parameters**
@@ -1764,8 +1740,8 @@ Prompts user for a string.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### CLIPromptOneOf(int, String, String[]) <a href="#clipromptoneof-7100649afe63" id="clipromptoneof-7100649afe63"></a>
 
@@ -1782,31 +1758,23 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Prompt user for one of the strings given in the choice parameter.
 
- For
+For
  example:
 
-
-
 ```
- String res =
-     maapi.CLIPromptOneOf(usid,
-         Do you want to proceed (yes/no): ,
-         new String[] { yes, no });
+String res =
+    maapi.CLIPromptOneOf(usid,
+        "Do you want to proceed (yes/no): ",
+        new String[] { "yes", "no" });
 ```
-
-
 
  For example:
 
-
-
 ```
-    Do you want to proceed (yes/no): maybe
-    The value must be one of: yes,no.
-    Do you want to proceed (yes/no):
+   Do you want to proceed (yes/no): maybe
+   The value must be one of: yes,no.
+   Do you want to proceed (yes/no):
 ```
-
-
 
  This function is intended to be called from inside an action callback
  when invoked from the CLI.
@@ -1821,8 +1789,8 @@ Prompt user for one of the strings given in the choice parameter.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### CLIPromptOneOf(int, String, String[], int) <a href="#clipromptoneof-eff406070adc" id="clipromptoneof-eff406070adc"></a>
 
@@ -1840,31 +1808,23 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Prompt user for one of the strings given in the choice parameter.
 
- For example:
-
-
+For example:
 
 ```
- String res =
-     maapi.CLIPromptOneOf(usid,
-         Do you want to proceed (yes/no): ,
-         new String[] { yes, no },
-         60);
+String res =
+    maapi.CLIPromptOneOf(usid,
+        "Do you want to proceed (yes/no): ",
+        new String[] { "yes", "no" },
+        60);
 ```
-
-
 
  For example:
 
-
-
 ```
-    Do you want to proceed (yes/no): maybe
-    The value must be one of: yes,no.
-    Do you want to proceed (yes/no):
+   Do you want to proceed (yes/no): maybe
+   The value must be one of: yes,no.
+   Do you want to proceed (yes/no):
 ```
-
-
 
  This function is intended to be called from inside an action callback
  when invoked from the CLI.
@@ -1880,8 +1840,8 @@ Prompt user for one of the strings given in the choice parameter.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### CLIReadEOF(int, boolean) <a href="#clireadeof-ae26f628719b" id="clireadeof-ae26f628719b"></a>
 
@@ -1897,14 +1857,13 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Read a multi line string from the CLI.
 
-
- The user has to end the input using ctrl-D.
+The user has to end the input using ctrl-D.
  The entered characters will be returned. The echo
  parameters controls if the entered characters should be echoed or not. If
  set to 'true' the answer will be visible and if set to 'false' stars will
  be echoed instead.
 
- This method is intended to be called from inside an action call- back
+This method is intended to be called from inside an action call- back
  when invoked from the CLI.
 
 **Parameters**
@@ -1916,8 +1875,8 @@ Read a multi line string from the CLI.
 
 **Throws**
 
-- `ConfException` - if operation fails
-- `IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if operation fails
+- `java.io.IOException` - if I/O error occurs
 
 ### CLIReadEOF(int, boolean, int) <a href="#clireadeof-5fc695888097" id="clireadeof-5fc695888097"></a>
 
@@ -1934,13 +1893,13 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Read a multi line string from the CLI.
 
- The user has to end the input
+The user has to end the input
  using ctrl-D. The entered characters will be returned. The echo
  parameters controls if the entered characters should be echoed or not. If
  set to 'true' the answer will be visible and if set to 'false' stars will
  be echoed instead.
 
- This function is intended to be called from inside an action call- back
+This function is intended to be called from inside an action call- back
  when invoked from the CLI.
 
 **Parameters**
@@ -1953,8 +1912,8 @@ Read a multi line string from the CLI.
 
 **Throws**
 
-- `ConfException` - if operation fails
-- `IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if operation fails
+- `java.io.IOException` - if I/O error occurs
 
 ### CLIWrite(int, String) <a href="#cliwrite-82d9f9f34697" id="cliwrite-82d9f9f34697"></a>
 
@@ -1970,7 +1929,7 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Write to the CLI.
 
- This method is intended to be called from inside an
+This method is intended to be called from inside an
  action callback when invoked from the CLI.
 
 **Parameters**
@@ -1980,8 +1939,8 @@ Write to the CLI.
 
 **Throws**
 
-- `ConfException` - if operation fails
-- `IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if operation fails
+- `java.io.IOException` - if I/O error occurs
 
 ### close() <a href="#close-8107c6dc012b" id="close-8107c6dc012b"></a>
 
@@ -1993,7 +1952,7 @@ Closes the MAAPI connection and cleans up resources.
 
 **Throws**
 
-- `IOException` - if I/O error occurs during close
+- `java.io.IOException` - if I/O error occurs during close
 
 ### commitTrans(int) <a href="#committrans-edd7d497abaf" id="committrans-edd7d497abaf"></a>
 
@@ -2019,8 +1978,8 @@ Commit a transaction specified by transaction handle `tid`.
 
 **Throws**
 
-- `MaapiException` - If the commit operation fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If the commit operation fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### commitUpgrade() <a href="#commitupgrade-571b9396e3a3" id="commitupgrade-571b9396e3a3"></a>
 
@@ -2044,13 +2003,13 @@ Note, This method is only applicable for Confd. For NCS, the In-service
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### confirmedCommitInProgress() <a href="#confirmedcommitinprogress-15c6ed3c5f5f" id="confirmedcommitinprogress-15c6ed3c5f5f"></a>
 
 ```java
-public synchronized int confirmedCommitInProgress() throws java.io.IOException, com.tailf.conf.ConfException
+public synchronized int confirmedCommitInProgress()
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
@@ -2065,8 +2024,8 @@ Checks whether a confirmed commit is pending. Returns the ID of the user
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### copy(int, int) <a href="#copy-498f3a527216" id="copy-498f3a527216"></a>
 
@@ -2092,8 +2051,8 @@ If we open two transactions from the same user sessions but towards
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### copyPath(int, int, ConfPath) <a href="#copypath-4f0da08da889" id="copypath-4f0da08da889"></a>
 
@@ -2119,13 +2078,13 @@ Similar to [`copy(int, int)`](Maapi.md#copy-498f3a527216), but does a replacing 
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### copyRunningToStartup() <a href="#copyrunningtostartup-493226bdd3d0" id="copyrunningtostartup-493226bdd3d0"></a>
 
 ```java
-public synchronized void copyRunningToStartup() throws java.io.IOException, com.tailf.conf.ConfException
+public synchronized void copyRunningToStartup()
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
@@ -2135,8 +2094,8 @@ Copies running to startup.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### copyTree(int, boolean, ConfPath, ConfPath) <a href="#copytree-02a5a406c545" id="copytree-02a5a406c545"></a>
 
@@ -2165,8 +2124,8 @@ This function is used to copy an entire subtree in the configuration from
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### copyTree(int, ConfPath, ConfPath) <a href="#copytree-9f5a27b7b6e6" id="copytree-9f5a27b7b6e6"></a>
 
@@ -2194,8 +2153,8 @@ Copy a configuration tree from one location to another.
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if copy operation fails
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if copy operation fails
 
 ### create(int, ConfPath) <a href="#create-88ad345c22c2" id="create-88ad345c22c2"></a>
 
@@ -2212,26 +2171,18 @@ Types: [ConfPath](../conf/ConfPath.md#confpath-327831c6fc7d), [ConfException](..
 Create an entity in the XML tree. Things that can be created
  are liste entries, presence containers and leaves with type empty.
 
-
-
 ```
- maapi.create(tid, /servers/server{www});
+maapi.create(tid, "/servers/server{www}");
 ```
-
-
 
  If we are creating a new server element as above, we must also populate
  all other XML elements below which do not have a default value in the
  YANG model. Thus, assuming 'port' is mandatory we must also:
 
-
-
 ```
- maapi.setElem(tid, 80,
-               /servers/server{www}/port);
+maapi.setElem(tid, "80",
+              "/servers/server{www}/port");
 ```
-
-
 
  before we try to commit the data.
 
@@ -2242,16 +2193,16 @@ Create an entity in the XML tree. Things that can be created
 
 **Throws**
 
-- `ConfException` - if the object already exists
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - if the object already exists
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### create(int, String, Object[]) <a href="#create-fc0ad3b51c5b" id="create-fc0ad3b51c5b"></a>
+### create(int, String, Object...) <a href="#create-d9f1b233b4d1" id="create-d9f1b233b4d1"></a>
 
 ```java
 public synchronized void create(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -2260,26 +2211,18 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Create a new list entry in the XML tree. For example
 
-
-
 ```
- maapi.create(tid, /servers/server{www});
+maapi.create(tid, "/servers/server{www}");
 ```
-
-
 
  If we are creating a new server element as above, we must also populate
  all other XML elements below, which do not have a default value in the
  YANG model. Thus we must also:
 
-
-
 ```
- maapi.setElem(tid, 80,
-               /servers/server{www}/port);
+maapi.setElem(tid, "80",
+              "/servers/server{www}/port");
 ```
-
-
 
  before we try to commit the data.
 
@@ -2287,12 +2230,12 @@ Create a new list entry in the XML tree. For example
 
 - `int tid` - Transaction Identifier
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `ConfException` - if the object already exists
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - if the object already exists
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### delete(int, ConfPath) <a href="#delete-84019aaada07" id="delete-84019aaada07"></a>
 
@@ -2315,16 +2258,16 @@ Deletes a node and all its children from the XML data tree.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### delete(int, String, Object[]) <a href="#delete-7f7b4f7a3319" id="delete-7f7b4f7a3319"></a>
+### delete(int, String, Object...) <a href="#delete-c26755b10ff7" id="delete-c26755b10ff7"></a>
 
 ```java
 public synchronized void delete(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -2337,12 +2280,12 @@ Deletes a node and all its children from the XML data tree.
 
 - `int tid` - Transaction Identifier
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### deleteAll(int, MaapiDeleteAllFlag) <a href="#deleteall-b0d5e11220fb" id="deleteall-b0d5e11220fb"></a>
 
@@ -2359,33 +2302,30 @@ Types: [MaapiDeleteAllFlag](MaapiDeleteAllFlag.md#maapideleteallflag-ab18714d13e
 This function can be used to delete "all" configuration data within
  a transaction. The flag `how` specifies the extent of "all":
 
+`MAAPI_DEL_SAFE`
+Delete everything except namespaces that were exported to none
+(with tailf:export none). Toplevel nodes that cannot be deleted due
+to AAA rules are silently left in place, but descendant nodes will
+still be deleted if the AAA rules allow it.
 
- `MAAPI_DEL_SAFE`
-     Delete everything except namespaces that were exported to none
-     (with tailf:export none). Toplevel nodes that cannot be deleted due
-     to AAA rules are silently left in place, but descendant nodes will
-     still be deleted if the AAA rules allow it.
+`MAAPI_DEL_EXPORTED`
+Delete everything except namespaces that were exported to none
+(with tailf:export none). AAA rules are ignored, i.e. nodes are
+deleted even if the AAA rules don't allow it.
 
-
- `MAAPI_DEL_EXPORTED`
-     Delete everything except namespaces that were exported to none
-     (with tailf:export none). AAA rules are ignored, i.e. nodes are
-     deleted even if the AAA rules don't allow it.
-
-
- `MAAPI_DEL_ALL`
+`MAAPI_DEL_ALL`
  Delete everything. AAA rules are ignored.
 
 **Parameters**
 
 - `int th` - Transaction handle
 - `com.tailf.maapi.MaapiDeleteAllFlag how` - One of the flags in MaapiDeleteAllFlag,
-            specifying 'how' to delete all
+specifying 'how' to delete all
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### deleteConfig(int) <a href="#deleteconfig-124c36c44b6f" id="deleteconfig-124c36c44b6f"></a>
 
@@ -2406,16 +2346,16 @@ This function empties a data store.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### deref(int, String, Object[]) <a href="#deref-570394700610" id="deref-570394700610"></a>
+### deref(int, String, Object...) <a href="#deref-fc0dd22a8f39" id="deref-fc0dd22a8f39"></a>
 
 ```java
 public synchronized com.tailf.conf.ConfObject[][] deref(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -2434,14 +2374,14 @@ This method dereferences a leafref and returns a list of the objects the
 
 - `int tid` - Transaction Identifier
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Returns:** array of keypaths that the leafref points to
 
 **Throws**
 
-- `MaapiException` - If the dereference operation fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If the dereference operation fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### destroyCursor(int, int, ConfPath) <a href="#destroycursor-e647eef13807" id="destroycursor-e647eef13807"></a>
 
@@ -2467,8 +2407,8 @@ Destroy a cursor on the server side using a transaction id and
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### destroyCursor(MaapiCursor) <a href="#destroycursor-175b7f0886db" id="destroycursor-175b7f0886db"></a>
 
@@ -2489,8 +2429,8 @@ Destroy the cursor on the server side.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
 ### detach(int) <a href="#detach-a694e7ef7d65" id="detach-a694e7ef7d65"></a>
 
@@ -2515,8 +2455,8 @@ Detaches an attached MAAPI socket.
 
 **Throws**
 
-- `MaapiException` - If detachment from the transaction fails
-- `IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.maapi.MaapiException` - If detachment from the transaction fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
 
 ### diffIterate(int, MaapiDiffIterate) <a href="#diffiterate-8d4d9d07b552" id="diffiterate-8d4d9d07b552"></a>
 
@@ -2532,36 +2472,34 @@ Types: [MaapiDiffIterate](MaapiDiffIterate.md#maapidiffiterate-199d02e1da37), [C
 
 Iterates through the transaction diff.
 
- For all diffs in the transaction
+For all diffs in the transaction
  the supplied
  [`MaapiDiffIterate#iterate(ConfObject[],DiffIterateOperFlag,
  ConfObject,ConfObject,Object)`](MaapiDiffIterate.md#iterate-d80a566b7e0a) (callback) method will be called.
 
-
- This method can be called from an attached MAAPI session. The purpose
+This method can be called from an attached MAAPI session. The purpose
  of the function is to iterate through the transaction diff. It can
  typically be used in conjunction with the notification API when we
  subscribe to NOTIF_COMMIT_DIFF events.
 
- For all diffs in the transaction the supplied callback function
+For all diffs in the transaction the supplied callback function
  `iterate` will be called. The `iterate` callback
  receives the keypath which uniquely identifies which element in the
  XML tree that is affected, the operation, and an optional value.
 
- `iterate` is called for each modified list entry, and for each
+`iterate` is called for each modified list entry, and for each
  modified leaf node. If the node is a list entry, op is one of
  `MOP_CREATED`, `MOP_DELETED` or
  `MOP_MODIFIED` If the node is a leaf node, op
  is one of `MOP_DELETED` or `MOP_VALUE_SET`.
 
- If `iterate` returns `ITER_STOP`, no more
+If `iterate` returns `ITER_STOP`, no more
  iteration is done. If
  `iterate` returns `ITER_RECURSE` iteration
  continues with all children
  to the node. If `iterate` returns
  `ITER_CONTINUE` iteration ignores
  the children to the node (if any), and continues with the node's sibling.
-
 
  The different commit messages are not subjected to AAA checks, i.e.
  regardless of which path we have and which context was used to create the
@@ -2574,10 +2512,10 @@ Iterates through the transaction diff.
 
 **Throws**
 
-- `MaapiException` - Failed diffIterate
-- `IOException` - Failed to read/write maapi socket
+- `com.tailf.maapi.MaapiException` - Failed diffIterate
+- `java.io.IOException` - Failed to read/write maapi socket
 
-### diffIterate(int, MaapiDiffIterate, Object, String, Object[]) <a href="#diffiterate-08cf0eebfc90" id="diffiterate-08cf0eebfc90"></a>
+### diffIterate(int, MaapiDiffIterate, Object, String, Object...) <a href="#diffiterate-cfbbdb4ba7d5" id="diffiterate-cfbbdb4ba7d5"></a>
 
 ```java
 public synchronized void diffIterate(
@@ -2585,7 +2523,7 @@ public synchronized void diffIterate(
     com.tailf.maapi.MaapiDiffIterate iter,
     Object initstate,
     String fmt,
-    Object[] args
+    Object... args
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -2594,36 +2532,34 @@ Types: [MaapiDiffIterate](MaapiDiffIterate.md#maapidiffiterate-199d02e1da37), [C
 
 Iterates through the transaction diff.
 
- For all diffs in the transaction
+For all diffs in the transaction
  the supplied
  [`MaapiDiffIterate#iterate(ConfObject[],DiffIterateOperFlag,
  ConfObject,ConfObject,Object)`](MaapiDiffIterate.md#iterate-d80a566b7e0a) (callback) method will be called.
 
-
- This method can be called from an attached MAAPI session. The purpose
+This method can be called from an attached MAAPI session. The purpose
  of the function is to iterate through the transaction diff. It can
  typically be used in conjunction with the notification API when we
  subscribe to NOTIF_COMMIT_DIFF events.
 
- For all diffs in the transaction the supplied callback function
+For all diffs in the transaction the supplied callback function
  `iterate` will be called. The `iterate` callback
  receives the keypath which uniquely identifies which element in the
  XML tree that is affected, the operation, and an optional value.
 
- `iterate` is called for each modified list entry, and for each
+`iterate` is called for each modified list entry, and for each
  modified leaf node. If the node is a list entry, op is one of
  `MOP_CREATED`, `MOP_DELETED` or
  `MOP_MODIFIED` If the node is a leaf node, op
  is one of `MOP_DELETED` or `MOP_VALUE_SET`.
 
- If `iterate` returns `ITER_STOP`, no more
+If `iterate` returns `ITER_STOP`, no more
  iteration is done. If
  `iterate` returns `ITER_RECURSE` iteration
  continues with all children
  to the node. If `iterate` returns
  `ITER_CONTINUE` iteration ignores
  the children to the node (if any), and continues with the node's sibling.
-
 
  The different commit messages are not subjected to AAA checks, i.e.
  regardless of which path we have and which context was used to create the
@@ -2635,21 +2571,21 @@ Iterates through the transaction diff.
 - `com.tailf.maapi.MaapiDiffIterate iter` - A MaapiDiffIterate object
 - `Object initstate` - Arbritary object passed to the iterator
 - `String fmt` - A format string for the path
-- `Object[] args` - Arguments for the path format string
+- `Object... args` - Arguments for the path format string
 
 **Throws**
 
-- `ConfException` - Failed diffIterate
-- `IOException` - Failed to read/write maapi socket
+- `com.tailf.conf.ConfException` - Failed diffIterate
+- `java.io.IOException` - Failed to read/write maapi socket
 
-### diffIterate(int, MaapiDiffIterate, String, Object[]) <a href="#diffiterate-12c0a67aa0f4" id="diffiterate-12c0a67aa0f4"></a>
+### diffIterate(int, MaapiDiffIterate, String, Object...) <a href="#diffiterate-976da1e14b8e" id="diffiterate-976da1e14b8e"></a>
 
 ```java
 public synchronized void diffIterate(
     int tid,
     com.tailf.maapi.MaapiDiffIterate iter,
     String fmt,
-    Object[] args
+    Object... args
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -2658,36 +2594,34 @@ Types: [MaapiDiffIterate](MaapiDiffIterate.md#maapidiffiterate-199d02e1da37), [C
 
 Iterates through the transaction diff.
 
- For all diffs in the transaction
+For all diffs in the transaction
  the supplied
  [`MaapiDiffIterate#iterate(ConfObject[],DiffIterateOperFlag,
  ConfObject,ConfObject,Object)`](MaapiDiffIterate.md#iterate-d80a566b7e0a) (callback) method will be called.
 
-
- This method can be called from an attached MAAPI session. The purpose
+This method can be called from an attached MAAPI session. The purpose
  of the function is to iterate through the transaction diff. It can
  typically be used in conjunction with the notification API when we
  subscribe to NOTIF_COMMIT_DIFF events.
 
- For all diffs in the transaction the supplied callback function
+For all diffs in the transaction the supplied callback function
  `iterate` will be called. The `iterate` callback
  receives the keypath which uniquely identifies which element in the
  XML tree that is affected, the operation, and an optional value.
 
- `iterate` is called for each modified list entry, and for each
+`iterate` is called for each modified list entry, and for each
  modified leaf node. If the node is a list entry, op is one of
  `MOP_CREATED`, `MOP_DELETED` or
  `MOP_MODIFIED` If the node is a leaf node, op
  is one of `MOP_DELETED` or `MOP_VALUE_SET`.
 
- If `iterate` returns `ITER_STOP`, no more
+If `iterate` returns `ITER_STOP`, no more
  iteration is done. If
  `iterate` returns `ITER_RECURSE` iteration
  continues with all children
  to the node. If `iterate` returns
  `ITER_CONTINUE` iteration ignores
  the children to the node (if any), and continues with the node's sibling.
-
 
  The different commit messages are not subjected to AAA checks, i.e.
  regardless of which path we have and which context was used to create the
@@ -2698,12 +2632,12 @@ Iterates through the transaction diff.
 - `int tid` - Transaction handle
 - `com.tailf.maapi.MaapiDiffIterate iter` - A MaapiDiffIterate object
 - `String fmt` - A format string for the path
-- `Object[] args` - Arguments for the path format string
+- `Object... args` - Arguments for the path format string
 
 **Throws**
 
-- `MaapiException` - Failed diffIterate
-- `IOException` - Failed to read/write maapi socket
+- `com.tailf.maapi.MaapiException` - Failed diffIterate
+- `java.io.IOException` - Failed to read/write maapi socket
 
 ### diffIterate(int, Object, EnumSet&lt;DiffIterateFlags&gt;, MaapiDiffIterate, ConfPath) <a href="#diffiterate-e06379c98286" id="diffiterate-e06379c98286"></a>
 
@@ -2722,23 +2656,22 @@ Types: [DiffIterateFlags](../conf/DiffIterateFlags.md#diffiterateflags-79473c9fd
 
 Iterates through the transaction diff.
 
- For all diffs in the transaction
+For all diffs in the transaction
  the supplied
  [`MaapiDiffIterate#iterate(ConfObject[],DiffIterateOperFlag,
  ConfObject,ConfObject,Object)`](MaapiDiffIterate.md#iterate-d80a566b7e0a) (callback) method will be called.
 
-
- This method can be called from an attached MAAPI session. The purpose
+This method can be called from an attached MAAPI session. The purpose
  of the function is to iterate through the transaction diff. It can
  typically be used in conjunction with the notification API when we
  subscribe to NOTIF_COMMIT_DIFF events.
 
- For all diffs in the transaction the supplied callback function
+For all diffs in the transaction the supplied callback function
  `iterate` will be called. The `iterate` callback
  receives the keypath which uniquely identifies which element in the
  XML tree that is affected, the operation, and an optional value.
 
- `iterate` is called for each modified list entry, and for each
+`iterate` is called for each modified list entry, and for each
  modified leaf node. If the node is a list entry, op is one of
  `MOP_CREATED`, `MOP_DELETED` or
  `MOP_MODIFIED` If the node is a leaf node, op
@@ -2748,14 +2681,13 @@ Iterates through the transaction diff.
  `MOP_ATTR_SET` and new and old values as
  [`ConfAttributeValue`](../conf/ConfAttributeValue.md#confattributevalue-d38e058ca48e)
 
- If `iterate` returns `ITER_STOP`, no more
+If `iterate` returns `ITER_STOP`, no more
  iteration is done. If
  `iterate` returns `ITER_RECURSE` iteration
  continues with all children
  to the node. If `iterate` returns
  `ITER_CONTINUE` iteration ignores
  the children to the node (if any), and continues with the node's sibling.
-
 
  The different commit messages are not subjected to AAA checks, i.e.
  regardless of which path we have and which context was used to create the
@@ -2773,9 +2705,9 @@ Iterates through the transaction diff.
 
 **Throws**
 
-- `MaapiException` - Failed diffIterate
-- `IOException` - Signals I/O exception on the underlying socket.
-             Failed to read/write maapi socket
+- `com.tailf.maapi.MaapiException` - Failed diffIterate
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+Failed to read/write maapi socket
 
 ### disconnectRemote(String) <a href="#disconnectremote-450face0b812" id="disconnectremote-450face0b812"></a>
 
@@ -2813,8 +2745,8 @@ Disconnect all remote connections between CONFD_IPC_PORT (see the IPC
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### disconnectSockets(int[]) <a href="#disconnectsockets-8b7e078ee89f" id="disconnectsockets-8b7e078ee89f"></a>
 
@@ -2845,16 +2777,16 @@ This function is an alternative to `disconnectRemote()`
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `MaapiException` - If disconnecting sockets fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If disconnecting sockets fails
 
-### doDisplay(int, String, Object[]) <a href="#dodisplay-3fd4ff100335" id="dodisplay-3fd4ff100335"></a>
+### doDisplay(int, String, Object...) <a href="#dodisplay-634ca77635cd" id="dodisplay-634ca77635cd"></a>
 
 ```java
 public synchronized boolean doDisplay(
     int tid,
     String fmt,
-    Object[] args
+    Object... args
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -2869,14 +2801,14 @@ If the data model uses the YANG 'when' or 'tailf:display-when'
 
 - `int tid` - current transaction
 - `String fmt` - path string
-- `Object[] args` - optional parameters for substitution in fmt
+- `Object... args` - optional parameters for substitution in fmt
 
 **Returns:** boolean
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### endSpan(Span, String) <a href="#endspan-1c44c700da19" id="endspan-1c44c700da19"></a>
 
@@ -2893,20 +2825,20 @@ Types: [Span](../progress/Span.md#span-1e8b02bddf13), [ConfException](../conf/Co
 End progress span. This is the low level
  method that communicates with the progress trace
  framework to end spans. It is recommended
- to use `ProgressTrace#endSpan`
+ to use [`ProgressTrace#endSpan`](../progress/ProgressTrace.md#endspan-832d21f903c3)
  instead.
 
 **Parameters**
 
-- `com.tailf.progress.Span span` - the span returned from `startSpan`
+- `com.tailf.progress.Span span` - the span returned from [`Maapi`](Maapi.md#startspan-e2d5c1669c4e)
 - `String annotation` - annotation of the ending span
 
 **Returns:** Span the parent span of the ended span
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### endUserSession() <a href="#endusersession-0b0070df9e04" id="endusersession-0b0070df9e04"></a>
 
@@ -2918,15 +2850,15 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Ends the current user session on this `Maapi` instance.
 
- If the `Maapi` socket is closed, the user
+If the `Maapi` socket is closed, the user
  session is automatically ended.
 
 **Throws**
 
-- `MaapiException` - If there is no current session on this
-            `Maapi` instance
-- `IOException` - Signals I/O exception on the underlying
-            socket
+- `com.tailf.maapi.MaapiException` - If there is no current session on this
+`Maapi` instance
+- `java.io.IOException` - Signals I/O exception on the underlying
+socket
 
 ### event(int, Verbosity, String, ConfPath, Attributes) <a href="#event-a62f77a7eb2a" id="event-a62f77a7eb2a"></a>
 
@@ -2946,7 +2878,7 @@ Types: [Verbosity](Maapi/Verbosity.md#verbosity-a9c618ec424f), [ConfPath](../con
 Create a progress event. This is the low level
  method that communicates with the progress trace
  framework to create events. It is recommended
- to use `ProgressTrace#event`
+ to use [`ProgressTrace#event`](../progress/ProgressTrace.md#event-35c2a3878e07)
  instead.
 
 **Parameters**
@@ -2959,8 +2891,8 @@ Create a progress event. This is the low level
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### exists(int, ConfPath) <a href="#exists-6846f84c441d" id="exists-6846f84c441d"></a>
 
@@ -2986,16 +2918,16 @@ Boolean function which return true or false if a path defines an existing
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### exists(int, String, Object[]) <a href="#exists-40982ba2d871" id="exists-40982ba2d871"></a>
+### exists(int, String, Object...) <a href="#exists-af6865128cd9" id="exists-af6865128cd9"></a>
 
 ```java
 public synchronized boolean exists(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -3009,14 +2941,14 @@ Boolean function which return true or false if a path defines an existing
 
 - `int tid` - Transaction Identifier
 - `String fmt` - Format string for the path
-- `Object[] arguments` - Arguments for the format string
+- `Object... arguments` - Arguments for the format string
 
 **Returns:** true if the path exists, else false.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### findNext(MaapiCursor, ConfFindNextType, ConfKey) <a href="#findnext-8a93985facf5" id="findnext-8a93985facf5"></a>
 
@@ -3047,8 +2979,8 @@ The findNext method makes it possible to jump forward to an element
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
 ### finishTrans(int) <a href="#finishtrans-0f920518d3c3" id="finishtrans-0f920518d3c3"></a>
 
@@ -3063,7 +2995,7 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Finish the transaction specified by transaction handle `tid`.
 
- If the transaction is implemented by an
+If the transaction is implemented by an
  external database, this will invoke the `finish` callback.
 
 **Parameters**
@@ -3072,17 +3004,17 @@ Finish the transaction specified by transaction handle `tid`.
 
 **Throws**
 
-- `MaapiException` - If the transaction cannot be finished
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If the transaction cannot be finished
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### getAttrs(int, ConfAttributeType[], String, Object[]) <a href="#getattrs-7e03f020d090" id="getattrs-7e03f020d090"></a>
+### getAttrs(int, ConfAttributeType[], String, Object...) <a href="#getattrs-e3e2c28882dd" id="getattrs-e3e2c28882dd"></a>
 
 ```java
 public synchronized com.tailf.conf.ConfAttributeValue[] getAttrs(
     int tid,
     com.tailf.conf.ConfAttributeType[] attribs,
     String fmt,
-    Object[] args
+    Object... args
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -3109,14 +3041,14 @@ Retrieve attributes for a configuration node. These attributes are
 - `int tid` - current transaction
 - `com.tailf.conf.ConfAttributeType[] attribs` - array of ConfAttributeType denoting attributes to retrieve
 - `String fmt` - path indicating node to retrieve attributes from
-- `Object[] args` - variable argument list for c-style parameters in fmtPath
+- `Object... args` - variable argument list for c-style parameters in fmtPath
 
-**Returns:** ConfAttributeValue[]
+**Returns:** ConfAttributeValue\[\]
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### getAuthorizationInfo(int) <a href="#getauthorizationinfo-80c04fd39233" id="getauthorizationinfo-80c04fd39233"></a>
 
@@ -3140,8 +3072,8 @@ This method retrieves authorization info for a user session, i.e. the
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
 ### getAutoNsList() <a href="#getautonslist-da00481c1d9a" id="getautonslist-da00481c1d9a"></a>
 
@@ -3187,7 +3119,7 @@ Returns the currently auto generated namespace map
  keyed on the namespace hash.
 
 **Returns:** the currently auto generated namespace map
-         keyed on the namespace hash.
+keyed on the namespace hash.
 
 ### getAutoNsPrefixMap() <a href="#getautonsprefixmap-6897b4989dfd" id="getautonsprefixmap-6897b4989dfd"></a>
 
@@ -3200,8 +3132,8 @@ Types: [ConfNamespace](../conf/ConfNamespace.md#confnamespace-51b928e168d1)
 Returns the currently auto generated namespace prefix map.
 
 **Returns:** the currently auto generated namespace prefix
-         map. The namespace prefix map maps namespace
-         prefixes to namespaces.
+map. The namespace prefix map maps namespace
+prefixes to namespaces.
 
 ### getCase(int, String, ConfPath) <a href="#getcase-9be6344ce9aa" id="getcase-9be6344ce9aa"></a>
 
@@ -3228,17 +3160,17 @@ Returns the currently selected case in a choice statement.
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if case cannot be determined
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if case cannot be determined
 
-### getCase(int, String, String, Object[]) <a href="#getcase-9eae8c6bc653" id="getcase-9eae8c6bc653"></a>
+### getCase(int, String, String, Object...) <a href="#getcase-25e143fe16c9" id="getcase-25e143fe16c9"></a>
 
 ```java
 public synchronized com.tailf.conf.ConfTag getCase(
     int tid,
     String choice,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -3247,7 +3179,7 @@ Types: [ConfTag](../conf/ConfTag.md#conftag-73757b87bc93), [ConfException](../co
 
 This returns the current 'case' for a 'choice' construct.
 
- When we use the YANG choice statement in the data model, this method
+When we use the YANG choice statement in the data model, this method
  can be used to find the currently selected case,
  avoiding useless getElem() etc requests for nodes that belong
  to other cases. The `fmt` arguments give the path to
@@ -3255,8 +3187,7 @@ This returns the current 'case' for a 'choice' construct.
  and choice is the name of the choice.The case value is returned as
  ConfTag.
 
-
- For a choice without a mandatory true statement where no case is
+For a choice without a mandatory true statement where no case is
  currently selected, the function will fail with
  ERR_NOEXISTS if the choice doesn't have a default case.
  If it has a default case, it will be returned
@@ -3264,7 +3195,7 @@ This returns the current 'case' for a 'choice' construct.
  MaapiFlag if the flag is set, the value returned will have type
  `ConfTagDefault`.
 
- NOTE: The method will suppress all ERR_NOEXISTS errors this means
+NOTE: The method will suppress all ERR_NOEXISTS errors this means
  that the method will not throw exception when ERR_NOEXISTS
  occurs it will print a warning message and return null.
 
@@ -3273,18 +3204,18 @@ This returns the current 'case' for a 'choice' construct.
 - `int tid` - current transaction handle
 - `String choice` - name of the choice
 - `String fmt` - path string to the container or list where the
-        choice is defined
-- `Object[] arguments` - optional parameters for substitution in fmt
+choice is defined
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Returns:** ConfTag representing the current selected case or null if
-         the case could not be determine. If NO_DEFAULTS flag is used and
-         the default case is selected, then ConfTagDefault instance is
-         returned.
+the case could not be determine. If NO_DEFAULTS flag is used and
+the default case is selected, then ConfTagDefault instance is
+returned.
 
 **Throws**
 
-- `MaapiException` - If the case cannot be retrieved
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If the case cannot be retrieved
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### getCLIInteraction(int) <a href="#getcliinteraction-9602971a279d" id="getcliinteraction-9602971a279d"></a>
 
@@ -3328,8 +3259,8 @@ Returns the current position as previously set by Maapi.cd(),
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### getCwdPath(int) <a href="#getcwdpath-c4bbc6c8fa08" id="getcwdpath-c4bbc6c8fa08"></a>
 
@@ -3353,8 +3284,8 @@ Returns the current position like Maapi.getCwd(), but as a ConfPath
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### getElem(int, ConfPath) <a href="#getelem-174690e33535" id="getelem-174690e33535"></a>
 
@@ -3380,16 +3311,16 @@ This reads a value from the path in fmt and returns the result. The path
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### getElem(int, String, Object[]) <a href="#getelem-1415a215bb24" id="getelem-1415a215bb24"></a>
+### getElem(int, String, Object...) <a href="#getelem-fed33938e6b8" id="getelem-fed33938e6b8"></a>
 
 ```java
 public synchronized com.tailf.conf.ConfValue getElem(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -3403,14 +3334,14 @@ This reads a value from the path in fmt and returns the result. The path
 
 - `int tid` - Transaction Identifier
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Returns:** A ConfValue that describes the value of the element.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### getMountId(int, ConfPath) <a href="#getmountid-bcb13e926380" id="getmountid-bcb13e926380"></a>
 
@@ -3435,7 +3366,7 @@ Retrieves the mount ID for a given path in a transaction.
 
 **Throws**
 
-- `ConfException` - if operation fails
+- `com.tailf.conf.ConfException` - if operation fails
 
 ### getMyUserSession() <a href="#getmyusersession-23a1a3d293a2" id="getmyusersession-23a1a3d293a2"></a>
 
@@ -3451,10 +3382,10 @@ Returns the usid associated with this `Maapi`
 
 **Throws**
 
-- `MaapiException` - If no user session exists on this
-            `Maapi` socket
-- `IOException` - Signals some I/O exception on the underlying
-            socket
+- `com.tailf.maapi.MaapiException` - If no user session exists on this
+`Maapi` socket
+- `java.io.IOException` - Signals some I/O exception on the underlying
+socket
 
 ### getNext(MaapiCursor) <a href="#getnext-94186d85d070" id="getnext-94186d85d070"></a>
 
@@ -3469,28 +3400,24 @@ Types: [ConfKey](../conf/ConfKey.md#confkey-e4e1ca98e867), [MaapiCursor](MaapiCu
 
 Iterates and gets the keys for the next element pinpointed by the
  [`MaapiCursor`](MaapiCursor.md#maapicursor-788c065e30cb) initially retrieved by
- [`newCursor(int, String, Object...)`](Maapi.md#newcursor-8f0d3924978a).
+ [`newCursor(int, String, Object...)`](Maapi.md#newcursor-5a95a4101aa4).
  With the key(s) it is possible to navigate further down the model.
 
-
- For example, to read the port element from the 'server' example model,
+For example, to read the port element from the 'server' example model,
  we would do:
 
-
-
-
-```
- MaapiCursor c = maapi.newCursor(tid,
-                                 "/mtest:mtest/servers/server");
- ConfKey x = maapi.getNext(c);
- while (x != null) {
-     ConfObject p;
-     p = maapi.getElem(tid,
-                       "/mtest:mtest/servers/server{%x}/port", x);
-     // ....
-     x = maapi.getNext(c);
- }
-```
+> ```
+> MaapiCursor c = maapi.newCursor(tid,
+>                                 "/mtest:mtest/servers/server");
+> ConfKey x = maapi.getNext(c);
+> while (x != null) {
+>     ConfObject p;
+>     p = maapi.getElem(tid,
+>                       "/mtest:mtest/servers/server{%x}/port", x);
+>     // ....
+>     x = maapi.getNext(c);
+> }
+> ```
 
 **Parameters**
 
@@ -3500,8 +3427,8 @@ Iterates and gets the keys for the next element pinpointed by the
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
 ### getNsList() <a href="#getnslist-0345f486e876" id="getnslist-0345f486e876"></a>
 
@@ -3541,16 +3468,16 @@ Return the number of instances in a list. The path
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### getNumberOfInstances(int, String, Object[]) <a href="#getnumberofinstances-f0813061766e" id="getnumberofinstances-f0813061766e"></a>
+### getNumberOfInstances(int, String, Object...) <a href="#getnumberofinstances-679b98e895d1" id="getnumberofinstances-679b98e895d1"></a>
 
 ```java
 public synchronized int getNumberOfInstances(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -3564,22 +3491,22 @@ Return the number of instances in a list. The path
 
 - `int tid` - Transaction Identifier
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Returns:** The number of instances in the list
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### getObject(int, String, Object[]) <a href="#getobject-8f535bb4e0e8" id="getobject-8f535bb4e0e8"></a>
+### getObject(int, String, Object...) <a href="#getobject-2a5e3632866b" id="getobject-2a5e3632866b"></a>
 
 ```java
 public synchronized com.tailf.conf.ConfObject[] getObject(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -3602,14 +3529,14 @@ This reads a container object or a list entry object from the path in fmt
 
 - `int tid` - Transaction Identifier
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Returns:** An array of ConfObject which describes the object.
 
 **Throws**
 
-- `MaapiException` - If the object cannot be retrieved
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If the object cannot be retrieved
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### getObjects(MaapiCursor, int, int) <a href="#getobjects-8d530442b539" id="getobjects-8d530442b539"></a>
 
@@ -3643,12 +3570,12 @@ Get several list instances with one request. A prerequisite is that a
 - `int numOfObjects` - Number of object retrieved from a list instance
 - `int numOfInstances` - Number of list instances retrieved in this call
 
-**Returns:** ListConfObject[] containing list instances.
+**Returns:** List\<ConfObject\[\]\> containing list instances.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### getReadIntent(int) <a href="#getreadintent-eaf0d52ae3f6" id="getreadintent-eaf0d52ae3f6"></a>
 
@@ -3671,8 +3598,8 @@ Get the read intent for the transaction
 
 **Throws**
 
-- `MaapiException` - If getting the read intent fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If getting the read intent fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### getRollbackId(int) <a href="#getrollbackid-cae38eb78c8e" id="getrollbackid-cae38eb78c8e"></a>
 
@@ -3688,7 +3615,7 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 Get rollback id for committed transaction specified by
  transaction handle `tid`.
 
- This methods returns the fixed rollback id of the rollback
+This methods returns the fixed rollback id of the rollback
  file created during commit of the transaction. If rollbacks are
  disabled or no rollback was created this returns -1.
 
@@ -3700,13 +3627,13 @@ Get rollback id for committed transaction specified by
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### getRunningDbStatus() <a href="#getrunningdbstatus-241216af056b" id="getrunningdbstatus-241216af056b"></a>
 
 ```java
-public synchronized int getRunningDbStatus() throws java.io.IOException, com.tailf.conf.ConfException
+public synchronized int getRunningDbStatus()
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
@@ -3714,7 +3641,7 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Query ConfD/NCS for its consistency state.
 
- If a transaction fails in the `commit` phase, the
+If a transaction fails in the `commit` phase, the
  configuration database is in a possibly inconsistent state.
  This method queries ConfD/NCS on the consistency state.
 
@@ -3723,8 +3650,8 @@ Query ConfD/NCS for its consistency state.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### getSchemas() <a href="#getschemas-7b275bd8ca12" id="getschemas-7b275bd8ca12"></a>
 
@@ -3764,11 +3691,11 @@ Extracts the InetAddress from a SocketAddress.
 - `java.net.SocketAddress address` - the socket address to extract from
 
 **Returns:** the InetAddress from the socket address, or localhost if not
-         an InetSocketAddress
+an InetSocketAddress
 
 **Throws**
 
-- `UnknownHostException` - if localhost cannot be determined
+- `java.net.UnknownHostException` - if localhost cannot be determined
 
 ### getTransactionMode(int) <a href="#gettransactionmode-31871babf3ac" id="gettransactionmode-31871babf3ac"></a>
 
@@ -3792,8 +3719,8 @@ Get the mode for the given transaction.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### getTransParams(int) <a href="#gettransparams-05113dc340f5" id="gettransparams-05113dc340f5"></a>
 
@@ -3816,8 +3743,8 @@ Get commit parameters for a transaction.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### getUserSession(int) <a href="#getusersession-ce8473a1e046" id="getusersession-ce8473a1e046"></a>
 
@@ -3840,10 +3767,10 @@ Return a [`MaapiUserSession`](MaapiUserSession.md#maapiusersession-2d8a37dd2abf)
 
 **Throws**
 
-- `MaapiException` - If the user session with the given
-          `ID` does not exits
-- `IOException` - Signals I/O exception on the underlying
-            socket
+- `com.tailf.maapi.MaapiException` - If the user session with the given
+`ID` does not exits
+- `java.io.IOException` - Signals I/O exception on the underlying
+socket
 
 ### getUserSessionIdentification(int) <a href="#getusersessionidentification-b5dbad8ef1a8" id="getusersessionidentification-b5dbad8ef1a8"></a>
 
@@ -3869,9 +3796,9 @@ This method can be used to retrieve additional identification
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
-- `MaapiException` - If the operation fails
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If the operation fails
 
 ### getUserSessionOpaque(int) <a href="#getusersessionopaque-c7ddb1c3a4e0" id="getusersessionopaque-c7ddb1c3a4e0"></a>
 
@@ -3896,8 +3823,8 @@ If the user session has "opaque" information provided by the
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
 
 ### getUserSessions() <a href="#getusersessions-4b7007a2fe5d" id="getusersessions-4b7007a2fe5d"></a>
 
@@ -3913,9 +3840,9 @@ Return all user sessions id's currently connected to ConfD/NCS.
 
 **Throws**
 
-- `MaapiException` - If the operation fails
-- `IOException` - Signals I/O exception on the underlying
-            socket
+- `com.tailf.maapi.MaapiException` - If the operation fails
+- `java.io.IOException` - Signals I/O exception on the underlying
+socket
 
 ### getValues(int, T, ConfPath) <a href="#getvalues-4c7d173a5b38" id="getvalues-4c7d173a5b38"></a>
 
@@ -3932,28 +3859,25 @@ Types: [ConfPath](../conf/ConfPath.md#confpath-327831c6fc7d), [ConfException](..
 
 Read an arbitrary set of sub-elements of a container element.
 
- The `params` list must be pre-populated
+The `params` list must be pre-populated
  based on the specification of the [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7)
  array structure format. Where
  [`ConfXMLParamValue`](../conf/ConfXMLParamValue.md#confxmlparamvalue-9f41fb2668c9) value element set by
  [`ConfXMLParamValue#setValue(ConfObject)`](../conf/ConfXMLParamValue.md#setvalue-6b7c360817b0) method
  is given as follow:
 
-
 - [`ConfNoExists`](../conf/ConfNoExists.md#confnoexists-bdcf8f2c7ab9) means that the value should
- be read from the transaction and stored in the array.
+   be read from the transaction and stored in the array.
+- [`ConfXMLParamStart`](../conf/ConfXMLParamStart.md#confxmlparamstart-05eace141688),
+   [`ConfXMLParamStop`](../conf/ConfXMLParamStop.md#confxmlparamstop-d1e86c4fdecc)
+   are used as per the specification.
+- Keys to select list entries can be given with their values.
 
-   - [`ConfXMLParamStart`](../conf/ConfXMLParamStart.md#confxmlparamstart-05eace141688),
- [`ConfXMLParamStop`](../conf/ConfXMLParamStop.md#confxmlparamstop-d1e86c4fdecc)
- are used as per the specification.
-
-     - Keys to select list entries can be given with their values.
-
- All elements have the same position in the array after the call,
+All elements have the same position in the array after the call,
  In order to simplify extraction of the values -
  this means that optional elements that were requested but didn't
  exist will have `ConfNoExists` (as a the
- `ConfXMLParamValue#getValue()` return value in
+ [`ConfXMLParam#getValue()`](../conf/ConfXMLParam.md#getvalue-d93864668c40) return value in
  the corresponding position in a `ConfXMLParamValue`)
  rather than being omitted from the array.
  However requesting a list entry that doesn't exist will throw
@@ -3973,20 +3897,20 @@ Read an arbitrary set of sub-elements of a container element.
 
 **Throws**
 
-- `MaapiException` - If the call failed for some reason
-         see the `MaapiException#getMessage()` for details.
-- `IOException` - Signals I/O exception of some kind
+- `com.tailf.maapi.MaapiException` - If the call failed for some reason
+see the `MaapiException#getMessage()` for details.
+- `java.io.IOException` - Signals I/O exception of some kind
 
 **See also:** [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [`ConfXMLParamValue`](../conf/ConfXMLParamValue.md#confxmlparamvalue-9f41fb2668c9)
 
-### getValues(int, T, String, Object[]) <a href="#getvalues-33bfcad43c75" id="getvalues-33bfcad43c75"></a>
+### getValues(int, T, String, Object...) <a href="#getvalues-3ce35068f7ff" id="getvalues-3ce35068f7ff"></a>
 
 ```java
 public synchronized <T extends java.util.List<com.tailf.conf.ConfXMLParam>> T getValues(
     int tid,
     T params,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -3995,28 +3919,25 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9), [Co
 
 Read an arbitrary set of sub-elements of a container element.
 
- The `params` list must be pre-populated
+The `params` list must be pre-populated
  based on the specification of the [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) array
  structure format. Where [`ConfXMLParamValue`](../conf/ConfXMLParamValue.md#confxmlparamvalue-9f41fb2668c9) value
  element set by
  [`ConfXMLParamValue#setValue(ConfObject)`](../conf/ConfXMLParamValue.md#setvalue-6b7c360817b0) method is
  given as follow:
 
-
 - [`ConfNoExists`](../conf/ConfNoExists.md#confnoexists-bdcf8f2c7ab9) means that the value should be
- read from the transaction and stored in the array.
+   read from the transaction and stored in the array.
+- [`ConfXMLParamStart`](../conf/ConfXMLParamStart.md#confxmlparamstart-05eace141688),
+   [`ConfXMLParamStop`](../conf/ConfXMLParamStop.md#confxmlparamstop-d1e86c4fdecc)
+   are used as per the specification.
+- Keys to select list entries can be given with their values.
 
-   - [`ConfXMLParamStart`](../conf/ConfXMLParamStart.md#confxmlparamstart-05eace141688),
- [`ConfXMLParamStop`](../conf/ConfXMLParamStop.md#confxmlparamstop-d1e86c4fdecc)
- are used as per the specification.
-
-     - Keys to select list entries can be given with their values.
-
- All elements have the same position in the array after the call,
+All elements have the same position in the array after the call,
  In order to simplify extraction of the values -
  this means that optional elements that were requested but didn't
  exist will have `ConfNoExists` (as a the
- `ConfXMLParamValue#getValue()` return value in
+ [`ConfXMLParam#getValue()`](../conf/ConfXMLParam.md#getvalue-d93864668c40) return value in
  the corresponding position in a `ConfXMLParamValue`)
  rather than being omitted from the array.
  However requesting a list entry that doesn't exist will throw
@@ -4031,15 +3952,15 @@ Read an arbitrary set of sub-elements of a container element.
 - `int tid` - transaction handle
 - `T params` - pre-populated structure of the elements to be extracted
 - `String fmt` - the format string for the path
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Returns:** the populated list with extracted values
 
 **Throws**
 
-- `MaapiException` - If the call failed for some reason
-         see the `MaapiException#getMessage()` for details.
-- `IOException` - Signals I/O exception of some kind
+- `com.tailf.maapi.MaapiException` - If the call failed for some reason
+see the `MaapiException#getMessage()` for details.
+- `java.io.IOException` - Signals I/O exception of some kind
 
 **See also:** [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [`ConfXMLParamValue`](../conf/ConfXMLParamValue.md#confxmlparamvalue-9f41fb2668c9)
 
@@ -4058,28 +3979,25 @@ Types: [ConfPath](../conf/ConfPath.md#confpath-327831c6fc7d), [ConfException](..
 
 Read an arbitrary set of sub-elements of a container element.
 
- The `params` array must be pre-populated
+The `params` array must be pre-populated
  based on the specification of the [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) array
  structure format. Where [`ConfXMLParamValue`](../conf/ConfXMLParamValue.md#confxmlparamvalue-9f41fb2668c9) value
  element set by
  [`ConfXMLParamValue#setValue(ConfObject)`](../conf/ConfXMLParamValue.md#setvalue-6b7c360817b0)
  method is given as follow:
 
-
 - [`ConfNoExists`](../conf/ConfNoExists.md#confnoexists-bdcf8f2c7ab9) means that the value
-  should be read from the transaction and stored in the array.
+    should be read from the transaction and stored in the array.
+- [`ConfXMLParamStart`](../conf/ConfXMLParamStart.md#confxmlparamstart-05eace141688),
+   [`ConfXMLParamStop`](../conf/ConfXMLParamStop.md#confxmlparamstop-d1e86c4fdecc)
+   are used as per the specification.
+- Keys to select list entries can be given with their values.
 
-   - [`ConfXMLParamStart`](../conf/ConfXMLParamStart.md#confxmlparamstart-05eace141688),
- [`ConfXMLParamStop`](../conf/ConfXMLParamStop.md#confxmlparamstop-d1e86c4fdecc)
- are used as per the specification.
-
-     - Keys to select list entries can be given with their values.
-
- All elements have the same position in the array after the call,
+All elements have the same position in the array after the call,
  In order to simplify extraction of the values -
  this means that optional elements that were requested but didn't
  exist will have `ConfNoExists` (as a the
- `ConfXMLParamValue#getValue()` return value in
+ [`ConfXMLParam#getValue()`](../conf/ConfXMLParam.md#getvalue-d93864668c40) return value in
  the corresponding position in a `ConfXMLParamValue`)
  rather than being omitted from the array.
  However requesting a list entry that doesn't exist will throw
@@ -4099,20 +4017,20 @@ Read an arbitrary set of sub-elements of a container element.
 
 **Throws**
 
-- `MaapiException` - If the call failed for some reason
-         see the `MaapiException#getMessage()` for details.
-- `IOException` - Signals I/O exception of some kind
+- `com.tailf.maapi.MaapiException` - If the call failed for some reason
+see the `MaapiException#getMessage()` for details.
+- `java.io.IOException` - Signals I/O exception of some kind
 
 **See also:** [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [`ConfXMLParamValue`](../conf/ConfXMLParamValue.md#confxmlparamvalue-9f41fb2668c9)
 
-### getValues(int, T[], String, Object[]) <a href="#getvalues-975e171e6ece" id="getvalues-975e171e6ece"></a>
+### getValues(int, T[], String, Object...) <a href="#getvalues-6a19b41a7dbf" id="getvalues-6a19b41a7dbf"></a>
 
 ```java
 public synchronized <T extends com.tailf.conf.ConfXMLParam> T[] getValues(
     int tid,
     T[] params,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -4121,28 +4039,25 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9), [Co
 
 Read an arbitrary set of sub-elements of a container element.
 
- The `params` array must be pre-populated
+The `params` array must be pre-populated
  based on the specification of the [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7) array
  structure format. Where [`ConfXMLParamValue`](../conf/ConfXMLParamValue.md#confxmlparamvalue-9f41fb2668c9)
  value element set by
  [`ConfXMLParamValue#setValue(ConfObject)`](../conf/ConfXMLParamValue.md#setvalue-6b7c360817b0)
  method is given as follow:
 
-
 - [`ConfNoExists`](../conf/ConfNoExists.md#confnoexists-bdcf8f2c7ab9) means that the value should be
- read from the transaction and stored in the array.
+   read from the transaction and stored in the array.
+- [`ConfXMLParamStart`](../conf/ConfXMLParamStart.md#confxmlparamstart-05eace141688),
+   [`ConfXMLParamStop`](../conf/ConfXMLParamStop.md#confxmlparamstop-d1e86c4fdecc)
+   are used as per the specification.
+- Keys to select list entries can be given with their values.
 
-   - [`ConfXMLParamStart`](../conf/ConfXMLParamStart.md#confxmlparamstart-05eace141688),
- [`ConfXMLParamStop`](../conf/ConfXMLParamStop.md#confxmlparamstop-d1e86c4fdecc)
- are used as per the specification.
-
-     - Keys to select list entries can be given with their values.
-
- All elements have the same position in the array after the call,
+All elements have the same position in the array after the call,
  In order to simplify extraction of the values -
  this means that optional elements that were requested but didn't
  exist will have `ConfNoExists` (as a the
- `ConfXMLParamValue#getValue()` return value in
+ [`ConfXMLParam#getValue()`](../conf/ConfXMLParam.md#getvalue-d93864668c40) return value in
  the corresponding position in a `ConfXMLParamValue`)
  rather than being omitted from the array.
  However requesting a list entry that doesn't exist will throw
@@ -4157,15 +4072,15 @@ Read an arbitrary set of sub-elements of a container element.
 - `int tid` - transaction handle
 - `T[] params` - pre-populated structure of the elements to be extracted
 - `String fmt` - path string
-- `Object[] arguments` - optional parameter for substitution in fmt
+- `Object... arguments` - optional parameter for substitution in fmt
 
 **Returns:** array of populated parameters with extracted values
 
 **Throws**
 
-- `MaapiException` - If the call failed for some reason
-         see the `MaapiException#getMessage()` for details.
-- `IOException` - Signals I/O exception of some kind
+- `com.tailf.maapi.MaapiException` - If the call failed for some reason
+see the `MaapiException#getMessage()` for details.
+- `java.io.IOException` - Signals I/O exception of some kind
 
 **See also:** [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [`ConfXMLParamValue`](../conf/ConfXMLParamValue.md#confxmlparamvalue-9f41fb2668c9)
 
@@ -4191,8 +4106,8 @@ Hide all nodes belonging to a hide group in a transaction that started
 
 **Throws**
 
-- `MaapiException` - If hiding the group fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If hiding the group fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### init() <a href="#init-e3919b885d98" id="init-e3919b885d98"></a>
 
@@ -4206,7 +4121,7 @@ Initializes the MAAPI connection and loads schemas.
 
 **Throws**
 
-- `ConfException` - if connection or schema loading fails
+- `com.tailf.conf.ConfException` - if connection or schema loading fails
 
 ### initUpgrade(int, int) <a href="#initupgrade-56c030ff2fc5" id="initupgrade-56c030ff2fc5"></a>
 
@@ -4245,8 +4160,8 @@ Note, This method is only applicable for Confd. For NCS, the In-service
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### inputStreamResult(int, int) <a href="#inputstreamresult-abcc2b3f4a7e" id="inputstreamresult-abcc2b3f4a7e"></a>
 
@@ -4259,14 +4174,14 @@ protected synchronized boolean inputStreamResult(int resultOperation, int stream
 - `int resultOperation`
 - `int streamId`
 
-### insert(int, boolean, String, Object[]) <a href="#insert-b0095c025c86" id="insert-b0095c025c86"></a>
+### insert(int, boolean, String, Object...) <a href="#insert-1ea934b9c319" id="insert-1ea934b9c319"></a>
 
 ```java
 public synchronized void insert(
     int tid,
     boolean createBackPointer,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -4274,7 +4189,7 @@ public synchronized void insert(
 Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 This function inserts a new element in an ordered list of elements. The
- key must be of type integer, and have the attribute indexedView.
+ key must be of type integer, and have the attribute \<indexedView\>.
  If the inserted element already exists, all element following the element
  will be reordered.
 
@@ -4286,20 +4201,20 @@ This function inserts a new element in an ordered list of elements. The
  true. Since we insert into the list, effectively changing the keys
  the FastMap diff-sets must be updated accordingly.
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### insert(int, String, Object[]) <a href="#insert-8aab317d3021" id="insert-8aab317d3021"></a>
+### insert(int, String, Object...) <a href="#insert-6a1ddffe6066" id="insert-6a1ddffe6066"></a>
 
 ```java
 public synchronized void insert(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -4307,23 +4222,23 @@ public synchronized void insert(
 Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Insert new element in an ordered list.
- Equivalent to [`insert(int, boolean, String, Object...)`](Maapi.md#insert-b0095c025c86).
+ Equivalent to [`insert(int, boolean, String, Object...)`](Maapi.md#insert-1ea934b9c319).
 
 **Parameters**
 
 - `int tid` - transaction identifier
 - `String fmt` - path the path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if element cannot be inserted
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if element cannot be inserted
 
 ### isCandidateModified() <a href="#iscandidatemodified-a17e4d850f34" id="iscandidatemodified-a17e4d850f34"></a>
 
 ```java
-public synchronized boolean isCandidateModified() throws java.io.IOException, com.tailf.conf.ConfException
+public synchronized boolean isCandidateModified()
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
@@ -4337,8 +4252,8 @@ Returns `true` if candidate has been modified, i.e., if there are
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### isLockSet(int) <a href="#islockset-66fbf05334ff" id="islockset-66fbf05334ff"></a>
 
@@ -4355,19 +4270,19 @@ This methods checks if a lock is taken or not. if integer /= 0 is
 
 - `int db` - Database to check. Possible values are
   [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486), [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28), and
-            [`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
+[`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
 
 **Returns:** 0 if no lock is set, else the usid of the lock owner
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### isRunningModified() <a href="#isrunningmodified-53004bab212a" id="isrunningmodified-53004bab212a"></a>
 
 ```java
-public synchronized boolean isRunningModified() throws java.io.IOException, com.tailf.conf.ConfException
+public synchronized boolean isRunningModified()
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
@@ -4380,8 +4295,8 @@ Returns true if running has been modified since the last copy to startup,
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### iterate(int, Object, EnumSet&lt;ConfIterateFlags&gt;, MaapiIterate, ConfPath) <a href="#iterate-f6278b19bafb" id="iterate-f6278b19bafb"></a>
 
@@ -4400,18 +4315,17 @@ Types: [ConfIterateFlags](../conf/ConfIterateFlags.md#confiterateflags-74fb5551d
 
 Iterates through all the data in a transaction.
 
- For all data elements in the transaction the supplied
+For all data elements in the transaction the supplied
  [`MaapiIterate#iterate(ConfObject[],ConfObject,
    ConfAttributeValue[],Object)`](MaapiIterate.md#iterate-638caa8f5a2f) (callback) method will be called.
 
+This method can be called from an attached MAAPI session.
 
- This method can be called from an attached MAAPI session.
-
- The `iterate` callback
+The `iterate` callback
  receives the keypath which uniquely identifies which element in the
  XML tree that is affected, the operation, and an optional value.
 
- `iterate` is called for each list entry, and for each
+`iterate` is called for each list entry, and for each
  leaf node. If the node is a list entry, op is one of
  `MOP_CREATED`, `MOP_DELETED` or
  `MOP_MODIFIED` If the node is a leaf node, op
@@ -4421,14 +4335,13 @@ Iterates through all the data in a transaction.
  `MOP_ATTR_SET` and new and old values as
  [`ConfAttributeValue`](../conf/ConfAttributeValue.md#confattributevalue-d38e058ca48e)
 
- If `iterate` returns `ITER_STOP`, no more
+If `iterate` returns `ITER_STOP`, no more
  iteration is done. If
  `iterate` returns `ITER_RECURSE` iteration
  continues with all children
  to the node. If `iterate` returns
  `ITER_CONTINUE` iteration ignores
  the children to the node (if any), and continues with the node's sibling.
-
 
  The different commit messages are not subjected to AAA checks, i.e.
  regardless of which path we have and which context was used to create the
@@ -4446,8 +4359,8 @@ Iterates through all the data in a transaction.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### killUserSession(int) <a href="#killusersession-4c91da836162" id="killusersession-4c91da836162"></a>
 
@@ -4468,10 +4381,10 @@ Ends another users session, effectively logging out that user.
 
 **Throws**
 
-- `MaapiException` - If the session with the `ID`
-            did not exists
-- `IOException` - Signals I/O exception on the underlying
-            socket
+- `com.tailf.maapi.MaapiException` - If the session with the `ID`
+did not exists
+- `java.io.IOException` - Signals I/O exception on the underlying
+socket
 
 ### loadConfig(int, EnumSet&lt;MaapiConfigFlag&gt;, String) <a href="#loadconfig-0cd0ed8a64d0" id="loadconfig-0cd0ed8a64d0"></a>
 
@@ -4495,28 +4408,28 @@ This function loads a configuration from filename into the server. The
  together with MAAPI_CONFIG_XML to mean that any operational data in the
  file should be ignored (instead of producing an error). The other flags
  parameters are the same as for
- `Maapi#saveConfig(int, EnumSet, String, Object...)`
+ [`Maapi#saveConfig(int, EnumSet, String, Object...)`](Maapi.md#saveconfig-eabd7f81580a)
 
 **Parameters**
 
 - `int tid` - transaction id for started transaction
 - `java.util.EnumSet<com.tailf.maapi.MaapiConfigFlag> flags` - One of `MAAPI_CONFIG_XML`,
-                   `MAAPI_CONFIG_J `,
-                   `MAAPI_CONFIG_C`,
-                   `MAAPI_CONFIG_WITH_DEFAULTS`,
-                   `MAAPI_CONFIG_SHOW_DEFAULTS`,
-                   `MAAPI_CONFIG_C_IOS`,
-                   `MAAPI_CONFIG_MERGE` or
-                   `MAAPI_CONFIG_WITH_OPER`
+`MAAPI_CONFIG_J `,
+`MAAPI_CONFIG_C`,
+`MAAPI_CONFIG_WITH_DEFAULTS`,
+`MAAPI_CONFIG_SHOW_DEFAULTS`,
+`MAAPI_CONFIG_C_IOS`,
+`MAAPI_CONFIG_MERGE` or
+`MAAPI_CONFIG_WITH_OPER`
 - `String filename` - name of the configuration file relative directory where
-              ConfD/NCS started.
+ConfD/NCS started.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### loadConfigCmds(int, EnumSet&lt;MaapiConfigFlag&gt;, String, String, Object[]) <a href="#loadconfigcmds-4c47d55451a5" id="loadconfigcmds-4c47d55451a5"></a>
+### loadConfigCmds(int, EnumSet&lt;MaapiConfigFlag&gt;, String, String, Object...) <a href="#loadconfigcmds-503af14c6ecb" id="loadconfigcmds-503af14c6ecb"></a>
 
 ```java
 public synchronized void loadConfigCmds(
@@ -4524,7 +4437,7 @@ public synchronized void loadConfigCmds(
     java.util.EnumSet<com.tailf.maapi.MaapiConfigFlag> flags,
     String cmds,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -4539,26 +4452,26 @@ This function loads a configuration from a string into the server.
  together with MAAPI_CONFIG_XML to mean that any operational data in the
  file should be ignored (instead of producing an error). The other flags
  parameters are the same as for
- `Maapi#saveConfig(int, EnumSet, String, Object...)`
+ [`Maapi#saveConfig(int, EnumSet, String, Object...)`](Maapi.md#saveconfig-eabd7f81580a)
 
 **Parameters**
 
 - `int tid` - transaction id for started transaction
 - `java.util.EnumSet<com.tailf.maapi.MaapiConfigFlag> flags` - One of `MAAPI_CONFIG_XML`,
-            `MAAPI_CONFIG_J`, `MAAPI_CONFIG_C`,
-            `MAAPI_CONFIG_WITH_DEFAULTS`,
-            `MAAPI_CONFIG_SHOW_DEFAULTS`,
-            `MAAPI_CONFIG_C_IOS`,
-            `MAAPI_CONFIG_MERGE` or
-            `MAAPI_CONFIG_WITH_OPER`
+`MAAPI_CONFIG_J`, `MAAPI_CONFIG_C`,
+`MAAPI_CONFIG_WITH_DEFAULTS`,
+`MAAPI_CONFIG_SHOW_DEFAULTS`,
+`MAAPI_CONFIG_C_IOS`,
+`MAAPI_CONFIG_MERGE` or
+`MAAPI_CONFIG_WITH_OPER`
 - `String cmds` - string representing the configuration to be loaded
 - `String fmt` - path relative to which the configuration should be loaded
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
 
 ### loadConfigStream(int, EnumSet&lt;MaapiConfigFlag&gt;) <a href="#loadconfigstream-5250b4e7adae" id="loadconfigstream-5250b4e7adae"></a>
 
@@ -4574,43 +4487,43 @@ Types: [MaapiOutputStream](MaapiOutputStream.md#maapioutputstream-97ebc772623b),
 
 Load configuration from a `OuputStream ` into ConfD/NCS.
 
- This method loads a configuration from a `OutputStream`
+This method loads a configuration from a `OutputStream`
  into the server.
 
- The tid parameter is a transaction id. Thus the application must
+The tid parameter is a transaction id. Thus the application must
  create and also apply the transaction. By default the complete
  configuration (as allowed by the user of the current transaction) is
  deleted before the file is loaded.
 
- To merge the contents of the file use the
+To merge the contents of the file use the
  [`MaapiConfigFlag#MAAPI_CONFIG_MERGE`](MaapiConfigFlag.md#maapi_config_merge-b85720c4efea) flag.
  The [`MaapiConfigFlag#MAAPI_CONFIG_WITH_OPER`](MaapiConfigFlag.md#maapi_config_with_oper-e9ea7e3958f1) flag can be used
  together with [`MaapiConfigFlag#MAAPI_CONFIG_XML`](MaapiConfigFlag.md#maapi_config_xml-5293149632cc) to mean that
  any operational data in the file should be ignored
  (instead of producing an error).
 
- The other flags parameters are the same as for
- `Maapi#saveConfig(int, EnumSet, String, Object...)`
+The other flags parameters are the same as for
+ [`Maapi#saveConfig(int, EnumSet, String, Object...)`](Maapi.md#saveconfig-eabd7f81580a)
 
 **Parameters**
 
 - `int tid` - transaction id for started transaction
 - `java.util.EnumSet<com.tailf.maapi.MaapiConfigFlag> flags` - One of
-            `MAAPI_CONFIG_XML`,
-            `MAAPI_CONFIG_J `,
-            `MAAPI_CONFIG_C`,
-            `MAAPI_CONFIG_WITH_DEFAULTS`,
-            `MAAPI_CONFIG_SHOW_DEFAULTS`,
-            `MAAPI_CONFIG_C_IOS`,
-            `MAAPI_CONFIG_MERGE` or
-            `MAAPI_CONFIG_WITH_OPER`
+`MAAPI_CONFIG_XML`,
+`MAAPI_CONFIG_J `,
+`MAAPI_CONFIG_C`,
+`MAAPI_CONFIG_WITH_DEFAULTS`,
+`MAAPI_CONFIG_SHOW_DEFAULTS`,
+`MAAPI_CONFIG_C_IOS`,
+`MAAPI_CONFIG_MERGE` or
+`MAAPI_CONFIG_WITH_OPER`
 
 **Returns:** OutputStream to write data to.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### loadSchemas() <a href="#loadschemas-84ad3496a6f3" id="loadschemas-84ad3496a6f3"></a>
 
@@ -4624,14 +4537,14 @@ Load Schemas method that downloads all schemas from server into a
  MaapiSchemas container, from which specified schemas can be accessed and
  traversed.
 
- When loaded the `MaapiSchemas` object is stored
+When loaded the `MaapiSchemas` object is stored
  locally and new calls to this method will return the same instance.
 
 **Returns:** MaapiSchemas object which is container for all downloaded schemas
 
 **Throws**
 
-- `MaapiException` - if loading fails
+- `com.tailf.maapi.MaapiException` - if loading fails
 
 ### loadSchemas(String[]) <a href="#loadschemas-57d79f485410" id="loadschemas-57d79f485410"></a>
 
@@ -4648,7 +4561,7 @@ Load Schemas method that downloads a specified number of schemas
  the server into a MaapiSchemas container, from which specified schemas
  can be accessed and transversed.
 
- When loaded the MaapiSchemas object
+When loaded the MaapiSchemas object
  is stored locally and new calls to this method will return the same
  instance.
 
@@ -4660,7 +4573,7 @@ Load Schemas method that downloads a specified number of schemas
 
 **Throws**
 
-- `MaapiException` - if loading fails
+- `com.tailf.maapi.MaapiException` - if loading fails
 
 ### lock(int) <a href="#lock-51793ae61d79" id="lock-51793ae61d79"></a>
 
@@ -4672,49 +4585,41 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 This function is used to take a lock on one of the databases.
 
+Only one entity may own the lock at any given time.
 
- Only one entity may own the lock at any given time.
-
-
- You do not have to acquire the lock before you read or write to a
+You do not have to acquire the lock before you read or write to a
  transaction.
 
-
- This lock is also taken by the CLI when the user enters exclusive mode.
+This lock is also taken by the CLI when the user enters exclusive mode.
  Depending on the configuration different locks will be taken, ie, if the
  system has been configured to have a candidate, and a writable running
  configuration then both a lock on running and a lock on the candidate
  database will be acquired.
 
-
- The following locks are acquired when you enter configure exclusive mode
+The following locks are acquired when you enter configure exclusive mode
  in the CLI:
 
-
- If the system is configured with a startup db, and no writable running or
+If the system is configured with a startup db, and no writable running or
  candidate: lock startup
 
-
- If the system is configured with a writable running and no startup or
+If the system is configured with a writable running and no startup or
  candidate db: lock running
 
-
- If the system is configured with a writable running and a startup db, and
+If the system is configured with a writable running and a startup db, and
  no candidate: lock running and startup.
 
-
- If the system is configured with a writable running and a candidate db,
+If the system is configured with a writable running and a candidate db,
  and no startup: lock running and candidate.
 
 **Parameters**
 
 - `int db` - Database to lock. Possible values are STARTUP, RUNNING, and
-            CANDIDATE
+CANDIDATE
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### lockPartial(int, String) <a href="#lockpartial-1825ddb23210" id="lockpartial-1825ddb23210"></a>
 
@@ -4740,8 +4645,8 @@ Same as [`lockPartial(int,String[])`](Maapi.md#lockpartial-855a7312fb52) except 
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if lock cannot be acquired
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if lock cannot be acquired
 
 ### lockPartial(int, String[]) <a href="#lockpartial-855a7312fb52" id="lockpartial-855a7312fb52"></a>
 
@@ -4770,17 +4675,17 @@ It is possible to manipulate partial locks on the databases, i.e. locks
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### move(int, ConfKey, String, Object[]) <a href="#move-af8f50a08374" id="move-af8f50a08374"></a>
+### move(int, ConfKey, String, Object...) <a href="#move-c806e51393d7" id="move-c806e51393d7"></a>
 
 ```java
 public synchronized void move(
     int tid,
     com.tailf.conf.ConfKey tokey,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -4796,21 +4701,21 @@ This function moves an existing object.
 - `int tid` - Transaction Identifier
 - `com.tailf.conf.ConfKey tokey` - New key for the object
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### move(int, String, String, Object[]) <a href="#move-9df5c1c81f8c" id="move-9df5c1c81f8c"></a>
+### move(int, String, String, Object...) <a href="#move-b3fe2762e85e" id="move-b3fe2762e85e"></a>
 
 ```java
 public synchronized void move(
     int tid,
     String tokey,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -4819,7 +4724,7 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 This function moves an existing object
 
- Renames the object
+Renames the object
  using the new instance key tokey represented as a string.
 
 **Parameters**
@@ -4827,14 +4732,14 @@ This function moves an existing object
 - `int tid` - Transaction Identifier
 - `String tokey` - New key for the object
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### moveOrdered(int, MoveWhereFlag, ConfKey, String, Object[]) <a href="#moveordered-f7458c93e17a" id="moveordered-f7458c93e17a"></a>
+### moveOrdered(int, MoveWhereFlag, ConfKey, String, Object...) <a href="#moveordered-652217fea86b" id="moveordered-652217fea86b"></a>
 
 ```java
 public synchronized void moveOrdered(
@@ -4842,7 +4747,7 @@ public synchronized void moveOrdered(
     com.tailf.maapi.MoveWhereFlag where,
     com.tailf.conf.ConfKey tokey,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -4874,12 +4779,12 @@ For a list with the YANG ordered-by user statement, this function can be
 - `com.tailf.maapi.MoveWhereFlag where` - MoveWhereFlag movement flag
 - `com.tailf.conf.ConfKey tokey` - key as base for relative movements
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### ncsApplyTemplate(int, String, ConfPath, Properties, boolean) <a href="#ncsapplytemplate-17a602f0e3cd" id="ncsapplytemplate-17a602f0e3cd"></a>
 
@@ -4911,8 +4816,8 @@ Applies an NCS template to the specified path.
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if operation fails
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if operation fails
 
 ### ncsApplyTemplate(int, String, ConfPath, Properties, String, boolean) <a href="#ncsapplytemplate-66d4f212d128" id="ncsapplytemplate-66d4f212d128"></a>
 
@@ -4946,12 +4851,13 @@ Applies an NCS template to the specified path with document support.
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if operation fails
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if operation fails
 
 ### ncsGetTemplateVariables(String) <a href="#ncsgettemplatevariables-e56e448a0ec3" id="ncsgettemplatevariables-e56e448a0ec3"></a>
 
 ```java
+@Deprecated
 public synchronized String[] ncsGetTemplateVariables(
     String template
 )
@@ -4965,12 +4871,12 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 - `String template` - template name
 
 **Returns:** String array of variable names that can be used in the
-         template
+template
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
 **Deprecated:** Use
  [`Maapi#ncsGetTemplateVariables(String, TemplateType)`](Maapi.md#ncsgettemplatevariables-1f97e9c7f29b) instead.
@@ -4996,13 +4902,13 @@ Returns the list of variables that can be used in a specific device,
 - `com.tailf.maapi.Maapi.TemplateType types` - at which type the template is used, i.e. device, service or
  compliance.
 
-**Returns:** String[] array of variable names that can be used in the
-         template.
+**Returns:** String\[\] array of variable names that can be used in the
+template.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
 ### ncsRunWithRetry(MaapiRetryableOp) <a href="#ncsrunwithretry-1fda8501d8e3" id="ncsrunwithretry-1fda8501d8e3"></a>
 
@@ -5018,8 +4924,9 @@ Types: [MaapiRetryableOp](MaapiRetryableOp.md#maapiretryableop-cfc27c59f49e), [C
 Run `op` with a new read-write transaction against the
  RUNNING datastore. In case of a conflict, retry running `op`.
 
- Equivalent of ncsRunWithRetry(op, 10, new CommitParams()).
- See ncsRunWithRetry
+Equivalent of ncsRunWithRetry(op, 10, new CommitParams()).
+
+See [ncsRunWithRetry](Maapi.md#ncsrunwithretry-a6de34ccab91)
 
 **Parameters**
 
@@ -5029,8 +4936,8 @@ Run `op` with a new read-write transaction against the
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
 
 ### ncsRunWithRetry(MaapiRetryableOp, int, CommitParams) <a href="#ncsrunwithretry-a6de34ccab91" id="ncsrunwithretry-a6de34ccab91"></a>
 
@@ -5048,10 +4955,11 @@ Types: [MaapiRetryableOp](MaapiRetryableOp.md#maapiretryableop-cfc27c59f49e), [C
 Run `op` with a new read-write transaction against the
  RUNNING datastore. In case of a conflict, retry running `op`.
 
- Equivalent of ncsRunWithRetry(op, maxNumRetries, commitParams,
-                               EnumSet.noneOf(MaapiFlag.class)).
- See `ncsRunWithRetry(MaapiRetryableOp, int, CommitParams,
-                             int, EnumSet)`
+Equivalent of ncsRunWithRetry(op, maxNumRetries, commitParams,
+EnumSet.noneOf(MaapiFlag.class)).
+
+See [`ncsRunWithRetry(MaapiRetryableOp, int, CommitParams,
+                             int, EnumSet)`](Maapi.md#ncsrunwithretry-c4e298221362)
 
 **Parameters**
 
@@ -5063,8 +4971,8 @@ Run `op` with a new read-write transaction against the
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
 
 ### ncsRunWithRetry(MaapiRetryableOp, int, CommitParams, int, EnumSet&lt;MaapiFlag&gt;) <a href="#ncsrunwithretry-c4e298221362" id="ncsrunwithretry-c4e298221362"></a>
 
@@ -5084,19 +4992,19 @@ Types: [MaapiRetryableOp](MaapiRetryableOp.md#maapiretryableop-cfc27c59f49e), [C
 Run `op` with a new read-write transaction against the
  RUNNING datastore. In case of a conflict, retry running `op`.
 
- Run `op` with a new read-write transaction, applying it
+Run `op` with a new read-write transaction, applying it
  if op returns true. The `op` is only retried in case of
  transaction conflicts. Each retry is run using a new transaction.
 
- The last conflict exception is thrown in case the maximum number
+The last conflict exception is thrown in case the maximum number
  of retries is reached.
 
 **Parameters**
 
 - `com.tailf.maapi.MaapiRetryableOp op` - Object implementing the com.tailf.maapi.MaapiRetryableOp
-           interface
+interface
 - `int maxNumRetries` - Maximum number of retries running `op`
-                      in case of a conflict
+in case of a conflict
 - `com.tailf.maapi.CommitParams commitParams` - Commit parameters, see [`CommitParams`](CommitParams.md#commitparams-819d9b5483cc)
 - `int usid` - User session id
 - `java.util.EnumSet<com.tailf.maapi.MaapiFlag> flags` - Enumset of [`MaapiFlag`](MaapiFlag.md#maapiflag-6e6635db8a9f)
@@ -5105,13 +5013,13 @@ Run `op` with a new read-write transaction against the
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### ncsTemplates() <a href="#ncstemplates-e5c7d0011567" id="ncstemplates-e5c7d0011567"></a>
 
 ```java
-public synchronized java.util.Set<String> ncsTemplates() throws java.io.IOException, com.tailf.conf.ConfException
+public synchronized java.util.Set<String> ncsTemplates()
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
@@ -5123,8 +5031,8 @@ Retrieves all available templates.
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if operation fails
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if operation fails
 
 ### netconfSSHCallHome(ConfObject, int) <a href="#netconfsshcallhome-30acdb9b05a8" id="netconfsshcallhome-30acdb9b05a8"></a>
 
@@ -5149,8 +5057,8 @@ Request that ConfD daemon initiates a NETCONF SSH Call Home
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### netconfSSHCallHomeOpaque(ConfObject, String, int) <a href="#netconfsshcallhomeopaque-199c8be24507" id="netconfsshcallhomeopaque-199c8be24507"></a>
 
@@ -5177,8 +5085,8 @@ Request that ConfD daemon initiates a NETCONF SSH Call Home
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### newCursor(int, ConfPath) <a href="#newcursor-8b18daa02ae5" id="newcursor-8b18daa02ae5"></a>
 
@@ -5194,15 +5102,13 @@ Types: [MaapiCursor](MaapiCursor.md#maapicursor-788c065e30cb), [ConfPath](../con
 
 Creates a cursor for a list specified by `path`
 
+The `MaapiCursor` is used to iterate over the keys of a list.
 
- The `MaapiCursor` is used to iterate over the keys of a list.
-
-
- When we wish to iterate over key entries we must first create
+When we wish to iterate over key entries we must first create
  a cursor.
 
- The cursor instance is subsequently used in
- `getNext(MaapiCursor)` to retrieve the next key instance in
+The cursor instance is subsequently used in
+ [`getNext(MaapiCursor)`](Maapi.md#getnext-94186d85d070) to retrieve the next key instance in
  the list. When the cursor retrieves null the whole list has been
  iterated and the cursor can not be reset.
 
@@ -5215,16 +5121,16 @@ Creates a cursor for a list specified by `path`
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
-### newCursor(int, String, Object[]) <a href="#newcursor-8f0d3924978a" id="newcursor-8f0d3924978a"></a>
+### newCursor(int, String, Object...) <a href="#newcursor-5a95a4101aa4" id="newcursor-5a95a4101aa4"></a>
 
 ```java
 public synchronized com.tailf.maapi.MaapiCursor newCursor(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -5233,90 +5139,77 @@ Types: [MaapiCursor](MaapiCursor.md#maapicursor-788c065e30cb), [ConfException](.
 
 Creates a cursor for a list specified by `fmt`.
 
+The `MaapiCursor` is used to iterate over the keys of a list.
 
- The `MaapiCursor` is used to iterate over the keys of a list.
+When we wish to iterate over key entries we must first create
+ a cursor.
 
-
- When we wish to iterate over key entries we must first create
- a cursor. 
-
- The cursor instance is subsequently used in
- `getNext(MaapiCursor)` to retrieve the next key instance in
+The cursor instance is subsequently used in
+ [`getNext(MaapiCursor)`](Maapi.md#getnext-94186d85d070) to retrieve the next key instance in
  the list. When the cursor retrieves null the whole list has been
  iterated.
 
- An exhausted cursor cannot be reset.
+An exhausted cursor cannot be reset.
 
- For example, if we have the following YANG model:
+For example, if we have the following YANG model:
 
+> ```
+> module mtest {
+>   namespace "http://tail-f.com/test/mtest/1.0";
+>   prefix mtest;
+>
+>   import ietf-inet-types {
+>     prefix inet;
+>   }
+>
+>   container servers {
+>     list server {
+>       key name;
+>       max-elements 64;
+>       leaf name {
+>         type string;
+>       }
+>       leaf ip {
+>         type inet:ip-address;
+>         mandatory true;
+>       }
+>       leaf port {
+>         type inet:port-number;
+>         mandatory true;
+>       }
+>     }
+>   }
+> }
+> ```
 
+Example usage:
 
-
-```
- module mtest {
-   namespace "http://tail-f.com/test/mtest/1.0";
-   prefix mtest;
-
-   import ietf-inet-types {
-     prefix inet;
-   }
-
-   container servers {
-     list server {
-       key name;
-       max-elements 64;
-       leaf name {
-         type string;
-       }
-       leaf ip {
-         type inet:ip-address;
-         mandatory true;
-       }
-       leaf port {
-         type inet:port-number;
-         mandatory true;
-       }
-     }
-   }
- }
-```
-
-
-
-
-
- Example usage:
-
-
-
-
-
-```
- MaapiCursor c = maapi.newCursor(tid, "/mtest:mtest/servers/server");
- ConfKey x;
-
- while ((x = maapi.getNext(c)) != null) {
-    ConfValue nameValue =
-        maapi.getElem(tid, "/mtest:mtest/servers/server{%x}/name", x);
-    ConfValue ipValue =
-        maapi.getElem(tid, "/mtest:mtest/servers/server{%x}/ip", x);
-    ConfValue portValue =
-        maapi.getElem(tid, "/mtest:mtest/servers/server{%x}/port",x);
- }
-```
+> ```
+> MaapiCursor c = maapi.newCursor(tid, "/mtest:mtest/servers/server");
+> ConfKey x;
+>
+> while ((x = maapi.getNext(c)) != null) {
+>    ConfValue nameValue =
+>        maapi.getElem(tid, "/mtest:mtest/servers/server{%x}/name", x);
+>    ConfValue ipValue =
+>        maapi.getElem(tid, "/mtest:mtest/servers/server{%x}/ip", x);
+>    ConfValue portValue =
+>        maapi.getElem(tid, "/mtest:mtest/servers/server{%x}/port",x);
+> }
+> ```
 
 **Parameters**
 
 - `int tid` - current transaction id
 - `String fmt` - path of the list to be iterated
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Returns:** a new cursor instance
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
 ### newCursorWithFilter(int, String, ConfPath) <a href="#newcursorwithfilter-59d94dbcd3ed" id="newcursorwithfilter-59d94dbcd3ed"></a>
 
@@ -5334,23 +5227,20 @@ Types: [MaapiCursor](MaapiCursor.md#maapicursor-788c065e30cb), [ConfPath](../con
 Creates a cursor for a list specified by `path` with an XPath
  filter specified by `filter`.
 
+The `MaapiCursor` is used to iterate over the keys of a list.
 
- The `MaapiCursor` is used to iterate over the keys of a list.
-
-
- When we wish to iterate over key entries we must first create
+When we wish to iterate over key entries we must first create
  a cursor.
 
- The cursor instance is subsequently used in
- `getNext(MaapiCursor)` to retrieve the next key instance in
+The cursor instance is subsequently used in
+ [`getNext(MaapiCursor)`](Maapi.md#getnext-94186d85d070) to retrieve the next key instance in
  the list. When the cursor retrieves null the whole list has been
  iterated and the cursor can not be reset.
 
-
- If `filter` is not null, only keys of elements
+If `filter` is not null, only keys of elements
  matching the filter will be included in the iteration.
  If `filter` is null, this method behaves just as
- `newCursor(int, ConfPath)`
+ [`newCursor(int, ConfPath)`](Maapi.md#newcursor-8b18daa02ae5)
 
 **Parameters**
 
@@ -5362,17 +5252,17 @@ Creates a cursor for a list specified by `path` with an XPath
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
-### newCursorWithFilter(int, String, String, Object[]) <a href="#newcursorwithfilter-6c2962969949" id="newcursorwithfilter-6c2962969949"></a>
+### newCursorWithFilter(int, String, String, Object...) <a href="#newcursorwithfilter-06a0bf5dfa80" id="newcursorwithfilter-06a0bf5dfa80"></a>
 
 ```java
 public synchronized com.tailf.maapi.MaapiCursor newCursorWithFilter(
     int tid,
     String filter,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -5382,53 +5272,46 @@ Types: [MaapiCursor](MaapiCursor.md#maapicursor-788c065e30cb), [ConfException](.
 Creates a cursor for a list specified by `fmt` with an XPath
  filter specified by `filter`.
 
+The `MaapiCursor` is used to iterate over the keys a list.
 
- The `MaapiCursor` is used to iterate over the keys a list.
+When we wish to iterate over key entries we must first create
+ a cursor.
 
-
- When we wish to iterate over key entries we must first create
- a cursor. 
-
- The cursor instance is subsequently used in
- `getNext(MaapiCursor)` to retrieve the next key instance in
+The cursor instance is subsequently used in
+ [`getNext(MaapiCursor)`](Maapi.md#getnext-94186d85d070) to retrieve the next key instance in
  the list. When the cursor retrieves null the whole list has been
  iterated and the cursor can not be reset.
 
-
- If `filter` is not null, only keys of elements
+If `filter` is not null, only keys of elements
  matching the filter will be included in the iteration.
  If `filter` is null, this method behaves just as
- [`newCursor(int, String, Object...)`](Maapi.md#newcursor-8f0d3924978a)
+ [`newCursor(int, String, Object...)`](Maapi.md#newcursor-5a95a4101aa4)
 
-
- Given the same example model as in
- [`newCursor(int, String, Object...)`](Maapi.md#newcursor-8f0d3924978a) one could iterate over
+Given the same example model as in
+ [`newCursor(int, String, Object...)`](Maapi.md#newcursor-5a95a4101aa4) one could iterate over
  servers on the 10.x.x.x network with port numbers above 8000 using
  the following cursor call:
 
-
-
-
-```
- MaapiCursor c =
-     maapi.newCursorWithFilter(tid,
-                               "starts-with(ip, \"10.\") and port > 8000",
-                               "/mtest:mtest/servers/server");
-```
+> ```
+> MaapiCursor c =
+>     maapi.newCursorWithFilter(tid,
+>                               "starts-with(ip, \"10.\") and port > 8000",
+>                               "/mtest:mtest/servers/server");
+> ```
 
 **Parameters**
 
 - `int tid` - current transaction id
 - `String filter` - XPath filter for filtering the list
 - `String fmt` - path of the list to be iterated
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Returns:** a new cursor instance
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
 ### performUpgrade(String[]) <a href="#performupgrade-f3fe8fdbc4c1" id="performupgrade-f3fe8fdbc4c1"></a>
 
@@ -5456,8 +5339,8 @@ Note, This method is only applicable for Confd. For NCS, the In-service
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### popd(int) <a href="#popd-a8354c7232ff" id="popd-a8354c7232ff"></a>
 
@@ -5475,8 +5358,8 @@ Pops the top position of the directory stack and changes directory
 
 **Throws**
 
-- `MaapiException` - If pop directory operation fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If pop directory operation fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### prepareTrans(int) <a href="#preparetrans-f5669cbf3002" id="preparetrans-f5669cbf3002"></a>
 
@@ -5496,8 +5379,7 @@ Prepares the transaction specified by transaction handle `tid`.
  `abortTrans` must be
  called.
 
-
- It will invoke the prepare callback in all participants in the
+It will invoke the prepare callback in all participants in the
  transaction. If all participants reply with OK, the second phase of the
  two-phase commit procedure is commenced.
 
@@ -5507,8 +5389,8 @@ Prepares the transaction specified by transaction handle `tid`.
 
 **Throws**
 
-- `MaapiException` - If the prepare operation fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If the prepare operation fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### prepareTrans(int, int) <a href="#preparetrans-c4877a24ca10" id="preparetrans-c4877a24ca10"></a>
 
@@ -5529,13 +5411,11 @@ Prepares the transaction specified by transaction handle `tid`.
  `abortTrans` must be
  called.
 
-
- It will invoke the prepare callback in all participants in the
+It will invoke the prepare callback in all participants in the
  transaction. If all participants reply with OK, the second phase of the
  two-phase commit procedure is commenced.
 
-
- For a definition of the flags, see [`applyTrans(int,boolean)`](Maapi.md#applytrans-94f52f2648ce)
+For a definition of the flags, see [`applyTrans(int,boolean)`](Maapi.md#applytrans-94f52f2648ce)
 
 **Parameters**
 
@@ -5544,8 +5424,8 @@ Prepares the transaction specified by transaction handle `tid`.
 
 **Throws**
 
-- `MaapiException` - If the prepare operation fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If the prepare operation fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### prioMessage(String, String) <a href="#priomessage-8b6028d17d54" id="priomessage-8b6028d17d54"></a>
 
@@ -5581,16 +5461,16 @@ Send a high priority message to a specific user, a specific user session
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
-### pushd(int, String, Object[]) <a href="#pushd-217b8af1923d" id="pushd-217b8af1923d"></a>
+### pushd(int, String, Object...) <a href="#pushd-c97b59c78dcd" id="pushd-c97b59c78dcd"></a>
 
 ```java
 public synchronized void pushd(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
@@ -5604,12 +5484,12 @@ Behaves like cd() with the exception that we can subsequently call popd()
 
 - `int tid` - Transaction Identifier
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `MaapiException` - If push directory operation fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If push directory operation fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### queryStart(int, String, String, int, int, List&lt;String&gt;, Class&lt;T&gt;) <a href="#querystart-87abe9e2ad2a" id="querystart-87abe9e2ad2a"></a>
 
@@ -5631,9 +5511,9 @@ Types: [QueryResult](QueryResult.md#queryresult-6b83e74c93ef), [ConfException](.
 Initiate (or starts) a new XPath query attached to the
  transaction given in `tid`.
 
- Runs an XPath query with default sort order
+Runs an XPath query with default sort order
 
- If successful a
+If successful a
  [`QueryResult`](QueryResult.md#queryresult-6b83e74c93ef) is returned which represents a query result.
 
 **Type Parameters**
@@ -5655,9 +5535,9 @@ Initiate (or starts) a new XPath query attached to the
 
 **Throws**
 
-- `IOException` - if the underlying socket or input stream is
+- `java.io.IOException` - if the underlying socket or input stream is
  closed for some reason
-- `ConfException` - if the XPath parser encounters error for some
+- `com.tailf.conf.ConfException` - if the XPath parser encounters error for some
  reason
 
 ### queryStart(int, String, String, int, int, List&lt;String&gt;, List&lt;String&gt;, boolean, Class&lt;T&gt;) <a href="#querystart-5aa1b3de25ea" id="querystart-5aa1b3de25ea"></a>
@@ -5682,72 +5562,59 @@ Types: [QueryResult](QueryResult.md#queryresult-6b83e74c93ef), [ConfException](.
 Initiate (or starts) a new XPath query attached to the
  transaction given in `th`.
 
- If successful a
+If successful a
  [`QueryResult`](QueryResult.md#queryresult-6b83e74c93ef) is returned which represents a query result.
 
-
- The XPath `expr` string parameter is a primary XPath
+The XPath `expr` string parameter is a primary XPath
  expression which must evaluate to a node-set, the "results".
  For each node in the results node-set every "select" expression is
  evaluated with the result node as its context. For example,
  given the YANG snippet:
 
-
 ```
-     list interface {
-         key name;
-         unique number;
-         leaf name {
-           type string;
-         }
-         leaf number {
-           type uint32;
-           mandatory true;
-         }
-         leaf enabled {
-           type boolean;
-           default true;
-         }
-       ...
-       }
+    list interface {
+        key name;
+        unique number;
+        leaf name {
+          type string;
+        }
+        leaf number {
+          type uint32;
+          mandatory true;
+        }
+        leaf enabled {
+          type boolean;
+          default true;
+        }
+      ...
+      }
 ```
 
-
- and given that we want to find the name and number of all enabled
+and given that we want to find the name and number of all enabled
  interfaces - the expr could be
  `"/interface[enabled='true']"`, and the select
  expressions would be `{ "name","number" }`.
 
-
- Note that the select expressions can have any valid XPath expression,
+Note that the select expressions can have any valid XPath expression,
  so if you wanted to find out an interfaces name,
  and whether its number is even or not, the expressions would be:
  `{ "name", "(number mod 2) == 0" } `.
 
-
-
- The `select` parameter determining what to
+The `select` parameter determining what to
  include in the result.
 
-
- The `chunksize` is
+The `chunksize` is
  the possibility to return the result in groups of a particular size.
  This option determines the fetch frequency for a iterator.
 
-
-
- The "chunk" retrieval is done by the [`QueryResult#iterator()`](QueryResult.md#iterator-188aa52d1f86)
+The "chunk" retrieval is done by the [`QueryResult#iterator()`](QueryResult.md#iterator-188aa52d1f86)
  iterator which process result locally and when it needs more
  data it retrieve the next chunk (if available).
 
-
-
- The `offset` is the number of the first result in this
+The `offset` is the number of the first result in this
  chunk (i.e. for the first chunk it will be 1).
 
-
-
- If the underlying database supports multiple "tables" there
+If the underlying database supports multiple "tables" there
  is usually also support for "join" (the ability to make a
  filter span several tables), in ConfD/NCS this is usually
  not an issue - reference to "other" tables
@@ -5776,9 +5643,9 @@ Initiate (or starts) a new XPath query attached to the
 
 **Throws**
 
-- `IOException` - if the underlying socket or input stream is
+- `java.io.IOException` - if the underlying socket or input stream is
  closed for some reason
-- `ConfException` - if the XPath parser encounters error for some
+- `com.tailf.conf.ConfException` - if the XPath parser encounters error for some
  reason
 
 ### reloadConfig() <a href="#reloadconfig-f726d13d089d" id="reloadconfig-f726d13d089d"></a>
@@ -5794,8 +5661,8 @@ Request that the daemon reloads its configuration files. The daemon will
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### reloadSchemas() <a href="#reloadschemas-80f123378fc4" id="reloadschemas-80f123378fc4"></a>
 
@@ -5808,14 +5675,14 @@ Types: [MaapiSchemas](MaapiSchemas.md#maapischemas-821ac70b83b7), [ConfException
 This method throws away any old MaapiSchemas container and downloads a
  new from the server.
 
- Hence each call of this method will interact with
+Hence each call of this method will interact with
  the server.
 
 **Returns:** MaapiSchemas object which is container for all downloaded schemas
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
 ### reloadSchemas(String[]) <a href="#reloadschemas-d9542a782000" id="reloadschemas-d9542a782000"></a>
 
@@ -5831,7 +5698,7 @@ Types: [MaapiSchemas](MaapiSchemas.md#maapischemas-821ac70b83b7), [ConfException
 This method throws away any old MaapiSchemas container and downloads a
  new from the server.
 
- Which namespaces are loaded is specified and do not
+Which namespaces are loaded is specified and do not
  need to be the same as the earlier loaded that is viped out. This method
  can therefore unload old schemas and add loading of new schemas.
 
@@ -5843,7 +5710,7 @@ This method throws away any old MaapiSchemas container and downloads a
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
 ### reopenLogs() <a href="#reopenlogs-41bee863dbe9" id="reopenlogs-41bee863dbe9"></a>
 
@@ -5857,8 +5724,8 @@ Request that the daemon closes and re-opens its log files
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### reportProgress(int, Verbosity, String) <a href="#reportprogress-9b1dc56091be" id="reportprogress-9b1dc56091be"></a>
 
@@ -5883,24 +5750,24 @@ Report progress of an action or transaction.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
-### requestAction(ConfXMLParam[], int, String, Object[]) <a href="#requestaction-82e02abb5cf9" id="requestaction-82e02abb5cf9"></a>
+### requestAction(ConfXMLParam[], int, String, Object...) <a href="#requestaction-2d081987d081" id="requestaction-2d081987d081"></a>
 
 ```java
 public synchronized com.tailf.conf.ConfXMLParam[] requestAction(
     com.tailf.conf.ConfXMLParam[] params,
     int nshash,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
-Same as [`Maapi#requestAction(ConfXMLParam[], String, Object...)`](Maapi.md#requestaction-76bbfd533fa4)
+Same as [`Maapi#requestAction(ConfXMLParam[], String, Object...)`](Maapi.md#requestaction-2e8d68e7facd)
 
  Since actions are not associated with transactions, the
  namespace hash `nshash` must be provided and the path
@@ -5908,30 +5775,30 @@ Same as [`Maapi#requestAction(ConfXMLParam[], String, Object...)`](Maapi.md#requ
  action in the data model.
 
  absolute - but see
- `requestActionTh(int,ConfXMLParam[],String,Object...)`.
+ [`requestActionTh(int,ConfXMLParam[],String,Object...)`](Maapi.md#requestactionth-5eb95fc89050).
 
 **Parameters**
 
 - `com.tailf.conf.ConfXMLParam[] params` - action parameters
 - `int nshash` - hashvalue for root namespace for the path represented by
-        the `fmt` argument
+the `fmt` argument
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Returns:** array of ConfXMLParam
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### requestAction(ConfXMLParam[], String, Object[]) <a href="#requestaction-76bbfd533fa4" id="requestaction-76bbfd533fa4"></a>
+### requestAction(ConfXMLParam[], String, Object...) <a href="#requestaction-2e8d68e7facd" id="requestaction-2e8d68e7facd"></a>
 
 ```java
 public synchronized com.tailf.conf.ConfXMLParam[] requestAction(
     com.tailf.conf.ConfXMLParam[] params,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -5941,162 +5808,152 @@ Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [ConfE
 Invokes an action defined in the data model annotated with
  `tailf:action` (see tailf_yang_extensions(5)).
 
- The input parameters is specified as `ConfXMLParam`
+The input parameters is specified as `ConfXMLParam`
  as the input array `param` which corresponds to
  the input section of the action.
 
- The output parameters returned from the method call returns
+The output parameters returned from the method call returns
  a array of `ConfXMLParam` which corresponds to
  the output section of the action.
 
  Consider the following yang model:
 
-
 ```
- module cs {
-     namespace "http://example.com/test/cs/1.0";
-     prefix cs;
-     import tailf-common {
-         prefix tailf;
-     }
+module cs {
+    namespace "http://example.com/test/cs/1.0";
+    prefix cs;
+    import tailf-common {
+        prefix tailf;
+    }
 
-     typedef math_op {
-         type enumeration {
-             enum add;
-             enum sub;
-             enum mul;
-             enum div;
-             enum square;
-         }
-     }
+    typedef math_op {
+        type enumeration {
+            enum add;
+            enum sub;
+            enum mul;
+            enum div;
+            enum square;
+        }
+    }
 
-     container system {
-         list computer {
-             key name;
-             leaf name {
-                 type string;
-             }
-             tailf:action math {
-                 tailf:actionpoint math_cs;
-                 input {
-                     list operation {
-                         min-elements 1;
-                         max-elements 3;
-                         leaf number {
-                             type int32;
-                             mandatory true;
-                         }
-                         leaf type {
-                             type math_op;
-                             mandatory true;
-                         }
-                         leaf-list operands {
-                             type int16;
-                         }
-                     }
-                 }
-                 output {
-                     container result {
-                         presence "";
-                         leaf number {
-                             type int32;
-                             mandatory true;
-                         }
-                         leaf type {
-                             type math_op;
-                             mandatory true;
-                         }
-                         leaf value {
-                             type int16;
-                             mandatory true;
-                         }
-                     }
-                 }
-             }
-         }
-     }
- }
+    container system {
+        list computer {
+            key name;
+            leaf name {
+                type string;
+            }
+            tailf:action math {
+                tailf:actionpoint math_cs;
+                input {
+                    list operation {
+                        min-elements 1;
+                        max-elements 3;
+                        leaf number {
+                            type int32;
+                            mandatory true;
+                        }
+                        leaf type {
+                            type math_op;
+                            mandatory true;
+                        }
+                        leaf-list operands {
+                            type int16;
+                        }
+                    }
+                }
+                output {
+                    container result {
+                        presence "";
+                        leaf number {
+                            type int32;
+                            mandatory true;
+                        }
+                        leaf type {
+                            type math_op;
+                            mandatory true;
+                        }
+                        leaf value {
+                            type int16;
+                            mandatory true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 ```
-
-
 
  The following is a example of how to assemble the action parameters into
  and array of ConfXMLParam and its subclasses:
 
-
 ```
- ConfNamespace n = new cs();
- ConfXMLParam[] params =
-     new ConfXMLParam[] {
-         new ConfXMLParamStart(n, cs.cs_operation_),
-         new ConfXMLParamValue(n, cs.cs_number_,  new ConfInt32(13)),
-         new ConfXMLParamValue(n, cs.cs_type_,    new ConfEnumeration(0)),
-         new ConfXMLParamValue(n, cs.cs_operands_,
-                               new ConfList(new ConfObject[] {
-                                            new ConfInt16(13),
-                                            new ConfInt16(25) })),
-         new ConfXMLParamStop(n, cs.cs_operation_)};
+ConfNamespace n = new cs();
+ConfXMLParam[] params =
+    new ConfXMLParam[] {
+        new ConfXMLParamStart(n, cs.cs_operation_),
+        new ConfXMLParamValue(n, cs.cs_number_,  new ConfInt32(13)),
+        new ConfXMLParamValue(n, cs.cs_type_,    new ConfEnumeration(0)),
+        new ConfXMLParamValue(n, cs.cs_operands_,
+                              new ConfList(new ConfObject[] {
+                                           new ConfInt16(13),
+                                           new ConfInt16(25) })),
+        new ConfXMLParamStop(n, cs.cs_operation_)};
 ```
-
-
 
  Using this we can call the action:
 
-
-
 ```
- Maapi maapi = Maapi(socket);
- maapi.setNamespace(
- maapi.startUserSession(admin,
-     maapi,
-     new String[] { admin },
-     new SocketAddress(InetAddress.getLocalHost(), 0));
- //Invokes the specified action with input arguments params
- //and returns the output parameters
- ConfXMLParam[] res = maapi.requestAction(params,
-                                /system/computer{fred}/math);
+Maapi maapi = Maapi(socket);
+maapi.setNamespace(
+maapi.startUserSession("admin",
+    "maapi",
+    new String[] { "admin" },
+    new SocketAddress(InetAddress.getLocalHost(), 0));
+//Invokes the specified action with input arguments params
+//and returns the output parameters
+ConfXMLParam[] res = maapi.requestAction(params,
+                               "/system/computer{fred}/math");
 ```
 
-
-
- The path given by `fmt` and the varargs list
+The path given by `fmt` and the varargs list
  is the full path to the action, i.e. the final element must be the
  name of the action element in the YANG model.
 
- Since actions are not associated with transactions, the namespace
+Since actions are not associated with transactions, the namespace
  must be provided and the path must be absolute
  transactions, the namespace must be provided and the path must be
  absolute - but see
- `requestActionTh(int,ConfXMLParam[],String,Object...)`.
+ [`requestActionTh(int,ConfXMLParam[],String,Object...)`](Maapi.md#requestactionth-5eb95fc89050).
 
- The `Maapi` instance must have an established user
+The `Maapi` instance must have an established user
  session before issuing this method call.
 
 **Parameters**
 
 - `com.tailf.conf.ConfXMLParam[] params` - action input parameters
 - `String fmt` - path string, this must be an absolute path with its
-            root element prefixed, i.e., "/prefix:tagname/...."
-- `Object[] arguments` - optional parameters for substitution in fmt
+root element prefixed, i.e., "/prefix:tagname/...."
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Returns:** array of ConfXMLParam as the output parameters
 
 **Throws**
 
-- `ConfException` - If the methods invocation fails for some
-            reason. The errorCode or message could be obtain
-            through `getErrorCode`, `getMessage()`
-- `IOException` - Signals that a I/O
-            exception has occurred on the stream to ConfD/NCS
+- `com.tailf.conf.ConfException` - If the methods invocation fails for some
+reason. The errorCode or message could be obtain
+through `getErrorCode`, `getMessage()`
+- `java.io.IOException` - Signals that a I/O
+exception has occurred on the stream to ConfD/NCS
 
-### requestAction(List&lt;ConfXMLParam&gt;, int, String, Object[]) <a href="#requestaction-5870f5cf33eb" id="requestaction-5870f5cf33eb"></a>
+### requestAction(List&lt;ConfXMLParam&gt;, int, String, Object...) <a href="#requestaction-b547a2892b74" id="requestaction-b547a2892b74"></a>
 
 ```java
 public synchronized com.tailf.conf.ConfXMLParam[] requestAction(
     java.util.List<com.tailf.conf.ConfXMLParam> params,
     int nshash,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -6110,67 +5967,67 @@ Requests an action
 - `java.util.List<com.tailf.conf.ConfXMLParam> params` - list of XML parameters
 - `int nshash` - namespace hash
 - `String fmt` - format string for the action path
-- `Object[] arguments` - arguments for the format string
+- `Object... arguments` - arguments for the format string
 
 **Returns:** array of ConfXMLParam
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if operation fails
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if operation fails
 
-### requestAction(List&lt;ConfXMLParam&gt;, String, Object[]) <a href="#requestaction-71188d0da7ce" id="requestaction-71188d0da7ce"></a>
+### requestAction(List&lt;ConfXMLParam&gt;, String, Object...) <a href="#requestaction-18fa8c5859ce" id="requestaction-18fa8c5859ce"></a>
 
 ```java
 public synchronized com.tailf.conf.ConfXMLParam[] requestAction(
     java.util.List<com.tailf.conf.ConfXMLParam> params,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
-Same as [`Maapi#requestAction(ConfXMLParam[], String, Object...)`](Maapi.md#requestaction-76bbfd533fa4)
+Same as [`Maapi#requestAction(ConfXMLParam[], String, Object...)`](Maapi.md#requestaction-2e8d68e7facd)
  with the difference that the `params` is `List`
  instead of `ConfXMLParam` array.
 
- The `Maapi` instance must have an established user
+The `Maapi` instance must have an established user
  session before issuing this method call.
 
 **Parameters**
 
 - `java.util.List<com.tailf.conf.ConfXMLParam> params` - action input parameters as `List`
 - `String fmt` - path string, this must be an absolute path with its
-            root element prefixed, i.e., "/prefix:tagname/...."
-- `Object[] arguments` - optional parameters for substitution in fmt
+root element prefixed, i.e., "/prefix:tagname/...."
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Returns:** array of `ConfXMLParam` as the output parameters
 
 **Throws**
 
-- `ConfException` - If the methods invocation fails for some
-            reason. The errorCode or message could be obtain
-            through `getErrorCode`, `getMessage()`
-- `IOException` - Signals that a I/O
-            exception has occurred on the stream to ConfD/NCS
+- `com.tailf.conf.ConfException` - If the methods invocation fails for some
+reason. The errorCode or message could be obtain
+through `getErrorCode`, `getMessage()`
+- `java.io.IOException` - Signals that a I/O
+exception has occurred on the stream to ConfD/NCS
 
-### requestActionTh(int, ConfXMLParam[], String, Object[]) <a href="#requestactionth-966694378325" id="requestactionth-966694378325"></a>
+### requestActionTh(int, ConfXMLParam[], String, Object...) <a href="#requestactionth-5eb95fc89050" id="requestactionth-5eb95fc89050"></a>
 
 ```java
 public synchronized com.tailf.conf.ConfXMLParam[] requestActionTh(
     int tid,
     com.tailf.conf.ConfXMLParam[] params,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
-Same as [`Maapi#requestAction(ConfXMLParam[], String, Object...)`](Maapi.md#requestaction-76bbfd533fa4)
+Same as [`Maapi#requestAction(ConfXMLParam[], String, Object...)`](Maapi.md#requestaction-2e8d68e7facd)
  with the difference that the fmt is not required to have a namespace
  prefix in the root tag. The root namespace is instead retrieved from
  the transaction indicated by the tid argument.
@@ -6185,23 +6042,23 @@ Same as [`Maapi#requestAction(ConfXMLParam[], String, Object...)`](Maapi.md#requ
 - `int tid` - current transaction handle
 - `com.tailf.conf.ConfXMLParam[] params` - action parameters
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Returns:** array of ConfXMLParam
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
-### requestActionTh(int, List&lt;ConfXMLParam&gt;, String, Object[]) <a href="#requestactionth-07b010c43efc" id="requestactionth-07b010c43efc"></a>
+### requestActionTh(int, List&lt;ConfXMLParam&gt;, String, Object...) <a href="#requestactionth-db02a16b87d7" id="requestactionth-db02a16b87d7"></a>
 
 ```java
 public synchronized com.tailf.conf.ConfXMLParam[] requestActionTh(
     int tid,
     java.util.List<com.tailf.conf.ConfXMLParam> params,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -6215,14 +6072,14 @@ Requests an action
 - `int tid` - transaction identifier
 - `java.util.List<com.tailf.conf.ConfXMLParam> params` - list of XML parameters
 - `String fmt` - format string for the action path
-- `Object[] arguments` - arguments for the format string
+- `Object... arguments` - arguments for the format string
 
 **Returns:** array of ConfXMLParam
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if operation fails
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if operation fails
 
 ### requestTerm(int, ConfEObject) <a href="#requestterm-a8fce80da6f1" id="requestterm-a8fce80da6f1"></a>
 
@@ -6278,16 +6135,16 @@ Remove all changes in the transaction.
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if operation fails
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if operation fails
 
-### rollbackConfig(int, String, String[]) <a href="#rollbackconfig-859e41b41c22" id="rollbackconfig-859e41b41c22"></a>
+### rollbackConfig(int, String, String...) <a href="#rollbackconfig-913830d11c06" id="rollbackconfig-913830d11c06"></a>
 
 ```java
 public synchronized com.tailf.maapi.MaapiInputStream rollbackConfig(
     int tid,
     String fmt,
-    String[] args
+    String... args
 )
     throws com.tailf.maapi.MaapiException
 ```
@@ -6312,13 +6169,13 @@ This function can be used to save the equivalent of a rollback file for a
 
 - `int tid` - transaction id for current transaction
 - `String fmt` - path indicating where the configuration to be rooted
-- `String[] args` - variable argument list for c-style parameters in fmtPath
+- `String... args` - variable argument list for c-style parameters in fmtPath
 
 **Returns:** MaapiInputStream
 
 **Throws**
 
-- `MaapiException` - if the rollback config operation fails
+- `com.tailf.maapi.MaapiException` - if the rollback config operation fails
 
 ### safeCreate(int, ConfPath) <a href="#safecreate-83138734c168" id="safecreate-83138734c168"></a>
 
@@ -6343,16 +6200,16 @@ Create a new list entity in the XML tree. This is variant of
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### safeCreate(int, String, Object[]) <a href="#safecreate-fd641bd6a26a" id="safecreate-fd641bd6a26a"></a>
+### safeCreate(int, String, Object...) <a href="#safecreate-a7e156273f26" id="safecreate-a7e156273f26"></a>
 
 ```java
 public synchronized void safeCreate(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -6367,20 +6224,20 @@ Create a new entity in the XML tree. This is variant of
 
 - `int tid` - Transaction Identifier
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### safeDelete(int, String, Object[]) <a href="#safedelete-63e20fc90d9c" id="safedelete-63e20fc90d9c"></a>
+### safeDelete(int, String, Object...) <a href="#safedelete-62cf8abadfc8" id="safedelete-62cf8abadfc8"></a>
 
 ```java
 public synchronized void safeDelete(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -6389,7 +6246,7 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Deletes a node and all its children from the XML data tree.
 
- Version of
+Version of
  `delete` that doesn't throw an exception if the
  element doesn't exist
 
@@ -6397,12 +6254,12 @@ Deletes a node and all its children from the XML data tree.
 
 - `int tid` - Transaction Identifier
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### safeGetElem(int, ConfPath) <a href="#safegetelem-dae7a1dfe2d6" id="safegetelem-dae7a1dfe2d6"></a>
 
@@ -6418,12 +6275,9 @@ Types: [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d), [ConfPath](../c
 
 Reads a value from the `path` specified
 
+The path must lead to a leaf element in the data tree.
 
- The path must lead to a leaf element in the data tree.
-
-
-
- This is a equivalent method of[`getElem(int,String,Object[])`](Maapi.md#getelem-1415a215bb24)
+This is a equivalent method of[`getElem(int,String,Object[])`](Maapi.md#getelem-fed33938e6b8)
  method which returns null if the element doesn't exist instead
  of throwing a exception.
 
@@ -6436,16 +6290,16 @@ Reads a value from the `path` specified
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### safeGetElem(int, String, Object[]) <a href="#safegetelem-f0faee5cac1f" id="safegetelem-f0faee5cac1f"></a>
+### safeGetElem(int, String, Object...) <a href="#safegetelem-08b47e2fd944" id="safegetelem-08b47e2fd944"></a>
 
 ```java
 public synchronized com.tailf.conf.ConfValue safeGetElem(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -6460,22 +6314,22 @@ This reads a value from the path in fmt and returns the result. The path
 
 - `int tid` - Transaction Identifier
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Returns:** A ConfValue that describes the value of the element.
 
 **Throws**
 
-- `MaapiException` - If the element cannot be retrieved
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If the element cannot be retrieved
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### safeGetObject(int, String, Object[]) <a href="#safegetobject-adb85d9a574d" id="safegetobject-adb85d9a574d"></a>
+### safeGetObject(int, String, Object...) <a href="#safegetobject-2d3a4a14a11a" id="safegetobject-2d3a4a14a11a"></a>
 
 ```java
 public synchronized com.tailf.conf.ConfObject[] safeGetObject(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -6489,14 +6343,14 @@ This is a variant of getObject() that returns null if the object doesn't
 
 - `int tid` - Transaction Identifier
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Returns:** An array of ConfObject which describes the object.
 
 **Throws**
 
-- `MaapiException` - If the operation fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If the operation fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### saveConfig(int, EnumSet&lt;MaapiConfigFlag&gt;) <a href="#saveconfig-d9663132ee61" id="saveconfig-d9663132ee61"></a>
 
@@ -6512,9 +6366,6 @@ Types: [MaapiInputStream](MaapiInputStream.md#maapiinputstream-2e53bf185d47), [M
 
 Save the entire config in different formats.
 
-
-
-
 <table BORDER=1>
   <caption>
   Retrieves an <code>InputStream</code> with <code>flags</code>
@@ -6529,44 +6380,42 @@ Save the entire config in different formats.
   </tr>
   <tr>
     <td><b>Raw-XML</b></td>
-    <td>{@link MaapiConfigFlag#XML_FORMAT},
-        {@link MaapiConfigFlag#MAAPI_CONFIG_XML}
+    <td><a href="MaapiConfigFlag.md#xml_format-96c70b32b8b4"><code>MaapiConfigFlag#XML_FORMAT</code></a>,
+        <a href="MaapiConfigFlag.md#maapi_config_xml-5293149632cc"><code>MaapiConfigFlag#MAAPI_CONFIG_XML</code></a>
     </td>
     <td>The configuration format is XML</td>
   </tr>
   <tr>
     <td><b>Pretty-XML</b></td>
-    <td>{@link MaapiConfigFlag#XML_PRETTY},
-        {@link MaapiConfigFlag#MAAPI_CONFIG_XML_PRETTY}
+    <td><a href="MaapiConfigFlag.md#xml_pretty-eb9cabeb3345"><code>MaapiConfigFlag#XML_PRETTY</code></a>,
+        <a href="MaapiConfigFlag.md#maapi_config_xml_pretty-6e369993cec8"><code>MaapiConfigFlag#MAAPI_CONFIG_XML_PRETTY</code></a>
     </td>
     <td>The configuration format is pretty printed XML</td>
   </tr>
   <tr>
     <td><b>Juniper CLI format</b></td>
-    <td>{@link MaapiConfigFlag#MAAPI_CONFIG_J},
-      {@link MaapiConfigFlag#JUNIPER_CLI_FORMAT}
+    <td><a href="MaapiConfigFlag.md#maapi_config_j-fcd7daaed20b"><code>MaapiConfigFlag#MAAPI_CONFIG_J</code></a>,
+      <a href="MaapiConfigFlag.md#juniper_cli_format-861be2804daf"><code>MaapiConfigFlag#JUNIPER_CLI_FORMAT</code></a>
     </td>
     <td>The configuration is in curly brace Juniper CLI format</td>
   </tr>
   <tr>
     <td><b>Cisco XR CLI format</b></td>
-    <td>{@link MaapiConfigFlag#MAAPI_CONFIG_C_IOS},
-      {@link MaapiConfigFlag#CISCO_XR_FORMAT}
+    <td><a href="MaapiConfigFlag.md#maapi_config_c_ios-5908ad7c1e08"><code>MaapiConfigFlag#MAAPI_CONFIG_C_IOS</code></a>,
+      <a href="MaapiConfigFlag.md#cisco_xr_format-95c530ea77b0"><code>MaapiConfigFlag#CISCO_XR_FORMAT</code></a>
     </td>
     <td>The configuration is in Cisco XR style format</td>
   </tr>
   <tr>
     <td><b>Cisco IOS CLI format</b></td>
-    <td>{@link MaapiConfigFlag#MAAPI_CONFIG_C_IOS},
-      {@link MaapiConfigFlag#CISCO_IOS_FORMAT}
+    <td><a href="MaapiConfigFlag.md#maapi_config_c_ios-5908ad7c1e08"><code>MaapiConfigFlag#MAAPI_CONFIG_C_IOS</code></a>,
+      <a href="MaapiConfigFlag.md#cisco_ios_format-a2224e97faa1"><code>MaapiConfigFlag#CISCO_IOS_FORMAT</code></a>
     </td>
     <td>The configuration is in Cisco IOS style format</td>
-  </tr>
-
+  </tr>&#10;
  </table>
 
-
- By default, the treatment of nodes with a  `tailf:hidden`
+By default, the treatment of nodes with a  `tailf:hidden`
  statement depends on the state of the transaction. For a transaction
  started via MAAPI, no nodes are hidden, while for a transaction started
  by another northbound agent (e.g. CLI) and attached to, the nodes that
@@ -6575,23 +6424,19 @@ Save the entire config in different formats.
  [`MaapiConfigFlag#MAAPI_CONFIG_HIDE_ALL`](MaapiConfigFlag.md#maapi_config_hide_all-161f42eaba86) and
  [`MaapiConfigFlag#MAAPI_CONFIG_UNHIDE_ALL`](MaapiConfigFlag.md#maapi_config_unhide_all-6db0d84095d7).
 
-
- Entire configuration is dumped, except that
+Entire configuration is dumped, except that
  namespaces with restricted export (from 'confdc/ncsc --export') are
  treated as follows:
 
-
 - When the `MAAPI_CONFIG_XML` or
- `MAAPI_CONFIG_XML_PRETTY` formats are used, the context of the
- user session that started the transaction is used to select namespaces
- with restricted export. If the "system" context is used, all namespaces
- are selected, regardless of export restriction.
+   `MAAPI_CONFIG_XML_PRETTY` formats are used, the context of the
+   user session that started the transaction is used to select namespaces
+   with restricted export. If the "system" context is used, all namespaces
+   are selected, regardless of export restriction.
 - When one of the CLI formats is used, the context used to select
- namespaces with restricted export is always "CLI".
+   namespaces with restricted export is always "CLI".
 
-
-
- The library will initialize a new socket to the end point specified
+The library will initialize a new socket to the end point specified
  by the initial socket (which was created during initialization of
  this Maapi instance) thus it is up to the use
 
@@ -6599,21 +6444,21 @@ Save the entire config in different formats.
 
 - `int tid` - transaction id of the current transaction
 - `java.util.EnumSet<com.tailf.maapi.MaapiConfigFlag> flags` - format parameters (see the table above ) with additional
-            `MAAPI_CONFIG_WITH_DEFAULTS`,
-            `MAAPI_CONFIG_SHOW_DEFAULTS` for controlling
-            the defaults
+`MAAPI_CONFIG_WITH_DEFAULTS`,
+`MAAPI_CONFIG_SHOW_DEFAULTS` for controlling
+the defaults
 
 **Returns:** MaapiInputStream On success
 
 **Throws**
 
-- `ConfException` - If the methods invocation fails for some
-            reason. The errorCode or message could be obtain
-            through `getErrorCode`, `getMessage()`
-- `IOException` - Signals that a I/O
-            exception has occurred on the stream to ConfD/NCS
+- `com.tailf.conf.ConfException` - If the methods invocation fails for some
+reason. The errorCode or message could be obtain
+through `getErrorCode`, `getMessage()`
+- `java.io.IOException` - Signals that a I/O
+exception has occurred on the stream to ConfD/NCS
 
-**See also:** `#saveConfig(int,EnumSet,ConfPath)`
+**See also:** [`saveConfig(int,EnumSet,ConfPath)`](Maapi.md#saveconfig-b6febd268628)
 
 ### saveConfig(int, EnumSet&lt;MaapiConfigFlag&gt;, ConfPath) <a href="#saveconfig-b6febd268628" id="saveconfig-b6febd268628"></a>
 
@@ -6630,9 +6475,6 @@ Types: [MaapiInputStream](MaapiInputStream.md#maapiinputstream-2e53bf185d47), [M
 
 Save the subtree in different formats.
 
-
-
-
 <table BORDER=1>
   <caption>
   Retrieves an <code>InputStream</code> from a given path
@@ -6648,49 +6490,46 @@ Save the subtree in different formats.
   </tr>
   <tr>
     <td><b>Raw-XML</b></td>
-    <td>{@link MaapiConfigFlag#XML_FORMAT},
-        {@link MaapiConfigFlag#MAAPI_CONFIG_XML}
+    <td><a href="MaapiConfigFlag.md#xml_format-96c70b32b8b4"><code>MaapiConfigFlag#XML_FORMAT</code></a>,
+        <a href="MaapiConfigFlag.md#maapi_config_xml-5293149632cc"><code>MaapiConfigFlag#MAAPI_CONFIG_XML</code></a>
     </td>
     <td>The configuration format is XML</td>
   </tr>
   <tr>
     <td><b>Pretty-XML</b></td>
-    <td>{@link MaapiConfigFlag#XML_PRETTY},
-        {@link MaapiConfigFlag#MAAPI_CONFIG_XML_PRETTY}
+    <td><a href="MaapiConfigFlag.md#xml_pretty-eb9cabeb3345"><code>MaapiConfigFlag#XML_PRETTY</code></a>,
+        <a href="MaapiConfigFlag.md#maapi_config_xml_pretty-6e369993cec8"><code>MaapiConfigFlag#MAAPI_CONFIG_XML_PRETTY</code></a>
     </td>
     <td>The configuration format is pretty printed XML</td>
   </tr>
   <tr>
     <td><b>Juniper CLI format</b></td>
-    <td>{@link MaapiConfigFlag#MAAPI_CONFIG_J},
-      {@link MaapiConfigFlag#JUNIPER_CLI_FORMAT}
+    <td><a href="MaapiConfigFlag.md#maapi_config_j-fcd7daaed20b"><code>MaapiConfigFlag#MAAPI_CONFIG_J</code></a>,
+      <a href="MaapiConfigFlag.md#juniper_cli_format-861be2804daf"><code>MaapiConfigFlag#JUNIPER_CLI_FORMAT</code></a>
    </td>
     <td>The configuration is in curly brace Juniper CLI format</td>
   </tr>
   <tr>
     <td><b>Cisco XR CLI format</b></td>
-    <td>{@link MaapiConfigFlag#MAAPI_CONFIG_C_IOS},
-      {@link MaapiConfigFlag#CISCO_XR_FORMAT}
+    <td><a href="MaapiConfigFlag.md#maapi_config_c_ios-5908ad7c1e08"><code>MaapiConfigFlag#MAAPI_CONFIG_C_IOS</code></a>,
+      <a href="MaapiConfigFlag.md#cisco_xr_format-95c530ea77b0"><code>MaapiConfigFlag#CISCO_XR_FORMAT</code></a>
    </td>
     <td>The configuration is in Cisco XR style format</td>
   </tr>
   <tr>
     <td><b>Cisco IOS CLI format</b></td>
-    <td>{@link MaapiConfigFlag#MAAPI_CONFIG_C_IOS},
-      {@link MaapiConfigFlag#CISCO_IOS_FORMAT}
+    <td><a href="MaapiConfigFlag.md#maapi_config_c_ios-5908ad7c1e08"><code>MaapiConfigFlag#MAAPI_CONFIG_C_IOS</code></a>,
+      <a href="MaapiConfigFlag.md#cisco_ios_format-a2224e97faa1"><code>MaapiConfigFlag#CISCO_IOS_FORMAT</code></a>
    </td>
     <td>The configuration is in Cisco IOS style format</td>
-  </tr>
-
+  </tr>&#10;
  </table>
 
-
-
-  The provided path indicates from where the configuration is to be
+The provided path indicates from where the configuration is to be
  rooted. If for example fmt is "/aaa:aaa/authentication/users" we only
  dump a part of the AAA data. It must be a prefix pre pended keypath.
 
- By default, the treatment of nodes with a  `tailf:hidden`
+By default, the treatment of nodes with a  `tailf:hidden`
  statement depends on the state of the transaction. For a transaction
  started via MAAPI, no nodes are hidden, while for a transaction started
  by another northbound agent (e.g. CLI) and attached to, the nodes that
@@ -6699,12 +6538,12 @@ Save the subtree in different formats.
  [`MaapiConfigFlag#MAAPI_CONFIG_HIDE_ALL`](MaapiConfigFlag.md#maapi_config_hide_all-161f42eaba86) and
  [`MaapiConfigFlag#MAAPI_CONFIG_UNHIDE_ALL`](MaapiConfigFlag.md#maapi_config_unhide_all-6db0d84095d7).
 
- By default, the NCS service-meta-data attributes (refcounter,
+By default, the NCS service-meta-data attributes (refcounter,
  backpointer, and original-value) are not included in the configuration.
  The flag [`MaapiConfigFlag#MAAPI_CONFIG_WITH_SERVICE_META`](MaapiConfigFlag.md#maapi_config_with_service_meta-262400830f06) can
  be used to request that these attributes should be included.
 
- The library will initialize a new socket to the end point specified
+The library will initialize a new socket to the end point specified
  by the initial socket (which was created during initialization of
  this Maapi instance) thus it is up to the use
 
@@ -6712,31 +6551,31 @@ Save the subtree in different formats.
 
 - `int tid` - transaction id of the current transaction
 - `java.util.EnumSet<com.tailf.maapi.MaapiConfigFlag> flags` - format parameters (see the table above ) with additional
-            `MAAPI_CONFIG_WITH_DEFAULTS`,
-            `MAAPI_CONFIG_SHOW_DEFAULTS` for controlling
-            the defaults
-            `MAAPI_CONFIG_READ_WRITE_ACCESS_ONLY` for saving
-            only nodes for which the user has read_write access
+`MAAPI_CONFIG_WITH_DEFAULTS`,
+`MAAPI_CONFIG_SHOW_DEFAULTS` for controlling
+the defaults
+`MAAPI_CONFIG_READ_WRITE_ACCESS_ONLY` for saving
+only nodes for which the user has read_write access
 - `com.tailf.conf.ConfPath path` - path indicating where the configuration to be rooted
 
 **Returns:** MaapiInputStream On success
 
 **Throws**
 
-- `ConfException` - If the methods invocation fails for some
-            reason. The errorCode or message could be obtain
-            through `getErrorCode`, `getMessage()`
-- `IOException` - Signals that a I/O
-            exception has occurred on the stream to ConfD/NCS
+- `com.tailf.conf.ConfException` - If the methods invocation fails for some
+reason. The errorCode or message could be obtain
+through `getErrorCode`, `getMessage()`
+- `java.io.IOException` - Signals that a I/O
+exception has occurred on the stream to ConfD/NCS
 
-### saveConfig(int, EnumSet&lt;MaapiConfigFlag&gt;, String, Object[]) <a href="#saveconfig-3292de5923e0" id="saveconfig-3292de5923e0"></a>
+### saveConfig(int, EnumSet&lt;MaapiConfigFlag&gt;, String, Object...) <a href="#saveconfig-eabd7f81580a" id="saveconfig-eabd7f81580a"></a>
 
 ```java
 public synchronized com.tailf.maapi.MaapiInputStream saveConfig(
     int tid,
     java.util.EnumSet<com.tailf.maapi.MaapiConfigFlag> flags,
     String fmt,
-    Object[] args
+    Object... args
 )
     throws com.tailf.conf.ConfException, java.io.IOException
 ```
@@ -6745,9 +6584,6 @@ Types: [MaapiInputStream](MaapiInputStream.md#maapiinputstream-2e53bf185d47), [M
 
 Save the subtree in different formats, with ability to XPath Filtering.
 
-
-
-
 <table BORDER=1>
   <caption>
   Retrieves an <code>InputStream</code> from a given path
@@ -6763,49 +6599,46 @@ Save the subtree in different formats, with ability to XPath Filtering.
   </tr>
   <tr>
     <td><b>Raw-XML</b></td>
-    <td>{@link MaapiConfigFlag#XML_FORMAT},
-        {@link MaapiConfigFlag#MAAPI_CONFIG_XML}
+    <td><a href="MaapiConfigFlag.md#xml_format-96c70b32b8b4"><code>MaapiConfigFlag#XML_FORMAT</code></a>,
+        <a href="MaapiConfigFlag.md#maapi_config_xml-5293149632cc"><code>MaapiConfigFlag#MAAPI_CONFIG_XML</code></a>
     </td>
     <td>The configuration format is XML</td>
   </tr>
   <tr>
     <td><b>Pretty-XML</b></td>
-    <td>{@link MaapiConfigFlag#XML_PRETTY},
-        {@link MaapiConfigFlag#MAAPI_CONFIG_XML_PRETTY}
+    <td><a href="MaapiConfigFlag.md#xml_pretty-eb9cabeb3345"><code>MaapiConfigFlag#XML_PRETTY</code></a>,
+        <a href="MaapiConfigFlag.md#maapi_config_xml_pretty-6e369993cec8"><code>MaapiConfigFlag#MAAPI_CONFIG_XML_PRETTY</code></a>
     </td>
     <td>The configuration format is pretty printed XML</td>
   </tr>
   <tr>
     <td><b>Juniper CLI format</b></td>
-    <td>{@link MaapiConfigFlag#MAAPI_CONFIG_J},
-      {@link MaapiConfigFlag#JUNIPER_CLI_FORMAT}
+    <td><a href="MaapiConfigFlag.md#maapi_config_j-fcd7daaed20b"><code>MaapiConfigFlag#MAAPI_CONFIG_J</code></a>,
+      <a href="MaapiConfigFlag.md#juniper_cli_format-861be2804daf"><code>MaapiConfigFlag#JUNIPER_CLI_FORMAT</code></a>
    </td>
     <td>The configuration is in curly brace Juniper CLI format</td>
   </tr>
   <tr>
     <td><b>Cisco XR CLI format</b></td>
-    <td>{@link MaapiConfigFlag#MAAPI_CONFIG_C_IOS},
-      {@link MaapiConfigFlag#CISCO_XR_FORMAT}
+    <td><a href="MaapiConfigFlag.md#maapi_config_c_ios-5908ad7c1e08"><code>MaapiConfigFlag#MAAPI_CONFIG_C_IOS</code></a>,
+      <a href="MaapiConfigFlag.md#cisco_xr_format-95c530ea77b0"><code>MaapiConfigFlag#CISCO_XR_FORMAT</code></a>
    </td>
     <td>The configuration is in Cisco XR style format</td>
   </tr>
   <tr>
     <td><b>Cisco IOS CLI format</b></td>
-    <td>{@link MaapiConfigFlag#MAAPI_CONFIG_C_IOS},
-      {@link MaapiConfigFlag#CISCO_IOS_FORMAT}
+    <td><a href="MaapiConfigFlag.md#maapi_config_c_ios-5908ad7c1e08"><code>MaapiConfigFlag#MAAPI_CONFIG_C_IOS</code></a>,
+      <a href="MaapiConfigFlag.md#cisco_ios_format-a2224e97faa1"><code>MaapiConfigFlag#CISCO_IOS_FORMAT</code></a>
    </td>
     <td>The configuration is in Cisco IOS style format</td>
-  </tr>
-
+  </tr>&#10;
  </table>
 
-
-
- The provided path indicates from where the configuration is to be
+The provided path indicates from where the configuration is to be
  rooted. If for example fmt is "/aaa:aaa/authentication/users" we only
  dump a part of the AAA data. It must be a prefix pre pended keypath.
 
- By default, the treatment of nodes with a  `tailf:hidden`
+By default, the treatment of nodes with a  `tailf:hidden`
  statement depends on the state of the transaction. For a transaction
  started via MAAPI, no nodes are hidden, while for a transaction started
  by another northbound agent (e.g. CLI) and attached to, the nodes that
@@ -6814,11 +6647,11 @@ Save the subtree in different formats, with ability to XPath Filtering.
  [`MaapiConfigFlag#MAAPI_CONFIG_HIDE_ALL`](MaapiConfigFlag.md#maapi_config_hide_all-161f42eaba86) and
  [`MaapiConfigFlag#MAAPI_CONFIG_UNHIDE_ALL`](MaapiConfigFlag.md#maapi_config_unhide_all-6db0d84095d7).
 
- For `MAAPI_CONFIG_XML` and `MAAPI_CONFIG_XML_PRETTY`
+For `MAAPI_CONFIG_XML` and `MAAPI_CONFIG_XML_PRETTY`
  it is alternatively possible to give an XPath filter, by
  including the flag [`MaapiConfigFlag#MAAPI_CONFIG_XPATH`](MaapiConfigFlag.md#maapi_config_xpath-1457dd10cb74).
 
- The library will initialize a new socket to the end point specified
+The library will initialize a new socket to the end point specified
  by the initial socket (which was created during initialization of
  this Maapi instance) thus it is up to the user to close the returning
  InputStream after reading the configuration.
@@ -6827,34 +6660,34 @@ Save the subtree in different formats, with ability to XPath Filtering.
 
 - `int tid` - transaction id of the current transaction
 - `java.util.EnumSet<com.tailf.maapi.MaapiConfigFlag> flags` - format parameters (see the table above ) with additional
-            `MAAPI_CONFIG_WITH_DEFAULTS`,
-            `MAAPI_CONFIG_SHOW_DEFAULTS` for controlling
-            the defaults
+`MAAPI_CONFIG_WITH_DEFAULTS`,
+`MAAPI_CONFIG_SHOW_DEFAULTS` for controlling
+the defaults
 - `String fmt` - path indicating where the configuration to be rooted
-- `Object[] args` - variable argument list for c-style parameters in fmt
+- `Object... args` - variable argument list for c-style parameters in fmt
 
 **Returns:** MaapiInputStream On success the library will initialize a
-         new socket which is intended to be closed after usage of
-         this method by the user
+new socket which is intended to be closed after usage of
+this method by the user
 
 **Throws**
 
-- `ConfException` - If the methods invocation fails for some
-            reason. The errorCode or message could be obtain
-            through `getErrorCode`, `getMessage()`
-- `IOException` - Signals that a I/O
-            exception has occurred on the stream to ConfD/NCS
+- `com.tailf.conf.ConfException` - If the methods invocation fails for some
+reason. The errorCode or message could be obtain
+through `getErrorCode`, `getMessage()`
+- `java.io.IOException` - Signals that a I/O
+exception has occurred on the stream to ConfD/NCS
 
-**See also:** `#saveConfig(int,EnumSet,ConfPath)`
+**See also:** [`saveConfig(int,EnumSet,ConfPath)`](Maapi.md#saveconfig-b6febd268628)
 
-### setAttr(int, ConfAttributeValue, String, Object[]) <a href="#setattr-690596d9efb4" id="setattr-690596d9efb4"></a>
+### setAttr(int, ConfAttributeValue, String, Object...) <a href="#setattr-3399e8cc0b92" id="setattr-3399e8cc0b92"></a>
 
 ```java
 public synchronized void setAttr(
     int tid,
     com.tailf.conf.ConfAttributeValue attr,
     String fmt,
-    Object[] args
+    Object... args
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -6870,12 +6703,12 @@ Set an attribute for a configuration node. See getAttrs() above for the
 - `int tid` - current transaction
 - `com.tailf.conf.ConfAttributeValue attr` - ConfAttributeValue object denoting the attribute to set
 - `String fmt` - path indicating node to retrieve attributes from
-- `Object[] args` - variable argument list for c-style parameters in fmtPath
+- `Object... args` - variable argument list for c-style parameters in fmtPath
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### setComment(int, String) <a href="#setcomment-c4c683b45db1" id="setcomment-c4c683b45db1"></a>
 
@@ -6892,9 +6725,9 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 Set the "Comment" that is stored in the rollback file when a
  transaction towards running is committed. Setting the "Comment" for
  transactions via candidate can be done when the candidate is
- committed to running, by using the `Maapi#candidateCommitInfo`
+ committed to running, by using the [`Maapi#candidateCommitInfo`](Maapi.md#candidatecommitinfo-9389711260f1)
  method. For a confirmed commit, the "Comment" must also be given via the
- `Maapi#candidateConfirmedCommitInfo` method.
+ [`Maapi#candidateConfirmedCommitInfo`](Maapi.md#candidateconfirmedcommitinfo-84908f457061) method.
 
 **Parameters**
 
@@ -6903,8 +6736,8 @@ Set the "Comment" that is stored in the rollback file when a
 
 **Throws**
 
-- `MaapiException` - If setting the comment fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If setting the comment fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### setDelayedWhen(int, boolean) <a href="#setdelayedwhen-38f32854fd19" id="setdelayedwhen-38f32854fd19"></a>
 
@@ -6955,8 +6788,8 @@ This function enables/disables the "delayed when" mode of a transaction.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
 ### setElem(int, ConfObject, ConfPath) <a href="#setelem-cec1d194abc2" id="setelem-cec1d194abc2"></a>
 
@@ -6973,13 +6806,13 @@ Types: [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [ConfPath](.
 
 Set value to a leaf node.
 
- There two different methods to set a value to a leaf node.
+There two different methods to set a value to a leaf node.
  One where the value is a string and one where the value to set is a
  [`ConfObject`](../conf/ConfObject.md#confobject-5433616953b2). The string version
  is useful when we have implemented a management agent where the user
  enters values as strings.
 
- The version with `ConfObject` is useful when we
+The version with `ConfObject` is useful when we
  are setting values which we have just read from various API methods
  that returns `ConfObject`.
 
@@ -6991,17 +6824,17 @@ Set value to a leaf node.
 
 **Throws**
 
-- `IOException` - signals I/O exception on the underlying socket.
-- `ConfException` - signals protocol/usage error.
+- `java.io.IOException` - signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - signals protocol/usage error.
 
-### setElem(int, ConfObject, String, Object[]) <a href="#setelem-d51f890ac736" id="setelem-d51f890ac736"></a>
+### setElem(int, ConfObject, String, Object...) <a href="#setelem-ac92f93226d6" id="setelem-ac92f93226d6"></a>
 
 ```java
 public synchronized void setElem(
     int tid,
     com.tailf.conf.ConfObject value,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -7010,13 +6843,13 @@ Types: [ConfObject](../conf/ConfObject.md#confobject-5433616953b2), [ConfExcepti
 
 Set value to a leaf node.
 
- There two different methods to set a value to a leaf node.
+There two different methods to set a value to a leaf node.
  One where the value is a string and one where the value to set is a
  [`ConfObject`](../conf/ConfObject.md#confobject-5433616953b2). The string version
  is useful when we have implemented a management agent where the user
  enters values as strings.
 
- The version with `ConfObject` is useful when we
+The version with `ConfObject` is useful when we
  are setting values which we have just read from various API methods
  that returns `ConfObject`.
 
@@ -7025,12 +6858,12 @@ Set value to a leaf node.
 - `int tid` - Transaction Identifier
 - `com.tailf.conf.ConfObject value` - The value to set
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
 ### setElem(int, String, ConfPath) <a href="#setelem-6e3977480252" id="setelem-6e3977480252"></a>
 
@@ -7047,13 +6880,13 @@ Types: [ConfPath](../conf/ConfPath.md#confpath-327831c6fc7d), [ConfException](..
 
 Set value to a leaf node.
 
- There two different methods to set a value to a leaf node.
+There two different methods to set a value to a leaf node.
  One where the value is a string and one where the value to set is a
  [`ConfObject`](../conf/ConfObject.md#confobject-5433616953b2). The string version
  is useful when we have implemented a management agent where the user
  enters values as strings.
 
- The version with `ConfObject` is useful when we
+The version with `ConfObject` is useful when we
  are setting values which we have just read from various API methods
  that returns `ConfObject`.
 
@@ -7065,17 +6898,17 @@ Set value to a leaf node.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
-### setElem(int, String, String, Object[]) <a href="#setelem-915c0b578eea" id="setelem-915c0b578eea"></a>
+### setElem(int, String, String, Object...) <a href="#setelem-6bdd4b683e5c" id="setelem-6bdd4b683e5c"></a>
 
 ```java
 public synchronized void setElem(
     int tid,
     String value,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -7084,13 +6917,13 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Set value to a leaf node.
 
- There two different methods to set a value to a leaf node.
+There two different methods to set a value to a leaf node.
  One where the value is a string and one where the value to set is a
  [`ConfObject`](../conf/ConfObject.md#confobject-5433616953b2). The string version
  is useful when we have implemented a management agent where the user
  enters values as strings.
 
- The version with `ConfObject` is useful when we
+The version with `ConfObject` is useful when we
  are setting values which we have just read from various API methods
  that returns `ConfObject`.
 
@@ -7099,12 +6932,12 @@ Set value to a leaf node.
 - `int tid` - Transaction Identifier
 - `String value` - The value to set
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `IOException` - signals I/O exception on the underlying socket
-- `ConfException` - signals protocol/usage error.
+- `java.io.IOException` - signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - signals protocol/usage error.
 
 ### setFlags(int, EnumSet&lt;MaapiFlag&gt;) <a href="#setflags-1158755c6ac8" id="setflags-1158755c6ac8"></a>
 
@@ -7128,8 +6961,8 @@ This method can modify some aspects of the read/write session, see
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### setLabel(int, String) <a href="#setlabel-929d364c78d7" id="setlabel-929d364c78d7"></a>
 
@@ -7146,9 +6979,9 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 Set the "Label" that is stored in the rollback file when a
  transaction towards running is committed. Setting the "Label" for
  transactions via candidate can be done when the candidate is
- committed to running, by using the `Maapi#candidateCommitInfo`
+ committed to running, by using the [`Maapi#candidateCommitInfo`](Maapi.md#candidatecommitinfo-9389711260f1)
  method. For a confirmed commit, the "Label" must also be given via the
- `Maapi#candidateConfirmedCommitInfo` method.
+ [`Maapi#candidateConfirmedCommitInfo`](Maapi.md#candidateconfirmedcommitinfo-84908f457061) method.
 
 **Parameters**
 
@@ -7157,8 +6990,8 @@ Set the "Label" that is stored in the rollback file when a
 
 **Throws**
 
-- `MaapiException` - If setting the label fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If setting the label fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### setNamespace(int, int) <a href="#setnamespace-d58798edaf04" id="setnamespace-d58798edaf04"></a>
 
@@ -7181,8 +7014,8 @@ Set the namespace for the transaction using namespace ID.
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if namespace cannot be set
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if namespace cannot be set
 
 ### setNamespace(int, String) <a href="#setnamespace-edc25cbc3dfd" id="setnamespace-edc25cbc3dfd"></a>
 
@@ -7200,8 +7033,7 @@ Before can invoke any of read or write functions, we must indicate which
  namespace we are going to use. It is possible to change the namespace
  several times during a transaction.
 
-
- The ns string is the namespace URL
+The ns string is the namespace URL
 
 **Parameters**
 
@@ -7210,8 +7042,8 @@ Before can invoke any of read or write functions, we must indicate which
 
 **Throws**
 
-- `MaapiException` - If setting the namespace fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If setting the namespace fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### setNextUserSessionId(int) <a href="#setnextusersessionid-f0914dda055b" id="setnextusersessionid-f0914dda055b"></a>
 
@@ -7236,17 +7068,17 @@ Set the user session id that will be assigned to the next user session
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
 
-### setObject(int, ConfObject[], String, Object[]) <a href="#setobject-93cfe3ccc1a9" id="setobject-93cfe3ccc1a9"></a>
+### setObject(int, ConfObject[], String, Object...) <a href="#setobject-d1283c87bb91" id="setobject-d1283c87bb91"></a>
 
 ```java
 public synchronized void setObject(
     int tid,
     com.tailf.conf.ConfObject[] values,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -7270,12 +7102,12 @@ This writes a container object or a list entry object from the path in
 - `int tid` - the transaction identifier
 - `com.tailf.conf.ConfObject[] values` - the values to set
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `MaapiException` - If setting the object fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If setting the object fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### setReadIntent(int, List&lt;String&gt;) <a href="#setreadintent-8a615528e4d7" id="setreadintent-8a615528e4d7"></a>
 
@@ -7299,9 +7131,9 @@ Set a read intent for the transaction.
 
 **Throws**
 
-- `ConfException` - If setting read intent fails
+- `com.tailf.conf.ConfException` - If setting read intent fails
 - `IllegalArgumentException` - If the list of xpaths is null
-- `IOException` - Signals I/O exception on the underlying socket
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### setReadIntent(int, String) <a href="#setreadintent-66ba57478cb6" id="setreadintent-66ba57478cb6"></a>
 
@@ -7325,9 +7157,9 @@ Set a read intent for the transaction.
 
 **Throws**
 
-- `ConfException` - If setting read intent fails
+- `com.tailf.conf.ConfException` - If setting read intent fails
 - `IllegalArgumentException` - If the xpath is null
-- `IOException` - Signals I/O exception on the underlying socket
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### setReadOnlyMode(boolean) <a href="#setreadonlymode-fde2440b8220" id="setreadonlymode-fde2440b8220"></a>
 
@@ -7348,8 +7180,8 @@ Control if the node should accept write transactions
 
 **Throws**
 
-- `ConfException` - signals protocol/usage error
-- `IOException` - signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - signals protocol/usage error
+- `java.io.IOException` - signals I/O exception on the underlying socket
 
 ### setRunningDbStatus(int) <a href="#setrunningdbstatus-fa121ea57064" id="setrunningdbstatus-fa121ea57064"></a>
 
@@ -7371,8 +7203,8 @@ Explicitly sets the systems notion of the consistency
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### setUserSession(int) <a href="#setusersession-ff36c06a3ef4" id="setusersession-ff36c06a3ef4"></a>
 
@@ -7387,7 +7219,7 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Associate this Maapi instance with an already existing user session.
 
- This can be used instead
+This can be used instead
  [`Maapi#startUserSession(String, String, String[], SocketAddress,
  MaapiUserSessionFlag)`](Maapi.md#startusersession-677e9394622e)
  when we really do not want to start a new user session, e.g. if we want
@@ -7399,8 +7231,8 @@ Associate this Maapi instance with an already existing user session.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### setValues(int, ConfXMLParam[], ConfPath) <a href="#setvalues-27a83fbfcc37" id="setvalues-27a83fbfcc37"></a>
 
@@ -7431,17 +7263,17 @@ Set arbitrary sub-elements of a container element in one bulk operation.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
-### setValues(int, ConfXMLParam[], String, Object[]) <a href="#setvalues-5a5e209f0f09" id="setvalues-5a5e209f0f09"></a>
+### setValues(int, ConfXMLParam[], String, Object...) <a href="#setvalues-3a8464614897" id="setvalues-3a8464614897"></a>
 
 ```java
 public synchronized void setValues(
     int tid,
     com.tailf.conf.ConfXMLParam[] params,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -7461,12 +7293,12 @@ Set arbitrary sub-elements of a container element in one bulk operation.
 - `int tid` - the transaction identifier
 - `com.tailf.conf.ConfXMLParam[] params` - the list of parameters to set
 - `String fmt` - the format string for the path
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### setValues(int, List&lt;ConfXMLParam&gt;, ConfPath) <a href="#setvalues-79c83d25babb" id="setvalues-79c83d25babb"></a>
 
@@ -7497,17 +7329,17 @@ Set arbitrary sub-elements of a container element in one bulk operation.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
-### setValues(int, List&lt;ConfXMLParam&gt;, String, Object[]) <a href="#setvalues-881fed8155cc" id="setvalues-881fed8155cc"></a>
+### setValues(int, List&lt;ConfXMLParam&gt;, String, Object...) <a href="#setvalues-6a2c680a589a" id="setvalues-6a2c680a589a"></a>
 
 ```java
 public synchronized void setValues(
     int tid,
     java.util.List<com.tailf.conf.ConfXMLParam> params,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -7527,12 +7359,12 @@ Set arbitrary sub-elements of a container element in one bulk operation.
 - `int tid` - the transaction identifier
 - `java.util.List<com.tailf.conf.ConfXMLParam> params` - the list of parameters to set
 - `String fmt` - the format string for the path
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### sharedCreate(int, ConfPath) <a href="#sharedcreate-4e9109f58b36" id="sharedcreate-4e9109f58b36"></a>
 
@@ -7569,16 +7401,16 @@ This is the variant of create() to use from FASTMAP code. I.e NCS
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
-### sharedCreate(int, String, Object[]) <a href="#sharedcreate-a1cc616c4565" id="sharedcreate-a1cc616c4565"></a>
+### sharedCreate(int, String, Object...) <a href="#sharedcreate-1eca79d02871" id="sharedcreate-1eca79d02871"></a>
 
 ```java
 public synchronized void sharedCreate(
     int tid,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -7586,18 +7418,18 @@ public synchronized void sharedCreate(
 Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Create shared element for NCS FastMap code.
- Equivalent to `sharedCreate(int, ConfPath)`.
+ Equivalent to [`sharedCreate(int, ConfPath)`](Maapi.md#sharedcreate-4e9109f58b36).
 
 **Parameters**
 
 - `int tid` - Transaction identifier
 - `String fmt` - Path string
-- `Object[] arguments` - Optional parameters for substitution in fmt
+- `Object... arguments` - Optional parameters for substitution in fmt
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if element cannot be created
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if element cannot be created
 
 ### sharedSetElem(int, ConfObject, ConfPath) <a href="#sharedsetelem-5fcf55dfed0c" id="sharedsetelem-5fcf55dfed0c"></a>
 
@@ -7622,17 +7454,17 @@ Set value to a leaf node from NCS FastMap code.
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if element cannot be set
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if element cannot be set
 
-### sharedSetElem(int, ConfObject, String, Object[]) <a href="#sharedsetelem-f484c0aeee76" id="sharedsetelem-f484c0aeee76"></a>
+### sharedSetElem(int, ConfObject, String, Object...) <a href="#sharedsetelem-4b1fe59063c5" id="sharedsetelem-4b1fe59063c5"></a>
 
 ```java
 public synchronized void sharedSetElem(
     int tid,
     com.tailf.conf.ConfObject value,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -7650,21 +7482,21 @@ Set value to a leaf node from NCS FastMap code
 - `int tid` - Transaction Identifier
 - `com.tailf.conf.ConfObject value` - The value to set
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `IOException` - signals I/O exception on the underlying socket
-- `ConfException` - signals protocol/usage error
+- `java.io.IOException` - signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - signals protocol/usage error
 
-### sharedSetElem(int, String, String, Object[]) <a href="#sharedsetelem-33c0b474ee87" id="sharedsetelem-33c0b474ee87"></a>
+### sharedSetElem(int, String, String, Object...) <a href="#sharedsetelem-b09af6fac863" id="sharedsetelem-b09af6fac863"></a>
 
 ```java
 public synchronized void sharedSetElem(
     int tid,
     String value,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -7678,12 +7510,12 @@ Set value to a leaf node from NCS FastMap code.
 - `int tid` - Transaction Identifier
 - `String value` - The value to set
 - `String fmt` - path string
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if element cannot be set
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if element cannot be set
 
 ### sharedSetValues(int, ConfXMLParam[], ConfPath) <a href="#sharedsetvalues-d20611e05b40" id="sharedsetvalues-d20611e05b40"></a>
 
@@ -7716,17 +7548,17 @@ Set arbitrary sub-elements of a container element in one bulk operation
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
-### sharedSetValues(int, ConfXMLParam[], String, Object[]) <a href="#sharedsetvalues-db5ccd228a3e" id="sharedsetvalues-db5ccd228a3e"></a>
+### sharedSetValues(int, ConfXMLParam[], String, Object...) <a href="#sharedsetvalues-bede67101068" id="sharedsetvalues-bede67101068"></a>
 
 ```java
 public synchronized void sharedSetValues(
     int tid,
     com.tailf.conf.ConfXMLParam[] params,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -7741,12 +7573,12 @@ Set arbitrary sub-elements of a container element in one bulk operation
 - `int tid` - the transaction identifier
 - `com.tailf.conf.ConfXMLParam[] params` - the list of parameters to set
 - `String fmt` - the format string for the path
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### sharedSetValues(int, List&lt;ConfXMLParam&gt;, ConfPath) <a href="#sharedsetvalues-bfaa695e71b3" id="sharedsetvalues-bfaa695e71b3"></a>
 
@@ -7777,17 +7609,17 @@ Set arbitrary sub-elements of a container element in one bulk operation
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
-### sharedSetValues(int, List&lt;ConfXMLParam&gt;, String, Object[]) <a href="#sharedsetvalues-849a21e341c1" id="sharedsetvalues-849a21e341c1"></a>
+### sharedSetValues(int, List&lt;ConfXMLParam&gt;, String, Object...) <a href="#sharedsetvalues-4eec94d5cd90" id="sharedsetvalues-4eec94d5cd90"></a>
 
 ```java
 public synchronized void sharedSetValues(
     int tid,
     java.util.List<com.tailf.conf.ConfXMLParam> params,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -7802,12 +7634,12 @@ Set arbitrary sub-elements of a container element in one bulk operation
 - `int tid` - the transaction identifier
 - `java.util.List<com.tailf.conf.ConfXMLParam> params` - the list of parameters to set
 - `String fmt` - the format string for the path
-- `Object[] arguments` - optional parameters for substitution in fmt
+- `Object... arguments` - optional parameters for substitution in fmt
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### snmpaReload(boolean) <a href="#snmpareload-4fd9a56bd262" id="snmpareload-4fd9a56bd262"></a>
 
@@ -7827,12 +7659,12 @@ When the ConfD/NCS SNMP Agent config tree is implemented by an external
 **Parameters**
 
 - `boolean synchronous` - Whether to wait for the daemon to complete reloading
-           the data before returning.
+the data before returning.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### snmpSendNotification(String, String, String, SnmpVarbind[]) <a href="#snmpsendnotification-22a7246d4ba1" id="snmpsendnotification-22a7246d4ba1"></a>
 
@@ -7850,7 +7682,7 @@ Types: [SnmpVarbind](../conf/SnmpVarbind.md#snmpvarbind-ef9f9c3d4932), [ConfExce
 
 Send SNMP notification.
 
- Sends a notification to the management targets
+Sends a notification to the management targets
  defined for 'notifyTarget' in the snmpNotifyTable in
  SNMP-NOTIFICATION-MIB from the specified context. If no NotifyName is
  specified (or if it is ""), the notification is sent to all management
@@ -7865,7 +7697,7 @@ Send SNMP notification.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
 ### startPhase(int) <a href="#startphase-752e85521d00" id="startphase-752e85521d00"></a>
 
@@ -7888,8 +7720,8 @@ Once the ConfD/NCS daemon has been started in phase0 it is possible to
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### startPhase(int, boolean) <a href="#startphase-cef9a0a12f3b" id="startphase-cef9a0a12f3b"></a>
 
@@ -7910,12 +7742,12 @@ Once the ConfD/NCS daemon has been started in phase0 it is possible to
 
 - `int phase` - Which start phase to proceed to, 1 or 2
 - `boolean synchronous` - Whether to wait for the daemon to complete the
-        transition to the requested start phase or return immediately.
+transition to the requested start phase or return immediately.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### startSpan(int, Verbosity, String, ConfPath, Attributes, Span[]) <a href="#startspan-e2d5c1669c4e" id="startspan-e2d5c1669c4e"></a>
 
@@ -7936,7 +7768,7 @@ Types: [Span](../progress/Span.md#span-1e8b02bddf13), [Verbosity](Maapi/Verbosit
 Create a progress span. This is the low level
  method that communicates with the progress trace
  framework to create spans. It is recommended
- to use `ProgressTrace#startSpan`
+ to use [`ProgressTrace#startSpan`](../progress/ProgressTrace.md#startspan-a255151f7145)
  instead.
 
 **Parameters**
@@ -7952,9 +7784,9 @@ Create a progress span. This is the low level
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket
-- `InvalidParameterException` - if the parameters are invalid
-- `ConfException` - Signals protocol/usage error
+- `java.io.IOException` - Signals I/O exception on the underlying socket
+- `java.security.InvalidParameterException` - if the parameters are invalid
+- `com.tailf.conf.ConfException` - Signals protocol/usage error
 
 ### startTrans(int, int) <a href="#starttrans-5b69ebc4af09" id="starttrans-5b69ebc4af09"></a>
 
@@ -7971,20 +7803,20 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 Start a new transaction towards the specified database
  `dbname` with a transaction mode `mode`.
 
- The main purpose of MAAPI is to provide read and write access into
+The main purpose of MAAPI is to provide read and write access into
  the transaction manager. Regardless of whether data is kept in
- CDB or in some* (or several) external data bases, the same API is used
+ CDB or in some\* (or several) external data bases, the same API is used
  to access data.
 
- ConfD/NCS acts as a mediator and multiplexes the different commands to
+ConfD/NCS acts as a mediator and multiplexes the different commands to
  the code which is responsible for each individual data element.
 
- This function creates a new transaction towards a specified data
+This function creates a new transaction towards a specified data
  base. If successful, it returns a new transaction identifier,
  a *tid* which must be used as a parameter in most of the
  `Maapi` methods which manipulate the transaction.
 
- We will drive this transaction forward through the different states a
+We will drive this transaction forward through the different states a
  transaction goes through. If an external database is used, and it has
  registered callback functions for the different transaction states, those
  callbacks will be called when we in MAAPI invoke the different MAAPI
@@ -7993,19 +7825,19 @@ Start a new transaction towards the specified database
  in all external databases. If data is kept in CDB, the system will
  handle everything internally.
 
- The parameter `dbname` is supplied using on of
+The parameter `dbname` is supplied using on of
  [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486),[`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28),[`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
 
- Transaction mode `mode` is supplied using
+Transaction mode `mode` is supplied using
  [`Conf#MODE_READ`](../conf/Conf.md#mode_read-1e4ced2f015c), to start a read only transaction
  [`Conf#MODE_READ_WRITE`](../conf/Conf.md#mode_read_write-0883a33af731) to start a read write transaction.
 
- A read only transaction will incur less resource usage, thus if no
+A read only transaction will incur less resource usage, thus if no
  writes will be done (e.g. the purpose of the transaction is only
  to read operational data), it is best to use
  `Conf.MODE_READ`.
 
- There are also some cases where starting a read-write transaction
+There are also some cases where starting a read-write transaction
  is not allowed, e.g. if we start a transaction towards the running data
  store  is set to "writable-through-candidate" in confd.conf/ncs.conf,
  or if ConfD/NCS is running in HA secondary mode.
@@ -8019,9 +7851,9 @@ Start a new transaction towards the specified database
 
 **Throws**
 
-- `MaapiException` - If the transaction could not be started
-            see the `ConfException#getMessage()`
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If the transaction could not be started
+see the `ConfException#getMessage()`
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### startTrans(int, int, String, String, String, String) <a href="#starttrans-ced8c0d5d1ae" id="starttrans-ced8c0d5d1ae"></a>
 
@@ -8054,8 +7886,8 @@ Start a new transaction with client identification.
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if transaction cannot be started
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if transaction cannot be started
 
 ### startTrans2(int, int, int) <a href="#starttrans2-f2ba2eb1c7f0" id="starttrans2-f2ba2eb1c7f0"></a>
 
@@ -8073,9 +7905,11 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 Start a new transaction towards database within an existing
  user session specified by `usid`.
 
- If we want to start new transactions inside actions, we can use
+If we want to start new transactions inside actions, we can use
  this function to execute the new transaction within the existing
- user session.See [`startTrans(int,int)`](Maapi.md#starttrans-5b69ebc4af09) for available
+ user session.
+
+See [`startTrans(int,int)`](Maapi.md#starttrans-5b69ebc4af09) for available
  options on `dbname` and mode `mode`.
 
 **Parameters**
@@ -8088,9 +7922,9 @@ Start a new transaction towards database within an existing
 
 **Throws**
 
-- `MaapiException` - If the transaction could not be started
-            see the `ConfException#getMessage()`
-- `IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.maapi.MaapiException` - If the transaction could not be started
+see the `ConfException#getMessage()`
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
 
 ### startTransFlags(int, int, int, EnumSet&lt;MaapiFlag&gt;) <a href="#starttransflags-cd1ec7f9d8f8" id="starttransflags-cd1ec7f9d8f8"></a>
 
@@ -8110,8 +7944,8 @@ Start a new transaction towards the specified database
  `dbname` with a transaction mode `mode` with
  additional `flags` to control read/write sessions.
 
- This method makes it possible to provide flags that can otherwise be
- used with `setFlags(int,EnumSet)` already when starting a
+This method makes it possible to provide flags that can otherwise be
+ used with [`setFlags(int,EnumSet)`](Maapi.md#setflags-1158755c6ac8) already when starting a
  transaction, as well as setting the [`MaapiFlag#HIDE_INACTIVE`](MaapiFlag.md#hide_inactive-c1ab6b970578) and
  [`MaapiFlag#HIDE_ALL_HIDEGROUPS`](MaapiFlag.md#hide_all_hidegroups-27fac18f1f9d) flag that can only be used with
  this function.
@@ -8120,7 +7954,7 @@ Start a new transaction towards the specified database
 **Parameters**
 
 - `int dbname` - Database that the transaction should operate on. Possible
-            values are STARTUP, RUNNING, CANDIDATE
+values are STARTUP, RUNNING, CANDIDATE
 - `int mode` - Read or write mode. Possible values are READ and READ_WRITE
 - `int usid` - User session id
 - `java.util.EnumSet<com.tailf.maapi.MaapiFlag> flags` - EnumSet of MaapiFlag values.
@@ -8129,8 +7963,8 @@ Start a new transaction towards the specified database
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### startTransInTrans(int, int, int) <a href="#starttransintrans-4e53d8f12a29" id="starttransintrans-4e53d8f12a29"></a>
 
@@ -8158,12 +7992,13 @@ Start a new transaction within an existing user session and another
 
 **Throws**
 
-- `MaapiException` - If the transaction cannot be started
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If the transaction cannot be started
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### startUserSession(String, InetAddress, String, String[], MaapiUserSessionFlag) <a href="#startusersession-2fe44878630c" id="startusersession-2fe44878630c"></a>
 
 ```java
+@Deprecated
 public synchronized void startUserSession(
     String user,
     java.net.InetAddress source,
@@ -8186,8 +8021,8 @@ Types: [MaapiUserSessionFlag](MaapiUserSessionFlag.md#maapiusersessionflag-ee298
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 **Deprecated:** Use
  [`Maapi#startUserSession(String, String, String[], SocketAddress,
@@ -8196,6 +8031,7 @@ Types: [MaapiUserSessionFlag](MaapiUserSessionFlag.md#maapiusersessionflag-ee298
 ### startUserSession(String, InetAddress, String, String[], MaapiUserSessionFlag, String, String, String, String) <a href="#startusersession-97fb0f3aee95" id="startusersession-97fb0f3aee95"></a>
 
 ```java
+@Deprecated
 public synchronized void startUserSession(
     String user,
     java.net.InetAddress source,
@@ -8226,8 +8062,8 @@ Types: [MaapiUserSessionFlag](MaapiUserSessionFlag.md#maapiusersessionflag-ee298
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
 
 **Deprecated:** Use
  [`Maapi#startUserSession(String, String, String[], SocketAddress,
@@ -8254,8 +8090,8 @@ Starts a user session with default parameters.
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if session cannot be started
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if session cannot be started
 
 ### startUserSession(String, String, String[]) <a href="#startusersession-e8885f96f69b" id="startusersession-e8885f96f69b"></a>
 
@@ -8280,8 +8116,8 @@ Starts a user session with specified user groups.
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if session cannot be started
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if session cannot be started
 
 ### startUserSession(String, String, String[], SocketAddress) <a href="#startusersession-1afffb54d30c" id="startusersession-1afffb54d30c"></a>
 
@@ -8308,8 +8144,8 @@ Starts a user session with specified source address.
 
 **Throws**
 
-- `IOException` - if I/O error occurs
-- `ConfException` - if session cannot be started
+- `java.io.IOException` - if I/O error occurs
+- `com.tailf.conf.ConfException` - if session cannot be started
 
 ### startUserSession(String, String, String[], SocketAddress, MaapiUserSessionFlag) <a href="#startusersession-677e9394622e" id="startusersession-677e9394622e"></a>
 
@@ -8328,65 +8164,61 @@ Types: [MaapiUserSessionFlag](MaapiUserSessionFlag.md#maapiusersessionflag-ee298
 
 Establish a new user session on this `Maapi` instance.
 
- Once we have created a `Maapi` communication instance,
+Once we have created a `Maapi` communication instance,
  we must also establish a user session.
 
- It is up to the user of the `Maapi` class to
+It is up to the user of the `Maapi` class to
  authenticate users.
 
- `Maapi` can be used to perform the actual
+`Maapi` can be used to perform the actual
  authentication through a call to [`authenticate(String,String)`](Maapi.md#authenticate-9b081cc66ee1)
  but authentication may very well occur through some other
  external means.
 
- Thus, when we use this function to create a user session,
+Thus, when we use this function to create a user session,
  we must provide all relevant information about the user.
  If we wish to execute read/write
  transactions over the MAAPI interface, we must first have an established
  user session.
 
- A user session corresponds to a NETCONF manager who has just
+A user session corresponds to a NETCONF manager who has just
  established an authenticated SSH connection, but not yet sent any
  NETCONF commands on the SSH connection.
 
- The `user` string is the login name of the user.
+The `user` string is the login name of the user.
  The user name is used when setting up the AAA environment for the
  session.
 
- The `srcip` address specifies from where
+The `srcip` address specifies from where
  did the session originate.
 
- The `context` parameter can be any string which is
+The `context` parameter can be any string which is
  precisely the `context` string which will be
  used to authorize all data access through the AAA system.
  Each AAA rule has a context string which must match in order for a
  AAA rule to match. (See the AAA chapter in the User Guide).
 
- Using the string "system" for context has special significance:
-
+Using the string "system" for context has special significance:
 
 - The session is exempt from all max sessions limits in the
-     configuration file.
+  configuration file.
+- There will be no authorization checks done by the AAA system.
+- The session is not logged in the audit log.
+- The session is not shown in `'confd --status'` or
+   `'ncs --status'`, nor `'show users'` in CLI etc.
+- The session may be started already in start phase 0.
+    (However read-write transactions can not be started until phase 1)
 
-    - There will be no authorization checks done by the AAA system.
-
-      - The session is not logged in the audit log.
-
-        - The session is not shown in `'confd --status'` or
- `'ncs --status'`, nor `'show users'` in CLI etc.
-
-          - The session may be started already in start phase 0.
-  (However read-write transactions can not be started until phase 1)
-  Thus this can be useful e.g. when we need to create the user session
+Thus this can be useful e.g. when we need to create the user session
   for an "internal" transaction done by an application, without relation
   to a session from a northbound agent. Of course the implications of the
   above need to be carefully considered in each case.
 
-  It is not possible to create new user sessions until the system
+It is not possible to create new user sessions until the system
   has reached start phase 2 with the above exception of a session
   with the context set to "system".
 
- The `proto` parameter specifies the protocol used
+The `proto` parameter specifies the protocol used
  by the user for connecting to the device. Can be
  one of [`MaapiUserSessionFlag#PROTO_SSH`](MaapiUserSessionFlag.md#proto_ssh-cc9a1a228f8c),
   [`MaapiUserSessionFlag#PROTO_CONSOLE`](MaapiUserSessionFlag.md#proto_console-78051500ad84),
@@ -8403,10 +8235,10 @@ Establish a new user session on this `Maapi` instance.
 
 **Throws**
 
-- `MaapiException` - If ConfD/NCS could not create a new
-            session based on the parameters. To get detailed message
-            use `MaapiException#getMessage()`
-- `IOException` - signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If ConfD/NCS could not create a new
+session based on the parameters. To get detailed message
+use `MaapiException#getMessage()`
+- `java.io.IOException` - signals I/O exception on the underlying socket
 
 ### startUserSession(String, String, String[], SocketAddress, MaapiUserSessionFlag, String, String, String, String) <a href="#startusersession-e4130cb0aace" id="startusersession-e4130cb0aace"></a>
 
@@ -8443,8 +8275,8 @@ Establish a new user session.
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
 
 ### stop() <a href="#stop-a62ecc446f97" id="stop-a62ecc446f97"></a>
 
@@ -8458,8 +8290,8 @@ Requests that the daemon stops, returns when daemon has stopped.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### stop(boolean) <a href="#stop-b13ec8bf1f99" id="stop-b13ec8bf1f99"></a>
 
@@ -8481,8 +8313,8 @@ Stops the daemon. Upon return the connection to the daemon will be
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### sysMessage(String, String) <a href="#sysmessage-a411a01e7bae" id="sysmessage-a411a01e7bae"></a>
 
@@ -8511,8 +8343,8 @@ Send a message to a specific user, a specific user session or all users
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### toString() <a href="#tostring-e9d48c5503ef" id="tostring-e9d48c5503ef"></a>
 
@@ -8546,8 +8378,8 @@ Unhide all nodes belonging to a hide group in a transaction that started
 
 **Throws**
 
-- `MaapiException` - If unhiding the group fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If unhiding the group fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### unlock(int) <a href="#unlock-70caddb6e1e6" id="unlock-70caddb6e1e6"></a>
 
@@ -8563,12 +8395,12 @@ This function releases a lock previously acquired using the lock()
 **Parameters**
 
 - `int db` - Database to unlock. Possible values are STARTUP, RUNNING, and
-            CANDIDATE
+CANDIDATE
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### unlockPartial(int) <a href="#unlockpartial-15faebb90da7" id="unlockpartial-15faebb90da7"></a>
 
@@ -8590,8 +8422,8 @@ This methods releases a lock previously acquired using the lockPartial()
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### userMessage(String, String, String) <a href="#usermessage-36ed05d12234" id="usermessage-36ed05d12234"></a>
 
@@ -8621,8 +8453,8 @@ Send a message to a specific user, a specific user session or all users
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### validateToken(String, InetAddress, int, String, MaapiUserSessionFlag) <a href="#validatetoken-edde5ce7f1c6" id="validatetoken-edde5ce7f1c6"></a>
 
@@ -8656,8 +8488,8 @@ If external token validation (see /confdConfig/aaa/externalValidation)
 
 **Throws**
 
-- `ConfException` - Signals protocol/usage error.
-- `IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
 
 ### validateTrans(int, boolean, boolean) <a href="#validatetrans-8767da488cef" id="validatetrans-8767da488cef"></a>
 
@@ -8674,22 +8506,20 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Validates a transaction specified by transaction handle `tid`
 
- This method validates all data written in the transaction. This
+This method validates all data written in the transaction. This
  includes all XML checks, checking for uniqueness and dangling pointers.
  It also includes all defined semantic validation,
  i.e. user programs that have registered functions under validation
  points. (See user manual chapter Semantic Validation).
 
-
- If this method throws an exception due to a validation error, the
+If this method throws an exception due to a validation error, the
  transaction is still open for further editing. If unlock is true, the
  transaction is open for further editing even if validation succeeds. If
  unlock is false and the method returns, the next method to be called
  MUST be [`prepareTrans(int)`](Maapi.md#preparetrans-f5669cbf3002) or
  [`finishTrans(int)`](Maapi.md#finishtrans-0f920518d3c3).
 
-
- unlock = true can be used to implement a 'validate' command which can be
+unlock = true can be used to implement a 'validate' command which can be
  given in the middle of an editing session. The first thing that happens
  is that a lock is set. If unlock = true, the lock is released on success.
  The lock is always released on failure.
@@ -8709,12 +8539,12 @@ Validates a transaction specified by transaction handle `tid`
 - `int tid` - Transaction Identifier
 - `boolean unlock` - if true the transaction is open for further editing
 - `boolean force` - if true validation will performed also for
-        candidate data store
+candidate data store
 
 **Throws**
 
-- `MaapiException` - If validation fails
-- `IOException` - Signals I/O exception on the underlying socket
+- `com.tailf.maapi.MaapiException` - If validation fails
+- `java.io.IOException` - Signals I/O exception on the underlying socket
 
 ### waitStart(int) <a href="#waitstart-66da4d687e96" id="waitstart-66da4d687e96"></a>
 
@@ -8735,8 +8565,8 @@ Wait until the daemon has completed a certain start phase.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### waitStarted() <a href="#waitstarted-20657441709c" id="waitstarted-20657441709c"></a>
 
@@ -8750,8 +8580,8 @@ Wait until the daemon is fully started, i.e. has completed start phase 2.
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### xpath2kpath(String) <a href="#xpath2kpath-bc8a863e2978" id="xpath2kpath-bc8a863e2978"></a>
 
@@ -8777,8 +8607,8 @@ Convert a XPath path to a ConfPath object. The XPath expression must be
 
 **Throws**
 
-- `IOException` - Signals I/O exception on the underlying socket.
-- `ConfException` - Signals protocol/usage error.
+- `java.io.IOException` - Signals I/O exception on the underlying socket.
+- `com.tailf.conf.ConfException` - Signals protocol/usage error.
 
 ### xpath2kpath_th(int, String) <a href="#xpath2kpath_th-5ce14c8a3095" id="xpath2kpath_th-5ce14c8a3095"></a>
 
@@ -8797,7 +8627,7 @@ Types: [ConfPath](../conf/ConfPath.md#confpath-327831c6fc7d), [ConfException](..
 - `int tid`
 - `String xpath`
 
-### xpathEval(int, MaapiXPathEvalResult, MaapiXPathEvalTrace, String, Object, String, Object[]) <a href="#xpatheval-8e8640817c0b" id="xpatheval-8e8640817c0b"></a>
+### xpathEval(int, MaapiXPathEvalResult, MaapiXPathEvalTrace, String, Object, String, Object...) <a href="#xpatheval-14ae42be9155" id="xpatheval-14ae42be9155"></a>
 
 ```java
 public synchronized void xpathEval(
@@ -8807,7 +8637,7 @@ public synchronized void xpathEval(
     String expr,
     Object initstate,
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -8817,7 +8647,6 @@ Types: [MaapiXPathEvalResult](MaapiXPathEvalResult.md#maapixpathevalresult-e5a53
 Evaluated the xpath expression as supplied in by
  `expr`.
 
-
  For each node in the resulting node set the[result\(ConfObject\[\],ConfValue,Object\)](MaapiXPathEvalResult.md#maapixpathevalresult-e5a539712098)
  method of @see MaapiXPathEvalResult is called
  with the keypath (as `ConfObject[]`) to the resulting
@@ -8826,12 +8655,11 @@ Evaluated the xpath expression as supplied in by
  value (as `ConfValue`), the value of that node
  as the second argument otherwise it will return the string "undefined".
 
- The expression  will be evaluated using the root node as the
+The expression  will be evaluated using the root node as the
  context node, unless a path to an existing node is given as the
  *fmt* argument.
 
-
- For each invocation the
+For each invocation the
  ` result` method should return
  [ITER\_CONTINUE](XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd) to tell the
  xpath evaluator to continue with the
@@ -8842,10 +8670,8 @@ Evaluated the xpath expression as supplied in by
  a method [trace\(String\)](MaapiXPathEvalTrace.md#maapixpathevaltrace-4a63725791bd) that takes a
  single string as argument.
 
-
- If supplied (optional) it will be invoked when the xpath
+If supplied (optional) it will be invoked when the xpath
  evaluator has trace output for the current expression.
-
 
  The `initstate` parameter can be used for any user
  supplied opaque
@@ -8856,20 +8682,20 @@ Evaluated the xpath expression as supplied in by
 
 - `int tid` - Transaction handle
 - `com.tailf.maapi.MaapiXPathEvalResult xpatheval` - A implementation of `MaapiXPathEvalResult`
-            callback method
+callback method
 - `com.tailf.maapi.MaapiXPathEvalTrace xpathtrace` - A implementation of `MaapiXPathEvalTrace` or
-            null if no trace is wanted
+null if no trace is wanted
 - `String expr` - The XPath expression
 - `Object initstate` - An opaque object for user supplied state
 - `String fmt` - Path string (context node) root if not supplied
-- `Object[] arguments` - Optional parameters for substitution in fmt
+- `Object... arguments` - Optional parameters for substitution in fmt
 
 **Throws**
 
-- `MaapiException` - Failed MaapiXPathEvaluate
-- `IOException` - Failed to read/write maapi socket
+- `com.tailf.maapi.MaapiException` - Failed MaapiXPathEvaluate
+- `java.io.IOException` - Failed to read/write maapi socket
 
-### xpathEvalExpr(int, String, MaapiXPathEvalTrace, String, Object[]) <a href="#xpathevalexpr-32b3542af9d6" id="xpathevalexpr-32b3542af9d6"></a>
+### xpathEvalExpr(int, String, MaapiXPathEvalTrace, String, Object...) <a href="#xpathevalexpr-c27fe3fbd76f" id="xpathevalexpr-c27fe3fbd76f"></a>
 
 ```java
 public synchronized String xpathEvalExpr(
@@ -8877,7 +8703,7 @@ public synchronized String xpathEvalExpr(
     String expr,
     com.tailf.maapi.MaapiXPathEvalTrace xpathtrace,
     String fmt,
-    Object[] arg
+    Object... arg
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -8887,23 +8713,17 @@ Types: [MaapiXPathEvalTrace](MaapiXPathEvalTrace.md#maapixpathevaltrace-4a637257
 Evaluate the xpath expression given in `expr` parameter
  and return the result as a string.
 
-
- It is possible to supply a path `fmt` (optional) which will
+It is possible to supply a path `fmt` (optional) which will
  be treated as the initial context node when evaluating `expr.`
 
-
- If the path is relative, this is treated as the starting point,
+If the path is relative, this is treated as the starting point,
  and this is also the node that `current()` will return
  when used in the xpath expression.
 
+If null is given, the current maapi position is used
+ (set by [`cd(int,String,Object...)`](Maapi.md#cd-b2c808085176))
 
-
-  If null is given, the current maapi position is used
- (set by [`cd(int,String,Object...)`](Maapi.md#cd-2b29dc1e94f8))
-
-
-
- The [MaapiXPathEvalTrace](MaapiXPathEvalTrace.md#maapixpathevaltrace-4a63725791bd) implementation of
+The [MaapiXPathEvalTrace](MaapiXPathEvalTrace.md#maapixpathevaltrace-4a63725791bd) implementation of
  the method [trace\(String\)](MaapiXPathEvalTrace.md#maapixpathevaltrace-4a63725791bd) which
  takes a single string as argument (optional) will be
  invoked if supplied (optional) when the xpath implementation has
@@ -8914,22 +8734,15 @@ Evaluate the xpath expression given in `expr` parameter
 - `int tid` - Transaction handle
 - `String expr` - The xpath expression
 - `com.tailf.maapi.MaapiXPathEvalTrace xpathtrace` - A implementation of `MaapiXPathEvalTrace`
-            or null if no trace is wanted
-            A implementation of `MaapiXPathEvalTrace` or null
-            if no trace is wanted
+or null if no trace is wanted
+A implementation of `MaapiXPathEvalTrace` or null
+if no trace is wanted
 - `String fmt` - Path string (context node) root if not supplied
-- `Object[] arg` - Optional parameters for substitution in fmt
+- `Object... arg` - Optional parameters for substitution in fmt
 
 **Returns:** the result of the XPath expression evaluation as a string
 
 **Throws**
 
-- `ConfException` - Failed MaapiXPathEvaluate
-- `IOException` - Failed to read/write maapi socket
-
-
-## Nested Types
-
-- [Progress](Maapi/Progress.md#progress-512cd01a4025)
-- [TemplateType](Maapi/TemplateType.md#templatetype-08e95c149f38)
-- [Verbosity](Maapi/Verbosity.md#verbosity-a9c618ec424f)
+- `com.tailf.conf.ConfException` - Failed MaapiXPathEvaluate
+- `java.io.IOException` - Failed to read/write maapi socket

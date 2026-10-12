@@ -40,7 +40,7 @@ Annotation class for Nano Service Callbacks.
 ### callType() <a href="#calltype-0d0f9b61a036" id="calltype-0d0f9b61a036"></a>
 
 ```java
-public abstract com.tailf.dp.proto.NanoServiceCBType[] callType()
+com.tailf.dp.proto.NanoServiceCBType[] callType()
 ```
 
 Types: [NanoServiceCBType](../proto/NanoServiceCBType.md#nanoservicecbtype-16a84eed865a)
@@ -48,17 +48,17 @@ Types: [NanoServiceCBType](../proto/NanoServiceCBType.md#nanoservicecbtype-16a84
 ### componentType() <a href="#componenttype-59add484020d" id="componenttype-59add484020d"></a>
 
 ```java
-public abstract String componentType()
+String componentType()
 ```
 
 ### servicePoint() <a href="#servicepoint-b277aa382c7d" id="servicepoint-b277aa382c7d"></a>
 
 ```java
-public abstract String servicePoint()
+String servicePoint()
 ```
 
 ### state() <a href="#state-54117dea2388" id="state-54117dea2388"></a>
 
 ```java
-public abstract String state()
+String state()
 ```

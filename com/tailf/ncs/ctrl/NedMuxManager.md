@@ -56,6 +56,13 @@ Types: [NcsMain](../NcsMain.md#ncsmain-eb814813aed4)
 public void doneLoadingEvent() throws Exception
 ```
 
+*Description from* [`MuxManager.doneLoadingEvent()`](MuxManager.md#doneloadingevent-b85c1c01738a)
+
+Method that should handle doneLoading events received by
+ the NcsMain FSM.
+ The subclassed component manager is responsible to relay
+ this as events to corresponding component FSMs
+
 ### finish() <a href="#finish-8c785ae2e6bb" id="finish-8c785ae2e6bb"></a>
 
 ```java

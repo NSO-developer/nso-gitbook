@@ -21,7 +21,7 @@ Get CLI Interaction class for interaction with the user via the CLI.
 - [cmd\(String, EnumSet\<CLIInteractionFlag\>, String\)](#cmd-2610c4fd95ef)
 - [cmdIO\(String, EnumSet\<CLIInteractionFlag\>, String\)](#cmdio-b5995307ada1)
 - [get\(String\)](#get-e86cd4d90bf3)
-- [printf\(String, Object\[\]\)](#printf-a63ff41f959f)
+- [printf\(String, Object\.\.\.\)](#printf-32f42c9a8dc5)
 - [prompt\(String, boolean\)](#prompt-297d27e3e528)
 - [prompt\(String, boolean, int\)](#prompt-8d2b71411d58)
 - [promptOneOf\(String, String\[\], boolean\)](#promptoneof-a845984ad36e)
@@ -68,8 +68,8 @@ Execute CLI command in ongoing CLI session.
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### cmd(String, EnumSet&lt;CLIInteractionFlag&gt;) <a href="#cmd-6c89d5978ec8" id="cmd-6c89d5978ec8"></a>
 
@@ -94,8 +94,8 @@ Execute CLI command in ongoing CLI session. The flags field is used to
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### cmd(String, EnumSet&lt;CLIInteractionFlag&gt;, String) <a href="#cmd-2610c4fd95ef" id="cmd-2610c4fd95ef"></a>
 
@@ -124,8 +124,8 @@ Execute CLI command in ongoing CLI session. The flags field is used to
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### cmdIO(String, EnumSet&lt;CLIInteractionFlag&gt;, String) <a href="#cmdio-b5995307ada1" id="cmdio-b5995307ada1"></a>
 
@@ -158,8 +158,8 @@ Execute CLI command in ongoing CLI session and output result on socket.
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### get(String) <a href="#get-e86cd4d90bf3" id="get-e86cd4d90bf3"></a>
 
@@ -182,15 +182,15 @@ Read CLI session parameter.
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
-### printf(String, Object[]) <a href="#printf-a63ff41f959f" id="printf-a63ff41f959f"></a>
+### printf(String, Object...) <a href="#printf-32f42c9a8dc5" id="printf-32f42c9a8dc5"></a>
 
 ```java
 public synchronized void printf(
     String fmt,
-    Object[] arguments
+    Object... arguments
 )
     throws java.io.IOException, com.tailf.conf.ConfException
 ```
@@ -202,12 +202,12 @@ Write to the CLI using printf formatting. This
 **Parameters**
 
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### prompt(String, boolean) <a href="#prompt-297d27e3e528" id="prompt-297d27e3e528"></a>
 
@@ -235,8 +235,8 @@ Prompt user for a string. The echo parameter is used to control if the
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### prompt(String, boolean, int) <a href="#prompt-8d2b71411d58" id="prompt-8d2b71411d58"></a>
 
@@ -265,8 +265,8 @@ This function does the same as prompt(String promptStr), but also takes a
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### promptOneOf(String, String[], boolean) <a href="#promptoneof-a845984ad36e" id="promptoneof-a845984ad36e"></a>
 
@@ -283,33 +283,27 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Prompt user for one of the strings given in the choice parameter.
 
- For example:
-
-
+For example:
 
 ```
- CLIInteraction cli = maapi.getCLIInteraction(usid);
- String result =
-     cli.promptOneOf(Do you want to proceed (yes/no): ,
-                     new String[] { yes,
-                     no }, true);
+CLIInteraction cli = maapi.getCLIInteraction(usid);
+String result =
+    cli.promptOneOf("Do you want to proceed (yes/no): ",
+                    new String[] { "yes",
+                    "no" }, true);
 ```
 
-
-
- The user can enter a unique prefix of the choice but the value returned
+The user can enter a unique prefix of the choice but the value returned
  will always be one of the strings provided in the choice parameter. If
  the user enters a value not in choice he will automatically be
  re-prompted.
 
- For example:
-
-
+For example:
 
 ```
-     Do you want to proceed (yes/no): maybe
-     The value must be one of: yes,no.
-     Do you want to proceed (yes/no):
+    Do you want to proceed (yes/no): maybe
+    The value must be one of: yes,no.
+    Do you want to proceed (yes/no):
 ```
 
 **Parameters**
@@ -322,8 +316,8 @@ Prompt user for one of the strings given in the choice parameter.
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### promptOneOf(String, String[], boolean, int) <a href="#promptoneof-0a6e79d200d3" id="promptoneof-0a6e79d200d3"></a>
 
@@ -339,7 +333,7 @@ public synchronized String promptOneOf(
 
 Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
-This function does the same as promptOneOf(String promptStr, String[]
+This function does the same as promptOneOf(String promptStr, String\[\]
  choice, boolean echo), but also takes a timeout parameter. If no activity
  is seen for timeout seconds an error is thrown
 
@@ -354,8 +348,8 @@ This function does the same as promptOneOf(String promptStr, String[]
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### readEOF(boolean) <a href="#readeof-0a63a88d6c07" id="readeof-0a63a88d6c07"></a>
 
@@ -382,8 +376,8 @@ Read a multi line string from the CLI. The user has to end the input
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### readEOF(boolean, int) <a href="#readeof-303fe4cb25f2" id="readeof-303fe4cb25f2"></a>
 
@@ -410,8 +404,8 @@ This function does the same as readEOF(boolean echo), but also takes a
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### set(String, String) <a href="#set-6cacddbc8231" id="set-6cacddbc8231"></a>
 
@@ -434,8 +428,8 @@ Set CLI session parameter.
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### write(String) <a href="#write-65e1fbc7c416" id="write-65e1fbc7c416"></a>
 
@@ -453,5 +447,5 @@ Write to the CLI.
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`

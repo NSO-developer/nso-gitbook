@@ -7,10 +7,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Builder
 
 ## Members
 
-**Constructors**:
-
-- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
-
 **Methods**:
 
 - [asReader\(\)](#asreader-b5c0f2a8d115)
@@ -19,31 +15,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Builder
 - [initDisplayHint\(int\)](#initdisplayhint-c16e1e013565)
 - [setDisplayHint\(byte\[\]\)](#setdisplayhint-a6a8c5e2aab1)
 - [setDisplayHint\(Reader\)](#setdisplayhint-29d7604e3fc3)
-
-## Constructors
-
-### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
-
-**Package-private**
-
-```java
-Builder(
-    org.capnproto.SegmentBuilder segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentBuilder segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-
 
 ## Methods
 

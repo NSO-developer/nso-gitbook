@@ -40,13 +40,13 @@ public Encrypter()
 ### dcipher <a href="#dcipher-32e73ef98111" id="dcipher-32e73ef98111"></a>
 
 ```java
-protected javax.crypto.Cipher dcipher = null;
+protected javax.crypto.Cipher dcipher;
 ```
 
 ### ecipher <a href="#ecipher-7b70b741edb8" id="ecipher-7b70b741edb8"></a>
 
 ```java
-protected javax.crypto.Cipher ecipher = null;
+protected javax.crypto.Cipher ecipher;
 ```
 
 

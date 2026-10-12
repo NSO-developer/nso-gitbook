@@ -58,7 +58,7 @@ Internally used constructor to create a UserInfo record
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 
 ## Methods

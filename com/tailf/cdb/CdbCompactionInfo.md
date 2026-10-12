@@ -8,10 +8,6 @@ Represents the compaction info for CDB files.
 
 ## Members
 
-**Constructors**:
-
-- [CdbCompactionInfo\(long, long, long, long\)](#cdbcompactioninfo-9ab1e9946878)
-
 **Methods**:
 
 - [getFsizeCurrent\(\)](#getfsizecurrent-b51a1455aac4)
@@ -19,24 +15,6 @@ Represents the compaction info for CDB files.
 - [getLastTime\(\)](#getlasttime-8db6c59d0e86)
 - [getNTrans\(\)](#getntrans-2cd88cc47142)
 - [toString\(\)](#tostring-e9d48c5503ef)
-
-## Constructors
-
-### CdbCompactionInfo(long, long, long, long) <a href="#cdbcompactioninfo-9ab1e9946878" id="cdbcompactioninfo-9ab1e9946878"></a>
-
-**Package-private**
-
-```java
-CdbCompactionInfo(long fsizePrevious, long fsizeCurrent, long lastTime, long ntrans)
-```
-
-**Parameters**
-
-- `long fsizePrevious`
-- `long fsizeCurrent`
-- `long lastTime`
-- `long ntrans`
-
 
 ## Methods
 

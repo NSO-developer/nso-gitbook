@@ -9,41 +9,41 @@ public static final class com.tailf.conf.ConfCleaner.Closer
 
 **Constructors**:
 
-- [Closer\(AutoCloseable\[\]\)](#closer-dee93e523677)
+- [Closer\(AutoCloseable\.\.\.\)](#closer-a178b9fb7ee5)
 
 **Methods**:
 
-- [add\(AutoCloseable\[\]\)](#add-c180b7888b01)
+- [add\(AutoCloseable\.\.\.\)](#add-61ab4b707040)
 - [close\(\)](#close-8107c6dc012b)
 - [remove\(AutoCloseable\)](#remove-a78d7d35b531)
 - [run\(\)](#run-b6dbda048863)
 
 ## Constructors
 
-### Closer(AutoCloseable[]) <a href="#closer-dee93e523677" id="closer-dee93e523677"></a>
+### Closer(AutoCloseable...) <a href="#closer-a178b9fb7ee5" id="closer-a178b9fb7ee5"></a>
 
 ```java
-public Closer(AutoCloseable[] closeables)
+public Closer(AutoCloseable... closeables)
 ```
 
 **Parameters**
 
-- `AutoCloseable[] closeables`
+- `AutoCloseable... closeables`
 
 
 ## Methods
 
-### add(AutoCloseable[]) <a href="#add-c180b7888b01" id="add-c180b7888b01"></a>
+### add(AutoCloseable...) <a href="#add-61ab4b707040" id="add-61ab4b707040"></a>
 
 ```java
-public com.tailf.conf.ConfCleaner.Closer add(AutoCloseable[] closeables)
+public com.tailf.conf.ConfCleaner.Closer add(AutoCloseable... closeables)
 ```
 
 Types: [Closer](Closer.md#closer-4586af715fa1)
 
 **Parameters**
 
-- `AutoCloseable[] closeables`
+- `AutoCloseable... closeables`
 
 ### close() <a href="#close-8107c6dc012b" id="close-8107c6dc012b"></a>
 

@@ -21,7 +21,7 @@ Annotation class for DB Callbacks Attribute are callType
 ### callType() <a href="#calltype-0d0f9b61a036" id="calltype-0d0f9b61a036"></a>
 
 ```java
-public abstract com.tailf.dp.proto.DBCBType[] callType()
+com.tailf.dp.proto.DBCBType[] callType()
 ```
 
 Types: [DBCBType](../proto/DBCBType.md#dbcbtype-b9ff294018bf)

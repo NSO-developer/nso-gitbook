@@ -82,7 +82,7 @@ public static final String prefix = "yang";
 ### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
 
 ```java
-public static final long serialVersionUID = 1567598639;
+public static final long serialVersionUID = 1567598639L;
 ```
 
 ### uri <a href="#uri-0e8d1758ed1a" id="uri-0e8d1758ed1a"></a>

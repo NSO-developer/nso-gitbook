@@ -30,8 +30,8 @@ CREATE(DpServiceCallback.M_CREATE);
 
 Indicates service create callback.
 
- See `DpServiceCallback#create(ServiceContext context,
- NavuNode service, NavuNode root, Properties opaque)`
+ See [`DpServiceCallback#create(ServiceContext context,
+ NavuNode service, NavuNode root, Properties opaque)`](../DpServiceCallback.md#create-4ddbd09c0e51)
 
 ### POST_MODIFICATION <a href="#post_modification-9df86e7e6776" id="post_modification-9df86e7e6776"></a>
 
@@ -41,8 +41,8 @@ POST_MODIFICATION(DpServiceCallback.M_POST_MODIFICATION);
 
 Indicates post-modification service callback.
 
- See `DpServiceCallback#postModification(ServiceContext context,
- ServiceOperationType operation, ConfPath path, Properties opaque)`
+ See [`DpServiceCallback#postModification(ServiceContext context,
+ ServiceOperationType operation, ConfPath path, Properties opaque)`](../DpServiceCallback.md#postmodification-271e17afdb57)
 
 ### PRE_MODIFICATION <a href="#pre_modification-c5a7904084f0" id="pre_modification-c5a7904084f0"></a>
 
@@ -52,8 +52,8 @@ PRE_MODIFICATION(DpServiceCallback.M_PRE_MODIFICATION);
 
 Indicates pre-modification service callback.
 
- See `DpServiceCallback#preModification(ServiceContext context,
- ServiceOperationType operation, ConfPath path, Properties opaque)`
+ See [`DpServiceCallback#preModification(ServiceContext context,
+ ServiceOperationType operation, ConfPath path, Properties opaque)`](../DpServiceCallback.md#premodification-92ab0a35864a)
 
 
 ## Methods

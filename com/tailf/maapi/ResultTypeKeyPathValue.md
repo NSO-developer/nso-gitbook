@@ -9,29 +9,27 @@ Types: [ResultTypeKeyPath](ResultTypeKeyPath.md#resulttypekeypath-6681ecc7f47b)
 
 XPath Result in keypath and value format. This format
  is specified trough `ReslutTypeKeyPathValue.class` as a parameter
- to `Maapi#queryStart(int,String,String,int,int,List,Class)`
+ to [`Maapi#queryStart(int,String,String,int,int,List,Class)`](Maapi.md#querystart-87abe9e2ad2a)
 
-
- Example:
-
+Example:
 
 ```
-  QueryResult<ResultTypeKeyPathValue> qR4 =
-      maapi.queryStart(th,&quot;/mtest/servers/server[ip='1.2.3.4']&quot;,
-                       &quot;/&quot;, 3,1,
-                       Arrays.asList(&quot;name&quot;,
-                                     &quot;ip&quot;,
-                                     &quot;port&quot;),
-                       ResultTypeKeyPathValue.class);
-  for(QueryResult.Entry entry : qR4){
-      List<ResultTypeKeyPathValue> rsValue = entry.value();
-      for(ResultTypeKeyPathValue typ: rsValue){
-          ConfObject[] v0 = typ.keyPath();
-          System.out.println(&quot;path = &quot; + Arrays.toString(v0));
-          ConfValue v1 = typ.confValue();
-          System.out.println(&quot;value = &quot; + v1);
-      }
-  }
+ QueryResult<ResultTypeKeyPathValue> qR4 =
+     maapi.queryStart(th,"/mtest/servers/server[ip='1.2.3.4']",
+                      "/", 3,1,
+                      Arrays.asList("name",
+                                    "ip",
+                                    "port"),
+                      ResultTypeKeyPathValue.class);
+ for(QueryResult.Entry entry : qR4){
+     List<ResultTypeKeyPathValue> rsValue = entry.value();
+     for(ResultTypeKeyPathValue typ: rsValue){
+         ConfObject[] v0 = typ.keyPath();
+         System.out.println("path = " + Arrays.toString(v0));
+         ConfValue v1 = typ.confValue();
+         System.out.println("value = " + v1);
+     }
+ }
 ```
 
 ## Members
@@ -46,7 +44,7 @@ XPath Result in keypath and value format. This format
 ### confValue() <a href="#confvalue-baca27cbbecf" id="confvalue-baca27cbbecf"></a>
 
 ```java
-public abstract com.tailf.conf.ConfValue confValue()
+com.tailf.conf.ConfValue confValue()
 ```
 
 Types: [ConfValue](../conf/ConfValue.md#confvalue-769292781c7d)

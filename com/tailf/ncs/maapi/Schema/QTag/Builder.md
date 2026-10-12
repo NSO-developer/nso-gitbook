@@ -7,10 +7,6 @@ public static final class com.tailf.ncs.maapi.Schema.QTag.Builder
 
 ## Members
 
-**Constructors**:
-
-- [Builder\(SegmentBuilder, int, int, int, short\)](#builder-179fba5038bd)
-
 **Methods**:
 
 - [asReader\(\)](#asreader-b5c0f2a8d115)
@@ -18,31 +14,6 @@ public static final class com.tailf.ncs.maapi.Schema.QTag.Builder
 - [getHtag\(\)](#gethtag-3a838d71ddf7)
 - [setHns\(int\)](#sethns-7405e78f40fe)
 - [setHtag\(int\)](#sethtag-d40f4d76b210)
-
-## Constructors
-
-### Builder(SegmentBuilder, int, int, int, short) <a href="#builder-179fba5038bd" id="builder-179fba5038bd"></a>
-
-**Package-private**
-
-```java
-Builder(
-    org.capnproto.SegmentBuilder segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentBuilder segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-
 
 ## Methods
 

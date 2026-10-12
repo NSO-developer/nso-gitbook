@@ -62,12 +62,13 @@ Retrieve a socket connected to a specified destination
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### getSocket(Object, InetAddress, int) <a href="#getsocket-2fc4ed37c8ec" id="getsocket-2fc4ed37c8ec"></a>
 
 ```java
+@Deprecated
 public static java.net.Socket getSocket(
     Object caller,
     java.net.InetAddress address,
@@ -90,14 +91,15 @@ Retrieve a socket connected to a specified destination
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 **Deprecated:** Use [`getSocket(InetAddress, int)`](SocketFactory.md#getsocket-60f7047e1210).
 
 ### getSocket(Object, Socket) <a href="#getsocket-e33d64204891" id="getsocket-e33d64204891"></a>
 
 ```java
+@Deprecated
 public static java.net.Socket getSocket(
     Object caller,
     java.net.Socket socket
@@ -122,6 +124,7 @@ Retrieve a socket connected to the same remote address as a
 ### getSocket(Object, SocketAddress) <a href="#getsocket-56f7f9efbb5e" id="getsocket-56f7f9efbb5e"></a>
 
 ```java
+@Deprecated
 public static java.net.Socket getSocket(
     Object caller,
     java.net.SocketAddress address
@@ -145,6 +148,7 @@ Retrieve a socket connected to a specified address.
 ### getSocket(Object, String, int) <a href="#getsocket-716fbc8e8570" id="getsocket-716fbc8e8570"></a>
 
 ```java
+@Deprecated
 public static java.net.Socket getSocket(
     Object caller,
     String hostname,
@@ -167,8 +171,8 @@ Retrieve a socket connected to a specified destination
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 **Deprecated:** Use [`getSocket(String, int)`](SocketFactory.md#getsocket-30dffcd0af21).
 
@@ -234,8 +238,8 @@ Retrieve a socket connected to a specified destination
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### getSocketFactoryCb() <a href="#getsocketfactorycb-374cd9148ad9" id="getsocketfactorycb-374cd9148ad9"></a>
 
@@ -254,6 +258,7 @@ Retrieve the SocketFactoryCallback. This always exists, if the user have
 ### getUnconnectedSocket(Object, ProtocolFamily) <a href="#getunconnectedsocket-4d9322b795e2" id="getunconnectedsocket-4d9322b795e2"></a>
 
 ```java
+@Deprecated
 public static java.net.Socket getUnconnectedSocket(
     Object caller,
     java.net.ProtocolFamily family
@@ -276,8 +281,8 @@ Retrieve an unconnected socket. Such socket can be used when e.g a
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 **Deprecated:** Use [`getUnconnectedSocket(ProtocolFamily)`](SocketFactory.md#getunconnectedsocket-2b37476a3a26).
 
@@ -304,8 +309,8 @@ Retrieve an unconnected socket. Such socket can be used when e.g a
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### registerCallback(SocketFactoryCallback) <a href="#registercallback-6bd9f054044b" id="registercallback-6bd9f054044b"></a>
 

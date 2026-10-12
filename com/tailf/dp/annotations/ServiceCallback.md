@@ -33,7 +33,7 @@ Annotation class for Service Callbacks.
 ### callType() <a href="#calltype-0d0f9b61a036" id="calltype-0d0f9b61a036"></a>
 
 ```java
-public abstract com.tailf.dp.proto.ServiceCBType[] callType()
+com.tailf.dp.proto.ServiceCBType[] callType()
 ```
 
 Types: [ServiceCBType](../proto/ServiceCBType.md#servicecbtype-cf8844439319)
@@ -41,5 +41,5 @@ Types: [ServiceCBType](../proto/ServiceCBType.md#servicecbtype-cf8844439319)
 ### servicePoint() <a href="#servicepoint-b277aa382c7d" id="servicepoint-b277aa382c7d"></a>
 
 ```java
-public abstract String servicePoint()
+String servicePoint()
 ```

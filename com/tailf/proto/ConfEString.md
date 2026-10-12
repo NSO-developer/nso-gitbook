@@ -16,10 +16,6 @@ Provides a Java representation of E strings.
 - [ConfEString\(ConfInputStream\)](#confestring-56214826ef50)
 - [ConfEString\(String\)](#confestring-1abe12804412)
 
-**Fields**:
-
-- [serialVersionUID](#serialversionuid-b9f0e1ec001d)
-
 **Methods**:
 
 - [clone\(\)](ConfEObject.md#clone-164c86c45e9b) from ConfEObject
@@ -49,8 +45,8 @@ Create an E string from a stream containing a string encoded in E
 
 **Throws**
 
-- `ConfEDecodeException` - if the buffer does not contain a valid external
-                representation of an E string.
+- `com.tailf.proto.ConfEDecodeException` - if the buffer does not contain a valid external
+representation of an E string.
 
 ### ConfEString(String) <a href="#confestring-1abe12804412" id="confestring-1abe12804412"></a>
 
@@ -63,17 +59,6 @@ Create an E string from the given string.
 **Parameters**
 
 - `String str`
-
-
-## Fields
-
-### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
-
-**Package-private**
-
-```java
-static final long serialVersionUID = -7053595217604929233;
-```
 
 
 ## Methods
@@ -91,7 +76,7 @@ Convert this string to the equivalent E external representation.
 **Parameters**
 
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded string should be
-            written.
+written.
 
 ### equals(Object) <a href="#equals-fcd6492e0d6c" id="equals-fcd6492e0d6c"></a>
 
@@ -108,7 +93,7 @@ Determine if two strings are equal. They are equal if they represent the
 - `Object o` - the ConfEString or String to compare to.
 
 **Returns:** true if the strings consist of the same sequence of characters,
-         false otherwise.
+false otherwise.
 
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 
@@ -125,7 +110,7 @@ public String stringValue()
 Get the actual string contained in this object.
 
 **Returns:** the raw string contained in this object, without regard to E
-         quoting rules.
+quoting rules.
 
 **See also:** [`toString`](ConfEString.md#tostring-e9d48c5503ef)
 

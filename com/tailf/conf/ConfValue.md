@@ -104,7 +104,6 @@ Base class of the DATA_CONTAINER `Conf<datatype>` classes.
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
 - [decode\(ConfEObject, String\)](ConfObject.md#decode-9b92f1de40d8) from ConfObject
@@ -175,14 +174,14 @@ Get the string representation of a ConfValue at a given
 **Parameters**
 
 - `com.tailf.conf.ConfPath path` - ConfPath representing the absolute
-             schema path to the element
+schema path to the element
 - `com.tailf.conf.ConfValue val` - ConfValue subclass representing the value
 
 **Returns:** String representation of the value
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### getStringByValue(String, ConfValue) <a href="#getstringbyvalue-8ed173dcf8dc" id="getstringbyvalue-8ed173dcf8dc"></a>
 
@@ -206,14 +205,14 @@ Get the string representation of a ConfValue at a given
 **Parameters**
 
 - `String path` - String representing the absolute
-             schema path to the element
+schema path to the element
 - `com.tailf.conf.ConfValue val` - ConfValue subclass representing the value
 
 **Returns:** String representation of the value
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### getValueByString(ConfPath, String) <a href="#getvaluebystring-e75fd0337a87" id="getvaluebystring-e75fd0337a87"></a>
 
@@ -237,14 +236,14 @@ Get a ConfValue representation a string at a given
 **Parameters**
 
 - `com.tailf.conf.ConfPath path` - ConfPath representing the absolute
-             schema path to the element
+schema path to the element
 - `String str` - String representation of the value
 
 **Returns:** ConfValue the value for the element
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### getValueByString(String, String) <a href="#getvaluebystring-7804643cb027" id="getvaluebystring-7804643cb027"></a>
 
@@ -268,14 +267,14 @@ Get a ConfValue representation a string at a given
 **Parameters**
 
 - `String path` - String representing the absolute
-             schema path to the element
+schema path to the element
 - `String str` - String representation of the value
 
 **Returns:** String representation of the value
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 

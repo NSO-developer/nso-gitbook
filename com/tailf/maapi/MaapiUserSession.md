@@ -43,7 +43,7 @@ Internally used constructor
 
 **Throws**
 
-- `MaapiException`
+- `com.tailf.maapi.MaapiException`
 
 ### MaapiUserSession(int, ConfETuple) <a href="#maapiusersession-ad5f41178198" id="maapiusersession-ad5f41178198"></a>
 
@@ -66,7 +66,7 @@ Internally used constructor
 
 **Throws**
 
-- `MaapiException`
+- `com.tailf.maapi.MaapiException`
 
 
 ## Methods

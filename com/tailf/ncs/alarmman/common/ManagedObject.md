@@ -7,35 +7,27 @@ public class com.tailf.ncs.alarmman.common.ManagedObject
 The Managed object is the object within a managed device that is
  a component of an [`Alarm`](Alarm.md#alarm-e07586c3430f).
 
+Managed object represents one element in the key:
 
- Managed object represents one element in the key:
-
-
- `/al:alarms/alarms/alarm-list/alarm/device
+`/al:alarms/alarms/alarm-list/alarm/device
        /al:alarms/alarms/alarm-list/alarm/type
        /al:alarms/alarms/alarm-list/alarm/managed-object
        /al:alarms/alarms/alarm-list/alarm/specific-problem
-  `
+  `\
+
   in the alarm list: `/al:alarms/alarm-list/alarm`.
 
-
-
- The `ManagedObject` is a union of the types:
-
+The `ManagedObject` is a union of the types:
 
 - ***ConfObjectRef***
- - Which is the YANG type instance-identifier
-- ***ConfOID*** - Which is the YANG type object-identifier
-- ***ConfBuf*** - Which is the YANG type string
+   \- Which is the YANG type instance-identifier
+- ***ConfOID*** \- Which is the YANG type object-identifier
+- ***ConfBuf*** \- Which is the YANG type string
 
-
-
-
-  Which means that there is a constructor for each of the above
+Which means that there is a constructor for each of the above
   types for creating an instance of `ManagedObject`.
 
-
-  It is important to choose the correct type for the object being
+It is important to choose the correct type for the object being
   created. Specifically, the ConfBuf type MUST NOT be used if the
   type is really an instance-identifier or object-identifier.  The reason
   for this is that when such an object is passed back-and-forth over
@@ -132,16 +124,16 @@ Types: [ConfValue](../../../conf/ConfValue.md#confvalue-769292781c7d)
 **Parameters**
 
 - `com.tailf.conf.ConfValue value` - A value matching the typedef managed-object-t
-              in tailf-ncs-alarms.yang. Specifically,
-              the value can have one of the following types:
-              [`ConfBuf`](../../../conf/ConfBuf.md#confbuf-c460585d9115),
-              [`ConfObjectRef`](../../../conf/ConfObjectRef.md#confobjectref-6b7c225d0d3d),
-              [`ConfOID`](../../../conf/ConfOID.md#confoid-11dc95a517d2)
+in tailf-ncs-alarms.yang. Specifically,
+the value can have one of the following types:
+[`ConfBuf`](../../../conf/ConfBuf.md#confbuf-c460585d9115),
+[`ConfObjectRef`](../../../conf/ConfObjectRef.md#confobjectref-6b7c225d0d3d),
+[`ConfOID`](../../../conf/ConfOID.md#confoid-11dc95a517d2)
 
 **Throws**
 
 - `IllegalArgumentException` - If the supplied value
-         is not of one of the types listed above
+is not of one of the types listed above
 
 ### ManagedObject(String) <a href="#managedobject-de2707ffa6da" id="managedobject-de2707ffa6da"></a>
 
@@ -158,11 +150,11 @@ Constructor that takes a string representation of one of the below
 **Parameters**
 
 - `String value` - String representation of typedef managed-object-t
-              in tailf-ncs-alarms.yang. Specifically, the value can be
-              a string representation of one of the following types:
-              [`ConfBuf`](../../../conf/ConfBuf.md#confbuf-c460585d9115),
-              [`ConfObjectRef`](../../../conf/ConfObjectRef.md#confobjectref-6b7c225d0d3d),
-              [`ConfOID`](../../../conf/ConfOID.md#confoid-11dc95a517d2)
+in tailf-ncs-alarms.yang. Specifically, the value can be
+a string representation of one of the following types:
+[`ConfBuf`](../../../conf/ConfBuf.md#confbuf-c460585d9115),
+[`ConfObjectRef`](../../../conf/ConfObjectRef.md#confobjectref-6b7c225d0d3d),
+[`ConfOID`](../../../conf/ConfOID.md#confoid-11dc95a517d2)
 
 ### ManagedObject(String, MountIdInterface) <a href="#managedobject-531f3424d0f3" id="managedobject-531f3424d0f3"></a>
 
@@ -217,4 +209,4 @@ public int hashCode()
 public String toString()
 ```
 
-**See also:** [`ManagedObject#toString()`](ManagedObject.md#tostring-e9d48c5503ef)
+**See also:** `Object#toString()`

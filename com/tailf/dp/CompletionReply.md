@@ -26,7 +26,6 @@ Reply structure container for completion callbacks invoked by a
 - [newReply\(\)](Completion.md#newreply-15892c4ebb44) from Completion
 - [setCompletionDesc\(String\)](#setcompletiondesc-e675fbf83e8d)
 - [setCompletionInfo\(String\)](#setcompletioninfo-e4b2cbdfc598)
-- [validate\(\)](#validate-dc7ca5eb97ec)
 
 ## Constructors
 
@@ -84,13 +83,3 @@ Set the completion info field for this reply
 **Parameters**
 
 - `String info` - String representing the info field
-
-### validate() <a href="#validate-dc7ca5eb97ec" id="validate-dc7ca5eb97ec"></a>
-
-**Package-private**
-
-```java
-void validate() throws com.tailf.dp.DpCallbackException
-```
-
-Types: [DpCallbackException](DpCallbackException.md#dpcallbackexception-faf15838e5cb)

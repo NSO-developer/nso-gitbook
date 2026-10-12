@@ -106,11 +106,10 @@ public int getStreamEventType()
 
 Stream event type.
 
-
 - [`STREAM_NOTIFICATION_EVENT`](StreamNotification.md#stream_notification_event-3c8329ec2bbc)
-   - [`STREAM_NOTIFICATION_COMPLETE`](StreamNotification.md#stream_notification_complete-4d6aaf0cda01)
-     - [`STREAM_REPLAY_COMPLETE`](StreamNotification.md#stream_replay_complete-9b615ef73b1a)
-       - [`STREAM_REPLAY_FAILED`](StreamNotification.md#stream_replay_failed-576b43512df8)
+- [`STREAM_NOTIFICATION_COMPLETE`](StreamNotification.md#stream_notification_complete-4d6aaf0cda01)
+- [`STREAM_REPLAY_COMPLETE`](StreamNotification.md#stream_replay_complete-9b615ef73b1a)
+- [`STREAM_REPLAY_FAILED`](StreamNotification.md#stream_replay_failed-576b43512df8)
 
 ### getValues() <a href="#getvalues-06542a92d7fa" id="getvalues-06542a92d7fa"></a>
 

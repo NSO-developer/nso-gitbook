@@ -78,10 +78,9 @@ public int getConfirmType()
 
 confirm event type:
 
-
 - [`CONFIRMED_COMMIT`](ConfirmNotification.md#confirmed_commit-7160edf150ed)
-   - [`CONFIRMING_COMMIT`](ConfirmNotification.md#confirming_commit-49ccfaa64e7f)
-     - [`ABORT_COMMIT`](ConfirmNotification.md#abort_commit-d43b0e4c5f2b)
+- [`CONFIRMING_COMMIT`](ConfirmNotification.md#confirming_commit-49ccfaa64e7f)
+- [`ABORT_COMMIT`](ConfirmNotification.md#abort_commit-d43b0e4c5f2b)
 
 ### getTimeout() <a href="#gettimeout-c6606d7f7c00" id="gettimeout-c6606d7f7c00"></a>
 
@@ -89,7 +88,7 @@ confirm event type:
 public int getTimeout()
 ```
 
-timeout time in seconds timeout is  0 when type is
+timeout time in seconds timeout is \> 0 when type is
  CONFD_CONFIRMED_COMMIT, otherwise it is 0
 
 ### getUserInfo() <a href="#getuserinfo-3ecef1f24d3d" id="getuserinfo-3ecef1f24d3d"></a>

@@ -11,10 +11,6 @@ Data structure for syslog notifications.
 
 ## Members
 
-**Constructors**:
-
-- [SyslogNotification\(NotificationType, int, int, String\)](#syslognotification-b7a94aea9504)
-
 **Fields**:
 
 - [type](Notification.md#type-6ebb3673fbb6) from Notification
@@ -26,26 +22,6 @@ Data structure for syslog notifications.
 - [getNotificationType\(\)](Notification.md#getnotificationtype-f0e32b7b644f) from Notification
 - [getPrio\(\)](#getprio-c1baed14ad8b)
 - [toString\(\)](#tostring-e9d48c5503ef)
-
-## Constructors
-
-### SyslogNotification(NotificationType, int, int, String) <a href="#syslognotification-b7a94aea9504" id="syslognotification-b7a94aea9504"></a>
-
-**Package-private**
-
-```java
-SyslogNotification(com.tailf.notif.NotificationType type, int logno, int prio, String msg)
-```
-
-Types: [NotificationType](NotificationType.md#notificationtype-1f10f57e184d)
-
-**Parameters**
-
-- `com.tailf.notif.NotificationType type`
-- `int logno`
-- `int prio`
-- `String msg`
-
 
 ## Methods
 

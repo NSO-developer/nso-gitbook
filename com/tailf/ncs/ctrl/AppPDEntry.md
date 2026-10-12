@@ -83,7 +83,7 @@ Types: [ApplicationComponent](../ApplicationComponent.md#applicationcomponent-05
 
 Get all started application component threads
 
-**Returns:** MapApplicationComponent, Thread> map of all threads
+**Returns:** Map\<ApplicationComponent, Thread\> map of all threads
 
 ### getName() <a href="#getname-2634b18b4a25" id="getname-2634b18b4a25"></a>
 

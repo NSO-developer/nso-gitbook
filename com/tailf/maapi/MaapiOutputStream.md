@@ -7,46 +7,45 @@ public class com.tailf.maapi.MaapiOutputStream
 
 Configuration data output stream used to upload configurations.
  This class is returned as result from
- `Maapi#loadConfigStream(int, java.util.EnumSet)`.
+ [`Maapi#loadConfigStream(int, java.util.EnumSet)`](Maapi.md#loadconfigstream-5250b4e7adae).
+ \
 
  The application is expected to close the underlying stream socket
  after usage to assure that background socket is closed use
  [`getLocalSocket()`](MaapiOutputStream.md#getlocalsocket-d59b3f74caea) to retrieve the socket stream reference.
 
-
-
 ```
- // String host = localhost;
- // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
- Socket s = new Socket(host, port);
- Maapi maapi = new Maapi(s);
- maapi.startUserSession(admin,
-     maapi,
-     new String[] { admin },
-     new SocketAddress(InetAddress.getLocalHost(), 0));
- int tid = maapi.startTrans(Conf.DB_RUNNING, Conf.MODE_READ_WRITE);
+// String host = "localhost";
+// int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
+Socket s = new Socket(host, port);
+Maapi maapi = new Maapi(s);
+maapi.startUserSession("admin",
+    "maapi",
+    new String[] { "admin" },
+    new SocketAddress(InetAddress.getLocalHost(), 0));
+int tid = maapi.startTrans(Conf.DB_RUNNING, Conf.MODE_READ_WRITE);
 
- MaapiOutputStream outstream =
-  maapi.loadConfigStream(tid, EnumSet.of(MaapiConfigFlag.XML_FORMAT));
+MaapiOutputStream outstream =
+ maapi.loadConfigStream(tid, EnumSet.of(MaapiConfigFlag.XML_FORMAT));
 
- FileInputStream fis = new FileInputStream(new File("/tmp/config.xml"));
+FileInputStream fis = new FileInputStream(new File("/tmp/config.xml"));
 
 
-  byte[] buf = new byte[128];
-  int n = -1;
+ byte[] buf = new byte[128];
+ int n = -1;
 
-    while((n = fis.read(buf)) != -1){
-         outstream.write(buf,0,n);
-     }
+   while((n = fis.read(buf)) != -1){
+        outstream.write(buf,0,n);
+    }
 
- fis.close();
- outstream.getLocalSocket().close();
+fis.close();
+outstream.getLocalSocket().close();
 
- if(outstream.hasWriteAll())
-    System.out.println("All data was uploaded successful!");
+if(outstream.hasWriteAll())
+   System.out.println("All data was uploaded successful!");
 
- maapi.finishTrans(tid);
- s.close();
+maapi.finishTrans(tid);
+s.close();
 ```
 
 ## Members
@@ -90,8 +89,8 @@ Protected constructor for MaapiOutputStream. Used internally by Maapi
 
 **Throws**
 
-- `IOException`
-- `MaapiException`
+- `java.io.IOException`
+- `com.tailf.maapi.MaapiException`
 
 
 ## Methods

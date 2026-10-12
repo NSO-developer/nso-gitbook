@@ -5,7 +5,7 @@ public class com.tailf.util.XMLtoConfXMLParam
 ```
 
 Convenience utility class for transformation from
-  a XML String to a ConfXMLParam[] structure.
+  a XML String to a ConfXMLParam\[\] structure.
 
  Handler class for SAX Parser. Contains callback methods
  that invokes by the (SAX) parser. The callback methods
@@ -101,14 +101,14 @@ public com.tailf.conf.ConfXMLParam[] toXMLParam() throws com.tailf.conf.ConfExce
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
-Converts the xml to corresponding ConfXMLParam[]
- The resulting ConfXMLParam[] is prepared for a getValues() call.
+Converts the xml to corresponding ConfXMLParam\[\]
+ The resulting ConfXMLParam\[\] is prepared for a getValues() call.
 
-**Returns:** The resulting ConfXMLParam[]
+**Returns:** The resulting ConfXMLParam\[\]
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### toXMLParam(int) <a href="#toxmlparam-cfa4dab14cf4" id="toxmlparam-cfa4dab14cf4"></a>
 
@@ -118,8 +118,8 @@ public com.tailf.conf.ConfXMLParam[] toXMLParam(int mode) throws com.tailf.conf.
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
-Converts the xml to corresponding ConfXMLParam[]
- The mode parameter controls whether this ConfXMLParam[] should be
+Converts the xml to corresponding ConfXMLParam\[\]
+ The mode parameter controls whether this ConfXMLParam\[\] should be
  prepared for a getValues() call or for a setValues() call using
  using [`MODE_GET`](XMLtoConfXMLParam.md#mode_get-f993d996e8d3) or [`MODE_SET`](XMLtoConfXMLParam.md#mode_set-a3c0f3ec95f7) respectively.
 
@@ -128,8 +128,8 @@ Converts the xml to corresponding ConfXMLParam[]
 - `int mode` - one of [`MODE_GET`](XMLtoConfXMLParam.md#mode_get-f993d996e8d3), [`MODE_SET`](XMLtoConfXMLParam.md#mode_set-a3c0f3ec95f7),
  [`MODE_SET_ACTION_PARAM`](XMLtoConfXMLParam.md#mode_set_action_param-2b8bfb16378e) or [`MODE_SET_ACTION_RESULT`](XMLtoConfXMLParam.md#mode_set_action_result-51a0a8eb8d0a)
 
-**Returns:** the resulting ConfXMLParam[]
+**Returns:** the resulting ConfXMLParam\[\]
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`

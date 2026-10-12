@@ -39,6 +39,8 @@ public String getDeviceName()
 
 Get the deviceName for a snmp notification
 
+**Returns:** String deviceName
+
 ### setDeviceKey(ConfKey) <a href="#setdevicekey-f51d3171cb37" id="setdevicekey-f51d3171cb37"></a>
 
 ```java

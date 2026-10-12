@@ -68,7 +68,6 @@ Types: [ConfKey](../ConfKey.md#confkey-e4e1ca98e867)
 **Methods**:
 
 - [clone\(\)](../ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](../ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [decode\(ConfEObject\)](../ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](../ConfObject.md#decode-a814ebf64edc) from ConfObject
 - [decode\(ConfEObject, String\)](../ConfObject.md#decode-9b92f1de40d8) from ConfObject

@@ -13,8 +13,7 @@ This class implements the internal communication API in Java.
  It is used internally by the API and
  thus should not be used by user of this API directly.
 
-
- This class is a translation of the C library confd_internal.c.
+This class is a translation of the C library confd_internal.c.
 
 ## Members
 
@@ -51,7 +50,7 @@ This class implements the internal communication API in Java.
 - [requestTerm\(Socket, int\)](#requestterm-ff5162bfe272)
 - [requestTerm\(Socket, int, ConfEObject\)](#requestterm-f966587fc3d9)
 - [requestTerm\(Socket, int, int, boolean, ConfEObject\)](#requestterm-7ec615ba84b5)
-- [substitute\_percent\(String, Object\[\]\)](#substitute_percent-2065ae27a6bc)
+- [substitute\_percent\(String, Object\.\.\.\)](#substitute_percent-2032f0a79169)
 - [termRead\(Object\)](#termread-dde69cb8c07f)
 - [termRead\(SelectionKey\)](#termread-1f9fd627b396)
 - [termRead\(SelectionKey, int\)](#termread-1f2ce37a445b)
@@ -158,19 +157,19 @@ Common static method for diffIterate with CdbSubscription.
 **Parameters**
 
 - `java.nio.channels.SelectionKey key` - The registration representation of a particular
-        channel object with a particular selector object.
-        The key parameter is not part of the "ready set" but its
-        internal "interest set" has been registered with the selector.
-        The key's attachment holds a reference to the
-        ByteBuffer that is used to read/write bytes from/to
-        ConfD/NCS.
+channel object with a particular selector object.
+The key parameter is not part of the "ready set" but its
+internal "interest set" has been registered with the selector.
+The key's attachment holds a reference to the
+ByteBuffer that is used to read/write bytes from/to
+ConfD/NCS.
 - `com.tailf.conf.ConfIterate iter` - The callback user code
 - `Object initstate` - The opaque object passed from user code
 
 **Throws**
 
-- `IOException` - if an general I/O error occurred
-- `ConfException` - if ConfD/NCS protocol error occurred
+- `java.io.IOException` - if an general I/O error occurred
+- `com.tailf.conf.ConfException` - if ConfD/NCS protocol error occurred
 
 ### doConnect(SelectionKey, int) <a href="#doconnect-a5d7493473e0" id="doconnect-a5d7493473e0"></a>
 
@@ -194,21 +193,21 @@ Connects the provided selectable channel to the Erlang process
 **Parameters**
 
 - `java.nio.channels.SelectionKey key` - The registration representation of a particular
-        channel object with a particular selector object.
-        The key parameter is not part of the "ready set" but its
-        internal "interest set" has been registered with the selector.
-        The key's attachment holds a reference to the
-        ByteBuffer that is used to read/write bytes from/to
-        ConfD/NCS.
+channel object with a particular selector object.
+The key parameter is not part of the "ready set" but its
+internal "interest set" has been registered with the selector.
+The key's attachment holds a reference to the
+ByteBuffer that is used to read/write bytes from/to
+ConfD/NCS.
 - `int id` - the integer which specifies what kind of socket
   ( should always be CdbProto.OP_CLIENT_NAME )
 
 **Throws**
 
-- `ConfException` - If the IPCAccessSecret check
+- `com.tailf.conf.ConfException` - If the IPCAccessSecret check
   throws IOException it will be wrapped inside the ConfExcepion
   to be able to retrieve the cause use getCause().
-- `IOException` - if an I/O error occured
+- `java.io.IOException` - if an I/O error occured
 
 ### doConnect(Socket, int) <a href="#doconnect-5288b1c56f77" id="doconnect-5288b1c56f77"></a>
 
@@ -296,7 +295,7 @@ Create a hkeypath from a term. This method takes
 
 **Parameters**
 
-- `com.tailf.proto.ConfEObject term` - - A HKey path as ConfEList
+- `com.tailf.proto.ConfEObject term` - \- A HKey path as ConfEList
 
 **Returns:** KeyPath of ConfEObject.
 
@@ -389,20 +388,20 @@ Read exactly `siz` data into the buffer
 **Parameters**
 
 - `java.nio.channels.SelectionKey key` - The registration representation of a particular
-        channel object with a particular selector object.
-        The key parameter is not part of the "ready set" but its
-        internal "interest set" has been registered with the selector.
-        The key's attachment holds a reference to the
-        ByteBuffer that is used to read/write bytes from/to
-        ConfD/NCS. NOTE: The attached buffer is supplied from
-        the readPayLoad method only!
+channel object with a particular selector object.
+The key parameter is not part of the "ready set" but its
+internal "interest set" has been registered with the selector.
+The key's attachment holds a reference to the
+ByteBuffer that is used to read/write bytes from/to
+ConfD/NCS. NOTE: The attached buffer is supplied from
+the readPayLoad method only!
 - `java.nio.ByteBuffer buf` - ByteBuffer of bytes to read data into
 - `int siz` - The number of bytes to read into the buffer `buf`
 
 **Throws**
 
-- `IOException` - if an general I/O error occurred
-- `ConfException` - if ConfD/NCS protocol error occurred
+- `java.io.IOException` - if an general I/O error occurred
+- `com.tailf.conf.ConfException` - if ConfD/NCS protocol error occurred
 
 ### readFill(Socket, byte[]) <a href="#readfill-f24254cdc166" id="readfill-f24254cdc166"></a>
 
@@ -531,20 +530,20 @@ Request the operation `op` with no argument,
 **Parameters**
 
 - `java.nio.channels.SelectionKey key` - The registration representation of a particular
-        channel object with a particular selector object.
-        The key parameter is not part of the "ready set" but its
-        internal "interest set" has been registered with the selector.
-        The key's attachment holds a reference to the
-        ByteBuffer that is used to read/write bytes from/to
-        ConfD/NCS.
+channel object with a particular selector object.
+The key parameter is not part of the "ready set" but its
+internal "interest set" has been registered with the selector.
+The key's attachment holds a reference to the
+ByteBuffer that is used to read/write bytes from/to
+ConfD/NCS.
 - `int op` - The operation performed on ConfD/NCS
 
 **Returns:** The response for the operation `op`
 
 **Throws**
 
-- `IOException` - if an general I/O error occurred
-- `ConfException` - if ConfD/NCS protocol error occurred
+- `java.io.IOException` - if an general I/O error occurred
+- `com.tailf.conf.ConfException` - if ConfD/NCS protocol error occurred
 
 ### requestTerm(SelectionKey, int, ConfEObject) <a href="#requestterm-8825787a78c9" id="requestterm-8825787a78c9"></a>
 
@@ -572,12 +571,12 @@ Write a term `arg` for the specified operation
 **Parameters**
 
 - `java.nio.channels.SelectionKey key` - The registration representation of a particular
-        channel object with a particular selector object.
-        The key parameter is not part of the "ready set" but its
-        internal "interest set" has been registered with the selector.
-        The key's attachment holds a reference to the
-        ByteBuffer that is used to read/write bytes from/to
-        ConfD/NCS.
+channel object with a particular selector object.
+The key parameter is not part of the "ready set" but its
+internal "interest set" has been registered with the selector.
+The key's attachment holds a reference to the
+ByteBuffer that is used to read/write bytes from/to
+ConfD/NCS.
 - `int op` - The operation performed on ConfD/NCS
 - `com.tailf.proto.ConfEObject arg`
 
@@ -585,8 +584,8 @@ Write a term `arg` for the specified operation
 
 **Throws**
 
-- `IOException` - if an general I/O error occurred
-- `ConfException` - if ConfD/NCS protocol error occurred
+- `java.io.IOException` - if an general I/O error occurred
+- `com.tailf.conf.ConfException` - if ConfD/NCS protocol error occurred
 
 ### requestTerm(SelectionKey, int, int, boolean, ConfEObject) <a href="#requestterm-15683fcc881a" id="requestterm-15683fcc881a"></a>
 
@@ -618,12 +617,12 @@ Write a term `arg` for the specified operation
 **Parameters**
 
 - `java.nio.channels.SelectionKey key` - The registration representation of a particular
-        channel object with a particular selector object.
-        The key parameter is not part of the "ready set" but its
-        internal "interest set" has been registered with the selector.
-        The key's attachment holds a reference to the
-        ByteBuffer that is used to read/write bytes from/to
-        ConfD/NCS.
+channel object with a particular selector object.
+The key parameter is not part of the "ready set" but its
+internal "interest set" has been registered with the selector.
+The key's attachment holds a reference to the
+ByteBuffer that is used to read/write bytes from/to
+ConfD/NCS.
 - `int op` - The operation performed on ConfD/NCS
 - `int thandle` - The transaction handle ( if Maapi) -1 otherwise
 - `boolean isrel` - Determines if the operation is relative
@@ -633,8 +632,8 @@ Write a term `arg` for the specified operation
 
 **Throws**
 
-- `IOException` - if an general I/O error occurred
-- `ConfException` - if ConfD/NCS protocol error occurred
+- `java.io.IOException` - if an general I/O error occurred
+- `com.tailf.conf.ConfException` - if ConfD/NCS protocol error occurred
 
 ### requestTerm(Socket, int) <a href="#requestterm-ff5162bfe272" id="requestterm-ff5162bfe272"></a>
 
@@ -699,19 +698,19 @@ Requests a term from ConfD/NCS.
 - `int op` - The op code.
 - `int thandle`
 - `boolean isrel` - Boolean flag that says that if the provided arg is a path
-               if it is relative or not
+if it is relative or not
 - `com.tailf.proto.ConfEObject arg` - Argument ConfObject object
 
-### substitute_percent(String, Object[]) <a href="#substitute_percent-2065ae27a6bc" id="substitute_percent-2065ae27a6bc"></a>
+### substitute_percent(String, Object...) <a href="#substitute_percent-2032f0a79169" id="substitute_percent-2032f0a79169"></a>
 
 ```java
-public static String substitute_percent(String fmt, Object[] arguments)
+public static String substitute_percent(String fmt, Object... arguments)
 ```
 
 **Parameters**
 
 - `String fmt`
-- `Object[] arguments`
+- `Object... arguments`
 
 ### termRead(Object) <a href="#termread-dde69cb8c07f" id="termread-dde69cb8c07f"></a>
 
@@ -741,8 +740,8 @@ Common method to read a term from ConfD/NCS
 
 **Throws**
 
-- `IOException` - if an general I/O error occurred
-- `ConfException` - if ConfD/NCS protocol error occurred
+- `java.io.IOException` - if an general I/O error occurred
+- `com.tailf.conf.ConfException` - if ConfD/NCS protocol error occurred
 
 ### termRead(SelectionKey) <a href="#termread-1f9fd627b396" id="termread-1f9fd627b396"></a>
 
@@ -767,19 +766,19 @@ Common method to read ( request )  a term from ConfD/NCS
 **Parameters**
 
 - `java.nio.channels.SelectionKey key` - The registration representation of a particular
-        channel object with a particular selector object.
-        The key parameter is not part of the "ready set" but its
-        internal "interest set" has been registered with the selector.
-        The key's attachment holds a reference to the
-        ByteBuffer that is used to read/write bytes from/to
-        ConfD/NCS.
+channel object with a particular selector object.
+The key parameter is not part of the "ready set" but its
+internal "interest set" has been registered with the selector.
+The key's attachment holds a reference to the
+ByteBuffer that is used to read/write bytes from/to
+ConfD/NCS.
 
 **Returns:** The response which have been sent back from ConfD/NCS
 
 **Throws**
 
-- `IOException` - if an general I/O error occurred
-- `ConfException` - if ConfD/NCS protocol error occurred
+- `java.io.IOException` - if an general I/O error occurred
+- `com.tailf.conf.ConfException` - if ConfD/NCS protocol error occurred
 
 ### termRead(SelectionKey, int) <a href="#termread-1f2ce37a445b" id="termread-1f2ce37a445b"></a>
 
@@ -803,18 +802,18 @@ Read a response, term from ConfD/NCS with the
 **Parameters**
 
 - `java.nio.channels.SelectionKey key` - The registration representation of a particular
-        channel object with a particular selector object.
-        The key parameter is not part of the "ready set" but its
-        internal "interest set" has been registered with the selector.
-        The key's attachment holds a reference to the
-        ByteBuffer that is used to read/write bytes from/to
-        ConfD/NCS.
+channel object with a particular selector object.
+The key parameter is not part of the "ready set" but its
+internal "interest set" has been registered with the selector.
+The key's attachment holds a reference to the
+ByteBuffer that is used to read/write bytes from/to
+ConfD/NCS.
 - `int cdbop`
 
 **Throws**
 
-- `IOException` - if an general I/O error occurred
-- `ConfException` - if ConfD/NCS protocol error occurred
+- `java.io.IOException` - if an general I/O error occurred
+- `com.tailf.conf.ConfException` - if ConfD/NCS protocol error occurred
 
 ### termRead(Socket) <a href="#termread-a6eabc408efc" id="termread-a6eabc408efc"></a>
 
@@ -892,20 +891,20 @@ Request that the operation `op` should be performed,
 **Parameters**
 
 - `java.nio.channels.SelectionKey key` - The registration representation of a particular
-        channel object with a particular selector object.
-        The key parameter is not part of the "ready set" but its
-        internal "interest set" has been registered with the selector.
-        The key's attachment holds a reference to the
-        ByteBuffer that is used to read/write bytes from/to
-        ConfD/NCS.
+channel object with a particular selector object.
+The key parameter is not part of the "ready set" but its
+internal "interest set" has been registered with the selector.
+The key's attachment holds a reference to the
+ByteBuffer that is used to read/write bytes from/to
+ConfD/NCS.
 - `int cdbop` - The operation performed on ConfD/NCS
 - `int thandle` - The transaction handle ( if Maapi) -1 otherwise
-        usually when Cdb
+usually when Cdb
 - `com.tailf.proto.ConfEObject term` - The argument term to the operation `op`
 
 **Throws**
 
-- `IOException` - if an general I/O error occurred
+- `java.io.IOException` - if an general I/O error occurred
 
 ### termWrite(Socket, ConfEObject) <a href="#termwrite-9ddad78c26d9" id="termwrite-9ddad78c26d9"></a>
 
@@ -999,18 +998,18 @@ Request that the operation `op` should be performed,
 **Parameters**
 
 - `java.nio.channels.SelectionKey key` - The registration representation of a particular
-        channel object with a particular selector object.
-        The key parameter is not part of the "ready set" but its
-        internal "interest set" has been registered with the selector.
-        The key's attachment holds a reference to the
-        ByteBuffer that is used to read/write bytes from/to
-        ConfD/NCS.
+channel object with a particular selector object.
+The key parameter is not part of the "ready set" but its
+internal "interest set" has been registered with the selector.
+The key's attachment holds a reference to the
+ByteBuffer that is used to read/write bytes from/to
+ConfD/NCS.
 - `int op` - The operation performed on ConfD/NCS
 - `int thandle` - The transaction handle ( if Maapi) -1 otherwise
 
 **Throws**
 
-- `IOException` - if an general I/O error occurred
+- `java.io.IOException` - if an general I/O error occurred
 
 ### write(Socket, int) <a href="#write-e15b958a280b" id="write-e15b958a280b"></a>
 

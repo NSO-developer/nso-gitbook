@@ -2042,7 +2042,7 @@ public static final String prefix = "tfnm";
 ### serialVersionUID <a href="#serialversionuid-b9f0e1ec001d" id="serialversionuid-b9f0e1ec001d"></a>
 
 ```java
-public static final long serialVersionUID = 1650528103;
+public static final long serialVersionUID = 1650528103L;
 ```
 
 ### uri <a href="#uri-0e8d1758ed1a" id="uri-0e8d1758ed1a"></a>

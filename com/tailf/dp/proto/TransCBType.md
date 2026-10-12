@@ -6,8 +6,7 @@ public enum com.tailf.dp.proto.TransCBType
 
 Enumeration of Trans callback methods
 
-
- This enumeration defines the different callbacks that can be registered for a
+This enumeration defines the different callbacks that can be registered for a
  transaction. There may be multiple sources of data for the device
  configuration.
 
@@ -22,68 +21,63 @@ Enumeration of Trans callback methods
  different states and the invocations of the callback functions are state
  transitions. The following ASCII art depicts the state machine.
 
-
-
 ```
 
-                           +-------+
-                           | START |
-                           +-------+
-                               | init()
-                               |
-                               v
-                  read()   +------+          finish()
-                  ------>  | READ | --------------------> START
-                           +------+
-                             ^  |
-              trans_unlock() |  | trans_lock()
-                             |  v
-                  read()  +----------+       finish()
-                  ------> | VALIDATE | -----------------> START
-                          +----------+
-                               | write_start()
-                               |
-                               v
-                  write()  +-------+          finish()
-                  -------> | WRITE | -------------------> START
-                           +-------+
-                               | prepare()
-                               |
-                               v
-                          +----------+   commit()   +-----------+
-                          | PREPARED | -----------> | COMMITTED |
-                          +----------+              +-----------+
-                               | abort()                  |
-                               |                          | finish()
-                               v                          |
-                           +---------+                    v
-                           | ABORTED |                  START
-                           +---------+
-                               | finish()
-                               |
-                               v
-                             START
+                          +-------+
+                          | START |
+                          +-------+
+                              | init()
+                              |
+                              v
+                 read()   +------+          finish()
+                 ------>  | READ | --------------------> START
+                          +------+
+                            ^  |
+             trans_unlock() |  | trans_lock()
+                            |  v
+                 read()  +----------+       finish()
+                 ------> | VALIDATE | -----------------> START
+                         +----------+
+                              | write_start()
+                              |
+                              v
+                 write()  +-------+          finish()
+                 -------> | WRITE | -------------------> START
+                          +-------+
+                              | prepare()
+                              |
+                              v
+                         +----------+   commit()   +-----------+
+                         | PREPARED | -----------> | COMMITTED |
+                         +----------+              +-----------+
+                              | abort()                  |
+                              |                          | finish()
+                              v                          |
+                          +---------+                    v
+                          | ABORTED |                  START
+                          +---------+
+                              | finish()
+                              |
+                              v
+                            START
 ```
-
-
-
 
  kind of storages.
 
- Conf.DB_CANDIDATE If the system has been configured so that the external
+Conf.DB_CANDIDATE If the system has been configured so that the external
  database owns the candidate data share, we will have to execute candidate
  transactions here. Usually the system owns the candidate and in that case the
  external database will never see any DB_CANDIDATE transactions.
 
- Conf.DB_RUNNING This is a transaction towards the actual running
+Conf.DB_RUNNING This is a transaction towards the actual running
  configuration of the device. All write operations in a DB_RUNNING transaction
  must be propagated to the individual subsystems that use this configuration
  data.
 
- Conf.DB_STARTUP If the system has ben configured to support the NETCONF
+Conf.DB_STARTUP If the system has ben configured to support the NETCONF
  startup capability, this is a transaction towards the startup database.
 
- Which type we have is indicated through the dbName field in the DpTrans
+Which type we have is indicated through the dbName field in the DpTrans
  object.
 
  A transaction, regardless of whether it originates from the NETCONF agent,

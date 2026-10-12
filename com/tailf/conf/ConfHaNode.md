@@ -109,4 +109,4 @@ Decodes a ConfEObject into a ConfHaNode. This method is used internally
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`

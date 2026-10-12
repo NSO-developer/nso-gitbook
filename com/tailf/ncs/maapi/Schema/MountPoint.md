@@ -36,7 +36,7 @@ public MountPoint()
 ### factory <a href="#factory-1649195a6f6e" id="factory-1649195a6f6e"></a>
 
 ```java
-public static final com.tailf.ncs.maapi.Schema.MountPoint.Factory factory = null;
+public static final com.tailf.ncs.maapi.Schema.MountPoint.Factory factory;
 ```
 
 Types: [Factory](MountPoint/Factory.md#factory-1787784624e8)
@@ -44,7 +44,7 @@ Types: [Factory](MountPoint/Factory.md#factory-1787784624e8)
 ### listFactory <a href="#listfactory-b96025f1568b" id="listfactory-b96025f1568b"></a>
 
 ```java
-public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.MountPoint.Builder,com.tailf.ncs.maapi.Schema.MountPoint.Reader> listFactory = null;
+public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.MountPoint.Builder,com.tailf.ncs.maapi.Schema.MountPoint.Reader> listFactory;
 ```
 
 Types: [Builder](MountPoint/Builder.md#builder-21f09e83781d), [Reader](MountPoint/Reader.md#reader-b2467a96ddff)
@@ -52,12 +52,5 @@ Types: [Builder](MountPoint/Builder.md#builder-21f09e83781d), [Reader](MountPoin
 ### STRUCT_SIZE <a href="#struct_size-06830f6b9d3b" id="struct_size-06830f6b9d3b"></a>
 
 ```java
-public static final org.capnproto.StructSize STRUCT_SIZE = null;
+public static final org.capnproto.StructSize STRUCT_SIZE;
 ```
-
-
-## Nested Types
-
-- [Builder](MountPoint/Builder.md#builder-21f09e83781d)
-- [Factory](MountPoint/Factory.md#factory-1787784624e8)
-- [Reader](MountPoint/Reader.md#reader-b2467a96ddff)

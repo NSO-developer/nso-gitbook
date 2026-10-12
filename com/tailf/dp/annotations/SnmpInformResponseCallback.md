@@ -23,13 +23,13 @@ Annotation class for SnmpInformResponse Callbacks Attributes are callPoint
 ### callPoint() <a href="#callpoint-c21f52042879" id="callpoint-c21f52042879"></a>
 
 ```java
-public abstract String callPoint()
+String callPoint()
 ```
 
 ### callType() <a href="#calltype-0d0f9b61a036" id="calltype-0d0f9b61a036"></a>
 
 ```java
-public abstract com.tailf.dp.proto.SnmpInformResponseCBType[] callType()
+com.tailf.dp.proto.SnmpInformResponseCBType[] callType()
 ```
 
 Types: [SnmpInformResponseCBType](../proto/SnmpInformResponseCBType.md#snmpinformresponsecbtype-ff6f60964bb4)

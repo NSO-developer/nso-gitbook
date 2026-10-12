@@ -7,10 +7,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDateTime.Reader
 
 ## Members
 
-**Constructors**:
-
-- [Reader\(SegmentReader, int, int, int, short, int\)](#reader-cf5e962c3323)
-
 **Methods**:
 
 - [getDay\(\)](#getday-3b07996cd5f6)
@@ -22,33 +18,6 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDateTime.Reader
 - [getTimezone\(\)](#gettimezone-9573790f24e6)
 - [getTimezoneMinutes\(\)](#gettimezoneminutes-b20d3de8d152)
 - [getYear\(\)](#getyear-584af4457cda)
-
-## Constructors
-
-### Reader(SegmentReader, int, int, int, short, int) <a href="#reader-cf5e962c3323" id="reader-cf5e962c3323"></a>
-
-**Package-private**
-
-```java
-Reader(
-    org.capnproto.SegmentReader segment,
-    int data,
-    int pointers,
-    int dataSize,
-    short pointerCount,
-    int nestingLimit
-)
-```
-
-**Parameters**
-
-- `org.capnproto.SegmentReader segment`
-- `int data`
-- `int pointers`
-- `int dataSize`
-- `short pointerCount`
-- `int nestingLimit`
-
 
 ## Methods
 

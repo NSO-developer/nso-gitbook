@@ -2,39 +2,33 @@
 
 MAAPI is an API which provides full access to the systems internal
  transaction engine.
-  MAAPI is used in a number of different settings.
 
+MAAPI is used in a number of different settings.
 
 - We use MAAPI if we want to write our own management application.
-   Using the MAAPI interface, it is for example possible to implement
-   a custom built command line interface (CLI) or Web UI. This usage
-   is described below.
+     Using the MAAPI interface, it is for example possible to implement
+     a custom built command line interface (CLI) or Web UI. This usage
+     is described below.
 - We use MAAPI to access  data inside a not yet committed
-   transaction when we wish to implement semantic validation in Java.
-   or implement hook or transformation code.
+     transaction when we wish to implement semantic validation in Java.
+     or implement hook or transformation code.
 - We use MAAPI to access data inside a not yet committed transaction
- when we wish to implement CLI wizards in Java. Here we can invoke an
- external program which can read and write, both to the executing
- transaction, but also interact with the CLI user.
+   when we wish to implement CLI wizards in Java. Here we can invoke an
+   external program which can read and write, both to the executing
+   transaction, but also interact with the CLI user.
 - Finally MAAPI is also used during database upgrade to access and
- write data to a special upgrade transaction.
+   write data to a special upgrade transaction.
 
-
-
-
- A typical sequence of API calls when using MAAPI to write a
+A typical sequence of API calls when using MAAPI to write a
  management application would be
 
-
-2. Create a user session, this is the equivalent of an established
-     SSH connection from a NETCONF manager. It is up to the
-     MAAPI application to authenticate users. The TCP connection from the
-     MAAPI application to the system is a clear text connection.
-4. Establish a new transaction
-6. Issue a series of read and write operations towards the transaction
-8. Commit or abort the transaction
-
-
+1. Create a user session, this is the equivalent of an established
+   SSH connection from a NETCONF manager. It is up to the
+   MAAPI application to authenticate users. The TCP connection from the
+   MAAPI application to the system is a clear text connection.
+2. Establish a new transaction
+3. Issue a series of read and write operations towards the transaction
+4. Commit or abort the transaction
 
  MAAPI also has support for several operations that do not work
  immediately towards a transaction. This includes users session management,
@@ -84,14 +78,9 @@ MAAPI is an API which provides full access to the systems internal
 - [ProgressLink](ProgressLink.md#progresslink-49caea742f77)
 - [QNameTypeMethodsImpl](QNameTypeMethodsImpl.md#qnametypemethodsimpl-7cc2db36e342)
 - [QueryResult](QueryResult.md#queryresult-6b83e74c93ef)
-- [QueryResultIterator](QueryResultIterator.md#queryresultiterator-05c3c45152b8)
 - [ResultType](ResultType.md#resulttype-1a8a08651698)
 - [ResultTypeKeyPath](ResultTypeKeyPath.md#resulttypekeypath-6681ecc7f47b)
-- [ResultTypeKeyPathImpl](ResultTypeKeyPathImpl.md#resulttypekeypathimpl-59e42f251896)
 - [ResultTypeKeyPathValue](ResultTypeKeyPathValue.md#resulttypekeypathvalue-73a624076b63)
-- [ResultTypeKeyPathValueImpl](ResultTypeKeyPathValueImpl.md#resulttypekeypathvalueimpl-e8e61bf396b4)
 - [ResultTypeString](ResultTypeString.md#resulttypestring-6e023ffcb7ea)
-- [ResultTypeStringImpl](ResultTypeStringImpl.md#resulttypestringimpl-df6f97277332)
 - [ResultTypeTag](ResultTypeTag.md#resulttypetag-91d1aeee8818)
-- [ResultTypeTagImpl](ResultTypeTagImpl.md#resulttypetagimpl-c9f0a89be0ae)
 - [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#xpathnodeiterateresultflag-a264e20c01cd)

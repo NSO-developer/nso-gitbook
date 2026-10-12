@@ -59,7 +59,7 @@ Convenience method for adding Exception causes in the
 **Parameters**
 
 - `com.tailf.ncs.ctrl.NcsCtrlException ncsEx` - NcsCtrlException to add cause in. If null a new
-              NcsCtrlException is created
+NcsCtrlException is created
 - `String message` - to be set in the new exception
 - `Throwable ex` - the Exception to add as cause
 

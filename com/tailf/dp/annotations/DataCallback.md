@@ -32,13 +32,13 @@ Annotation class for Data Callbacks Attributes are `callPoint`
 ### callPoint() <a href="#callpoint-c21f52042879" id="callpoint-c21f52042879"></a>
 
 ```java
-public abstract String callPoint()
+String callPoint()
 ```
 
 ### callType() <a href="#calltype-0d0f9b61a036" id="calltype-0d0f9b61a036"></a>
 
 ```java
-public abstract com.tailf.dp.proto.DataCBType[] callType()
+com.tailf.dp.proto.DataCBType[] callType()
 ```
 
 Types: [DataCBType](../proto/DataCBType.md#datacbtype-1cb4e4ee7708)

@@ -81,7 +81,6 @@ Identifies a starting point in the model for a list item that should be
 **Methods**:
 
 - [clone\(\)](ConfObject.md#clone-164c86c45e9b) from ConfObject
-- [compare\(ConfObject, ConfObject\)](ConfObject.md#compare-e78552baa2bf) from ConfObject
 - [decode\(ConfEObject\)](ConfObject.md#decode-609792d36602) from ConfObject
 - [decode\(ConfEObject, ConfPath\)](ConfObject.md#decode-a814ebf64edc) from ConfObject
 - [decode\(ConfEObject, String\)](ConfObject.md#decode-9b92f1de40d8) from ConfObject
@@ -195,9 +194,16 @@ public ConfXMLParamStartDel(String prefix, String tagString)
 public boolean equals(Object o)
 ```
 
+*Description from* [`ConfObject.equals(Object)`](ConfObject.md#equals-fcd6492e0d6c)
+
+Determine if two Conf objects are equal. In general, Conf objects are
+ equal if the components they consist of are equal.
+
 **Parameters**
 
-- `Object o`
+- `Object o` - the object to compare to.
+
+**Returns:** true if the objects are identical.
 
 ### hashCode() <a href="#hashcode-ef797a217903" id="hashcode-ef797a217903"></a>
 

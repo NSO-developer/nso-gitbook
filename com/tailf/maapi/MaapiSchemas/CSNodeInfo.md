@@ -178,7 +178,7 @@ get keys for the node. keys are represented as a int array of
  hashvalues. Key names can be retrieved using
  [`MaapiSchemas#hashToStringTab`](../MaapiSchemas.md#hashtostringtab-03883a433398)
 
-**Returns:** int[] array of keys or null if not exists
+**Returns:** int\[\] array of keys or null if not exists
 
 ### getMaxOccurs() <a href="#getmaxoccurs-365e8c5a408f" id="getmaxoccurs-365e8c5a408f"></a>
 
@@ -199,7 +199,7 @@ public java.util.HashMap<String,String> getMetaData()
 get meta data for this node.
  Value could be either null or String.
 
-**Returns:** HashMapString, String
+**Returns:** HashMap\<String, String\>
 
 ### getMinOccurs() <a href="#getminoccurs-cac79959dff8" id="getminoccurs-cac79959dff8"></a>
 

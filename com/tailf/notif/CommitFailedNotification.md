@@ -142,12 +142,11 @@ public int getDataProvider()
 
 forward event type:
 
-
 - [`DP_CDB`](CommitFailedNotification.md#dp_cdb-c81c7c7903c3)
-   - [`DP_NETCONF`](CommitFailedNotification.md#dp_netconf-cbf8cf2a3cba)
-     - [`DP_EXTERNAL`](CommitFailedNotification.md#dp_external-8c510f8bd5c3)
-       - [`DP_SNMPGW`](CommitFailedNotification.md#dp_snmpgw-d58125586f4c)
-         - [`DP_JAVASCRIPT`](CommitFailedNotification.md#dp_javascript-0603146d46a2)
+- [`DP_NETCONF`](CommitFailedNotification.md#dp_netconf-cbf8cf2a3cba)
+- [`DP_EXTERNAL`](CommitFailedNotification.md#dp_external-8c510f8bd5c3)
+- [`DP_SNMPGW`](CommitFailedNotification.md#dp_snmpgw-d58125586f4c)
+- [`DP_JAVASCRIPT`](CommitFailedNotification.md#dp_javascript-0603146d46a2)
 
 ### getDBName() <a href="#getdbname-65ff0bdb2339" id="getdbname-65ff0bdb2339"></a>
 

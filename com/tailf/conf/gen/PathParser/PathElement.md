@@ -38,19 +38,19 @@ public PathElement()
 ### isDummy <a href="#isdummy-073c64dd7cce" id="isdummy-073c64dd7cce"></a>
 
 ```java
-public boolean isDummy = null;
+public boolean isDummy;
 ```
 
 ### isRelative <a href="#isrelative-dffcfd7a3563" id="isrelative-dffcfd7a3563"></a>
 
 ```java
-public boolean isRelative = null;
+public boolean isRelative;
 ```
 
 ### keys <a href="#keys-b408c92f97e4" id="keys-b408c92f97e4"></a>
 
 ```java
-public java.util.ArrayList<com.tailf.conf.gen.PathParser.PathKey> keys = null;
+public java.util.ArrayList<com.tailf.conf.gen.PathParser.PathKey> keys;
 ```
 
 Types: [PathKey](PathKey.md#pathkey-a9b70d1850aa)
@@ -58,19 +58,19 @@ Types: [PathKey](PathKey.md#pathkey-a9b70d1850aa)
 ### namespace <a href="#namespace-9b66d2318bf6" id="namespace-9b66d2318bf6"></a>
 
 ```java
-public Object namespace = null;
+public Object namespace;
 ```
 
 ### ordinal <a href="#ordinal-f51afe442d63" id="ordinal-f51afe442d63"></a>
 
 ```java
-public Integer ordinal = null;
+public Integer ordinal;
 ```
 
 ### term <a href="#term-06e3a07b3287" id="term-06e3a07b3287"></a>
 
 ```java
-public com.tailf.conf.ConfObject term = null;
+public com.tailf.conf.ConfObject term;
 ```
 
 Types: [ConfObject](../../ConfObject.md#confobject-5433616953b2)

@@ -23,19 +23,19 @@ SSHCLient subsystem interface
 ### close() <a href="#close-8107c6dc012b" id="close-8107c6dc012b"></a>
 
 ```java
-public abstract void close() throws java.io.IOException
+void close() throws java.io.IOException
 ```
 
 Close the subsystem
 
 **Throws**
 
-- `IOException`
+- `java.io.IOException`
 
 ### getInputStream() <a href="#getinputstream-cb1d1fa14d56" id="getinputstream-cb1d1fa14d56"></a>
 
 ```java
-public abstract java.io.InputStream getInputStream()
+java.io.InputStream getInputStream()
 ```
 
 **Returns:** the input stream used for this subsystem.
@@ -43,7 +43,7 @@ public abstract java.io.InputStream getInputStream()
 ### getOutputStream() <a href="#getoutputstream-b7e39f99be28" id="getoutputstream-b7e39f99be28"></a>
 
 ```java
-public abstract java.io.OutputStream getOutputStream()
+java.io.OutputStream getOutputStream()
 ```
 
 **Returns:** the output stream used for this subsystem.
@@ -51,7 +51,7 @@ public abstract java.io.OutputStream getOutputStream()
 ### isEof() <a href="#iseof-8742248f0caf" id="iseof-8742248f0caf"></a>
 
 ```java
-public abstract boolean isEof()
+boolean isEof()
 ```
 
 **Returns:** whether EOF has been received.
@@ -59,7 +59,7 @@ public abstract boolean isEof()
 ### isOpen() <a href="#isopen-9dae28e82104" id="isopen-9dae28e82104"></a>
 
 ```java
-public abstract boolean isOpen()
+boolean isOpen()
 ```
 
 **Returns:** whether the channel is open.

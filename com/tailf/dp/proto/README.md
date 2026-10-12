@@ -2,8 +2,7 @@
 
 Callback method types for respective callback type.
 
-
- These type classes are used in the callback annotations as callType
+These type classes are used in the callback annotations as callType
  attribute.
  Identifies the callback method type.
 

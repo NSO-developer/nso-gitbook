@@ -59,7 +59,7 @@ If success is true, the AAA authentication succeeded, and groups is an
  authentication succeeds and the user is logged in. If it returns false
  (or an invalid return value), the authentication fails.
 
-**Returns:** String[] groups
+**Returns:** String\[\] groups
 
 ### getUserInfo() <a href="#getuserinfo-3ecef1f24d3d" id="getuserinfo-3ecef1f24d3d"></a>
 
@@ -97,4 +97,4 @@ The authorization callbacks are expected to complete quickly,
 
 **Throws**
 
-- `IOException`
+- `java.io.IOException`

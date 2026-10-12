@@ -28,7 +28,6 @@ The NedWorker is used by the NedMux for running a worker thread
 - [createSubscriptionResponse\(\)](#createsubscriptionresponse-bf0d6f96b6a0)
 - [createTelemetrySubscriptionResponse\(\)](#createtelemetrysubscriptionresponse-1ac60d98dad0)
 - [currentCommand\(\)](#currentcommand-070f1f079135)
-- [dorun\(\)](#dorun-4965d2173fd3)
 - [error\(int, NedErrorCode, String\)](#error-4da190fc7a8c)
 - [error\(int, String\)](#error-453b6a3b8f77)
 - [error\(int, String, String\)](#error-ef653fe52f55)
@@ -70,7 +69,6 @@ The NedWorker is used by the NedMux for running a worker thread
 - [showStatsPathResponse\(NedTTL\[\]\)](#showstatspathresponse-95090ea9fbc3)
 - [telemetry\(TelemetryType, TelemetryFormat, String\)](#telemetry-23bbdd9142b8)
 - [trace\(String, String, String\)](#trace-4c88f986a203)
-- [trySendResponse\(Socket, ConfEObject\)](#trysendresponse-e175f3a65374)
 - [uninitializeResponse\(\)](#uninitializeresponse-2fcb472eb32a)
 
 **Nested Types**:
@@ -190,13 +188,13 @@ This method should be invoked if the NED fails to perform the
 **Parameters**
 
 - `com.tailf.ned.NedErrorCode code` - is the reason for the connect to fail. See
-    [`NedErrorCode#CONNECT_CONNECTION_REFUSED`](NedErrorCode.md#connect_connection_refused-2749682d78b8),
-    [`NedErrorCode#CONNECT_TIMEOUT`](NedErrorCode.md#connect_timeout-38526d2fcecb),
-    etc.
+[`NedErrorCode#CONNECT_CONNECTION_REFUSED`](NedErrorCode.md#connect_connection_refused-2749682d78b8),
+[`NedErrorCode#CONNECT_TIMEOUT`](NedErrorCode.md#connect_timeout-38526d2fcecb),
+etc.
 - `String info` - is a string describing the connect error. Normally this parameter
-    is not needed. If it is given, it will be appended to the
-    error message all the way to the northbound agent invoking
-    the NED connect call
+is not needed. If it is given, it will be appended to the
+error message all the way to the northbound agent invoking
+the NED connect call
 
 ### createSubscriptionResponse() <a href="#createsubscriptionresponse-bf0d6f96b6a0" id="createsubscriptionresponse-bf0d6f96b6a0"></a>
 
@@ -214,7 +212,7 @@ This method is invoked by a NedConnection instance when it has
 ### createTelemetrySubscriptionResponse() <a href="#createtelemetrysubscriptionresponse-1ac60d98dad0" id="createtelemetrysubscriptionresponse-1ac60d98dad0"></a>
 
 ```java
-public void createTelemetrySubscriptionResponse() throws java.io.IOException, com.tailf.ned.NedException
+public void createTelemetrySubscriptionResponse()
     throws java.io.IOException, com.tailf.ned.NedException
 ```
 
@@ -233,14 +231,6 @@ public com.tailf.ned.NedCmd currentCommand()
 
 Types: [NedCmd](NedCmd.md#nedcmd-52f884d2629b)
 
-### dorun() <a href="#dorun-4965d2173fd3" id="dorun-4965d2173fd3"></a>
-
-**Package-private**
-
-```java
-void dorun() throws Exception
-```
-
 ### error(int, NedErrorCode, String) <a href="#error-4da190fc7a8c" id="error-4da190fc7a8c"></a>
 
 ```java
@@ -255,8 +245,8 @@ This function should be called when a callback like abort,persist,
 **Parameters**
 
 - `int op` - is the command originally issued from NCS, ie a NedCmd.getCommand()
-    integer like NedCmd.CONNECT_CLI, NedCmd.CONNECT_GENERIC,
-    NedCmd.PREPARE_CLI, ...
+integer like NedCmd.CONNECT_CLI, NedCmd.CONNECT_GENERIC,
+NedCmd.PREPARE_CLI, ...
 - `com.tailf.ned.NedErrorCode errCode` - NedErrorCode for the error
 - `String reason` - textual description of the reason for the error
 
@@ -272,8 +262,8 @@ This function should be called when a callback like abort,persist,
 **Parameters**
 
 - `int op` - is the command originally issued from NCS, ie a NedCmd.getCommand()
-    integer like NedCmd.CONNECT_CLI, NedCmd.CONNECT_GENERIC,
-    NedCmd.PREPARE_CLI, ...
+integer like NedCmd.CONNECT_CLI, NedCmd.CONNECT_GENERIC,
+NedCmd.PREPARE_CLI, ...
 - `String reason` - is the reason for the error
 
 ### error(int, String, String) <a href="#error-ef653fe52f55" id="error-ef653fe52f55"></a>
@@ -293,8 +283,8 @@ This error report function is kept for backward compatible reasons and
 **Parameters**
 
 - `int op` - is the command originally issued from NCS, ie a NedCmd.getCommand()
-    integer like NedCmd.CONNECT_CLI, NedCmd.CONNECT_GENERIC,
-    NedCmd.PREPARE_CLI, ...
+integer like NedCmd.CONNECT_CLI, NedCmd.CONNECT_GENERIC,
+NedCmd.PREPARE_CLI, ...
 - `String error` - string representation of a NedErrorCode
 - `String reason` - textual description of the reason for the error
 
@@ -767,7 +757,7 @@ This method is invoked during the showStatsPath() request
 **Parameters**
 
 - `com.tailf.ned.NedTTL[] ttls` - an array of ttls for different paths. The NED may optionally provide
-    different cache timeouts for different paths.
+different cache timeouts for different paths.
 
 ### telemetry(TelemetryType, TelemetryFormat, String) <a href="#telemetry-23bbdd9142b8" id="telemetry-23bbdd9142b8"></a>
 
@@ -788,8 +778,8 @@ Send telemetry to NCS once a subscription has been created.
 - `com.tailf.ned.TelemetryType type` - Type of the telemetry data.
 - `com.tailf.ned.TelemetryFormat format` - Format of the telemetry data.
 - `String data` - A telemetry notification (as defined in RFC8641), the
-               push-update/datastore-contents or
-               push-change-update/datastore-changes data.
+push-update/datastore-contents or
+push-change-update/datastore-changes data.
 
 ### trace(String, String, String) <a href="#trace-4c88f986a203" id="trace-4c88f986a203"></a>
 
@@ -805,39 +795,6 @@ Send trace message to the NCS. The message will end up at... FIXME
 - `String direction`
 - `String deviceId`
 
-### trySendResponse(Socket, ConfEObject) <a href="#trysendresponse-e175f3a65374" id="trysendresponse-e175f3a65374"></a>
-
-**Package-private**
-
-```java
-void trySendResponse(java.net.Socket sock, com.tailf.proto.ConfEObject t) throws java.io.IOException
-```
-
-Types: [ConfEObject](../proto/ConfEObject.md#confeobject-2a9c0d03e350)
-
-Check that the thread could actually send back the response
- `t` back to NCS. If this thread was interrupted by the
- NedMux which happend when NedMux recieve RESTART request from NCS
- through the control socket or the NedMux.stopRequest() was issued.
-
- In case assume that the socket was closed by the other end.
- This will prevent a "Broken pipe" IOException to occure.
-
- The intterupted thread would die short after it will call
- `getWork` method where it will throw the
-  `InterruptedException`
- and return null from the `getWork` method.
-
-**Parameters**
-
-- `java.net.Socket sock` - the worker socket for sending back the response
-- `com.tailf.proto.ConfEObject t` - the term to send to the worker socket
-
-**Throws**
-
-- `IOException` - if in case of failure to write back the request
- on the socket outputstream.
-
 ### uninitializeResponse() <a href="#uninitializeresponse-2fcb472eb32a" id="uninitializeresponse-2fcb472eb32a"></a>
 
 ```java
@@ -849,10 +806,3 @@ Types: [NedException](NedException.md#nedexception-9d3a19f3640e)
 This method should be invoked by a NedConnection instance when it has
  completed a uninitialize operation to indicate a successful
  uninitialization
-
-
-## Nested Types
-
-- [NotEnoughDataException](NedWorker/NotEnoughDataException.md#notenoughdataexception-0a1dcfccde5c)
-- [NotImplementedException](NedWorker/NotImplementedException.md#notimplementedexception-b79d241299d5)
-- [TransactionIdMode](NedWorker/TransactionIdMode.md#transactionidmode-469080668075)

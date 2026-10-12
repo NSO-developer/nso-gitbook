@@ -22,13 +22,13 @@ Annotation class for Validate Callbacks Attribute is callPoint
 ### callPoint() <a href="#callpoint-c21f52042879" id="callpoint-c21f52042879"></a>
 
 ```java
-public abstract String callPoint()
+String callPoint()
 ```
 
 ### callType() <a href="#calltype-0d0f9b61a036" id="calltype-0d0f9b61a036"></a>
 
 ```java
-public abstract com.tailf.dp.proto.ValidateCBType[] callType()
+com.tailf.dp.proto.ValidateCBType[] callType() default {com.tailf.dp.proto.ValidateCBType.VALIDATE}
 ```
 
 Types: [ValidateCBType](../proto/ValidateCBType.md#validatecbtype-5b50c87e5fe9)

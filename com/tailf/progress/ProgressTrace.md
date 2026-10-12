@@ -11,18 +11,17 @@ public class com.tailf.progress.ProgressTrace
  information. The class is implemented based on the concept of
  spans. For example:
 
-
 ```
- ProgressTrace progress = new ProgressTrace(maapi, tid);
- Attributes attributes = new Attributes();
- attributes.set("name", "value");
- Span span1 = progress.startSpan(Maapi.Verbosity.VERY_VERBOSE,
-                                 "span1",
-                                 attributes,
-                                 null);
- Span span2 = progress.startSpan("span2");
- progress.endSpan(span2);
- progress.endSpan(span1);
+ProgressTrace progress = new ProgressTrace(maapi, tid);
+Attributes attributes = new Attributes();
+attributes.set("name", "value");
+Span span1 = progress.startSpan(Maapi.Verbosity.VERY_VERBOSE,
+                                "span1",
+                                attributes,
+                                null);
+Span span2 = progress.startSpan("span2");
+progress.endSpan(span2);
+progress.endSpan(span1);
 ```
 
 **Related classes**
@@ -64,12 +63,12 @@ Creates a new instance of `ProgressTrace`
 **Parameters**
 
 - `com.tailf.maapi.Maapi maapi` - a [MAAPI](../maapi/Maapi.md#maapi-67bcbe89c42e)
-              instance
+instance
 - `int tid` - transaction ID
 
 **Throws**
 
-- `ConfException`
+- `com.tailf.conf.ConfException`
 
 ### ProgressTrace(Maapi, int, ConfPath) <a href="#progresstrace-95f990b53e34" id="progresstrace-95f990b53e34"></a>
 
@@ -85,7 +84,7 @@ Creates a new instance of `ProgressTrace`.
 **Parameters**
 
 - `com.tailf.maapi.Maapi maapi` - a [MAAPI](../maapi/Maapi.md#maapi-67bcbe89c42e)
-        instance
+instance
 - `int tid` - transaction ID
 - `com.tailf.conf.ConfPath servicePath` - path of an NSO service instance
 
@@ -127,12 +126,12 @@ End a span with annotation
 
 - `com.tailf.progress.Span span` - the span which was previously started
 - `String annotation` - an annotation for this ending span
-        This can be `null`
+This can be `null`
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### event(String) <a href="#event-35c2a3878e07" id="event-35c2a3878e07"></a>
 
@@ -150,8 +149,8 @@ Report an event
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### event(Verbosity, String) <a href="#event-9f8a52e74d94" id="event-9f8a52e74d94"></a>
 
@@ -170,13 +169,13 @@ Report an event
 **Parameters**
 
 - `com.tailf.maapi.Maapi.Verbosity verbosity` - at which verbosity level the
-         message should be reported
+message should be reported
 - `String message` - message to report
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### event(Verbosity, String, Attributes) <a href="#event-cdc8c9e968cd" id="event-cdc8c9e968cd"></a>
 
@@ -196,15 +195,15 @@ Report an event
 **Parameters**
 
 - `com.tailf.maapi.Maapi.Verbosity verbosity` - at which verbosity level the
-         message should be reported
+message should be reported
 - `String message` - message to report
 - `com.tailf.progress.Attributes attributes` - attributes of the events.
-        This can be `null`.
+This can be `null`.
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### getCurrentSpan() <a href="#getcurrentspan-95e59db0f66f" id="getcurrentspan-95e59db0f66f"></a>
 
@@ -217,8 +216,8 @@ Types: [Span](Span.md#span-1e8b02bddf13)
 Get the current span that is created by this API.
  The current span is updated to a new span or previous
  span depending on when
- a `ProgressTrace#startSpan` or a
- `ProgressTrace#endSpan` is called.
+ a [`ProgressTrace#startSpan`](ProgressTrace.md#startspan-a255151f7145) or a
+ [`ProgressTrace#endSpan`](ProgressTrace.md#endspan-832d21f903c3) is called.
 
 **Returns:** a [`Span`](Span.md#span-1e8b02bddf13) object or [`EmptySpan`](EmptySpan.md#emptyspan-3567797150bb)
  object if the span is not created by the API.
@@ -255,12 +254,12 @@ Start a new span
 - `String message` - message of the span
 
 **Returns:** a [`Span`](Span.md#span-1e8b02bddf13) object that is used
- for `ProgressTrace#endSpan`
+ for [`ProgressTrace#endSpan`](ProgressTrace.md#endspan-832d21f903c3)
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### startSpan(Verbosity, String) <a href="#startspan-b310d5a59dbf" id="startspan-b310d5a59dbf"></a>
 
@@ -279,16 +278,16 @@ Start a new span
 **Parameters**
 
 - `com.tailf.maapi.Maapi.Verbosity verbosity` - at which verbosity level the
-         message should be reported
+message should be reported
 - `String message` - message of the span
 
 **Returns:** a [`Span`](Span.md#span-1e8b02bddf13) object that can used
- in `ProgressTrace#endSpan`
+ in [`ProgressTrace#endSpan`](ProgressTrace.md#endspan-832d21f903c3)
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`
 
 ### startSpan(Verbosity, String, Attributes, Span[]) <a href="#startspan-ec78710be35e" id="startspan-ec78710be35e"></a>
 
@@ -309,17 +308,17 @@ Start a new span
 **Parameters**
 
 - `com.tailf.maapi.Maapi.Verbosity verbosity` - at which verbosity level the
-         message should be reported
+message should be reported
 - `String message` - message of the span
 - `com.tailf.progress.Attributes attributes` - attributes of the span
-        This can be `null`.
+This can be `null`.
 - `com.tailf.progress.Span[] links` - list of linked spans
-        This can be `null`.
+This can be `null`.
 
 **Returns:** a [`Span`](Span.md#span-1e8b02bddf13) object that can used
- in `ProgressTrace#endSpan`
+ in [`ProgressTrace#endSpan`](ProgressTrace.md#endspan-832d21f903c3)
 
 **Throws**
 
-- `IOException`
-- `ConfException`
+- `java.io.IOException`
+- `com.tailf.conf.ConfException`

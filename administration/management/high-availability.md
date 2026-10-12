@@ -26,6 +26,72 @@ NSO supports the following options for implementing an HA setup to cater to the 
 
 In addition to data replication, having a fixed address to connect to the current primary in an HA group greatly simplifies access for operators, users, and other systems alike. Use [Tail-f HCC Package](high-availability.md#ug.ha.hcc) or an [external load balancer](high-availability.md#ug.ha.lb) to manage it.
 
+## Geographical Redundancy
+
+NSO CDB replication is primarily designed for HA deployments with low latency between nodes, such as within the same data center or geographical region. If the primary goal is disaster recovery, consider whether a separate, standby NSO environment at the recovery site fits the required recovery point/time objective (RPO/RTO). For example, use infrastructure block storage replication and manually triggered failover that restarts the NSO daemon at the recovery site. This approach avoids extending the HA cluster across a higher-latency network.
+
+The main issue with increased network latency is that it negatively affects performance, as the cluster must ensure that nodes acknowledge the changes before completing the transaction. Rule-based HA does not support any specific configuration for high latency operation. However, HA Raft cluster may support some scenarios if the tradeoffs are acceptable.
+
+HA Raft requires half of the cluster to acknowledge the changes before the transaction can proceed; even if minority of the nodes are slow to respond (or do not respond at all), the cluster can commit the changes. This property can be exploited to avoid the latency penalty in some situations.
+
+
+### Two Site HA Raft Cluster
+
+A deployment scenario with three NSO nodes in an HA Raft cluster:
+
+- Two nodes are located close together (e.g. in the same data center) where the network latency is low. Call this the primary location.
+- A third node is located in a different, secondary location where network latency to nodes in the primary location is higher.
+
+The node in secondary location is configured as `passive` for HA Raft. One of the nodes in the primary location is always elected as leader. Under normal conditions, the two nodes in the primary location have cluster quorum and operate normally, without much impact of the third node's higher latency.
+
+In case one of the primary nodes become unreachable, the other node will take over if necessary. The cluster will remain provisonally operational; performance degradation is expected since the quorum now requires cooperation of the third (higher latency) node.
+
+In case both nodes in the primary location are lost in a regional disaster, the third node contains the replicated database but does not allow updates due to missing quorum and passive mode. The node can be manually reconfigured to operate as a standalone node or seed a new cluster if needed.
+
+Loss of the third (remote) node does not directly affect cluster performance, only degrades protection.
+
+
+Pros:
+
+* Single node redundancy
+* Undegraded performance under normal conditions
+* Data protection in case of loss of one site
+
+Cons:
+
+* Single node failure can significantly degrade performance
+
+
+### Three Site HA Raft Cluster
+
+A deployment scenario with five NSO nodes in an HA Raft cluster:
+
+- Two nodes are placed at the first site (e.g. in the same data center).
+- Two more nodes are placed at the second site which is relatively close to the first site (e.g. in another data center in the same metropolitan area).
+- One node is located in a "remote" location where network latency to other nodes is higher.
+
+The node in the remote location is configured as `passive` for HA Raft. The cluster leader is elected from the four nodes placed closer together. Under normal conditions, these four nodes have cluster quorum and operate normally, without much impact of the remote node's higher latency.
+
+The cluster can tolerate loss of a single node, in addition to loss of the remote site, without performance penalty.
+
+In case the first or the second site become unreachable, a node in the other site will take over if necessary. The cluster will remain provisonally operational; performance degradation is expected since the quorum now requires cooperation of the remote (higher latency) node.
+
+Loss of the remote site does not directly affect cluster performance, only degrades protection.
+
+
+Pros:
+
+* Single node redundancy without performance degradation
+* Two node or single site redundancy
+* Mostly undegraded performance under normal conditions
+* Data protection in case of loss of up to two sites (e.g. regional disaster)
+
+Cons:
+
+* Baseline performance may be less due to site one-two latency, compared to single site deployment
+* Loss of site can significantly degrade performance from baseline
+* Additional operational workload compared to three node cluster
+
 ## NSO HA Raft <a href="#ug.ha.raft" id="ug.ha.raft"></a>
 
 [Raft](https://raft.github.io/) is a consensus algorithm that reliably distributes a set of changes to a group of nodes and robustly handles network and node failure. It can operate in the face of multiple, subsequent failures, while also allowing a previously failed or disconnected node to automatically rejoin the cluster without risk of data conflicts.

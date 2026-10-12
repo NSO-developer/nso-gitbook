@@ -34,13 +34,6 @@ NCS Logging Management.
 - [run\(\)](#run-b6dbda048863)
 - [stop\(\)](#stop-a62ecc446f97)
 
-**Nested Types**:
-
-- [LoggConfigurator](NcsLogger/LoggConfigurator.md#loggconfigurator-94c239f258ab)
-- [LogIter](NcsLogger/LogIter.md#logiter-ecede56df6fd)
-- [NedIdIter](NcsLogger/NedIdIter.md#nediditer-c9ce7eb389da)
-- [VerbosityIter](NcsLogger/VerbosityIter.md#verbosityiter-e51c846079ee)
-
 ## Methods
 
 ### config(SocketAddress) <a href="#config-27b84e0fef53" id="config-27b84e0fef53"></a>
@@ -67,6 +60,7 @@ public static void config(java.net.SocketAddress address, boolean readConfig)
 ### config(String, int) <a href="#config-1ba577c4f8cb" id="config-1ba577c4f8cb"></a>
 
 ```java
+@Deprecated
 public static void config(String host, int port)
 ```
 
@@ -78,8 +72,8 @@ Creates and setup a subscriber that listen on changes
  setting a level for a specific logger.
 
  ex.
- %> set java-vm java-logging logger com.mypkg.MyCls level level-info
- %> commit
+ %\> set java-vm java-logging logger com.mypkg.MyCls level level-info
+ %\> commit
  will change the the log4j logger com.mypkg.MyCls to log4jLevel
  info.
 
@@ -91,6 +85,7 @@ Creates and setup a subscriber that listen on changes
 ### config(String, int, boolean) <a href="#config-69cc5a37a307" id="config-69cc5a37a307"></a>
 
 ```java
+@Deprecated
 public static void config(String host, int port, boolean readConfig)
 ```
 
@@ -111,11 +106,3 @@ public void run()
 ```java
 public static void stop()
 ```
-
-
-## Nested Types
-
-- [LoggConfigurator](NcsLogger/LoggConfigurator.md#loggconfigurator-94c239f258ab)
-- [LogIter](NcsLogger/LogIter.md#logiter-ecede56df6fd)
-- [NedIdIter](NcsLogger/NedIdIter.md#nediditer-c9ce7eb389da)
-- [VerbosityIter](NcsLogger/VerbosityIter.md#verbosityiter-e51c846079ee)

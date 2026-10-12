@@ -14,15 +14,11 @@ Main class for Ncs java vm management and control.
  It is however possible to embed and start the NcsMain thread from any
  other java program by inserting the following code snippet:
 
-
-
 ```
- NcsMain ncs = NcsMain.getInstance(host, port);
- Thread ncsThread = new Thread(ncs);
- ncsThread.start();
+NcsMain ncs = NcsMain.getInstance(host, port);
+Thread ncsThread = new Thread(ncs);
+ncsThread.start();
 ```
-
-
 
  The Ncs java vm main thread will connect to the Ncs Server and
  start negotiation of which packages/components that should be instantiated
@@ -33,7 +29,6 @@ Main class for Ncs java vm management and control.
 
 **Fields**:
 
-- [exitOnStop](#exitonstop-2c913a9aedcf)
 - [TAILF\_CLASSLOADER](#tailf_classloader-840f58ebf9fd)
 
 **Methods**:
@@ -75,17 +70,8 @@ Main class for Ncs java vm management and control.
 - [submitPackageAlarm\(Object, ConfIdentityRef, PerceivedSeverity, boolean, String\)](#submitpackagealarm-f8db8fb0345e)
 - [submitPackageAlarm\(String, ConfIdentityRef, PerceivedSeverity, boolean, String\)](#submitpackagealarm-a0a9b95cab23)
 - [uncaughtException\(Thread, Throwable\)](#uncaughtexception-ad07d4154b36)
-- [unload\(\)](#unload-e055e2ceb016)
 
 ## Fields
-
-### exitOnStop <a href="#exitonstop-2c913a9aedcf" id="exitonstop-2c913a9aedcf"></a>
-
-**Package-private**
-
-```java
-boolean exitOnStop = null;
-```
 
 ### TAILF_CLASSLOADER <a href="#tailf_classloader-840f58ebf9fd" id="tailf_classloader-840f58ebf9fd"></a>
 
@@ -107,6 +93,7 @@ This field represents a system property controlling which classloader
 ### abortNcsJavaVM(Object) <a href="#abortncsjavavm-83777887a888" id="abortncsjavavm-83777887a888"></a>
 
 ```java
+@Deprecated
 public static void abortNcsJavaVM(Object obj)
 ```
 
@@ -121,6 +108,7 @@ Aborts the NCS Java VM.
 ### abortNcsJavaVM(Object, int) <a href="#abortncsjavavm-4b9171d8233f" id="abortncsjavavm-4b9171d8233f"></a>
 
 ```java
+@Deprecated
 public static void abortNcsJavaVM(Object obj, int code)
 ```
 
@@ -136,6 +124,7 @@ Aborts the NCS Java VM with exit code.
 ### abortNcsJavaVM(Object, int, String) <a href="#abortncsjavavm-d4e69c891fdb" id="abortncsjavavm-d4e69c891fdb"></a>
 
 ```java
+@Deprecated
 public static void abortNcsJavaVM(Object obj, int code, String message)
 ```
 
@@ -172,7 +161,7 @@ Builds the keypath of a device list entry from a device name,
 
 **Throws**
 
-- `ConfException` - if the keypath cannot be constructed
+- `com.tailf.conf.ConfException` - if the keypath cannot be constructed
 
 ### getAddress() <a href="#getaddress-08b11cceec4c" id="getaddress-08b11cceec4c"></a>
 
@@ -223,7 +212,7 @@ Types: [NcsMain](NcsMain.md#ncsmain-eb814813aed4)
 Gets the NcsMain instance associated with the current thread.
 
 **Returns:** instance associated with the current thread, or null
-         if no instance has been started
+if no instance has been started
 
 ### getInstance(SocketAddress) <a href="#getinstance-947352e78e29" id="getinstance-947352e78e29"></a>
 
@@ -241,11 +230,12 @@ Get an instance that should connect to the given address. If an
 - `java.net.SocketAddress address` - socket address to connect to
 
 **Returns:** an instance that is connected or will connect to the given
-         address
+address
 
 ### getInstance(String, int) <a href="#getinstance-ca416d27c748" id="getinstance-ca416d27c748"></a>
 
 ```java
+@Deprecated
 public static com.tailf.ncs.NcsMain getInstance(String host, int port)
 ```
 
@@ -273,11 +263,12 @@ Types: [NcsMain](NcsMain.md#ncsmain-eb814813aed4)
 Gets the NcsMain instance associated with the current thread.
 
 **Returns:** an optional containing the instance associated with the
-         current thread, or empty of no instance has been started
+current thread, or empty of no instance has been started
 
 ### getNcsHost() <a href="#getncshost-13b45e614659" id="getncshost-13b45e614659"></a>
 
 ```java
+@Deprecated
 public String getNcsHost()
 ```
 
@@ -290,6 +281,7 @@ Get the hostname or IP address for the NCS Server.
 ### getNcsPort() <a href="#getncsport-ec644cf198c2" id="getncsport-ec644cf198c2"></a>
 
 ```java
+@Deprecated
 public int getNcsPort()
 ```
 
@@ -407,7 +399,7 @@ Instantiates and registers components for an NCS package.
 **Parameters**
 
 - `com.tailf.ncs.ctrl.NcsPDData pdData` - package deployment data containing components to
-               instantiate
+instantiate
 
 **Throws**
 
@@ -436,6 +428,7 @@ Checks if the NCS main thread is running.
 ### isStarted() <a href="#isstarted-5c757faf6088" id="isstarted-5c757faf6088"></a>
 
 ```java
+@Deprecated
 public static boolean isStarted()
 ```
 
@@ -479,6 +472,7 @@ Hot redeploy of all components for a package.
 ### reportPackageException(ClassLoader, Throwable) <a href="#reportpackageexception-74c8c471ddc2" id="reportpackageexception-74c8c471ddc2"></a>
 
 ```java
+@Deprecated
 public static Throwable reportPackageException(ClassLoader cl, Throwable e)
 ```
 
@@ -492,11 +486,12 @@ Reports package exceptions using class loader context.
 **Returns:** the processed exception
 
 **Deprecated:** Use [`handlePackageException(ClassLoader, Throwable)`](NcsMain.md#handlepackageexception-d43bb265decf)
-             instead.
+instead.
 
 ### reportPackageException(Object, Throwable) <a href="#reportpackageexception-746dcb7d1c60" id="reportpackageexception-746dcb7d1c60"></a>
 
 ```java
+@Deprecated
 public static Throwable reportPackageException(Object instance, Throwable e)
 ```
 
@@ -510,11 +505,12 @@ Reports package exceptions and initiates restart handling.
 **Returns:** the processed exception
 
 **Deprecated:** Use [`handlePackageException(Object, Throwable)`](NcsMain.md#handlepackageexception-1758c60d1339)
-             instead.
+instead.
 
 ### reportPackageException(String, Throwable) <a href="#reportpackageexception-20596ab20eca" id="reportpackageexception-20596ab20eca"></a>
 
 ```java
+@Deprecated
 public static Throwable reportPackageException(String packageName, Throwable e)
 ```
 
@@ -528,7 +524,7 @@ Reports package exceptions by package name.
 **Returns:** the processed exception
 
 **Deprecated:** Use [`handlePackageException(String, Throwable)`](NcsMain.md#handlepackageexception-bee8ca9aca8e)
-             instead.
+instead.
 
 ### restartPackage(String) <a href="#restartpackage-161b2c0a7b51" id="restartpackage-161b2c0a7b51"></a>
 
@@ -655,11 +651,3 @@ Handles uncaught exceptions from any thread by initiating system
 
 - `Thread t` - the thread that threw the uncaught exception
 - `Throwable e` - the uncaught exception
-
-### unload() <a href="#unload-e055e2ceb016" id="unload-e055e2ceb016"></a>
-
-**Package-private**
-
-```java
-void unload() throws Exception
-```
