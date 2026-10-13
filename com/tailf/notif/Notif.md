@@ -266,7 +266,7 @@ Same functionality as for
 
 - `java.net.Socket socket` - notification socket
 - `java.util.EnumSet<com.tailf.notif.NotificationType> eventTypes` - set of all subscribed notification types
-- `int heartbeatInterval` - interval in seconds (= 0 if not active)
+- `int heartbeatInterval` - interval in seconds (<= 0 if not active)
 
 **Throws**
 
@@ -309,8 +309,8 @@ Same functionality as for
 
 - `java.net.Socket socket` - A socket connected to ConfD.
 - `java.util.EnumSet<com.tailf.notif.NotificationType> eventTypes` - EnumSet of NotificationType
-- `int heartbeatInterval` - interval in seconds (= 0 if not active)
-- `int healthCheckInterval` - interval in seconds (= 0 if not active)
+- `int heartbeatInterval` - interval in seconds (<= 0 if not active)
+- `int healthCheckInterval` - interval in seconds (<= 0 if not active)
 
 **Throws**
 

@@ -89,7 +89,7 @@ confirm event type:
 public int getTimeout()
 ```
 
-timeout time in seconds timeout is  0 when type is
+timeout time in seconds timeout is > 0 when type is
  CONFD_CONFIRMED_COMMIT, otherwise it is 0
 
 ### getUserInfo() <a href="#getuserinfo-3ecef1f24d3d" id="getuserinfo-3ecef1f24d3d"></a>

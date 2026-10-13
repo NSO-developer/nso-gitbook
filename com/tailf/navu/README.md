@@ -183,7 +183,7 @@ NAVU (Navigation Utilities) is an API which provides increased
 
 ```
    module navutest {
-     namespace http://examples.com/navutest;
+     namespace "http://examples.com/navutest";
      prefix nt;
 
      import tailf-common {
@@ -192,7 +192,7 @@ NAVU (Navigation Utilities) is an API which provides increased
 
      container address-book {
        list friends {
-         key name;
+         key "name";
          leaf name {
            type string;
          }
@@ -274,7 +274,7 @@ NAVU (Navigation Utilities) is an API which provides increased
 
  This example shows how to use a regular expression when navigating
  *NAVU*.
- The expression is divided by / per level. Furthermore, a
+ The expression is divided by "/" per level. Furthermore, a
  list element has two levels; one for the list node name, and one
  for the list element key. When matching against keys, keep in mind that
  the string representation of a key contains surrounding braces and that

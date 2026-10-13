@@ -182,7 +182,7 @@ public java.util.HashMap<String,String> getMetaData()
 get meta data for this node.
  Value could be either null or String.
 
-**Returns:** HashMapString, String
+**Returns:** HashMap<String, String>
 
 ### getMinOccurs() <a href="#getminoccurs-cac79959dff8" id="getminoccurs-cac79959dff8"></a>
 

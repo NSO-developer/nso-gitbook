@@ -11,14 +11,14 @@ Represent result entry in a XPath query.
  Each XPath query result contains multiple entries.
 
 
- A entry contains a `ListE` of the result type
+ A entry contains a `List<E>` of the result type
  `E` (is the same type `T` specified
  in the last parameter of
  `Maapi#queryStart(int,String,String,int,int,List,Class)`).
 
 
- Each entry in the `ListE` is the
- evaluating XPath result from the `selects` (ListT)
+ Each entry in the `List<E>` is the
+ evaluating XPath result from the `selects` (List<T>)
  parameter in `queryStart`.
 
 ## Members

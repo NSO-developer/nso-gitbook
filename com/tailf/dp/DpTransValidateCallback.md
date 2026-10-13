@@ -33,7 +33,7 @@ This interface is used for the user validation callbacks.
 
 
 ```
- TransValidateCallback(callType = TransValidateCBType.INIT)
+ &#064;TransValidateCallback(callType = TransValidateCBType.INIT)
  public void init(DpTrans trans) {
      Maapi.attach(maapi_socket, mtest__ns, trans.uinfo.usid);
  }

@@ -16,15 +16,15 @@ The application can send SNMP notifications and inform requests.
 
 ```
   // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
-  Socket s1 = new Socket(localhost, port);
-  Dp dp1 = new Dp(snmp_MYNAME, s1);
+  Socket s1 = new Socket("localhost", port);
+  Dp dp1 = new Dp("snmp_MYNAME", s1);
   // Create notification notifier.
   // std_v1_trap must exist in notify_init.xml.
-  DpSnmpNotifier notifier1 = dp1.createSnmpNotifier(std_v1_trap,
-                                                    );
+  DpSnmpNotifier notifier1 = dp1.createSnmpNotifier("std_v1_trap",
+                                                    "");
 
   // Sense a cold start notification.
-  notifier1.send(coldStart, new SnmpVarbind[] {});
+  notifier1.send("coldStart", new SnmpVarbind[] {});
 ```
 
 
@@ -37,14 +37,14 @@ The application can send SNMP notifications and inform requests.
 ```
   public class MySnmpInformResponseCallback {
 
-      SnmpInformResponseCallback(callPoint = snmp_inform,
+      &#064;SnmpInformResponseCallback(callPoint = "snmp_inform",
                               callType = { SnmpInformResponseCBType.TARGETS })
       public void targets(Integer ref, ConfETuple[] targets)
       throws DpCallbackException {
           // Add implementation here
       }
 
-      SnmpInformResponseCallback(callPoint = snmp_inform,
+      &#064;SnmpInformResponseCallback(callPoint = "snmp_inform",
                               callType = { SnmpInformResponseCBType.RESULT })
       public void result(Integer ref, ConfETuple target, Boolean gotResponse)
       throws DpCallbackException {
@@ -60,21 +60,21 @@ The application can send SNMP notifications and inform requests.
 
 ```
   // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
-  Socket s2 = new Socket(localhost, port);
-  Dp dp2 = new Dp(snmp_MYNAME, s2);
+  Socket s2 = new Socket("localhost", port);
+  Dp dp2 = new Dp("snmp_MYNAME", s2);
   // Register callback handling targets and result.
   MySnmpInformResponseCallback myCb = new MySnmpInformResponseCallback();
 
   // Create notification notifier. std_v2_notification must exist in
   // notify_init.xml and support V2
   DpSnmpNotifier notifier2 =
-      dp2.createSnmpNotifier(std_v2_notification,
-                             , myCb);
+      dp2.createSnmpNotifier("std_v2_notification",
+                             "", myCb);
   // Send SNMP inform request.
   // notif1 must exist in a MIB in the configuration.
-  notifier2.send(notif,
+  notifier2.send("notif",
                  new SnmpVarbind[] {
-                 new SnmpVarbind(Integer32, new ConfInt32(32))},
+                 new SnmpVarbind("Integer32", new ConfInt32(32))},
                  10);
 ```
 

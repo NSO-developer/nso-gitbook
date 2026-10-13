@@ -364,7 +364,7 @@ Types: [DpDbContext](DpDbContext.md#dpdbcontext-37347e4f266f), [DpCallbackExcept
 
 This method is intended to copy the current running configuration into
  the candidate. It is invoked whenever the NETCONF operation
- discard-changes is executed or when a lock is released without
+ <discard-changes> is executed or when a lock is released without
  committing.
 
 **Parameters**

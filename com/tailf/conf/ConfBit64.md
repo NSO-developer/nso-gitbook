@@ -147,7 +147,7 @@ public ConfBit64(String str) throws com.tailf.conf.ConfException
 Types: [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
 String constructor for ConfBit64.
- The string representation is expected to be 'bin0x...'
+ The string representation is expected to be 'bin<0x...>'
  with the hexadecimal representation of the bitset in little endian order.
 
 **Parameters**

@@ -32,7 +32,7 @@ Reply structure container for completion callbacks.
 
 
 ```
-  ActionCallback(callPoint = "file-complete",
+  &#64;ActionCallback(callPoint = "file-complete",
                  callType = ActionCBType.COMPLETION)
   public Completion completion(DpActionTrans actx, char cliStyle,
                                String token, char completionChar,

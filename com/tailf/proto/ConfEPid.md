@@ -172,6 +172,6 @@ public String toString()
 ```
 
 Get the string representation of the pid. E pids are printed as
- node.generation.id
+ <node.generation.id>
 
 **Returns:** the string representation of the pid.

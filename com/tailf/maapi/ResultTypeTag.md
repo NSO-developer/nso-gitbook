@@ -17,17 +17,17 @@ XPath Result in ConfXMLParam format. This
 
 ```
   QueryResult<ResultTypeTag> qR4 =
-      maapi.queryStart(th,&quot;/mtest/servers/server[ip='1.2.3.4']&quot;,
-                       &quot;/&quot;,3,1,
-                       Arrays.asList(&quot;name&quot;,
-                                     &quot;ip&quot;,
-                                     &quot;port&quot;),
+      maapi.queryStart(th,"/mtest/servers/server[ip='1.2.3.4']",
+                       "/",3,1,
+                       Arrays.asList("name",
+                                     "ip",
+                                     "port"),
                        ResultTypeTag.class);
   for(QueryResult.Entry entry : qR4){
       List<ResultTypeTag> rsValue = entry.value();
       for(ResultTypeTag typ: rsValue){
           ConfXMLParam v0 = typ.tag();
-          System.out.println(&quot;tag :&quot; + v0);
+          System.out.println("tag :" + v0);
       }
   }
 ```

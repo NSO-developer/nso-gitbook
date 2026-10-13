@@ -24,9 +24,9 @@ Utility class to transform `ConfXMLParam[]`
 
 
 ```
-  fragment
+  <fragment>
    ...
-  /fragment
+  </fragment>
 ```
 
 **See also:** [`ConfXMLParamValue`](../conf/ConfXMLParamValue.md#confxmlparamvalue-9f41fb2668c9), [`ConfXMLParamStart`](../conf/ConfXMLParamStart.md#confxmlparamstart-05eace141688), [`ConfXMLParamStop`](../conf/ConfXMLParamStop.md#confxmlparamstop-d1e86c4fdecc), [`ConfXMLParam`](../conf/ConfXMLParam.md#confxmlparam-f5f4394b46a7), [`ConfXMLParamLeaf`](../conf/ConfXMLParamLeaf.md#confxmlparamleaf-107412653048)
@@ -135,9 +135,9 @@ Transforms the supplied parameter `ConfXMLParam[]`
 
 
 ```
-  fragment
+  <fragment>
    ...
-  /fragment
+  </fragment>
 ```
 
 
@@ -184,9 +184,9 @@ Transforms the supplied parameter `ConfXMLParam[]`
 
 
 ```
-  fragment
+  <fragment>
    ...
-  /fragment
+  </fragment>
 ```
 
 

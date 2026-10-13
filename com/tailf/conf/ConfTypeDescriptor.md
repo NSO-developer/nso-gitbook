@@ -19,7 +19,7 @@ Conf value type descriptor. This class is used to represent the type of an
 
 ```
  ConfTypeDescriptor typeDesc = new ConfTypeDescriptor(ConfObject.J_BUF);
- ConfBuf buf = (ConfBuf) typeDesc.newInstance(Hello);
+ ConfBuf buf = (ConfBuf) typeDesc.newInstance("Hello");
 ```
 
 ## Members

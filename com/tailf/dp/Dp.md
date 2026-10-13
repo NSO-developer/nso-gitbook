@@ -28,7 +28,7 @@ This class implements the Data Provider API (DP).
  There are different types of callbacks that can be registered to perform
  different tasks. Data callbacks are
  used to deliver data that is defined in the data model.
- If the data is statistics data, e.g. `&quot;config = false;&quot;`
+ If the data is statistics data, e.g. `"config = false;"`
  data,
  the callback objects only have to be able to respond to read requests,
  whereas if the data is configuration data, the callback objects must be able
@@ -40,8 +40,8 @@ This class implements the Data Provider API (DP).
 
 ```
    // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
-   Socket ctrl_socket= new Socket(127.0.0.1, port);
-   final Dp dp = new Dp(server_daemon, ctrl_socket);
+   Socket ctrl_socket= new Socket("127.0.0.1", port);
+   final Dp dp = new Dp("server_daemon", ctrl_socket);
    dp.registerAnnotatedCallbacks(new SimpleTransCb());
    dp.registerAnnotatedCallbacks(new SimpleDataCb());
    dp.registerDone();
@@ -69,23 +69,23 @@ This class implements the Data Provider API (DP).
 
 
 ```
- ncs-package xmlns="http://tail-f.com/ns/ncs-packages"
-   nameMy-package/name
-  package-version1.0/package-version
-  descriptionAbstraction test/description
-  ncs-min-version2.0/ncs-min-version
-  component
-    nameMyCallbacks/name
-    callback
-      java-class-name
+ <ncs-package xmlns="http://tail-f.com/ns/ncs-packages">
+   <name>My-package</name>
+  <package-version>1.0</package-version>
+  <description>Abstraction test</description>
+  <ncs-min-version>2.0</ncs-min-version>
+  <component>
+    <name>MyCallbacks</name>
+    <callback>
+      <java-class-name>
         com.example.mypackage.SimpleTransCb
-      /java-class-name
-      java-class-name
+      </java-class-name>
+      <java-class-name>
         com.example.mypackage.SysDataCb
-      /java-class-name
-    /callback
-  /component
- /ncs-package
+      </java-class-name>
+    </callback>
+  </component>
+ </ncs-package>
 ```
 
 
@@ -101,14 +101,14 @@ This class implements the Data Provider API (DP).
 ```
  public class MyTransCb {
 
-   TransCallback(callType=TransCBType.INIT)
+   &#064;TransCallback(callType=TransCBType.INIT)
      public void init(DpTrans trans) throws DpCallbackException {
-       trace(init(): userinfo=  + trans.getUserInfo());
+       trace("init(): userinfo= " + trans.getUserInfo());
      }
 
-   TransCallback(callType=TransCBType.FINISH)
+   &#064;TransCallback(callType=TransCBType.FINISH)
      public void finish(DpTrans trans) throws DpCallbackException {
-       trace(finish());
+       trace("finish()");
      }
   }
   // And so on ...
@@ -171,14 +171,14 @@ This class implements the Data Provider API (DP).
  public class SimpleDataCb  {
 
 
-     DataCallback(callPoint=simplecp,
+     &#064;DataCallback(callPoint="simplecp",
                         callType=DataCBType.ITERATOR)
-     public IteratorObject iterator(DpTrans trans, ConfObject[] kp)
+     public Iterator<Object> iterator(DpTrans trans, ConfObject[] kp)
       throws DpCallbackException {
       return Foobar.iterator();
      }
 
-     DataCallback(callPoint=simplecp,
+     &#064;DataCallback(callPoint="simplecp",
                         callType=DataCBType.GET_NEXT)
      public ConfKey getKey(DpTrans trans, ConfObject[] kp, Object obj)
       throws DpCallbackException {
@@ -187,14 +187,14 @@ This class implements the Data Provider API (DP).
      }
 
 
-     DataCallback(callPoint=simplecp,
+     &#064;DataCallback(callPoint="simplecp",
                         callType=DataCBType.GET_ELEM)
      public ConfValue getElem(DpTrans trans, ConfObject[] kp)
       throws DpCallbackException {
          return Foobar.get(kp);
      }
 
-     DataCallback(callPoint=simplecp,
+     &#064;DataCallback(callPoint="simplecp",
                         callType=DataCBType.GET_OBJECT)
      public ConfValue[] getObject(DpTrans trans, ConfObject[] kp)
          throws DpCallbackException {
@@ -204,7 +204,7 @@ This class implements the Data Provider API (DP).
       return getObject(trans, kp, s);
      }
 
-     DataCallback(callPoint=simplecp,
+     &#064;DataCallback(callPoint="simplecp",
      callType=DataCBType.GET_NEXT_OBJECT)
      public ConfValue[] getObject(DpTrans trans, ConfObject[] kp, Object obj)
       throws DpCallbackException {
@@ -1114,13 +1114,13 @@ All Data, Trans, Action, Validate, TransValidate and DB callbacks
 
 ```
  final class cbDataDemo {
-    DataCallback(callPoint="abc", callType=DataCBType.ITERATOR)
-    public IteratorObject abc(DpTrans trans, ConfObject[] kp) {
+    &#064;DataCallback(callPoint="abc", callType=DataCBType.ITERATOR)
+    public Iterator<Object> abc(DpTrans trans, ConfObject[] kp) {
         // Change this to the real implementation
         return null;
     }
 
-    DataCallback(callPoint="abc", callType=DataCBType.GET_NEXT)
+    &#064;DataCallback(callPoint="abc", callType=DataCBType.GET_NEXT)
     public ConfKey getKey(DpTrans trans, ConfObject[] kp, Object obj) {
         // Change this to the real implementation
         return null;
@@ -1134,14 +1134,14 @@ All Data, Trans, Action, Validate, TransValidate and DB callbacks
  The respective annotations are
 
 
-- DataCallback
-- TransCallback
-- ActionCallback
-- ValidateCallback
-- TransValidateCallback
-- DBCallback
-- AuthCallback
-- ServiceCallback
+- &#064;DataCallback
+- &#064;TransCallback
+- &#064;ActionCallback
+- &#064;ValidateCallback
+- &#064;TransValidateCallback
+- &#064;DBCallback
+- &#064;AuthCallback
+- &#064;ServiceCallback
 
 
 

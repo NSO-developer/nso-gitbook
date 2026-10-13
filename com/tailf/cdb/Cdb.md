@@ -974,7 +974,7 @@ This call waits until start-phase 1 is completed and *CDB*
  is available.
 
  If *CDB* already is available
- (i.e. start-phase = 1) the call returns
+ (i.e. start-phase >= 1) the call returns
  immediately. This can be used by a CDB client who is not synchronously
  started and only wants to wait until it can read its configuration.
 

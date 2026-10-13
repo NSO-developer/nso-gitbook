@@ -101,14 +101,14 @@ The class `CdbSession` represents a session against
  // create new socket and Cdb instance.
  // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
  Socket sock = new Socket(host, port);
- Cdb cdb = new Cdb(test,sock);
+ Cdb cdb = new Cdb("test",sock);
 
  // start session towards running data ( with the lock LOCK_SESSION )
  CdbSession sess = cdb.startSession(CdbDBType.CDB_RUNNING);
  // get a leaf using a specified path
 
- ConfPath path = new ConfPath(/mtest/servers/server{%s}/port,
-   new Object[] { new String(www) });
+ ConfPath path = new ConfPath("/mtest/servers/server{%s}/port",
+   new Object[] { new String("www") });
  ConfValue val = sess.getElem(path);
  // now do something with the read value
  ....
@@ -797,8 +797,8 @@ In some cases it can be motivated to read multiple values in one request
 
 
 ```
- String path = /mtest/servers/server{www}/interface{%s};
- ConfObject[] objArr = cdbsess.getObject(4, path, eth0);
+ String path = "/mtest/servers/server{www}/interface{%s}";
+ ConfObject[] objArr = cdbsess.getObject(4, path, "eth0");
 
  ConfBuf name = (ConfBuf) objArr[0];
  ConfInt64 mtu = (ConfInt64) objArr[1];
@@ -842,7 +842,7 @@ Same functionality as getObjects(numOfObjects, instance, fmt, arguments)
 - `int numOfInstances` - number if instances to retrieve
 - `com.tailf.conf.ConfPath path`
 
-**Returns:** ListConfObject[]
+**Returns:** List<ConfObject[]>
 
 **Throws**
 
@@ -882,14 +882,14 @@ Similar to cdb.getObject(), but reads multiple instances of a dynamic
 
 
 ```
- String path = /mtest/servers/server;
+ String path = "/mtest/servers/server";
  int n = cdbsess.getNumberOfInstances(path);
- ListConfObject[] objArrList = cdbsess.getObjects(4, 0, n, path);
+ List<ConfObject[]> objArrList = cdbsess.getObjects(4, 0, n, path);
 
  ConfBuf[] name = new ConfBuf[n];
  ConfIPv4[] ip = new ConfIPv4[n];
  ConfUInt16[] port = new ConfUInt16[n];
- for (int i = 0; i  objArrList.size(); i++) {
+ for (int i = 0; i < objArrList.size(); i++) {
      ConfObject[] objArr = objArrList.get(i);
      name[i] = (ConfBuf) objArr[0];
      ip[i] = (ConfIPv4) objArr[1];
@@ -905,7 +905,7 @@ Similar to cdb.getObject(), but reads multiple instances of a dynamic
 - `String fmt`
 - `Object[] arguments`
 
-**Returns:** ListConfObject[]
+**Returns:** List<ConfObject[]>
 
 **Throws**
 
@@ -977,40 +977,40 @@ Read an arbitrary set of sub-elements of a container element. The values
 
 
 ```
-  String path = /mtest/servers/server;
+  String path = "/mtest/servers/server";
   int n = cdbsess.getNumberOfInstances(path);
-  ListConfObject[] objArrList = cdbsess.getObjects(4,0,n,path);
+  List<ConfObject[]> objArrList = cdbsess.getObjects(4,0,n,path);
 
   //when reading ip/port, we need 5 elements per interface:
   //begin + name (key) + ip + port + end
   ConfXMLParam[] values = new ConfXMLParam[5*n];
 
   int j = 0;
-  for (int i=0; in; i++) {
-      values[j++] = new ConfXMLParamCdbStart(ns, server, i);
-      values[j++] = new ConfXMLParamLeaf(ns, name);
-      values[j++] = new ConfXMLParamLeaf(ns, ip);
-      values[j++] = new ConfXMLParamLeaf(ns, port);
-      values[j++] = new ConfXMLParamStop(ns, server);
+  for (int i=0; i<n; i++) {
+      values[j++] = new ConfXMLParamCdbStart(ns, "server", i);
+      values[j++] = new ConfXMLParamLeaf(ns, "name");
+      values[j++] = new ConfXMLParamLeaf(ns, "ip");
+      values[j++] = new ConfXMLParamLeaf(ns, "port");
+      values[j++] = new ConfXMLParamStop(ns, "server");
   }
-  path = /mtest/servers;
+  path = "/mtest/servers";
   ConfXMLParam[] resvalues = cdbsess.getValues(values, path);
 
   // extract name for enabled interfaces
   String name = null;
   int noOfInterfaces = 0;
-  for (int i = 0; i  n; i++) {
+  for (int i = 0; i < n; i++) {
       ConfIPv4 ip4 = (ConfIPv4) resvalues[i*5+2].getValue();
       name = resvalues[i*5+1].getValue().toString();
-      path = /mtest/servers/server{%s}/interface;
+      path = "/mtest/servers/server{%s}/interface";
       noOfInterfaces = cdbsess.getNumberOfInstances(path, name);
-      System.out.println(name = + name);
+      System.out.println("name = "+ name);
   }
   int n_if = j;
   j = 0;
 
   values = new ConfXMLParam[noOfInterfaces*4];
-  for (int i=0; inoOfInterfaces; i++) {
+  for (int i=0; i<noOfInterfaces; i++) {
       values[j++] = new ConfXMLParamCdbStart(ns.hash(),
                                           ns.mtest_interface, i);
       values[j++] = new ConfXMLParamLeaf(ns.hash(),
@@ -1020,7 +1020,7 @@ Read an arbitrary set of sub-elements of a container element. The values
       values[j++] = new ConfXMLParamStop(ns.hash(),
                                         ns.mtest_interface);
    }
-   path = /mtest/servers/server{%s};
+   path = "/mtest/servers/server{%s}";
    resvalues = cdbsess.getValues(values, path, name);
 
  ...

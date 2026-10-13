@@ -198,6 +198,6 @@ public String toString()
 ```
 
 Get the string representation of this binary object. A binary is printed
- as #BinN, where N is the number of bytes contained in the object.
+ as #Bin<N>, where N is the number of bytes contained in the object.
 
 **Returns:** the E string representation of this binary.

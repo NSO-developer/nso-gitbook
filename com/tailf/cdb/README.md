@@ -13,11 +13,11 @@ Package with methods for connecting to the configuration database.
 
 ```
  // Setup socket to server
- Socket s = new Socket(localhost, 4565);
- Cdb cdb = new Cdb(test, s);
+ Socket s = new Socket("localhost", 4565);
+ Cdb cdb = new Cdb("test", s);
  CdbSession session = cdb.startSession();
- session.cd(/mtest/servers/);
- ConfValue val = session.getElem(server{www}/ip);
+ session.cd("/mtest/servers/");
+ ConfValue val = session.getElem("server{www}/ip");
  session.endSession();
  s.close();
 ```

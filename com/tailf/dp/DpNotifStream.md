@@ -62,15 +62,15 @@ The application can generate notifications that are sent via the northbound
 
 
 ```
-   notifications
-     event-streams
-       stream
-         namemystream/name
-         descriptionmy test stream/description
-         replay-supportfalse/replay-support
-       /stream
-     /event-streams
-   /notifications
+   <notifications>
+     <event-streams>
+       <stream>
+         <name>mystream</name>
+         <description>my test stream</description>
+         <replay-support>false</replay-support>
+       </stream>
+     </event-streams>
+   </notifications>
 ```
 
 
@@ -82,18 +82,18 @@ The application can generate notifications that are sent via the northbound
 ```
   // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
   // create new control socket
-  Socket ctrlSocket = new Socket(127.0.0.1, port);
-  // This is the main Data Provider instance. dp
-  Dp dp = new Dp(hosts_daemon, ctrlSocket);
+  Socket ctrlSocket = new Socket("127.0.0.1", port);
+  // This is the main Data Provider instance. "dp"
+  Dp dp = new Dp("hosts_daemon", ctrlSocket);
   mynotif myn = new mynotif();
   // create Dp Notification stream (you may create many)
-  DpNotifStream stream = dp.createNotifStream(mystream);
+  DpNotifStream stream = dp.createNotifStream("mystream");
   // send a notification
   ConfXMLParam[] vals =
       new ConfXMLParam[] {
           new ConfXMLParamStart(myn.hash(), mynotif.myn_my_notif),
           new ConfXMLParamValue(myn.hash(), mynotif.myn_arg1,
-                                new ConfBuf(Hello)),
+                                new ConfBuf("Hello")),
           new ConfXMLParamValue(myn.hash(), mynotif.myn_arg2,
                                 new ConfInt64(32)),
           new ConfXMLParamStop(myn.hash(), mynotif.myn_my_notif)
@@ -263,7 +263,7 @@ public String getStreamName()
 public int getSubId()
 ```
 
-last subid. subid0 is a replay
+last subid. subid>0 is a replay
 
 ### replay(ConfDatetime, ConfDatetime) <a href="#replay-594e7925e57b" id="replay-594e7925e57b"></a>
 
@@ -477,7 +477,7 @@ public void setSocket(java.net.Socket socket)
 public void setSubId(int subid)
 ```
 
-last subid. subid0 is a replay
+last subid. subid>0 is a replay
 
 **Parameters**
 

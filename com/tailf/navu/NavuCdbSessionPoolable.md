@@ -38,7 +38,7 @@ This `NavuCdbSessionPoolable` interface should be implemented by
 
 
 ```
-   MapCdb,MapCdbDBType,SessionContainer map ..
+   Map>Cdb<,Map>CdbDBType,SessionContainer>> map ..
 ```
 
 
@@ -60,7 +60,7 @@ This `NavuCdbSessionPoolable` interface should be implemented by
  current implementation of this interface `getSession` method.
 
  The `getSession(Cdb,CdbDBType)` or
- `getSession(Cdb,CdbDBType,EnumSetCdbLockType)`
+ `getSession(Cdb,CdbDBType,EnumSet<CdbLockType>)`
  method must return a `CdbSession` towards the specified the
  datastore specified  by the second parameter.
 

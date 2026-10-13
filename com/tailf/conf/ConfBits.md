@@ -401,4 +401,4 @@ public String toString()
 ```
 
 toString method. The string representation for bitset is
- 'bin0x...' with hexadecimal representation in little endian order
+ 'bin<0x...>' with hexadecimal representation in little endian order

@@ -208,6 +208,6 @@ public String toString()
 ```
 
 Get the string representation of the ref. E refs are printed as
- #Refnode.id
+ #Ref<node.id>
 
 **Returns:** the string representation of the ref.

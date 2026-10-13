@@ -60,7 +60,7 @@ NCS snmp4j support package
                      processPdu(CommandResponderEvent event, Object opaque)
                          throws Exception {
                              System.out.println("\n\n" +
-                                 "------Anonymous Filter called" +
+                                 "------>Anonymous Filter called" +
                                  "\n\n");
                              return HandlerResponse.CONTINUE;
                  }

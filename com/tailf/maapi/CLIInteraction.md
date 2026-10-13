@@ -290,9 +290,9 @@ Prompt user for one of the strings given in the choice parameter.
 ```
  CLIInteraction cli = maapi.getCLIInteraction(usid);
  String result =
-     cli.promptOneOf(Do you want to proceed (yes/no): ,
-                     new String[] { yes,
-                     no }, true);
+     cli.promptOneOf("Do you want to proceed (yes/no): ",
+                     new String[] { "yes",
+                     "no" }, true);
 ```
 
 

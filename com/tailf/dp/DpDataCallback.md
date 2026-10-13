@@ -502,20 +502,20 @@ This callback is used in place of getIteratorObject when a
  Any item that is retrieved but not returned will be lost.
 
  To override the global object cache timeout for the response, return
- an object of the type [`NextObjectList`](NextObjectList.md#nextobjectlist-86d6d5d5f508)ConfObject[], for
- example an instance of [`NextObjectArrayList`](NextObjectArrayList.md#nextobjectarraylist-28f6c867871e)ConfObject[]
+ an object of the type [`NextObjectList`](NextObjectList.md#nextobjectlist-86d6d5d5f508)<ConfObject[]>, for
+ example an instance of [`NextObjectArrayList`](NextObjectArrayList.md#nextobjectarraylist-28f6c867871e)<ConfObject[]>
  where you have set the desired timeout via the
  [`NextObjectArrayList#setTimeout`](NextObjectArrayList.md#settimeout-cbe758ecb5d8) method.
 
 
  For backwards compatibility reasons, you can return a
- ListConfObject[] instance of a class that doesn't implement the
+ List<ConfObject[]> instance of a class that doesn't implement the
  NextObjectList interface, in which case the default object cache timeout
  will be in effect for the response.
 
  Also for backwards compatibility reasons, it is acceptable for this
- method to return a List[`ConfValue`](../conf/ConfValue.md#confvalue-769292781c7d)[] instead of a
- ListConfObject[].
+ method to return a List<[`ConfValue`](../conf/ConfValue.md#confvalue-769292781c7d)[]> instead of a
+ List<ConfObject[]>.
 
 **Parameters**
 

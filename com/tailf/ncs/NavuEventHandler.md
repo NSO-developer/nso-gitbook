@@ -26,8 +26,8 @@ This class represents the a running daemon where it provides the means
 
 
 ```
-   configure
-  % set device device "device-name" notifications subscription \
+  > configure
+  %> set device device "device-name" notifications subscription \
      "if" stream "interface"
 ```
 
@@ -301,7 +301,7 @@ Method to register pojo classes as notification callbacks. This method
 ```
  public class myclass {
  ...
-    EventCallback(deviceName="xyz", subscriptionName="sub1",
+    &#064;EventCallback(deviceName="xyz", subscriptionName="sub1",
  callType=EventCBType.NOTIF_RECEIVED)
     public void myNotifReceived(NavuContainer event) throws NcsException {
     ...

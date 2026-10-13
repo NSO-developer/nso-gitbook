@@ -768,7 +768,7 @@ Read an arbitrary set of sub-elements of a container or list entry.
 
 
  NOTE: The specified xml string should not contain the version tag
- (?xml version="1.0" encoding="UTF-8"?) and do not wrap
+ (<?xml version="1.0" encoding="UTF-8"?>) and do not wrap
  xml string with current node tag.
 
  Example - Get tree in a service model:
@@ -1363,7 +1363,7 @@ Set arbitrary sub-elements of a container or list entry.
 
 
  The specified *XML* string should not contain the "version" tag
- *(?xml version="1.0" encoding="UTF-8"?)*, the method will
+ *(<?xml version="1.0" encoding="UTF-8"?>)*, the method will
  append it.
 
  The values that are to be set must be legal string representations
@@ -1461,7 +1461,7 @@ Set arbitrary sub-elements of a container or list entry.
  used to identify which item in the list to set or update.
  The pseudo-key has to be specified in the supplied xml-string and is
  identified by the
- tailf-navu-pseudo-key1/tailf-navu-pseudo-key
+ "<tailf-navu-pseudo-key>1</tailf-navu-pseudo-key>"
  tag. Internally the pseudo-key value is represented as a ConfInt64 type.
 
 **Parameters**

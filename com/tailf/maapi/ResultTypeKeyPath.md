@@ -19,17 +19,17 @@ XPath Result in keypath format.
 
 ```
   QueryResult<ResultTypeKeyPath> qR4 =
-      maapi.queryStart(th,&quot;/mtest/servers/server[ip='1.2.3.4']&quot;,
-                       &quot;/&quot;,3,1,
-                       Arrays.asList(&quot;name&quot;,
-                                     &quot;ip&quot;,
-                                     &quot;port&quot;),
+      maapi.queryStart(th,"/mtest/servers/server[ip='1.2.3.4']",
+                       "/",3,1,
+                       Arrays.asList("name",
+                                     "ip",
+                                     "port"),
                        ResultTypeKeyPath.class);
   for(QueryResult.Entry entry : qR4){
       List<ResultTypeKeyPath> rsValue = entry.value();
       for(ResultTypeKeyPath typ: rsValue){
           ConfObject[] v0 = typ.keyPath();
-          System.out.println(&quot;path = &quot; + Arrays.toString(v0));
+          System.out.println("path = " + Arrays.toString(v0));
       }
   }
 ```

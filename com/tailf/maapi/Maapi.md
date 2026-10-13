@@ -28,22 +28,22 @@ This class implements the Management Agent API (MAAPI).
 ```
  // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
  // Setup socket to server
- Socket s = new Socket(localhost, port);
+ Socket s = new Socket("localhost", port);
 
  // Start MAAPI session for admin user, originating from localhost
  Maapi maapi = new Maapi(s);
- maapi.startUserSession(admin,
-     maapi,
-     new String[] { admin },
+ maapi.startUserSession("admin",
+     "maapi",
+     new String[] { "admin" },
      new SocketAddress(InetAddress.getLocalHost(), 0),
      MaapiUserSessionFlag.PROTO_TCP);
 
  // Start a read transaction towards the running configuration.
  int tid = maapi.startTrans(Conf.DB_RUNNING, Conf.MODE_READ);
  // Set the namespace for the upcoming data operations
- maapi.setNamespace(tid, http://tail-f.com/test/mtest/1.0);
+ maapi.setNamespace(tid, "http://tail-f.com/test/mtest/1.0");
  // Read the maxLeaseTime setting in the running configuration.
- ConfObject r = maapi.getElem(tid, /mtest/servers/server{www}/ip);
+ ConfObject r = maapi.getElem(tid, "/mtest/servers/server{www}/ip");
  // Done, the transaction and user session is automatically
  // ended when the socket is closed.
  s.close();
@@ -1790,8 +1790,8 @@ Prompt user for one of the strings given in the choice parameter.
 ```
  String res =
      maapi.CLIPromptOneOf(usid,
-         Do you want to proceed (yes/no): ,
-         new String[] { yes, no });
+         "Do you want to proceed (yes/no): ",
+         new String[] { "yes", "no" });
 ```
 
 
@@ -1847,8 +1847,8 @@ Prompt user for one of the strings given in the choice parameter.
 ```
  String res =
      maapi.CLIPromptOneOf(usid,
-         Do you want to proceed (yes/no): ,
-         new String[] { yes, no },
+         "Do you want to proceed (yes/no): ",
+         new String[] { "yes", "no" },
          60);
 ```
 
@@ -2215,7 +2215,7 @@ Create an entity in the XML tree. Things that can be created
 
 
 ```
- maapi.create(tid, /servers/server{www});
+ maapi.create(tid, "/servers/server{www}");
 ```
 
 
@@ -2227,8 +2227,8 @@ Create an entity in the XML tree. Things that can be created
 
 
 ```
- maapi.setElem(tid, 80,
-               /servers/server{www}/port);
+ maapi.setElem(tid, "80",
+               "/servers/server{www}/port");
 ```
 
 
@@ -2263,7 +2263,7 @@ Create a new list entry in the XML tree. For example
 
 
 ```
- maapi.create(tid, /servers/server{www});
+ maapi.create(tid, "/servers/server{www}");
 ```
 
 
@@ -2275,8 +2275,8 @@ Create a new list entry in the XML tree. For example
 
 
 ```
- maapi.setElem(tid, 80,
-               /servers/server{www}/port);
+ maapi.setElem(tid, "80",
+               "/servers/server{www}/port");
 ```
 
 
@@ -3643,7 +3643,7 @@ Get several list instances with one request. A prerequisite is that a
 - `int numOfObjects` - Number of object retrieved from a list instance
 - `int numOfInstances` - Number of list instances retrieved in this call
 
-**Returns:** ListConfObject[] containing list instances.
+**Returns:** List<ConfObject[]> containing list instances.
 
 **Throws**
 
@@ -4274,7 +4274,7 @@ public synchronized void insert(
 Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 This function inserts a new element in an ordered list of elements. The
- key must be of type integer, and have the attribute indexedView.
+ key must be of type integer, and have the attribute <indexedView>.
  If the inserted element already exists, all element following the element
  will be reordered.
 
@@ -6047,14 +6047,14 @@ Invokes an action defined in the data model annotated with
 ```
  Maapi maapi = Maapi(socket);
  maapi.setNamespace(
- maapi.startUserSession(admin,
-     maapi,
-     new String[] { admin },
+ maapi.startUserSession("admin",
+     "maapi",
+     new String[] { "admin" },
      new SocketAddress(InetAddress.getLocalHost(), 0));
  //Invokes the specified action with input arguments params
  //and returns the output parameters
  ConfXMLParam[] res = maapi.requestAction(params,
-                                /system/computer{fred}/math);
+                                "/system/computer{fred}/math");
 ```
 
 

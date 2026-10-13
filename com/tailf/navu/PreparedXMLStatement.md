@@ -5,16 +5,16 @@ public class com.tailf.navu.PreparedXMLStatement
 ```
 
 This class represents a parsed XML-string, optionally with parameterized
- values. The string ? denotes a value that is unknown at the
- time when the XML-string is parsed. The ?-strings
+ values. The string "?" denotes a value that is unknown at the
+ time when the XML-string is parsed. The "?"-strings
  can be replaced by actual values at a later time.
 
 
- The `put()` method is used to replace a ? parameter
+ The `put()` method is used to replace a "?" parameter
  with its actual `ConfValue`. The parameter index is zero-based.
 
 
- When all ? parameters have been replaced,
+ When all "?" parameters have been replaced,
  `setValues()` can be issued which will insert or replace
  (if values already exist) the configuration tree specified by the
  XML-string at the location where `prepareXMLCall` was

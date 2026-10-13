@@ -19,13 +19,13 @@ Represents configuration data input stream used to download configurations.
 
 
 ```
- // String host = localhost;
+ // String host = "localhost";
  // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
  Socket s = new Socket(host, port);
  Maapi maapi = new Maapi(s);
- maapi.startUserSession(admin,
-     maapi,
-     new String[] { admin },
+ maapi.startUserSession("admin",
+     "maapi",
+     new String[] { "admin" },
      new SocketAddress(InetAddress.getLocalHost(), 0));
  int tid = maapi.startTrans(Conf.DB_RUNNING, Conf.MODE_READ_WRITE);
 

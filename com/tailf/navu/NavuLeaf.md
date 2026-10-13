@@ -565,7 +565,7 @@ This method is almost identical to [`set(String)`](NavuLeaf.md#set-f04d84aad801)
   exception that the value should be wrapped inside XML tag.
 
   For example to set the value "123" it needs to be wrapped
-  with "leaf-name123 /leaf-name.
+  with "<leaf-name>123 </leaf-name>.
 
 **Parameters**
 

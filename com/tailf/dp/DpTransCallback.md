@@ -70,14 +70,14 @@ This interface is used for the user transaction callbacks.
 ```
   * public class MyTransCb {
 
-   TransCallback(callType=TransCBType.INIT)
+   &#064;TransCallback(callType=TransCBType.INIT)
      public void init(DpTrans trans) throws DpCallbackException {
-       trace(init(): userinfo=  + trans.getUserInfo());
+       trace("init(): userinfo= " + trans.getUserInfo());
      }
 
-   TransCallback(callType=TransCBType.FINISH)
+   &#064;TransCallback(callType=TransCBType.FINISH)
      public void finish(DpTrans trans) throws DpCallbackException {
-       trace(finish());
+       trace("finish()");
      }
   }
   // And so on ...

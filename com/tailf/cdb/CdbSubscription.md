@@ -71,12 +71,12 @@ This class provides subscription functionality to CDB.
 ```
   // int port = Conf.PORT; // ConfD TCP; NCS uses Conf.NCS_PATH (Unix socket)
   // create new socket and Cdb instance
-  Socket sock = new Socket(localhost, port);
-  Cdb cdb2 = new Cdb(test,sock);
+  Socket sock = new Socket("localhost", port);
+  Cdb cdb2 = new Cdb("test",sock);
   // create new CdbSubscription instance
   final CdbSubscription sub2= cdb2.newSubscription();
   // subscribe on a path
-  int subid2 = sub2.subscribe(1,new mtest(), /mtest/servers);
+  int subid2 = sub2.subscribe(1,new mtest(), "/mtest/servers");
   // tell CDB we are ready for notifications
   sub2.subscribeDone();
 

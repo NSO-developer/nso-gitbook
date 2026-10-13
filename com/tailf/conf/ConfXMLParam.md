@@ -113,23 +113,23 @@ Represents the base class of a flat XML structure.
 
 
 ```
-  servers xmlns="http://foo.org/yang/servers"
-    fo:server
-       fo:namewww0/fo:name
-       fo:ip192.168.0.2/fo:ip
-       fo:port80/fo:port
-   /fo:server
-   fo:server
-       fo:namewww1/fo:name
-       fo:ip192.168.0.3/fo:ip
-       fo:port8080/fo:port
-   /fo:server
-   fo:server
-       fo:namewww2/fo:name
-       fo:ip192.168.0.3/fo:ip
-       fo:port8081fo:port
-   /fo:server
-  /fo:servers
+  <servers xmlns="http://foo.org/yang/servers">
+    <fo:server>
+       <fo:name>www0</fo:name>
+       <fo:ip>192.168.0.2</fo:ip>
+       <fo:port>80</fo:port>
+   </fo:server>
+   <fo:server>
+       <fo:name>www1</fo:name>
+       <fo:ip>192.168.0.3</fo:ip>
+       <fo:port>8080</fo:port>
+   </fo:server>
+   <fo:server>
+       <fo:name>www2</fo:name>
+       <fo:ip>192.168.0.3</fo:ip>
+       <fo:port>8081<fo:port>
+   </fo:server>
+  </fo:servers>
 ```
 
 
