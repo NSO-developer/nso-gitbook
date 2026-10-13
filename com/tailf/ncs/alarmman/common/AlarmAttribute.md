@@ -1,0 +1,52 @@
+# AlarmAttribute <a href="#alarmattribute-df3ac1d0638e" id="alarmattribute-df3ac1d0638e"></a>
+
+```java
+public class com.tailf.ncs.alarmman.common.AlarmAttribute
+    extends com.tailf.ncs.alarmman.common.Attribute
+```
+
+Types: [Attribute](Attribute.md#attribute-cb42ffd9bcdd)
+
+This class represents an alarm attribute.
+
+## Members
+
+**Constructors**:
+
+- [AlarmAttribute\(ConfNamespace, String, ConfValue\)](#alarmattribute-2a564e1a8b6f)
+
+**Fields**:
+
+- [node](Attribute.md#node-ff68e6a3ebc6) from Attribute
+
+**Methods**:
+
+- [getId\(\)](Attribute.md#getid-199a349c70ef) from Attribute
+- [getNameSpace\(\)](Attribute.md#getnamespace-e413af21e168) from Attribute
+- [getValue\(\)](Attribute.md#getvalue-d93864668c40) from Attribute
+- [toString\(\)](Attribute.md#tostring-e9d48c5503ef) from Attribute
+
+## Constructors
+
+### AlarmAttribute(ConfNamespace, String, ConfValue) <a href="#alarmattribute-2a564e1a8b6f" id="alarmattribute-2a564e1a8b6f"></a>
+
+```java
+public AlarmAttribute(
+    com.tailf.conf.ConfNamespace ns,
+    String attributeId,
+    com.tailf.conf.ConfValue value
+)
+    throws com.tailf.conf.ConfException
+```
+
+Types: [ConfNamespace](../../../conf/ConfNamespace.md#confnamespace-51b928e168d1), [ConfValue](../../../conf/ConfValue.md#confvalue-769292781c7d), [ConfException](../../../conf/ConfException.md#confexception-baeaab99f7f9)
+
+**Parameters**
+
+- `com.tailf.conf.ConfNamespace ns`
+- `String attributeId`
+- `com.tailf.conf.ConfValue value`
+
+**Throws**
+
+- `ConfException`
