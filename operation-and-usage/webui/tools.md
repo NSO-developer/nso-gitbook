@@ -16,6 +16,8 @@ The following tools are available:
 * [**Alarms**](tools.md#d5e6565): Shows current alarms/events in your deployment and provides options to manage them.
 * [**Compliance reporting**](tools.md#sec.webui_compliance): Used to run compliance checks on your NSO network.
 
+Available actions in the **Packages**, **High availability**, **Alarms**, and **Compliance reporting** tools depend on the selected object's YANG schema and your access permissions. Therefore, the actions shown can vary by object, deployment, and current state.
+
 ## Insights <a href="#d5e6470" id="d5e6470"></a>
 
 The **Insights** view collects and displays the following types of operational information using the `/ncs:metrics` data model to present useful statistics:
@@ -164,9 +166,9 @@ To set an alarm handling state:
 2. Set the alarm state to one of the following: **None**, **Acknowledged**, **Investigation**, **Observation**, and **Closed**.
 3. Enter a description (optional).
 4. Click **Set state**. This sets the alarm handling state as well as records the state change under the **Alarm handling** tab in alarm details.
-5. Access the Commit Manager by clicking its icon <img src="../../.gitbook/assets/commit-manager.png" alt="" data-size="line"> in the banner.
-6. Review the available changes appearing as **Current transaction**. If there are errors in the change, the Commit Manager alerts you and suggests possible corrections. You can then fix them and press **Re-validate** to clear the errors.
-7. Click **Revert** to undo or **Commit** to confirm the changes in the transaction.
+5. Open the **Transactions** view and select the **Uncommitted** tab.
+6. Review the available changes. Use **Validate** to identify errors, correct them, and validate again as needed.
+7. Click **Revert changes** to undo or **Commit...** to confirm the changes in the transaction.
    * **Commit Options**: When committing a transaction, you have the possibility to choose **Commit options** and perform a commit with the specified commit option(s). Examples of commit options are: **No revision drop**, **No deploy**, **No networking**, etc. Commit options are described in detail in the JSON-RPC API documentation under [Methods - transaction - commit changes](../../development/advanced-development/web-ui-development/json-rpc-api.md#methods-transaction-commit-changes).
 
 ## Compliance Reporting <a href="#sec.webui_compliance" id="sec.webui_compliance"></a>
@@ -204,6 +206,7 @@ To create a new compliance report:
        * **Current out of sync**: Check the device's current status and report if the device is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
        * **Historic changes**: Include or exclude previous changes to devices using the commit log. Possible values are **true** (yes, include) and **false** (no, exclude).
      * **Compliance templates**: If a compliance template should be used to check for compliance (see [Device Configuration Checks](../operations/compliance-reporting.md#device-configuration-checks)). You have the option to add a compliance template using the **Add template** button or create a new compliance template (see [Compliance Templates](tools.md#compliance-templates)). To enforce devices to comply exactly with the template's configuration, use **Strict** mode; see [Additional Configuration Checks](../operations/compliance-reporting.md#additional-configuration-checks) for more information.
+     * The **Devices** tab also provides separate lists for **Compliance templates (XML)** and **Device templates**. Use the corresponding **Add XML template** or **Add device template** action to include those templates in the report.
    * **Services** tab: To configure service compliance checks. Configuration options include:
      * **Service choice**: Include **All services** or only **Some services**. If **Some services** is selected, specify the services using service type, an XPath expression, or individual service instances.
      * **Service checks**:
@@ -243,7 +246,9 @@ The report's results show if the devices/services included in the report are com
 * **Details**: Includes specifics about the report that was run, such as report name, date/time it was run, time range, and contents analyzed (i.e., services, devices, and rollback files).
 * **Results overview**: Shows a summary of results with visuals on the number of devices and services that are presently compliant/in-sync.
 * **Historic compliance**: Shows a history of compliance (in percentages) for the devices and services that were included in the report run. The graph is presented based on the previous report runs and you can narrow down the graph to show data from specific periods (e.g., last 10 runs only). Predefined time ranges include last 30 days, last month, last 6 months, and last year, whereas custom time ranges allow users to define their own time ranges. The default preset is set to last 30 days.
-* **Devices**/**Services**/**Errors**: Displays individual compliance and error information for analyzed devices and services. In case of non-compliance, a 'diff view' is available.
+* **Devices**/**Services**/**Errors**: Displays individual compliance and error information for analyzed devices and services. In case of non-compliance, a 'diff view' is available. When an XML template has failed assertions, its result includes a **Failed assertions** section with assertion location, context, and message details.
+
+Use **Rerun** in a report result to run the report again. **Rerun all** reruns the full report. **Rerun non-compliant** reruns only the non-compliant part of the result and is unavailable when the result is compliant.
 
 {% hint style="info" %}
 Use the **Export to file** button to export the report results to a downloadable file (PDF).

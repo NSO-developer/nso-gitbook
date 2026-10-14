@@ -30,6 +30,7 @@
     * [Log Messages and Formats](administration/management/system-management/log-messages-and-formats.md)
     * [Alarm Types](administration/management/system-management/alarms.md)
   * [Package Management](administration/management/package-mgmt.md)
+  * [Web UI AI Assistant](administration/management/web-ui-ai-assistant.md)
   * [High Availability](administration/management/high-availability.md)
   * [AAA Infrastructure](administration/management/aaa-infrastructure.md)
   * [NED Administration](administration/management/ned-administration.md)

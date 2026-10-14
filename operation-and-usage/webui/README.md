@@ -49,6 +49,8 @@ Access the help options by clicking the help options icon in the UI banner. The 
 
 In the Web UI, supplementary help text, whenever applicable, is available on the configuration fields and can be accessed by clicking the info icons.
 
+Web UI search fields use case-insensitive matching.
+
 ## Dirty State
 
 Anytime a configuration is changed in the Web UI (such as a device or service configuration change), the UI reflects the change with a so-called color-coded "dirty state" with the following meanings:
@@ -80,10 +82,10 @@ To review available configuration changes:
 
 ## AI Assistant
 
-The WebUI integrates an AI Assistant to enhance your interaction and experience of NSO. The availability of the AI Assistant is controlled by your administrator and indicated by the AI Assistant icon (<img src="../../.gitbook/assets/ai-assistant.png" alt="" data-size="line">) displayed in the UI header.
+The WebUI integrates an AI Assistant to enhance your interaction and experience of NSO. The availability of the AI Assistant is controlled by your administrator and indicated by the AI Assistant icon (<img src="../../.gitbook/assets/ai-assistant.png" alt="" data-size="line">) displayed in the UI header. Select the icon to open or close the Assistant.
 
 {% hint style="info" %}
 **Administrative Info on Enabling the AI Assistant**
 
-The AI Assistant is enabled by use of a package. After installing the AI Assistant package, configure which backend to use under `/ai-assistant:ai-assistant/config` and enable it by setting `/ai-assistant:ai-assistant/enabled` to `true`. In the Web UI, the setting is accessible from the Config Editor. Once enabled, the AI Assistant button is added to the Web UI header.
+The AI Assistant is provided by the `cisco-nso-ai-assistant` package and is configured by an NSO administrator. The administrator configures either a LiteLLM-compatible gateway or a Crosswork AI server, selects it using `/ai-assistant:ai-assistant/config/active-server`, and enables the Assistant by setting `/ai-assistant:ai-assistant/enabled` to `true`. After the configuration is committed, users can access the Assistant from the Web UI header. For installation, access control, optional MCP tools, and backend configuration, see [Web UI AI Assistant](../../administration/management/web-ui-ai-assistant.md).
 {% endhint %}
