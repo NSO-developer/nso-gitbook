@@ -147,29 +147,29 @@ You can search and sort the alarm list to display alarm results according to you
 
 Individual alarm details are accessible by clicking the severity level icon on an alarm. This brings up the alarm's details, its status (severity) changes, and historical handling information.
 
-### Compress and Purge Alarms
+### Alarm Actions
 
-The Web UI provides additional options to compress and purge alarms.
+Open the **Actions** menu to access the following actions. The available root-level and per-alarm actions depend on the NSO configuration and your permissions.
 
-* The **Compress alarms** action streamlines the alarm entries by deleting their historical state changes that occured before the last one (i.e., the only the latest state change is kept), while keeping the alarm entries intact.
-* The **Purge alarms** action completely removes the alarm entries according to the specified criteria.
+* The **Synchronize** action compares the NSO alarm list with the alarm state reported by managed resources. It reports the number of new, changed, and cleared alarms. Its result depends on the device or NETCONF server alarm-reporting support.
+* The **Compress** action streamlines the alarm entries by deleting the historical state changes that occurred before the last one. It keeps the latest state change and the alarm entries intact.
+* The **Filter** action returns the keys of alarms that match the specified status and optional age, severity, or handling-state criteria. It displays the results in the action drawer and does not change the filters applied to the alarm table.
+* The **Purge** action completely removes the alarm entries according to the specified criteria.
 
-To utilize these features, click the respective button and follow the on-screen instructions.
+To use an action, select it from **Actions**, provide any required input, and click **Run** in the action drawer.
+
+The more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> menu for an individual alarm can provide **Compress**, **Purge**, and **Handle alarm**. **Compress** and **Purge** affect only that alarm. **Handle alarm** is described in the next section.
 
 ### Alarm Handling
 
 Alarm handling refers to attending to an alarm. This usually entails reviewing the alarm and setting a state on it, for example, **Acknowledged**. Historical handling state changes are accessible in alarm details.
 
-To set an alarm handling state:
+You can set the handling state in either of the following ways:
 
-1. In the **Alarms** main view, click the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button on the desired alarm and click **Set alarm handling state**.
-2. Set the alarm state to one of the following: **None**, **Acknowledged**, **Investigation**, **Observation**, and **Closed**.
-3. Enter a description (optional).
-4. Click **Set state**. This sets the alarm handling state as well as records the state change under the **Alarm handling** tab in alarm details.
-5. Open the **Transactions** view and select the **Uncommitted** tab.
-6. Review the available changes. Use **Validate** to identify errors, correct them, and validate again as needed.
-7. Click **Revert changes** to undo or **Commit...** to confirm the changes in the transaction.
-   * **Commit Options**: When committing a transaction, you have the possibility to choose **Commit options** and perform a commit with the specified commit option(s). Examples of commit options are: **No revision drop**, **No deploy**, **No networking**, etc. Commit options are described in detail in the JSON-RPC API documentation under [Methods - transaction - commit changes](../../development/advanced-development/web-ui-development/json-rpc-api.md#methods-transaction-commit-changes).
+* **For one or more selected alarms**: Select the alarm rows, click **Set alarm handling state**, choose **None**, **Acknowledged**, **Investigation**, **Observation**, or **Closed**, and optionally enter a description. Click **Set state** to apply the selected state to every selected alarm.
+* **For one alarm**: In the alarm row, click more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> and select **Handle alarm**. This opens the action drawer for that alarm. Provide the available action inputs and click **Run**. The inputs depend on the alarm action schema and your permissions.
+
+After either action completes successfully, the state change is recorded on the **Alarm handling** tab in the alarm details.
 
 ## Compliance Reporting <a href="#sec.webui_compliance" id="sec.webui_compliance"></a>
 
@@ -278,10 +278,11 @@ Use this option to base your new template on an existing [device template](../op
 To create a compliance template from a device template:
 
 1. In the **Compliance templates** tab, click **Create template**.
-2. In the **Create template** window -> **Source** category, continue with the default option, **From device template**.
-3. Next choose a device template using the **Select device template** drop-down list. A device template should exist prior to this selection.
-4. Name your compliance template in the **New compliance template name** field (optional). Leaving this blank retains the device template title for the compliance template.
-5. Click **Create**.
+2. In the **Create template** drawer, continue with the default option, **From device template**.
+3. Choose a device template. A device template must exist before you can select it. If the template supports more than one NED ID, also select the NED ID to use.
+4. Optionally provide a name for the compliance template. Leaving it blank retains the device template name.
+5. Optionally set **out-directory** to write the generated XML template to a directory instead of adding it to the NSO configuration.
+6. Click **Run**.
 {% endtab %}
 
 {% tab title="From config" %}
@@ -290,19 +291,21 @@ Use this option to build a new template from configuration.
 To create a compliance template from config:
 
 1. In the **Compliance templates** tab, click **Create template**.
-2. In the **Create template** window -> **Source** category, select **From config**.
-3. Provide a **Template name** that will be used to reference the template in NSO.
+2. In the **Create template** drawer, select **From config**.
+3. Provide a **name** that will be used to reference the template in NSO.
 4. In the **Path** field, enter the an XPath to target for extracting config data.
 5. Click **Add to list** to add the path.
 6. **Match rate**: Enter a value between 0 - 100 to determine how often a configuration recurrence must appear in device configurations to be included in the template.
    * A value of **100** means that configuration must be identical across all devices.
    * A lower value allows partial commonality.
 7. **Exclude service config**: Enable this option to ensure that NSO will exclude configurations already managed by services from the template. This option ensures that the service-managed configurations are not duplicated.
-8. **Collapse list keys**: Enable this option to determine how lists in the XPath configuration are collapsed into single entries when keys do not match. The options in this category are:
+8. **Regex induction**: Select the method used when values differ across the selected source devices. **trie** is the default, **dfa** also factors common suffixes, and **none** uses a generic match-all expression.
+9. **Collapse list keys**: Enable this option to determine how lists in the XPath configuration are collapsed into single entries when keys do not match. The options in this category are:
    * **Automatic**: Automatically find non-matching lists to collapse. Lists on the same path in `/devices/device/config` that do not compare equal will be collapsed.
    * **All**: All list keys are collapsed into a single entry, regardless of matching rules.
    * **List path**: Use a user-provided list of paths to collapse. Allows manual control.
    * **Disabled**: Disable list collapsing entirely, displaying all list entries and differences in full detail.
-9. Click **Create**.
+10. Optionally set **out-directory** to write the generated XML template to a directory instead of adding it to the NSO configuration.
+11. Click **Run**.
 {% endtab %}
 {% endtabs %}
