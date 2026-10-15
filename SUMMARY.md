@@ -56,6 +56,7 @@
   * [Config Editor](operation-and-usage/webui/config-editor.md)
   * [Transactions](operation-and-usage/webui/transactions.md)
   * [Tools](operation-and-usage/webui/tools.md)
+  * [Packages](operation-and-usage/webui/packages.md)
 * [Operations](operation-and-usage/operations/README.md)
   * [Basic Operations](operation-and-usage/operations/basic-operations.md)
   * [NEDs and Adding Devices](operation-and-usage/operations/neds-and-adding-devices.md)
