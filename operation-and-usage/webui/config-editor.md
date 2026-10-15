@@ -110,6 +110,8 @@ Depending on the node, the metadata can include information such as node type, k
 
 For selected container nodes that define actions, the **Actions** button is shown above the rendered view and remains available even when **Edit mode** is disabled. In the tree, however, actions are shown only when **Edit mode** is enabled. If no actions are available for the selected container, the **Actions** button is hidden. When the action's YANG schema provides a description, the action drawer displays it with the action path.
 
+Actions open a drawer whose inputs are generated from the action's YANG schema. Review the target and available inputs, then select **Run**. The drawer shows the result or error when the action completes. For actions applied to selected list rows, the selected rows are used as the action targets.
+
 #### Presence Containers
 
 If the selected node is a presence container, the rendered view provides controls to create or delete that container.

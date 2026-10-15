@@ -210,6 +210,7 @@ To create a new compliance report:
        * **Historic changes**: Include or exclude previous changes to devices using the commit log. Possible values are **true** (yes, include) and **false** (no, exclude).
      * **Compliance templates**: If a compliance template should be used to check for compliance (see [Device Configuration Checks](../operations/compliance-reporting.md#device-configuration-checks)). You have the option to add a compliance template using the **Add template** button or create a new compliance template (see [Compliance Templates](tools.md#compliance-templates)). To enforce devices to comply exactly with the template's configuration, use **Strict** mode; see [Additional Configuration Checks](../operations/compliance-reporting.md#additional-configuration-checks) for more information.
      * The **Devices** tab also provides separate lists for **Compliance templates (XML)** and **Device templates**. Use the corresponding **Add XML template** or **Add device template** action to include those templates in the report.
+     * After adding a device template or XML template, use **Edit template** to configure its variables and whether **Strict** matching is enabled.
    * **Services** tab: To configure service compliance checks. Configuration options include:
      * **Service choice**: Include **All services** or only **Some services**. If **Some services** is selected, specify the services using service type, an XPath expression, or individual service instances.
      * **Service checks**:
@@ -268,9 +269,9 @@ There are two ways to create a compliance template:
 * **From config**: Build a new template directly from an existing device configuration.
 
 {% hint style="info" %}
-**Template Creation using Config Editor**
+**Create a Template in the Config Editor**
 
-A third way to create a compliance template from scratch is by using the Config Editor. With this option, you will need to manually type in your desired configuration model to create a compliance template.
+Alternatively, create a CDB compliance template manually in the Config Editor. Create a template under `/compliance/template`, add a `ned-id` entry for a loaded NED, and define the expected device configuration in its `config` subtree. This option is intended for users familiar with the relevant YANG model and NED.
 {% endhint %}
 
 {% tabs %}
@@ -308,3 +309,5 @@ To create a compliance template from config:
 8. Click **Run**.
 {% endtab %}
 {% endtabs %}
+
+When `out-directory` creates an XML compliance template, reload the XML templates before selecting the generated template in a compliance report or using it for a check.
