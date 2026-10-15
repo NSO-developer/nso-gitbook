@@ -200,6 +200,7 @@ To create a new compliance report:
 3. Next, set up the compliance report using the following tabs. For a more detailed description of Compliance Reporting concepts and related configuration options, see [Compliance Reporting](../operations/compliance-reporting.md).
    * **General** tab: To configure the report name. Configuration options include:
      * **Report name**: Displays the report name and allows editing of the report name.
+     * **Common-db**: Controls how NSO stores generated report results. When set to **True** (the default), NSO stores each result as a new record in a common database file. When set to **False**, NSO stores each result in a separate database file.
    * **Devices** tab: To configure device compliance checks. Configuration options include:
      * **Device choice**: Include **All devices** or only **Some devices** to include in compliance checks. If **Some devices** is selected, specify the devices using a device group, an XPath expression, or individual devices.
      * **Device checks**:
@@ -227,11 +228,10 @@ In the **Compliance reports** tab, you can apply the following actions on the re
 
 To run a compliance report:
 
-1. In the **Compliance reports** tab, click the desired report and then click **Run report**.
-2. Specify the following in the **Run report** pop-up:
-   * **Report title**: A title for this specific report run.
-   * **Historical time interval**. Select the time range. The report runs with the maximum possible interval if you do not specify an interval.
-3. Click **Run report**.
+1. In the **Compliance reports** tab, click the desired report.
+2. On the report details page, click **More options** and select **Run**.
+3. In the **Run** action drawer, optionally provide a title for the report result and a historical time interval. If you do not specify a time interval, the report uses the maximum available interval.
+4. Click **Run**.
 
 ### Report Results
 
@@ -248,7 +248,7 @@ The report's results show if the devices/services included in the report are com
 * **Historic compliance**: Shows a history of compliance (in percentages) for the devices and services that were included in the report run. The graph is presented based on the previous report runs and you can narrow down the graph to show data from specific periods (e.g., last 10 runs only). Predefined time ranges include last 30 days, last month, last 6 months, and last year, whereas custom time ranges allow users to define their own time ranges. The default preset is set to last 30 days.
 * **Devices**/**Services**/**Errors**: Displays individual compliance and error information for analyzed devices and services. In case of non-compliance, a 'diff view' is available. When an XML template has failed assertions, its result includes a **Failed assertions** section with assertion location, context, and message details.
 
-Use **Rerun** in a report result to run the report again. **Rerun all** reruns the full report. **Rerun non-compliant** reruns only the non-compliant part of the result and is unavailable when the result is compliant.
+Use **Rerun** in a report result to run the report again. Select **Rerun all** to rerun the full report, or **Rerun non-compliant** to rerun only the devices and services that were non-compliant in that result. **Rerun non-compliant** is unavailable when the result is compliant. Either selection opens an action drawer; provide any required inputs and click **Run**.
 
 {% hint style="info" %}
 Use the **Export to file** button to export the report results to a downloadable file (PDF).
@@ -293,19 +293,16 @@ To create a compliance template from config:
 1. In the **Compliance templates** tab, click **Create template**.
 2. In the **Create template** drawer, select **From config**.
 3. Provide a **name** that will be used to reference the template in NSO.
-4. In the **Path** field, enter the an XPath to target for extracting config data.
-5. Click **Add to list** to add the path.
-6. **Match rate**: Enter a value between 0 - 100 to determine how often a configuration recurrence must appear in device configurations to be included in the template.
-   * A value of **100** means that configuration must be identical across all devices.
-   * A lower value allows partial commonality.
-7. **Exclude service config**: Enable this option to ensure that NSO will exclude configurations already managed by services from the template. This option ensures that the service-managed configurations are not duplicated.
-8. **Regex induction**: Select the method used when values differ across the selected source devices. **trie** is the default, **dfa** also factors common suffixes, and **none** uses a generic match-all expression.
-9. **Collapse list keys**: Enable this option to determine how lists in the XPath configuration are collapsed into single entries when keys do not match. The options in this category are:
+4. Choose one source for the configuration:
+   * **config-path**: In the **Path** field, enter one or more XPath paths below `/devices/device/config`, clicking **Add item** after each path. Paths outside this subtree are ignored. Use **Match rate** to specify the required recurrence between the device configurations; **100** (the default) requires common structure across all source devices, while a lower value permits partial commonality. Optionally enable **Exclude service config** to omit configuration already managed by services.
+   * **config-data**: Create a template from configuration supplied directly. Select the format—XML, Cisco XR CLI, Juniper curly-brace CLI, or Juniper set commands—then choose **file** to specify a file on the NSO host or **data** to enter the configuration. Select the required **ned-id** for the configuration.
+5. **Regex induction**: Select the method used when values differ across the selected source devices. **trie** is the default, **dfa** also factors common suffixes, and **none** uses a generic match-all expression.
+6. **Collapse list keys**: Enable this option to determine how lists in the XPath configuration are collapsed into single entries when keys do not match. The options in this category are:
    * **Automatic**: Automatically find non-matching lists to collapse. Lists on the same path in `/devices/device/config` that do not compare equal will be collapsed.
    * **All**: All list keys are collapsed into a single entry, regardless of matching rules.
    * **List path**: Use a user-provided list of paths to collapse. Allows manual control.
    * **Disabled**: Disable list collapsing entirely, displaying all list entries and differences in full detail.
-10. Optionally set **out-directory** to write the generated XML template to a directory instead of adding it to the NSO configuration.
-11. Click **Run**.
+7. Optionally set **out-directory** to write the generated XML template to a directory instead of adding it to the NSO configuration.
+8. Click **Run**.
 {% endtab %}
 {% endtabs %}
