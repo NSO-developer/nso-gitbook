@@ -16,6 +16,8 @@ The following tools are available:
 * [**Alarms**](tools.md#d5e6565): Shows current alarms/events in your deployment and provides options to manage them.
 * [**Compliance reporting**](tools.md#sec.webui_compliance): Used to run compliance checks on your NSO network.
 
+Available actions in the **Packages**, **High availability**, **Alarms**, and **Compliance reporting** tools depend on the selected object's YANG schema and your access permissions. Therefore, the actions shown can vary by object, deployment, and current state.
+
 ## Insights <a href="#d5e6470" id="d5e6470"></a>
 
 The **Insights** view collects and displays the following types of operational information using the `/ncs:metrics` data model to present useful statistics:
@@ -29,6 +31,8 @@ The **Insights** view collects and displays the following types of operational i
 ## Packages <a href="#d5e6487" id="d5e6487"></a>
 
 In the **Packages** view, you can upload, install, and view the operational state of custom packages in NSO.
+
+Package upload and installation require Package Upload to be enabled. In an HA deployment, the **Add package** action is available only on the primary node. The **Deinstall** action also requires Package Upload to be enabled and is shown only when it applies to the selected package.
 
 <div data-with-frame="true"><figure><img src="../../.gitbook/assets/packages.png" alt=""><figcaption><p>Packages View</p></figcaption></figure></div>
 
@@ -145,29 +149,29 @@ You can search and sort the alarm list to display alarm results according to you
 
 Individual alarm details are accessible by clicking the severity level icon on an alarm. This brings up the alarm's details, its status (severity) changes, and historical handling information.
 
-### Compress and Purge Alarms
+### Alarm Actions
 
-The Web UI provides additional options to compress and purge alarms.
+Open the **Actions** menu to access the following actions. The available root-level and per-alarm actions depend on the NSO configuration and your permissions.
 
-* The **Compress alarms** action streamlines the alarm entries by deleting their historical state changes that occured before the last one (i.e., the only the latest state change is kept), while keeping the alarm entries intact.
-* The **Purge alarms** action completely removes the alarm entries according to the specified criteria.
+* The **Synchronize** action compares the NSO alarm list with the alarm state reported by managed resources. It reports the number of new, changed, and cleared alarms. Its result depends on the device or NETCONF server alarm-reporting support.
+* The **Compress** action streamlines the alarm entries by deleting the historical state changes that occurred before the last one. It keeps the latest state change and the alarm entries intact.
+* The **Filter** action returns the keys of alarms that match the specified status and optional age, severity, or handling-state criteria. It displays the results in the action drawer and does not change the filters applied to the alarm table.
+* The **Purge** action completely removes the alarm entries according to the specified criteria.
 
-To utilize these features, click the respective button and follow the on-screen instructions.
+To use an action, select it from **Actions**, provide any required input, and click **Run** in the action drawer.
+
+The more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> menu for an individual alarm can provide **Compress**, **Purge**, and **Handle alarm**. **Compress** and **Purge** affect only that alarm. **Handle alarm** is described in the next section.
 
 ### Alarm Handling
 
 Alarm handling refers to attending to an alarm. This usually entails reviewing the alarm and setting a state on it, for example, **Acknowledged**. Historical handling state changes are accessible in alarm details.
 
-To set an alarm handling state:
+You can set the handling state in either of the following ways:
 
-1. In the **Alarms** main view, click the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button on the desired alarm and click **Set alarm handling state**.
-2. Set the alarm state to one of the following: **None**, **Acknowledged**, **Investigation**, **Observation**, and **Closed**.
-3. Enter a description (optional).
-4. Click **Set state**. This sets the alarm handling state as well as records the state change under the **Alarm handling** tab in alarm details.
-5. Access the Commit Manager by clicking its icon <img src="../../.gitbook/assets/commit-manager.png" alt="" data-size="line"> in the banner.
-6. Review the available changes appearing as **Current transaction**. If there are errors in the change, the Commit Manager alerts you and suggests possible corrections. You can then fix them and press **Re-validate** to clear the errors.
-7. Click **Revert** to undo or **Commit** to confirm the changes in the transaction.
-   * **Commit Options**: When committing a transaction, you have the possibility to choose **Commit options** and perform a commit with the specified commit option(s). Examples of commit options are: **No revision drop**, **No deploy**, **No networking**, etc. Commit options are described in detail in the JSON-RPC API documentation under [Methods - transaction - commit changes](../../development/advanced-development/web-ui-development/json-rpc-api.md#methods-transaction-commit-changes).
+* **For one or more selected alarms**: Select the alarm rows, click **Set alarm handling state**, choose **None**, **Acknowledged**, **Investigation**, **Observation**, or **Closed**, and optionally enter a description. Click **Set state** to apply the selected state to every selected alarm.
+* **For one alarm**: In the alarm row, click more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> and select **Handle alarm**. This opens the action drawer for that alarm. Provide the available action inputs and click **Run**. The inputs depend on the alarm action schema and your permissions.
+
+After either action completes successfully, the state change is recorded on the **Alarm handling** tab in the alarm details.
 
 ## Compliance Reporting <a href="#sec.webui_compliance" id="sec.webui_compliance"></a>
 
@@ -198,12 +202,15 @@ To create a new compliance report:
 3. Next, set up the compliance report using the following tabs. For a more detailed description of Compliance Reporting concepts and related configuration options, see [Compliance Reporting](../operations/compliance-reporting.md).
    * **General** tab: To configure the report name. Configuration options include:
      * **Report name**: Displays the report name and allows editing of the report name.
+     * **Common-db**: Controls how NSO stores generated report results. When set to **True** (the default), NSO stores each result as a new record in a common database file. When set to **False**, NSO stores each result in a separate database file.
    * **Devices** tab: To configure device compliance checks. Configuration options include:
      * **Device choice**: Include **All devices** or only **Some devices** to include in compliance checks. If **Some devices** is selected, specify the devices using a device group, an XPath expression, or individual devices.
      * **Device checks**:
        * **Current out of sync**: Check the device's current status and report if the device is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
        * **Historic changes**: Include or exclude previous changes to devices using the commit log. Possible values are **true** (yes, include) and **false** (no, exclude).
      * **Compliance templates**: If a compliance template should be used to check for compliance (see [Device Configuration Checks](../operations/compliance-reporting.md#device-configuration-checks)). You have the option to add a compliance template using the **Add template** button or create a new compliance template (see [Compliance Templates](tools.md#compliance-templates)). To enforce devices to comply exactly with the template's configuration, use **Strict** mode; see [Additional Configuration Checks](../operations/compliance-reporting.md#additional-configuration-checks) for more information.
+     * The **Devices** tab also provides separate lists for **Compliance templates (XML)** and **Device templates**. Use the corresponding **Add XML template** or **Add device template** action to include those templates in the report.
+     * After adding a device template or XML template, use **Edit template** to configure its variables and whether **Strict** matching is enabled.
    * **Services** tab: To configure service compliance checks. Configuration options include:
      * **Service choice**: Include **All services** or only **Some services**. If **Some services** is selected, specify the services using service type, an XPath expression, or individual service instances.
      * **Service checks**:
@@ -224,11 +231,10 @@ In the **Compliance reports** tab, you can apply the following actions on the re
 
 To run a compliance report:
 
-1. In the **Compliance reports** tab, click the desired report and then click **Run report**.
-2. Specify the following in the **Run report** pop-up:
-   * **Report title**: A title for this specific report run.
-   * **Historical time interval**. Select the time range. The report runs with the maximum possible interval if you do not specify an interval.
-3. Click **Run report**.
+1. In the **Compliance reports** tab, click the desired report.
+2. On the report details page, click **More options** and select **Run**.
+3. In the **Run** action drawer, optionally provide a title for the report result and a historical time interval. If you do not specify a time interval, the report uses the maximum available interval.
+4. Click **Run**.
 
 ### Report Results
 
@@ -243,7 +249,9 @@ The report's results show if the devices/services included in the report are com
 * **Details**: Includes specifics about the report that was run, such as report name, date/time it was run, time range, and contents analyzed (i.e., services, devices, and rollback files).
 * **Results overview**: Shows a summary of results with visuals on the number of devices and services that are presently compliant/in-sync.
 * **Historic compliance**: Shows a history of compliance (in percentages) for the devices and services that were included in the report run. The graph is presented based on the previous report runs and you can narrow down the graph to show data from specific periods (e.g., last 10 runs only). Predefined time ranges include last 30 days, last month, last 6 months, and last year, whereas custom time ranges allow users to define their own time ranges. The default preset is set to last 30 days.
-* **Devices**/**Services**/**Errors**: Displays individual compliance and error information for analyzed devices and services. In case of non-compliance, a 'diff view' is available.
+* **Devices**/**Services**/**Errors**: Displays individual compliance and error information for analyzed devices and services. In case of non-compliance, a 'diff view' is available. When an XML template has failed assertions, its result includes a **Failed assertions** section with assertion location, context, and message details.
+
+Use **Rerun** in a report result to run the report again. Select **Rerun all** to rerun the full report, or **Rerun non-compliant** to rerun only the devices and services that were non-compliant in that result. **Rerun non-compliant** is unavailable when the result is compliant. Either selection opens an action drawer; provide any required inputs and click **Run**.
 
 {% hint style="info" %}
 Use the **Export to file** button to export the report results to a downloadable file (PDF).
@@ -261,9 +269,9 @@ There are two ways to create a compliance template:
 * **From config**: Build a new template directly from an existing device configuration.
 
 {% hint style="info" %}
-**Template Creation using Config Editor**
+**Create a Template in the Config Editor**
 
-A third way to create a compliance template from scratch is by using the Config Editor. With this option, you will need to manually type in your desired configuration model to create a compliance template.
+Alternatively, create a CDB compliance template manually in the Config Editor. Create a template under `/compliance/template`, add a `ned-id` entry for a loaded NED, and define the expected device configuration in its `config` subtree. This option is intended for users familiar with the relevant YANG model and NED.
 {% endhint %}
 
 {% tabs %}
@@ -273,10 +281,11 @@ Use this option to base your new template on an existing [device template](../op
 To create a compliance template from a device template:
 
 1. In the **Compliance templates** tab, click **Create template**.
-2. In the **Create template** window -> **Source** category, continue with the default option, **From device template**.
-3. Next choose a device template using the **Select device template** drop-down list. A device template should exist prior to this selection.
-4. Name your compliance template in the **New compliance template name** field (optional). Leaving this blank retains the device template title for the compliance template.
-5. Click **Create**.
+2. In the **Create template** drawer, continue with the default option, **From device template**.
+3. Choose a device template. A device template must exist before you can select it. If the template supports more than one NED ID, also select the NED ID to use.
+4. Optionally provide a name for the compliance template. Leaving it blank retains the device template name.
+5. Optionally set **out-directory** to write the generated XML template to a directory instead of adding it to the NSO configuration.
+6. Click **Run**.
 {% endtab %}
 
 {% tab title="From config" %}
@@ -285,19 +294,20 @@ Use this option to build a new template from configuration.
 To create a compliance template from config:
 
 1. In the **Compliance templates** tab, click **Create template**.
-2. In the **Create template** window -> **Source** category, select **From config**.
-3. Provide a **Template name** that will be used to reference the template in NSO.
-4. In the **Path** field, enter the an XPath to target for extracting config data.
-5. Click **Add to list** to add the path.
-6. **Match rate**: Enter a value between 0 - 100 to determine how often a configuration recurrence must appear in device configurations to be included in the template.
-   * A value of **100** means that configuration must be identical across all devices.
-   * A lower value allows partial commonality.
-7. **Exclude service config**: Enable this option to ensure that NSO will exclude configurations already managed by services from the template. This option ensures that the service-managed configurations are not duplicated.
-8. **Collapse list keys**: Enable this option to determine how lists in the XPath configuration are collapsed into single entries when keys do not match. The options in this category are:
+2. In the **Create template** drawer, select **From config**.
+3. Provide a **name** that will be used to reference the template in NSO.
+4. Choose one source for the configuration:
+   * **config-path**: In the **Path** field, enter one or more XPath paths below `/devices/device/config`, clicking **Add item** after each path. Paths outside this subtree are ignored. Use **Match rate** to specify the required recurrence between the device configurations; **100** (the default) requires common structure across all source devices, while a lower value permits partial commonality. Optionally enable **Exclude service config** to omit configuration already managed by services.
+   * **config-data**: Create a template from configuration supplied directly. Select the format—XML, Cisco XR CLI, Juniper curly-brace CLI, or Juniper set commands—then choose **file** to specify a file on the NSO host or **data** to enter the configuration. Select the required **ned-id** for the configuration.
+5. **Regex induction**: Select the method used when values differ across the selected source devices. **trie** is the default, **dfa** also factors common suffixes, and **none** uses a generic match-all expression.
+6. **Collapse list keys**: Enable this option to determine how lists in the XPath configuration are collapsed into single entries when keys do not match. The options in this category are:
    * **Automatic**: Automatically find non-matching lists to collapse. Lists on the same path in `/devices/device/config` that do not compare equal will be collapsed.
    * **All**: All list keys are collapsed into a single entry, regardless of matching rules.
    * **List path**: Use a user-provided list of paths to collapse. Allows manual control.
    * **Disabled**: Disable list collapsing entirely, displaying all list entries and differences in full detail.
-9. Click **Create**.
+7. Optionally set **out-directory** to write the generated XML template to a directory instead of adding it to the NSO configuration.
+8. Click **Run**.
 {% endtab %}
 {% endtabs %}
+
+When `out-directory` creates an XML compliance template, reload the XML templates before selecting the generated template in a compliance report or using it for a check.

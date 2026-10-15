@@ -12,7 +12,7 @@ The **Configuration editor** consists of the following main parts:
 
 * A navigation tree for browsing the YANG hierarchy.
 * A form-based content area that renders the selected node.
-* A metadata panel that shows details about the selected node.
+* A **Metadata** button that opens a drawer with details about the selected node.
 * Context-sensitive actions for nodes that support actions or presence operations.
 
 <div data-with-frame="true"><figure><img src="../../.gitbook/assets/config-editor.png" alt=""><figcaption><p>Configuration Editor Main View</p></figcaption></figure></div>
@@ -21,12 +21,19 @@ The **Configuration editor** consists of the following main parts:
 
 The following options are available in the **Configuration editor** view:
 
-* **Include oper data**: Displays operational data together with the configuration tree. Use this option when you want to inspect runtime or status information in addition to configured data.
 * **Edit mode**: Enables editing in the **Configuration editor**. When edit mode is enabled, configurable nodes can be modified directly in the rendered form or list view. When it is disabled, the view is read-only.
 
 ## Configuration Navigation
 
-The Configuration Editor displays configuration defined by the YANG model in a hierarchical tree structure that you can browse and navigate. Expand nodes to reveal their child nodes, and use the filter field to narrow the visible nodes in the current tree.
+The Configuration Editor displays configuration defined by the YANG model in a hierarchical tree structure that you can browse and navigate. Expand nodes to reveal their child nodes, and use the filter field to narrow the visible nodes in the current tree. Choice nodes are expanded by default. Select choice and case labels to expand or collapse them. Drag the divider between the navigation tree and the rendered view to resize the tree.
+
+Use **Filters** next to the filter field to choose which node types appear in the tree:
+
+* **Include operdata** displays operational-data nodes.
+* **Include actions** displays action nodes.
+* **Include leafs** displays leaf nodes.
+
+Select **Apply** to update the tree with the selected filters.
 
 Selecting a node in the tree updates the content area to show the selected node. The rendered view depends on the type of YANG node selected. The tree itself shows the hierarchy, while the content area shows the data and controls available for the selected node.
 
@@ -40,7 +47,7 @@ The breadcrumb above the tree shows the current navigation path, for example **/
 
 ### Tree Icons
 
-The tree shows the following icons depending on the selection of view options:
+The tree shows the following icons depending on the selected tree filters:
 
 | Icon                                                                                        | Meaning                                                  |
 | ------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
@@ -59,7 +66,7 @@ When a node is selected, the content area on the right renders that node as a fo
 
 Input fields in the rendered view depend on the YANG type of the selected node. For example, fields may be shown as text inputs, selection controls, or other widgets depending on the allowed values and schema definition.
 
-Field descriptions and default values are shown in the rendered view where applicable. Additional node details, such as type and access information, are available in the **Metadata** panel.
+Where applicable, rendered fields show their descriptions. For Boolean and leafref fields with a YANG default, the default is shown as a gray placeholder until you set a value. Additional node details, such as type, access, and default value, are available in the **Metadata** drawer.
 
 Depending on the field type, changes are applied automatically when you update the value or when you leave the field. If a value is invalid or cannot be applied, the UI indicates the error on the relevant field so that you can correct it before committing the change.
 
@@ -67,11 +74,11 @@ Depending on the field type, changes are applied automatically when you update t
 
 Use **Show as** above the rendered node view to display the selected configuration in one of the following formats:
 
+* Cisco XR CLI
+* Juniper curly-brace CLI
+* Set commands
 * XML
 * JSON
-* Cisco XR CLI
-* Juniper curly-braces CLI
-* Juniper set commands
 * XPath
 * Keypath
 * RESTCONF paths
@@ -79,20 +86,31 @@ Use **Show as** above the rendered node view to display the selected configurati
 * Maagic objects
 
 The drawer lets you copy the displayed configuration or save it to a file.
+#### Lists and Leaf-lists
+
+In **Edit mode**, you can add or delete entries in editable lists and leaf-lists. For a list or leaf-list that the YANG model declares as `ordered-by user`, use the row actions to move an entry to the first or last position, or before or after another entry.
+
+#### Service Plans
+
+When the selected node is a service instance with plan data, the rendered view includes a **Plan** section. Use this section to inspect the service plan without leaving the **Configuration editor**.
 
 #### Choice
 
 YANG choices are rendered as grouped choice widgets in the content area. In the tree, a choice or case branch can be expanded for navigation, but selecting the parent context renders the choice as a whole widget, while selecting an individual child node renders only that specific node.
 
+The tree hides a case whose YANG `when` condition evaluates to false. A choice is hidden when none of its cases are available.
+
 #### Metadata
 
-The **Metadata** panel displays schema and node information for the currently selected tree node. Expand this panel to inspect additional details about the selected node.
+Select **Metadata** above the rendered view to open a drawer with schema and node information for the currently selected tree node.
 
-Depending on the node, the metadata can include information such as node type, kind, access, description, default value, etc. The metadata panel is the primary way to inspect node details that are not shown directly in the rendered field view.
+Depending on the node, the metadata can include information such as node type, kind, access, description, default value, tags, and annotations. The metadata drawer is the primary way to inspect node details that are not shown directly in the rendered field view.
 
 #### Actions
 
-For selected container nodes that define actions, the **Actions** button is shown above the metadata panel and remains available even when **Edit mode** is disabled. In the tree, however, actions are shown only when **Edit mode** is enabled. If no actions are available for the selected container, the **Actions** button is hidden.
+For selected container nodes that define actions, the **Actions** button is shown above the rendered view and remains available even when **Edit mode** is disabled. In the tree, however, actions are shown only when **Edit mode** is enabled. If no actions are available for the selected container, the **Actions** button is hidden. When the action's YANG schema provides a description, the action drawer displays it with the action path.
+
+Actions open a drawer whose inputs are generated from the action's YANG schema. Review the target and available inputs, then select **Run**. The drawer shows the result or error when the action completes. For actions applied to selected list rows, the selected rows are used as the action targets.
 
 #### Presence Containers
 
