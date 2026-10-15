@@ -32,6 +32,8 @@ The **Insights** view collects and displays the following types of operational i
 
 In the **Packages** view, you can upload, install, and view the operational state of custom packages in NSO.
 
+Package upload and installation require Package Upload to be enabled. In an HA deployment, the **Add package** action is available only on the primary node. The **Deinstall** action also requires Package Upload to be enabled and is shown only when it applies to the selected package.
+
 <div data-with-frame="true"><figure><img src="../../.gitbook/assets/packages.png" alt=""><figcaption><p>Packages View</p></figcaption></figure></div>
 
 ### Add a Package
