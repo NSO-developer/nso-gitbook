@@ -98,7 +98,7 @@
   * [README v1.1.4 2026-03-26](cisco-iosxr_nc/README.md)
 
 * cisco-iosxr_netconf
-  * [README v26.2.1 2026-09-07](cisco-iosxr_netconf/README.md)
+  * [README v26.2.1 2026-10-14](cisco-iosxr_netconf/README.md)
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
