@@ -114,6 +114,11 @@
   +---------------------------+-----------------+--------+---------------------------------------------------+
   ```
 
+  NOTE: The NED is not limited to the versions and models listed above and may support additional
+  versions or models. Please try the NED with your target version and model. To request support for
+  additional configuration features or use cases, contact Cisco Support and follow the process
+  described in Section 8.
+
   Verified YANG model bundles
   ```
   +---------------------------+-----------------+------------------------------------------------------------+

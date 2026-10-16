@@ -142,7 +142,7 @@
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
-  * [README v5.12.5 2026-10-06](fortinet-fortios/README.md)
+  * [README v5.12.6 2026-10-15](fortinet-fortios/README.md)
 
 * furukawa-fx1
   * [README-ned-settings](furukawa-fx1/README-ned-settings.md)
@@ -167,7 +167,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.87.5 2026-10-08](huawei-vrp/README.md)
+  * [README v6.88 2026-10-15](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
@@ -180,7 +180,7 @@
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
   * [README-rebuild](juniper-junos_nc/README-rebuild.md)
-  * [README v1.1.34 2026-10-01](juniper-junos_nc/README.md)
+  * [README v1.1.35 2026-10-15](juniper-junos_nc/README.md)
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
@@ -194,12 +194,12 @@
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
   * [README-rebuild](nokia-sros_nc/README-rebuild.md)
-  * [README v1.0.35 2026-09-02](nokia-sros_nc/README.md)
+  * [README v1.0.36 2026-10-15](nokia-sros_nc/README.md)
 
 * onf-tapi_rc
   * [README-ned-settings](onf-tapi_rc/README-ned-settings.md)
   * [README-rebuild](onf-tapi_rc/README-rebuild.md)
-  * [README v2.0.54 2026-10-01](onf-tapi_rc/README.md)
+  * [README v2.0.55 2026-10-15](onf-tapi_rc/README.md)
 
 * opengear-cm
   * [README-ned-settings](opengear-cm/README-ned-settings.md)

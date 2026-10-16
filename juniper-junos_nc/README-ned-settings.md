@@ -309,6 +309,15 @@
       disabled      - disabled.
 
 
+    - transaction annotate-configuration <true|false> (default false)
+
+      Enables reading annotated configuration nodes from the device and importing them into NSO.
+      Currently, only reading annotations from the device is supported; writing annotations back to
+      the device is not supported as of NSO 6.8. Note: Enabling this feature impacts sync-from
+      performance because the NED must scan each node in the configuration payload and convert
+      annotations to NSO format.
+
+
 ## 2.1. ned-settings juniper-junos_nc transaction ignore-rpc-errors
 -------------------------------------------------------------------
 

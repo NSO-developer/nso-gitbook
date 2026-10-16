@@ -174,6 +174,13 @@
       Path to openssh formatted private key file.
 
 
+    - connection ssh keep-alive-interval <seconds> (default 0)
+
+      Configure SSH client keep alive interval in seconds, default 0 (i.e. no keep-alive). The
+      keep-alive is implemented in the client by sending an ssh 'ignore' message on the given
+      interval.
+
+
 # 3. ned-settings fortinet-fortios proxy
 ----------------------------------------
 
