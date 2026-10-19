@@ -744,11 +744,34 @@ In order to allow templates to be reusable while at the same time keeping as man
 
 Namely, if a package declares a list of supported-ned-ids, then the templates in this package are interpreted as if no other ned-ids are loaded in the system. If such a template is attempted to be applied to a device with ned-id outside the supported list, then a run-time error is generated because this ned-id was not considered when the template was loaded. This allows us to ignore ambiguities in the data model introduced by additional NEDs that were not considered during template development.
 
-If a package declares a list of supported-ned-ids and the runtime system does not have one or more declared NEDs loaded, then the template engine uses the so-called relaxed loading mode, which means it ignores any unknown namespaces and `<?if-ned-id?>` clauses containing exclusively unknown ned-ids, assuming that these parts of the template are not applicable in the current running system. Note, however, that `<supported-ned-id-match>` in the current implementation only filters the list of currently loaded NEDs and does not result in relaxed loading mode.
+If a package declares a list of supported-ned-ids and the runtime system does not have one or more declared NEDs loaded, then the template engine infers relaxed loading mode. Relaxed mode ignores unknown namespaces and `<?if-ned-id?>` clauses containing exclusively unknown ned-ids, assuming these parts of the template are not applicable in the current running system. Note, however, that `<supported-ned-id-match>` in the current implementation only filters the list of currently loaded NEDs and does not result in relaxed loading mode.
 
-Because relaxed loading mode performs less strict validation and potentially prevents some errors from being detected, the package developer should always make sure to test in the system with all the supported ned-ids loaded, i.e. when the loading mode is `strict`. The loading mode can be verified by looking at the value of `template-loading-mode` leaf for the corresponding package under `/packages/package` list.
+You can explicitly set the default loading mode for all XML templates in a package with the `template-loading-mode` element in `package-meta-data.xml`. The default is inferred from the package's supported NED IDs: strict mode is inferred if no supported NED IDs are declared or all declared IDs are loaded; otherwise relaxed mode is inferred. An explicit package setting overrides this inference.
 
-If the package does not declare any `supported-ned-ids`, then the templates are loaded in `strict` mode, using the full set of currently loaded NED IDs. This may make the package less reusable between different systems, but is usually fine in environments where the package is intended to be used in runtime systems fully under the control of the package developer.
+An individual XML template can override the package default with the `template-loading-mode` attribute on its `config-template` root. The following example sets a relaxed package default and a strict mode for one template:
+
+{% code title="Package and template loading modes" %}
+```xml
+<ncs-package xmlns="http://tail-f.com/ns/ncs-packages">
+  <name>mypackage</name>
+  <template-loading-mode>relaxed</template-loading-mode>
+  <!-- ... -->
+</ncs-package>
+```
+{% endcode %}
+
+{% code title="templates/strict-template.xml" %}
+```xml
+<config-template xmlns="http://tail-f.com/ns/config/1.0"
+                 template-loading-mode="strict">
+  <!-- ... -->
+</config-template>
+```
+{% endcode %}
+
+If a template does not specify the attribute, it uses the package's effective mode. The effective package mode is shown by `/packages/package/template-loading-mode`. The per-template operational list at `/packages/package/template` shows each template's name; its `template-loading-mode` leaf is present only when that template explicitly sets the attribute.
+
+Because relaxed loading performs less strict validation and can prevent some errors from being detected, test packages with all supported NED IDs loaded, so templates are validated in strict mode. Strict mode reports schema-related errors detectable at load time, such as unknown namespaces, schema ambiguities, and unknown NED IDs.
 
 ## Passing Deep Structures from API <a href="#d5e2638" id="d5e2638"></a>
 

@@ -106,7 +106,9 @@ submodule: tailf-ncs-packages (belongs-to tailf-ncs)
         |  +--ro vm-name?           string
         |  +--ro callpoint-model?   enumeration
         +--ro directory?                string
-        +--ro templates*                string
+        +--ro template* [name]
+        |  +--ro name                    string
+        |  +--ro template-loading-mode?  enumeration
         +--ro template-loading-mode?    enumeration
         +--ro supported-ned-id*         union
         +--ro supported-ned-id-match*   string
@@ -209,7 +211,9 @@ $ ncs_load -o -Fp -p /packages
         <callpoint-model>threading</callpoint-model>
       </python-package>
       <directory>./state/packages-in-use/1/vrouter</directory>
-      <templates>vrouter-configured</templates>
+      <template>
+        <name>vrouter-configured</name>
+      </template>
       <template-loading-mode>strict</template-loading-mode>
       <supported-ned-id xmlns:router-nc-1.1="http://tail-f.com/ns/ned-id/router-nc-1.1">
       router-nc-1.1:router-nc-1.1</supported-ned-id>
@@ -243,8 +247,8 @@ Below is a brief list of the configurables in the `tailf-ncs-packages.yang` YANG
   * `vm-name` - the Python VM name for the package. Default is the package `vm-name`. Packages with the same `vm-name` run in the same Python VM. Applicable only when `callpoint-model = threading`.
   * `callpoint-model` - A Python package runs Services, Nano Services, and Actions in the same OS process. If the `callpoint-model` is set to `multiprocessing` each will get a separate worker process. Running Services, Nano Services, and Actions in parallel can, depending on the application, improve the performance at the cost of complexity. See [The Application Component](nso-virtual-machines/nso-python-vm.md#ncs.development.pythonvm.cthread) for details.
 * `directory` - the path to the directory of the package.
-* `templates` - the templates defined by the package.
-* `template-loading-mode` - control if the templates are interpreted in strict or relaxed mode.
+* `template` - an operational list of the package's XML templates. Each entry has a `name`; its optional `template-loading-mode` leaf is present only when that template explicitly sets a mode.
+* `template-loading-mode` - the effective strict or relaxed loading mode for the package's templates. You can set the package default in `package-meta-data.xml`; otherwise NSO infers it from the package's supported NED IDs. An individual template can override the default with the `template-loading-mode` attribute on its `<config-template>` root.
 *   `supported-ned-id` - the list of ned-ids supported by this package. An example of the expected format taken from the [examples.ncs/nano-services/netsim-vrouter](https://github.com/NSO-developer/nso-examples/tree/6.7/nano-services/netsim-vrouter) example:
 
     ```xml
