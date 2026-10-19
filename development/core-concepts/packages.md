@@ -242,7 +242,7 @@ Below is a brief list of the configurables in the `tailf-ncs-packages.yang` YANG
 * `name` - the name of the package. All packages in the system must have unique names.
 * `package-version` - the version of the package. This is for administrative purposes only, NSO cannot simultaneously handle two versions of the same package.
 * `ncs-min-version` - the oldest known NSO version where the package works.
-* `ncs-max-version` - the latest known NSO version where the package works.
+* `ncs-max-version` - the latest known NSO version where the package works. If the value specifies only a major and minor version (for example, `6.1`), it applies to the entire minor release, including NSO versions with patch or build suffixes. With a major.minor-only maximum, `ncs-min-version` must also use major.minor precision; a more specific minimum, such as `6.1.1`, is invalid.
 * `python-package` - Python-specific package data.
   * `vm-name` - the Python VM name for the package. Default is the package `vm-name`. Packages with the same `vm-name` run in the same Python VM. Applicable only when `callpoint-model = threading`.
   * `callpoint-model` - A Python package runs Services, Nano Services, and Actions in the same OS process. If the `callpoint-model` is set to `multiprocessing` each will get a separate worker process. Running Services, Nano Services, and Actions in parallel can, depending on the application, improve the performance at the cost of complexity. See [The Application Component](nso-virtual-machines/nso-python-vm.md#ncs.development.pythonvm.cthread) for details.
