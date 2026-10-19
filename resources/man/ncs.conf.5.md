@@ -2692,7 +2692,7 @@ how they relate to each other.
 /ncs-config/webui/webui-root-resource (string)  
 > The target resource where the WebUI is accessible.
 >
-> Setting the configurable to, e.g., 'myroot' makes the JSON-RPC
+> Setting the configurable to, e.g., '/myroot' makes the JSON-RPC
 > accessible at https://\<ip-address\>/myroot/jsonrpc.
 >
 > This option affects the WebUI and JSON-RPC.
@@ -3718,6 +3718,15 @@ how they relate to each other.
 > Restart the Java VM if it terminates.
 >
 > Only applicable if auto-start is 'true'.
+
+/ncs-config/java-vm/shutdown-timeout (xs:duration) \[PT30S\]  
+> Maximum time to wait for the Java VM to shut down after an error
+> before forcing the process to terminate. The timeout is only enforced
+> for error paths, such as an uncaught Java exception or a control
+> socket failure. It is not enforced for a clean shutdown. A value of
+> PT0S disables this protection.
+>
+> Only applicable when the default start-command is used.
 
 /ncs-config/java-vm/start-command (string)  
 > The command which NCS will run to start the Java VM, or the string

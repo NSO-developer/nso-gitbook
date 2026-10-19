@@ -897,12 +897,12 @@ set. The call can be used after cdb_connect() and returns CONFD_OK.
 
 Normally CDB handles journal compaction of the config datastore
 automatically. If this has been turned off (in the configuration file)
-then the .cdb files will grow indefinitely unless this API function is
-called periodically to initiate compaction. This function initiates a
+then the CDB data files will grow indefinitely unless this API function
+is called periodically to initiate compaction. This function initiates a
 compaction and returns immediately (if the datastore is unavailable, the
 compaction will be delayed, but eventually compaction will take place).
-This will also initiate compaction of the operational datastore O.cdb
-and snapshot datastore S.cdb but without delay.
+This will also initiate compaction of the operational datastore (O
+files) and snapshot datastore (S files) but without delay.
 
 *Errors*: -
 
@@ -915,13 +915,13 @@ compaction on the specified CDB file instead of all CDB files. The
 values for NSO are
 
 `CDB_A_CDB`  
-> This is the configuration datastore A.cdb
+> This is the configuration datastore (A files)
 
 `CDB_O_CDB`  
-> This is the operational datastore O.cdb
+> This is the operational datastore (O files)
 
 `CDB_S_CDB`  
-> This is the snapshot datastore S.cdb
+> This is the snapshot datastore (S files)
 
 *Errors*: CONFD_ERR_PROTOUSAGE
 

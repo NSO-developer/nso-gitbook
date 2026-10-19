@@ -35,9 +35,9 @@ program.
 > `NCS_IPC_ADDR`. The `-A` flag takes precedence.
 
 `-P`; `--port` \<PortNumber\>  
-> CLI port to connect to. The default is the NSO IPC port, which is 4569
-> This can be controlled by either this flag, or the UNIX environment
-> variable `NCS_IPC_PORT`. The `-P` flag takes precedence.
+> CLI port to connect to when using TCP IPC. The default is the NSO IPC
+> port 4569. This can be controlled by either this flag, or the UNIX
+> environment variable `NCS_IPC_PORT`. The `-P` flag takes precedence.
 
 `-S`; `--socket-path` \<Path\>  
 > Path of the UNIX domain socket to connect to, used in place of TCP
