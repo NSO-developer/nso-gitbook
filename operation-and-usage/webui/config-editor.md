@@ -21,17 +21,17 @@ The **Configuration editor** consists of the following main parts:
 
 The following options are available in the **Configuration editor** view:
 
+* **Include oper data**: Displays operational-data nodes in the navigation tree.
 * **Edit mode**: Enables editing in the **Configuration editor**. When edit mode is enabled, configurable nodes can be modified directly in the rendered form or list view. When it is disabled, the view is read-only.
 
 ## Configuration Navigation
 
 The Configuration Editor displays configuration defined by the YANG model in a hierarchical tree structure that you can browse and navigate. Expand nodes to reveal their child nodes, and use the filter field to narrow the visible nodes in the current tree. Choice nodes are expanded by default. Select choice and case labels to expand or collapse them. Drag the divider between the navigation tree and the rendered view to resize the tree.
 
-Use **Filters** next to the filter field to choose which node types appear in the tree:
+Use **Filters** next to the filter field to choose whether action and leaf nodes appear in the tree:
 
-* **Include operdata** displays operational-data nodes.
-* **Include actions** displays action nodes.
-* **Include leafs** displays leaf nodes.
+* **Show actions** displays action nodes.
+* **Show leafs** displays leaf nodes.
 
 Select **Apply** to update the tree with the selected filters.
 
@@ -47,7 +47,7 @@ The breadcrumb above the tree shows the current navigation path, for example **/
 
 ### Tree Icons
 
-The tree shows the following icons depending on the selected tree filters:
+The tree shows the following icons. Leaf and action nodes appear according to the selected **Filters**; operational-data nodes appear when **Include oper data** is selected.
 
 | Icon                                                                                        | Meaning                                                  |
 | ------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
