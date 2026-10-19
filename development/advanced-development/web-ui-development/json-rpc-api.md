@@ -2575,9 +2575,11 @@ curl \
 **Params**
 
 ```json
-{"th": <integer>,
+{"th": <integer, optional>,
  "group_name": <string>}
 ```
+
+The optional `th` param restricts the operation to one transaction. If omitted, the operation applies to all transactions in the Web UI session.
 
 The `group_name` param is as defined by a `hidden` statement in a YANG module.
 
@@ -2598,10 +2600,12 @@ The `group_name` param is as defined by a `hidden` statement in a YANG module.
 **Params**
 
 ```json
-{"th": <integer>,
+{"th": <integer, optional>,
  "group_name": <string>,
  "passwd": <string>}
 ```
+
+The optional `th` param restricts the operation to one transaction. If omitted, the operation applies to all transactions in the Web UI session.
 
 The `group_name` param is as defined by a `hidden` statement in a YANG module.
 
