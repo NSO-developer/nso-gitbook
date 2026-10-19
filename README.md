@@ -27,3 +27,14 @@ Documentation Updates:
 
 </details>
 
+<details>
+
+<summary>Improved <code>systemd</code> Integration</summary>
+
+The NSO systemd service now starts NSO in foreground mode, allowing systemd to monitor the `ncs.smp` process directly and restart it after an unexpected failure. The service also uses improved startup logic that allows long-running model upgrade to complete without timing out.
+
+Documentation Updates:
+
+* Updated the \[System Install]\(administration/installation-and-deployment/system-install.md) section with the new behavior.
+
+</details>
