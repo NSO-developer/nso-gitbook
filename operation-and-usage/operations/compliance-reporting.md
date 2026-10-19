@@ -461,7 +461,7 @@ devices template use-internal-dns
   !
  !
 !
-admin@ncs(config)# compliance create-template name internal-dns device-template use-internal-dns
+admin@ncs(config)# compliance create-template name internal-dns device-template { name use-internal-dns }
 admin@ncs(config)# show configuration
 compliance template internal-dns
  ned-id router-nc-1.0
@@ -507,6 +507,9 @@ The action takes a number of arguments to control how the resulting template loo
 * `match-rate` - Device configuration is included in the resulting template based on the rate of occurrence given by this setting.
 * `exclude-service-config` - Exclude configuration that is already under service management.
 * `collapse-list-keys` - Decides what lists to do matching on, either `all`, `automatic` (default), or those specified by the `list-path` parameter. The default is to find those lists that differ among the device configurations.
+* `regex-induction` - Choose how differing values are generalized: `trie` (default) factors common prefixes and character alternatives; `dfa` can also factor common suffixes; `none` disables induction, so differing values use `.*`.
+* `device-template` - Generate from an existing device template by specifying its `name`. Its optional `ned-id` limits generation to that schema; omit it to include all NED schemas in the device template.
+* `out-directory` - Write an XML compliance template to `<out-directory>/<name>.xml` instead of creating a CDB compliance template. The directory must already exist, and the file must not already exist.
 
 Finally, to use compliance templates in a report, reference them from `device-check/template`:
 
@@ -808,6 +811,7 @@ XML compliance templates support all processing instructions available for [serv
 | `<?if {xpath-expr}?>` … `<?else?>` … `<?end?>` | Conditionally check parts of the template |
 | `<?set var = {xpath-expr}?>`                   | Assign a variable                         |
 | `<?if-ned-id ned-id?>` … `<?end?>`             | Conditionally check based on the NED ID   |
+| `<?if-ned-id-match regex?>` … `<?end?>`        | Conditionally check based on a regular expression matching the NED ID |
 | `<?macro name args?>` … `<?endmacro?>`         | Define a reusable template fragment       |
 | `<?expand macro-name args?>`                   | Expand a macro                            |
 

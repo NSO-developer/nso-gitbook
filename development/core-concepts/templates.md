@@ -76,6 +76,8 @@ Finally, every XML template has a name. The name of the template is the file pat
 
 To simplify template creation, NSO features the `/services/create-template` action that can find common structural patterns in a set of device configurations and create a configuration template and the corresponding service YANG model based on it.
 
+The action can use configurations from devices running different NED schemas. It emits `<?if-ned-id-match ...?>` conditions where necessary to scope schema-specific configuration.
+
 The algorithm works by traversing the data depth-first, keeping track of the rate of occurrence of configuration nodes, and any values that compare equal. Values that do not compare equal are parameterized and service input parameters are created for these paths in the YANG model. For example:
 
 {% code overflow="wrap" %}
@@ -173,6 +175,7 @@ The action takes a number of arguments to control how the resulting template loo
 
 * `name` - The name of the new service.
 * `path` - A list of XPath 1.0 expressions pointing into `/devices/device/config` to create the template from. The template is only created from the paths that are common in the node-set.
+* `device-template` - Use an existing device template as the source. Specify its `name`; optionally specify `ned-id` to use only that NED schema. If omitted, all NED schemas in the device template are used.
 * `match-rate` - Device configuration is included in the resulting template based on the rate of occurrence given by this setting. By giving different rates the user can decide how often configuration needs to occur for it to be included in the template.
 * `exclude-service-config` - Exclude configuration that is already under service management. This is useful when the intention is to detect common configuration that can be turned into a service.
 * `make-package` - Create a service package including the generated template and YANG module. The package is created in the parent directory specified by `in-directory`, but is not built. The package needs to be built separately by running `make` in its `src/` subdirectory. The user has the freedom of making modifications to the generated files.
