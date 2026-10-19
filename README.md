@@ -38,3 +38,15 @@ Documentation Updates:
 * Updated the \[System Install]\(administration/installation-and-deployment/system-install.md) section with the new behavior.
 
 </details>
+
+<details>
+
+<summary>Richer NACM Device Group Support</summary>
+
+A re-implemented NETCONF Access Control Model (NACM) extension in NSO makes it possible to scope NACM rules to a model path and one or more device groups. For example, it is now possible to write a ruleset that allows some modifications to a device, but not others, for all devices in a device group.
+
+Documentation Updates:
+
+* Described supported usage in the \[AAA Infrastructure]\(administration/management/aaa-infrastructure.md).
+
+</details>
