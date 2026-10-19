@@ -1728,6 +1728,10 @@ The `xpath_expr` could be \``/interface[enabled='true']`\` and `selection` could
 
 Note that the `selection` expressions must be valid XPath expressions, e.g. to figure out the name of an interface and whether its number is even or not, the expressions must look like: \``{ "name", "(number mod 2) == 0" }`\`.
 
+{% hint style="info" %}
+For XPath extensions available in Query API expressions, see [Query API Extensions](../../../developer-reference/xpath.md#query-api-extensions).
+{% endhint %}
+
 The result are then fetched using `run_query`, which returns the result on the format specified by `result_as` param.
 
 There are two different types of results:
