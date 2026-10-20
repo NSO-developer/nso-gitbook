@@ -36,7 +36,9 @@ A host key is usable only when its corresponding algorithm is enabled under `/nc
 
 The algorithms allowed for the built-in SSH server are configured under `/ncs-config/ssh/algorithms` in `ncs.conf`. Separate settings control the server host-key, key-exchange, MAC, and encryption algorithms. Each setting contains a comma-separated preference list; its order determines the order advertised by the server during negotiation.
 
-The effective algorithm set can be smaller than the configured set. In FIPS mode, an algorithm must also be permitted by the applicable FIPS restrictions. A server host-key algorithm additionally requires a corresponding private key. See [`ncs.conf(5)`](../../resources/man/ncs.conf.5.md) for the release-specific defaults and recognized values.
+The default key-exchange preference list starts with `mlkem768x25519-sha256`, a hybrid key exchange combining ML-KEM-768 with X25519. It requires an Erlang/OTP SSH implementation that supports [RFC 10042](https://www.rfc-editor.org/rfc/rfc10042.html) and a peer that offers the same algorithm. The `kex` setting can be used to change the allowed algorithms and their preference order.
+
+The effective algorithm set can be smaller than the configured set. In FIPS mode, an algorithm must also be permitted by the applicable FIPS restrictions. A server host-key algorithm additionally requires a corresponding private key. See [`ncs.conf(5)`](../../resources/man/ncs.conf.5.md) for setting syntax and other SSH options.
 
 These settings apply only to the NSO built-in SSH server. When an external SSH server such as OpenSSH terminates a connection, configure its algorithms using that server's configuration.
 
@@ -59,6 +61,7 @@ NSO uses different SSH client implementations depending on the connection:
 | Device or cluster `fetch-host-keys` action                                                                 | Erlang/OTP SSH                                |
 | NSO device-manager SCP or SFTP operation                                                                   | Erlang/OTP SSH                                |
 | Java CLI, Generic, or 3PY NED that uses the NSO `SSHClient` API                                            | The SSHJ version bundled with the NSO release |
+| NED using the NEDCOM Apache MINA SSH client                                                               | Apache MINA SSHD                              |
 
 A custom NED can use a different SSH implementation. Consult the [NED documentation](../../administration/management/ned-administration.md#sec.config_device.with.ciscoid) when it does not use the NSO `SSHClient` API.
 
@@ -71,6 +74,10 @@ The ordered lists of algorithms allowed for southbound SSH negotiations can be c
 * `/devices/device/ssh-algorithms`
 * `/devices/device/live-status-protocol/ssh-algorithms`
 * `/cluster/remote-node/ssh-algorithms`
+
+For NSO 6.8, the default key-exchange preference list for the Erlang/OTP SSH client starts with `mlkem768x25519-sha256`, a hybrid key exchange combining ML-KEM-768 with X25519. This applies to the built-in SSH client connections listed above, including NETCONF, cluster connections, host-key retrieval, SCP, and SFTP. It requires an OTP SSH implementation that supports [RFC 10042](https://www.rfc-editor.org/rfc/rfc10042.html) and a peer that offers the algorithm. Java NEDs using SSHJ and custom NEDs using another SSH implementation are not covered by this default.
+
+NEDCOM 1.374 introduces an Apache MINA SSH client with PQC support. For NSO 6.8 and later, it is the default for NEDs that have adopted it; a NED setting can override the choice, and rollout varies by NED. Consult the NED-specific documentation for availability and configuration. This client is separate from the Erlang/OTP SSH client and the NSO Java `SSHClient` API.
 
 For a managed device, a device-specific value takes precedence over a device-profile value, and a device-profile value takes precedence over the global value. A live-status protocol can override the settings inherited from its device. Each algorithm category is resolved independently, so an override of one category does not require repeating the other categories.
 

@@ -178,7 +178,7 @@ The set of modules reported for a device is the set of modules that NSO knows, i
 
 ## NETCONF Transport Protocols <a href="#ug.netconf_agent.transport" id="ug.netconf_agent.transport"></a>
 
-The NETCONF server natively supports the mandatory SSH transport, i.e., SSH is supported without the need for an external SSH daemon (such as `sshd`). It also supports integration with OpenSSH.
+The NETCONF server natively supports the mandatory SSH transport, i.e., SSH is supported without the need for an external SSH daemon (such as `sshd`). It also supports integration with OpenSSH. The configurable algorithms for the NSO built-in SSH server, including its default hybrid PQC key exchange, are described in [SSH Key Management](../../../operation-and-usage/operations/ssh-key-management.md#ug.ssh_keys.server).
 
 ### Using OpenSSH <a href="#d5e432" id="d5e432"></a>
 
