@@ -64,3 +64,21 @@ Documentation Updates:
 * Updated the [Nano Services](development/core-concepts/nano-services.md) documentation.
 
 </details>
+
+<details>
+
+<summary>Post-Quantum Cryptography Support</summary>
+
+NSO adds support for Post-Quantum Cryptography (PQC) to help guard against "store now, decrypt later" attacks with future quantum computers, including:
+
+* Implementation of post-quantum key exchange and signature algorithms, such as `mlkem768x25519-sha256` and `ML-DSA`
+* Offering PQC algorithms for northbound TLS and SSH connections
+* Use of PQC algorithms southbound for built-in NETCONF client and NEDs
+
+The NED framework now uses the Apache MINA library in order to enable PQC support.
+
+Documentation Updates:
+
+* Added the new algorithms to [???](development/core-concepts/nano-services.md).
+
+</details>
