@@ -95,17 +95,31 @@ A non-recurring task will by default be removed when it has finished executing. 
 
 ## Scheduling in an HA Cluster <a href="#d5e9426" id="d5e9426"></a>
 
-In an HA cluster, a scheduled task will by default be run on the primary HA node. By configuring the `ha-mode` leaf a task can be scheduled to run on nodes with a particular HA mode, for example, scheduling a read-only action on the secondary nodes. More specifically, a task can be configured with the `ha-node-id` to only run on a certain node. These settings will not have any effect on a standalone node.
+In an HA cluster, the scheduler runs tasks on the read-write node by default. The `placement` leaf controls where the task action runs, in both Rule-based HA and HA Raft:
 
-```bash
+| `placement` value | Where the action runs |
+| ----------------- | --------------------- |
+| `read-write-node` | On the node with read-write transaction capability. This is the default. |
+| `read-only-node` | On one read-only node. If `node-id` is not specified, the scheduler chooses a read-only node. |
+| `all-nodes` | On the read-write node and all read-only nodes. |
+| `all-read-only-nodes` | On all read-only nodes. |
+
+For example, configure a task to run on any read-only node:
+
+```cli
 admin(config)# scheduler task my-compliance-report schedule "0 2 1 * *" \
-ha-mode secondary ha-node-id secondary-node1 \
+placement read-only-node action-name check-compliance action-node /reports
+```
+
+To select a particular read-only node, set `node-id` as well. The CLI provides completion for available node IDs:
+
+```cli
+admin(config)# scheduler task my-compliance-report schedule "0 2 1 * *" \
+placement read-only-node node-id node1 \
 action-name check-compliance action-node /reports
 ```
 
-{% hint style="info" %}
-The scheduler is disabled when HA is enabled and when HA mode is `NONE`. See [Mode of Operation](../../administration/management/high-availability.md#ha.moo) in HA for more details.
-{% endhint %}
+`node-id` is valid only when `placement` is `read-only-node`. Scheduler history records the `node-id` for actions run on read-only nodes. If HA is not configured, `placement` has no effect.
 
 ## Troubleshooting <a href="#d5e9438" id="d5e9438"></a>
 
