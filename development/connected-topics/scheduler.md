@@ -82,13 +82,22 @@ A non-recurring task will by default be removed when it has finished executing. 
 
 ## Scheduling in an HA Cluster <a href="#d5e9426" id="d5e9426"></a>
 
-In an HA cluster, a scheduled task will by default be run on the primary HA node. By configuring the `ha-mode` leaf a task can be scheduled to run on nodes with a particular HA mode, for example, scheduling a read-only action on the secondary nodes. More specifically, a task can be configured with the `ha-node-id` to only run on a certain node. These settings will not have any effect on a standalone node.
+In an HA cluster, a scheduled task will by default be run on the primary HA node. By configuring the `placement` leaf, a task can be scheduled to run on nodes in a specific HA role:
+
+* `read-write-node` runs the task on the node with read-write transaction capability (the primary/leader). This is the default.
+* `read-only-node` runs the task on one read-only node. If `node-id` is not configured, NSO selects a read-only node.
+* `all-nodes` runs the task on the read-write node and all read-only nodes.
+* `all-read-only-nodes` runs the task on every read-only node.
+
+For `read-only-node` placement, a task can be further configured with the `node-id` to only run on a certain node. For example:
 
 ```bash
 admin(config)# scheduler task my-compliance-report schedule "0 2 1 * *" \
-ha-mode secondary ha-node-id secondary-node1 \
+placement read-only-node node-id node2@127.0.0.1 \
 action-name check-compliance action-node /reports
 ```
+
+These settings will not have any effect on a standalone node.
 
 {% hint style="info" %}
 The scheduler is disabled when HA is enabled and when HA mode is `NONE`. See [Mode of Operation](../../administration/management/high-availability.md#ha.moo) in HA for more details.
