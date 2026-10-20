@@ -2572,6 +2572,24 @@ curl \
 
 <details>
 
+<summary><mark style="color:green;"><code>get_unhidden_schema</code></mark></summary>
+
+`get_unhidden_schema` - Returns the schema groups currently unhidden in the session.
+
+**Params**
+
+This method takes no parameters.
+
+**Result**
+
+```json
+{"groups": <array of string>}
+```
+
+</details>
+
+<details>
+
 <summary><mark style="color:green;"><code>hide_schema</code></mark></summary>
 
 `hide_schema` - Hides data that has been adorned with a `hidden` statement in YANG modules. `hidden` statement is an extension defined in the tail-common YANG module (http://tail-f.com/yang/common).
@@ -2583,14 +2601,14 @@ curl \
  "group_name": <string>}
 ```
 
-The optional `th` param restricts the operation to one transaction. If omitted, the operation applies to all transactions in the Web UI session.
+The optional `th` param restricts the operation to one transaction. If omitted, the operation applies to all transactions in the session.
 
 The `group_name` param is as defined by a `hidden` statement in a YANG module.
 
 **Result**
 
 ```json
-{}
+{"groups": <array of string>}
 ```
 
 </details>
@@ -2609,7 +2627,7 @@ The `group_name` param is as defined by a `hidden` statement in a YANG module.
  "passwd": <string>}
 ```
 
-The optional `th` param restricts the operation to one transaction. If omitted, the operation applies to all transactions in the Web UI session.
+The optional `th` param restricts the operation to one transaction. If omitted, the operation applies to all transactions in the session.
 
 The `group_name` param is as defined by a `hidden` statement in a YANG module.
 
@@ -2618,7 +2636,7 @@ The `passwd` param is a password needed to hide the data that has been adorned w
 **Result**
 
 ```json
-{}
+{"groups": <array of string>}
 ```
 
 </details>
