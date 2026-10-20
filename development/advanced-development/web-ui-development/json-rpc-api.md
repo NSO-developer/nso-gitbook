@@ -2543,6 +2543,24 @@ curl \
 
 <details>
 
+<summary><mark style="color:green;"><code>get_unhidden_schema</code></mark></summary>
+
+`get_unhidden_schema` - Returns the schema groups currently unhidden in the session.
+
+**Params**
+
+This method takes no parameters.
+
+**Result**
+
+```json
+{"groups": <array of string>}
+```
+
+</details>
+
+<details>
+
 <summary><mark style="color:green;"><code>hide_schema</code></mark></summary>
 
 `hide_schema` - Hides data that has been adorned with a `hidden` statement in YANG modules. `hidden` statement is an extension defined in the tail-common YANG module (http://tail-f.com/yang/common).
