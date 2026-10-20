@@ -1182,25 +1182,9 @@ It might be desirable to deny everything for a user group and only allow access 
 
 ### Device Group Authorization <a href="#d5e6700" id="d5e6700"></a>
 
-In deployments with many devices, it can become cumbersome to handle data authorization per device. To help with this there is a rule type that works on device group membership (for more on device groups, see [Device Groups](../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.device_groups)). To do this, devices are added to different device groups, and the rule type `device-group-rule` is used.
+In deployments with many devices, it can become cumbersome to handle data authorization per device. [Device Groups](../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.device_groups) define groups of devices to simplify management; devices are added to different device groups, and NACM rules can be applied to one or more device groups.
 
-The IETF NACM rule type is augmented with a new rule type named `device-group-rule` which contains a leafref to the device groups. See the following example.
-
-{% code title="Device Group Model Augmentation" %}
-```yang
-augment "/nacm:nacm/nacm:rule-list/nacm:rule/nacm:rule-type" {
-  case device-group-rule {
-    leaf device-group {
-      type leafref {
-        path "/ncs:devices/ncs:device-group/ncs:name";
-      }
-      description
-        "Which device group this rule applies to.";
-    }
-  }
-}
-```
-{% endcode %}
+This is possible because the IETF NACM rule type is augmented with a new leaf-list `device-group` which contains a leafref to the device groups.
 
 In the example below, we configure two device groups based on different regions and add devices to them.
 
@@ -1235,7 +1219,6 @@ In the example below, we configure an operator for the `us_east` region:
 ```
 {% endcode %}
 
-\
 In the example below, we configure the device group rules and refer to the device group and the `us_east` group.
 
 {% code title="Device Group Authorization Rules" %}
@@ -1272,6 +1255,10 @@ In the example below, we configure the device group rules and refer to the devic
 </nacm>
 ```
 {% endcode %}
+
+{% hint style="info" %}
+Rules on a device group can be combined with a `path` leaf, however, combination with `rpc-name` or `notification-name`  is not supported.
+{% endhint %}
 
 In summary device group authorization gives a more compact configuration for deployments where devices can be grouped and authorization can be done on a device group basis.
 
