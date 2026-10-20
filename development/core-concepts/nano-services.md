@@ -230,6 +230,10 @@ Since neither the `init` nor the `vm-requested` states have any pre-conditions, 
 
 But the process has stopped at the `vm-configured` state, denoted by the `not-reached` status in the output. It is waiting for the pre-condition to become fulfilled with the help of a kicker. The job of the kicker is to watch the value and perform an action, the reactive re-deploy, when the conditions are satisfied. The kickers are managed by the nano service subsystem: when an unsatisfied precondition is encountered, a kicker is configured, and when the precondition becomes satisfied, the kicker is removed.
 
+{% hint style="info" %}
+You can inspect the [Progress Trace](../advanced-development/progress-trace.md) logs for the reason the state cannot run yet.
+{% endhint %}
+
 You may also verify, through the `get-modifications` action, that only the first part, the creation of the VM, was performed:
 
 ```cli
@@ -310,7 +314,7 @@ Both examples require two distinct steps for de-provisioning. Can nano services 
 
 <div data-with-frame="true"><figure><img src="../../.gitbook/assets/nano-backtrack.png" alt="" width="563"><figcaption><p>Staged Delete with Backtracking</p></figcaption></figure></div>
 
-In doing so, the back-tracking process checks for a 'delete pre-condition' of a state. A delete pre-condition is similar to the create pre-condition, but only relevant when back-tracking. If the condition is not fulfilled, the back-tracking process stops and waits until it becomes satisfied. Behind the scenes, a kicker is configured to restart the process when that happens.
+In doing so, the back-tracking process checks for a 'delete pre-condition' of a state. A delete pre-condition is similar to the create pre-condition, but only relevant when back-tracking. If the condition is not fulfilled, the back-tracking process stops and waits until it becomes satisfied. Behind the scenes, a kicker is configured to restart the process when that happens. The reason for stopping is logged to the [Progress Trace](../advanced-development/progress-trace.md).
 
 If the state's delete pre-condition is fulfilled, back-tracking first removes the state's 'create' changes recorded by FASTMAP and then invokes the nano `delete()` callback, if defined. The main use of the callback is to override or veto the default status calculation for a back-tracking state. That is why you can't implement the `delete()` callback with a template, for example. Very importantly, `delete()` changes are not kept in a service's reverse diff-set and may stay even after the service is completely removed. In general, you are advised to avoid writing any configuration data because this callback is called under a removal phase of a plan component where new configuration is seldom expected.
 
@@ -623,7 +627,7 @@ These zombie actions behave a bit differently than their normal service counterp
 
 In addition, zombie services support the `resurrect` action. The action reinstates the zombie back in the configuration tree as a real service, with the current plan status, and reverts plan components back from back-tracking to normal mode. It is an “undo” for a nano service delete.
 
-In some situations, especially during nano service development, a zombie may get stuck because of a misconfigured precondition or similar issues. A re-deploy is unlikely to help in that case and you may need to forcefully remove the problematic plan component. The `force-back-track` action performs this job and allows you to backtrack to a specific state if specified. But beware that using the action avoids calling any post-actions or delete callbacks for the forcefully backtracked states, even though the recorded configuration modifications are reverted. It can and will leave your systems in an inconsistent or broken state if you are not careful.
+In some situations, especially during nano service development, a zombie may get stuck because of a misconfigured precondition or similar issues; use [Progress Trace](../advanced-development/progress-trace.md) to check for the reason. A re-deploy is unlikely to help in that case and you may need to forcefully remove the problematic plan component. The `force-back-track` action performs this job and allows you to backtrack to a specific state if specified. But beware that using the action avoids calling any post-actions or delete callbacks for the forcefully backtracked states, even though the recorded configuration modifications are reverted. It can and will leave your systems in an inconsistent or broken state if you are not careful.
 
 ## Using Notifications to Track the Plan and its Status <a href="#d5e9981" id="d5e9981"></a>
 

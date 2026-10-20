@@ -35,7 +35,7 @@ The NSO systemd service now starts NSO in foreground mode, allowing systemd to m
 
 Documentation Updates:
 
-* Updated the \[System Install]\(administration/installation-and-deployment/system-install.md) section with the new behavior.
+* Updated the [System Install](administration/installation-and-deployment/system-install.md) section with the new behavior.
 
 </details>
 
@@ -47,7 +47,7 @@ A re-implemented NETCONF Access Control Model (NACM) extension in NSO makes it p
 
 Documentation Updates:
 
-* Described supported usage in the \[AAA Infrastructure]\(administration/management/aaa-infrastructure.md).
+* Described supported usage in the [AAA Infrastructure](administration/management/aaa-infrastructure.md).
 
 </details>
 
@@ -61,6 +61,6 @@ Furthermore, the system now waits for outstanding commit queue items before mark
 
 Documentation Updates:
 
-* Updated the \[Nano Services]\(development/core-concepts/nano-services.md) documentation.
+* Updated the [Nano Services](development/core-concepts/nano-services.md) documentation.
 
 </details>
