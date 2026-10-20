@@ -767,7 +767,8 @@ An XML compliance template is an `.xml` file whose root element is `<compliance-
 
 ```xml
 <compliance-template xmlns="http://tail-f.com/ns/config/1.0"
-                     name="my-template">
+                     name="my-template"
+                     description="Checks interface configuration">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <device>
       <name>{$DEVICE}</name>
@@ -778,6 +779,8 @@ An XML compliance template is an `.xml` file whose root element is `<compliance-
   </devices>
 </compliance-template>
 ```
+
+The optional `description` attribute provides a human-readable description of the template. NSO exposes it as the `description` leaf for the loaded template.
 
 Values in the template are treated as regular expressions, and variables use the `{$VAR_NAME}` syntax and are substituted at check time.
 
@@ -842,13 +845,13 @@ All loaded XML compliance templates are visible under `/compliance/xml-templates
 
 ```
 ncs# show compliance xml-templates template
-NAME         FILENAME                                   PACKAGE  VARIABLES
-----------------------------------------------------------------------------
-compliance1  /opt/ncs/compliance-templates/comp1.xml    -        [DEVICE]
-dns_check    packages/dns/templates/dns_compliance.xml  dns      [DEVICE]
+NAME         FILENAME                                   PACKAGE  DESCRIPTION                     VARIABLES
+------------------------------------------------------------------------------------------------------------
+compliance1  /opt/ncs/compliance-templates/comp1.xml    -        Checks interface configuration  [DEVICE]
+dns_check    packages/dns/templates/dns_compliance.xml  dns      -                               [DEVICE]
 ```
 
-Each entry shows the template `name`, `filename` (path on disk), `package` (empty for templates loaded from the load-path rather than a package), and the list of `variables` used in the template.
+Each entry shows the template `name`, `filename` (path on disk), `package` (empty for templates loaded from the load-path rather than a package), optional `description`, and the list of `variables` used in the template.
 
 Any loading errors — such as duplicate template names, malformed XML, or unsupported processing instructions — are reported in `/compliance/xml-templates/error-info`:
 
