@@ -50,3 +50,17 @@ Documentation Updates:
 * Described supported usage in the \[AAA Infrastructure]\(administration/management/aaa-infrastructure.md).
 
 </details>
+
+<details>
+
+<summary>Nano Services Updates</summary>
+
+NSO 6.8 introduces additional progress trace events when nano service execution is blocked waiting on a pre-condition, action invocation, or similar. This feature provides better insight into nano service state and simplifies troubleshooting.
+
+Furthermore, the system now waits for outstanding commit queue items before marking nano service provisioning as completed (reaching the `self/ready` state), helping callers ensure changes are propagated to network devices.
+
+Documentation Updates:
+
+* Updated the \[Nano Services]\(development/core-concepts/nano-services.md) documentation.
+
+</details>
