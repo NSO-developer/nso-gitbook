@@ -387,8 +387,8 @@ for the specific node down alarms are used in the alarms.
   Make sure the HA cluster is operational, investigate why
   the primary went down and bring it up again.
 * **Clear Condition(s)**  
-  This alarm is automatically cleared when the node is
-  reconnected to the HA cluster.
+  This alarm is automatically cleared when the disconnected node
+  rejoins the HA cluster.
 * **Alarm Message(s)**  
   * `Lost connection to primary due to: Primary closed connection`
   * `Lost connection to primary due to: Tick timeout`
