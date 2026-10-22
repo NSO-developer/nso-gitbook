@@ -31,7 +31,7 @@
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
-  * [README v1.5.16 2026-09-17](alu-isam/README.md)
+  * [README v1.5.17 2026-10-21](alu-isam/README.md)
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
@@ -118,7 +118,7 @@
 
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)
-  * [README v2.1.8 2026-03-26](ericsson-efn324/README.md)
+  * [README v2.1.9 2026-10-21](ericsson-efn324/README.md)
 
 * ericsson-enm
   * [README-ned-settings](ericsson-enm/README-ned-settings.md)
@@ -167,7 +167,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.88 2026-10-15](huawei-vrp/README.md)
+  * [README v6.88.1 2026-10-21](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)

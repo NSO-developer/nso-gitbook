@@ -141,6 +141,13 @@
       Path to openssh formatted private key file.
 
 
+    - connection ssh keep-alive-interval <seconds> (default 0)
+
+      Configure SSH client keep alive interval in seconds, default 0 (i.e. no keep-alive). The
+      keep-alive is implemented in the client by sending an ssh 'ignore' message on the given
+      interval.
+
+
 # 4. ned-settings ericsson-efn324 logging
 -----------------------------------------
 
@@ -199,9 +206,19 @@
 
       Connection type between proxy and device.
 
-      ssh     - ssh.
+      ssh            - Start a new ssh client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
 
-      telnet  - telnet.
+      telnet         - Start a new telnet client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
+
+      serial         - Connect through a terminal server to device.
+
+      ssh-direct     - Direct forward to device using ned local ssh client (i.e. without shell on
+                       proxy).
+
+      telnet-direct  - Direct forward to device using ned local telnet client (i.e. without shell on
+                       proxy).
 
 
     - proxy remote-address <union>
@@ -232,6 +249,16 @@
     - proxy remote-ssh-args <string>
 
       Additional arguments used to establish proxy connection.
+
+
+    - proxy auth-key private-key-file <string>
+
+      Path to openssh formatted private key file for doing public key auth to device behind proxy.
+
+
+    - proxy host-key-validation <true|false> (default false)
+
+      Set this to true to force host-key validation of device behind proxy.
 
     Note:
      - Proxy connection is only supported when "ned-settings/ericsson-efn324/deprecated/connection/legacy-mode" is disabled.
