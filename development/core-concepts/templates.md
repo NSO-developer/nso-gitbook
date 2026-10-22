@@ -443,7 +443,7 @@ Here are some examples of different combinations of `tags` with `child-tags` and
           <description>Link to PE</description>
           ...
     ```
-*   `tags="create" child-tags="nocreate"`: The parent node `<GigabitEthernet>` will have `create` behavior while its children nodes on all the sub-levels  `<name>`, `<description>`, `<manually-set>`, `<presence-container>` and `<dummy>` (except `<state>`) will have `nocreate` behavior due to `child-tags="nocreate"` which affects subtree of the current node (until a new `tags="merge"` is introduced on the sub-node `state` of which it will have a new operation `merge`).
+*   `tags="create" child-tags="nocreate"`: The parent node `<GigabitEthernet>` will have `create` behavior while its children nodes on all the sub-levels `<name>`, `<description>`, `<manually-set>`, `<presence-container>` and `<dummy>` (except `<state>`) will have `nocreate` behavior due to `child-tags="nocreate"` which affects subtree of the current node (until a new `tags="merge"` is introduced on the sub-node `state` of which it will have a new operation `merge`).
 
     ```xml
         <GigabitEthernet tags="create" child-tags="nocreate">
@@ -721,9 +721,11 @@ Additionally, the system performs validation of the template against the specifi
 
 In case the namespace matching is insufficient, such as when you want to check for a particular version of a NED, you can use special processing instructions `if-ned-id` or `if-ned-id-match`. See [Processing Instructions Reference](templates.md#ch_templates.xml_instructions) for details and [Supporting Different Device Types](implementing-services.md#ch_services.devs_types) for an example.
 
-However, strict validation against the currently loaded schema may become a problem for developing generic, reusable templates that should run in different environments with different sets of NEDs and NED versions loaded. For example, an NSO instance having fewer NED versions than the template is designed for may result in some elements not being recognized, while having more NED versions may introduce ambiguities.
+### Supported NED IDs
 
-In order to allow templates to be reusable while at the same time keeping as many errors as possible detectable at load time, NSO has a concept of `supported-ned-ids`. This is a set of NED IDs the package developer declares in the `package-meta-data.xml` file, indicating all NEDs the XML templates contained in this package are designed to support. This gives NSO a hint on how to interpret the template.
+Strict validation against the currently loaded schema may become a problem for developing generic, reusable templates that should run in different environments with different sets of NEDs and NED versions loaded. For example, an NSO instance having fewer NED versions than the template is designed for may result in some elements not being recognized, while having more NED versions may introduce ambiguities.
+
+In order to allow templates to be reusable while at the same time keeping as many errors as possible detectable at load time, NSO has a concept of `supported-ned-id`s. This is a set of NED IDs the package developer declares in the `package-meta-data.xml` file, indicating all NEDs the XML templates contained in this package are designed to support. This gives NSO a hint on how to interpret the template.
 
 {% code title="Example: Package Declaring supported-ned-id" %}
 ```xml
@@ -744,11 +746,27 @@ In order to allow templates to be reusable while at the same time keeping as man
 
 Namely, if a package declares a list of supported-ned-ids, then the templates in this package are interpreted as if no other ned-ids are loaded in the system. If such a template is attempted to be applied to a device with ned-id outside the supported list, then a run-time error is generated because this ned-id was not considered when the template was loaded. This allows us to ignore ambiguities in the data model introduced by additional NEDs that were not considered during template development.
 
-If a package declares a list of supported-ned-ids and the runtime system does not have one or more declared NEDs loaded, then the template engine uses the so-called relaxed loading mode, which means it ignores any unknown namespaces and `<?if-ned-id?>` clauses containing exclusively unknown ned-ids, assuming that these parts of the template are not applicable in the current running system. Note, however, that `<supported-ned-id-match>` in the current implementation only filters the list of currently loaded NEDs and does not result in relaxed loading mode.
+### Template Loading Mode
 
-Because relaxed loading mode performs less strict validation and potentially prevents some errors from being detected, the package developer should always make sure to test in the system with all the supported ned-ids loaded, i.e. when the loading mode is `strict`. The loading mode can be verified by looking at the value of `template-loading-mode` leaf for the corresponding package under `/packages/package` list.
+If the package does not declare any supported-ned-ids, then the templates are loaded in `strict` mode, using the full set of currently loaded NED IDs. This may make the package less reusable between different systems, but is usually fine in environments where the package is intended to be used in runtime systems fully under the control of the package developer.
 
-If the package does not declare any `supported-ned-ids`, then the templates are loaded in `strict` mode, using the full set of currently loaded NED IDs. This may make the package less reusable between different systems, but is usually fine in environments where the package is intended to be used in runtime systems fully under the control of the package developer.
+The `strict` loading mode is also used when all of the declared supported-ned-ids are present in the system, resulting in the full XML template validation.
+
+If a package declares a list of supported-ned-ids and the runtime system does not have one or more declared NEDs loaded, then the template engine uses the so-called `relaxed` loading mode, which means it ignores any unknown namespaces and `<?if-ned-id?>` clauses containing exclusively unknown ned-ids, assuming that these parts of the template are not applicable in the current running system.
+
+On the other hand, specifying `supported-ned-id-match` for a package in the current implementation filters the list of currently loaded NEDs, against which the templates are then validated. It does not result in relaxed loading mode by itself.
+
+The loading mode can also be set explicitly in the `package-meta-data.xml` file as default for templates that are part of this package, or individually in the XML template:
+
+```xml
+<config-template xmlns="http://tail-f.com/ns/config/1.0"
+                 template-loading-mode="relaxed">
+                 <!-- or "strict" -->
+  <!-- ... -->
+</config-template>
+```
+
+Because relaxed loading mode performs less strict validation and potentially prevents some errors from being detected, the package developer should always make sure to test in the system with all the supported ned-ids loaded, i.e. when the loading mode is `strict`. The loading mode can be verified by looking at the value of `template-loading-mode` leaf, either for the package or individual template in `template` list, under `/packages/package`.
 
 ## Passing Deep Structures from API <a href="#d5e2638" id="d5e2638"></a>
 
