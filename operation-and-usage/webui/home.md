@@ -10,4 +10,4 @@ The **Home** view is the default view after logging in. It provides shortcuts to
 
 ## Web UI Extension Packages
 
-Currently loaded Web UI extension packages are shown in this view under **Packages**. Web UI packages are used to extend the functionality of your Web UI, for example, to create additional views and functionalities. Examples are creating a view to visualize your MPLS network, etc.
+Loaded Web UI extension packages are available from the separate **Packages** category in the sidebar. The category is shown only when at least one loaded package provides a Web UI view. For an explanation of this category and how it differs from package management, see [Web UI Extension Packages](packages.md).

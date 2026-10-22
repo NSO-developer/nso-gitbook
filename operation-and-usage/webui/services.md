@@ -57,7 +57,7 @@ The **Check sync** action can be run on multiple services at once by selecting t
 
 **Actions Possible in the Services View**
 
-Available actions include **Re-deploy**, **Un-deploy**, **Check sync**, **Deep check sync**, and **get modifications**. See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
+The actions available depend on the selected service's YANG schema and your access permissions. Common actions include **Re-deploy**, **Un-deploy**, **Check sync**, **Deep check sync**, and **get modifications**. See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 
 {% hint style="info" %}
 The **Modify in Config Editor** and **Delete** are GUI-specific operations accessible on the service row.
@@ -74,7 +74,7 @@ Additional actions are applied to an individual service. Use this option if you 
 
 **Actions Possible in the Configuration Editor -> Actions Tab**
 
-Access the service in the **Configuration editor** to run the following actions: **check-sync**, **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch**, **set-rank**, **re-deploy**, **get-modifications**, and **purge.** See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
+Access the service in the **Configuration editor** to run actions that are available for the selected service schema and your access permissions. Common actions include **check-sync**, **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch**, **set-rank**, **re-deploy**, **get-modifications**, and **purge.** See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 {% endtab %}
 {% endtabs %}
 
