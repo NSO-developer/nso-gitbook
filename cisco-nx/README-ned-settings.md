@@ -193,7 +193,10 @@
 
       Configure the SSH client to use.
 
-      sshj  - The SSHJ based SSH client with support for many crypto features.
+      sshj  - SSHJ-based client. Supports most modern cryptographic standards.
+
+      mina  - Apache MINA-based client. Supports the latest cryptographic standards, including PQC
+              algorithms.
 
 
     - connection ssh keep-alive-interval <0-4294967295>

@@ -39,7 +39,7 @@
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.35.2 2026-10-09](arista-dcs/README.md)
+  * [README v5.35.3 2026-10-22](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -102,7 +102,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.38.1 2026-09-29](cisco-nx/README.md)
+  * [README v5.38.2 2026-10-22](cisco-nx/README.md)
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
@@ -215,7 +215,7 @@
 
 * paloalto-panos_cli
   * [README-ned-settings](paloalto-panos_cli/README-ned-settings.md)
-  * [README v4.12.1 2026-09-30](paloalto-panos_cli/README.md)
+  * [README v4.12.2 2026-10-22](paloalto-panos_cli/README.md)
 
 * rad-vx
   * [README-ned-settings](rad-vx/README-ned-settings.md)
