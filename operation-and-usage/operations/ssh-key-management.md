@@ -36,7 +36,7 @@ A host key is usable only when its corresponding algorithm is enabled under `/nc
 
 The algorithms allowed for the built-in SSH server are configured under `/ncs-config/ssh/algorithms` in `ncs.conf`. Separate settings control the server host-key, key-exchange, MAC, and encryption algorithms. Each setting contains a comma-separated preference list; its order determines the order advertised by the server during negotiation.
 
-The default key-exchange preference list starts with `mlkem768x25519-sha256`, a hybrid key exchange combining ML-KEM-768 with X25519. It requires an Erlang/OTP SSH implementation that supports [RFC 10042](https://www.rfc-editor.org/rfc/rfc10042.html) and a peer that offers the same algorithm. The `kex` setting can be used to change the allowed algorithms and their preference order.
+The default key-exchange preference list starts with `mlkem768x25519-sha256`, a hybrid key exchange combining ML-KEM-768 with X25519. Whether `mlkem768x25519-sha256` is used on a connection depends on the effective configuration, the capabilities of both endpoints, and the algorithms negotiated during connection establishment.
 
 The effective algorithm set can be smaller than the configured set. In FIPS mode, an algorithm must also be permitted by the applicable FIPS restrictions. A server host-key algorithm additionally requires a corresponding private key. See [`ncs.conf(5)`](../../resources/man/ncs.conf.5.md) for setting syntax and other SSH options.
 
@@ -75,7 +75,7 @@ The ordered lists of algorithms allowed for southbound SSH negotiations can be c
 * `/devices/device/live-status-protocol/ssh-algorithms`
 * `/cluster/remote-node/ssh-algorithms`
 
-For NSO 6.8, the default key-exchange preference list for the Erlang/OTP SSH client starts with `mlkem768x25519-sha256`, a hybrid key exchange combining ML-KEM-768 with X25519. This applies to the built-in SSH client connections listed above, including NETCONF, cluster connections, host-key retrieval, SCP, and SFTP. It requires an OTP SSH implementation that supports [RFC 10042](https://www.rfc-editor.org/rfc/rfc10042.html) and a peer that offers the algorithm. Java NEDs using SSHJ and custom NEDs using another SSH implementation are not covered by this default.
+For NSO 6.8, the default key-exchange preference list for NSO’s built-in SSH client starts with `mlkem768x25519-sha256`, a hybrid key exchange combining ML-KEM-768 with X25519. This applies to the built-in SSH client connections listed above, including NETCONF, cluster connections, host-key retrieval, SCP, and SFTP. Whether `mlkem768x25519-sha256` is used on a connection depends on the effective configuration, the capabilities of both endpoints, and the algorithms negotiated during connection establishment. Java NEDs using SSHJ and custom NEDs using another SSH implementation are not covered by this default.
 
 NEDCOM 1.374 introduces an Apache MINA SSH client with PQC support. For NSO 6.8 and later, it is the default for NEDs that have adopted it; a NED setting can override the choice, and rollout varies by NED. Consult the NED-specific documentation for availability and configuration. This client is separate from the Erlang/OTP SSH client and the NSO Java `SSHClient` API.
 
