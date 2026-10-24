@@ -106,7 +106,7 @@
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.59.9 2026-10-13](cisco-staros/README.md)
+  * [README v5.59.10 2026-10-23](cisco-staros/README.md)
 
 * citrix-netscaler
   * [README-ned-settings](citrix-netscaler/README-ned-settings.md)
@@ -138,7 +138,7 @@
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)
-  * [README v4.3.57 2026-08-28](fortinet-fmg/README.md)
+  * [README v4.3.58 2026-10-23](fortinet-fmg/README.md)
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
@@ -175,7 +175,7 @@
   * [README v1.2.1 2026-03-26](huawei-vrp_nc/README.md)
 
 * juniper-junos
-  * [README v4.20 2026-09-25](juniper-junos/README.md)
+  * [README v4.20.1 2026-10-23](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
