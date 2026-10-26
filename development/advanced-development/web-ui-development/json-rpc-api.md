@@ -1728,6 +1728,10 @@ The `xpath_expr` could be \``/interface[enabled='true']`\` and `selection` could
 
 Note that the `selection` expressions must be valid XPath expressions, e.g. to figure out the name of an interface and whether its number is even or not, the expressions must look like: \``{ "name", "(number mod 2) == 0" }`\`.
 
+{% hint style="info" %}
+For XPath extensions available in Query API expressions, see [Query API Extensions](../../../developer-reference/xpath.md#query-api-extensions).
+{% endhint %}
+
 The result are then fetched using `run_query`, which returns the result on the format specified by `result_as` param.
 
 There are two different types of results:
@@ -2568,6 +2572,24 @@ curl \
 
 <details>
 
+<summary><mark style="color:green;"><code>get_unhidden_schema</code></mark></summary>
+
+`get_unhidden_schema` - Returns the schema groups currently unhidden in the session.
+
+**Params**
+
+This method takes no parameters.
+
+**Result**
+
+```json
+{"groups": <array of string>}
+```
+
+</details>
+
+<details>
+
 <summary><mark style="color:green;"><code>hide_schema</code></mark></summary>
 
 `hide_schema` - Hides data that has been adorned with a `hidden` statement in YANG modules. `hidden` statement is an extension defined in the tail-common YANG module (http://tail-f.com/yang/common).
@@ -2575,16 +2597,18 @@ curl \
 **Params**
 
 ```json
-{"th": <integer>,
+{"th": <integer, optional>,
  "group_name": <string>}
 ```
+
+The optional `th` param restricts the operation to one transaction. If omitted, the operation applies to all transactions in the session.
 
 The `group_name` param is as defined by a `hidden` statement in a YANG module.
 
 **Result**
 
 ```json
-{}
+{"groups": <array of string>}
 ```
 
 </details>
@@ -2598,10 +2622,12 @@ The `group_name` param is as defined by a `hidden` statement in a YANG module.
 **Params**
 
 ```json
-{"th": <integer>,
+{"th": <integer, optional>,
  "group_name": <string>,
  "passwd": <string>}
 ```
+
+The optional `th` param restricts the operation to one transaction. If omitted, the operation applies to all transactions in the session.
 
 The `group_name` param is as defined by a `hidden` statement in a YANG module.
 
@@ -2610,7 +2636,7 @@ The `passwd` param is a password needed to hide the data that has been adorned w
 **Result**
 
 ```json
-{}
+{"groups": <array of string>}
 ```
 
 </details>

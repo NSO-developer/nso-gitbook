@@ -1862,6 +1862,13 @@ This section shows how device templates can be used to create and change device 
 
 Device templates are part of the NSO configuration. Device templates are created and changed in the tree `/devices/template/ned-id/config` the same way as any other configuration data and are affected by rollbacks and upgrades. Device templates can only manipulate configuration data in the `/devices/device/config` tree i.e., only device data.
 
+Each device template can also have an optional description. Set it under `/devices/template/<name>/description`:
+
+```cli
+ncs(config)# set devices template snmp1 description "Initial SNMP settings"
+ncs(config)# commit
+```
+
 The [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.7/service-management/mpls-vpn-java) example comes with a pre-populated template for SNMP settings.
 
 ```cli
@@ -1989,6 +1996,8 @@ Operation 'merge' on non-existing node:
 
 To simplify template creation, NSO features the `/devices/create-template` action that can initiate a template from a set of device configurations by finding common structural patterns. The resulting template can be used as as-is or as a starting point for further refinement.
 
+The action can combine configuration from devices using different NED schemas. By default, the generated device template is stored in CDB. To write it as an XML template file instead, set `out-directory` to an existing directory. NSO writes `<name>.xml` in that directory; it does not overwrite an existing file. The generated XML uses `<?if-ned-id-match ...?>` conditions where needed to scope schema-specific configuration.
+
 The algorithm works by traversing the data depth-first, keeping track of the rate of occurrence of configuration nodes, and any values that compare equal. Values that do not compare equal are parameterized. For example:
 
 {% code overflow="wrap" %}
@@ -2014,6 +2023,7 @@ Commit complete.
 The action takes a number of arguments to control how the resulting template looks:
 
 * `path` - A list of XPath 1.0 expressions pointing into `/devices/device/config` to create the template from. The template is only created from the paths that are common in the node-set.
+* `out-directory` - Write the generated XML template to `<out-directory>/<name>.xml` instead of creating a device template in CDB. The directory must already exist, and the file must not already exist.
 * `match-rate` - Device configuration is included in the resulting template based on the rate of occurrence given by this setting.
 * `exclude-service-config` - Exclude configuration that is already under service management.
 * `collapse-list-keys` - Decides what lists to make variables of, either `all`, `automatic` (default), or those specified by the `list-path` parameter. The default is to find those lists that differ among the device configurations.

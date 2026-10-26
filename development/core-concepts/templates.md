@@ -76,6 +76,8 @@ Finally, every XML template has a name. The name of the template is the file pat
 
 To simplify template creation, NSO features the `/services/create-template` action that can find common structural patterns in a set of device configurations and create a configuration template and the corresponding service YANG model based on it.
 
+The action can use configurations from devices running different NED schemas. It emits `<?if-ned-id-match ...?>` conditions where necessary to scope schema-specific configuration.
+
 The algorithm works by traversing the data depth-first, keeping track of the rate of occurrence of configuration nodes, and any values that compare equal. Values that do not compare equal are parameterized and service input parameters are created for these paths in the YANG model. For example:
 
 {% code overflow="wrap" %}
@@ -173,6 +175,7 @@ The action takes a number of arguments to control how the resulting template loo
 
 * `name` - The name of the new service.
 * `path` - A list of XPath 1.0 expressions pointing into `/devices/device/config` to create the template from. The template is only created from the paths that are common in the node-set.
+* `device-template` - Use an existing device template as the source. Specify its `name`; optionally specify `ned-id` to use only that NED schema. If omitted, all NED schemas in the device template are used.
 * `match-rate` - Device configuration is included in the resulting template based on the rate of occurrence given by this setting. By giving different rates the user can decide how often configuration needs to occur for it to be included in the template.
 * `exclude-service-config` - Exclude configuration that is already under service management. This is useful when the intention is to detect common configuration that can be turned into a service.
 * `make-package` - Create a service package including the generated template and YANG module. The package is created in the parent directory specified by `in-directory`, but is not built. The package needs to be built separately by running `make` in its `src/` subdirectory. The user has the freedom of making modifications to the generated files.
@@ -752,21 +755,34 @@ If the package does not declare any supported-ned-ids, then the templates are lo
 
 The `strict` loading mode is also used when all of the declared supported-ned-ids are present in the system, resulting in the full XML template validation.
 
-If a package declares a list of supported-ned-ids and the runtime system does not have one or more declared NEDs loaded, then the template engine uses the so-called `relaxed` loading mode, which means it ignores any unknown namespaces and `<?if-ned-id?>` clauses containing exclusively unknown ned-ids, assuming that these parts of the template are not applicable in the current running system.
+If a package declares a list of supported-ned-ids and the runtime system does not have one or more declared NEDs loaded, then the template engine uses the so-called `relaxed` loading mode. Relaxed mode ignores any unknown namespaces and `<?if-ned-id?>` clauses containing exclusively unknown ned-ids, assuming that these parts of the template are not applicable in the current running system.
 
 On the other hand, specifying `supported-ned-id-match` for a package in the current implementation filters the list of currently loaded NEDs, against which the templates are then validated. It does not result in relaxed loading mode by itself.
 
-The loading mode can also be set explicitly in the `package-meta-data.xml` file as default for templates that are part of this package, or individually in the XML template:
+The loading mode can also be set explicitly: the default loading mode for all XML templates in a package is configured with the `template-loading-mode` element in `package-meta-data.xml`. An individual XML template can override the package default with the `template-loading-mode` attribute on its `config-template` root. The following example sets a relaxed package default and a strict mode for one template:
 
+{% code title="Package and template loading modes" %}
+```xml
+<ncs-package xmlns="http://tail-f.com/ns/ncs-packages">
+  <name>mypackage</name>
+  <template-loading-mode>relaxed</template-loading-mode>
+  <!-- ... -->
+</ncs-package>
+```
+{% endcode %}
+
+{% code title="templates/strict-template.xml" %}
 ```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
-                 template-loading-mode="relaxed">
-                 <!-- or "strict" -->
+                 template-loading-mode="strict">
   <!-- ... -->
 </config-template>
 ```
+{% endcode %}
 
-Because relaxed loading mode performs less strict validation and potentially prevents some errors from being detected, the package developer should always make sure to test in the system with all the supported ned-ids loaded, i.e. when the loading mode is `strict`. The loading mode can be verified by looking at the value of `template-loading-mode` leaf, either for the package or individual template in `template` list, under `/packages/package`.
+If a template does not specify the attribute, it uses the package's effective mode. The effective package mode is shown by `/packages/package/template-loading-mode`. The per-template operational list at `/packages/package/template` shows each template's name; its `template-loading-mode` leaf is present only when that template explicitly sets the attribute.
+
+Because relaxed loading performs less strict validation and can prevent some errors from being detected, test packages with all supported NED IDs loaded, so templates are validated in strict mode. Strict mode reports schema-related errors detectable at load time, such as unknown namespaces, schema ambiguities, and unknown NED IDs.
 
 ## Passing Deep Structures from API <a href="#d5e2638" id="d5e2638"></a>
 

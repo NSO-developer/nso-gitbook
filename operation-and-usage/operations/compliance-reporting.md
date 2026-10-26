@@ -461,7 +461,7 @@ devices template use-internal-dns
   !
  !
 !
-admin@ncs(config)# compliance create-template name internal-dns device-template use-internal-dns
+admin@ncs(config)# compliance create-template name internal-dns device-template { name use-internal-dns }
 admin@ncs(config)# show configuration
 compliance template internal-dns
  ned-id router-nc-1.0
@@ -507,6 +507,9 @@ The action takes a number of arguments to control how the resulting template loo
 * `match-rate` - Device configuration is included in the resulting template based on the rate of occurrence given by this setting.
 * `exclude-service-config` - Exclude configuration that is already under service management.
 * `collapse-list-keys` - Decides what lists to do matching on, either `all`, `automatic` (default), or those specified by the `list-path` parameter. The default is to find those lists that differ among the device configurations.
+* `regex-induction` - Choose how differing values are generalized: `trie` (default) factors common prefixes and character alternatives; `dfa` can also factor common suffixes; `none` disables induction, so differing values use `.*`.
+* `device-template` - Generate from an existing device template by specifying its `name`. Its optional `ned-id` limits generation to that schema; omit it to include all NED schemas in the device template.
+* `out-directory` - Write an XML compliance template to `<out-directory>/<name>.xml` instead of creating a CDB compliance template. The directory must already exist, and the file must not already exist.
 
 Finally, to use compliance templates in a report, reference them from `device-check/template`:
 
@@ -764,7 +767,8 @@ An XML compliance template is an `.xml` file whose root element is `<compliance-
 
 ```xml
 <compliance-template xmlns="http://tail-f.com/ns/config/1.0"
-                     name="my-template">
+                     name="my-template"
+                     description="Checks interface configuration">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <device>
       <name>{$DEVICE}</name>
@@ -775,6 +779,8 @@ An XML compliance template is an `.xml` file whose root element is `<compliance-
   </devices>
 </compliance-template>
 ```
+
+The optional `description` attribute provides a human-readable description of the template. NSO exposes it as the `description` leaf for the loaded template.
 
 Values in the template are treated as regular expressions, and variables use the `{$VAR_NAME}` syntax and are substituted at check time.
 
@@ -808,6 +814,7 @@ XML compliance templates support all processing instructions available for [serv
 | `<?if {xpath-expr}?>` … `<?else?>` … `<?end?>` | Conditionally check parts of the template |
 | `<?set var = {xpath-expr}?>`                   | Assign a variable                         |
 | `<?if-ned-id ned-id?>` … `<?end?>`             | Conditionally check based on the NED ID   |
+| `<?if-ned-id-match regex?>` … `<?end?>`        | Conditionally check based on a regular expression matching the NED ID |
 | `<?macro name args?>` … `<?endmacro?>`         | Define a reusable template fragment       |
 | `<?expand macro-name args?>`                   | Expand a macro                            |
 
@@ -838,13 +845,13 @@ All loaded XML compliance templates are visible under `/compliance/xml-templates
 
 ```
 ncs# show compliance xml-templates template
-NAME         FILENAME                                   PACKAGE  VARIABLES
-----------------------------------------------------------------------------
-compliance1  /opt/ncs/compliance-templates/comp1.xml    -        [DEVICE]
-dns_check    packages/dns/templates/dns_compliance.xml  dns      [DEVICE]
+NAME         FILENAME                                   PACKAGE  DESCRIPTION                     VARIABLES
+------------------------------------------------------------------------------------------------------------
+compliance1  /opt/ncs/compliance-templates/comp1.xml    -        Checks interface configuration  [DEVICE]
+dns_check    packages/dns/templates/dns_compliance.xml  dns      -                               [DEVICE]
 ```
 
-Each entry shows the template `name`, `filename` (path on disk), `package` (empty for templates loaded from the load-path rather than a package), and the list of `variables` used in the template.
+Each entry shows the template `name`, `filename` (path on disk), `package` (empty for templates loaded from the load-path rather than a package), optional `description`, and the list of `variables` used in the template.
 
 Any loading errors — such as duplicate template names, malformed XML, or unsupported processing instructions — are reported in `/compliance/xml-templates/error-info`:
 

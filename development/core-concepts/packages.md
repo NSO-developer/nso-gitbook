@@ -8,8 +8,10 @@ All user code that needs to run in NSO must be part of a package. A package is b
 
 A package is a directory where the package name is the same as the directory name. At the top level of this directory, a file called `package-meta-data.xml` must exist. The structure of that file is defined by the YANG model `$NCS_DIR/src/ncs/yang/tailf-ncs-packages.yang`. A package may also be a tar archive with the same directory layout. The tar archive can be either uncompressed with the suffix `.tar`, or gzip-compressed with the suffix `.tar.gz` or `.tgz`. The archive file should also follow some naming conventions. There are two acceptable naming conventions for archive files, one is that after the introduction of CDM in the NSO 5.1, it can be named by `ncs-<ncs-version>-<package-name>-<package-version>.<suffix>`, e.g. `ncs-5.3-my-package-1.0.tar.gz` and the other is `<package-name>-<package-version>.<suffix>`, e.g. `my-package-1.0.tar.gz`.
 
-* `package-name`: should use letters, and digits and may include underscores (`_`) or dashes (`-`), but no additional punctuation, and digits can not follow underscores or dashes immediately.
+* `package-name`: may contain ASCII letters (`a-z`, `A-Z`), digits (`0-9`), periods (`.`), underscores (`_`), and dashes (`-`). No other characters are allowed.
 * `package-version`: should use numbers and dot (`.`).
+
+The same character rule applies to package names created with `ncs-make-package`. NSO continues to load existing packages whose names contain other characters, but reports a warning for each such package. View the warning with `show packages package <package-name> oper-status warnings`, then rename the package to use only the allowed characters.
 
 <div data-with-frame="true"><figure><img src="../../.gitbook/assets/dm-packages.png" alt="" width="563"><figcaption><p>Package Model</p></figcaption></figure></div>
 
@@ -106,7 +108,9 @@ submodule: tailf-ncs-packages (belongs-to tailf-ncs)
         |  +--ro vm-name?           string
         |  +--ro callpoint-model?   enumeration
         +--ro directory?                string
-        +--ro templates*                string
+        +--ro template* [name]
+        |  +--ro name                    string
+        |  +--ro template-loading-mode?  enumeration
         +--ro template-loading-mode?    enumeration
         +--ro supported-ned-id*         union
         +--ro supported-ned-id-match*   string
@@ -209,7 +213,9 @@ $ ncs_load -o -Fp -p /packages
         <callpoint-model>threading</callpoint-model>
       </python-package>
       <directory>./state/packages-in-use/1/vrouter</directory>
-      <templates>vrouter-configured</templates>
+      <template>
+        <name>vrouter-configured</name>
+      </template>
       <template-loading-mode>strict</template-loading-mode>
       <supported-ned-id xmlns:router-nc-1.1="http://tail-f.com/ns/ned-id/router-nc-1.1">
       router-nc-1.1:router-nc-1.1</supported-ned-id>
@@ -238,13 +244,13 @@ Below is a brief list of the configurables in the `tailf-ncs-packages.yang` YANG
 * `name` - the name of the package. All packages in the system must have unique names.
 * `package-version` - the version of the package. This is for administrative purposes only, NSO cannot simultaneously handle two versions of the same package.
 * `ncs-min-version` - the oldest known NSO version where the package works.
-* `ncs-max-version` - the latest known NSO version where the package works.
+* `ncs-max-version` - the latest known NSO version where the package works. If the value specifies only a major and minor version (for example, `6.1`), it applies to the entire minor release, including NSO versions with patch or build suffixes. With a major.minor-only maximum, `ncs-min-version` must also use major.minor precision; a more specific minimum, such as `6.1.1`, is invalid.
 * `python-package` - Python-specific package data.
   * `vm-name` - the Python VM name for the package. Default is the package `vm-name`. Packages with the same `vm-name` run in the same Python VM. Applicable only when `callpoint-model = threading`.
   * `callpoint-model` - A Python package runs Services, Nano Services, and Actions in the same OS process. If the `callpoint-model` is set to `multiprocessing` each will get a separate worker process. Running Services, Nano Services, and Actions in parallel can, depending on the application, improve the performance at the cost of complexity. See [The Application Component](nso-virtual-machines/nso-python-vm.md#ncs.development.pythonvm.cthread) for details.
 * `directory` - the path to the directory of the package.
-* `templates` - the templates defined by the package.
-* `template-loading-mode` - control if the templates are interpreted in strict or relaxed mode.
+* `template` - an operational list of the package's XML templates. Each entry has a `name`; its optional `template-loading-mode` leaf is present only when that template explicitly sets a mode.
+* `template-loading-mode` - the effective strict or relaxed loading mode for the package's templates. You can set the package default in `package-meta-data.xml`; otherwise NSO infers it from the package's supported NED IDs. An individual template can override the default with the `template-loading-mode` attribute on its `<config-template>` root.
 *   `supported-ned-id` - the list of ned-ids supported by this package. An example of the expected format taken from the [examples.ncs/nano-services/netsim-vrouter](https://github.com/NSO-developer/nso-examples/tree/6.7/nano-services/netsim-vrouter) example:
 
     ```xml

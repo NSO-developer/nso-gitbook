@@ -8,14 +8,23 @@ NSO includes a native time-based job scheduler suitable for scheduling backgroun
 
 ## Scheduling Periodic Work <a href="#d5e9339" id="d5e9339"></a>
 
-A standard Vixie Cron expression is used to represent the periodicity in which the task should run. When the task is triggered, the configured action is invoked on the configured action node instance. The action is run as the user that configured the task.
+You can represent a recurring schedule with either a compact cron-like expression or structured fields. When the task is triggered, the configured action is invoked on the configured action node instance. The action is run as the user that configured the task.
 
-Example: To schedule a task to run `sync-from` at 2 AM on the 1st of every month, we do:
+For example, schedule `sync-from` to run at 2 AM on the 1st of every month using a cron-like expression:
 
 ```bash
 admin(config)# scheduler task sync schedule "0 2 1 * *" \
 action-name sync-from action-node /devices
 ```
+
+The structured form uses leaf-lists for the minute, hour, day of month, month, and day of week. An omitted field matches all values. This example has the same schedule:
+
+```bash
+admin(config)# scheduler task sync minute [ 0 ] hour [ 2 ] \
+day-of-month [ 1 ] action-name sync-from action-node /devices
+```
+
+The structured form accepts numeric values for minute (`0`-`59`), hour (`0`-`23`), day of month (`1`-`31`), and month (`1`-`12`). Day of week uses the names `sunday` through `saturday`. Specify multiple values in a leaf-list to select more than one value. If both day of month and day of week are restricted, a date matches when either field matches, following Vixie cron behavior.
 
 {% hint style="info" %}
 If the task was added through an XML `init` file, the task will run with the `system` user, which implies that AAA rules will not be applied at all. Thus, the task action will not be able to initiate device communication.
@@ -37,16 +46,20 @@ admin(config)# scheduler task sync get-next-run-times display 3
 next-run-time [ 2017-11-01 02:00:00+00:00 2017-12-01 02:00:00+00:00 2018-01-01 02:00:00+00:00 ]
 ```
 
-You could also see if the task is running or not:
+The task's read-only state includes its effective recurring schedule, its next run time, and whether it is currently running:
 
-```bash
-admin# show scheduler task sync is-running
-is-running false
+```cli
+admin# show scheduler task sync state
+schedule       0 2 1 * *
+next-run-time  2017-11-01T02:00:00+00:00
+running        false
 ```
 
-### Schedule Expression <a href="#d5e9364" id="d5e9364"></a>
+For a recurring task, `state schedule` shows the effective schedule in canonical cron-like form, including when the task was configured with structured fields. For a one-shot task, `state next-run-time` is the configured time if it has not passed. The `running` status is at `scheduler/task/state/running`.
 
-A standard Vixie Cron expression is a string comprising five fields separated by white space that represents a set of times. The following rules can be used to create an expression.
+### Cron Schedule Expression <a href="#d5e9364" id="d5e9364"></a>
+
+The cron-like schedule is a string comprising five fields separated by white space. It supports a Vixie-cron-compatible subset; not all Vixie cron extensions are supported.
 
 The table below shows expression rules.
 
@@ -58,7 +71,7 @@ The table below shows expression rules.
 | Month        | 1-12 or JAN-DEC | \* , - /                   |
 | Day of week  | 0-6 or SUN-SAT  | \* , - /                   |
 
-The following list describes the legal special characters and how you can use them in a Cron expression.
+The following list describes the supported special characters and how you can use them in a cron expression.
 
 * Star (`*`). Selects all values within a field. For example, `*` in the minute field selects every minute.
 * Comma _(_`,`_)_. Commas are used to specify additional values. For example, using `MON,WED,FRI` in the day of week field.
@@ -84,10 +97,19 @@ A non-recurring task will by default be removed when it has finished executing. 
 
 In an HA cluster, a scheduled task will by default be run on the primary HA node. By configuring the `placement` leaf, a task can be scheduled to run on nodes in a specific HA role:
 
-* `read-write-node` runs the task on the node with read-write transaction capability (the primary/leader). This is the default.
-* `read-only-node` runs the task on one read-only node. If `node-id` is not configured, NSO selects a read-only node.
-* `all-nodes` runs the task on the read-write node and all read-only nodes.
-* `all-read-only-nodes` runs the task on every read-only node.
+| Placement | Where the action runs |
+| ----------------- | --------------------- |
+| `read-write-node` | On the node with read-write transaction capability (the primary/leader). This is the default. |
+| `read-only-node` | On one read-only node. If `node-id` is not configured, NSO selects a read-only node. |
+| `all-nodes` | On the read-write node and all read-only nodes. |
+| `all-read-only-nodes` | On every read-only node. |
+
+For example, configure a task to run on any read-only node:
+
+```bash
+admin(config)# scheduler task my-compliance-report schedule "0 2 1 * *" \
+placement read-only-node action-name check-compliance action-node /reports
+```
 
 For `read-only-node` placement, a task can be further configured with the `node-id` to only run on a certain node. For example:
 
@@ -97,10 +119,10 @@ placement read-only-node node-id node2@127.0.0.1 \
 action-name check-compliance action-node /reports
 ```
 
-These settings will not have any effect on a standalone node.
+`node-id` is valid only when `placement` is `read-only-node`. Scheduler history records the `node-id` for actions run on read-only nodes. If HA is not configured, `placement` has no effect.
 
 {% hint style="info" %}
-The scheduler is disabled when HA is enabled and when HA mode is `NONE`. See [Mode of Operation](../../administration/management/high-availability.md#ha.moo) in HA for more details.
+The scheduler is disabled when HA is enabled and HA mode is `NONE`. See [Mode of Operation](../../administration/management/high-availability.md#ha.moo) in HA for more details.
 {% endhint %}
 
 ## Troubleshooting <a href="#d5e9438" id="d5e9438"></a>
