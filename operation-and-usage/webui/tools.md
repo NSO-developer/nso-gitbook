@@ -151,7 +151,7 @@ Individual alarm details are accessible by clicking the severity level icon on a
 
 ### Alarm Actions
 
-Open the **Actions** menu to access the following actions. The available root-level and per-alarm actions depend on the NSO configuration and your permissions.
+Depending on your NSO configuration and permissions, the **Actions** menu provides the following root-level and per-alarm actions:
 
 * The **Synchronize** action compares the NSO alarm list with the alarm state reported by managed resources. It reports the number of new, changed, and cleared alarms. Its result depends on the device or NETCONF server alarm-reporting support.
 * The **Compress** action streamlines the alarm entries by deleting the historical state changes that occurred before the last one. It keeps the latest state change and the alarm entries intact.
@@ -202,14 +202,14 @@ To create a new compliance report:
 3. Next, set up the compliance report using the following tabs. For a more detailed description of Compliance Reporting concepts and related configuration options, see [Compliance Reporting](../operations/compliance-reporting.md).
    * **General** tab: To configure the report name. Configuration options include:
      * **Report name**: Displays the report name and allows editing of the report name.
-     * **Common-db**: Controls how NSO stores generated report results. When set to **True** (the default), NSO stores each result as a new record in a common database file. When set to **False**, NSO stores each result in a separate database file.
+     * **Common-db**: Controls how NSO stores generated report results. When set to **True** (the default), NSO stores each result as a new record in a common database file. When set to **False**, NSO stores each result in a separate database file. Historic compliance is available only when this option is set to **True**.
    * **Devices** tab: To configure device compliance checks. Configuration options include:
      * **Device choice**: Include **All devices** or only **Some devices** to include in compliance checks. If **Some devices** is selected, specify the devices using a device group, an XPath expression, or individual devices.
      * **Device checks**:
        * **Current out of sync**: Check the device's current status and report if the device is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
        * **Historic changes**: Include or exclude previous changes to devices using the commit log. Possible values are **true** (yes, include) and **false** (no, exclude).
      * **Compliance templates**: If a compliance template should be used to check for compliance (see [Device Configuration Checks](../operations/compliance-reporting.md#device-configuration-checks)). You have the option to add a compliance template using the **Add template** button or create a new compliance template (see [Compliance Templates](tools.md#compliance-templates)). To enforce devices to comply exactly with the template's configuration, use **Strict** mode; see [Additional Configuration Checks](../operations/compliance-reporting.md#additional-configuration-checks) for more information.
-     * The **Devices** tab also provides separate lists for **Compliance templates (XML)** and **Device templates**. Use the corresponding **Add XML template** or **Add device template** action to include those templates in the report.
+     * The **Devices** tab also provides separate lists for **Compliance templates (XML)** and **Device templates**. Use the corresponding **Add XML template** or **Add device template** action to include those templates in the report. For information about XML compliance templates, see [XML Compliance Templates](../operations/compliance-reporting.md#xml-compliance-templates).
      * After adding a device template or XML template, use **Edit template** to configure its variables and whether **Strict** matching is enabled.
    * **Services** tab: To configure service compliance checks. Configuration options include:
      * **Service choice**: Include **All services** or only **Some services**. If **Some services** is selected, specify the services using service type, an XPath expression, or individual service instances.

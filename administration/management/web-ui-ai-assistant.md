@@ -34,32 +34,32 @@ For LiteLLM with MCP tools, the selected model must support OpenAI function call
 
 The browser sends requests to NSO. For the LiteLLM backend, NSO checks the user's permitted MCP access with NACM at the start of each turn, before each model request, and before each MCP exchange. NSO then sends the request to the configured active backend. The LiteLLM backend can use permitted MCP tools and stores encrypted conversation history on the NSO node. Crosswork AI stores its own conversation history.
 
-```text
-NSO user
-   |
-   v
-+----------------------------------------+
-| Web UI                                 |
-|                                        |
-| AI Assistant frontend                  |
-+----------------------------------------+
-   |
-   | Request and response
-   v
-+----------------------------------------+
-| NSO                                    |
-|                                        |
-| NSO AI Assistant service               |
-| checks access and forwards the request |
-+----------------------------------------+
-   |
-   v
-+-------------------------------------------+
-| Selected Backend                          |
-|                                           |
-| LiteLLM-compatible gateway (optional MCP) |
-| or Crosswork AI                            |
-+-------------------------------------------+
+```mermaid
+flowchart TB
+    User["NSO user"]
+
+    subgraph WebUI["Web UI"]
+        Frontend["AI Assistant frontend"]
+    end
+
+    subgraph NSO["NSO"]
+        Service["NSO AI Assistant service"]
+        History["Encrypted conversation history (LiteLLM only)"]
+    end
+
+    subgraph Backend["Selected Backend"]
+        LiteLLM["LiteLLM-compatible gateway"]
+        Crosswork["Crosswork AI (stores its own conversation history)"]
+        MCP["Optional MCP tools"]
+    end
+
+    User --> Frontend
+    Frontend -->|"Request"| Service
+    Service -->|"Response"| Frontend
+    Service -.->|"Uses"| History
+    Service -->|"When selected"| LiteLLM
+    Service -->|"When selected"| Crosswork
+    LiteLLM -.->|"May use"| MCP
 ```
 
 ## Install and Enable the Package

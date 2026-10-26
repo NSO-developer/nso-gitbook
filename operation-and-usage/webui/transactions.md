@@ -8,7 +8,11 @@ description: >-
 
 The **Transactions** view lets you view and manage current NSO transactions. It provides a centralized way to inspect and manage configuration changes in your NSO deployment. You can review uncommitted changes, monitor commit queue activity, validate or revert active changes, and work with rollback files.
 
+Select a path in the changes, errors, or warnings table to open that location in the **Config editor**, when a link is available.
+
 <figure><img src="../../.gitbook/assets/transactions.png" alt=""><figcaption></figcaption></figure>
+
+The Web UI also warns when it detects multiple webui-one write transactions. This can happen when a transaction is created outside the Web UI’s normal workflow, for example by a custom package. The Web UI may not work as expected because it cannot determine which transaction to use.
 
 The **Transactions** view is further divided into the following tabs:
 
@@ -16,23 +20,25 @@ The **Transactions** view is further divided into the following tabs:
 * **Commit queue**: Displays queued commit operations and their status.
 * **Rollback files**: Lists rollback files created for committed changes so that earlier transactions can be inspected or undone.
 
+## Review Transaction Changes from Any Web UI View
+
+When the current browser session has uncommitted changes, select the **Changes** indicator (<img src="../../.gitbook/assets/commit-manager.png" alt="" data-size="line">) in the Web UI header to open the transaction menu. From this menu, you can validate, commit, revert, or preview the current transaction without leaving the view you are working in.
+
+Select **Dry-run**, then choose an output format to preview the pending changes before committing them. For **Juniper curly-bracket outformat**, use **Raw diff** or **Side-by-side diff**. The side-by-side view uses color to distinguish changes.
+
 ## Uncommitted Changes
 
 The **Uncommitted** tab shows the configuration changes currently made in NSO but not yet committed. The changes are presented with their path, operation, old value, and new value.
 
 From this view, you can review the active transaction before committing it.
 
-When the Web UI is open in more than one browser tab, changes to an existing transaction are synchronized between those tabs.
+When the Web UI is open in multiple browser tabs, local session transactions are synchronized across those tabs. Synchronization includes transaction creation, modifications, reversion, and commit. Updates made in one tab are reflected in the others.
 
 When more than one transaction tag is available, use the **Transaction tags** selector to choose which transaction to view. The tag used by the Configuration editor is displayed as **webui-one (default tag, config editor)**.
-
-Select a path in the changes, errors, or warnings table to open that location in the **Configuration editor**, when a link is available.
 
 ### Validate Changes
 
 Use **Validate** to verify the current transaction before committing it. Validation helps detect issues in the pending configuration so they can be corrected before the changes are applied.
-
-If the transaction's validation status is unknown, opening the **Commit** drawer starts validation automatically. Resolve any validation errors before committing.
 
 ### Revert Changes
 
@@ -46,7 +52,7 @@ Use **Show as** to view the current uncommitted changes in one of the following 
 * Cisco XR CLI
 * Juniper curly-brace CLI
 
-The drawer lets you copy the displayed changes or save them to a file. **Show as** replaces the earlier **Export transaction** drawer. To preview changes without committing them, select **Dry-run** and choose **Cisco XR CLI outformat**, **Juniper curly-bracket outformat**, **XML outformat**, or **Device native outformat**. The result opens in a drawer. For a Juniper curly-bracket dry run, use **Raw diff** or **Side-by-side diff** to view the result. You can also configure a dry-run in the **Commit** drawer.
+The drawer lets you copy the displayed changes or save them to a file. **Show as** replaces the earlier **Export transaction** drawer. To preview changes without committing them, select **Dry-run** and choose **Cisco XR CLI outformat**, **Juniper curly-bracket outformat**, **XML outformat**, or **Device native outformat**. The result opens in a drawer. For a Juniper curly-bracket dry run, use **Raw diff** or **Side-by-side diff** to view the result. The side-by-side diff uses color to distinguish changes. You can also configure a dry-run in the **Commit** drawer.
 
 ### Load Transaction
 
@@ -60,8 +66,6 @@ The supported input formats are **XML**, **JSON**, **Cisco XR CLI**, **Juniper c
 ### Resolve a Non-resolvable Transaction State
 
 If the Commit drawer reports that a transaction is in a non-resolvable state, the dialog shows the conflict message and provides **Show changes** and **Reapply**. Use **Show changes** to review the pending changes. **Reapply** attempts to apply the transaction operations again; if it fails, the dialog displays the error.
-
-The Web UI also warns when it detects multiple `webui-one` write transactions.
 
 ## Commit Queue
 
