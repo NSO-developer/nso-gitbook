@@ -1333,7 +1333,7 @@ Note that the `foreach` element, specifying an XPath, expects nodes qualified wi
 Now we need to define what we want to have returned from the node set by using one or more `select` sections. What to actually return is defined by the XPath `expression`.
 
 {% hint style="info" %}
-For XPath extensions available in Query API expressions, see [Query API Extensions](../../../developer-reference/xpath.md#query-api-extensions).
+For XPath extensions available in Query API expressions, see [Query API Extensions](../../connected-topics/xpath.md#query-api-extensions).
 {% endhint %}
 
 Choose how the result should be represented. Basically, it can be the actual value or the path leading to the value. This is specified per select chunk. The possible result types are `string`, `path`, `leaf-value`_,_ and `inline`.

@@ -125,6 +125,7 @@
   * [Scheduler](development/connected-topics/scheduler.md)
   * [External Logging](development/connected-topics/external-logging.md)
   * [Encrypted Strings](development/connected-topics/encryption-keys.md)
+  * [XPath](development/connected-topics/xpath.md)
 
 ## Resources
 
@@ -199,4 +200,3 @@
 * [NETCONF Interface](developer-reference/netconf-interface.md)
 * [JSON-RPC API](developer-reference/json-rpc-api.md)
 * [SNMP Agent](developer-reference/snmp-agent.md)
-* [XPath](developer-reference/xpath.md)
