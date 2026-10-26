@@ -75,10 +75,12 @@ NSO adds support for Post-Quantum Cryptography (PQC) to help guard against "stor
 * Offering PQC algorithms for northbound TLS and SSH connections
 * Use of PQC algorithms southbound for built-in NETCONF client and NEDs
 
-The NED framework now uses the Apache MINA library in order to enable PQC support.
+The NED framework now uses the Apache MINA library in order to enable PQC support.&#x20;
+
+HA Raft connections between NSO 6.8 nodes negotiate TLS 1.3, when TLS is enabled, using the hybrid `x25519mlkem768` key-exchange group. This negotiation is automatic and is not customer-configurable.
 
 Documentation Updates:
 
-* Added the new algorithms to [???](development/core-concepts/nano-services.md).
+* Updated the [Secure Deployment](administration/installation-and-deployment/deployment/secure-deployment.md) and [SSH Key Management](operation-and-usage/operations/ssh-key-management.md) pages to document PQC algorithms and their connection scope. Added a link from the [NSO NETCONF Server](development/core-concepts/northbound-apis/nso-netconf-server.md) guide to the configurable SSH algorithm settings.
 
 </details>
