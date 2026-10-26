@@ -155,6 +155,19 @@ The context filter can be used to only log events that originate through a speci
 admin@ncs% set progress trace test filter context netconf
 ```
 
+### Trace Blocked Nano Service Convergence
+
+NSO 6.8 and later report, at `very-verbose` verbosity, why a nano service or zombie cannot advance or backtrack. For example, to log events for all services, including these, to a file:
+
+```cli
+admin@ncs% unhide debug
+admin@ncs% set progress trace nano-convergence verbosity very-verbose destination file nano-convergence.log format log
+admin@ncs% set progress trace nano-convergence filter all-services
+admin@ncs% commit
+```
+
+See [Blocked Nano Service Convergence Events](../core-concepts/nano-services.md#blocked-nano-service-convergence-events) for the event messages.
+
 ## Report Progress Events from User Code
 
 API methods to report progress events exist for Python, Java, Erlang, and C.

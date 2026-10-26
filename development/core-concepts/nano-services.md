@@ -1297,6 +1297,18 @@ After such an event, manual intervention is required. If not using the `rollback
 
 The `service-commit-queue-event` helps detect that a nano service instance deployment failed because a configuration change committed through the commit queue has failed. See [The service-commit-queue-event Notification](nano-services.md#d5e10003) section for details.
 
+### Blocked Nano Service Convergence Events
+
+NSO 6.8 and later log a `create blocked` or `delete blocked` event when a plan state of a service or zombie cannot run. Enable a `very-verbose` [progress trace](../advanced-development/progress-trace.md#trace-blocked-nano-service-convergence) to see them. Each event includes the `service`, the `plan-state`, the `life-cycle-type` (`normal` or `zombie`), and one of the following reasons:
+
+* **Forced commit** — `waiting for the previous plan state to be committed`
+* **Post-action** — `waiting for the post-action "<action>" of the previous plan state to complete`
+* **Pre-condition** — `pre-condition is not satisfied (monitor "<xpath>" trigger-expr "<expression>")`
+
+If backtracking cannot finish because a post-action is still running or has failed, NSO logs `backtracking incomplete: component <type> <name> has outstanding post-actions`.
+
+Setting `/ncs-config/logs/developer-log-level` to `trace` in `ncs.conf` also writes these events to `devel.log`.
+
 ## Graceful Link Migration Example <a href="#d5e10385" id="d5e10385"></a>
 
 You can find another nano service example under [examples.ncs/nano-services/link-migration](https://github.com/NSO-developer/nso-examples/tree/6.7/nano-services/link-migration). The example illustrates a situation with a simple VPN link that should be set up between two devices. The link is considered established only after it is tested and a `test-passed` leaf is set to `true`. If the VPN link changes, the new endpoints must be set up before removing the old endpoints, to avoid disturbing customer traffic during the operation.
