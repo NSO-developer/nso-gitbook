@@ -43,7 +43,7 @@ flowchart TB
     end
 
     subgraph NSO["NSO"]
-        Service["NSO AI Assistant service"]
+        Service["NSO AI Assistant backend"]
         History["Encrypted conversation history (LiteLLM only)"]
     end
 
