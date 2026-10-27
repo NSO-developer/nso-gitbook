@@ -14,13 +14,13 @@ The **Device management** view lists the devices in the network and provides opt
 
 ### **Search and Filter Devices**
 
-You can search for a device by its name, IP address, or other parameters. You can also narrow down the results by using the **Select device group** filter.
+You can search across available device information, including the device name, IP address, device group, description, location, device type, platform details, and state. Search matching is case-insensitive. You can also narrow down the results by using the **Select device group** filter.
 
 ### **Add a Device**
 
 To add a new device to NSO:
 
-1. Click the **Add device** button. You will be redirected to the **Configuration editor**.
+1. Click the **Add device** button. You will be redirected to the **Config editor**.
 2. Click the **Add list item** button.
 3. Enter the name of the device.
 4. Click the device name in the list to configure the device further.
@@ -28,42 +28,46 @@ To add a new device to NSO:
 
 ### **Apply an Action on a Device**
 
-Actions can be applied on a device from the **Device management** view or the **Configuration editor**.
+Actions can be applied on a device from the **Device management** view or the **Config editor**.
 
 {% tabs %}
 {% tab title="From the Device Management View" %}
-An action can be applied to a single or multiple devices at once.
+An action can be applied to one or more devices at once.
 
 1. Select the device(s) from the list using the checkbox.
-2. Using the **Choose actions** button, select the desired action. The result of the action is returned momentarily.
-
-{% hint style="info" %}
-In the **Device management** view, you can also apply actions on a device using the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button.
-{% endhint %}
+2. Using the **Choose actions** button, select the desired action.
+3. Configure the parameters in the drawer.
+4. Click **Run**. The result of the action is returned momentarily.
 
 **Actions Possible in the Device Management View**
 
-Available actions include **Connect**, **Ping**, **Sync from**, **Sync to**, **Check sync**, **Compare config**, **Fetch ssh host keys**, and **Apply template**, and. See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
+The actions available depend on the selected device's YANG schema and your access permissions. Available actions include **Connect**, **Sync to**, **Sync from**, **Disconnect**, **Check sync**, **Check yang modules**, **Fetch SSH host keys**, **Migrate**, **Apply template**, **Scp to**, **Clear trace**, **Partial sync to**, **Partial sync from**, and **Create template**.
+
+See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 
 {% hint style="info" %}
-The **Modify in Config Editor** and **Delete** are GUI-specific operations accessible by clicking the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button on the device row.
+In the **Device management** view, you can also apply actions on an individual device using the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> button. These schema-driven actions are same as what you see in the Config Editor.
+{% endhint %}
+
+{% hint style="info" %}
+The **Modify in Config Editor** and **Delete** are GUI-specific operations accessible by clicking the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> button on the device row.
 {% endhint %}
 {% endtab %}
 
-{% tab title="From the Configuration Editor" %}
-Additional actions are applied to an individual device. Use this option if you want to run an action with additional parameters.
+{% tab title="From the Config Editor" %}
+Actions are applied to an individual device. Use this option if you want to run an action with additional parameters.
 
-1. Click the device name in the list. You will be redirected to the **Configuration editor** view.
+1. Click the device name in the list. You will be redirected to the **Config editor** view.
 2. Click the **Actions** button.
-3. Click the desired action in the list.
-4. At this point, you can configure different parameters.
+3. Click the desired action in the dropdown list.
+4. Configure the action parameters in the drawer.
 5. Click **Run** to initiate the action.
 
-**Actions Possible in the Configuration Editor -> Actions Tab**
+**Actions Available in the Config Editor -> Actions Tab**
 
-If you access the device in the **Configuration editor**, the following additional actions are available:
+If you access the device in the **Config editor**, actions are available depending on the device schema and your access permissions. Available actions include:
 
-**migrate**, **instantiate-from-other-device**, **check-yang-modules**, **scp-to**, **copy-capabilities**, **compare-config**, **connect**, **scp-from**, **find-capabilities**, **sync-from**, **disconnect**, **rename**, **add-capability**, **sync-to**, **ping**, **load-native-config**, **apply-template**, **check-sync**, **delete-config**, **clear-trace**, and **fetch-host-keys**,
+**Migrate**, **Copy capabilities**, **Find capabilities**, **Add capability**, **Apply template**, **Instantiate from other device**, **Compare config**, **Sync from**, **Sync to**, **Check sync**, **Check yang modules**, **Connect**, **Disconnect**, **Ping**, **Delete config**, **Scp to**, **Scp from**, **Rename**, **Load native config**, and **Clear trace**.
 
 See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 {% endtab %}
@@ -74,7 +78,7 @@ See [Lifecycle Operations](../operations/lifecycle-operations.md) for the detail
 To edit the configuration of an existing device:
 
 1. In the **Devices** view, locate the desired device.
-2. Open the device in the **Configuration editor** by either clicking the device name in the list and then enabling **Edit mode**, or by clicking the more options button <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> on the device row and selecting **Modify in Config Editor**, which opens the device with edit mode already enabled.
+2. Open the device in the **Config editor** by either clicking the device name in the list and then enabling **Edit mode**, or by clicking the more options button <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> on the device row and selecting **Modify in Config Editor**, which opens the device with edit mode already enabled.
 3. Make the desired changes. Depending on the field type, changes are applied automatically when you update the value or when you leave the field.
 4. Review and commit the change in the **Transactions** view.
 
@@ -102,7 +106,7 @@ Device groups allow for the grouping and collective management of devices.
 
 1. Click the desired device group to access the group's detail page.
 2. In the **Devices in this group** pane, select the device(s) to be removed from the group.
-3. Click **Remove from device group**. The devices are removed immediately (without a Commit Manager review).
+3. Click **Remove from device group**. The selected devices are removed from the group in the pending device-group changes.
 4. Click **Save device group**.
 
 ### **Apply an Action on a Device Group**
@@ -113,16 +117,16 @@ Device group actions let you perform an action on all the devices belonging to a
 2. Choose the desired action from the **Choose actions** button.
 
 {% hint style="info" %}
-In the **Device groups** view, you can also apply actions on a device group using the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button.
+In the **Device groups** view, you can also apply actions on a device group using the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> button.
 {% endhint %}
 
 **Actions Possible in the Device Groups View**
 
-The available group actions are the same as in the section called [Apply an Action on a Device](devices.md#apply-an-action-on-a-device) (e.g., **Connect**, **Sync from**, **Sync to**, etc.) and are described in [Lifecycle Operations](../operations/lifecycle-operations.md).
+Select one or more device groups, then use **Choose actions** to apply an action to the devices in those groups. Available actions include **Connect**, **Sync to**, **Sync from**, **Disconnect**, **Check sync**, **Check yang modules**, **Fetch SSH host keys**, **Migrate**, **Apply template**, **Scp to**, **Clear trace**, **Partial sync to**, **Partial sync from**, and **Create template**.
 
-{% hint style="info" %}
-The **Modify in Config editor** option is accessible by clicking the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button on a device group.
-{% endhint %}
+To act on an individual device group, use the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> button on its row. Available actions include **Modify in Config Editor**, **Delete**, **Connect**, **Sync to**, **Sync from**, **Disconnect**, **Check sync**, **Check yang modules**, **Fetch SSH host keys**, **Apply template**, **Scp to**, **Clear trace**, and **Add member**.
+
+The available actions depend on the applicable YANG schema and your access permissions. See [Lifecycle Operations](../operations/lifecycle-operations.md) for details of these actions.
 
 ## Authgroups
 
