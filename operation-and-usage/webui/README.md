@@ -80,6 +80,6 @@ To review available configuration changes:
 
 ## AI Assistant
 
-When an administrator has configured and enabled the AI Assistant, its icon <img src="../../.gitbook/assets/ai-assistant.png" alt="" data-size="line"> appears in the Web UI header. Select the icon to open or close the Assistant.
+When an administrator has configured and enabled the AI Assistant, its button <img src="../../.gitbook/assets/ai-assistant.png" alt="" data-size="line"> appears in the Web UI header. Press the button to open or close the Assistant.
 
 For installation, backend configuration, access control, and optional MCP tools, see [Web UI AI Assistant](../../administration/management/web-ui-ai-assistant.md).

@@ -81,7 +81,7 @@ set ai-assistant enabled
 commit
 ```
 
-The `enabled` setting controls whether the Assistant icon appears in the Web UI. It does not by itself disable the Assistant API. To stop all Assistant requests, remove the `active-server` configuration.
+The `enabled` setting controls whether the Assistant button appears in the Web UI. It does not by itself disable the Assistant API. To stop all Assistant requests, remove the `active-server` configuration.
 
 ## Configure a LiteLLM-Compatible Gateway
 
@@ -143,6 +143,8 @@ Enable write-capable MCP tools only when they are required, and restrict the all
 
 With `nso-user-delegation`, the MCP server receives a short-lived token for the logged-in NSO user and NACM applies to each tool call. With the other authentication methods, the MCP server sees a shared identity rather than the individual NSO user.
 
+`nso-user-delegation` requires an MCP endpoint on a loopback address with a `/mcp` path. For a remote MCP server, use another supported authentication method. `nso-user-delegation` works only on a single NSO node. In an HA deployment, NSO does not use delegated MCP servers and continues without their tools.
+
 The `mcp-server` list has `nacm:default-deny-all`. Grant users access only to the MCP server entries and tools that they are allowed to use. For more information about the NSO MCP service itself, see [Cisco NSO Adaptive MCP Server](../../development/core-concepts/northbound-apis/nso-mcp-server.md).
 
 ## Configure Crosswork AI
@@ -168,19 +170,19 @@ When Crosswork AI is active, NSO forwards the conversation to Crosswork AI. NSO 
 
 ## Control Web UI Access
 
-The Web UI reads `/ai-assistant:ai-assistant/enabled`, `config/active-server`, and the configured server name and URL before it displays the AI Assistant frontend. If your NACM policy uses `read-default deny`, grant users read access to those nodes.
+The Web UI reads `/ai-assistant:ai-assistant/enabled` to determine whether to display the AI Assistant button. The Assistant **Settings** > **Server** tab also reads `config/active-server` and configured server names. If your NACM policy uses `read-default deny`, grant users read access to those nodes. Grant write access to `config/active-server` only to users allowed to change the active server.
 
 Protect credentials, Crosswork AI users and user mappings, and MCP configuration as administrator-only data. NSO rechecks a user's permitted MCP server access when a turn begins, before model requests, and before MCP exchanges. Removing access prevents subsequent tool use.
 
 ## Use the Assistant in the Web UI
 
-After configuration is committed, users can select the Assistant icon in the Web UI header to open or close the Assistant. The Assistant's **Settings** menu includes a **Server** tab that can select an available configured server. Restrict write access to the Assistant configuration if only administrators should change the active server.
+When the AI Assistant is enabled, users can click the AI Assistant button in the Web UI header to open or close the Assistant. The Assistant **Settings** menu includes a **Server** tab where users with write access can select an available configured server. Restrict write access to `config/active-server` if only administrators should change the active server.
 
 Users should validate Assistant responses and any configuration effects through the normal NSO interfaces. A model response, including one that reports a successful tool call, is not a substitute for reviewing the resulting transaction or operational state.
 
 ## Monitor and Troubleshoot
 
-Use `devel.log` for Assistant backend and configuration errors. NSO writes one audit entry for each MCP tool call and each MCP server failure. The audit entry identifies the user, server, tool, outcome, and trace ID, but does not contain prompts, tool arguments, tool results, or credentials.
+Use `devel.log` for Assistant backend and configuration errors. NSO writes an entry to `audit.log` for each MCP tool call and each MCP server failure. The audit entry identifies the user, server, tool, outcome, and trace ID, but does not contain prompts, tool arguments, tool results, or credentials.
 
 Common administrator checks are:
 
@@ -193,4 +195,4 @@ Common administrator checks are:
 
 ## Current Scope
 
-The Assistant provides chat, configurable AI backends, optional MCP tools, per-user access enforcement, and audit logging. It does not currently provide proactive NSO notifications or a shared Web UI transaction for Assistant-driven configuration changes. Continue to use the normal Web UI transaction, validation, and commit workflow for configuration changes.
+The Assistant provides chat, configurable AI backends, optional MCP tools, per-user access enforcement, and audit logging. Continue to use the normal Web UI transaction, validation, and commit workflow for configuration changes.
