@@ -51,12 +51,12 @@ The tree shows the following icons. Leaf and action nodes appear according to th
 
 | Icon                                                                                        | Meaning                                                  |
 | ------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| Key icon <img src="../../.gitbook/assets/key-icon.png" alt="" data-size="line">             | A key leaf, meaning a value that identifies a list entry |
-| Leaf icon <img src="../../.gitbook/assets/leaf-icon.png" alt="" data-size="line">           | A regular leaf node                                      |
-| List icon <img src="../../.gitbook/assets/list-icon.png" alt="" data-size="line">           | A list and leaf-list node                                |
-| Split/arrows icon <img src="../../.gitbook/assets/choice-icon.png" alt="" data-size="line"> | A choice node                                            |
-| Lightning icon <img src="../../.gitbook/assets/lighting-icon.png" alt="" data-size="line">  | An action node                                           |
-| Database icon <img src="../../.gitbook/assets/database-icon.png" alt="" data-size="line">   | A node with operational data                             |
+| Key icon <img src="../../.gitbook/assets/key-icon.png" alt="" data-size="line" height="16">             | A key leaf, meaning a value that identifies a list entry |
+| Leaf icon <img src="../../.gitbook/assets/leaf-icon.png" alt="" data-size="line" height="16">           | A regular leaf node                                      |
+| List icon <img src="../../.gitbook/assets/list-icon.png" alt="" data-size="line" height="16">           | A list and leaf-list node                                |
+| Split/arrows icon <img src="../../.gitbook/assets/choice-icon.png" alt="" data-size="line" height="16"> | A choice node                                            |
+| Lightning icon <img src="../../.gitbook/assets/lighting-icon.png" alt="" data-size="line" height="16">  | An action node                                           |
+| Database icon <img src="../../.gitbook/assets/database-icon.png" alt="" data-size="line" height="16">   | A node with operational data                             |
 
 ### Rendered Node View
 

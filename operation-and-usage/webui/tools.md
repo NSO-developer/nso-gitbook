@@ -78,7 +78,7 @@ To reload the packages:
 
 To deinstall a package:
 
-* Go to the package details view and click the **Deinstall** button, or use the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button in the packages list.
+* Go to the package details view and click the **Deinstall** button, or use the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> button in the packages list.
 
 ## High Availability <a href="#d5e6538" id="d5e6538"></a>
 
@@ -114,7 +114,7 @@ Perform the handover as follows:
 
 #### Actions on a Node
 
-Actions on a node, such as **Add node**, **Remove node**, **Disconnect**, etc., are available by accessing the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button on a node. Most of the actions in Raft HA can only be executed from the leader node.
+Actions on a node, such as **Add node**, **Remove node**, **Disconnect**, etc., are available by accessing the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> button on a node. Most of the actions in Raft HA can only be executed from the leader node.
 
 #### Logs and Certificates
 
@@ -160,7 +160,7 @@ Depending on your NSO configuration and permissions, the **Actions** menu provid
 
 To use an action, select it from **Actions**, provide any required input, and click **Run** in the action drawer.
 
-The more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> menu for an individual alarm can provide **Compress**, **Purge**, and **Handle alarm**. **Compress** and **Purge** affect only that alarm. **Handle alarm** is described in the next section.
+The more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> menu for an individual alarm can provide **Compress**, **Purge**, and **Handle alarm**. **Compress** and **Purge** affect only that alarm. **Handle alarm** is described in the next section.
 
 ### Alarm Handling
 
@@ -169,7 +169,7 @@ Alarm handling refers to attending to an alarm. This usually entails reviewing t
 You can set the handling state in either of the following ways:
 
 * **For one or more selected alarms**: Select the alarm rows, click **Set alarm handling state**, choose **None**, **Acknowledged**, **Investigation**, **Observation**, or **Closed**, and optionally enter a description. Click **Set state** to apply the selected state to every selected alarm.
-* **For one alarm**: In the alarm row, click more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> and select **Handle alarm**. This opens the action drawer for that alarm. Provide the available action inputs and click **Run**. The inputs depend on the alarm action schema and your permissions.
+* **For one alarm**: In the alarm row, click more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> and select **Handle alarm**. This opens the action drawer for that alarm. Provide the available action inputs and click **Run**. The inputs depend on the alarm action schema and your permissions.
 
 After either action completes successfully, the state change is recorded on the **Alarm handling** tab in the alarm details.
 
@@ -219,7 +219,7 @@ To create a new compliance report:
 4. Click **Create report** when the report setup is complete. The changes are saved and applied immediately.
 
 {% hint style="info" %}
-In the **Compliance reports** tab, you can apply the following actions on the report by selecting it using the checkbox and using the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button.
+In the **Compliance reports** tab, you can apply the following actions on the report by selecting it using the checkbox and using the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> button.
 
 * **Copy as new report**: Copy an existing report as a new report.
 * **Run**: Run the report.

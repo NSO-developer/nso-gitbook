@@ -58,7 +58,7 @@ Anytime a configuration is changed in the Web UI (such as a device or service co
 
 ## Commit Management <a href="#d5e5718" id="d5e5718"></a>
 
-Commit options are accessible at all times from the UI header. A number, corresponding to the number of changes in a transaction, is displayed next to the <img src="../../.gitbook/assets/image.png" alt="" data-size="line"> icon when changes are available for review. These changes can be reviewed in the **Transactions** view. For certain actions, it is possible to skip the commit review and apply the changes directly.
+Commit options are accessible at all times from the UI header. A number, corresponding to the number of changes in a transaction, is displayed next to the <img src="../../.gitbook/assets/image.png" alt="" data-size="line" height="16"> icon when changes are available for review. These changes can be reviewed in the **Transactions** view. For certain actions, it is possible to skip the commit review and apply the changes directly.
 
 {% hint style="warning" %}
 **Transactions and Commits**
@@ -72,7 +72,7 @@ Any network-wide configuration change can be picked up as a rollback file. The r
 
 To review available configuration changes:
 
-1. Access commit management by clicking its icon <img src="../../.gitbook/assets/commit-manager.png" alt="" data-size="line"> in the banner.
+1. Access commit management by clicking its icon <img src="../../.gitbook/assets/commit-manager.png" alt="" data-size="line" height="16"> in the banner.
 2. Review the available changes by clicking the **Changes** or **Transactions** option. This action redirects you to the **Transactions** view.
 3. Press **Validate** to check for errors. All changes must be validated before they can be committed.
 4. Click **Revert** to undo or **Commit** to confirm the changes in the transaction.
@@ -80,6 +80,6 @@ To review available configuration changes:
 
 ## AI Assistant
 
-When an administrator has configured and enabled the AI Assistant, its button <img src="../../.gitbook/assets/ai-assistant.png" alt="" data-size="line"> appears in the Web UI header. Press the button to open or close the Assistant.
+When an administrator has configured and enabled the AI Assistant, its button <img src="../../.gitbook/assets/ai-assistant.png" alt="" data-size="line" height="16"> appears in the Web UI header. Press the button to open or close the Assistant.
 
 For installation, backend configuration, access control, and optional MCP tools, see [Web UI AI Assistant](../../administration/management/web-ui-ai-assistant.md).
