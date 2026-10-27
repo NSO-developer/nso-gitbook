@@ -46,11 +46,11 @@ The actions available depend on the selected device's YANG schema and your acces
 See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 
 {% hint style="info" %}
-In the **Device management** view, you can also apply actions on an individual device using the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> button. These schema-driven actions are same as what you see in the Config Editor.
+In the **Device management** view, you can also apply actions on an individual device using the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button. These schema-driven actions are same as what you see in the Config Editor.
 {% endhint %}
 
 {% hint style="info" %}
-The **Modify in Config Editor** and **Delete** are GUI-specific operations accessible by clicking the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> button on the device row.
+The **Modify in Config Editor** and **Delete** are GUI-specific operations accessible by clicking the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button on the device row.
 {% endhint %}
 {% endtab %}
 
@@ -78,7 +78,7 @@ See [Lifecycle Operations](../operations/lifecycle-operations.md) for the detail
 To edit the configuration of an existing device:
 
 1. In the **Devices** view, locate the desired device.
-2. Open the device in the **Config editor** by either clicking the device name in the list and then enabling **Edit mode**, or by clicking the more options button <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> on the device row and selecting **Modify in Config Editor**, which opens the device with edit mode already enabled.
+2. Open the device in the **Config editor** by either clicking the device name in the list and then enabling **Edit mode**, or by clicking the more options button <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> on the device row and selecting **Modify in Config Editor**, which opens the device with edit mode already enabled.
 3. Make the desired changes. Depending on the field type, changes are applied automatically when you update the value or when you leave the field.
 4. Review and commit the change in the **Transactions** view.
 
@@ -117,14 +117,14 @@ Device group actions let you perform an action on all the devices belonging to a
 2. Choose the desired action from the **Choose actions** button.
 
 {% hint style="info" %}
-In the **Device groups** view, you can also apply actions on a device group using the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> button.
+In the **Device groups** view, you can also apply actions on a device group using the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button.
 {% endhint %}
 
 **Actions Possible in the Device Groups View**
 
 Select one or more device groups, then use **Choose actions** to apply an action to the devices in those groups. Available actions include **Connect**, **Sync to**, **Sync from**, **Disconnect**, **Check sync**, **Check yang modules**, **Fetch SSH host keys**, **Migrate**, **Apply template**, **Scp to**, **Clear trace**, **Partial sync to**, **Partial sync from**, and **Create template**.
 
-To act on an individual device group, use the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> button on its row. Available actions include **Modify in Config Editor**, **Delete**, **Connect**, **Sync to**, **Sync from**, **Disconnect**, **Check sync**, **Check yang modules**, **Fetch SSH host keys**, **Apply template**, **Scp to**, **Clear trace**, and **Add member**.
+To act on an individual device group, use the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button on its row. Available actions include **Modify in Config Editor**, **Delete**, **Connect**, **Sync to**, **Sync from**, **Disconnect**, **Check sync**, **Check yang modules**, **Fetch SSH host keys**, **Apply template**, **Scp to**, **Clear trace**, and **Add member**.
 
 The available actions depend on the applicable YANG schema and your access permissions. See [Lifecycle Operations](../operations/lifecycle-operations.md) for details of these actions.
 

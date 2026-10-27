@@ -24,7 +24,7 @@ To create and deploy a service:
 
 1. In the **Select service type** drop-down, select the service point.
 2. Click the **Add service** button. You will be redirected to the **Configuration editor** view.
-3. Click the <img src="../../.gitbook/assets/add-button.png" alt="" data-size="line" height="16"> button.
+3. Click the <img src="../../.gitbook/assets/add-button.png" alt="" data-size="line"> button.
 4. In the pop-up, enter the name of the service that will identify it.
 5. Click **Create**.
 6. You can configure additional service data in the **Configuration editor**.
@@ -47,7 +47,7 @@ You can apply actions to a service from the **Services** view or the **Config ed
 To apply an action on a service:
 
 1. Select a service point to display its services.
-2. On the desired service row, click the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line" height="16"> button.
+2. On the desired service row, click the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button.
 3. Select the desired action.
 4. Configure any available parameters in the drawer.
 5. Click **Run** to initiate the action.

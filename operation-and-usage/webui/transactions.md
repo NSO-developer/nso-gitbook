@@ -22,7 +22,7 @@ The **Transactions** view is further divided into the following tabs:
 
 ## Review Transaction Changes from Any Web UI View
 
-When the current browser session has uncommitted changes, select the **Changes** indicator (<img src="../../.gitbook/assets/commit-manager.png" alt="" data-size="line" height="16">) in the Web UI header to open the transaction menu. From this menu, you can validate, commit, revert, or preview the current transaction without leaving the view you are working in.
+When the current browser session has uncommitted changes, select the **Changes** indicator (<img src="../../.gitbook/assets/commit-manager.png" alt="" data-size="line">) in the Web UI header to open the transaction menu. From this menu, you can validate, commit, revert, or preview the current transaction without leaving the view you are working in.
 
 Select **Dry-run**, then choose an output format to preview the pending changes before committing them. For **Juniper curly-bracket outformat**, use **Raw diff** or **Side-by-side diff**. The side-by-side view uses color to distinguish changes.
 
