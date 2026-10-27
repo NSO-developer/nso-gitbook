@@ -6,7 +6,7 @@ description: Access views provided by loaded Web UI extension packages.
 
 Web UI extension packages add their own views to the NSO Web UI. Use the separate **Packages** category in the sidebar to open those views.
 
-This category is different from **Tools** > **Packages**, which is used to upload, install, reload, and deinstall NSO packages.
+This category is different from **Tools** > **Packages**, which is used to upload, install, reload, and deinstall NSO packages. The `webui-basic-example` package, supplied with the NSO examples, is an example Web UI extension package.
 
 <div data-with-frame="true"><figure><img src="../../.gitbook/assets/web-ui-extension-packages.png" alt=""><figcaption><p>Web UI Extension Packages Category</p></figcaption></figure></div>
 

@@ -232,8 +232,8 @@ In the **Compliance reports** tab, you can apply the following actions on the re
 To run a compliance report:
 
 1. In the **Compliance reports** tab, click the desired report.
-2. On the report details page, click **More options** and select **Run**.
-3. In the **Run** action drawer, optionally provide a title for the report result and a historical time interval. If you do not specify a time interval, the report uses the maximum available interval.
+2. On the report details page, click the **Actions** button and select **Run**.
+3. In the **Run** action drawer, optionally provide a title for the report result and a historical time interval using **from** and **to** fields. If you do not specify a time interval, the report uses the maximum available interval. Choose an output format using the **diff-outformat** option.
 4. Click **Run**.
 
 ### Report Results
@@ -283,8 +283,8 @@ To create a compliance template from a device template:
 1. In the **Compliance templates** tab, click **Create template**.
 2. In the **Create template** drawer, continue with the default option, **From device template**.
 3. Choose a device template. A device template must exist before you can select it. If the template supports more than one NED ID, also select the NED ID to use.
-4. Optionally provide a name for the compliance template. Leaving it blank retains the device template name.
-5. Optionally set **out-directory** to write the generated XML template to a directory instead of adding it to the NSO configuration.
+4. Optionally, provide a name for the compliance template. Leaving it blank retains the device template name.
+5. Optionally, set **out-directory** to write the generated XML template to a directory instead of adding it to the NSO configuration.
 6. Click **Run**.
 {% endtab %}
 
@@ -305,7 +305,7 @@ To create a compliance template from config:
    * **All**: All list keys are collapsed into a single entry, regardless of matching rules.
    * **List path**: Use a user-provided list of paths to collapse. Allows manual control.
    * **Disabled**: Disable list collapsing entirely, displaying all list entries and differences in full detail.
-7. Optionally set **out-directory** to write the generated XML template to a directory instead of adding it to the NSO configuration.
+7. Optionally, set **out-directory** to write the generated XML template to a directory instead of adding it to the NSO configuration.
 8. Click **Run**.
 {% endtab %}
 {% endtabs %}
