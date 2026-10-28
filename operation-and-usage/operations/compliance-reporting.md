@@ -114,6 +114,7 @@ compliance report-results report 1
  title             "GOLD NW 1"
  time              2015-02-04T18:48:57+00:00
  who               admin
+ node              node1
  compliance-status violations
  location          http://.../report_1_admin_1_2015-2-4T18:48:57:0.xml
 compliance report-results report 2
@@ -121,6 +122,7 @@ compliance report-results report 2
  title             "GOLD NW 2"
  time              2015-02-04T18:51:48+00:00
  who               admin
+ node              node2
  compliance-status violations
  location          http://.../report_2_admin_1_2015-2-4T18:51:48:0.text
 compliance report-results report 3
@@ -128,9 +130,20 @@ compliance report-results report 3
  title             "GOLD NW 3"
  time              2015-02-04T19:11:43+00:00
  who               admin
+ node              node1
  compliance-status violations
  location          http://.../report_3_admin_1_2015-2-4T19:11:43:0.text
 ```
+
+In an NSO high availability cluster, the `node` field identifies the node where the report was generated. The field is available at `/compliance/report-results/report{<timestamp>}/node` and is absent when NSO is not part of an HA cluster.
+
+Starting with NSO 6.8, generated compliance reports are replicated automatically across NSO nodes in an HA cluster. Run or re-run a report on either the primary (leader) or secondary (follower), the primary distributes the report and its rendered output file to the other cluster members. A run on a secondary returns after that node stores its copy. A run on the primary may still succeed if replication to a member fails. NSO logs replication errors.
+
+The secondary must be able to reach the primary to run a report. A node that joins or rejoins the cluster synchronizes its finished reports with the primary. The primary's report set is authoritative. If a report is absent there, synchronization removes that report from the joining node.
+
+After upgrading from a release without report replication, reports on a node that joins as a secondary are moved to `<state>/compliance-reports.old` before synchronization. Reports on the primary are retained. If you cannot predict which node will become primary after the upgrade, copy the existing `<state>/compliance-reports` directory to the state directory of every HA node before upgrading. This makes the existing report data available on whichever node takes the primary role.
+
+If report replication fails, check `devel.log` for HA replication errors.
 
 There is also a `remove` action to remove report results (and the corresponding file):
 
@@ -145,6 +158,8 @@ compliance report-results report 1
  compliance-status violations
  location          http://.../report_1_admin_1_2015-2-4T18:48:57:0.xml
 ```
+
+In an HA cluster, run `remove` on the primary. NSO replicates the removal to the other nodes. The `remove` action is not allowed on a secondary.
 
 When running the report, there are a number of parameters that can be specified with the specific `run` action.
 
