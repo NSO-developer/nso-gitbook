@@ -10,4 +10,6 @@ The **Home** view is the default view after logging in. It provides shortcuts to
 
 ## Web UI Extension Packages
 
-Currently loaded Web UI extension packages are shown in this view under **Packages**. Web UI packages are used to extend the functionality of your Web UI, for example, to create additional views and functionalities. Examples are creating a view to visualize your MPLS network, etc.
+Loaded Web UI extension packages can add views to the **Packages** category in the sidebar. Links to these extension-package views are also shown in the **Home** view. The `webui-basic-example` package, supplied with the NSO examples, is an example Web UI extension package.
+
+To upload, install, reload, or remove NSO packages, use **Tools > Packages**. For more information, see [Web UI Extension Packages](packages.md).

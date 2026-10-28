@@ -40,41 +40,38 @@ The **Configuration editor** view shows a host of options when configuring a ser
 
 ## Apply an Action on a Service <a href="#d5e6164" id="d5e6164"></a>
 
-You can apply actions on a service from the **Services** view or the **Configuration editor**.
-
-Start by selecting the service point to populate all services under it and then follow the instructions below:
+You can apply actions to a service from the **Services** view or the **Config editor**.
 
 {% tabs %}
 {% tab title="From the Services View" %}
 To apply an action on a service:
 
-1. On the desired service in the list, click the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button.
-2. Choose the preferred action from the list, i.e., **Re-deploy**, **Un-deploy**, **Check sync**, **Deep check sync**, or **get modifications**.
+1. Select a service point to display its services.
+2. On the desired service row, click the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button.
+3. Select the desired action.
+4. Configure any available parameters in the drawer.
+5. Click **Run** to initiate the action.
 
 {% hint style="info" %}
-The **Check sync** action can be run on multiple services at once by selecting them using the checkbox and then running the action using the **Choose actions** button.
+You can run **Check sync** on multiple services at once. Select the services using the checkboxes, then use the **Choose actions** button.
 {% endhint %}
 
 **Actions Possible in the Services View**
 
-Available actions include **Re-deploy**, **Un-deploy**, **Check sync**, **Deep check sync**, and **get modifications**. See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
+The available actions depend on the selected service schema and your access permissions. Possible actions include **Check sync**, **Deep check sync**, **Redeploy**, **Reactive redeploy**, **Touch**, **Get modifications**, **Undeploy**, **Set rank**, and **Purge**. See [Lifecycle Operations](../operations/lifecycle-operations.md) for details of these actions.
 
 {% hint style="info" %}
-The **Modify in Config Editor** and **Delete** are GUI-specific operations accessible on the service row.
+The **Modify in Config Editor** and **Delete** options are GUI-specific operations accessible on the service row.
 {% endhint %}
 {% endtab %}
 
-{% tab title="From the Configuration Editor " %}
-Additional actions are applied to an individual service. Use this option if you want to run an action with additional parameters.
+{% tab title="From the Config Editor" %}
+You can also apply actions to an individual service from the **Config editor**. The same service actions are available directly from the **Services** view.
 
-1. Access the service in the Configuration Editor by selecting the **Modify in Config Editor** option on a service.
-2. Click the **Actions** button and select the desired action in the list.
-3. Configure parameters to run.
-4. Click **Run** to initiate the action.&#x20;
-
-**Actions Possible in the Configuration Editor -> Actions Tab**
-
-Access the service in the **Configuration editor** to run the following actions: **check-sync**, **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch**, **set-rank**, **re-deploy**, **get-modifications**, and **purge.** See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
+1. Access the service in the **Config editor** by selecting **Modify in Config Editor** on the service row.
+2. Click **Actions** and select the desired action.
+3. Configure any available parameters in the drawer.
+4. Click **Run** to initiate the action.
 {% endtab %}
 {% endtabs %}
 

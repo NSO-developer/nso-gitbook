@@ -84,3 +84,21 @@ Documentation Updates:
 * Updated the [Secure Deployment](administration/installation-and-deployment/deployment/secure-deployment.md) and [SSH Key Management](operation-and-usage/operations/ssh-key-management.md) pages to document PQC algorithms and their connection scope. Added a link from the [NSO NETCONF Server](development/core-concepts/northbound-apis/nso-netconf-server.md) guide to the configurable SSH algorithm settings.
 
 </details>
+
+<details>
+
+<summary>Web UI Updates</summary>
+
+NSO 6.8 improves Web UI configuration and transaction workflows. The **Config editor** adds tree filters, a Metadata drawer, schema-driven actions, and clearer handling of lists, leaf-lists, choices, and defaults. The Transactions view replaces **Export transaction** with **Show as** and adds configuration formats and dry-run result views. Web UI search fields now use case-insensitive matching.
+
+The Web UI also adds a **Packages** sidebar category for loaded extension-package views and updates alarm, compliance-reporting, template, rollback-file, and High Availability guidance.
+
+The Web UI AI Assistant is provided through the `cisco-nso-ai-assistant` package. Administrators can configure a LiteLLM-compatible gateway or Crosswork AI backend, control user access, and optionally enable permitted MCP tools.
+
+Documentation Updates:
+
+* Updated the [Web UI](operation-and-usage/webui/), [Configuration Editor](operation-and-usage/webui/config-editor.md), [Transactions](operation-and-usage/webui/transactions.md), and [Tools](operation-and-usage/webui/tools.md) pages.
+* Added a new page for Packages sidebar category.
+* Added a new Web UI AI Assistant guide for administrators.
+
+</details>
