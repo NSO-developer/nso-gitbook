@@ -34,7 +34,7 @@ From this view, you can review the active transaction before committing it.
 
 When the Web UI is open in multiple browser tabs, local session transactions are synchronized across those tabs. Synchronization includes transaction creation, modifications, reversion, and commit. Updates made in one tab are reflected in the others.
 
-When more than one transaction tag is available, use the **Transaction tags** selector to choose which transaction to view. The tag used by the Configuration editor is displayed as **webui-one (default tag, config editor)**.
+When more than one transaction tag is available, use the **Transaction tags** selector to choose which transaction to view. The tag used by the Configuration Editor is displayed as **webui-one (default tag, config editor)**.
 
 ### Validate Changes
 

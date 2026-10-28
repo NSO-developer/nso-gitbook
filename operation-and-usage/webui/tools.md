@@ -86,7 +86,7 @@ The **High Availability** view is used to visualize your HA setup ([Rule-based](
 
 ### Rule-based HA
 
-The Rule-based HA view displays the general information and operational status of your cluster. Actions on the Rule-based cluster can be performed using the **Configuration editor** -> **Actions** tab.
+The Rule-based HA view displays the general information and operational status of your cluster. Actions on the Rule-based cluster can be performed using the **Config editor** -> **Actions** tab.
 
 Available Rule-based HA actions are described further under [Actions](../../administration/management/high-availability.md#d5e5031). Specific parameters and field definitions shown in the view are covered in detail in the rest of the [HA documentation](../../administration/management/high-availability.md).
 
