@@ -175,12 +175,12 @@
   * [README v1.2.1 2026-03-26](huawei-vrp_nc/README.md)
 
 * juniper-junos
-  * [README v4.20.1 2026-10-23](juniper-junos/README.md)
+  * [README v4.20.1.1 2026-10-28](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
   * [README-rebuild](juniper-junos_nc/README-rebuild.md)
-  * [README v1.1.35 2026-10-15](juniper-junos_nc/README.md)
+  * [README v1.1.36 2026-10-28](juniper-junos_nc/README.md)
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
