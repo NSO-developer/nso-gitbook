@@ -247,7 +247,7 @@ public ConfPath(
 )
 ```
 
-Types: [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0), [PathElement](gen/PathParser/PathElement.md#pathelement-30082145995b)
+Types: [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0)
 
 **Parameters**
 
@@ -403,7 +403,7 @@ protected com.tailf.conf.ConfObject popConfObject(
 )
 ```
 
-Types: [ConfObject](ConfObject.md#confobject-5433616953b2), [PathElement](gen/PathParser/PathElement.md#pathelement-30082145995b)
+Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
 
 **Parameters**
 

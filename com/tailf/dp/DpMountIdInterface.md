@@ -4,10 +4,6 @@
 public interface com.tailf.dp.DpMountIdInterface
 ```
 
-**Related classes**
-
-- [NcsDpMux](../ncs/ctrl/NcsDpMux.md#ncsdpmux-e720f4e4e4fe)
-
 ## Members
 
 **Methods**:

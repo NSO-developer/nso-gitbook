@@ -179,8 +179,6 @@ Get the address for the NCS Server.
 public com.tailf.ncs.ctrl.ApplicationMuxManager getApplicationMuxManager()
 ```
 
-Types: [ApplicationMuxManager](ctrl/ApplicationMuxManager.md#applicationmuxmanager-1cb698beb331)
-
 Get the ApplicationMuxManager instance.
  This manager controls all application component threads from all
  packages.
@@ -192,8 +190,6 @@ Get the ApplicationMuxManager instance.
 ```java
 public com.tailf.ncs.ctrl.DpMuxManager getDPMuxManager()
 ```
-
-Types: [DpMuxManager](ctrl/DpMuxManager.md#dpmuxmanager-a830918ce722)
 
 Get the DpMuxManager instance.
  This manager controls the DP instances and all registered callback
@@ -297,8 +293,6 @@ Get the port number for the NCS Server.
 public com.tailf.ncs.ctrl.NedMuxManager getNedMuxManager()
 ```
 
-Types: [NedMuxManager](ctrl/NedMuxManager.md#nedmuxmanager-2d9fb7e9f093)
-
 Get the NedMuxManager instance.
  This manager controls the NedMux and all registered NED components
  from all packages.
@@ -392,8 +386,6 @@ Handles exceptions from a specific package by name.
 public void instantiatePackageComponent(com.tailf.ncs.ctrl.NcsPDData pdData) throws Exception
 ```
 
-Types: [NcsPDData](ctrl/NcsPDData.md#ncspddata-37ade94897d4)
-
 Instantiates and registers components for an NCS package.
 
 **Parameters**
@@ -456,8 +448,6 @@ Checks if this instance was started with the Tail-f Jar classloader, as
 ```java
 public void redeployPackage(com.tailf.ncs.ctrl.NcsPDData pdData) throws Exception
 ```
-
-Types: [NcsPDData](ctrl/NcsPDData.md#ncspddata-37ade94897d4)
 
 Hot redeploy of all components for a package.
 

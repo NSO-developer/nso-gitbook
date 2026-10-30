@@ -9,10 +9,6 @@ Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Ncs package generic exception
 
-**Related classes**
-
-- [NcsCtrlException](ctrl/NcsCtrlException.md#ncsctrlexception-5ca72987a4d7)
-
 ## Members
 
 **Constructors**:

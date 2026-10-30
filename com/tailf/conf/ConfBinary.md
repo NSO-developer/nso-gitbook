@@ -14,7 +14,6 @@ DATA_CONTAINER - Corresponds to the YANG tailf:hex-list and tailf:octet-list.
 
 - [ConfHexList](ConfHexList.md#confhexlist-8c011575f713)
 - [ConfOctetList](ConfOctetList.md#confoctetlist-4cec81a6f263)
-- [PathConfBinary](gen/PathParser/PathConfBinary.md#pathconfbinary-5ab7abfe8171)
 
 ## Members
 

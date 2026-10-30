@@ -6,7 +6,6 @@ public interface com.tailf.conf.Compiler
 
 **Related classes**
 
-- [MyCompiler](dbg/XPathAbrevGrammar/MyCompiler.md#mycompiler-143644d69d61)
 - [XPathAbrevCompiler](XPathAbrevCompiler.md#xpathabrevcompiler-e30fd52264f6)
 
 ## Members

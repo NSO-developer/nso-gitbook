@@ -421,7 +421,7 @@ public com.tailf.maapi.MaapiSchemas.CSNode findCSNode(
     throws com.tailf.maapi.MaapiException
 ```
 
-Types: [CSNode](MaapiSchemas/CSNode.md#csnode-f12d9ad69c28), [MountIdInterface](../conf/MountIdInterface.md#mountidinterface-113d1b54dae0), [PathElement](../conf/gen/PathParser/PathElement.md#pathelement-30082145995b), [MaapiException](MaapiException.md#maapiexception-af58eb4e109e)
+Types: [CSNode](MaapiSchemas/CSNode.md#csnode-f12d9ad69c28), [MountIdInterface](../conf/MountIdInterface.md#mountidinterface-113d1b54dae0), [MaapiException](MaapiException.md#maapiexception-af58eb4e109e)
 
 Internally used method to find a node defined by an internal path format
 

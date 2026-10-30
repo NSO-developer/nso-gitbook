@@ -181,7 +181,7 @@ protected InstancePath(
 )
 ```
 
-Types: [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0), [PathElement](gen/PathParser/PathElement.md#pathelement-30082145995b)
+Types: [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0)
 
 **Parameters**
 
@@ -294,8 +294,6 @@ Types: [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0)
 protected java.util.List<com.tailf.conf.gen.PathParser.PathElement> pl;
 ```
 
-Types: [PathElement](gen/PathParser/PathElement.md#pathelement-30082145995b)
-
 
 ## Methods
 
@@ -319,7 +317,7 @@ protected com.tailf.conf.ConfKey convertToConfKey(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfKey](ConfKey.md#confkey-e4e1ca98e867), [PathElement](gen/PathParser/PathElement.md#pathelement-30082145995b), [ConfTag](ConfTag.md#conftag-73757b87bc93), [PathKey](gen/PathParser/PathKey.md#pathkey-a9b70d1850aa), [ConfException](ConfException.md#confexception-baeaab99f7f9)
+Types: [ConfKey](ConfKey.md#confkey-e4e1ca98e867), [ConfTag](ConfTag.md#conftag-73757b87bc93), [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
@@ -345,7 +343,7 @@ protected com.tailf.conf.ConfKey convertToConfKey(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfKey](ConfKey.md#confkey-e4e1ca98e867), [PathElement](gen/PathParser/PathElement.md#pathelement-30082145995b), [ConfTag](ConfTag.md#conftag-73757b87bc93), [PathKey](gen/PathParser/PathKey.md#pathkey-a9b70d1850aa), [ConfException](ConfException.md#confexception-baeaab99f7f9)
+Types: [ConfKey](ConfKey.md#confkey-e4e1ca98e867), [ConfTag](ConfTag.md#conftag-73757b87bc93), [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
@@ -447,7 +445,7 @@ public static final com.tailf.conf.ConfObject[] getKP(
     throws com.tailf.conf.ConfException
 ```
 
-Types: [ConfObject](ConfObject.md#confobject-5433616953b2), [PathElement](gen/PathParser/PathElement.md#pathelement-30082145995b), [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0), [ConfException](ConfException.md#confexception-baeaab99f7f9)
+Types: [ConfObject](ConfObject.md#confobject-5433616953b2), [MountIdInterface](MountIdInterface.md#mountidinterface-113d1b54dae0), [ConfException](ConfException.md#confexception-baeaab99f7f9)
 
 **Parameters**
 
@@ -515,7 +513,7 @@ protected static java.util.List<com.tailf.conf.gen.PathParser.PathElement> makeK
 )
 ```
 
-Types: [PathElement](gen/PathParser/PathElement.md#pathelement-30082145995b), [ConfObject](ConfObject.md#confobject-5433616953b2)
+Types: [ConfObject](ConfObject.md#confobject-5433616953b2)
 
 **Parameters**
 

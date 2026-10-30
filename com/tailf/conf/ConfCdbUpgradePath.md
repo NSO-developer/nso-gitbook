@@ -78,8 +78,6 @@ This is a simplified variant of [`ConfPath`](ConfPath.md#confpath-327831c6fc7d) 
 public ConfCdbUpgradePath(java.util.List<com.tailf.conf.gen.PathParser.PathElement> pl)
 ```
 
-Types: [PathElement](gen/PathParser/PathElement.md#pathelement-30082145995b)
-
 **Parameters**
 
 - `java.util.List<com.tailf.conf.gen.PathParser.PathElement> pl`

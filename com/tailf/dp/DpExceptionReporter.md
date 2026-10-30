@@ -7,10 +7,6 @@ public interface com.tailf.dp.DpExceptionReporter
 Interface for the user of the Dp deamon to handle catched exceptions
  in the implicit threads started in the Dp.read() method
 
-**Related classes**
-
-- [NcsDpMux](../ncs/ctrl/NcsDpMux.md#ncsdpmux-e720f4e4e4fe)
-
 ## Members
 
 **Methods**:
