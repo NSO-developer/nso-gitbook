@@ -1359,7 +1359,7 @@
 
   Used with live-status to inject simualted output for a show command.
 
-    - developer simulate-show <cmd> <file>
+    - developer simulate-show <cmd> <file> <text>
 
       - cmd <WORD>
 
@@ -1368,5 +1368,9 @@
       - file <WORD>
 
         Path to file containing output of simulated show command.
+
+      - text <WORD>
+
+        Output of show command as a single string.
 
 
