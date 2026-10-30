@@ -1,6 +1,6 @@
 # Table of contents
 
-## com.tailf.cdb
+## Java API Reference
 
 * [`com.tailf.cdb`](com/tailf/cdb/README.md)
   * [`Cdb`](com/tailf/cdb/Cdb.md)
@@ -23,9 +23,6 @@
   * [`CdbSubscriptionType`](com/tailf/cdb/CdbSubscriptionType.md)
   * [`CdbTxId`](com/tailf/cdb/CdbTxId.md)
   * [`CdbUpgradeSession`](com/tailf/cdb/CdbUpgradeSession.md)
-
-## com.tailf.conf
-
 * [`com.tailf.conf`](com/tailf/conf/README.md)
   * [`AmbiguousNamespaceException`](com/tailf/conf/AmbiguousNamespaceException.md)
   * [`Compiler`](com/tailf/conf/Compiler.md)
@@ -140,9 +137,6 @@
   * [`com.tailf.conf.gen2`](com/tailf/conf/gen2/README.md)
     * [`ParseException`](com/tailf/conf/gen2/ParseException.md)
     * [`XPathAbrev1`](com/tailf/conf/gen2/XPathAbrev1.md)
-
-## com.tailf.dp
-
 * [`com.tailf.dp`](com/tailf/dp/README.md)
   * [`AuthorizationOperCheck`](com/tailf/dp/AuthorizationOperCheck.md)
   * [`AuthorizationResult`](com/tailf/dp/AuthorizationResult.md)
@@ -234,18 +228,12 @@
     * [`ServiceLog`](com/tailf/dp/services/ServiceLog.md)
     * [`ServiceModificationContextImpl`](com/tailf/dp/services/ServiceModificationContextImpl.md)
     * [`ServiceOperationType`](com/tailf/dp/services/ServiceOperationType.md)
-
-## com.tailf.ha
-
 * [`com.tailf.ha`](com/tailf/ha/README.md)
   * [`Ha`](com/tailf/ha/Ha.md)
   * [`HaException`](com/tailf/ha/HaException.md)
   * [`HaOrderType`](com/tailf/ha/HaOrderType.md)
   * [`HaStateType`](com/tailf/ha/HaStateType.md)
   * [`HaStatus`](com/tailf/ha/HaStatus.md)
-
-## com.tailf.maapi
-
 * [`com.tailf.maapi`](com/tailf/maapi/README.md)
   * [`ApplyResult`](com/tailf/maapi/ApplyResult.md)
   * [`CLICmdToPathResult`](com/tailf/maapi/CLICmdToPathResult.md)
@@ -339,9 +327,6 @@
   * [`ResultTypeString`](com/tailf/maapi/ResultTypeString.md)
   * [`ResultTypeTag`](com/tailf/maapi/ResultTypeTag.md)
   * [`XPathNodeIterateResultFlag`](com/tailf/maapi/XPathNodeIterateResultFlag.md)
-
-## com.tailf.navu
-
 * [`com.tailf.navu`](com/tailf/navu/README.md)
   * [`IllegalParentNavuNodeException`](com/tailf/navu/IllegalParentNavuNodeException.md)
   * [`InternalSAXException`](com/tailf/navu/InternalSAXException.md)
@@ -382,9 +367,6 @@
     * [`NavuTraversalMean`](com/tailf/navu/traversal/NavuTraversalMean.md)
     * [`NavuTreeTraversal`](com/tailf/navu/traversal/NavuTreeTraversal.md)
     * [`TraversalFilter`](com/tailf/navu/traversal/TraversalFilter.md)
-
-## com.tailf.ncs
-
 * [`com.tailf.ncs`](com/tailf/ncs/README.md)
   * [`ApplicationComponent`](com/tailf/ncs/ApplicationComponent.md)
   * [`NavuEventCallback`](com/tailf/ncs/NavuEventCallback.md)
@@ -730,9 +712,6 @@
   * [`com.tailf.ncs.template`](com/tailf/ncs/template/README.md)
     * [`Template`](com/tailf/ncs/template/Template.md)
     * [`TemplateVariables`](com/tailf/ncs/template/TemplateVariables.md)
-
-## com.tailf.ned
-
 * [`com.tailf.ned`](com/tailf/ned/README.md)
   * [`CliSession`](com/tailf/ned/CliSession.md)
   * [`NedCapability`](com/tailf/ned/NedCapability.md)
@@ -769,9 +748,6 @@
   * [`TelemetryType`](com/tailf/ned/TelemetryType.md)
   * [`TelnetSession`](com/tailf/ned/TelnetSession.md)
   * [`TraceBuffer`](com/tailf/ned/TraceBuffer.md)
-
-## com.tailf.notif
-
 * [`com.tailf.notif`](com/tailf/notif/README.md)
   * [`AuditNetworkNotification`](com/tailf/notif/AuditNetworkNotification.md)
   * [`AuditNotification`](com/tailf/notif/AuditNotification.md)
@@ -808,18 +784,12 @@
   * [`SystemGoingDownNotification`](com/tailf/notif/SystemGoingDownNotification.md)
   * [`UpgradeNotification`](com/tailf/notif/UpgradeNotification.md)
   * [`UserSessNotification`](com/tailf/notif/UserSessNotification.md)
-
-## com.tailf.progress
-
 * [`com.tailf.progress`](com/tailf/progress/README.md)
   * [`Attributes`](com/tailf/progress/Attributes.md)
   * [`EmptySpan`](com/tailf/progress/EmptySpan.md)
   * [`ProgressTrace`](com/tailf/progress/ProgressTrace.md)
   * [`ProgressTraceNed`](com/tailf/progress/ProgressTraceNed.md)
   * [`Span`](com/tailf/progress/Span.md)
-
-## com.tailf.proto
-
 * [`com.tailf.proto`](com/tailf/proto/README.md)
   * [`ConfEAtom`](com/tailf/proto/ConfEAtom.md)
   * [`ConfEBig`](com/tailf/proto/ConfEBig.md)
@@ -846,9 +816,6 @@
   * [`ConfExternal`](com/tailf/proto/ConfExternal.md)
   * [`ConfInputStream`](com/tailf/proto/ConfInputStream.md)
   * [`ConfOutputStream`](com/tailf/proto/ConfOutputStream.md)
-
-## com.tailf.util
-
 * [`com.tailf.util`](com/tailf/util/README.md)
   * [`AesEncrypter`](com/tailf/util/AesEncrypter.md)
   * [`ArrayTool`](com/tailf/util/ArrayTool.md)
