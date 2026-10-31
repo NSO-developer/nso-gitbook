@@ -1048,6 +1048,19 @@
         Print the full build output also for successful builds (otherwise only printed on errors).
 
 
+        Either of:
+
+          - use-presets from-cache <empty>
+
+            Use settings cached from the previous build.
+
+        OR:
+
+          - use-presets from-file <string>
+
+            Use settings from the specified file path.
+
+
       - build-namespace-classes <empty>
 
         Generate Python and Java namespace classes for each YANG file.

@@ -16,28 +16,31 @@
   5. Rebuilding the NED Using a Custom NED-ID
     5.1 Rebuild With a Custom NED-ID
     5.2 Exporting the Rebuilt NED Package
-  6. YANG Fixes Applied When Rebuilding the NED
-    6.1 General
-    6.2 Fixes Listed by Schema Paths
-    6.3 Fixes Listed by YANG File Paths
-    6.4 Other Fixes
-  7. Advanced: Repairing Third-Party YANG Modules
-    7.1 Types of YANG Related Issues
-    7.2 Compile-time Issues
-    7.3 Run-time Issues
-  8. Advanced: Customizing Third-Party YANG Schemas
-    8.1 Scope Filtering
-    8.2 Trim Filtering
-    8.3 Auto-config Filtering
-  9. Advanced: Issues Solvable with Schema Customization
-    9.1 Excessive RPCs Leading to Unresponsive NSO CLI
-    9.2 Removing Deprecated Nodes from the Schema
-    9.3 Identifying Problematic XPath Expressions Causing Performance Degradation in NSO
-    9.4 Solving Issues Related to the NSO Brownfield Feature
-  10. Advanced: How to Determine When a NED Upgrade is Required
-    10.1 Example
-    10.2 Analysing the Incompatibilities
-    10.3 Suppressing Alarms for YANG Revision Mismatches
+  6. Rebuilding With Presets
+    6.1 The Rebuild Cache
+    6.2 Rebuilding Using a Preset File
+  7. YANG Fixes Applied When Rebuilding the NED
+    7.1 General
+    7.2 Fixes Listed by Schema Paths
+    7.3 Fixes Listed by YANG File Paths
+    7.4 Other Fixes
+  8. Advanced: Repairing Third-Party YANG Modules
+    8.1 Types of YANG Related Issues
+    8.2 Compile-time Issues
+    8.3 Run-time Issues
+  9. Advanced: Customizing Third-Party YANG Schemas
+    9.1 Scope Filtering
+    9.2 Trim Filtering
+    9.3 Auto-config Filtering
+  10. Advanced: Issues Solvable with Schema Customization
+    10.1 Excessive RPCs Leading to Unresponsive NSO CLI
+    10.2 Removing Deprecated Nodes from the Schema
+    10.3 Identifying Problematic XPath Expressions Causing Performance Degradation in NSO
+    10.4 Solving Issues Related to the NSO Brownfield Feature
+  11. Advanced: How to Determine When a NED Upgrade is Required
+    11.1 Example
+    11.2 Analysing the Incompatibilities
+    11.3 Suppressing Alarms for YANG Revision Mismatches
 ```
 
 
@@ -348,9 +351,9 @@ The recommended way to clean the source directory is to follow the steps describ
 
 # 5. Rebuilding the NED Using a Custom NED-ID
 
-A common use case is managing multiple versions of the same device in a network controlled by NSO. Each device may require its own unique set of YANG files, which means the NED must be rebuilt for each version.
+A common use case is managing multiple versions of the same device family within an NSO-managed network. Because each device version may require its own unique set of YANG files, a dedicated NED package must be rebuilt for each version.
 
-To support this scenario, each built variant of the NED must have a unique NED-ID. This allows NSO to support multiple versions of the same NED package simultaneously.
+To support this scenario, each built variant of the NED must have a unique NED-ID. This allows NSO to load and run multiple versions of the same NED package simultaneously.
 
 There are two ways to rebuild the NED with a custom NED-ID:
 
@@ -362,7 +365,7 @@ Specify the following additional arguments:
 - `major`
 - `minor`
 
-**2. Using gmake in a separate shell:**
+**2. Using GNU make from a shell:**
 
 Set the following make variables:
 
@@ -370,76 +373,86 @@ Set the following make variables:
 - `NED_ID_MAJOR`
 - `NED_ID_MINOR`
 
-The default NED-ID is: onf-tapi_rc-gen-2.0
+The default NED-ID is: `onf-tapi_rc-gen-2.0`
 
 
-## 5.1 Rebuild With a Custom NED-ID
+## 5.1 Rebuilding With a Custom NED-ID
 
-Do as follows to build each flavour of the onf-tapi_rc NED. Do it in iterations, one at the time:
+Follow these steps to build each variant of the onf-tapi_rc NED iteratively, one at a time:
 
-1. Follow the instructions in chapter **1.1** to **1.3** in [README.md](README.md) to unpack the NED and install a device instance
+1. Follow the instructions in sections **1.1** to **1.3** of [README.md](README.md) to unpack the NED and set up the device instance. Ensure a unique directory is selected, update the `$NED_ROOT_DIR` environment variable accordingly, and configure the device instance.
 
-   using it. Make sure a unique location is selected and update the environment variable `$NED_ROOT_DIR`
+2. Follow the instructions in section **1.2** to download the YANG models matching the target device version.
 
-   accordingly and configure a device instance.
+3. Follow the instructions in section **1.3** to rebuild the NED using one of the following alternatives:
 
-2. Follow the instructions in chapter **1.2** to download the YANG models matching the configured device.
+   
 
-3. Follow the instructions in chapter **1.3** to rebuild the NED:
+**Alternative 1: Use the built-in RPC to rebuild with custom NED-ID arguments**
 
+Use any combination of the additional `ned-id` arguments `major`, `minor` and `suffix`.
 
-
-   **Alternative 1: Use the built-in rpc to rebuild with custom NED-ID**
-
-   Use any combination of the additional `ned-id` arguments `major`, `minor` and `suffix`.
-
-   Two examples showing NED-ID adapted for "device version" 21.6:
+Two examples targeting device version 21.6:
 
    ```
    admin@ncs# devices device dev-1 rpc rpc-rebuild-package rebuild-package ned-id suffix -21.6
    ```
 
-   This will generate a NED-ID like: `onf-tapi_rc-r21.6-gen-1.'`
+   This generates a NED-ID like: `onf-tapi_rc-r21.6-gen-1.'`
 
    ```
    admin@ncs# devices device dev-1 rpc rpc-rebuild-package rebuild-package ned-id major 21 minor 6
    ```
 
-   This will generate a NED-ID like: `onf-tapi_rc-gen-21.6`
+   This generates a NED-ID like: `onf-tapi_rc-gen-21.6`
 
 
 
-   **Alternative 2: Rebuild the NED using gnu make from a shell**
+   **Alternative 2: Rebuild using GNU make from a shell**
 
-   Add any combination of the additional make variables `NED_ID_SUFFIX`, `NED_ID_MAJOR` and `NED_ID_MINOR` to the command line.
+   Pass any combination of the additional make variables `NED_ID_SUFFIX`, `NED_ID_MAJOR` and `NED_ID_MINOR` on the command line.
 
-   Two examples showing NED-ID adapted for "device version" 21.6:
+   Two examples targeting device version 21.6:
 
    ```
    > make NED_ID_SUFFIX=-r21.6 clean all
    ```
 
-   This will generate a NED-ID like: `onf-tapi_rc-r21.6-gen-1.0`
+   This generates a NED-ID like: `onf-tapi_rc-r21.6-gen-1.0`
 
    ```
    > make NED_ID_MAJOR=21 NED_ID_MINOR=6 clean all
    ```
 
-   This will generate a NED-ID like: `onf-tapi_rc-gen-21.6`
+   This generates a NED-ID like: `onf-tapi_rc-gen-21.6`
 
 
 
-4. Follow the instructions in chapter **1.4** to reload the NED package. The rebuilt NED package will now have the NED-ID: `onf-tapi_rc<NED_ID_SUFFIX>-gen-<NED_ID_MAJOR>.<NED_ID_MINOR>`
+4. Follow the instructions in section **1.4** to reload the NED package. The rebuilt package will now use the NED-ID:  
+   `onf-tapi_rc<NED_ID_SUFFIX>-gen-<NED_ID_MAJOR>.<NED_ID_MINOR>`
 
-   This is detected by NSO and will have the following side effects:
+   **Important side effects when changing the NED-ID:**
+   - The original default NED-ID will no longer exist in NSO after the package is reloaded. Consequently, any device configured with the default NED-ID will become invalid.
+   - It is recommended to delete or migrate all device instances using the default NED-ID prior to reloading packages.
+   - You must execute `packages reload force` when reloading packages in NSO.
 
-   - The default NED-ID will no longer exist after the packages has been reloaded in NSO. Hence, any devices configured with the default NED-ID can no longer exist either.
-   - It is recommended to delete all device instances using the default NED-ID before reloading the packages in NSO.
-   - It is necessary to use `packages reload force` when reloading the packages in NSO.
+5. Reconfigure the device instance from step 1 to use the newly generated NED-ID.
 
-5. Reconfigure the device instance from step #1 in this list. Now use the new NED-ID
+6. Verify operation by running `sync-from` on the configured device instance.
 
-6. Verify functionality by executing a `sync-from` on the configured device instance.
+
+
+### Important Considerations When Selecting a Custom NED-ID
+
+When managing multiple firmware versions of the same device type, each version usually requires its own YANG bundle and distinct rebuilt NED package.
+
+In many cases, the YANG schemas differ only slightly between consecutive firmware releases. NSO 6.6 and later includes a **schema de-duplication** feature that avoids duplicating identical schema trees across multiple loaded NED packages, significantly reducing NSO memory (RAM) consumption.
+
+To enable schema de-duplication, NSO requires the base prefix of the NED-ID to match exactly across packages (i.e., the substring before `-gen-` must be identical). 
+
+**Recommendations for Schema De-duplication:**
+* **Preferred approach:** Differentiate your packages using only `major` and `minor` (e.g., `onf-tapi_rc-gen-21.6` and `onf-tapi_rc-gen-22.4`). This keeps the base prefix identical across all versions.
+* **If using `suffix`:** Ensure that the same `suffix` is used across all NED packages you want to participate in schema de-duplication (e.g., `onf-tapi_rc-custom-gen-21.6` and `onf-tapi_rc-custom-gen-22.4`). If different suffixes are assigned (such as embedding the release version into the suffix like `-r21.6` vs. `-r22.4`), the base prefixes will differ and NSO will be unable to de-duplicate schemas between them.
 
 
 
@@ -466,7 +479,155 @@ exported to: /tmp/ncs-6.2.2-onf-tapi_rc-1.0.2-customized.tar.gz
 
 
 
-# 6. YANG Fixes Applied When Rebuilding the NED
+# 6. Rebuilding With Presets
+
+The 3PY NED rebuild framework includes two preset features designed for CI/CD pipelines, automated workflows, and repetitive package updates where identical NED-ID customizations or build filter settings must be consistently applied across iterations:
+
+- **Build settings cache:** Automatically records the build variables and customization flags used during a build. This cache can then be reused for subsequent rebuilds, eliminating the need to pass extensive arguments repeatedly.
+- **Preset files:** Rebuilds the NED package using an external configuration file containing all necessary build variables and customization flags.
+
+
+
+## 6.1 The Rebuild Cache
+
+When a rebuild is executed (either via GNU make or the built-in NSO RPC), the active build configuration is automatically written to:`$NED_ROOT_DIR/src/.ned-make-settings-cache`
+
+### Cached Settings
+
+The settings cache preserves most build customization variables, including NED-ID parameters, the active build profile, and schema customization filter rules. For a list of supported variables, see the [Valid Presets](#valid-presets) section below.
+
+### Using the Cache
+
+#### Alternative 1: Rebuilding with GNU Make from a Shell
+
+1. **Initial Build:** Run `make` with your desired customization variables. The settings are applied and cached automatically:
+
+   ```bash
+   make clean all NED_ID_SUFFIX=-foo NED_ID_MAJOR=2 NED_ID_MINOR=17
+
+1. **Inspect the Cache (Optional):** Check `$NED_ROOT_DIR/src/.ned-make-settings-cache`:
+
+   ```bash
+   cat src/.ned-make-settings-cache
+   ```
+
+   *Example output:*
+
+   ```makefile
+   NED_ID_SUFFIX := -foo
+   NED_ID_MAJOR := 2
+   NED_ID_MINOR := 17
+   APPLY_YPP_CUSTOM := do-profile-default
+   SKIP_NETSIM := no
+   ```
+
+2. **Subsequent Rebuilds:** Reuse the cached settings by passing `WITH_SETTINGS_FROM_CACHE=yes`:
+
+   ```bash
+   make clean all WITH_SETTINGS_FROM_CACHE=yes
+   ```
+
+#### Alternative 2: Rebuilding via the NSO Built-in RPC
+
+1. **Initial Build:** Execute the `rebuild-package` action with custom parameters:
+
+   ```text
+   admin@ncs# devices device dev-1 rpc rpc-rebuild-package rebuild-package ned-id { major 8 minor 18 suffix -customized }
+   ```
+
+2. **Subsequent Rebuilds:** Trigger the rebuild action with `use-presets from-cache`:
+
+   ```text
+   admin@ncs# devices device dev-1 rpc rpc-rebuild-package rebuild-package use-presets from-cache
+   ```
+
+
+
+## 6.2 Rebuilding Using a Preset File
+
+This feature allows you to perform customized rebuilds by pointing to a preset recipe file containing predefined build variables and customization flags. This enables maintaining a library of version-controlled preset files for different deployment profiles and device targets.
+
+The preset file uses standard Makefile variable assignment syntax:
+
+```makefile
+NED_ID_SUFFIX := -foo
+NED_ID_MAJOR := 2
+NED_ID_MINOR := 17
+SKIP_NETSIM := yes
+```
+
+### Using a Preset File
+
+#### Alternative 1: Rebuilding with GNU Make from a Shell
+
+```bash
+make clean all WITH_SETTINGS_FROM_FILE=/var/my-ned-customizations/ned-rebuild-preset-1
+```
+
+#### Alternative 2: Rebuilding via the NSO Built-in RPC
+
+```text
+admin@ncs# devices device dev-1 rpc rpc-rebuild-package rebuild-package use-presets from-file /var/my-ned-customizations/ned-rebuild-preset-1
+```
+
+### Valid Presets
+
+The following variables can be configured in a preset file or preserved in the cache:
+
+- **NED-ID Customization:**
+
+  - `NED_ID_SUFFIX`: The suffix to append to the NED-ID base name.
+  - `NED_ID_MAJOR`: The major version number.
+  - `NED_ID_MINOR`: The minor version number.
+
+- **Netsim Compilation:**
+
+  - `SKIP_NETSIM`: Set to `yes` to omit compiling YANG files for netsim.
+
+- **Build Profile:**
+
+  - `APPLY_YPP_CUSTOM`: The build profile to apply during YANG preprocessing.
+
+- **Python Namespace Classes:**
+
+  - `BUILD_NAMESPACE_CLASSES`: Set to `yes` to generate Python namespace classes for device YANG files.
+
+- **Module Name Prefixing:**
+
+  - `USE_MODULE_AS_PREFIX`: Set to `yes` to force the YANG compiler to use module names as prefixes rather than the prefixes declared inside the YANG files.
+
+- **Scope Filter Customization:**
+
+  - `YANG_SCOPE_FILTER_DIR`: Path to the directory containing one or more XML files defining the target schema scope.
+  - `YANG_SCOPE_FILTER_FILE`: Path to a file containing a pre-generated scope filter recipe.
+
+- **Trim Filter Customization:**
+
+  - `YANG_TRIM_FILTER_FILE`: Path to a file containing a pre-generated trim filter recipe.
+
+- **Auto Config Filter Customization:**
+
+  - `YANG_EXTRA_DEVIATION_FILE`: Path to a pre-generated YANG deviation file implementing the auto-config filter.
+
+  
+
+## 6.3 Using the Cache to Generate a Preset File
+
+A convenient way to create a preset file is to run an initial build with standard parameters (either via GNU make or the built-in RPC) and then copy the generated cache file:
+
+1. Perform the initial build with the desired options.
+
+2. Copy the cache file to your preset repository:
+
+   ```bash
+   cp $NED_ROOT_DIR/src/.ned-make-settings-cache /var/my-ned-customizations/ned-rebuild-preset-1
+   ```
+
+> **Note on Filters:** If you use scope or trim filter features, ensure you also copy any referenced filter files or directories to a permanent location outside `$NED_ROOT_DIR/src/`. Filter files generated in the build directory are temporary and will be deleted on subsequent `make clean` invocations. Update the file paths in your copied preset file to point to the permanent locations.
+
+
+
+# 7. YANG Fixes Applied When Rebuilding the NED
 
 Third-party YANG files often contain errors that can cause issues during compilation or at runtime. In addition to standard YANG bugs, there may be constructs that are incompatible with NSO, or cases where the device does not fully adhere to the models.
 
@@ -535,7 +696,7 @@ Hence, some of the Kratos patches are reverted by the NED, if those files are av
 
 
 
-# 7. Advanced: Repairing Third-Party YANG Modules
+# 8. Advanced: Repairing Third-Party YANG Modules
 
 -------------------------------------
 
@@ -555,7 +716,7 @@ There is also a do-it-yourself option for advanced users who have a strong under
 
 
 
-## 7.1 Types of YANG Related Issues
+## 8.1 Types of YANG Related Issues
 
 When preparing YANG modules for use with NSO, issues can generally be classified as either compile-time or run-time.
 
@@ -565,7 +726,7 @@ When preparing YANG modules for use with NSO, issues can generally be classified
 
 
 
-## 7.2 Compile-time Issues
+## 8.2 Compile-time Issues
 
 ---------------------------
 
@@ -603,7 +764,7 @@ The NED package includes three different YANG pre-processor tools for compile-ti
 
 
 
-### 7.2.1 The schypp Tool
+### 8.2.1 The schypp Tool
 
 **schypp** is the schema-aware YANG pre-processor tool. It is automatically invoked at compile time and reads directives from the file `$NED_ROOT_DIR/src/customize-schema.schypp`.
 
@@ -727,7 +888,7 @@ replace /configuration/chassis/fpc/pic/name::type::type string;
 
 
 
-### 7.2.2 The jypp Tool
+### 8.2.2 The jypp Tool
 
 **jypp** is a YANG pre-processor tool implemented in Java (hence the name). It provides similar functionality to the `schypp` tool, but operates in a YANG model-aware manner rather than schema-aware.
 
@@ -834,7 +995,7 @@ do-profile-default:
 
 
 
-### 7.2.3 The ypp Tool
+### 8.2.3 The ypp Tool
 
 **ypp** is the oldest of the three YANG pre-processor tools. It is a pattern-matching, text-processing utility that operates using regular expressions - essentially an advanced version of `sed`. While most tasks can be accomplished more easily with `schypp` or `jypp`, there are situations where `ypp` is the only workable option.
 
@@ -911,7 +1072,7 @@ inline-type /components/component/subcomponents/subcomponent/name
 
 
 
-# 8. Advanced: Customizing Third-Party YANG Schemas
+# 9. Advanced: Customizing Third-Party YANG Schemas
 
 YANG models provided by many third-party vendors are often very large. When compiled, these schemas may contain tens of thousands of nodes, and in some cases, even exceed one million. Such large schemas can negatively impact NSO in several ways:
 
@@ -929,7 +1090,7 @@ This chapter applies generally to all third-party YANG NEDs and includes example
 
 
 
-## 8.1 Scope Filtering
+## 9.1 Scope Filtering
 
 Scope filtering is typically the first method to try when aiming to reduce the size of the schema during the rebuilding of a NED package. It works by automatically limiting the number of YANG models included to only those required for your specific use cases. This means that only the necessary YANG models are incorporated, which helps in minimizing the overall schema size and improving performance and resource usage during NSO operations.
 
@@ -939,7 +1100,7 @@ This method is recommended as the initial step in schema customization when buil
 
 
 
-### 8.1.1 How it Works
+### 9.1.1 How it Works
 
 YANG models that define the schema are typically organized into functional groups. For example, one module might cover interface configuration, another system settings, and a third router settings. Each group is usually defined in a separate YANG module with its own XML namespace, as illustrated below:
 
@@ -1031,7 +1192,7 @@ All collected use cases need to be saved as XML files in an appropriate director
 
 
 
-### 8.1.2 Usage
+### 9.1.2 Usage
 
 To rebuild the NED package using the scope filtering feature with collected use cases stored in the directory /tmp/use-cases, you have two main options:
 
@@ -1067,7 +1228,7 @@ $ make -C $NED_ROOT_DIR/src clean all YANG_SCOPE_FILTER_DIR=/tmp/use-cases
 
 
 
-### 8.1.3 Examples
+### 9.1.3 Examples
 
 This simple example shows how to use the scope filter to adapt the NED to only include the YANG modules covering the running config on the device together with the configuration that will be deployed through a simple service package named *my-service*.
 
@@ -1132,7 +1293,7 @@ This simple example shows how to use the scope filter to adapt the NED to only i
 
 
 
-### 8.1.4 Limitations
+### 9.1.4 Limitations
 
 The scope filtering feature depends on YANG models being properly partitioned into distinct XML namespaces, which is true for most third-party YANG models. However, there are notable limitations:
 
@@ -1146,7 +1307,7 @@ To address these limitations, the **trim filter** feature shall be used instead.
 
 
 
-## 8.2 Trim Filtering
+## 9.2 Trim Filtering
 
 Trim filtering customizes third-party YANG schemas by patching the YANG files during the NED package rebuild process. This is done through a pre-processing step handled by the tool named *schypp*, which reads all installed YANG files into an in-memory schema representation. The *schypp* tool then applies modifications based on pragma directives, as described in the relevant documentation section **7.1**. After applying these modifications, schypp automatically generates new patched versions of the YANG files.
 
@@ -1156,7 +1317,7 @@ This approach allows for much finer granularity in schema customization compared
 
 
 
-### 8.2.1 How it Works
+### 9.2.1 How it Works
 
 When trimming nodes using the *schypp* based trimmer tool, the process works as follows:
 
@@ -1667,7 +1828,7 @@ module trim-schema-dev {
 
 
 
-### 8.2.2 Usage
+### 9.2.2 Usage
 
 This is a detailed guide on using the NED built-in rebuild tool with the trim-schema filter for trimming YANG schema nodes:
 
@@ -1815,7 +1976,7 @@ $ make -C $NED_ROOT_DIR/src clean all YANG_TRIM_FILTER_FILE=/tmp/all-nodes-to-tr
 
 
 
-### 8.2.3 Schema Path Formats
+### 9.2.3 Schema Path Formats
 
 When specifying schema paths for the trimmer tool, it is essential to use the full raw schema path, including prefixes whenever there is a namespace change. This is generally straightforward except for YANG `choice` statements. In the case of `choice` statements, both the `choice` node and the relevant `case` node must be included in the path.
 
@@ -1870,7 +2031,7 @@ Using the `show-loaded-schema` tool is highly recommended to generate accurate a
 
 
 
-### 8.2.4 Limitations
+### 9.2.4 Limitations
 
 Schema trimming is an advanced process designed to handle complex YANG constructs. It has been tested with third-party YANG models from multiple vendors such as *Cisco IOSXR*, *Juniper JunOS*, *Nokia SROS*, *Nokia SRLinux*, *Arista EOS*, and *OpenConfig*.
 
@@ -1880,7 +2041,7 @@ Currently, the schema trimming tool does not support trimming of YANG `unique` s
 
 
 
-## 8.3 Auto-config Filtering
+## 9.3 Auto-config Filtering
 
 Auto-config filtering in NSO is designed to address device configuration artifacts known as auto-config. These artifacts occur when a device automatically applies additional configuration related to the configuration explicitly deployed by NSO. For example, if NSO applies configuration A, the device will automatically also set configuration B.
 
@@ -1896,7 +2057,7 @@ Auto-config filtering focuses on this third option to improve synchronization by
 
 
 
-### 8.3.1 How it Works
+### 9.3.1 How it Works
 
 The auto-config filtering in NSO works by identifying nodes that get auto-configured by the device after a service commits configuration. This process relies on two snapshots of the running configuration:
 
@@ -1982,7 +2143,7 @@ Alternatively, you can rebuild the NED package directly from a Unix shell. This 
 
 
 
-### 8.3.3 Examples
+### 9.3.3 Examples
 
 This simple example demonstrates how to effectively use the auto-config filter to remove automatically configured artifacts from a device. For this example, we assume a basic service named my-service has already been installed.
 
@@ -2050,7 +2211,7 @@ admin@ncs# packages reload
 
 
 
-### 8.3.4 Limitations
+### 9.3.4 Limitations
 
 The auto-config filter employs a best-effort approach. It's important to note that if any automatically configured nodes overlap with the configurations being deployed through NSO, these overlapping nodes cannot be removed.
 
@@ -2061,7 +2222,7 @@ Since the auto-config filter leverages YANG deviations, it does not impact the r
 
 
 
-# 9. Advanced: Issues Solvable with Schema Customization
+# 10. Advanced: Issues Solvable with Schema Customization
 
 This chapter addresses various issues and problems, all of which can be resolved using the schema customization techniques detailed in the preceding chapters. Each of these listed issues stems from real-world support cases, involving a range of different devices and third-party YANG NEDs.
 
@@ -2069,7 +2230,7 @@ The intention is for the described issues and their solutions to serve as an ins
 
 
 
-## 9.1 Excessive RPCs Leading to Unresponsive NSO CLI
+## 10.1 Excessive RPCs Leading to Unresponsive NSO CLI
 
 Third-party YANG models can include a substantial number of Remote Procedure Calls (RPCs). For instance, a recent *JunOS* YANG distribution may contain over 6500 RPCs.
 
@@ -2128,7 +2289,7 @@ First, ensure the NED is fully operational with its complete schema by following
 
 
 
-## 9.2 Removing Deprecated Nodes from the Schema
+## 10.2 Removing Deprecated Nodes from the Schema
 
 The YANG modeling language supports annotating schema nodes with status information. Two status values, in particular, indicate that nodes are scheduled for removal in future model versions:
 
@@ -2163,7 +2324,7 @@ Currently, the NSO YANG compiler (`yanger`) does not provide a built-in method t
 
 
 
-## 9.3 Identifying Problematic XPath Expressions Causing Performance Degradation in NSO
+## 10.3 Identifying Problematic XPath Expressions Causing Performance Degradation in NSO
 
 Many third-party YANG models are annotated with additional expressions to describe dependencies between different nodes in the schema. Typically, these dependencies are defined using xpath expressions in `must` or `when` statements, or by using the leafref type.
 
@@ -2762,7 +2923,7 @@ In some cases, it might be necessary to repeat this procedure until the commit f
 
 
 
-# 10. Advanced: How to Determine When a NED Upgrade is Required
+# 11. Advanced: How to Determine When a NED Upgrade is Required
 
 For devices that use third-party YANG models, a firmware upgrade often means the corresponding YANG files have also changed. From a 3PY NED perspective, this typically requires rebuilding the NED package with the updated YANG files to ensure compatibility with the device. As a result, migrating from the old NED to the new one becomes necessary.
 
@@ -2788,7 +2949,7 @@ The tool analyzes the differences between the currently loaded schema and the ne
 
 
 
-## 10.1 Example:
+## 11.1 Example:
 
 This example uses the YANG models for Cisco IOS XR. Initially, the NED package is built with YANG models for IOS XR version *x*. After a device upgrade to version *y*, it is assumed that all schema nodes relevant to the services running in NSO are already populated in the CDB.
 
@@ -2915,7 +3076,7 @@ This detailed report helps identify all schema changes, distinguishing between b
 
 
 
-## 10.2 Analysing the Incompatibilities
+## 11.2 Analysing the Incompatibilities
 
 The tool can identify nodes that are potentially incompatible. However, whether these nodes are truly incompatible depends on the specific use case. Each situation should be evaluated individually.
 
@@ -2936,7 +3097,7 @@ The list below provides general guidance on how to analyze different types of in
 - **Min-elements and max-elements:** Changes to `min-elements` or `max-elements` are usually backwards compatible if the new range is wider. If the range is narrower, you must analyze the values used by services during configuration. As long as the values comply with the new minimum or maximum requirements, compatibility is preserved.
 
 
-## 10.3 Suppressing Alarms for YANG Revision Mismatches
+## 11.3 Suppressing Alarms for YANG Revision Mismatches
 
 After upgrading a device's firmware, it is common for some advertised YANG models to have revision stamps newer than those included in the current NED package.
 
