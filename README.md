@@ -15,20 +15,6 @@ This release includes major enhancements in the following areas:
 
 <details>
 
-<summary>Fancy Feature</summary>
-
-Yada yada.
-
-Documentation Updates:
-
-* Added the [Telemetry](operation-and-usage/operations/nso-device-manager.md#telemetry) section documenting the new feature and potential use cases.
-* Added the [Telemetry Kicker Concepts](development/advanced-development/kicker.md#telemetry-kicker-concepts) section on consuming telemetry data.
-* Added an [example service](https://github.com/NSO-developer/nso-examples/tree/6.7/service-management/implement-a-service/iface-v6) making use of the YANG-Push to dynamically update service status.
-
-</details>
-
-<details>
-
 <summary>Improved <code>systemd</code> Integration</summary>
 
 The NSO systemd service now starts NSO in foreground mode, allowing systemd to monitor the `ncs.smp` process directly and restart it after an unexpected failure. The service also uses improved startup logic that allows long-running model upgrade to complete without timing out.
@@ -36,6 +22,26 @@ The NSO systemd service now starts NSO in foreground mode, allowing systemd to m
 Documentation Updates:
 
 * Updated the [System Install](administration/installation-and-deployment/system-install.md) section with the new behavior.
+
+</details>
+
+<details>
+
+<summary>Post-Quantum Cryptography Support</summary>
+
+NSO adds support for Post-Quantum Cryptography (PQC) to help guard against "store now, decrypt later" attacks with future quantum computers, including:
+
+* Implementation of post-quantum key exchange and signature algorithms, such as `mlkem768x25519-sha256` and `ML-DSA`.
+* Offering PQC algorithms for northbound TLS and SSH connections by default.
+* Use of PQC algorithms southbound for built-in NETCONF client and NEDs, depending on support by the managed devices.
+* Use of hybrid `x25519mlkem768` key-exchange group with TLS 1.3 for connections between HA nodes.
+
+The NED framework now uses the Apache MINA library in order to enable PQC support.
+
+Documentation Updates:
+
+* Updated the [Secure Deployment](administration/installation-and-deployment/deployment/secure-deployment.md) and [SSH Key Management](operation-and-usage/operations/ssh-key-management.md) pages to document PQC algorithms and their connection scope.&#x20;
+* Added a link from the [NSO NETCONF Server](development/core-concepts/northbound-apis/nso-netconf-server.md) guide to the configurable SSH algorithm settings.
 
 </details>
 
@@ -67,22 +73,13 @@ Documentation Updates:
 
 <details>
 
-<summary>Post-Quantum Cryptography Support</summary>
+<summary>Configurable Template Loading Mode</summary>
 
-NSO adds support for Post-Quantum Cryptography (PQC) to help guard against "store now, decrypt later" attacks with future quantum computers, including:
-
-* Implementation of post-quantum key exchange and signature algorithms, such as `mlkem768x25519-sha256` and `ML-DSA`
-* Offering PQC algorithms for northbound TLS and SSH connections
-* Use of PQC algorithms southbound for built-in NETCONF client and NEDs
-
-The NED framework now uses the Apache MINA library in order to enable PQC support.&#x20;
-
-HA Raft connections between NSO 6.8 nodes negotiate TLS 1.3, when TLS is enabled, using the hybrid `x25519mlkem768` key-exchange group. This negotiation is automatic and is not customer-configurable.
+Template loading mode (strict/relaxed) can now be explicitly configured in the XML template or in the package meta data file, allowing developers to decide on how strict is the validation in multi-NED environments.
 
 Documentation Updates:
 
-* Updated the [Secure Deployment](administration/installation-and-deployment/deployment/secure-deployment.md) and [SSH Key Management](operation-and-usage/operations/ssh-key-management.md) pages to document PQC algorithms and their connection scope.&#x20;
-* Added a link from the [NSO NETCONF Server](development/core-concepts/northbound-apis/nso-netconf-server.md) guide to the configurable SSH algorithm settings.
+* Expanded the [Namespaces and Multi-NED Support](development/core-concepts/templates.md#ch_templates.multined) section with information on loading mode configuration and default selection algorithm.
 
 </details>
 
