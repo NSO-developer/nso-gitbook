@@ -429,10 +429,10 @@
 ## SSH Client Debug Logging
 
 For issues related to the SSH connection, it is useful to enable full logging. First, identify which SSH client your NED is currently using:
-	1.	Check Configuration: Check the NED setting: `show running-config <ned-name> connection ssh client`.
-	2.	Check Trace Logs: Look in your NED trace file for the initialization line:
-		•	`-- new ssh client (mina-sshd)`
-		•	`-- new ssh client (sshj)`
+  1.  Check Configuration: Check the NED setting: `show running-config <ned-name> connection ssh client`.
+  2.  Check Trace Logs: Look in your NED trace file for the initialization line:
+    - `-- new ssh client (mina-sshd)`
+    - `-- new ssh client (sshj)`
 
 
 Once you have identified the client, use the appropriate logger setting to see detailed output in $NSO_RUNDIR/logs/ncs-java-vm.log.

@@ -64,7 +64,7 @@
 
 * cisco-asa
   * [README-ned-settings](cisco-asa/README-ned-settings.md)
-  * [README v6.18.36 2026-09-29](cisco-asa/README.md)
+  * [README v6.18.37 2026-11-03](cisco-asa/README.md)
 
 * cisco-cnc_rc
   * [README-ned-settings](cisco-cnc_rc/README-ned-settings.md)
@@ -82,6 +82,11 @@
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
   * [README v6.116.2 2026-10-29](cisco-ios/README.md)
+
+* cisco-iosxe_nc
+  * [README-ned-settings](cisco-iosxe_nc/README-ned-settings.md)
+  * [README-rebuild](cisco-iosxe_nc/README-rebuild.md)
+  * [README v1.0.0 2026-04-24](cisco-iosxe_nc/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
@@ -103,6 +108,11 @@
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
   * [README v5.38.2 2026-10-22](cisco-nx/README.md)
+
+* cisco-nx_nc
+  * [README-ned-settings](cisco-nx_nc/README-ned-settings.md)
+  * [README-rebuild](cisco-nx_nc/README-rebuild.md)
+  * [README v1.0.0 2026-11-02](cisco-nx_nc/README.md)
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
@@ -126,11 +136,11 @@
 
 * ericsson-minilink6352
   * [README-ned-settings](ericsson-minilink6352/README-ned-settings.md)
-  * [README v1.2.5 2026-03-23](ericsson-minilink6352/README.md)
+  * [README v1.2.6 2026-11-03](ericsson-minilink6352/README.md)
 
 * ericsson-minilink6600
   * [README-ned-settings](ericsson-minilink6600/README-ned-settings.md)
-  * [README v1.3.1 2026-03-23](ericsson-minilink6600/README.md)
+  * [README v1.3.2 2026-11-03](ericsson-minilink6600/README.md)
 
 * f5-bigip
   * [README-ned-settings](f5-bigip/README-ned-settings.md)
