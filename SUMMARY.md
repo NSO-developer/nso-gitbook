@@ -47,7 +47,7 @@
 
 * ceragon-ip20
   * [README-ned-settings](ceragon-ip20/README-ned-settings.md)
-  * [README v1.10.4 2026-08-20](ceragon-ip20/README.md)
+  * [README v1.10.5 2026-11-04](ceragon-ip20/README.md)
 
 * ciena-acos
   * [README-ned-settings](ciena-acos/README-ned-settings.md)
@@ -90,7 +90,7 @@
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.77.12 2026-10-29](cisco-iosxr/README.md)
+  * [README v7.77.13 2026-11-04](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -107,7 +107,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.38.2 2026-10-22](cisco-nx/README.md)
+  * [README v5.38.3 2026-11-04](cisco-nx/README.md)
 
 * cisco-nx_nc
   * [README-ned-settings](cisco-nx_nc/README-ned-settings.md)
@@ -255,6 +255,10 @@
   * [README-ned-settings](siae-smdc_rc/README-ned-settings.md)
   * [README-rebuild](siae-smdc_rc/README-rebuild.md)
   * [README v1.0.16 2025-07-02](siae-smdc_rc/README.md)
+
+* tejas-tejnos
+  * [README-ned-settings](tejas-tejnos/README-ned-settings.md)
+  * [README v1.0.0 2026-11-04](tejas-tejnos/README.md)
 
 * vecima-rpd
   * [README-ned-settings](vecima-rpd/README-ned-settings.md)

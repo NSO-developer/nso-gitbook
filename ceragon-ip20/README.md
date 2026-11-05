@@ -119,6 +119,11 @@
   +---------------------------+-----------------+--------+---------------------------------------------------+
   ```
 
+  NOTE: The NED is not limited to the versions and models listed above and may support additional
+  versions or models. Please try the NED with your target version and model. To request support for
+  additional configuration features or use cases, contact Cisco Support and follow the process
+  described in Section 8.
+
 
 ## 1.1 Extract the NED package
 ------------------------------
@@ -326,11 +331,25 @@
      ```
 
   # Initial configuration requirements
-  ## Please make sure the following MANDATORY ned-settings are properly configured with remote-name as needed for logging in. 
+  ## Please make sure the following settings are properly aligned with the device's supported configuration
+
+  - Default SSH client bumped to SSHJ; Ganymed is considered legacy and planned for removal in newer NSO versions, where the default SSH client will be Apache MINA. 
 
   ```
-   ned-settings ceragon-ip20 connection remote-name login_username
+  admin@ncs(config-device-dev-0)# ned-settings ceragon-ip20 connection ssh client ?
+   Possible completions:
+    ganymed   Deprecated Legacy SSH client; may be needed in very old devices
+    mina      Apache MINA-based client. Supports the latest cryptographic standards, including PQC algorithms.
+    sshj      The new SSH client with support for the latest crypto features. This is the default when using the NED on NSO 5.6 or later.
   ```
+
+  - Ensure proper ssh-algorithms are set for newer or more strict algorithm combinations. 
+  - For example, if the device is advertising kex-strict-s-v00@openssh.com on newer algorithms, bear in mind kex-strict-c-v00@openssh.com and kex-strict-s-v00@openssh.com are pseudo-algorithm identifiers used during the SSH key exchange negotiation to enable Strict KEX mode.
+      The -c- variant is advertised by the client, while the -s- variant is advertised by the server, so in NED's ssh-algorithms it must be set to client version. 
+      Example:
+      ```
+      devices device <ceragon-device-name> ssh-algorithms kex [ kex-strict-c-v00@openssh.com ecdh-sha2-nistp256 ]​
+      ```
 
   - Finally commit the configuration
 
@@ -467,12 +486,28 @@
   affected. However, all log printouts from all log enabled devices are saved in one single file.
   This means that the usability is limited. Typically single device use cases etc.
 
-  **SSHJ DEBUG LOGGING**
-  For issues related to the ssh connection it is often useful to enable full logging in the SSHJ ssh client.
-  This will make SSHJ print additional log entries in `$NSO_RUNDIR/logs/ncs-java-vm.log`:
+## SSH Client Debug Logging
 
+For issues related to the SSH connection, it is useful to enable full logging. First, identify which SSH client your NED is currently using:
+	1.	Check Configuration: Check the NED setting: `show running-config <ned-name> connection ssh client`.
+	2.	Check Trace Logs: Look in your NED trace file for the initialization line:
+		•	`-- new ssh client (mina-sshd)`
+		•	`-- new ssh client (sshj)`
+
+
+Once you have identified the client, use the appropriate logger setting to see detailed output in $NSO_RUNDIR/logs/ncs-java-vm.log.
+
+### Enabling Logging
+
+#### For SSHJ client:
 ```
 admin@ncs(config)# java-vm java-logging logger net.schmizz.sshj level level-all
+admin@ncs(config)# commit
+```
+
+#### For Apache MINA client:
+```
+admin@ncs(config)# java-vm java-logging logger org.apache.sshd level level-all
 admin@ncs(config)# commit
 ```
 
