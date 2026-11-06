@@ -177,7 +177,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.88.1 2026-10-21](huawei-vrp/README.md)
+  * [README v6.88.2 2026-11-05](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
@@ -204,7 +204,7 @@
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
   * [README-rebuild](nokia-sros_nc/README-rebuild.md)
-  * [README v1.0.36 2026-10-15](nokia-sros_nc/README.md)
+  * [README v1.0.37 2026-11-05](nokia-sros_nc/README.md)
 
 * onf-tapi_rc
   * [README-ned-settings](onf-tapi_rc/README-ned-settings.md)
