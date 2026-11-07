@@ -5,7 +5,7 @@
 ## Cisco-provided NEDs
 * a10-acos
   * [README-ned-settings](a10-acos/README-ned-settings.md)
-  * [README v3.27.7 2026-08-20](a10-acos/README.md)
+  * [README v3.27.8 2026-11-06](a10-acos/README.md)
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
@@ -152,7 +152,7 @@
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
-  * [README v5.12.6 2026-10-15](fortinet-fortios/README.md)
+  * [README v5.12.7 2026-11-06](fortinet-fortios/README.md)
 
 * furukawa-fx1
   * [README-ned-settings](furukawa-fx1/README-ned-settings.md)
@@ -225,7 +225,7 @@
 
 * paloalto-panos_cli
   * [README-ned-settings](paloalto-panos_cli/README-ned-settings.md)
-  * [README v4.12.2 2026-10-22](paloalto-panos_cli/README.md)
+  * [README v4.12.3 2026-11-06](paloalto-panos_cli/README.md)
 
 * rad-vx
   * [README-ned-settings](rad-vx/README-ned-settings.md)

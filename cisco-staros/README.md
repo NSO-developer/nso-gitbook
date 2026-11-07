@@ -913,6 +913,47 @@ admin@ncs(config)# commit
        device and re-configure via NSO/NED.
      - Managing the command via NSO/NED enables NED to handle old-password at runtime.
 
+  4. NED cannot sync `session-priority-profile <name> priority <n> type unclassified ...` into the
+     NSO CDB, because `unclassified` is not a valid value for
+     `/session-priority-profile/priority/type`. NED cannot sync invalid CLI commands into the NSO
+     CDB, so such lines are skipped during sync-from.
+
+     Example in trace output:
+
+     ```
+     --   skipped 1 line in context '/session-priority-profile' :
+     --    (lines 123) : '    priority 0 type unclassified throttle'
+     ```
+
+     The `unclassified` keyword is rejected by the STAROS device CLI itself. Valid values are
+     `emergency`, `ims` and `wps`, which are already supported by the NED.
+
+     STAROS device:
+
+     ```
+     [local]DEVICE-1(config)# session-priority-profile sp1
+     [local]DEVICE-1(config-sess-priority-profile)# priority 0 type unclassified throttle
+     Unknown command - "unclassified", unrecognized keyword
+     [local]DEVICE-1(config-sess-priority-profile)# priority 0 type ?
+       emergency            - Associates session type emergency with the session priority.
+       ims                  - Associates session type IMS (IP Multimedia Session) with the session priority.
+       wps                  - Associates session type WPS (Wireless Priority Session) with the session priority.
+     [local]DEVICE-1(config-sess-priority-profile)#
+     ```
+
+     STAROS NED:
+
+     ```
+     admin@ncs(config)# devices device dev-1 config session-priority-profile sp1
+     admin@ncs(config-sess-priority-profile)# priority 0 type ?
+     Description: Specifies the session type to be associated with the session priority.
+     Possible completions:
+       emergency   Associates session type emergency with the session priority.
+       ims         Associates session type IMS (IP Multimedia Session) with the session priority.
+       wps         Associates session type WPS (Wireless Priority Session) with the session priority.
+     admin@ncs(config-sess-priority-profile)#
+     ```
+
 
 # 8. How to report NED issues and feature requests
 --------------------------------------------------
