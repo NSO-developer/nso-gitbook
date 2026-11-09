@@ -1291,22 +1291,6 @@ how they relate to each other.
 >
 > </div>
 
-/ncs-config/aaa/challenge-order (string)  
-> Deprecated: challenge invocation follows active authentication method
-> (external/package).
->
-> By default the AAA system will try the challenge mechanisms for a user
-> by the challenge configurables, invoking them in order to authenticate
-> the challenge id and response.
->
-> The default is:
->
-> <div class="informalexample">
->
->     'external-challenge, package-challenge'
->
-> </div>
-
 /ncs-config/aaa/expiration-warning (ignore \| display \| prompt) \[ignore\]  
 > When PAM or external authentication is used, the authentication
 > mechanism may give a warning that the user's password is about to

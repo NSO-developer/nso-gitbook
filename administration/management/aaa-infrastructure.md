@@ -407,12 +407,6 @@ MFA is supported by External and Package Authentication (preferred). To configur
 
 When an authentication method responds with a challenge and user provides a response, NSO invokes the challenge script associated with that authentication method.
 
-{% hint style="info" %}
-**Deprecated Configuration**
-
-The configuration option `/ncs-config/aaa/challenge-order` is deprecated and, if present, will be ignored at runtime. Challenge handling is instead tied directly to the authentication method being attempted. NSO does not select or order challenge mechanisms independently of authentication method.
-{% endhint %}
-
 The challenge script must write one of the following responses to standard output:
 
 * `accept`: The challenge succeeds and authentication completes successfully.
@@ -452,8 +446,6 @@ Assume the following authentication order:
 This example demonstrates that the challenge mechanism invoked is determined by the authentication method currently being attempted.
 
 In particular, when external authentication is used, the package challenge handler is not invoked. Conversely, when package authentication is used, the package challenge handler is invoked as expected.
-
-The deprecated /ncs-config/aaa/challenge-order configuration has no effect on this behavior.
 ```
 {% endcode %}
 
