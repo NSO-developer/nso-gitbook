@@ -1,6 +1,6 @@
 ---
 title: Java API Reference
-icon: code
+icon: square-j
 ---
 
 # Java API Reference
