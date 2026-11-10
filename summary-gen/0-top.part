@@ -1,10 +1,6 @@
 # Table of contents
 
-* [RESTCONF API](restconf-api/README.md)
-  * [Sample RESTCONF API Docs](https://developer.cisco.com/docs/nso/overview/)
-* [NETCONF Interface](netconf-interface.md)
-* [JSON-RPC API](json-rpc-api.md)
-* [SNMP Agent](snmp-agent.md)
+* [Developer Reference](README.md)
 
 ## Python API
 
