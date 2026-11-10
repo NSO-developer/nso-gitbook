@@ -85,6 +85,21 @@ Documentation Updates:
 
 <details>
 
+<summary>Separate RESTCONF and Smart Licensing Log</summary>
+
+Logging of RESTCONF requests and Smart Licensing events can now be specified independently of other events through the `ncs.conf` configurables:
+
+* `/ncs-config/logs/restconf-log`
+* `/ncs-config/logs/smart-license-log`&#x20;
+
+Documentation Updates:
+
+* Detailed the new sections in the [ncs.conf](resources/man/ncs.conf.5.md) file.
+
+</details>
+
+<details>
+
 <summary>Web UI Updates</summary>
 
 NSO 6.8 improves Web UI configuration and transaction workflows.&#x20;
