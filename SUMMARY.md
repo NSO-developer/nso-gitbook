@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Developer Reference](README.md) 
+* [Developer Reference](README.md)
 
 ## Python API
 
