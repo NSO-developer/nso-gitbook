@@ -18,7 +18,7 @@ Language Bindings:
 
 - <i class="fa-square-p">:square-p:</i> [Python API Reference](pyapi/README.md)
 - <i class="fa-square-e">:square-e:</i> [Erlang API Reference](erlang/README.md)
-- <i class="fa-square-j">:square-j:</i> [Java API Reference](java/com/tailf/maapi/README.md)
+- <i class="fa-square-j">:square-j:</i> [Java API Reference](java/README.md)
 
 For an introduction to using these APIs, consult the
 [Guides](https://nso-docs.cisco.com/guides).
