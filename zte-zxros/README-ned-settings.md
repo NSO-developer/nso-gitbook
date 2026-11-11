@@ -48,6 +48,8 @@
   7. logger
   8. developer
   9. write
+     9.1. inject-command
+     9.2. replace-commit
   ```
 
 
@@ -573,5 +575,55 @@
       If enabled, when changing the service‑policy bound to an interface, the NED will: 1) Remove
       the existing service‑policy from the interface. 2) Apply the new service‑policy to the same
       interface.
+
+
+## 9.1. ned-settings zte-zxros write inject-command
+---------------------------------------------------
+
+  Inject command (before or after) specified config-line upon commit.
+
+    - write inject-command <id> <config> <command> <where>
+
+      - id <WORD>
+
+        List id, any string.
+
+      - config <WORD>
+
+        The config line(s) where command should be injected (DOTALL regex).
+
+      - command <WORD>
+
+        The command(s) to inject after|before config-line.
+
+      - where <enum>
+
+        before-each   - insert command before each matching config-line.
+
+        before-first  - insert command before first matching config-line.
+
+        after-each    - insert command after each matching config-line.
+
+        after-last    - insert command after last matching config-line.
+
+
+## 9.2. ned-settings zte-zxros write replace-commit
+---------------------------------------------------
+
+  Replace (or filter) config when writing to device.
+
+    - write replace-commit <id> <regexp> <replacement>
+
+      - id <WORD>
+
+        List id, any string.
+
+      - regexp <WORD>
+
+        The regular expression (DOTALL) to which the config is to be matched.
+
+      - replacement <WORD>
+
+        The string which would replace all found matches. May use groups from regex.
 
 
