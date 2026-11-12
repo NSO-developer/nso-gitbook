@@ -110,6 +110,11 @@
   +---------------------------+-----------------+--------+---------------------------------------------------+
   ```
 
+  NOTE: The NED is not limited to the versions and models listed above and may support additional
+  versions or models. Please try the NED with your target version and model. To request support for
+  additional configuration features or use cases, contact Cisco Support and follow the process
+  described in Section 8.
+
   Verified YANG model bundles
   ```
   +---------------------------+-----------------+------------------------------------------------------------+
@@ -470,12 +475,28 @@
   affected. However, all log printouts from all log enabled devices are saved in one single file.
   This means that the usability is limited. Typically single device use cases etc.
 
-  **SSHJ DEBUG LOGGING**
-  For issues related to the ssh connection it is often useful to enable full logging in the SSHJ ssh client.
-  This will make SSHJ print additional log entries in `$NSO_RUNDIR/logs/ncs-java-vm.log`:
+## SSH Client Debug Logging
 
+For issues related to the SSH connection, it is useful to enable full logging. First, identify which SSH client your NED is currently using:
+	1.	Check Configuration: Check the NED setting: `show running-config <ned-name> connection ssh client`.
+	2.	Check Trace Logs: Look in your NED trace file for the initialization line:
+		•	`-- new ssh client (mina-sshd)`
+		•	`-- new ssh client (sshj)`
+
+
+Once you have identified the client, use the appropriate logger setting to see detailed output in $NSO_RUNDIR/logs/ncs-java-vm.log.
+
+### Enabling Logging
+
+#### For SSHJ client:
 ```
 admin@ncs(config)# java-vm java-logging logger net.schmizz.sshj level level-all
+admin@ncs(config)# commit
+```
+
+#### For Apache MINA client:
+```
+admin@ncs(config)# java-vm java-logging logger org.apache.sshd level level-all
 admin@ncs(config)# commit
 ```
 
@@ -761,6 +782,22 @@ admin@ncs(config)# commit
             Optional extra include paths to be used when searching for YANG files. Each include path
             is relative to the git root directory.
 
+          - remote git authentication method <enum> (default none)
+
+            Configure authentication method to use when the NED interacts with the RESTCONF device.
+
+            pat   - Personal Access Token.
+
+            none  - No additional authentication is done.
+
+          - remote git authentication pat username <string> (default git)
+
+            The username to use for authentication.
+
+          - remote git authentication pat access-token <string>
+
+            The access token to use for authentication.
+
 
   ## 5.10. rpc import-filter-paths
   --------------------------------
@@ -891,9 +928,28 @@ admin@ncs(config)# commit
         Print the full build output also for successful builds (otherwise only printed on errors).
 
 
+        Either of:
+
+          - use-presets from-cache <empty>
+
+            Use settings cached from the previous build.
+
+        OR:
+
+          - use-presets from-file <string>
+
+            Use settings from the specified file path.
+
+
       - build-namespace-classes <empty>
 
         Generate Python and Java namespace classes for each YANG file.
+
+
+      - compilation-workers <union>
+
+        Enable parallel compilation of third-party YANG files to improve performance. Note: This
+        option requires NSO 6.8 or later and has no effect on earlier versions.
 
 
       - use-module-as-prefix <empty>
@@ -1186,17 +1242,19 @@ admin@ncs(config)# commit
 # 6. Built in live-status show
 ------------------------------
 
-  NONE
+   All models are by default mounted under live-status
+
+    ```
+    admin@ncs# show devices device dev-1 live-status ?
+    Possible completions:
+    <...>
+    ```
 
 
 # 7. Limitations
 ----------------
 
-    Limitations related to fetching operational data via the live-status API:
-
-    NSO prior to version 5.6 can not handle lists defined in YANG as config false
-    but with no key node specified.  Consequently the NED is not able to populate
-    operational data that maps to such lists.
+  Check section "Tips and Tricks for Resolving Common Issues with IOS XR Devices"
 
 
 # 8. How to report NED issues and feature requests
