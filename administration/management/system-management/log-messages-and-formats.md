@@ -3320,7 +3320,7 @@
 <code>NCS_SMART_LICENSING_ENTITLEMENT_NOTIFICATION</code>
 
 * **Severity**  
-  `INFO`
+  `ERR`, `WARNING`, or `INFO`, depending on the notification type and enforcement mode. See [Smart Licensing Log Levels](cisco-smart-licensing.md#smart-licensing-log-levels).
 * **Description**  
   Smart Licensing Entitlement Notification
 * **Format String**  
@@ -3368,7 +3368,7 @@
 <code>NCS_SMART_LICENSING_GLOBAL_NOTIFICATION</code>
 
 * **Severity**  
-  `INFO`
+  `ERR`, `WARNING`, or `INFO`, depending on the notification type and enforcement mode. See [Smart Licensing Log Levels](cisco-smart-licensing.md#smart-licensing-log-levels).
 * **Description**  
   Smart Licensing Global Notification
 * **Format String**  
