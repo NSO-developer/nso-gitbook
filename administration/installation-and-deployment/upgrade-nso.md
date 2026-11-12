@@ -38,6 +38,14 @@ Likewise, NSO 5.3 added support for 256-bit AES encrypted strings, requiring the
 
 With regard to init system, NSO 6.4 introduces `systemd` as the default option instead of SysV. In interactive mode, when upgrading to NSO 6.4 and later, the installer prompts the user to continue using the old SysV service or prepare a `systemd` service. In non-interactive mode, a `systemd` service is prepared by default. When using the `--non-interactive` option, the `/etc/systemd/system/ncs.service` file will be overwritten if it already exists.
 
+When upgrading from an NSO release earlier than 6.8, RESTCONF requests and responses move from `audit.log` to the dedicated RESTCONF log. The upgrade retains the existing [ncs.conf](../../resources/man/ncs.conf.5.md), so configure a destination under `/ncs-config/logs/restconf-log` and run `ncs --reload` on the upgraded instance to keep recording this traffic. Update log collectors and monitoring rules to read the new log. Update applications subscribing to these entries to use `NOTIF_RESTCONF`. Authentication and session events remain in the audit log. See [RESTCONF Logging](../management/system-management/README.md#restconf-logging) for configuration and migration details.
+
+Smart Licensing events also move from `ncs.log` to the dedicated Smart Licensing log. Configure a destination under `/ncs-config/logs/smart-license-log` in the retained [ncs.conf](../../resources/man/ncs.conf.5.md) and run `ncs --reload` on the upgraded instance to keep recording these events. Update log collectors and alerting rules to read the new log or receive its syslog output. See [Smart Licensing Logging](../management/system-management/cisco-smart-licensing.md#smart-licensing-logging) for configuration and severity filtering.
+
+For integrations invoking `/compliance/create-template` with a device template as the source, replace the previous scalar `device-template` input with a container holding a mandatory `name` and optional `ned-id`. See [Generating Compliance Templates](../../operation-and-usage/operations/compliance-reporting.md#generating-compliance-templates) for the input structure and an example selecting a NED schema.
+
+When generating compliance templates from configuration, `/compliance/create-template` uses `trie` regular-expression induction by default for differing values. If a workflow needs the previous generic match-all behavior, explicitly set `regex-induction` to `none`. See [Regular-Expression Induction](../../operation-and-usage/operations/compliance-reporting.md#regular-expression-induction) for algorithm choices and examples.
+
 Finally, regardless of the upgrade type, ensure that you have a working backup and can easily restore the previous configuration if needed, as described in [Backup and Restore](../management/system-management/#backup-and-restore).
 
 {% hint style="danger" %}

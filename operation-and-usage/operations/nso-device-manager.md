@@ -1996,7 +1996,7 @@ Operation 'merge' on non-existing node:
 
 To simplify template creation, NSO features the `/devices/create-template` action that can initiate a template from a set of device configurations by finding common structural patterns. The resulting template can be used as as-is or as a starting point for further refinement.
 
-The action can combine configuration from devices using different NED schemas. By default, the generated device template is stored in CDB. To write it as an XML template file instead, set `out-directory` to an existing directory. NSO writes `<name>.xml` in that directory; it does not overwrite an existing file. The generated XML uses `<?if-ned-id-match ...?>` conditions where needed to scope schema-specific configuration.
+The action can combine configuration from devices using different NED schemas. By default, the generated device template is stored in CDB. To write it as an XML template file instead, set `out-directory` to an existing directory that is writable by the NSO process. NSO writes `<name>.xml` in that directory; it does not overwrite an existing file. The generated XML uses `<?if-ned-id-match ...?>` conditions where needed to scope schema-specific configuration. Configuration common to the selected schemas is emitted without these conditions.
 
 The algorithm works by traversing the data depth-first, keeping track of the rate of occurrence of configuration nodes, and any values that compare equal. Values that do not compare equal are parameterized. For example:
 
@@ -2023,10 +2023,27 @@ Commit complete.
 The action takes a number of arguments to control how the resulting template looks:
 
 * `path` - A list of XPath 1.0 expressions pointing into `/devices/device/config` to create the template from. The template is only created from the paths that are common in the node-set.
-* `out-directory` - Write the generated XML template to `<out-directory>/<name>.xml` instead of creating a device template in CDB. The directory must already exist, and the file must not already exist.
+* `out-directory` - Write the generated XML template to `<out-directory>/<name>.xml` instead of creating a device template in CDB. The directory must already exist and be writable by the NSO process, and the file must not already exist.
 * `match-rate` - Device configuration is included in the resulting template based on the rate of occurrence given by this setting.
 * `exclude-service-config` - Exclude configuration that is already under service management.
 * `collapse-list-keys` - Decides what lists to make variables of, either `all`, `automatic` (default), or those specified by the `list-path` parameter. The default is to find those lists that differ among the device configurations.
+
+### Generating an XML Device Template <a href="#generating-an-xml-device-template" id="generating-an-xml-device-template"></a>
+
+For example, collect configuration from three devices and write the resulting template to an existing, writable `templates` directory on the NSO host:
+
+```cli
+admin@ncs(config)# devices create-template name multi-ned-device-template \
+    out-directory templates \
+    path [ /devices/device[name='ex0']/config \
+           /devices/device[name='ex1']/config \
+           /devices/device[name='ex2']/config ] \
+    match-rate 0
+```
+
+NSO writes `templates/multi-ned-device-template.xml`. The selected devices can use different NED schemas. Review the generated `if-ned-id-match` conditions to verify that schema-specific configuration is scoped to the intended NED identities. You can edit the XML file before loading it through an application that consumes device templates.
+
+If the target file already exists, the action returns an error. Choose another template name or remove the old file before generating a replacement. Omitting `out-directory` creates a CDB device template as shown in the earlier example.
 
 ## Renaming Devices in NSO
 

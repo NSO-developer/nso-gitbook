@@ -77,7 +77,7 @@ Smart Account user management is available in the **Administration** section of 
 
 ### Notes on Configuring Smart Licensing <a href="#d5e2966" id="d5e2966"></a>
 
-* If `ncs.conf` contains configuration for any of java-executable, java-options, override-url/url, or proxy/url under the configure path `/ncs-config/smart-license/smart-agent/` any corresponding configuration done via the CLI is ignored.
+* If [ncs.conf](../../../resources/man/ncs.conf.5.md) contains configuration for any of java-executable, java-options, override-url/url, or proxy/url under the configure path `/ncs-config/smart-license/smart-agent/` any corresponding configuration done via the CLI is ignored.
 *   The smart licensing component of NSO runs its own Java virtual machine. Usually, the default Java options are sufficient:
 
     ```yang
@@ -95,6 +95,62 @@ Smart Account user management is available in the **Administration** section of 
     If you, for some reason, need to modify the Java options, remember to include the default values as found in the YANG model.
 
 ### Validation and Troubleshooting <a href="#d5e2975" id="d5e2975"></a>
+
+#### Smart Licensing Logging <a href="#smart-licensing-logging" id="smart-licensing-logging"></a>
+
+Smart Licensing events are written to a dedicated log, configured under `/ncs-config/logs/smart-license-log` in [ncs.conf](../../../resources/man/ncs.conf.5.md). This includes Global and Entitlement notifications from the Smart Licensing agent, Java VM start and failure messages, and evaluation countdowns. These events no longer appear in the NSO daemon log (`ncs.log`). Smart Licensing must be enabled for events to be produced.
+
+The shipped [ncs.conf](../../../resources/man/ncs.conf.5.md) enables file output to `smart-license.log` in the NSO log directory. To configure this output, add the following section under `<logs>` in that file:
+
+```xml
+<smart-license-log>
+  <enabled>true</enabled>
+  <log-level>info</log-level>
+  <file>
+    <enabled>true</enabled>
+    <name>${NCS_LOG_DIR}/smart-license.log</name>
+    <format>text</format>
+  </file>
+  <syslog>
+    <enabled>false</enabled>
+  </syslog>
+</smart-license-log>
+```
+
+The log is enabled by default in the YANG model, but its file, syslog, and external outputs are disabled by default. The shipped configuration explicitly enables file output. Set `enabled` to `false` to disable the entire log, or `file/enabled` to `false` to disable only its file output.
+
+Set `file/format` to `text` (the default) or `ndjson` to write one JSON object per line. Set `syslog/enabled` to `true` to send messages to syslog. The log also supports `external/enabled` for the [external log handler](../../../development/connected-topics/external-logging.md).
+
+Apply changes with `ncs --reload` on the NSO host. If [ncs.conf](../../../resources/man/ncs.conf.5.md) contains an invalid value, NSO rejects the reload, writes an `ALERT` entry to `ncs.log`, and keeps the previous configuration.
+
+{% hint style="warning" %}
+When upgrading from a release before NSO 6.8, the existing [ncs.conf](../../../resources/man/ncs.conf.5.md) is retained. Without a `smart-license-log` destination, Smart Licensing events are no longer recorded in `ncs.log` and are not written to a file or syslog. Add the configuration above, or configure another destination, then run `ncs --reload` on the upgraded instance. Update log collectors, monitoring scripts, and alerting rules to read the Smart Licensing log or receive its syslog output.
+{% endhint %}
+
+NSO does not rotate the Smart Licensing log. Use `logrotate(8)` or a similar tool. If you change the filename or extension, make sure that the rotation configuration includes the file.
+
+The Smart Licensing agent's standard output is captured separately in `ncs-smart-licensing.log`, controlled by `/smart-license/smart-agent/stdout-capture`.
+
+##### Log Levels <a href="#smart-licensing-log-levels" id="smart-licensing-log-levels"></a>
+
+Global and Entitlement notifications have a severity based on their notification type and enforcement mode:
+
+| Condition | Severity |
+|-----------|----------|
+| Notification type `notifyInvalid`, `notifyRegisterFailed`, `notifyIdCertExpired`, `notifyIdCertRenewFail`, `notifyAuthRenewFailure`, or `notifyCommFailure` | `ERR` |
+| Enforcement mode `invalid`, `invalidTag`, `evalExpired`, or `authorizedPeriodExpired` | `ERR` |
+| Enforcement mode `outOfCompliance`, `overage`, or `gracePeriod` | `WARNING` |
+| All other notifications, such as `notifyRegisterSuccess` or `notifyAuthRenewSuccess` | `INFO` |
+
+The `log-level` setting accepts `fatal`, `alert`, `critical`, `error`, `warn`, `notice`, `info`, `debug`, and `trace`. A message is recorded if its severity is the configured level or more severe. The default `info` records all Smart Licensing messages. To record only warnings and errors, use `<log-level>warn</log-level>`; to record only errors, use `<log-level>error</log-level>`. The configuration value for warnings is `warn`.
+
+Smart Licensing messages are produced only at `ERR`, `WARNING`, and `INFO`. Setting `log-level` to `debug` or `trace` produces the same output as `info`; setting it to `critical`, `alert`, or `fatal` suppresses all Smart Licensing messages. Java VM start, Java VM failure or timeout, and evaluation countdown messages always have severity `INFO`, so a more restrictive level hides them. Evaluation-expired notifications (`evalExpired`) have severity `ERR` and remain visible at `log-level` `error`.
+
+##### Troubleshooting the Log
+
+Check `smart-license.log` first when troubleshooting Smart Licensing. If the log level was raised to reduce volume, set it back to `info` and run `ncs --reload` to see all notifications, including successful registration and authorization renewal. Use the `show license status` command below to check the registration result.
+
+In text output, search for `<ERR>` and `<WARNING>`. In NDJSON output, filter on the `level_name` field for `ERR` and `WARNING`. If a log configuration change does not take effect, check `ncs.log` for an `ALERT` about a rejected configuration reload.
 
 #### Available `show` and `debug` Commands <a href="#d5e2977" id="d5e2977"></a>
 

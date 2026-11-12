@@ -76,7 +76,7 @@ Finally, every XML template has a name. The name of the template is the file pat
 
 To simplify template creation, NSO features the `/services/create-template` action that can find common structural patterns in a set of device configurations and create a configuration template and the corresponding service YANG model based on it.
 
-The action can use configurations from devices running different NED schemas. It emits `<?if-ned-id-match ...?>` conditions where necessary to scope schema-specific configuration.
+The action can use configurations from devices running different NED schemas. It emits configuration common to the selected schemas without conditions and uses `<?if-ned-id-match ...?>` conditions where necessary to scope schema-specific configuration.
 
 The algorithm works by traversing the data depth-first, keeping track of the rate of occurrence of configuration nodes, and any values that compare equal. Values that do not compare equal are parameterized and service input parameters are created for these paths in the YANG model. For example:
 
@@ -193,6 +193,22 @@ $ make demo
 admin@ncs# services create-template name policy-map-srv path [ /devices/device[device-type/cli/ned-id='cisco-ios-cli-3.0:cisco-ios-cli-3.0']/config ]
 ```
 {% endcode %}
+
+### Generating a Service Template for Multiple NED Schemas <a href="#generating-a-service-template-for-multiple-ned-schemas" id="generating-a-service-template-for-multiple-ned-schemas"></a>
+
+The `path` input can select configuration from multiple NED schemas. For example, if `ex0`, `ex1`, and `ex2` use different schemas, generate a service template from their configurations with:
+
+```cli
+admin@ncs# services create-template name multi-ned-service \
+    match-rate 0 \
+    path [ /devices/device[name='ex0']/config \
+           /devices/device[name='ex1']/config \
+           /devices/device[name='ex2']/config ]
+```
+
+The returned template contains shared configuration directly and wraps schema-specific configuration in `if-ned-id-match` processing instructions. Review these conditions before using the template in a service package.
+
+When using an existing device template as the source, omit its optional `device-template/ned-id` input to include all schemas in that template, or specify it to restrict generation to one schema.
 
 ## Generating the XML Template Structure <a href="#ch_templates.templatize" id="ch_templates.templatize"></a>
 

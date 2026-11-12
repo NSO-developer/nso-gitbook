@@ -1484,6 +1484,28 @@ unhide=extra,debug;secret
 
 This example unhides the unprotected group _extra_ and the password-protected group `debug` with the password `secret`.
 
+## Request and Response Logging <a href="#request-and-response-logging" id="request-and-response-logging"></a>
+
+RESTCONF requests and responses are written to a dedicated RESTCONF log instead of `audit.log`. Configure its destinations and format under `/ncs-config/logs/restconf-log` in [ncs.conf](../../../resources/man/ncs.conf.5.md). The shipped configuration writes text entries to `restconf.log`. For configuration, upgrade steps, and rotation, see [RESTCONF Logging](../../../administration/management/system-management/README.md#restconf-logging).
+
+Each request produces two entries:
+
+* Message ID `184` records the user, session ID, protocol, HTTP method, path, and HTTP version.
+* Message ID `185` records the user, session ID, protocol, HTTP version, path, HTTP status code, and duration in microseconds.
+
+For example, the request and response portions of the log entries look like this:
+
+```text
+184 user: admin/38 RESTCONF: request with http: GET /restconf/data/ietf-yang-library:yang-library HTTP/1.1 trace-id=349e392d7c1c8231838a9aa82ef6d4d8
+185 user: admin/38 RESTCONF: response with http: HTTP/1.1 /restconf/data/ietf-yang-library:yang-library 200 duration 74059 us trace-id=349e392d7c1c8231838a9aa82ef6d4d8
+```
+
+File and syslog entries include a trace ID. Use the session ID or trace ID to correlate a request with its response. All entries have severity `INFO`, including responses with an error status. Inspect the HTTP status code to identify failed requests and the duration to investigate slow requests. If the log does not change after a configuration reload, check `ncs.log` for an `ALERT` indicating that the reload was rejected.
+
+The audit log continues to record authentication, login, group assignment, and session start and end events. Authentication failures are recorded in the audit log and do not produce RESTCONF log entries. Use the session ID, such as `admin/38`, to correlate session entries with RESTCONF log entries. Authentication and login entries precede session creation and show session ID `0`. Authentication and login entries are omitted on an [authentication cache](restconf-api.md#d5e2282) hit.
+
+Applications can subscribe to RESTCONF log entries through the notification API using `CONFD_NOTIF_RESTCONF` in C, `NotificationType.NOTIF_RESTCONF` in Java, or `_ncs.events.NOTIF_RESTCONF` in Python. Applications that previously used `NOTIF_AUDIT` for request and response entries must use this new flag. See the [Java notification API](../api-overview/java-api-overview.md#ug.java_api_overview.notif) and [Python RESTCONF log notification example](../api-overview/python-api-overview.md#restconf-log-notifications).
+
 ## Trace Context
 
 This functionality is supported if the `urn:ietf:params:xml:ns:yang:traceparent:1.0` and `urn:ietf:params:xml:ns:yang:tracestate:1.0` capability is presented. See also [How to View the Capabilities of the RESTCONF Server](restconf-api.md#ncs.northbound.restconf.capabilities).

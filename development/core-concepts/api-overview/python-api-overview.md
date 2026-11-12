@@ -1109,6 +1109,43 @@ sock_maapi.close()
 ```
 {% endcode %}
 
+#### Loading Juniper Set Commands <a href="#loading-juniper-set-commands" id="loading-juniper-set-commands"></a>
+
+Use `_ncs.maapi.CONFIG_J_CMD` with `load_config()` or `load_config_cmds()` to load configuration expressed as Juniper-style `set` commands. This constant corresponds to `MAAPI_CONFIG_J_CMD` in C. The existing `CONFIG_J` selects curly-bracket Juniper configuration.
+
+The commands use NSO's J-style CLI syntax and configuration model. For example, the following command sets the description of an existing device named `ce0`:
+
+```text
+set devices device ce0 description managed-by-maapi
+```
+
+The following snippets assume an authenticated MAAPI socket named `sock` and an application-created read/write configuration transaction with handle `th`. Run each snippet in its own transaction.
+
+To load a file, save the command above in `/tmp/cfg.jset` on the NSO host and call:
+
+```python
+from _ncs import maapi
+
+flags = maapi.CONFIG_J_CMD | maapi.CONFIG_MERGE
+maapi.load_config(sock, th, flags, '/tmp/cfg.jset')
+maapi.apply_trans(sock, th, 0)
+```
+
+To load the commands from a string, use `load_config_cmds()`:
+
+```python
+from _ncs import maapi
+
+flags = maapi.CONFIG_J_CMD | maapi.CONFIG_MERGE
+commands = 'set devices device ce0 description managed-by-maapi'
+maapi.load_config_cmds(sock, th, flags, commands, '')
+maapi.apply_trans(sock, th, 0)
+```
+
+The merge flag preserves existing configuration while loading the commands. Loading changes the open transaction; it does not commit the data until `apply_trans()` is called. You can inspect the transaction before applying it. When loading into an attached transaction, its owner is responsible for applying it.
+
+The set-command format is supported only for configuration transactions. Operational-data loads accept XML and JSON only; attempting to use `CONFIG_J_CMD` for operational data raises a protocol-usage error (`ERR_PROTOUSAGE`). It is also a load-only format and cannot be passed to `save_config()`.
+
 ### Low-level CDB API
 
 This API is a direct mapping of the NSO CDB C API. See `pydoc3 _ncs.cdb` and `man confd_lib_cdb` for further information.
@@ -1147,6 +1184,29 @@ print("/operdata/value is now %s" % new_value)
 The Python `_ncs.events` low-level module provides an API for subscribing to and processing NSO event notifications. Typically, the event notification API is used by applications that manage NSO using the SDK API using, for example, MAAPI or for debug purposes. In addition to subscribing to the various events, streams available over other northbound interfaces, such as NETCONF, RESTCONF, etc., can be subscribed to as well.
 
 See [`examples.ncs/sdk-api/event-notifications`](https://github.com/NSO-developer/nso-examples/tree/6.7/sdk-api/event-notifications) for an example. The [`examples.ncs/common/event_notifications.py`](https://github.com/NSO-developer/nso-examples/tree/6.7/common/event_notifications.py) Python script used by the example can also be used as a standalone application to, for example, debug any NSO instance.
+
+#### RESTCONF Log Notifications <a href="#restconf-log-notifications" id="restconf-log-notifications"></a>
+
+Use `_ncs.events.NOTIF_RESTCONF` to subscribe to RESTCONF request and response log entries. These entries are no longer delivered through `NOTIF_AUDIT`. If your application also needs authentication and session events, subscribe to both flags using `events.NOTIF_RESTCONF | events.NOTIF_AUDIT`.
+
+```python
+import socket
+import _ncs
+from _ncs import events
+
+with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as sock:
+    events.notifications_connect(sock=sock, mask=events.NOTIF_RESTCONF,
+                                 path=_ncs.PATH)
+    while True:
+        event = events.read_notification(sock)
+        syslog = event.get("syslog")
+        if syslog is not None:
+            print("prio=%s msg=%s" % (syslog["prio"], syslog["msg"]))
+```
+
+This example connects to the default local IPC socket. RESTCONF entries are returned in the notification's `syslog` dictionary, with `prio` and `msg` fields. They use syslog message format and do not include the trace ID present in file and syslog output.
+
+The `file`, `syslog`, and `log-level` settings under `/ncs-config/logs/restconf-log` in [ncs.conf](../../../resources/man/ncs.conf.5.md) do not affect notification delivery. Setting `restconf-log/enabled` to `false` disables these notifications. See [RESTCONF Logging](../../../administration/management/system-management/README.md#restconf-logging) for configuration and migration details.
 
 ## Error Codes
 

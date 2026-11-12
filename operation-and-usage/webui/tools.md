@@ -257,7 +257,7 @@ Use **Rerun** in a report result to run the report again. Select **Rerun all** t
 Use the **Export to file** button to export the report results to a downloadable file (PDF).
 {% endhint %}
 
-### Compliance Templates
+### Compliance Templates <a href="#compliance-templates" id="compliance-templates"></a>
 
 The **Compliance Templates** tab is used to create new compliance templates and manage existing ones.
 
@@ -299,7 +299,7 @@ To create a compliance template from config:
 4. Choose one source for the configuration:
    * **config-path**: In the **Path** field, enter one or more XPath paths below `/devices/device/config`, clicking **Add item** after each path. Paths outside this subtree are ignored. Use **Match rate** to specify the required recurrence between the device configurations; **100** (the default) requires common structure across all source devices, while a lower value permits partial commonality. Optionally enable **Exclude service config** to omit configuration already managed by services.
    * **config-data**: Create a template from configuration supplied directly. Select the format—XML, Cisco XR CLI, Juniper curly-brace CLI, or Juniper set commands—then choose **file** to specify a file on the NSO host or **data** to enter the configuration. Select the required **ned-id** for the configuration.
-5. **Regex induction**: Select the method used when values differ across the selected source devices. **trie** is the default, **dfa** also factors common suffixes, and **none** uses a generic match-all expression.
+5. **Regex induction**: Select the method used when values differ across the selected source devices. **trie** is the default and factors common prefixes and character alternatives; **dfa** also factors common suffixes; **none** uses the generic match-all expression `.*`. See [Regular-Expression Induction](../operations/compliance-reporting.md#regular-expression-induction) for examples and guidance on reviewing generated expressions.
 6. **Collapse list keys**: Enable this option to determine how lists in the XPath configuration are collapsed into single entries when keys do not match. The options in this category are:
    * **Automatic**: Automatically find non-matching lists to collapse. Lists on the same path in `/devices/device/config` that do not compare equal will be collapsed.
    * **All**: All list keys are collapsed into a single entry, regardless of matching rules.
@@ -310,4 +310,4 @@ To create a compliance template from config:
 {% endtab %}
 {% endtabs %}
 
-When `out-directory` creates an XML compliance template, reload the XML templates before selecting the generated template in a compliance report or using it for a check.
+For either source, the output directory must already exist on the NSO host and be writable by the NSO process. NSO writes `<name>.xml` there and returns an error if that file already exists. Reload the generated XML template before using it for a check, following the [Generating XML Compliance Templates](../operations/compliance-reporting.md#generating-xml-compliance-templates) workflow.

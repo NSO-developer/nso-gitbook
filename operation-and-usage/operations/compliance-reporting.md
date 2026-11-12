@@ -462,6 +462,8 @@ check-result {
 ```
 {% endcode %}
 
+### Generating Compliance Templates <a href="#generating-compliance-templates" id="generating-compliance-templates"></a>
+
 To simplify template creation, NSO features the `/compliance/create-template` action that can initiate a compliance template from a set of device configurations or an existing device template. The resulting template can be used as-is or as a starting point for further refinement. For example:
 
 {% code overflow="wrap" %}
@@ -492,13 +494,28 @@ admin@ncs(config-template-internal-dns)# ned-id router-nc-1.0 config sys dns ser
 ```
 {% endcode %}
 
+{% hint style="warning" %}
+The `device-template` input is a container with a mandatory `name` leaf and an optional `ned-id` leaf. When upgrading an integration that passed the source template name as a scalar value, update its action input to use this container. For CLI calls, use `device-template { name use-internal-dns }`, as above.
+{% endhint %}
+
+To restrict generation to one NED schema in the source template, specify `ned-id` inside the container:
+
+```cli
+admin@ncs(config)# compliance create-template name internal-dns-router \
+    device-template { name use-internal-dns ned-id router-nc-1.0 }
+```
+
+Omitting `ned-id` includes all NED schemas in the source device template.
+
 By providing a list of device configuration paths, the `create-template` action can find common structural patterns in the device configurations and create a compliance template based on it.
 
-The algorithm works by traversing the data depth-first, keeping track of the rate of occurrence of configuration nodes, and any values that compare equal. Values that do not compare equal are made into regex match-all expressions. For example:
+The algorithm works by traversing the data depth-first, keeping track of the rate of occurrence of configuration nodes, and any values that compare equal. Equal values are retained directly. Differing values are represented by regular expressions built from the observed values, using `trie` induction by default. See [Regular-Expression Induction](compliance-reporting.md#regular-expression-induction) for the available algorithms.
+
+The following example explicitly selects `regex-induction none`, which represents differing values with the generic match-all expression `.*`:
 
 {% code overflow="wrap" %}
 ```bash
-admin@ncs(config)# compliance create-template name syslog path [ /devices/device[device-type/netconf/ned-id='router-nc-1.0:router-nc-1.0']/config/sys/syslog ]
+admin@ncs(config)# compliance create-template name syslog path [ /devices/device[device-type/netconf/ned-id='router-nc-1.0:router-nc-1.0']/config/sys/syslog ] regex-induction none
 admin@ncs(config)# show configuration                                                                   compliance template syslog
  ned-id router-nc-1.0
   config
@@ -522,11 +539,13 @@ The action takes a number of arguments to control how the resulting template loo
 * `match-rate` - Device configuration is included in the resulting template based on the rate of occurrence given by this setting.
 * `exclude-service-config` - Exclude configuration that is already under service management.
 * `collapse-list-keys` - Decides what lists to do matching on, either `all`, `automatic` (default), or those specified by the `list-path` parameter. The default is to find those lists that differ among the device configurations.
-* `regex-induction` - Choose how differing values are generalized: `trie` (default) factors common prefixes and character alternatives; `dfa` can also factor common suffixes; `none` disables induction, so differing values use `.*`.
+* `regex-induction` - Choose how differing values are generalized: `trie` (default) factors common prefixes and character alternatives; `dfa` can also factor common suffixes; `none` disables induction, so differing values use `.*`. See [Regular-Expression Induction](compliance-reporting.md#regular-expression-induction).
 * `device-template` - Generate from an existing device template by specifying its `name`. Its optional `ned-id` limits generation to that schema; omit it to include all NED schemas in the device template.
-* `out-directory` - Write an XML compliance template to `<out-directory>/<name>.xml` instead of creating a CDB compliance template. The directory must already exist, and the file must not already exist.
+* `out-directory` - Write an XML compliance template to `<out-directory>/<name>.xml` instead of creating a CDB compliance template. The directory must already exist and be writable by the NSO process, and the file must not already exist.
 
-Finally, to use compliance templates in a report, reference them from `device-check/template`:
+Without `out-directory`, the action creates a CDB compliance template. For XML file generation and checking, see [Generating XML Compliance Templates](compliance-reporting.md#generating-xml-compliance-templates).
+
+To use CDB compliance templates in a report, reference them from `device-check/template`:
 
 ```bash
 admin@ncs(config-report-gold-check)# device-check template internal-dns
@@ -535,8 +554,50 @@ admin@ncs(config-report-gold-check)# device-check template syslog
 ```
 
 {% hint style="info" %}
-By default the schemas for compliance templates are not accessible from application client libraries such as MAAPI. This reduces the memory usage for large device data models. The schema can be made accessible with the `/ncs-config/enable-client-template-schemas` setting in `ncs.conf`.
+By default the schemas for compliance templates are not accessible from application client libraries such as MAAPI. This reduces the memory usage for large device data models. The schema can be made accessible with the `/ncs-config/enable-client-template-schemas` setting in [ncs.conf](../../resources/man/ncs.conf.5.md).
 {% endhint %}
+
+#### Regular-Expression Induction <a href="#regular-expression-induction" id="regular-expression-induction"></a>
+
+When generating a compliance template from configuration paths or configuration data, use the optional `regex-induction` input to control how differing values are represented. The choice applies to that action invocation and requires no changes to [ncs.conf](../../resources/man/ncs.conf.5.md). Values copied from an existing device template retain their expressions.
+
+| Algorithm | Behavior |
+|-----------|----------|
+| `trie` (default) | Uses incremental prefix-tree induction to factor common prefixes and collapse single-character alternatives into character classes. |
+| `dfa` | Uses state-merging DFA induction to factor common prefixes and, where possible, common suffixes. |
+| `none` | Disables induction and represents differing values with the generic match-all expression `.*`. |
+
+For example, `trie` can represent the observed values `apple` and `apply` as `appl[ey]`. The `dfa` algorithm can factor the common suffix in `apple` and `purple` into `(ap|pur)ple`.
+
+Induction applies to differing leaf, list-key, and leaf-list values. For leaf-lists, NSO uses the primitive type of the elements when building type-specific expressions. Values that are equal across the source configurations continue to be represented directly. The generated expressions use W3C XML Schema regular-expression semantics and match complete configuration values; explicit `^` and `$` anchors are not needed.
+
+To use the default `trie` algorithm, omit `regex-induction`:
+
+```cli
+admin@ncs(config)# compliance create-template name edge-compliance \
+    path /devices/device/config \
+    match-rate 100
+```
+
+To select `dfa`, specify the algorithm explicitly:
+
+```cli
+admin@ncs(config)# compliance create-template name edge-compliance-dfa \
+    path /devices/device/config \
+    match-rate 100 \
+    regex-induction dfa
+```
+
+To preserve the match-all generation behavior, select `none`:
+
+```cli
+admin@ncs(config)# compliance create-template name edge-compliance-any \
+    path /devices/device/config \
+    match-rate 100 \
+    regex-induction none
+```
+
+Induction uses the positive values observed in the source configurations and does not receive explicit negative examples. Inspect the generated expressions and refine them to reflect the intended policy, then run the template's `check` action against the intended devices. Generalization can accept values beyond those observed in the source configurations.
 
 ## Device Live-Status Checks
 
@@ -776,6 +837,33 @@ check-result {
 
 In addition to CDB-based compliance templates (configured under `/compliance/template`), NSO supports **XML compliance templates**: standalone `.xml` files that are loaded from the file system at startup, in the same way service templates are loaded. This makes it possible to version-control compliance checks alongside service templates and ship them as part of a package.
 
+### Generating XML Compliance Templates <a href="#generating-xml-compliance-templates" id="generating-xml-compliance-templates"></a>
+
+Supply `out-directory` to `/compliance/create-template` to write the result to `<out-directory>/<name>.xml`. The directory must exist on the NSO host and be writable by the NSO process. The action returns an error if the file already exists; choose another template name or remove the old file before generating a replacement.
+
+For example, collect configuration from three devices and write an XML compliance template. This example assumes that `templates` is an existing, writable directory included in the compliance template load-path, as described in [Loading XML Compliance Templates](compliance-reporting.md#loading-xml-compliance-templates).
+
+```cli
+admin@ncs(config)# compliance create-template name multi-ned-compliance-template \
+    out-directory templates \
+    path [ /devices/device[name='ex0']/config \
+           /devices/device[name='ex1']/config \
+           /devices/device[name='ex2']/config ] \
+    match-rate 100
+```
+
+NSO writes `templates/multi-ned-compliance-template.xml`. The selected devices can use different NED schemas. Configuration common to the selected schemas is emitted directly; schema-specific configuration is wrapped in `if-ned-id-match` processing instructions. Review the generated file and its conditions before checking devices against it.
+
+Reload the templates from the load-path, then run a check using the generated template name:
+
+```cli
+admin@ncs(config)# compliance xml-templates reload
+admin@ncs(config)# compliance xml-templates check \
+    template-name multi-ned-compliance-template device [ ex0 ex1 ex2 ]
+```
+
+Writing the file does not create a CDB compliance template. XML templates are loaded separately before use. If the output is placed in a package's `templates/` directory, use `packages reload` as described in [Reloading XML Compliance Templates](compliance-reporting.md#reloading-xml-compliance-templates).
+
 ### XML Template File Format
 
 An XML compliance template is an `.xml` file whose root element is `<compliance-template>` with the namespace `http://tail-f.com/ns/config/1.0`. The `name` attribute gives the template its unique name:
@@ -799,11 +887,11 @@ The optional `description` attribute provides a human-readable description of th
 
 Values in the template are treated as regular expressions, and variables use the `{$VAR_NAME}` syntax and are substituted at check time.
 
-### Loading XML Compliance Templates
+### Loading XML Compliance Templates <a href="#loading-xml-compliance-templates" id="loading-xml-compliance-templates"></a>
 
-**Via `ncs.conf` (file-system directories)**
+**Via [ncs.conf](../../resources/man/ncs.conf.5.md) (file-system directories)**
 
-Add one or more directory paths to `/ncs-config/load-path/templates-dir/compliance` in `ncs.conf`:
+Add one or more directory paths to `/ncs-config/load-path/templates-dir/compliance` in [ncs.conf](../../resources/man/ncs.conf.5.md):
 
 ```xml
 <load-path>
@@ -920,7 +1008,7 @@ check-result {
 }
 ```
 
-### Reloading XML Compliance Templates
+### Reloading XML Compliance Templates <a href="#reloading-xml-compliance-templates" id="reloading-xml-compliance-templates"></a>
 
 To reload all templates (both from the load-path and from packages), use:
 

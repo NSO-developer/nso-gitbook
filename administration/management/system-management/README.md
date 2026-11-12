@@ -290,7 +290,9 @@ NSO logs in `/logs` in your running directory, (depends on your settings in `ncs
 
 * `ncs.log` : NCS daemon log. See [Log Messages and Formats](log-messages-and-formats.md). Can be configured to Syslog.
 * `ncserr.log.1`_,_ `ncserr.log.idx`_,_ `ncserr.log.siz`: if the NSO daemon has a problem. this contains debug information relevant to support. The content can be displayed with `ncs --printlog ncserr.log`.
-* `audit.log`: central audit log covering all northbound interfaces. See [Log Messages and Formats](log-messages-and-formats.md). Can be configured to Syslog.
+* `audit.log`: central audit log covering all northbound interfaces, including RESTCONF authentication and session events. RESTCONF requests and responses are written to `restconf.log`. See [Log Messages and Formats](log-messages-and-formats.md). Can be configured to Syslog.
+* `restconf.log`: RESTCONF requests and responses, including HTTP status codes and request durations. Supports text and NDJSON files, syslog, and the external log handler. See [RESTCONF Logging](README.md#restconf-logging).
+* `smart-license.log`: Smart Licensing events with configurable severity filtering. Supports text and NDJSON files, syslog, and the external log handler. See [Smart Licensing Logging](cisco-smart-licensing.md#smart-licensing-logging).
 * `localhost:8080.access`: all HTTP requests to the daemon. This is an access log for the embedded Web server. This file adheres to the Common Log Format, as defined by Apache and others. This log is not enabled by default and is not rotated, i.e. use logrotate(8). Can be configured to Syslog.
 *   `devel.log`: developer-log is a debug log for troubleshooting user-written code. This log is enabled by default and is not rotated, i.e. use logrotate(8). This log shall be used in combination with the `java-vm` or `python-vm` logs. The user code logs in the VM logs and the corresponding library logs in `devel.log`. Disable this log in production systems. Can be configured to Syslog.\
     \
@@ -340,9 +342,48 @@ NSO logs in `/logs` in your running directory, (depends on your settings in `ncs
 * Transaction error log: log for collecting information on failed transactions that lead to either a CDB boot error or a runtime transaction failure. The default is `false` (disabled). More information about the log is available in the Manual Pages under [Configuration Parameters](../../../resources/man/ncs.conf.5.md#configuration-parameters) (see `logs/transaction-error-log`).
 * Upgrade log: log containing information about CDB upgrade. The log is enabled by default and not rotated (i.e., use logrotate). With the NSO example set, the following examples populate the log in the `logs/upgrade.log` file: [examples.ncs/device-management/ned-yang-revision](https://github.com/NSO-developer/nso-examples/tree/6.7/device-management/ned-yang-revision), [examples.ncs/high-availability/upgrade-basic](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/upgrade-basic), [examples.ncs/high-availability/upgrade-cluster](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/upgrade-cluster), and [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.7/service-management/upgrade-service). More information about the log is available in the Manual Pages under [Configuration Parameters](../../../resources/man/ncs.conf.5.md#configuration-parameters) (see `logs/upgrade-log)`.
 
+#### RESTCONF Logging <a href="#restconf-logging" id="restconf-logging"></a>
+
+RESTCONF requests and responses are written to a dedicated RESTCONF log, configured under `/ncs-config/logs/restconf-log` in [ncs.conf](../../../resources/man/ncs.conf.5.md). Authentication, login, group assignment, and session start and end events remain in `audit.log`.
+
+RESTCONF must be enabled under `/ncs-config/restconf/enabled` for the RESTCONF log to contain entries. The [ncs.conf](../../../resources/man/ncs.conf.5.md) shipped with NSO enables RESTCONF and writes the RESTCONF log to `restconf.log` in the log directory. To configure this output, add the following section under `<logs>` in that file:
+
+```xml
+<restconf-log>
+  <enabled>true</enabled>
+  <log-level>info</log-level>
+  <file>
+    <enabled>true</enabled>
+    <name>${NCS_LOG_DIR}/restconf.log</name>
+    <format>text</format>
+  </file>
+  <syslog>
+    <enabled>false</enabled>
+  </syslog>
+</restconf-log>
+```
+
+Set `file/format` to `text` (the default) or `ndjson` to write one JSON object per line. Set `syslog/enabled` to `true` to send entries to syslog. The log also supports `external/enabled` for the [external log handler](../../../development/connected-topics/external-logging.md).
+
+The `log-level` default is `info`. All RESTCONF request and response entries have severity `INFO`, including responses with an HTTP error status. Setting `log-level` to `info`, `debug`, or `trace` records all entries; setting it to `notice` or a more severe level records none. To find failed requests, inspect the HTTP status codes as described in [Request and Response Logging](../../../development/core-concepts/northbound-apis/restconf-api.md#request-and-response-logging).
+
+Apply configuration changes with `ncs --reload` on the NSO host. If a value is invalid, NSO rejects the reload, writes an `ALERT` entry to `ncs.log`, and keeps the previous configuration.
+
+{% hint style="warning" %}
+When upgrading from a release before NSO 6.8, the existing [ncs.conf](../../../resources/man/ncs.conf.5.md) is retained. Without an explicit RESTCONF log destination, requests and responses are no longer recorded in `audit.log` and are not written to a file or syslog. Add the configuration above, or configure another destination, then run `ncs --reload`. Update log collectors and monitoring rules to read the RESTCONF log. Applications that subscribed to request and response entries with `NOTIF_AUDIT` must use `NOTIF_RESTCONF`; retain `NOTIF_AUDIT` if authentication and session events are also needed.
+{% endhint %}
+
+NSO does not rotate this log. System installs include `/etc/logrotate.d/ncs`, which rotates `*.log` files in the log directory, including `restconf.log`. If you use a different extension, such as `restconf.ndjson`, add that file to the rotation configuration.
+
+#### Smart Licensing Logging <a href="#smart-licensing-logging" id="smart-licensing-logging"></a>
+
+Smart Licensing events are written to a dedicated log, configured under `/ncs-config/logs/smart-license-log` in [ncs.conf](../../../resources/man/ncs.conf.5.md). The shipped configuration writes these events to `smart-license.log` in the log directory. The log supports text and NDJSON files, syslog, and the external log handler. Its `log-level` setting controls which severities are recorded.
+
+When upgrading, configure a Smart Licensing log destination and update collectors and monitoring rules that previously read these events from `ncs.log`. The agent's standard output is captured separately in `ncs-smart-licensing.log`. See [Smart Licensing Logging](cisco-smart-licensing.md#smart-licensing-logging) for configuration, severity levels, troubleshooting, and migration details.
+
 ### Syslog <a href="#d5e259" id="d5e259"></a>
 
-NSO can syslog to a local Syslog. See `man ncs.conf` how to configure the Syslog settings. All Syslog messages are documented in Log Messages. The `ncs.conf` also lets you decide which of the logs should go into Syslog: `ncs.log, devel.log, netconf.log, snmp.log, audit.log, WebUI access log`. There is also a possibility to integrate with `rsyslog` to log the NCS, developer, audit, netconf, SNMP, and WebUI access logs to syslog with the facility set to daemon in `ncs.conf`. For reference, see the `upgrade-l2` example [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/hcc) .
+NSO can syslog to a local Syslog. See [ncs.conf(5)](../../../resources/man/ncs.conf.5.md) for the Syslog settings. All Syslog messages are documented in Log Messages. The [ncs.conf](../../../resources/man/ncs.conf.5.md) also lets you decide which of the logs should go into Syslog: `ncs.log, devel.log, netconf.log, restconf.log, smart-license.log, snmp.log, audit.log, WebUI access log`. There is also a possibility to integrate with `rsyslog` to log the NCS, developer, audit, NETCONF, RESTCONF, Smart Licensing, SNMP, and WebUI access logs to syslog with the facility set to daemon in [ncs.conf](../../../resources/man/ncs.conf.5.md). For reference, see the `upgrade-l2` example [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/hcc) .
 
 Below is an example of Syslog configuration:
 
