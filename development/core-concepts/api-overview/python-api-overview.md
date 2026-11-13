@@ -774,6 +774,8 @@ The table below lists the action handler callback parameters:
 
 <table><thead><tr><th width="141">Parameter</th><th width="201">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>self</code></td><td><code>ncs.dp.Action</code></td><td>The action object.</td></tr><tr><td><code>uinfo</code></td><td><code>ncs.UserInfo</code></td><td>User information of the requester.</td></tr><tr><td><code>name</code></td><td><code>string</code></td><td>The tailf:action name.</td></tr><tr><td><code>kp</code></td><td><code>ncs.HKeypathRef</code></td><td>The keypath of the action.</td></tr><tr><td><code>input</code></td><td><code>ncs.maagic.Node</code></td><td>An object containing the parameters of the input section of the action yang model.</td></tr><tr><td><code>output</code></td><td><code>ncs.maagic.Node</code></td><td>The object where to put the output parameters as defined in the output section of the action yang model.</td></tr></tbody></table>
 
+To fail an action with an error code, an `error-app-tag`, or `error-info`, raise `CallbackError`. See [Errors That Callbacks Report](python-api-overview.md#callback-errors).
+
 ### Service Handler
 
 The Python high-level API provides an easy way to implement a service handler for your modeled services. The easiest way to create a handler is to use the `ncs-make-package` command. It creates some skeleton code.
@@ -981,9 +983,501 @@ The table below lists the validation point handler callback parameters:
 
 <table><thead><tr><th width="203">Parameter</th><th width="256">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>self</code></td><td><code>ncs.dp.ValidationPoint</code></td><td>The validation point object.</td></tr><tr><td><code>tctx</code></td><td><code>ncs.TransCtxRef</code></td><td>Transaction context.</td></tr><tr><td><code>kp</code></td><td><code>ncs.HKeypathRef</code></td><td>The keypath of the node being validated.</td></tr><tr><td><code>value</code></td><td><code>ncs.Value</code></td><td>Current value of the node being validated.</td></tr><tr><td><code>validationpoint</code></td><td><code>string</code></td><td>The validation point that triggered the validation.</td></tr></tbody></table>
 
+`ValidationError` sends only a message to the northbound client. To send an error code, an `error-app-tag`, or `error-info`, raise `CallbackError`. See [Errors That Callbacks Report](python-api-overview.md#callback-errors).
+
+## Error Reporting <a href="#python-error-reporting" id="python-error-reporting"></a>
+
+The `ncs.error` module is the high-level error API. This section uses three terms. The server is NSO. A northbound client is a program that sends a request to the server. Examples are a NETCONF client, the CLI, and a Python script that uses MAAPI or Maagic. Your application is the Python code that implements callbacks, for example actions and validation points.
+
+Errors go in two directions. When the server reports an error to your code, the API call raises `Error` or a subclass of `Error`. When your callback reports an error to the server, the callback raises `CallbackError`. The server then sends the error to the northbound client.
+
+The table shows which part of the API to use in each case:
+
+| Case | What to do |
+| ---- | ---------- |
+| A call fails because an item is missing, an item exists, access is denied, or a lock is held. | Catch the subclass of `Error`, for example `NotFoundError` or `LockedError`. |
+| A call fails for a different cause. | Catch `Error`. Read `e.code` and `e.format()`. |
+| `Transaction.validate()` finds warnings. | Catch `ValidationWarning`. Read `e.warnings`. |
+| A transaction conflicts with a concurrent transaction. | Decorate the function that starts the transaction with `ncs.maapi.retry_on_conflict()`. |
+| An HA node cannot connect to a remote HA node, or the remote HA node closes the connection. | Catch `HaRemoteConnectionError`. Try again when the remote HA node is reachable. |
+| Your callback must fail the request. | Raise `CallbackError`. |
+
+For all classes, attributes, and codes, see the [ncs.error module reference](../../../developer-reference/pyapi/ncs.error.md).
+
+### Errors That the Server Reports <a href="#server-errors" id="server-errors"></a>
+
+When a call to the server fails, the call raises `ncs.error.Error` or a subclass of `Error`. The subclass tells you the cause of the failure, so you do not have to compare error codes. Each subclass is also an `Error`, so an `except Error` clause catches all of them. Put the `except` clauses for the subclasses before the clause for `Error`. The low-level `_ncs` calls also raise the subclasses, because `import ncs` imports `ncs.error`.
+
+| Subclass | `ErrorCode` | Cause |
+| -------- | ----------- | ----- |
+| `NotFoundError` | `NOEXISTS` | The item does not exist. |
+| `AlreadyExistsError` | `ALREADY_EXISTS` | The item already exists. |
+| `AccessDeniedError` | `ACCESS_DENIED` | Access control denied the operation. |
+| `LockedError` | `LOCKED`, `IN_USE` | A lock that a different session holds stopped the operation. A retry later can succeed. |
+| `TransactionConflictError` | `TRANSACTION_CONFLICT` | A concurrent transaction changed data that this transaction read. A retry in a new transaction can succeed. |
+| `ExternalError` | `EXTERNAL` | A callback in an application failed, or it did not reply in time. |
+| `HaRemoteConnectionError` | `HA_CONNECT`, `HA_CLOSED` | This HA node cannot connect to a remote HA node, or the remote HA node closed the connection. A retry can succeed when the remote HA node is reachable again. |
+| `ValidationWarning` | `VALIDATION_WARNING` | Validation found warnings and no errors. |
+
+All other error codes raise `Error`. An `Error` has these attributes:
+
+* `code`: The error code, as an `ErrorCode` member. If no member has the value, `code` is an integer.
+* `format()`: A method that returns the error as text, in the form `NAME: description (details)`.
+* `confd_errno`, `confd_strerror`, and `confd_lasterr`: The low-level attributes. See [Error Codes](python-api-overview.md#error-codes).
+
+`str(e)` keeps the low-level format `description (number): details`. Thus, code that reads this text continues to work.
+
+`ErrorCode` is an `IntEnum`. A member is equal to its integer value and to the `ERR_*` constant with the same value. For example, `ErrorCode.NOEXISTS == ncs.ERR_NOEXISTS` is `True`. Each member has a `description` attribute. `format()` uses this description, and the description can be different from the text in `str(e)`. To print the name of a member, use `e.code.name`.
+
+If the server closes the connection, the call raises `ncs.error.EOF`. `EOF` is not a subclass of `Error`.
+
+This example reads a leaf that has no value. `get_elem()` raises `NotFoundError` for the leaf. Maagic returns `None` for the same leaf.
+
+{% code title="Example: Catch a Typed Error" %}
+```python
+import ncs
+from ncs.error import NotFoundError
+
+with ncs.maapi.single_read_trans('admin', 'python') as t:
+    try:
+        desc = t.get_elem('/ncs:devices/device{ce0}/description')
+    except NotFoundError:
+        desc = 'not set'
+    print("Description for device ce0 = %s" % desc)
+```
+{% endcode %}
+
+For an error code that has no subclass, catch `Error` and compare `e.code` with an `ErrorCode` member. This example reads a path that is not in the data model:
+
+{% code title="Example: Read the Error Code" %}
+```python
+import ncs
+from ncs.error import Error, ErrorCode
+
+with ncs.maapi.single_read_trans('admin', 'python') as t:
+    try:
+        t.get_elem('/ncs:devices/device{ce0}/no-such-leaf')
+    except Error as e:
+        if e.code == ErrorCode.BADPATH:
+            print('The path is not in the data model')
+        print(e.format())
+```
+{% endcode %}
+
+The script prints `The path is not in the data model`. Then it prints a line that starts with `BADPATH: badly formatted or nonexistent path`.
+
+#### Validate Before You Commit <a href="#validation-warnings" id="validation-warnings"></a>
+
+`Transaction.validate()` raises `ValidationWarning` when the server finds warnings and no errors. For example, the server reports a warning when a validation callback returns a warning. `e.warnings` is a list with one entry for each warning. Each entry has a `path` and a `message`. The `path` is a keypath, for example `/ncs:devices/device{ce0}/address`. It is not an XPath expression.
+
+`apply()` does not raise `ValidationWarning`. It accepts the warnings and commits the transaction. If the user must see the warnings before the commit, call `validate()` first, and then call `apply()`. Set `unlock=True`, so that the transaction stays open for `apply()`.
+
+{% code title="Example: Show Validation Warnings Before the Commit" %}
+```python
+import ncs
+from ncs.error import Error, ValidationWarning
+
+with ncs.maapi.single_write_trans('admin', 'python') as t:
+    root = ncs.maagic.get_root(t)
+    root.devices.device['ce0'].description = 'Updated by script'
+
+    try:
+        t.validate(unlock=True)
+    except ValidationWarning as e:
+        for w in e.warnings:
+            print("Warning: %s: %s" % (w.path, w.message))
+        if input('Commit anyway? [y/N] ').strip().lower() != 'y':
+            raise SystemExit('The transaction is not committed.')
+    except Error as e:
+        raise SystemExit('Validation failed: %s' % e.format())
+
+    t.apply()
+```
+{% endcode %}
+
+If the user does not accept the warnings, the script stops. The `with` statement then closes the transaction without a commit.
+
+#### Retry When a Data Store Is Locked <a href="#locked-errors" id="locked-errors"></a>
+
+`LockedError` tells you that a lock that a different session holds stopped the operation. For example, `Maapi.lock()` raises `LockedError` at once when a different session holds the lock. A retry later can succeed. Limit the number of attempts, and wait between the attempts. Start a new transaction for each attempt.
+
+When a different session holds a lock on the running data store, `apply()` waits for the time in `/ncs-config/commit-retry-timeout` in [ncs.conf](../../../resources/man/ncs.conf.5.md). Then it raises `LockedError`. The default value is `infinity`, so by default `apply()` waits until the lock is released and does not raise `LockedError`. The example below retries only if `commit-retry-timeout` has a finite value, for example `PT10S`.
+
+{% code title="Example: Retry When a Data Store Is Locked" %}
+```python
+import time
+import ncs
+from ncs.error import LockedError
+
+ATTEMPTS = 5
+DELAY_SECONDS = 2
+
+
+def set_description(device, text):
+    with ncs.maapi.single_write_trans('admin', 'python') as t:
+        root = ncs.maagic.get_root(t)
+        root.devices.device[device].description = text
+        t.apply()
+
+
+for attempt in range(1, ATTEMPTS + 1):
+    try:
+        set_description('ce0', 'Updated by script')
+        break
+    except LockedError as e:
+        if attempt == ATTEMPTS:
+            raise
+        print("%s. Retry in %d seconds." % (e.format(), DELAY_SECONDS))
+        time.sleep(DELAY_SECONDS)
+```
+{% endcode %}
+
+#### Retry on a Transaction Conflict <a href="#conflict-errors" id="conflict-errors"></a>
+
+NSO can reject a transaction that read data that a concurrent transaction changed. The call then raises `TransactionConflictError`. To retry, decorate the function that starts the transaction with `ncs.maapi.retry_on_conflict()`. The function must start its own transaction, because each attempt needs a new transaction. If the last attempt also fails, the decorator raises the `TransactionConflictError`. For more information, see [Handling Conflicts](../nso-concurrency-model.md#ncs.development.concurrency.handling).
+
+{% code title="Example: Retry on a Transaction Conflict" %}
+```python
+import ncs
+
+
+@ncs.maapi.retry_on_conflict(retries=5)
+def copy_description():
+    with ncs.maapi.single_write_trans('admin', 'python') as t:
+        devices = ncs.maagic.get_root(t).devices.device
+        devices['ce1'].description = devices['ce0'].description
+        t.apply()
+
+
+copy_description()
+```
+{% endcode %}
+
+#### Retry When a Remote HA Node Is Not Reachable <a href="#ha-errors" id="ha-errors"></a>
+
+The `ncs.ha` module sets the HA role of a node for an external HA framework. Use it only for External HA. Do not use it with HA Raft or rule-based HA. For more information, see [HA Framework Requirements](../../../administration/management/high-availability.md#ha-framework-requirements) and the [ncs.ha module reference](../../../developer-reference/pyapi/ncs.ha.md).
+
+`HaRemoteConnectionError` tells you that the connection to a remote HA node failed. For example, `HaConnection.be_secondary()` raises it when the node cannot connect to the primary (`HA_CONNECT`), or loses the connection to the primary (`HA_CLOSED`). It raises the error only if `wait_reply` is `True`, which is the default. A retry can succeed when the primary is reachable again.
+
+A failure to connect to the local node is not an `HaRemoteConnectionError`. It is an `Error`, for example with `ErrorCode.OS` when the local node does not run. The other HA codes show a problem with the token, the node names, the data models, the versions, or the configuration of the nodes. Examples are `HA_BADTOKEN`, `HA_BADNAME`, `HA_BADFXS`, `HA_BADVSN`, and `HA_BADCONFIG`. These codes raise `Error`. A retry does not help until you correct the problem.
+
+In NSO, a wrong `node_id` for the primary also raises `HaRemoteConnectionError` with `HA_CONNECT`, because the node cannot find a primary with that name at the address. A retry does not help in this case. Thus, make sure that the name and the address of the primary are correct before you retry.
+
+This example makes `node1` a secondary of the primary `node0`. If `node0` is not reachable, the script tries again after a delay.
+
+{% code title="Example: Retry When the Primary Is Not Reachable" %}
+```python
+import time
+from ncs.error import HaRemoteConnectionError
+from ncs.ha import HaConnection, HaNode
+
+ATTEMPTS = 5
+DELAY_SECONDS = 10
+
+primary = HaNode(node_id='node0', address='10.0.0.1')
+
+with HaConnection(token='secret') as ha:
+    for attempt in range(1, ATTEMPTS + 1):
+        try:
+            ha.be_secondary('node1', primary)
+            break
+        except HaRemoteConnectionError as e:
+            if attempt == ATTEMPTS:
+                raise
+            print("%s. Retry in %d seconds." % (e.format(), DELAY_SECONDS))
+            time.sleep(DELAY_SECONDS)
+
+    status = ha.status()
+    print(status.state.name, status.primary.node_id)
+```
+{% endcode %}
+
+If the call succeeds, the script prints `SECONDARY node0`.
+
+### Errors That Callbacks Report <a href="#callback-errors" id="callback-errors"></a>
+
+A callback in your application raises `CallbackError` to fail the request. The callback class catches the error and reports it to the server. The server then sends the error to the northbound client. You do not report the error yourself.
+
+`CallbackError` is not a subclass of `Error`. `Error` is for errors that the server reports. `CallbackError` is for errors that your callback reports.
+
+```
+CallbackError(message, code=CallbackError.Code.APPLICATION, *,
+              apptag=None, error_info=None)
+```
+
+The arguments are:
+
+* `message`: The error message for the northbound client (`str`).
+* `code`: The category of the error, as a `CallbackError.Code` member. The default is `CallbackError.Code.APPLICATION`. A value of a different type raises `TypeError`. This includes an `int` and the `ErrorCode` of a caught `Error`.
+* `apptag`: The NETCONF `error-app-tag`, as `"prefix:name"` (`str`). The prefix is the prefix of a loaded module. The name must be defined in that module, for example as a node. If the module does not define the name, the server drops the `apptag` and reports no error.
+* `error_info`: The content of the NETCONF `error-info` element (`dict`). Each key is the `"prefix:name"` of a leaf directly under `tailf:error-info` in one module. All keys must have the same prefix. Each value must be a `str`, so the leaf must have a string type. A value of a different type raises `TypeError`. If a key does not name such a leaf, the server drops all of `error_info` and reports no error.
+
+For an `error-info` leaf of a different type, a nested container, or a list, use the low-level functions `trans_seterr_extended_info()` and `action_seterr_extended_info()` in `_ncs.dp`.
+
+The constructor resolves `apptag` and the keys of `error_info` in the loaded schemas. It raises `ValueError` in these cases:
+
+* A name does not have the form `"prefix:name"`.
+* No loaded module has the prefix, or more than one loaded module has it.
+* The name is not in a loaded schema.
+* The keys of `error_info` have different prefixes.
+
+The constructor does not make sure that the module with the prefix defines the name. If no schemas are loaded, the constructor loads them with `ncs.maapi.Maapi()` from the default address. If your application connects to the server on a different address, call `Daemon.load_schemas()` first. A `CallbackError` without `apptag` and `error_info` does not need the schemas.
+
+The code tells the northbound client the category of the error. The table shows each `CallbackError.Code` member, the NETCONF `error-tag` that the code becomes, and the `Error` that a MAAPI or Maagic caller gets:
+
+| `CallbackError.Code` | Use it when | NETCONF `error-tag` | MAAPI or Maagic caller gets |
+| -------------------- | ----------- | ------------------- | --------------------------- |
+| `IN_USE` | A data store cannot be locked, because a different session already locked it. | `in-use` | `LockedError` |
+| `RESOURCE_DENIED` | A resource is not available, for example there is not enough memory. | `resource-denied` | `Error` with `ErrorCode.RESOURCE_DENIED` |
+| `INCONSISTENT_VALUE` | A request parameter has a value that is not valid. | `invalid-value` | `Error` with `ErrorCode.INCONSISTENT_VALUE` |
+| `ACCESS_DENIED` | Authorization does not allow the request. The northbound client gets no other error information. | `access-denied` | `AccessDeniedError` |
+| `APPLICATION` | The error has no specific category. This is the default. | `operation-failed` | `ExternalError` |
+| `APPLICATION_INTERNAL` | The same as `APPLICATION`, but the server only logs the message. The northbound client does not get it. | `operation-failed` | `Error` with `ErrorCode.APPLICATION_INTERNAL` |
+| `DATA_MISSING` | The request cannot complete, because the data that it needs does not exist. | `data-missing` | `Error` with `ErrorCode.DATA_MISSING` |
+| `INTERRUPT` | The user interrupted the request. | `operation-failed` | `Error` with `ErrorCode.INTERNAL` |
+
+Each type of northbound client gets a different part of the error:
+
+| Northbound client | What it gets |
+| ----------------- | ------------ |
+| NETCONF | An `rpc-error` with the `error-tag` from the code, the message, the `error-app-tag`, and the `error-info`. |
+| RESTCONF | The error, with the `error-app-tag` in the form `module:name`, for example `example:quota`. |
+| MAAPI or Maagic in Python | An `Error` or a subclass of `Error`, with the code and the message. It does not get the `apptag` and the `error_info`. |
+| CLI and Web UI | A text message that the server makes from the code and the message. |
+
+The server can add the text of the code before the message. For example, with `RESOURCE_DENIED`, a NETCONF client gets the message `Quota exceeded` as `resource denied: Quota exceeded`.
+
+You can raise `CallbackError` in these callbacks:
+
+* Action callbacks with `@Action.action` or `@Action.rpc` in `ncs.dp.Action`.
+* Validation callbacks with `@ValidationPoint.validate` or `@ValidationPoint.validate_with_trans` in `ncs.dp.ValidationPoint`.
+* The `init()` callback of `ncs.dp.TransactionCallback`.
+* The `prepare()` callback of `ncs.cdb.TwoPhaseSubscriber`. The server aborts the transaction.
+* Service callbacks in `ncs.application.Service` and `ncs.application.NanoService`. See [Service Callbacks](python-api-overview.md#service-callback-errors).
+
+In other callbacks, `CallbackError` fails the callback in the same way as any other exception.
+
+#### Example Data Model
+
+The examples below use this YANG module. The `tailf:error-info` statement declares the `severity` leaf for `error_info`. The `quota` leaf defines the name for the `ex:quota` apptag.
+
+{% code title="Example: YANG Module for the Callback Examples" %}
+```yang
+module example {
+  namespace "http://example.com/example";
+  prefix ex;
+
+  import tailf-common {
+    prefix tailf;
+  }
+
+  tailf:error-info {
+    leaf severity {
+      type string;
+    }
+  }
+
+  container top {
+    leaf quota {
+      type int32;
+    }
+    leaf size {
+      type int32;
+      tailf:validate size-check {
+        tailf:dependency ".";
+      }
+    }
+    tailf:action check {
+      tailf:actionpoint check-action;
+      input {
+        leaf size {
+          type int32;
+        }
+      }
+      output {
+        leaf result {
+          type string;
+        }
+      }
+    }
+  }
+}
+```
+{% endcode %}
+
+#### Fail an Action
+
+This action fails when the input `size` is more than 100. The error has a code, an apptag, and `error_info`.
+
+{% code title="Example: Raise CallbackError from an Action" %}
+```python
+from ncs.dp import Action
+from ncs.error import CallbackError
+
+
+class CheckAction(Action):
+    @Action.action
+    def cb_action(self, uinfo, name, kp, input, output):
+        if input.size > 100:
+            raise CallbackError('Quota exceeded',
+                                CallbackError.Code.RESOURCE_DENIED,
+                                apptag='ex:quota',
+                                error_info={'ex:severity': 'critical'})
+        output.result = 'ok'
+```
+{% endcode %}
+
+A NETCONF client that invokes the action with a `size` of 200 gets this `rpc-error`:
+
+```xml
+<rpc-error>
+  <error-type>application</error-type>
+  <error-tag>resource-denied</error-tag>
+  <error-severity>error</error-severity>
+  <error-app-tag>quota</error-app-tag>
+  ...
+  <error-message xml:lang="en">resource denied: Quota exceeded</error-message>
+  <error-info>
+    ...
+    <severity xmlns="http://example.com/example">critical</severity>
+  </error-info>
+</rpc-error>
+```
+
+A Python script that invokes the same action with Maagic gets an `Error` with the code and the message only:
+
+{% code title="Example: Catch the Action Error in a Maagic Caller" %}
+```python
+import ncs
+from ncs.error import Error
+
+with ncs.maapi.single_read_trans('admin', 'python') as t:
+    check = ncs.maagic.get_root(t).top.check
+    inp = check.get_input()
+    inp.size = 200
+    try:
+        check(inp)
+    except Error as e:
+        print(e.code.name)
+        print(e.format())
+```
+{% endcode %}
+
+The script prints:
+
+```
+RESOURCE_DENIED
+RESOURCE_DENIED: Data provider denied a resource (resource denied: Quota exceeded)
+```
+
+#### Fail a Validation
+
+This validation callback fails when the value of `size` is more than 100. The `value` argument is an `ncs.Value`, so the callback uses `as_pyval()` to get a Python `int`.
+
+{% code title="Example: Raise CallbackError from a Validation Callback" %}
+```python
+import ncs
+from ncs.dp import ValidationPoint
+from ncs.error import CallbackError
+
+
+class SizeValidation(ValidationPoint):
+    @ValidationPoint.validate
+    def cb_validate(self, tctx, kp, value, validationpoint):
+        if value.as_pyval() > 100:
+            raise CallbackError('The size must be 100 or less',
+                                CallbackError.Code.INCONSISTENT_VALUE,
+                                apptag='ex:quota')
+        return ncs.CONFD_OK
+```
+{% endcode %}
+
+If a NETCONF client sets `size` to 200, it gets an `rpc-error` with `<error-tag>invalid-value</error-tag>` and `<error-app-tag>quota</error-app-tag>`. The error message starts with the path of the leaf, followed by `inconsistent value: The size must be 100 or less`. A Python script that calls `Transaction.validate()` gets an `Error` with `ErrorCode.INCONSISTENT_VALUE`.
+
+#### Fail a CDB Subscriber
+
+A two-phase CDB subscriber can stop a change in the prepare phase. This subscriber does not let a northbound client delete `size`. If `prepare()` raises `CallbackError`, the server aborts the transaction with the code, the apptag, and `error_info` of the error. If `prepare()` raises a different exception, the server aborts the transaction with `RESOURCE_DENIED` and the text of the exception.
+
+{% code title="Example: Raise CallbackError from a Two-Phase CDB Subscriber" %}
+```python
+import ncs
+from ncs.cdb import TwoPhaseSubscriber
+from ncs.error import CallbackError
+
+
+class SizeSubscriber(TwoPhaseSubscriber):
+    def prepare(self, kp, op, oldv, newv, state):
+        if op == ncs.MOP_DELETED:
+            raise CallbackError('The size cannot be deleted',
+                                CallbackError.Code.INCONSISTENT_VALUE,
+                                apptag='ex:quota',
+                                error_info={'ex:severity': 'error'})
+        return ncs.ITER_RECURSE
+
+    def iterate(self, kp, op, oldv, newv, state):
+        return ncs.ITER_RECURSE
+
+    def abort(self, kp, op, oldv, newv, state):
+        return ncs.ITER_RECURSE
+```
+{% endcode %}
+
+A NETCONF client that deletes `size` gets an `rpc-error` with `<error-tag>invalid-value</error-tag>`, `<error-app-tag>quota</error-app-tag>`, and `<severity>error</severity>` in `error-info`. The error message is `inconsistent value: The size cannot be deleted`.
+
+#### Register the Callbacks
+
+The `Application` class of the package registers the action and the validation callback. It also starts the subscriber, and stops the subscriber in `teardown()`.
+
+{% code title="Example: Register the Callbacks" %}
+```python
+import ncs
+
+
+class Main(ncs.application.Application):
+    def setup(self):
+        self.register_action('check-action', CheckAction)
+        self.register_validation('size-check', SizeValidation)
+
+        self.sub = SizeSubscriber('size-sub', app=self)
+        self.sub.register('/ex:top/ex:size')
+        self.sub.start()
+
+    def teardown(self):
+        self.sub.stop()
+```
+{% endcode %}
+
+#### Service Callbacks <a href="#service-callback-errors" id="service-callback-errors"></a>
+
+You can raise `CallbackError` in these service callbacks:
+
+* `@Service.create`, `@Service.pre_modification`, and `@Service.post_modification` in `ncs.application.Service`.
+* `@NanoService.create` and `@NanoService.delete` in `ncs.application.NanoService`.
+
+NSO sends the code and the message of the error to the northbound client as one plain message. The NETCONF `error-tag` is `operation-failed`. NSO drops the `apptag` and the `error_info`. If the error has an `apptag` or `error_info`, the package writes a warning to its Python VM log. A failed `@NanoService.delete` callback does not fail the commit. NSO keeps the message in the plan of the zombie service.
+
+{% code title="Example: Raise CallbackError from a Service Callback" %}
+```python
+from ncs.application import Service
+from ncs.error import CallbackError
+
+
+class ServiceCallbacks(Service):
+    @Service.create
+    def cb_create(self, tctx, root, service, proplist):
+        device = root.devices.device[service.device]
+        if str(device.state.admin_state) == 'locked':
+            raise CallbackError('Device %s is locked' % service.device,
+                                CallbackError.Code.RESOURCE_DENIED)
+        # Service logic ...
+```
+{% endcode %}
+
+If the device is locked, a NETCONF client gets `<error-tag>operation-failed</error-tag>` and the error message `resource denied: Device ce0 is locked`.
+
 ## Low-level APIs
 
-The Python low-level APIs are a direct mapping of the C-APIs. A C call has a corresponding Python function entry. From a programmer's point of view, it wraps the C data structures into Python objects and handles the related memory management when requested by the Python garbage collector. Any errors are reported as `error.Error`.
+The Python low-level APIs are a direct mapping of the C-APIs. A C call has a corresponding Python function entry. From a programmer's point of view, it wraps the C data structures into Python objects and handles the related memory management when requested by the Python garbage collector. Any errors are reported as `_ncs.error.Error`. After `import ncs`, the low-level calls raise the subclasses of `Error` that [Errors That the Server Reports](python-api-overview.md#server-errors) lists.
 
 The low-level APIs will not be described in detail in this document, but you will find a few examples showing their usage in the coming sections.
 
@@ -1210,15 +1704,17 @@ The `file`, `syslog`, and `log-level` settings under `/ncs-config/logs/restconf-
 
 ## Error Codes
 
-The low-level APIs raise `_ncs.error.Error`. The high-level APIs raise `ncs.error.Error`, which uses the same underlying error information. The exception object contains:
+`ncs.error.Error` and `_ncs.error.Error` are the same class. The low-level APIs and the high-level APIs raise it, or one of its subclasses. The `ncs.error` module adds the `code` attribute and the `format()` method. See [Errors That the Server Reports](python-api-overview.md#server-errors). The exception object contains:
 
-* `confd_errno`: the numeric error code.
-* `confd_strerror`: the library error message for the code.
-* `confd_lasterr`: optional additional error text from NSO or application code.
+* `confd_errno`: The numeric error code.
+* `confd_strerror`: The library error message for the code.
+* `confd_lasterr`: Optional additional error text from NSO or application code.
 
 In an exception string such as `external error (19): application communication failure`, `external error` is the `confd_strerror` text, `19` is `confd_errno`, and the text after the colon is `confd_lasterr`.
 
-Use the Python constants from `ncs` or `_ncs` when checking `confd_errno`. Most C `CONFD_ERR_*` constants are exposed as Python `ERR_*` constants. The NSO-specific `NCS_ERR_*` constants keep their names. For codes without a dedicated `confd_strerror()` entry, the base error message is `Unknown error`; the detailed cause is typically carried in `confd_lasterr`.
+In high-level code, compare `e.code` with an `ErrorCode` member. In low-level code, compare `confd_errno` with the Python constants from `ncs` or `_ncs`. Most C `CONFD_ERR_*` constants are available as Python `ERR_*` constants. The NSO-specific `NCS_ERR_*` constants keep their names. For codes without a dedicated `confd_strerror()` entry, the base error message is `Unknown error`. The detailed cause is usually in `confd_lasterr`.
+
+The name of an `ErrorCode` member is the name of the Python constant without the `ERR_` or `NCS_ERR_` prefix. For example, `ncs.ERR_NOEXISTS` is `ErrorCode.NOEXISTS`, and `ncs.NCS_ERR_DEVICE` is `ErrorCode.DEVICE`. Two names are different: `ncs.ERR_INUSE` is `ErrorCode.IN_USE`, and `ncs.ERR_PROTOUSAGE` is `ErrorCode.PROTO_USAGE`. The `ErrorCode.description` text can be different from the error message in the table.
 
 | Code | Python constant | C constant | Error message | Description |
 | ---- | --------------- | ---------- | ------------- | ----------- |
