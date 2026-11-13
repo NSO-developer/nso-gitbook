@@ -102,6 +102,11 @@
   +---------------------------+-----------------+--------+---------------------------------------------------+
   ```
 
+  NOTE: The NED is not limited to the versions and models listed above and may support additional
+  versions or models. Please try the NED with your target version and model. To request support for
+  additional configuration features or use cases, contact Cisco Support and follow the process
+  described in Section 8.
+
   Verified YANG model bundles
   ```
   +---------------------------+-----------------+------------------------------------------------------------+
@@ -782,7 +787,20 @@
 
       - verbose <empty>
 
-        Print the full build output also for successful executions (otherwise only printed on errors).
+        Print the full build output also for successful builds (otherwise only printed on errors).
+
+
+        Either of:
+
+          - use-presets from-cache <empty>
+
+            Use settings cached from the previous build.
+
+        OR:
+
+          - use-presets from-file <string>
+
+            Use settings from the specified file path.
 
 
       - build-namespace-classes <empty>
@@ -790,12 +808,21 @@
         Generate Python and Java namespace classes for each YANG file.
 
 
+      - compilation-workers <union>
+
+        Enable parallel compilation of third-party YANG files to improve performance. Note: This
+        option requires NSO 6.8 or later and has no effect on earlier versions.
+
+
       - use-module-as-prefix <empty>
 
-        Instructs the NSO YANG compiler to use the YANG module name as the prefix, instead of the
+        Instructs the NSO YANG compiler to use the YANG module name as the prefix instead of the
         prefix declared in the YANG file. By default, the declared prefix is used. Enabling this
         option changes how schema nodes are referenced in NSO, including through the Maagic and Maapi
-        APIs.
+        APIs. Use this option with caution, as it may cause unexpected side effects. The primary use
+        case is migrating from an older NED schema that used module names as prefixes. Note that the
+        NED setting transaction/accept-module-as-prefix must also be enabled in the rebuilt NED to
+        make it function properly.
 
 
       - profile <string>

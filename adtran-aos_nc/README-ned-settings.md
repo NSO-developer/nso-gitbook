@@ -525,7 +525,19 @@
 ## 3.2. ned-settings adtran-aos_nc connection ssh
 -------------------------------------------------
 
-  Settings related to the SSH client used by the NED to connect to the device.
+  Settings for the device-connection SSH client.
+
+
+    - ssh client <enum>
+
+      Specifies the SSH client used for device connectivity. The NED automatically detects the
+      appropriate default based on the installed NSO version: SSHJ is the default for NSO versions
+      up to 6.7.x, while the Apache MINA-based client is the default for NSO 6.8 and later. This
+      auto-detection is overridden if this leaf is explicitly configured.
+
+      sshj  - SSHJ-based client (lacks PQC support).
+
+      mina  - Apache MINA-based client (supports PQC).
 
 
     - ssh host-key known-hosts-file <string>
@@ -569,11 +581,27 @@
       that needs to be configured in 'proxy/auth-key/private-key-file.
 
 
+    - ssh netconf-subsystem check-alive <true|false> (default false)
+
+      When NSO checks with the NED whether the connection to the device is still active, the NED
+      normally only verifies the state of the SSH connection. However, some NETCONF devices
+      occasionally terminate the NETCONF subsystem while leaving the SSH session open. Enable this
+      setting to force the NED to check the status of the NETCONF subsystem as well.
+
+
     - ssh keep-alive-interval <seconds> (default 0)
 
       Configure SSH client keep alive interval in seconds, default 0 (i.e. no keep-alive). The
       keep-alive is implemented in the client by sending an ssh 'ignore' message on the given
       interval.
+
+
+    - ssh keep-alive-max-count <uint8> (default 0)
+
+      Specifies the maximum number of consecutive missed keep-alive replies from the server. If this
+      limit is exceeded, the SSH client considers the connection stale and automatically
+      disconnects. When set to 0, the NED does not track the server's keep-alive replies, so only
+      the server can detect a stale connection.
 
 
 # 4. ned-settings adtran-aos_nc proxy

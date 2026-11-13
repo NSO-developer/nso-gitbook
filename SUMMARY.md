@@ -35,11 +35,11 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.74.6 2026-10-29](alu-sr/README.md)
+  * [README v8.75 2026-11-12](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.35.3 2026-10-22](arista-dcs/README.md)
+  * [README v5.35.4 2026-11-12](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -95,12 +95,12 @@
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
   * [README-rebuild](cisco-iosxr_gnmi/README-rebuild.md)
-  * [README v1.1.15 2026-09-07](cisco-iosxr_gnmi/README.md)
+  * [README v1.1.16 2026-11-12](cisco-iosxr_gnmi/README.md)
 
 * cisco-iosxr_nc
   * [README-ned-settings](cisco-iosxr_nc/README-ned-settings.md)
   * [README-rebuild](cisco-iosxr_nc/README-rebuild.md)
-  * [README v1.1.4 2026-03-26](cisco-iosxr_nc/README.md)
+  * [README v1.1.5 2026-11-12](cisco-iosxr_nc/README.md)
 
 * cisco-iosxr_netconf
   * [README v26.2.1 2026-10-14](cisco-iosxr_netconf/README.md)
@@ -190,7 +190,7 @@
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
   * [README-rebuild](juniper-junos_nc/README-rebuild.md)
-  * [README v1.1.36 2026-10-28](juniper-junos_nc/README.md)
+  * [README v1.1.37 2026-11-12](juniper-junos_nc/README.md)
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
@@ -199,7 +199,7 @@
 * nokia-srlinux_gnmi
   * [README-ned-settings](nokia-srlinux_gnmi/README-ned-settings.md)
   * [README-rebuild](nokia-srlinux_gnmi/README-rebuild.md)
-  * [README v1.2.21 2026-09-07](nokia-srlinux_gnmi/README.md)
+  * [README v1.2.22 2026-11-12](nokia-srlinux_gnmi/README.md)
 
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
@@ -209,7 +209,7 @@
 * onf-tapi_rc
   * [README-ned-settings](onf-tapi_rc/README-ned-settings.md)
   * [README-rebuild](onf-tapi_rc/README-rebuild.md)
-  * [README v2.0.55 2026-10-15](onf-tapi_rc/README.md)
+  * [README v2.0.56 2026-11-12](onf-tapi_rc/README.md)
 
 * opengear-cm
   * [README-ned-settings](opengear-cm/README-ned-settings.md)
@@ -259,6 +259,10 @@
 * tejas-tejnos
   * [README-ned-settings](tejas-tejnos/README-ned-settings.md)
   * [README v1.0.0 2026-11-04](tejas-tejnos/README.md)
+
+* tilgin-tgem
+  * [README-ned-settings](tilgin-tgem/README-ned-settings.md)
+  * [README v1.0.5 2026-11-12](tilgin-tgem/README.md)
 
 * vecima-rpd
   * [README-ned-settings](vecima-rpd/README-ned-settings.md)
