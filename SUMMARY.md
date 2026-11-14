@@ -254,7 +254,7 @@
 * siae-smdc_rc
   * [README-ned-settings](siae-smdc_rc/README-ned-settings.md)
   * [README-rebuild](siae-smdc_rc/README-rebuild.md)
-  * [README v1.0.16 2025-07-02](siae-smdc_rc/README.md)
+  * [README v1.0.17 2026-11-13](siae-smdc_rc/README.md)
 
 * tejas-tejnos
   * [README-ned-settings](tejas-tejnos/README-ned-settings.md)

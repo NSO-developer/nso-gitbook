@@ -22,6 +22,7 @@
      5.8. rpc rebuild-package
      5.9. rpc show-default-local-dir
      5.10. rpc show-loaded-schema
+     5.11. rpc xpath-trace-analyzer
   6. Built in live-status show
   7. Limitations
   8. How to report NED issues and feature requests
@@ -94,6 +95,11 @@
   |                           |                 |        | tran-types                                        |
   +---------------------------+-----------------+--------+---------------------------------------------------+
   ```
+
+  NOTE: The NED is not limited to the versions and models listed above and may support additional
+  versions or models. Please try the NED with your target version and model. To request support for
+  additional configuration features or use cases, contact Cisco Support and follow the process
+  described in Section 8.
 
 
 ## 1.1 Extract the NED package
@@ -703,6 +709,22 @@
             Optional extra include paths to be used when searching for YANG files. Each include path
             is relative to the git root directory.
 
+          - remote git authentication method <enum> (default none)
+
+            Configure authentication method to use when the NED interacts with the RESTCONF device.
+
+            pat   - Personal Access Token.
+
+            none  - No additional authentication is done.
+
+          - remote git authentication pat username <string> (default git)
+
+            The username to use for authentication.
+
+          - remote git authentication pat access-token <string>
+
+            The access token to use for authentication.
+
 
   ## 5.5. rpc list-modules
   ------------------------
@@ -795,6 +817,38 @@
         Print the full build output also for successful builds (otherwise only printed on errors).
 
 
+        Either of:
+
+          - use-presets from-cache <empty>
+
+            Use settings cached from the previous build.
+
+        OR:
+
+          - use-presets from-file <string>
+
+            Use settings from the specified file path.
+
+
+      - build-namespace-classes <empty>
+
+        Generate Python and Java namespace classes for each YANG file.
+
+
+      - compilation-workers <union>
+
+        Enable parallel compilation of third-party YANG files to improve performance. Note: This
+        option requires NSO 6.8 or later and has no effect on earlier versions.
+
+
+      - use-module-as-prefix <empty>
+
+        Instructs the NSO YANG compiler to use the YANG module name as the prefix, instead of the
+        prefix declared in the YANG file. By default, the declared prefix is used. Enabling this
+        option changes how schema nodes are referenced in NSO, including through the Maagic and Maapi
+        APIs.
+
+
       - profile <string>
 
         Apply a certain build profile.
@@ -828,6 +882,16 @@
 
             Trim all currently unused nodes in the schema. This means all config nodes that are
             currently not populated in CDB.
+
+        OR:
+
+          - filter trim-schema all-with-status <enum>
+
+            Trim all nodes in the schema annotated with matching 'status' statements.
+
+            deprecated  - Means node is still supported, but usage no longer recommended.
+
+            obsolete    - Means node is not supported anymore, and should not be used.
 
         OR:
 
@@ -874,6 +938,11 @@
         Set a custom suffix in the generated ned-id.
 
 
+      - include-netsim <empty>
+
+        Do compile the YANG models for netsim as well, when rebuilding the NED package.
+
+
       - additional-build-args <string>
 
         Additional arguments to pass to build(make) commands.
@@ -906,10 +975,26 @@
 
         unused  - Display only the config nodes that are not in use.
 
+        rpcs    - Display the rpc nodes defined in the schema.
+
+
+      - with-status <enum>
+
+        Only select nodes annotated with matching 'status' statements.
+
+        deprecated  - Means node is still supported, but usage no longer recommended.
+
+        obsolete    - Means node is not supported anymore, and should not be used.
+
 
       - count <empty>
 
         Count the nodes and return the sum instead of the full list of nodes.
+
+
+      - details <empty>
+
+        Display schema details like must/when expression, leafrefs and leafref targets.
 
 
       - root-paths <string>
@@ -918,15 +1003,69 @@
         starting any of the specified roots will then be processed.
 
 
-      - details <empty>
-
-        Display schema details like must/when expression, leafrefs and leafref targets.
-
-
       - config <true|false> (default true)
 
         Set to false to display non config nodes in the schema. Note: scope will in this case be
         'all'.
+
+
+      - output file <string>
+
+
+      - developer generate-schypp-pragmas pragma <enum> (default remove)
+
+        Set pragma type.
+
+        remove   - remove.
+
+        replace  - replace.
+
+
+      - developer generate-schypp-pragmas statement <enum>
+
+        Set the yang statement for the pragma.
+
+        must    - must.
+
+        when    - when.
+
+        unique  - unique.
+
+        type    - type.
+
+
+      - developer generate-schypp-pragmas pattern <string>
+
+        Configure the pattern to search for matching statements. Use ".*" to match any string.
+
+
+      - developer generate-schypp-pragmas replace-with <string>
+
+        For replace pragmas, set replacement for statements matching the pattern.
+
+
+      - developer generate-schypp-pragmas add-comment <empty>
+
+        Prepend extra comment containing info about the statement.
+
+
+  ## 5.11. rpc xpath-trace-analyzer
+  ---------------------------------
+
+    A tool for analyzing NSO XPath traces, designed to identify inefficient or problematic XPath
+    expressions in third-party YANG files that may negatively impact NSO performance.
+
+      Input arguments:
+
+      - file <string> (default logs/xpath.trace)
+
+        Path to the NSO xpath trace file to use. The xpath trace file used by the current NSO will be
+        used by default.
+
+
+      - number-of-entries <uint8> (default 10)
+
+        Set the number of entries to display in the generated top list.
 
 
 # 6. Built in live-status show
@@ -1036,6 +1175,8 @@
 --------------------------
 
   Check the README-rebuild.md file, chapter 1.3, for more information.
+
+
 
 
 # 10. Using NETSIM for testing

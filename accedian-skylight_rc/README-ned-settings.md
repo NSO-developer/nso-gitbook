@@ -48,7 +48,6 @@
           4.2.1. deviations
      4.3. live-status
      4.4. notif
-     4.5. yang-push
   5. logger
   6. general
      6.1. capabilities
@@ -659,90 +658,6 @@
         Description of this stream.
 
 
-## 4.5. ned-settings accedian-skylight_rc restconf yang-push
-------------------------------------------------------------
-
-  Experimental feature. Configure yang-push enabled streams / datastores available on the device.
-
-    - restconf yang-push <name> <subscription-type> <xpath-filter> <encoding>
-
-      - name <string>
-
-        Name of emulated YANG-PUSH telemetry stream.
-
-      - subscription-type <enum>
-
-        Spceify type of subscription for this emulated stream.
-
-        periodic   - periodic.
-
-        on-change  - on-change.
-
-      - xpath-filter <string>
-
-        Specify the xpath to the location in the device datatree to subscribe events from.
-
-      - encoding <enum> (default xml)
-
-        Specify the encoding type to be used for the telemetry data delivered as a notification to
-        NSO.
-
-        json  - json.
-
-        xml   - xml.
-
-
-        Either of:
-
-          - devices device ned-settings accedian-skylight_rc restconf yang-push device datastore <identityref>
-
-        OR:
-
-          - devices device ned-settings accedian-skylight_rc restconf yang-push device stream <string>
-
-      - on-change-settings dampening-period <uint32> (default 0)
-
-        Specify dampening period a dampening period to be used to specify the interval that has to
-        pass before successive update records for the same subscription are generated.
-
-      - on-change-settings sync-on-start <true|false> (default true)
-
-        When set to 'true' (default), in order to facilitate a receiver's synchronization, a full
-        update is sent, via a 'push-update' notification, when the subscription starts.
-
-      - on-change-settings excluded-change <enum>
-
-        Used to restrict which changes trigger an update. For example, if a 'replace' operation is
-        excluded, only thecreation and deletion of objects are reported.
-
-        create   - A change that refers to the creation of a new
-           datastore node.
-
-        delete   - A change that refers to the deletion of a
-           datastore node.
-
-        insert   - A change that refers to the insertion of a new
-           user-ordered datastore
-                   node.
-
-        move     - A change that refers to a reordering of the target
-           datastore node.
-
-        replace  - A change that refers to a replacement of the target
-           datastore node's
-                   value.
-
-      - periodic-settings period <uint32>
-
-        Specify the periodicity of the telemetry updates sent on this subscription.
-
-      - periodic-settings anchor-time <string>
-
-        Designates a timestamp before or after which a series of periodic push updates are
-        determined.  The next update will take place at a point in time that is a multiple of a
-        period from the 'anchor-time'.
-
-
 # 5. ned-settings accedian-skylight_rc logger
 ---------------------------------------------
 
@@ -904,14 +819,6 @@
       Use the filter API from NSO to do live-status requests. This API is more flexible and will
       result in fewer round-trips to the device and possibly less data transferred from the device.
       The live-status time-to-live settings are not applicable when using this API.
-
-
-    - live-status restore-namespaces-and-identityrefs <true|false> (default true)
-
-      Make the NED go through the operational data dump and fix/restore the namespace information
-      and prefixes on identityref values etc. This is a common problem on many Skylight devices. NSO
-      is very strict about namespaces and will typically bail out the operation completely if it
-      finds a namespace issue. This setting will prevent such issues. Enabled by default.
 
 
     - live-status filter-unmodeled <true|false> (default false)

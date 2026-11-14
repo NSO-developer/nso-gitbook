@@ -110,6 +110,11 @@
   +---------------------------+-----------------+--------+---------------------------------------------------+
   ```
 
+  NOTE: The NED is not limited to the versions and models listed above and may support additional
+  versions or models. Please try the NED with your target version and model. To request support for
+  additional configuration features or use cases, contact Cisco Support and follow the process
+  described in Section 8.
+
   Verified YANG model bundles
   ```
   +---------------------------+-----------------+------------------------------------------------------------+
@@ -835,6 +840,22 @@
             Optional extra include paths to be used when searching for YANG files. Each include path
             is relative to the git root directory.
 
+          - remote git authentication method <enum> (default none)
+
+            Configure authentication method to use when the NED interacts with the RESTCONF device.
+
+            pat   - Personal Access Token.
+
+            none  - No additional authentication is done.
+
+          - remote git authentication pat username <string> (default git)
+
+            The username to use for authentication.
+
+          - remote git authentication pat access-token <string>
+
+            The access token to use for authentication.
+
 
   ## 5.5. rpc list-modules
   ------------------------
@@ -927,9 +948,28 @@
         Print the full build output also for successful builds (otherwise only printed on errors).
 
 
+        Either of:
+
+          - use-presets from-cache <empty>
+
+            Use settings cached from the previous build.
+
+        OR:
+
+          - use-presets from-file <string>
+
+            Use settings from the specified file path.
+
+
       - build-namespace-classes <empty>
 
         Generate Python and Java namespace classes for each YANG file.
+
+
+      - compilation-workers <union>
+
+        Enable parallel compilation of third-party YANG files to improve performance. Note: This
+        option requires NSO 6.8 or later and has no effect on earlier versions.
 
 
       - use-module-as-prefix <empty>
@@ -1310,6 +1350,8 @@
 --------------------------
 
   Check the README-rebuild.md file, chapter 1.3, for more information.
+
+
 
 
 # 10. NED connection methods
