@@ -48,8 +48,10 @@ compiling the packages and to setup any netsim devices.
 > *setup.mk* files.
 
 `--ncs-min-version`  
+> 
 
 `--ncs-min-version-non-strict`  
+> 
 
 `--use-bundle-packages`  
 > Update using the packages defined in the bundle section.

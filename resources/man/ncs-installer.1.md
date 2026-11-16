@@ -108,13 +108,11 @@ a "system installation", suitable for deployment.
 > > (such as the `tailf-hcc` package). If no such packages are used, the
 > > file can be removed.
 >
-> <div class="note">
->
-> When the `--run-as-user` option is used, all OS commands executed by
-> NCS will also run as the given user, rather than as the user specified
-> for custom CLI commands (e.g. through clispec definitions).
->
-> </div>
+> > [!NOTE]
+> > When the `--run-as-user` option is used, all OS commands executed by
+> > NCS will also run as the given user, rather than as the user
+> > specified for custom CLI commands (e.g. through clispec
+> > definitions).
 
 `[ --keep-ncs-setup ]`  
 > The `ncs-setup` command is not usable in a "system installation", and

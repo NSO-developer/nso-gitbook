@@ -419,6 +419,22 @@
 
 <details>
 
+<summary>CDB_MIGRATE_COMPACT_FAILED</summary>
+
+<code>CDB_MIGRATE_COMPACT_FAILED</code>
+
+* **Severity**  
+  `WARNING`
+* **Description**  
+  CDB failed to compact a journal before migrating it to a new storage backend. The uncompacted journal is migrated instead.
+* **Format String**  
+  `"CDB: compaction of ~s before migration failed, migrating uncompacted journal: ~s"`
+
+</details>
+
+
+<details>
+
 <summary>CDB_MIGRATE</summary>
 
 <code>CDB_MIGRATE</code>

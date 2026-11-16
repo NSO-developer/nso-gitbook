@@ -1260,18 +1260,17 @@ description below.
 The choice of `confd_vtype` to use for the value representation can be
 whatever suits the actual data values best, with one exception:
 
-<div class="note">
-
-The C_LIST `confd_vtype` value can *not* be used for a leaf that is a
-key in a YANG list. The "normal" C_LIST usage is only for representation
-of leaf-lists, and a leaf-list can of course not be a key. Thus the
-ConfD code is not prepared to handle this kind of "value" for a key. It
-is a strong recommendation to *never* use C_LIST for a user-defined
-type, since even if the type is not initially used for key leafs,
-subsequent development may see a need for this, at which point it may be
-cumbersome to change to a different representation.
-
-</div>
+> **Note**  
+>  
+> The C_LIST `confd_vtype` value can *not* be used for a leaf that is a
+> key in a YANG list. The "normal" C_LIST usage is only for
+> representation of leaf-lists, and a leaf-list can of course not be a
+> key. Thus the ConfD code is not prepared to handle this kind of
+> "value" for a key. It is a strong recommendation to *never* use C_LIST
+> for a user-defined type, since even if the type is not initially used
+> for key leafs, subsequent development may see a need for this, at
+> which point it may be cumbersome to change to a different
+> representation.
 
 The example uses C_INT32, C_IPV4PREFIX, and C_IPV6PREFIX for the value
 representation of the respective types, but in many cases the opaque
@@ -1396,14 +1395,12 @@ auxiliary (static) data needed by the functions (on invocation they can
 reference it as self-\>opaque). The `parent` and `defval` elements are
 not used in this context, and should be NULL.
 
-<div class="note">
-
-The `str_to_val()` function *must* allocate space (using e.g. malloc(3))
-for the actual data value for those confd_value_t types that are listed
-as having allocated data above, i.e. C_BUF, C_QNAME, C_LIST,
-C_OBJECTREF, C_OID, C_BINARY, and C_HEXSTR.
-
-</div>
+> **Note**  
+>  
+> The `str_to_val()` function *must* allocate space (using e.g.
+> malloc(3)) for the actual data value for those confd_value_t types
+> that are listed as having allocated data above, i.e. C_BUF, C_QNAME,
+> C_LIST, C_OBJECTREF, C_OID, C_BINARY, and C_HEXSTR.
 
 We make the implementation available to ConfD by creating one or more
 shared objects (.so files) containing the above callback functions. Each
@@ -1437,29 +1434,26 @@ These structures are then used by ConfD to locate the implementation of
 a given type, by searching for a `typepoint` string that matches the
 `tailf:typepoint` argument in the YANG data model.
 
-<div class="note">
+> **Note**  
+>  
+> Since our callbacks are executed directly by the ConfD daemon, it is
+> critically important that they do not have a negative impact on the
+> daemon. No other processing can be done by ConfD while the callbacks
+> are executed, and e.g. a NULL pointer dereference in one of the
+> callbacks will cause ConfD to crash. Thus they should be simple,
+> purely algorithmic functions, never referencing any external
+> resources.
 
-Since our callbacks are executed directly by the ConfD daemon, it is
-critically important that they do not have a negative impact on the
-daemon. No other processing can be done by ConfD while the callbacks are
-executed, and e.g. a NULL pointer dereference in one of the callbacks
-will cause ConfD to crash. Thus they should be simple, purely
-algorithmic functions, never referencing any external resources.
-
-</div>
-
-<div class="note">
-
-When user-defined types are present, the ConfD daemon also needs to load
-the libconfd.so shared library, otherwise used only by applications.
-This means that either this library must be in one of the system
-directories that are searched by the OS runtime loader (typically /lib
-and /usr/lib), or its location must be given by setting the
-LD_LIBRARY_PATH environment variable before starting ConfD, or the
-default location \$CONFD_DIR/lib is used, where \$CONFD_DIR is the
-installation directory of ConfD.
-
-</div>
+> **Note**  
+>  
+> When user-defined types are present, the ConfD daemon also needs to
+> load the libconfd.so shared library, otherwise used only by
+> applications. This means that either this library must be in one of
+> the system directories that are searched by the OS runtime loader
+> (typically /lib and /usr/lib), or its location must be given by
+> setting the LD_LIBRARY_PATH environment variable before starting
+> ConfD, or the default location \$CONFD_DIR/lib is used, where
+> \$CONFD_DIR is the installation directory of ConfD.
 
 The above is enough for ConfD to use the types that we have defined, but
 the libconfd library can also do local string\<-\>value translation if
@@ -2328,12 +2322,9 @@ types. They are defined in the
 > An SNMP OBJECT IDENTIFIER (OID). This is a sequence of integers which
 > identifies an object instance for example "1.3.6.1.4.1.24961.1".
 >
-> <div class="note">
->
-> The `tailf:value-length` restriction is measured in integer elements
-> for `object-identifier` and `object-identifier-128`.
->
-> </div>
+> > [!NOTE]
+> > The `tailf:value-length` restriction is measured in integer elements
+> > for `object-identifier` and `object-identifier-128`.
 >
 > - `value.type` = C_OID
 >
@@ -2385,12 +2376,9 @@ types. They are defined in the
 > sequence octets, each octet represented by two hexadecimal digits.
 > Octets are separated by colons.
 >
-> <div class="note">
->
-> The `tailf:value-length` restriction is measured in number of octets
-> for `phys-address`.
->
-> </div>
+> > [!NOTE]
+> > The `tailf:value-length` restriction is measured in number of octets
+> > for `phys-address`.
 >
 > - `value.type` = C_BINARY
 >
@@ -2428,12 +2416,9 @@ types. They are defined in the
 > A hexadecimal string with octets represented as hex digits separated
 > by colons.
 >
-> <div class="note">
->
-> The `tailf:value-length` restriction is measured in number of octets
-> for `hex-string`.
->
-> </div>
+> > [!NOTE]
+> > The `tailf:value-length` restriction is measured in number of octets
+> > for `hex-string`.
 >
 > - `value.type` = C_HEXSTR
 >
@@ -2721,12 +2706,9 @@ ConfD.
 `tailf:octet-list`  
 > A list of dot-separated octets for example "192.168.255.1.0".
 >
-> <div class="note">
->
-> The `tailf:value-length` restriction is measured in number of octets
-> for `octet-list`.
->
-> </div>
+> > [!NOTE]
+> > The `tailf:value-length` restriction is measured in number of octets
+> > for `octet-list`.
 >
 > - `value.type` = C_BINARY
 >
@@ -2740,12 +2722,9 @@ ConfD.
 > A list of colon-separated hexa-decimal octets for example
 > "4F:4C:41:71".
 >
-> <div class="note">
->
-> The `tailf:value-length` restriction is measured in octets of binary
-> data for `hex-list`.
->
-> </div>
+> > [!NOTE]
+> > The `tailf:value-length` restriction is measured in octets of binary
+> > data for `hex-list`.
 >
 > - `value.type` = C_BINARY
 >
@@ -2797,11 +2776,8 @@ ConfD.
 > encrypting passwords for various UNIX systems, e.g.
 > <http://www.freebsd.org/cgi/cvsweb.cgi/~checkout~/src/lib/libcrypt/crypt.c?rev=1.5&content-type=text/plain>
 >
-> <div class="note">
->
-> The `pattern` restriction can not be used with this type.
->
-> </div>
+> > [!NOTE]
+> > The `pattern` restriction can not be used with this type.
 >
 > - `value.type` = C_BUF
 >
@@ -2937,11 +2913,8 @@ ConfD.
 > string. For details, see the description of the encryptedStrings
 > configurable in the [confd.conf(5)](ncs.conf.5.md) manual page.
 >
-> <div class="note">
->
-> The `pattern` restriction can not be used with this type.
->
-> </div>
+> > [!NOTE]
+> > The `pattern` restriction can not be used with this type.
 >
 > - `value.type` = C_BUF
 >

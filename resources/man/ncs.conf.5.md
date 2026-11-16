@@ -405,6 +405,7 @@ how they relate to each other.
 > searches for initialization files.
 
 /ncs-config/cdb/persistence/format (in-memory-v1 \| on-demand-v1) \[in-memory-v1\]  
+> 
 
 /ncs-config/cdb/persistence/db-statistics (disabled \| enabled) \[disabled\]  
 > If set to 'enabled', underlying database produces internal statistics
@@ -559,6 +560,7 @@ how they relate to each other.
 > which will be used to encrypt any strings.
 
 /ncs-config/encrypted-strings/key-rotation/generation (int16)  
+> 
 
 /ncs-config/encrypted-strings/key-rotation/AESCFB128  
 > In the AESCFB128 case one 128 bits (16 bytes) key and a random initial
@@ -1062,8 +1064,10 @@ how they relate to each other.
 > rotated. Log filenames are reused when five logs have been exhausted.
 
 /ncs-config/logs/error-log/debug/enabled (boolean) \[false\]  
+> 
 
 /ncs-config/logs/error-log/debug/level (uint16) \[2\]  
+> 
 
 /ncs-config/logs/error-log/debug/tag (string)  
 > This parameter may be given multiple times.
@@ -1085,6 +1089,7 @@ how they relate to each other.
 > The directory path to the location of the progress trace files.
 
 /ncs-config/logs/external/enabled (boolean) \[false\]  
+> 
 
 /ncs-config/logs/external/command (string)  
 > This parameter is mandatory.
@@ -1186,6 +1191,7 @@ how they relate to each other.
 > setting can be smaller than the number of logical processors.
 
 /ncs-config/transaction-limits/scheduling-mode (relaxed \| strict) \[relaxed\]  
+> 
 
 /ncs-config/parser-limits  
 > Parameters for limiting parsing of XML data.
@@ -1777,8 +1783,10 @@ how they relate to each other.
 > machine.
 
 /ncs-config/cli/ssh/extra-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/cli/ssh/extra-listen/port (port-number)  
+> 
 
 /ncs-config/cli/ssh/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -1789,8 +1797,10 @@ how they relate to each other.
 > terminate any ongoing traffic.
 
 /ncs-config/cli/ssh/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/cli/ssh/ha-primary-listen/port (port-number)  
+> 
 
 /ncs-config/cli/top-level-cmds-in-sub-mode (boolean) \[false\]  
 > topLevelCmdsInSubMode is either 'true' or 'false'. If set to 'true'
@@ -2104,6 +2114,7 @@ how they relate to each other.
 > in the ncs.cli file.
 
 /ncs-config/cli/space-completion/enabled (boolean)  
+> 
 
 /ncs-config/cli/ignore-leading-whitespace (boolean)  
 > If 'false' then the CLI will show completion help when the user enters
@@ -2346,6 +2357,7 @@ how they relate to each other.
 > The headers will be part of all HTTP responses.
 
 /ncs-config/restconf/custom-headers/header/name (string)  
+> 
 
 /ncs-config/restconf/custom-headers/header/value (string)  
 > This parameter is mandatory.
@@ -2471,8 +2483,10 @@ how they relate to each other.
 > listen on the port for all IPv4 or IPv6 addresses on the machine.
 
 /ncs-config/restconf/transport/tcp/extra-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/restconf/transport/tcp/extra-listen/port (port-number)  
+> 
 
 /ncs-config/restconf/transport/tcp/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -2483,8 +2497,10 @@ how they relate to each other.
 > terminate any ongoing traffic.
 
 /ncs-config/restconf/transport/tcp/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/restconf/transport/tcp/ha-primary-listen/port (port-number)  
+> 
 
 /ncs-config/restconf/transport/tcp/dscp (dscp-type)  
 > Support for setting the Differentiated Services Code Point (6 bits)
@@ -2513,8 +2529,10 @@ how they relate to each other.
 > addresses on the machine.
 
 /ncs-config/restconf/transport/ssl/extra-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/restconf/transport/ssl/extra-listen/port (port-number)  
+> 
 
 /ncs-config/restconf/transport/ssl/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -2525,8 +2543,10 @@ how they relate to each other.
 > terminate any ongoing traffic.
 
 /ncs-config/restconf/transport/ssl/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/restconf/transport/ssl/ha-primary-listen/port (port-number)  
+> 
 
 /ncs-config/restconf/transport/ssl/dscp (dscp-type)  
 > Support for setting the Differentiated Services Code Point (6 bits)
@@ -2724,7 +2744,7 @@ how they relate to each other.
 /ncs-config/webui/webui-root-resource (string)  
 > The target resource where the WebUI is accessible.
 >
-> Setting the configurable to, e.g., 'myroot' makes the JSON-RPC
+> Setting the configurable to, e.g., '/myroot' makes the JSON-RPC
 > accessible at https://\<ip-address\>/myroot/jsonrpc.
 >
 > This option affects the WebUI and JSON-RPC.
@@ -2751,6 +2771,7 @@ how they relate to each other.
 > The headers will be part of all HTTP responses.
 
 /ncs-config/webui/custom-headers/header/name (string)  
+> 
 
 /ncs-config/webui/custom-headers/header/value (string)  
 > This parameter is mandatory.
@@ -2908,8 +2929,10 @@ how they relate to each other.
 > the port for all IPv4 or IPv6 addresses on the machine.
 
 /ncs-config/webui/transport/tcp/extra-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/webui/transport/tcp/extra-listen/port (port-number)  
+> 
 
 /ncs-config/webui/transport/tcp/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -2920,8 +2943,10 @@ how they relate to each other.
 > terminate any ongoing traffic.
 
 /ncs-config/webui/transport/tcp/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/webui/transport/tcp/ha-primary-listen/port (port-number)  
+> 
 
 /ncs-config/webui/transport/ssl  
 > Settings deciding how the Web server SSL (Secure Sockets Layer)
@@ -2973,8 +2998,10 @@ how they relate to each other.
 > on the machine.
 
 /ncs-config/webui/transport/ssl/extra-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/webui/transport/ssl/extra-listen/port (port-number)  
+> 
 
 /ncs-config/webui/transport/ssl/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -2985,8 +3012,10 @@ how they relate to each other.
 > terminate any ongoing traffic.
 
 /ncs-config/webui/transport/ssl/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/webui/transport/ssl/ha-primary-listen/port (port-number)  
+> 
 
 /ncs-config/webui/transport/ssl/read-from-db (boolean) \[false\]  
 > If enabled, TLS data (certificate, private key, and CA certificates)
@@ -3335,8 +3364,10 @@ how they relate to each other.
 > on the port for all IPv4 or IPv6 addresses on the machine.
 
 /ncs-config/netconf-north-bound/transport/ssh/extra-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/netconf-north-bound/transport/ssh/extra-listen/port (port-number)  
+> 
 
 /ncs-config/netconf-north-bound/transport/ssh/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -3347,8 +3378,10 @@ how they relate to each other.
 > terminate any ongoing traffic.
 
 /ncs-config/netconf-north-bound/transport/ssh/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/netconf-north-bound/transport/ssh/ha-primary-listen/port (port-number)  
+> 
 
 /ncs-config/netconf-north-bound/transport/tcp  
 > NETCONF over TCP is not standardized, but it can be useful during
@@ -3382,8 +3415,10 @@ how they relate to each other.
 > on the port for all IPv4 or IPv6 addresses on the machine.
 
 /ncs-config/netconf-north-bound/transport/tcp/extra-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/netconf-north-bound/transport/tcp/extra-listen/port (port-number)  
+> 
 
 /ncs-config/netconf-north-bound/transport/tcp/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -3394,8 +3429,10 @@ how they relate to each other.
 > terminate any ongoing traffic.
 
 /ncs-config/netconf-north-bound/transport/tcp/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/netconf-north-bound/transport/tcp/ha-primary-listen/port (port-number)  
+> 
 
 /ncs-config/netconf-north-bound/extended-sessions (boolean) \[false\]  
 > If extended-sessions are enabled, all NCS sessions can be terminated
@@ -3557,8 +3594,10 @@ how they relate to each other.
 > listen on the port for all IPv4 or IPv6 addresses on the machine.
 
 /ncs-config/netconf-call-home/transport/tcp/extra-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/netconf-call-home/transport/tcp/extra-listen/port (port-number)  
+> 
 
 /ncs-config/netconf-call-home/transport/tcp/dscp (dscp-type)  
 > Support for setting the Differentiated Services Code Point (6 bits)
@@ -3709,8 +3748,10 @@ how they relate to each other.
 > to listen on the port for all IPv4 or IPv6 addresses on the machine.
 
 /ncs-config/ha/extra-listen/ip (ipv4-address \| ipv6-address)  
+> 
 
 /ncs-config/ha/extra-listen/port (port-number)  
+> 
 
 /ncs-config/ha/tick-timeout (xs:duration) \[PT20S\]  
 > Defines the timeout between keepalive ticks sent between HA nodes. The
@@ -3751,6 +3792,15 @@ how they relate to each other.
 >
 > Only applicable if auto-start is 'true'.
 
+/ncs-config/java-vm/shutdown-timeout (xs:duration) \[PT30S\]  
+> Maximum time to wait for the Java VM to shut down after an error
+> before forcing the process to terminate. The timeout is only enforced
+> for error paths, such as an uncaught Java exception or a control
+> socket failure. It is not enforced for a clean shutdown. A value of
+> PT0S disables this protection.
+>
+> Only applicable when the default start-command is used.
+
 /ncs-config/java-vm/start-command (string)  
 > The command which NCS will run to start the Java VM, or the string
 > DEFAULT. If this parameter is not set, the ncs-start-java-vm script in
@@ -3768,6 +3818,7 @@ how they relate to each other.
 > Only applicable if auto-start is 'true'.
 
 /ncs-config/java-vm/run-in-terminal/enabled (boolean) \[false\]  
+> 
 
 /ncs-config/java-vm/run-in-terminal/terminal-command (string) \[xterm -title ncs-java-vm -e\]  
 > The command which NCS will run to start the terminal, or the string
@@ -3792,8 +3843,10 @@ how they relate to each other.
 > redeployed.
 
 /ncs-config/java-vm/restart-on-error/count (uint16) \[3\]  
+> 
 
 /ncs-config/java-vm/restart-on-error/duration (xs:duration) \[PT60S\]  
+> 
 
 /ncs-config/python-vm  
 > Configuration parameters to control how and if NCS shall start (and
@@ -3816,6 +3869,7 @@ how they relate to each other.
 > is equivalent to leaving this parameter unset.
 
 /ncs-config/python-vm/run-in-terminal/enabled (boolean) \[false\]  
+> 
 
 /ncs-config/python-vm/run-in-terminal/terminal-command (string) \[xterm -title ncs-python-vm -e\]  
 > The command which NCS will run to start the terminal, or the string
