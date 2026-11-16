@@ -10,7 +10,7 @@ Class representing node information for a Schema node
 
 **Constructors**:
 
-- [CSNodeInfo\(int\[\], int, int, int, CSType, ConfObject, CSChoice, int, HashMap\<String,String\>, MountId, String, String, String\[\]\)](#csnodeinfo-9613813dad32)
+- [CSNodeInfo\(int\[\], int, int, int, CSType, ConfObject, CSChoice, int, HashMap\<String,String\>, MountId, String, String\)](#csnodeinfo-ee36867c5a7f)
 
 **Methods**:
 
@@ -18,7 +18,6 @@ Class representing node information for a Schema node
 - [getDefval\(\)](#getdefval-561ad5494c47)
 - [getDocDescription\(\)](#getdocdescription-08369bbe26a9)
 - [getFlags\(\)](#getflags-3c1ca90fd29c)
-- [getHideGroups\(\)](#gethidegroups-d566f1e3343e)
 - [getKeys\(\)](#getkeys-a24b9d377db7)
 - [getMaxOccurs\(\)](#getmaxoccurs-365e8c5a408f)
 - [getMetaData\(\)](#getmetadata-15c2d5006ca5)
@@ -31,7 +30,7 @@ Class representing node information for a Schema node
 
 ## Constructors
 
-### CSNodeInfo(int[], int, int, int, CSType, ConfObject, CSChoice, int, HashMap&lt;String,String&gt;, MountId, String, String, String[]) <a href="#csnodeinfo-9613813dad32" id="csnodeinfo-9613813dad32"></a>
+### CSNodeInfo(int[], int, int, int, CSType, ConfObject, CSChoice, int, HashMap&lt;String,String&gt;, MountId, String, String) <a href="#csnodeinfo-ee36867c5a7f" id="csnodeinfo-ee36867c5a7f"></a>
 
 ```java
 public CSNodeInfo(
@@ -46,8 +45,7 @@ public CSNodeInfo(
     java.util.HashMap<String,String> metaData,
     com.tailf.maapi.MaapiSchemas.MountId mountId,
     String prompt,
-    String docDescription,
-    String[] hideGroups
+    String docDescription
 )
 ```
 
@@ -67,7 +65,6 @@ Types: [CSType](CSType.md#cstype-8bf086cc0595), [ConfObject](../../conf/ConfObje
 - `com.tailf.maapi.MaapiSchemas.MountId mountId`
 - `String prompt`
 - `String docDescription`
-- `String[] hideGroups`
 
 
 ## Methods
@@ -119,20 +116,6 @@ public int getFlags()
 get flags for this node. Currently not used
 
 **Returns:** int flags
-
-### getHideGroups() <a href="#gethidegroups-d566f1e3343e" id="gethidegroups-d566f1e3343e"></a>
-
-```java
-public String[] getHideGroups()
-```
-
-Get the hide group(s) for this node.
- Returns the tailf:hidden extension value if present. If
- multiple hide groups are defined, the array will contain
- multiple entries. The special value "full" indicates
- the node is completely hidden from all northbound interfaces.
-
-**Returns:** String array of hide group names, or null if not hidden.
 
 ### getKeys() <a href="#getkeys-a24b9d377db7" id="getkeys-a24b9d377db7"></a>
 

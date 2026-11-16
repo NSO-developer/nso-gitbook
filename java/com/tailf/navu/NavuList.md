@@ -135,7 +135,6 @@ Consider using the `iterator` instead wherever possible.
 - [move\(ConfKey, WhereTo, ConfKey\)](#move-dbba3e109e78)
 - [move\(String, WhereTo, String\)](#move-2e3f4f4fe7c9)
 - [namespace\(String\)](NavuNode.md#namespace-e29ad62ed095) from NavuNode
-- [prefix\(String\)](NavuNode.md#prefix-fdd71b8275bb) from NavuNode
 - [prepareXMLCall\(String\)](NavuNode.md#preparexmlcall-c22e250f2cac) from NavuNode
 - [reset\(\)](#reset-6927918ac70a)
 - [safeCreate\(ConfKey\)](#safecreate-91589643f1b0)

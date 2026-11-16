@@ -4,7 +4,6 @@ Support for using schema information in the Erlang API.
 
 Keeps schema info in a set of ets tables named by the toplevel namespace.
 
-**Behaviours**: gen_server
 
 ## Types
 
@@ -47,8 +46,14 @@ Keeps schema info in a set of ets tables named by the toplevel namespace.
 
 Related types: [confd\_cs\_choice()](#confd_cs_choice-0), [confd\_cs\_node()](#confd_cs_node-0), [econfd:qtag()](econfd.md#qtag-0)
 
-Get a flat list of children for a `confd_cs_node/0`,
-with any choice/case structure(s) removed.
+Get a flat list of children for a [`confd_cs_node()`](#confd_cs_node-0), with any choice/case structure(s) removed.
+
+
+### get_builtin_type/1
+
+```erlang
+get_builtin_type(_)
+```
 
 ### get_cs/2
 
@@ -64,6 +69,7 @@ Related types: [confd\_cs\_node()](#confd_cs_node-0), [econfd:namespace()](econf
 
 Find schema node by namespace and tagpath.
 
+
 ### get_nslist/0
 
 ```erlang
@@ -73,6 +79,7 @@ Find schema node by namespace and tagpath.
 Related types: [confd\_nsinfo()](#confd_nsinfo-0)
 
 Get a list of loaded namespaces with info.
+
 
 ### get_type/1
 
@@ -87,6 +94,7 @@ Related types: [econfd:type()](econfd.md#type-0)
 
 Get schema type definition identifier for built-in type.
 
+
 ### get_type/2
 
 ```erlang
@@ -97,6 +105,7 @@ Get schema type definition identifier for built-in type.
 Related types: [econfd:namespace()](econfd.md#namespace-0), [econfd:type()](econfd.md#type-0)
 
 Get schema type definition identifier for type defined in namespace.
+
 
 ### ikeypath2cs/1
 
@@ -111,6 +120,19 @@ Related types: [confd\_cs\_node()](#confd_cs_node-0), [econfd:ikeypath()](econfd
 
 Find schema node by ikeypath.
 
+
+### ikeypath2nstagpath/1
+
+```erlang
+ikeypath2nstagpath(IKeypath)
+```
+
+### ikeypath2nstagpath/2
+
+```erlang
+ikeypath2nstagpath(T, Acc)
+```
+
 ### load/1
 
 ```erlang
@@ -123,6 +145,7 @@ Find schema node by ikeypath.
 Related types: [econfd:error\_reason()](econfd.md#error_reason-0)
 
 Load schema info from ConfD.
+
 
 ### load/2
 
@@ -144,12 +167,8 @@ Related types: [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:ip()]
 
 Related types: [confd\_type\_cbs()](#confd_type_cbs-0)
 
-Register callbacks for a user-defined type. For an application
-running in its own Erlang VM, this function registers the callbacks
-in the loaded schema information, similar to confd_register_node_type()
-in the C API. For an application running inside ConfD, this function
-registers the callbacks in ConfD's internal schema information, similar
-to using a shared object with confd_type_cb_init() in the C API.
+Register callbacks for a user-defined type. For an application running in its own Erlang VM, this function registers the callbacks in the loaded schema information, similar to confd_register_node_type() in the C API. For an application running inside ConfD, this function registers the callbacks in ConfD's internal schema information, similar to using a shared object with confd_type_cb_init() in the C API.
+
 
 ### str2val/2
 
@@ -167,8 +186,8 @@ Related types: [confd\_cs\_node()](#confd_cs_node-0), [econfd:error\_reason()](e
 
 Convert string to value based on schema type.
 
-Note: For type identityref below a mount point
-(device data in NSO), TypeId must be `confd_cs_node/0`.
+Note: For type identityref below a mount point (device data in NSO), TypeId must be [`confd_cs_node()`](#confd_cs_node-0).
+
 
 ### val2str/2
 
@@ -184,3 +203,4 @@ Note: For type identityref below a mount point
 Related types: [confd\_cs\_node()](#confd_cs_node-0), [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:type()](econfd.md#type-0), [econfd:value()](econfd.md#value-0)
 
 Convert value to string based on schema type.
+

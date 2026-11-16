@@ -15,7 +15,6 @@ public static final class com.tailf.ncs.maapi.Schema.Cs.Builder
 - [getDefval\(\)](#getdefval-561ad5494c47)
 - [getDocDescription\(\)](#getdocdescription-08369bbe26a9)
 - [getFlags\(\)](#getflags-3c1ca90fd29c)
-- [getHideGroups\(\)](#gethidegroups-d566f1e3343e)
 - [getKeys\(\)](#getkeys-a24b9d377db7)
 - [getMaxOccur\(\)](#getmaxoccur-b4cb09a89559)
 - [getMeta\(\)](#getmeta-33b809b5c0be)
@@ -27,7 +26,6 @@ public static final class com.tailf.ncs.maapi.Schema.Cs.Builder
 - [initChoices\(\)](#initchoices-bd85acba2a40)
 - [initDefval\(\)](#initdefval-fc211401cea7)
 - [initDocDescription\(\)](#initdocdescription-e02d1d7991d3)
-- [initHideGroups\(\)](#inithidegroups-e73c27a1f3f0)
 - [initKeys\(\)](#initkeys-dbb1fee285c0)
 - [initMeta\(\)](#initmeta-38c9843af893)
 - [initMountId\(\)](#initmountid-43348a54995c)
@@ -87,14 +85,6 @@ Types: [Builder](DocDescription/Builder.md#builder-21f09e83781d)
 ```java
 public final int getFlags()
 ```
-
-### getHideGroups() <a href="#gethidegroups-d566f1e3343e" id="gethidegroups-d566f1e3343e"></a>
-
-```java
-public final com.tailf.ncs.maapi.Schema.Cs.HideGroups.Builder getHideGroups()
-```
-
-Types: [Builder](HideGroups/Builder.md#builder-21f09e83781d)
 
 ### getKeys() <a href="#getkeys-a24b9d377db7" id="getkeys-a24b9d377db7"></a>
 
@@ -179,14 +169,6 @@ public final com.tailf.ncs.maapi.Schema.Cs.DocDescription.Builder initDocDescrip
 ```
 
 Types: [Builder](DocDescription/Builder.md#builder-21f09e83781d)
-
-### initHideGroups() <a href="#inithidegroups-e73c27a1f3f0" id="inithidegroups-e73c27a1f3f0"></a>
-
-```java
-public final com.tailf.ncs.maapi.Schema.Cs.HideGroups.Builder initHideGroups()
-```
-
-Types: [Builder](HideGroups/Builder.md#builder-21f09e83781d)
 
 ### initKeys() <a href="#initkeys-dbb1fee285c0" id="initkeys-dbb1fee285c0"></a>
 

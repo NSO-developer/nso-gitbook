@@ -14,7 +14,6 @@ public static final class com.tailf.ncs.maapi.Schema.Cs.Reader
 - [getDefval\(\)](#getdefval-561ad5494c47)
 - [getDocDescription\(\)](#getdocdescription-08369bbe26a9)
 - [getFlags\(\)](#getflags-3c1ca90fd29c)
-- [getHideGroups\(\)](#gethidegroups-d566f1e3343e)
 - [getKeys\(\)](#getkeys-a24b9d377db7)
 - [getMaxOccur\(\)](#getmaxoccur-b4cb09a89559)
 - [getMeta\(\)](#getmeta-33b809b5c0be)
@@ -64,14 +63,6 @@ Types: [Reader](DocDescription/Reader.md#reader-b2467a96ddff)
 ```java
 public final int getFlags()
 ```
-
-### getHideGroups() <a href="#gethidegroups-d566f1e3343e" id="gethidegroups-d566f1e3343e"></a>
-
-```java
-public com.tailf.ncs.maapi.Schema.Cs.HideGroups.Reader getHideGroups()
-```
-
-Types: [Reader](HideGroups/Reader.md#reader-b2467a96ddff)
 
 ### getKeys() <a href="#getkeys-a24b9d377db7" id="getkeys-a24b9d377db7"></a>
 

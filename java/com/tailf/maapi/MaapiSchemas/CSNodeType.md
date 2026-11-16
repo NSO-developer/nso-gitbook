@@ -25,7 +25,6 @@ Enum containing all possible node values for a node type.
 - [CS\_NODE\_IS\_CASE](#cs_node_is_case-6e5ef2b25aa6)
 - [CS\_NODE\_IS\_CDB](#cs_node_is_cdb-f0d0e75e76fd)
 - [CS\_NODE\_IS\_CONTAINER](#cs_node_is_container-40402b656490)
-- [CS\_NODE\_IS\_HIDDEN](#cs_node_is_hidden-51e00aa0e27e)
 - [CS\_NODE\_IS\_LEAF\_LIST](#cs_node_is_leaf_list-4a264088c1d6)
 - [CS\_NODE\_IS\_LEAFREF](#cs_node_is_leafref-8b56d811a0fc)
 - [CS\_NODE\_IS\_LIST](#cs_node_is_list-1cd0e7e67223)
@@ -133,12 +132,6 @@ CS_NODE_IS_CDB(1 << 2);
 
 ```java
 CS_NODE_IS_CONTAINER(1 << 8);
-```
-
-### CS_NODE_IS_HIDDEN <a href="#cs_node_is_hidden-51e00aa0e27e" id="cs_node_is_hidden-51e00aa0e27e"></a>
-
-```java
-CS_NODE_IS_HIDDEN(1 << 25);
 ```
 
 ### CS_NODE_IS_LEAF_LIST <a href="#cs_node_is_leaf_list-4a264088c1d6" id="cs_node_is_leaf_list-4a264088c1d6"></a>

@@ -191,7 +191,7 @@ public static final int IA_CLIENT_NCS = 18;
 ### LIBVSN <a href="#libvsn-9b15fe9684a4" id="libvsn-9b15fe9684a4"></a>
 
 ```java
-public static final int LIBVSN = 134742016;
+public static final int LIBVSN = 134678016;
 ```
 
 Library version.
@@ -242,7 +242,7 @@ Default port number that ConfD listens to.
 ### PROTOVSN <a href="#protovsn-2bf2bf5cea5d" id="protovsn-2bf2bf5cea5d"></a>
 
 ```java
-public static final int PROTOVSN = 88;
+public static final int PROTOVSN = 87;
 ```
 
 Library protocol version.

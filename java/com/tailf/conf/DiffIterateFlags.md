@@ -21,8 +21,6 @@ Enumeration flags us by
 - [ITER\_WANT\_PREV](#iter_want_prev-20404d5d1d20)
 - [ITER\_WANT\_REVERSE](#iter_want_reverse-584e3ca20d2a)
 - [ITER\_WANT\_SCHEMA\_ORDER](#iter_want_schema_order-81f758c281ea)
-- [ITER\_WANT\_SUPPRESS\_CONF\_DEFAULTS](#iter_want_suppress_conf_defaults-deb131f01638)
-- [ITER\_WANT\_SUPPRESS\_OPER\_DEFAULTS](#iter_want_suppress_oper_defaults-695be9e11ea4)
 
 **Methods**:
 
@@ -118,18 +116,6 @@ ITER_WANT_REVERSE(1 << 7);
 
 ```java
 ITER_WANT_SCHEMA_ORDER(1 << 4);
-```
-
-### ITER_WANT_SUPPRESS_CONF_DEFAULTS <a href="#iter_want_suppress_conf_defaults-deb131f01638" id="iter_want_suppress_conf_defaults-deb131f01638"></a>
-
-```java
-ITER_WANT_SUPPRESS_CONF_DEFAULTS(1 << 12);
-```
-
-### ITER_WANT_SUPPRESS_OPER_DEFAULTS <a href="#iter_want_suppress_oper_defaults-695be9e11ea4" id="iter_want_suppress_oper_defaults-695be9e11ea4"></a>
-
-```java
-ITER_WANT_SUPPRESS_OPER_DEFAULTS(1 << 11);
 ```
 
 

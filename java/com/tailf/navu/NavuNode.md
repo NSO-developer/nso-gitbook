@@ -120,7 +120,6 @@ There are also methods that does not fall into the above categories,
 - [list\(Integer\)](#list-7dc96bdbb69a)
 - [list\(String\)](#list-2c1a74a3cf07)
 - [namespace\(String\)](#namespace-e29ad62ed095)
-- [prefix\(String\)](#prefix-fdd71b8275bb)
 - [prepareXMLCall\(String\)](#preparexmlcall-c22e250f2cac)
 - [reset\(\)](#reset-6927918ac70a)
 - [select\(ConfObject\[\]\)](#select-336dd76cd112)
@@ -1012,31 +1011,6 @@ The namespace specified here will be used when selecting a child
 - `String ns` - the namespace id
 
 **Returns:** reference to this NavuContainer object
-
-### prefix(String) <a href="#prefix-fdd71b8275bb" id="prefix-fdd71b8275bb"></a>
-
-```java
-public com.tailf.navu.NavuContainer prefix(String nsPrefix) throws com.tailf.navu.NavuException
-```
-
-Types: [NavuContainer](NavuContainer.md#navucontainer-8e321756755f), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
-
-The prefix specified here will be used when selecting a child
- to this NavuContainer and returns a reference to this NavuContainer
- object according to the given namespace prefix `nsPrefix`.
-
-Use this method when only the YANG prefix is known.
-
-**Parameters**
-
-- `String nsPrefix` - the namespace prefix
-
-**Returns:** reference to this NavuContainer object
-
-**Throws**
-
-- `com.tailf.navu.NavuException` - if the namespace for the given prefix
-cannot be found
 
 ### prepareXMLCall(String) <a href="#preparexmlcall-c22e250f2cac" id="preparexmlcall-c22e250f2cac"></a>
 

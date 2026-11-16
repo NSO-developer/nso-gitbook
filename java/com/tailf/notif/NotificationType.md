@@ -34,7 +34,6 @@ Enum describing the different notification types available.
 - [NOTIF\_PACKAGE\_RELOAD](#notif_package_reload-4fb5bbfdf8b6)
 - [NOTIF\_PROGRESS](#notif_progress-824025559a0d)
 - [NOTIF\_REOPEN\_LOGS](#notif_reopen_logs-95839edbabbb)
-- [NOTIF\_RESTCONF](#notif_restconf-acb8462af7cf)
 - [NOTIF\_SNMPA](#notif_snmpa-064b11a46034)
 - [NOTIF\_STREAM\_EVENT](#notif_stream_event-32431368050e)
 - [NOTIF\_SUBAGENT\_INFO](#notif_subagent_info-17dacb38b7c2)
@@ -260,14 +259,6 @@ NOTIF_REOPEN_LOGS(1L << 23);
 
 Flag in eventmask requests ConfD/NCS to send an event when it will
   close and reopen its log files
-
-### NOTIF_RESTCONF <a href="#notif_restconf-acb8462af7cf" id="notif_restconf-acb8462af7cf"></a>
-
-```java
-NOTIF_RESTCONF(1L << 32);
-```
-
-Flag in eventmask requests ConfD to send RESTCONF log events
 
 ### NOTIF_SNMPA <a href="#notif_snmpa-064b11a46034" id="notif_snmpa-064b11a46034"></a>
 

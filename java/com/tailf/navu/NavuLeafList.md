@@ -89,7 +89,6 @@ The set of leaf-list entries can be retrieved through [`elements()`](NavuLeafLis
 - [move\(ConfValue, WhereTo, ConfValue\)](#move-da549c25d390)
 - [move\(String, WhereTo, String\)](#move-7fc455d160ab)
 - [namespace\(String\)](NavuNode.md#namespace-e29ad62ed095) from NavuNode
-- [prefix\(String\)](NavuNode.md#prefix-fdd71b8275bb) from NavuNode
 - [prepareXMLCall\(String\)](NavuNode.md#preparexmlcall-c22e250f2cac) from NavuNode
 - [reset\(\)](NavuLeaf.md#reset-6927918ac70a) from NavuLeaf
 - [safeCreate\(\)](NavuLeaf.md#safecreate-8125e14d387f) from NavuLeaf

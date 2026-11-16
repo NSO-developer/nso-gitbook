@@ -28,7 +28,6 @@ A ConfNamespaceStub can be used in place of a real namespace file when
 - [findNamespace\(int, List\<ConfNamespace\>\)](ConfNamespace.md#findnamespace-3608c9e64446) from ConfNamespace
 - [findNamespace\(String\)](ConfNamespace.md#findnamespace-ffbcd6481b17) from ConfNamespace
 - [findNamespace\(String, List\<ConfNamespace\>\)](ConfNamespace.md#findnamespace-d388c2984448) from ConfNamespace
-- [findNamespaceFromMountPrefix\(List\<String\>, String\)](ConfNamespace.md#findnamespacefrommountprefix-bab7e96778db) from ConfNamespace
 - [findNamespaceFromNsName\(ConfPath, MountIdInterface, String\)](ConfNamespace.md#findnamespacefromnsname-48eec0922648) from ConfNamespace
 - [findNamespaceFromPrefix\(ConfPath, MountIdInterface, String\)](ConfNamespace.md#findnamespacefromprefix-6e0581090f53) from ConfNamespace
 - [findNamespaceFromPrefix\(String\)](ConfNamespace.md#findnamespacefromprefix-869c6d668202) from ConfNamespace

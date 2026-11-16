@@ -1966,6 +1966,126 @@ Arguments:
 
 <details>
 
+<summary>report_progress(...)</summary>
+
+Method:
+
+```python
+report_progress(self, th, verbosity, msg, package=None)
+```
+
+Report transaction/action progress.
+
+The 'package' argument is only available to NCS.
+
+This function is deprecated and will be removed in a future release.
+Use progress_info() instead.
+
+</details>
+
+<details>
+
+<summary>report_progress_start(...)</summary>
+
+Method:
+
+```python
+report_progress_start(self, th, verbosity, msg, package=None)
+```
+
+Report transaction/action progress.
+
+Used for calculation of the duration between two events. The method
+returns a _Progress object to be passed to report_progress_stop()
+once the event has finished.
+
+The 'package' argument is only available to NCS.
+
+This function is deprecated and will be removed in a future release.
+Use start_progress_span() instead.
+
+</details>
+
+<details>
+
+<summary>report_progress_stop(...)</summary>
+
+Method:
+
+```python
+report_progress_stop(self, th, progress, annotation=None)
+```
+
+Report transaction/action progress.
+
+Used for calculation of the duration between two events. The method
+takes a _Progress object returned from report_progress_start().
+
+This function is deprecated and will be removed in a future release.
+Use end_progress_span() instead.
+
+</details>
+
+<details>
+
+<summary>report_service_progress(...)</summary>
+
+Method:
+
+```python
+report_service_progress(self, th, verbosity, msg, path, package=None)
+```
+
+Report transaction progress for a FASTMAP service.
+
+This function is deprecated and will be removed in a future release.
+Use progress_info() instead.
+
+</details>
+
+<details>
+
+<summary>report_service_progress_start(...)</summary>
+
+Method:
+
+```python
+report_service_progress_start(self, th, verbosity, msg, path, package=None)
+```
+
+Report transaction progress for a FASTMAP service.
+
+Used for calculation of the duration between two events. The method
+returns a _Progress object to be passed to
+report_service_progress_stop() once the event has finished.
+
+This function is deprecated and will be removed in a future release.
+Use start_progress_span() instead.
+
+</details>
+
+<details>
+
+<summary>report_service_progress_stop(...)</summary>
+
+Method:
+
+```python
+report_service_progress_stop(self, th, progress, annotation=None)
+```
+
+Report transaction progress for a FASTMAP service.
+
+Used for calculation of the duration between two events. The method
+takes a _Progress object returned from report_service_progress_start().
+
+This function is deprecated and will be removed in a future release.
+Use end_progress_span() instead.
+
+</details>
+
+<details>
+
 <summary>run_with_retry(...)</summary>
 
 Method:
@@ -2370,7 +2490,7 @@ Returns:
 Method:
 
 ```python
-start_user_session(self, user, context, groups=[], src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None)
+start_user_session(self, user, context, groups=[], src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, path='/tmp/nso/nso-ipc')
 ```
 
 Start a new user session.
@@ -2389,6 +2509,7 @@ Arguments:
 * product -- lock error information (str, optional)
 * version -- lock error information (str, optional)
 * client_id -- lock error information (str, optional)
+* path  -- path to Unix-domain socket (only for NSO)
 
 Protocol flags (ncs):
 
@@ -2528,7 +2649,7 @@ For example:
                     t.apply()
 
 ```python
-Session(maapi, user, context, groups=[], src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None)
+Session(maapi, user, context, groups=[], src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, path='/tmp/nso/nso-ipc')
 ```
 
 Initialize a Session object via start_user_session().

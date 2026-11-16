@@ -72,7 +72,6 @@ To retrieve a value the method [`value()`](NavuLeaf.md#value-9e1512d1a0ce) shoul
 - [list\(Integer\)](NavuNode.md#list-7dc96bdbb69a) from NavuNode
 - [list\(String\)](NavuNode.md#list-2c1a74a3cf07) from NavuNode
 - [namespace\(String\)](NavuNode.md#namespace-e29ad62ed095) from NavuNode
-- [prefix\(String\)](NavuNode.md#prefix-fdd71b8275bb) from NavuNode
 - [prepareXMLCall\(String\)](NavuNode.md#preparexmlcall-c22e250f2cac) from NavuNode
 - [reset\(\)](#reset-6927918ac70a)
 - [safeCreate\(\)](#safecreate-8125e14d387f)

@@ -66,7 +66,6 @@ A `NavuList` holds this representation of a entry as its
 - [list\(Integer\)](NavuContainer.md#list-7dc96bdbb69a) from NavuContainer
 - [list\(String\)](NavuContainer.md#list-2c1a74a3cf07) from NavuContainer
 - [namespace\(String\)](NavuContainer.md#namespace-e29ad62ed095) from NavuContainer
-- [prefix\(String\)](NavuContainer.md#prefix-fdd71b8275bb) from NavuContainer
 - [prepareXMLCall\(String\)](NavuNode.md#preparexmlcall-c22e250f2cac) from NavuNode
 - [reset\(\)](NavuContainer.md#reset-6927918ac70a) from NavuContainer
 - [safeCreate\(\)](NavuContainer.md#safecreate-8125e14d387f) from NavuContainer

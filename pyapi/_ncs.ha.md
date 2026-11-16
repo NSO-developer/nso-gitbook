@@ -8,9 +8,18 @@ in a cluster. The purpose of this API is to manage the HA
 functionality. The details on usage of the HA API are described in the
 chapter High availability in the User Guide.
 
-This documentation should be read together with the [confd_lib_ha(3)](https://nso-docs.cisco.com/guides/nso-6.8/resources/man/confd_lib_ha.3) man page.
+This documentation should be read together with the [confd_lib_ha(3)](https://nso-docs.cisco.com/guides/nso-6.7/resources/man/confd_lib_ha.3) man page.
 
 ## Functions
+
+### bemaster
+
+```python
+bemaster(sock, mynodeid) -> None
+```
+
+This function is deprecated and will be removed.
+Use beprimary() instead.
 
 ### benone
 
@@ -74,6 +83,15 @@ Keyword arguments:
 * primary_ip -- ip address of the primary node
 * waitreply  -- synchronous or not (bool)
 
+### beslave
+
+```python
+beslave(sock, mynodeid, primary_id, primary_ip, waitreply) -> None
+```
+
+This function is deprecated and will be removed.
+Use besecondary() instead.
+
 ### connect
 
 ```python
@@ -108,17 +126,29 @@ Keyword arguments:
 * sock -- a previously connected HA socket
 * nodeid -- name of the node (Value or string)
 
+### slave_dead
+
+```python
+slave_dead(sock, nodeid) -> None
+```
+
+This function is deprecated and will be removed.
+Use secondary_dead() instead.
+
 ### status
 
 ```python
-status(sock) -> None
+status(sock) -> tuple
 ```
 
 Query a ConfD HA node for its status.
 
-Returns a 2-tuple of the HA status of the node in the format
-(State,[list_of_nodes]) where 'list_of_nodes' is the primary/secondary(s)
-connected with node.
+Returns a 2-tuple (state, nodes). state is the HA state of the node:
+STATE_NONE, STATE_SECONDARY, STATE_PRIMARY or STATE_SECONDARY_RELAY.
+nodes is a list of the primary/secondary(s) connected with the node.
+Each node is a dict with the keys 'nodeid' and 'address'. The address
+is an IPv4 or IPv6 address string, the address string of a node that
+uses external IPC, or None if it is not known.
 
 Keyword arguments:
 
@@ -129,8 +159,11 @@ Keyword arguments:
 
 ```python
 
+STATE_MASTER = 3
 STATE_NONE = 1
 STATE_PRIMARY = 3
 STATE_SECONDARY = 2
 STATE_SECONDARY_RELAY = 4
+STATE_SLAVE = 2
+STATE_SLAVE_RELAY = 4
 ```

@@ -17,7 +17,7 @@ about callpoints in tailf_yang_extensions(5). Read more about how to use
 the module in the User Guide chapters on Operational data and External
 data.
 
-This documentation should be read together with the [confd_lib_dp(3)](https://nso-docs.cisco.com/guides/nso-6.8/resources/man/confd_lib_dp.3) man page.
+This documentation should be read together with the [confd_lib_dp(3)](https://nso-docs.cisco.com/guides/nso-6.7/resources/man/confd_lib_dp.3) man page.
 
 ## Functions
 

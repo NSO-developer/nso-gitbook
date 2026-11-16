@@ -23,7 +23,6 @@ public static class com.tailf.ncs.maapi.Schema.Cs
 - [Defval](Cs/Defval.md#defval-4961c162eed4)
 - [DocDescription](Cs/DocDescription.md#docdescription-ded92bde8632)
 - [Factory](Cs/Factory.md#factory-1787784624e8)
-- [HideGroups](Cs/HideGroups.md#hidegroups-4a71dc96b8db)
 - [Keys](Cs/Keys.md#keys-30db6b6d3a82)
 - [Meta](Cs/Meta.md#meta-3cec7073d34c)
 - [MountId](Cs/MountId.md#mountid-702a10803d00)

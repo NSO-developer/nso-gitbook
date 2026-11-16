@@ -60,7 +60,6 @@ Although the `NavuAction` implements `NavuNode`
 - [list\(String\)](#list-2c1a74a3cf07)
 - [list\(String, String\)](#list-8f28e4f62b19)
 - [namespace\(String\)](NavuNode.md#namespace-e29ad62ed095) from NavuNode
-- [prefix\(String\)](NavuNode.md#prefix-fdd71b8275bb) from NavuNode
 - [prepareXMLCall\(String\)](NavuNode.md#preparexmlcall-c22e250f2cac) from NavuNode
 - [reset\(\)](#reset-6927918ac70a)
 - [select\(ConfObject\[\]\)](#select-336dd76cd112)

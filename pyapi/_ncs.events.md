@@ -11,7 +11,7 @@ collection illustrates subscription and processing for all these events,
 and can also be used standalone in a development environment to monitor
 NCS events.
 
-This documentation should be read together with the [confd_lib_events(3)](https://nso-docs.cisco.com/guides/nso-6.8/resources/man/confd_lib_events.3) man page.
+This documentation should be read together with the [confd_lib_events(3)](https://nso-docs.cisco.com/guides/nso-6.7/resources/man/confd_lib_events.3) man page.
 
 ## Functions
 
@@ -93,8 +93,7 @@ Keys for type NOTIF_AUDIT (struct confd_audit_notification):
 *   usid
 
 Keys for type NOTIF_DAEMON, NOTIF_NETCONF, NOTIF_DEVEL, NOTIF_JSONRPC,
-NOTIF_WEBUI, NOTIF_RESTCONF, or NOTIF_TAKEOVER_SYSLOG 
-(struct confd_syslog_notification):
+NOTIF_WEBUI, or NOTIF_TAKEOVER_SYSLOG (struct confd_syslog_notification):
 
 *   prio
 *   logno
@@ -364,12 +363,18 @@ FORWARD_INFO_DOWN = 2
 FORWARD_INFO_FAILED = 3
 FORWARD_INFO_UP = 1
 HA_INFO_BESECONDARY_RESULT = 7
+HA_INFO_BESLAVE_RESULT = 7
+HA_INFO_IS_MASTER = 5
 HA_INFO_IS_NONE = 6
 HA_INFO_IS_PRIMARY = 5
+HA_INFO_NOMASTER = 1
 HA_INFO_NOPRIMARY = 1
 HA_INFO_SECONDARY_ARRIVED = 3
 HA_INFO_SECONDARY_DIED = 2
 HA_INFO_SECONDARY_INITIALIZED = 4
+HA_INFO_SLAVE_ARRIVED = 3
+HA_INFO_SLAVE_DIED = 2
+HA_INFO_SLAVE_INITIALIZED = 4
 NCS_CQ_ITEM_COMPLETED = 4
 NCS_CQ_ITEM_DELETED = 6
 NCS_CQ_ITEM_EXECUTING = 2
@@ -402,7 +407,6 @@ NOTIF_JSONRPC = 67108864
 NOTIF_NETCONF = 2048
 NOTIF_PROGRESS = 16777216
 NOTIF_REOPEN_LOGS = 8388608
-NOTIF_RESTCONF = 4294967296
 NOTIF_SNMPA = 512
 NOTIF_STREAM_EVENT = 524288
 NOTIF_SUBAGENT_INFO = 128

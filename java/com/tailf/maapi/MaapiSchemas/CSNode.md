@@ -57,7 +57,6 @@ Class representing a Schema node, having references to parent and
 - [isCase\(\)](#iscase-fb6be6ab6d36)
 - [isContainer\(\)](#iscontainer-b5ebcd6f6b32)
 - [isEmptyLeaf\(\)](#isemptyleaf-2ddc3d315b7a)
-- [isHidden\(\)](#ishidden-d555dbca8b21)
 - [isLeaf\(\)](#isleaf-5329f6d31dd8)
 - [isLeafList\(\)](#isleaflist-5410d840730d)
 - [isLeafref\(\)](#isleafref-631e9c131138)
@@ -551,16 +550,6 @@ Checks if a node is a container node.
 ```java
 public boolean isEmptyLeaf()
 ```
-
-### isHidden() <a href="#ishidden-d555dbca8b21" id="ishidden-d555dbca8b21"></a>
-
-```java
-public boolean isHidden()
-```
-
-Checks if the node is hidden via 'tailf:hidden' statement.
-
-**Returns:** true if node is hidden.
 
 ### isLeaf() <a href="#isleaf-5329f6d31dd8" id="isleaf-5329f6d31dd8"></a>
 

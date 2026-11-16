@@ -3,7 +3,7 @@
 NCS Python low level module.
 
 This module and its submodules provide Python bindings for the C APIs,
-described by the [confd_lib(3)](https://nso-docs.cisco.com/guides/nso-6.8/resources/man/confd_lib.3) man page.
+described by the [confd_lib(3)](https://nso-docs.cisco.com/guides/nso-6.7/resources/man/confd_lib.3) man page.
 
 The companion high level module, ncs, provides an abstraction layer on top of
 this module and may be easier to use.
@@ -100,7 +100,7 @@ find_cs_node_child(parent, xmltag) -> Union[CsNode, None]
 Utility function which finds the CsNode corresponding to the child node
 given as xmltag.
 
-See confd_find_cs_node_child() in [confd_lib_lib(3)](https://nso-docs.cisco.com/guides/nso-6.8/resources/man/confd_lib_lib.3).
+See confd_find_cs_node_child() in [confd_lib_lib(3)](https://nso-docs.cisco.com/guides/nso-6.7/resources/man/confd_lib_lib.3).
 
 Keyword arguments:
 
@@ -1823,7 +1823,7 @@ lmode -- the lock we have (int)
 
 <summary>logintime</summary>
 
-logintime -- time for login (int)
+logintime -- time for login (long)
 
 </details>
 
@@ -2105,7 +2105,6 @@ CONFD_ERR = -1
 CONFD_OK = 0
 CONFD_PORT = 4565
 CS_DOC_DESCRIPTION = 2
-CS_DOC_HIDDEN = 3
 CS_DOC_PROMPT = 1
 CS_NODE_CMP_NORMAL = 0
 CS_NODE_CMP_SNMP = 1
@@ -2129,7 +2128,6 @@ CS_NODE_IS_CASE = 128
 CS_NODE_IS_CDB = 4
 CS_NODE_IS_CONTAINER = 256
 CS_NODE_IS_DYN = 1
-CS_NODE_IS_HIDDEN = 33554432
 CS_NODE_IS_LEAFREF = 16384
 CS_NODE_IS_LEAF_LIST = 8192
 CS_NODE_IS_LIST = 1
@@ -2304,7 +2302,6 @@ ITER_WANT_PREV = 1
 ITER_WANT_P_CONTAINER = 256
 ITER_WANT_REVERSE = 128
 ITER_WANT_SCHEMA_ORDER = 16
-ITER_WANT_SUPPRESS_CONF_DEFAULTS = 4096
 ITER_WANT_SUPPRESS_OPER_DEFAULTS = 2048
 LF_AND = 1
 LF_CMP = 3
@@ -2314,12 +2311,12 @@ LF_EXISTS = 4
 LF_NOT = 2
 LF_OR = 0
 LF_ORIGIN = 6
-LIB_API_VSN = 134742016
-LIB_API_VSN_STR = '08080000'
-LIB_PROTO_VSN = 88
-LIB_PROTO_VSN_STR = '88'
-LIB_VSN = 134742016
-LIB_VSN_STR = '08080000'
+LIB_API_VSN = 134676992
+LIB_API_VSN_STR = '08070200'
+LIB_PROTO_VSN = 87
+LIB_PROTO_VSN_STR = '87'
+LIB_VSN = 134678016
+LIB_VSN_STR = '08070600'
 LISTENER_CLI = 8
 LISTENER_IPC = 1
 LISTENER_NETCONF = 2

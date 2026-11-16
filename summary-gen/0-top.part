@@ -32,6 +32,7 @@
   * [econfd Module](erlang/econfd.md)
   * [econfd\_cdb Module](erlang/econfd_cdb.md)
   * [econfd\_ha Module](erlang/econfd_ha.md)
+  * [econfd\_logsyms Module](erlang/econfd_logsyms.md)
   * [econfd\_maapi Module](erlang/econfd_maapi.md)
   * [econfd\_notif Module](erlang/econfd_notif.md)
   * [econfd\_schema Module](erlang/econfd_schema.md)

@@ -1,109 +1,98 @@
 # Module econfd_cdb
 
-An Erlang interface equivalent to the CDB C-API (documented
-in confd_lib_cdb(3)).
+An Erlang interface equivalent to the CDB C-API (documented in confd_lib_cdb(3)).
 
-The econfd_cdb library is used to connect to the  ConfD  built  in
-XML  database,  CDB. The purpose of this API to provide a read and
-subscription API to CDB.
+The econfd_cdb library is used to connect to the ConfD built in XML database, CDB. The purpose of this API to provide a read and subscription API to CDB.
 
-CDB owns and stores the configuration data and  the  user  of  the  API
-wants  to read that configuration data and also get notified when someone
-through either NETCONF, the CLI, the Web UI, or MAAPI  modifies
-the data so that the application can re-read the configuration data and
-act accordingly.
+CDB owns and stores the configuration data and the user of the API wants to read that configuration data and also get notified when someone through either NETCONF, the CLI, the Web UI, or MAAPI modifies the data so that the application can re-read the configuration data and act accordingly.
 
-Paths
------
+### Paths
 
-In the C lib a path is a string. Assume the following
-YANG fragment:
+In the C lib a path is a string. Assume the following YANG fragment:
 
+```text
+         container hosts {
+           list host {
+             key name;
+             leaf name {
+               type string;
+             }
+             leaf domain {
+               type string;
+             }
+             leaf defgw {
+               type inet:ip-address;
+             }
+             container interfaces {
+               list interface {
+                 key name;
+                 leaf name {
+                   type string;
+                 }
+                 leaf ip {
+                   type inet:ip-address;
+                 }
+                 leaf mask {
+                   type inet:ip-address;
+                 }
+                 leaf enabled {
+                   type boolean;
+                 }
+               }
+             }
+           }
+         }
 ```
-      container hosts {
-        list host {
-          key name;
-          leaf name {
-            type string;
-          }
-          leaf domain {
-            type string;
-          }
-          leaf defgw {
-            type inet:ip-address;
-          }
-          container interfaces {
-            list interface {
-              key name;
-              leaf name {
-                type string;
-              }
-              leaf ip {
-                type inet:ip-address;
-              }
-              leaf mask {
-                type inet:ip-address;
-              }
-              leaf enabled {
-                type boolean;
-              }
-            }
-          }
-        }
-      }
-```
+
 Furthermore assume the database is populated with the following data
-```
-          <hosts xmlns="http://acme.com/ns/hst/1.0">
-             <host>
-               <name>buzz</name>
-               <domain>tail-f.com</domain>
-               <defgw>192.168.1.1</defgw>
-               <interfaces>
-                 <interface>
-                   <name>eth0</name>
-                   <ip>192.168.1.61</ip>
-                   <mask>255.255.255.0</mask>
-                   <enabled>true</enabled>
-                 </interface>
-                 <interface>
-                   <name>eth1</name>
-                   <ip>10.77.1.44</ip>
-                   <mask>255.255.0.0</mask>
-                   <enabled>false</enabled>
-                 </interface>
-               </interfaces>
-             </host>
-           </hosts>
-```
 
-The format path "/hosts/host{buzz}/defgw" refers to the leaf element
-called defgw of the host whose key (name element) is buzz.
-
-The format path "/hosts/host{buzz}/interfaces/interface{eth0}/ip"
-refers to the leaf element called "ip" in the "eth0" interface
-of the host called "buzz".
-
-In the Erlang CDB and MAAPI interfaces we use ikeypath() lists instead
-to address individual objects in the XML tree. The IkeyPath is backwards,
-thus the two above paths are expressed as
-```
-[defgw, {<<"buzz">>}, host, [NS|hosts]]
-[ip, {<<"eth0">>}, interface, interfaces, {<<"buzz">>}, host, [NS|hosts]]
-
+```text
+             <hosts xmlns="http://acme.com/ns/hst/1.0">
+                <host>
+                  <name>buzz</name>
+                  <domain>tail-f.com</domain>
+                  <defgw>192.168.1.1</defgw>
+                  <interfaces>
+                    <interface>
+                      <name>eth0</name>
+                      <ip>192.168.1.61</ip>
+                      <mask>255.255.255.0</mask>
+                      <enabled>true</enabled>
+                    </interface>
+                    <interface>
+                      <name>eth1</name>
+                      <ip>10.77.1.44</ip>
+                      <mask>255.255.0.0</mask>
+                      <enabled>false</enabled>
+                    </interface>
+                  </interfaces>
+                </host>
+              </hosts>
 ```
 
-It is possible to loop through all entries in a list as in:
+The format path "/hosts/host\{buzz\}/defgw" refers to the leaf element called defgw of the host whose key (name element) is buzz.
 
-```erlang
-N = econfd_cdb:num_instances(CDB, [host,[NS|hosts]]),
-lists:map(fun(I) ->
-            econfd_cdb:get_elem(CDB, [defgw,[I],host,[NS|hosts]]), .......
-          end, lists:seq(0, N-1))
+The format path "/hosts/host\{buzz\}/interfaces/interface\{eth0\}/ip" refers to the leaf element called "ip" in the "eth0" interface of the host called "buzz".
+
+In the Erlang CDB and MAAPI interfaces we use ikeypath() lists instead to address individual objects in the XML tree. The IkeyPath is backwards, thus the two above paths are expressed as
+
+```text
+   [defgw, {<<"buzz">>}, host, [NS|hosts]]
+   [ip, {<<"eth0">>}, interface, interfaces, {<<"buzz">>}, host, [NS|hosts]]
 ```
 
-Thus in the list with length N [Index] is an implicit key during the
-life of a CDB read session.
+It is possible loop through all entries in a list as in:
+
+```text
+   N = econfd_cdb:num_instances(CDB, [host,[NS|hosts]]),
+   lists:map(fun(I) ->
+               econfd_cdb:get_elem(CDB, [defgw,[I],host,[NS|hosts]]), .......
+             end, lists:seq(0, N-1))
+   
+```
+
+Thus in the list with length N \[Index] is an implicit key during the life of a CDB read session.
+
 
 ## Types
 
@@ -113,22 +102,21 @@ life of a CDB read session.
 -type cdb_sess() :: #cdb_session{}.
 ```
 
-A datastructure which is used as a handle to all the of the access
-functions
+A datastructure which is used as a handle to all the of the access functions
+
 
 ### compaction_dbfile/0
 
 ```erlang
--type compaction_dbfile() ::
-          '?EM_COMPACTION_A_CDB' | '?EM_COMPACTION_O_CDB' |
-          '?EM_COMPACTION_S_CDB'.
+-type compaction_dbfile() :: 1 | 2 | 3.
 ```
 
 CDB files used for compaction. CDB file can be either
 
-- `1 = A.cdb`
-- `2 = O.cdb`
-- `3 = S.cdb`
+* 1 = A.cdb
+* 2 = O.cdb
+* 3 = S.cdb
+
 
 ### compaction_info/0
 
@@ -138,16 +126,15 @@ CDB files used for compaction. CDB file can be either
 
 A datastructure to handle compaction information
 
+
 ### dbtype/0
 
 ```erlang
--type dbtype() ::
-          '?CDB_RUNNING' | '?CDB_STARTUP' | '?CDB_OPERATIONAL' |
-          '?CDB_PRE_COMMIT_RUNNING'.
+-type dbtype() :: 1 | 2 | 3 | 4.
 ```
 
-When we open CDB sessions we must choose which database to read
-or write from/to. These ints are defined in econfd.hrl
+When we open CDB sessions we must choose which database to read or write from/to. These ints are defined in econfd.hrl
+
 
 ### err/0
 
@@ -157,10 +144,9 @@ or write from/to. These ints are defined in econfd.hrl
 
 Errors can be either
 
-- `{error, Ecode::integer(), Reason::binary()}` where Ecode is one of the
-  error codes defined in econfd_errors.hrl, and Reason is (possibly empty)
-  textual description
-- `{error, closed}` if the socket gets closed
+* \{error, Ecode::integer(), Reason::binary()\} where Ecode is one of the error codes defined in econfd_errors.hrl, and Reason is (possibly empty) textual description
+* \{error, closed\} if the socket gets closed
+
 
 ### sub_ns/0
 
@@ -172,32 +158,28 @@ Related types: [econfd:namespace()](econfd.md#namespace-0)
 
 A namespace or use '' as wildcard (any namespace)
 
+
 ### sub_type/0
 
 ```erlang
--type sub_type() ::
-          '?CDB_SUB_RUNNING' | '?CDB_SUB_RUNNING_TWOPHASE' |
-          '?CDB_SUB_OPERATIONAL'.
+-type sub_type() :: 1 | 2 | 3.
 ```
 
 Subscription type
 
-- `?CDB_SUB_RUNNING` - commit subscription.
-- `?CDB_SUB_RUNNING_TWOPHASE` - two phase subscription, i.e. notification
-  will be received for prepare, commit, and possibly abort.
-- `?CDB_SUB_OPERATIONAL` - subscription for changes to CDB operational data.
+* ?CDB_SUB_RUNNING - commit subscription.
+* ?CDB_SUB_RUNNING_TWOPHASE - two phase subscription, i.e. notification will be received for prepare, commit, and possibly abort.
+* ?CDB_SUB_OPERATIONAL - subscription for changes to CDB operational data.
+
 
 ### subscription_sync_type/0
 
 ```erlang
--type subscription_sync_type() ::
-          '?CDB_DONE_PRIORITY' | '?CDB_DONE_SOCKET' |
-          '?CDB_DONE_TRANSACTION' | '?CDB_DONE_OPERATIONAL'.
+-type subscription_sync_type() :: 1 | 2 | 3 | 4.
 ```
 
-Return value from the fun passed to wait/3,
-indicating what to do with further notifications coming from
-this transaction. These ints are defined in econfd.hrl
+Return value from the fun passed to wait/3, indicating what to do with further notifications coming from this transaction. These ints are defined in econfd.hrl
+
 
 ## Functions
 
@@ -217,19 +199,26 @@ Change the context node of the session.
 
 Note that this function can not be used as an existence test.
 
+
 ### close/1
 
 ```erlang
--spec close(Socket | CDB) -> Result
+-spec close(Cdb_session) -> Result
                when
-                   Socket :: econfd:socket(),
-                   CDB :: cdb_sess(),
+                   Cdb_session :: Socket | CDB,
                    Result :: ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [cdb\_sess()](#cdb_sess-0), [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0)
+Related types: [econfd:error\_reason()](econfd.md#error_reason-0)
 
 End the session and close the socket.
+
+
+### collect_until/3
+
+```erlang
+collect_until(T, Stop, Sofar)
+```
 
 ### connect/0
 
@@ -239,7 +228,8 @@ End the session and close the socket.
 
 Related types: [econfd:connect\_result()](econfd.md#connect_result-0)
 
-Equivalent to `connect({127, 0, 0, 1})`.
+Equivalent to [connect(\{127, 0, 0, 1\})](#connect-1).
+
 
 ### connect/1
 
@@ -251,22 +241,6 @@ Equivalent to `connect({127, 0, 0, 1})`.
 
 Related types: [econfd:connect\_result()](econfd.md#connect_result-0), [econfd:ip()](econfd.md#ip-0)
 
-Connect to CDB.
-
-`connect(Path)` opens a local (UNIX-domain socket) connection to the
-CDB server listening on `Path`. `connect(Address)` opens a TCP
-connection to `Address` on the default port `?CONFD_PORT`.
-
-If the port is changed it must also be changed in `confd.conf`. A call
-to `connect/1` is typically followed by a call to either
-`new_session/2` for a reading session, `subscribe_session/1` for a
-subscription socket, or any of the write API functions for a data
-socket.
-
-A `ClientName` is auto-generated from the calling process; use
-`connect/2` or `connect/3` to supply one explicitly. ConfD uses
-`ClientName` as an identifier when e.g. reporting status.
-
 ### connect/2
 
 ```erlang
@@ -277,13 +251,6 @@ A `ClientName` is auto-generated from the calling process; use
 ```
 
 Related types: [econfd:connect\_result()](econfd.md#connect_result-0), [econfd:ip()](econfd.md#ip-0)
-
-Like `connect/1`, but with explicit parameters:
-
-- `connect(Path, ClientName)` opens a local connection with an
-  explicit `ClientName`.
-- `connect(Address, Port)` opens a TCP connection on `Port` with an
-  auto-generated `ClientName`.
 
 ### connect/3
 
@@ -297,9 +264,6 @@ Like `connect/1`, but with explicit parameters:
 
 Related types: [econfd:connect\_result()](econfd.md#connect_result-0), [econfd:ip()](econfd.md#ip-0)
 
-Like `connect/2`, but opens a TCP connection with both an explicit
-`Port` and an explicit `ClientName`.
-
 ### create/2
 
 ```erlang
@@ -309,8 +273,8 @@ Like `connect/2`, but opens a TCP connection with both an explicit
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0)
 
-Only for CDB operational data:
-Create the element denoted by IKP.
+Only for CDB operational data: Create the element denoted by IKP.
+
 
 ### delete/2
 
@@ -321,8 +285,8 @@ Create the element denoted by IKP.
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0)
 
-Only for CDB operational data:
-Delete the element denoted by IKP.
+Only for CDB operational data: Delete the element denoted by IKP.
+
 
 ### diff_iterate/5
 
@@ -334,32 +298,34 @@ Delete the element denoted by IKP.
                           Fun ::
                               fun((IKeypath, Op, OldValue, Value, State) ->
                                       {ok, Ret, State} | {error, term()}),
-                          IKeypath :: econfd:ikeypath(),
-                          Op :: integer(),
-                          OldValue :: econfd:value() | undefined,
-                          Value ::
-                              econfd:value() |
-                              undefined |
-                              econfd:key() |
-                              {},
-                          State :: term(),
-                          Ret :: integer(),
                           Flags :: non_neg_integer(),
+                          State :: term(),
                           Result :: {ok, State} | {error, term()}.
 ```
 
-Related types: [cdb\_sess()](#cdb_sess-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:key()](econfd.md#key-0), [econfd:value()](econfd.md#value-0)
+Related types: [cdb\_sess()](#cdb_sess-0)
 
 Iterate over changes in CDB after a subscription triggers.
 
-This function can be called from within the fun passed to wait/3. When
-called it will invoke Fun for each change that matched the Point. If
-Flags is ?CDB_ITER_WANT_PREV, OldValue will be the previous value (if
-available). When OldValue or Value is not available (or requested) they will
-be the atom 'undefined'.
-When Op == ?MOP_MOVED_AFTER (only for "ordered-by user" list entry),
-Value == {} means that the entry was moved first in the list, otherwise
-Value is a econfd:key() tuple that identifies the entry it was moved after.
+This function can be called from within the fun passed to wait/3. When called it will invoke Fun for each change that matched the Point. If Flags is ?CDB_ITER_WANT_PREV, OldValue will be the previous value (if available). When OldValue or Value is not available (or requested) they will be the atom 'undefined'. When Op == ?MOP_MOVED_AFTER (only for "ordered-by user" list entry), Value == \{\} means that the entry was moved first in the list, otherwise Value is a econfd:key() tuple that identifies the entry it was moved after.
+
+
+### do_connect/2
+
+```erlang
+-spec do_connect(Address, ClientName) -> econfd:connect_result()
+                    when
+                        Address ::
+                            #econfd_conn_ip{} | #econfd_conn_local{},
+                        ClientName :: binary().
+```
+
+Related types: [econfd:connect\_result()](econfd.md#connect_result-0)
+
+Connect to CDB.
+
+If the port is changed it must also be changed in confd.conf A call to cdb_connect() is typically followed by a call to either new_session() for a reading session or a call to subscribe_session() for a subscription socket or calls to any of the write API functions for a data socket. ClientName is a string which confd will use as an identifier when e.g. reporting status.
+
 
 ### end_session/1
 
@@ -371,18 +337,8 @@ Related types: [cdb\_sess()](#cdb_sess-0), [econfd:socket()](econfd.md#socket-0)
 
 Terminate the session.
 
-This releases the lock on CDB which is active during a read session.
-Returns a socket that can be re-used in new_session/2 We use connect()
-to establish a read socket to CDB. When the socket is closed, the read
-session is ended. We can reuse the same socket for another read
-session, but we must then end the session and create another session
-using new_session/2.
+This releases the lock on CDB which is active during a read session. Returns a socket that can be re-used in new_session/2 We use connect() to establish a read socket to CDB. When the socket is closed, the read session is ended. We can reuse the same socket for another read session, but we must then end the session and create another session using new_session/2. %% While we have a live CDB read session, CDB is locked for writing. Thus all external entities trying to modify CDB are blocked as long as we have an open CDB read session. It is very important that we remember to either end_session() or close() once we have read what we wish to read.
 
-While we have a live CDB read session, CDB is locked for writing.
-Thus all external entities trying to modify CDB are blocked as long as
-we have an open CDB read session. It is very important that we
-remember to either end_session() or close() once we have read what we
-wish to read.
 
 ### exists/2
 
@@ -396,11 +352,10 @@ wish to read.
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0)
 
-Checks existence of an object.
+Checks existense of an object.
 
-Leafs in the data model may be optional, and presence containers and
-list entries may or may not exist. This function checks whether a node
-exists in CDB, returning Int == 1 if it exists, Int == 0 if not.
+Leafs in the data model may be optional, and presence containers and list entries may or may not exist. This function checks whether a node exists in CDB, returning Int == 1 if it exists, Int == 0 if not.
+
 
 ### get_case/3
 
@@ -417,6 +372,7 @@ Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](
 
 Returns the current case for a choice.
 
+
 ### get_compaction_info/2
 
 ```erlang
@@ -426,13 +382,13 @@ Returns the current case for a choice.
                                  Dbfile :: compaction_dbfile(),
                                  Result ::
                                      {ok, Info} |
-                                     {error, econfd:error_reason()},
-                                 Info :: compaction_info().
+                                     {error, econfd:error_reason()}.
 ```
 
-Related types: [compaction\_dbfile()](#compaction_dbfile-0), [compaction\_info()](#compaction_info-0), [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0)
+Related types: [compaction\_dbfile()](#compaction_dbfile-0), [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0)
 
 Retrieves compaction info on Dbfile.
+
 
 ### get_elem/2
 
@@ -448,8 +404,8 @@ Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](
 
 Read an element.
 
-Note, the C interface has separate get
-functions for different types.
+Note, the C interface has separate get functions for different types.
+
 
 ### get_modifications_cli/2
 
@@ -460,13 +416,13 @@ functions for different types.
                                    SubPoint :: pos_integer(),
                                    Result ::
                                        {ok, CliString} |
-                                       {error, econfd:error_reason()},
-                                   CliString :: binary().
+                                       {error, econfd:error_reason()}.
 ```
 
 Related types: [cdb\_sess()](#cdb_sess-0), [econfd:error\_reason()](econfd.md#error_reason-0)
 
-Equivalent to `get_modifications_cli(CDB, Point, 0)`.
+Equivalent to [get_modifications_cli(CDB, Point, 0)](#get_modifications_cli-3).
+
 
 ### get_modifications_cli/3
 
@@ -478,14 +434,13 @@ Equivalent to `get_modifications_cli(CDB, Point, 0)`.
                                    Flags :: non_neg_integer(),
                                    Result ::
                                        {ok, CliString} |
-                                       {error, econfd:error_reason()},
-                                   CliString :: binary().
+                                       {error, econfd:error_reason()}.
 ```
 
 Related types: [cdb\_sess()](#cdb_sess-0), [econfd:error\_reason()](econfd.md#error_reason-0)
 
-Return a string with the CLI commands that correspond
-to the changes that triggered the subscription.
+Return Return a string with the CLI commands that corresponds to the changes that triggered subscription.
+
 
 ### get_object/2
 
@@ -500,6 +455,7 @@ to the changes that triggered the subscription.
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:value()](econfd.md#value-0)
 
 Returns all the values in a container or list entry.
+
 
 ### get_objects/4
 
@@ -517,8 +473,8 @@ Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](
 
 Returns all the values for NumEntries list entries.
 
-Starting at index StartIndex. The return value has one Erlang list for
-each YANG list entry, i.e. it is a list of NumEntries lists.
+Starting at index StartIndex. The return value has one Erlang list for each YANG list entry, i.e. it is a list of NumEntries lists.
+
 
 ### get_phase/1
 
@@ -526,14 +482,13 @@ each YANG list entry, i.e. it is a list of NumEntries lists.
 -spec get_phase(Socket) -> Result
                    when
                        Socket :: econfd:socket(),
-                       Result :: {ok, {Phase, Type}} | err(),
-                       Phase :: 0..2,
-                       Type :: false | init | normal | upgrade.
+                       Result :: {ok, {Phase, Type}} | err().
 ```
 
 Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Get CDB start-phase.
+
 
 ### get_txid/1
 
@@ -541,19 +496,15 @@ Get CDB start-phase.
 -spec get_txid(Socket) -> Result
                   when
                       Socket :: econfd:socket(),
-                      Result :: {ok, PrimaryNode, Now} | {ok, Now},
-                      PrimaryNode :: term(),
-                      Now :: tuple().
+                      Result :: {ok, PrimaryNode, Now} | {ok, Now}.
 ```
 
 Related types: [econfd:socket()](econfd.md#socket-0)
 
 Get CDB transaction id.
 
-When we are a cdb client, and ConfD restarts, we can use this function
-to retrieve the last CDB transaction id. If it the same as earlier
-we don't need re-read the CDB data. This is also useful when we're
-a CDB client in a HA setup.
+When we are a cdb client, and ConfD restarts, we can use this function to retrieve the last CDB transaction id. If it the same as earlier we don't need re-read the CDB data. This is also useful when we're a CDB client in a HA setup.
+
 
 ### get_values/3
 
@@ -568,15 +519,16 @@ a CDB client in a HA setup.
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:tagval()](econfd.md#tagval-0)
 
-Returns the values for the leafs that have the "value" 'not_found'
-in the Values list.
+Returns the values for the leafs that have the "value" 'not_found' in the Values list.
 
-This can be used to read an arbitrary set of
-sub-elements of a container or list entry. The return value is a list
-of the same length as Values, i.e. the requested leafs are in the same
-position in the returned list as in the Values argument. The elements
-in the returned list are always "canonical" though, i.e. of the form
-`econfd:tagval()`.
+This can be used to read an arbitrary set of sub-elements of a container or list entry. The return value is a list of the same length as Values, i.e. the requested leafs are in the same position in the returned list as in the Values argument. The elements in the returned list are always "canonical" though, i.e. of the form [`econfd:tagval()`](econfd.md#tagval-0).
+
+
+### ibool/1
+
+```erlang
+ibool(X)
+```
 
 ### index/2
 
@@ -592,6 +544,7 @@ Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](
 
 Returns the position (starting at 0) of the list entry in path.
 
+
 ### initiate_journal_compaction/1
 
 ```erlang
@@ -604,6 +557,7 @@ Returns the position (starting at 0) of the list entry in path.
 Related types: [econfd:socket()](econfd.md#socket-0)
 
 Initiates a journal compaction on all CDB files.
+
 
 ### initiate_journal_dbfile_compaction/2
 
@@ -624,6 +578,13 @@ Related types: [compaction\_dbfile()](#compaction_dbfile-0), [econfd:error\_reas
 
 Initiates a journal compaction on Dbfile.
 
+
+### mk_elem/1
+
+```erlang
+mk_elem(List)
+```
+
 ### new_session/2
 
 ```erlang
@@ -638,6 +599,7 @@ Related types: [cdb\_sess()](#cdb_sess-0), [dbtype()](#dbtype-0), [err()](#err-0
 
 Initiate a new session using the socket returned by connect().
 
+
 ### new_session/3
 
 ```erlang
@@ -651,8 +613,8 @@ Initiate a new session using the socket returned by connect().
 
 Related types: [cdb\_sess()](#cdb_sess-0), [dbtype()](#dbtype-0), [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Initiate a new session using the socket returned by connect(),
-with detailed control via the Flags argument.
+Initiate a new session using the socket returned by connect(), with detailed control via the Flags argument.
+
 
 ### next_index/2
 
@@ -666,9 +628,8 @@ with detailed control via the Flags argument.
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0)
 
-Returns the position (starting at 0) of the list entry after
-the given path (which can be non-existing, and if multiple keys the
-last keys can be '*').
+Returns the position (starting at 0) of the list entry after the given path (which can be non-existing, and if multiple keys the last keys can be '*').
+
 
 ### num_instances/2
 
@@ -683,6 +644,25 @@ last keys can be '*').
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0)
 
 Returns the number of entries in a list.
+
+
+### parse_keystring0/1
+
+```erlang
+parse_keystring0(Str)
+```
+
+### request/2
+
+```erlang
+request(CDB, Op)
+```
+
+### request/3
+
+```erlang
+request(CDB, Op, Arg)
+```
 
 ### set_case/4
 
@@ -699,6 +679,7 @@ Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](
 
 Only for CDB operational data: Set the case for a choice.
 
+
 ### set_elem/3
 
 ```erlang
@@ -711,8 +692,8 @@ Only for CDB operational data: Set the case for a choice.
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:value()](econfd.md#value-0)
 
-Only for CDB operational data:
-Write Value into CDB.
+Only for CDB operational data: Write Value into CDB.
+
 
 ### set_elem2/3
 
@@ -726,8 +707,8 @@ Write Value into CDB.
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0)
 
-Only for CDB operational data:
-Write ValueBin into CDB. ValueBin is the textual value representation.
+Only for CDB operational data: Write ValueBin into CDB. ValueBin is the textual value representation.
+
 
 ### set_object/3
 
@@ -741,8 +722,8 @@ Write ValueBin into CDB. ValueBin is the textual value representation.
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:value()](econfd.md#value-0)
 
-Only for CDB operational data: Write an entire object,
-i.e. YANG list entry or container.
+Only for CDB operational data: Write an entire object, i.e. YANG list entry or container.
+
 
 ### set_values/3
 
@@ -758,9 +739,8 @@ Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](
 
 Only for CDB operational data: Write a list of tagged values.
 
-This function is an alternative to
-set_object/3, and allows for writing more complex structures
-(e.g. multiple entries in a list).
+This function is an alternative to set_object/3, and allows for writing more complex structures (e.g. multiple entries in a list).
+
 
 ### subscribe/3
 
@@ -770,13 +750,13 @@ set_object/3, and allows for writing more complex structures
                        CDB :: cdb_sess(),
                        Priority :: integer(),
                        MatchKeyString :: string(),
-                       Result :: {ok, SubPoint} | err(),
-                       SubPoint :: pos_integer().
+                       Result :: {ok, SubPoint} | err().
 ```
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0)
 
-Equivalent to `subscribe(CDB, Prio, '', MatchKeyString)`.
+Equivalent to [subscribe(CDB, Prio, '', MatchKeyString)](#subscribe-4).
+
 
 ### subscribe/4
 
@@ -787,85 +767,43 @@ Equivalent to `subscribe(CDB, Prio, '', MatchKeyString)`.
                        Priority :: integer(),
                        Ns :: sub_ns(),
                        MatchKeyString :: string(),
-                       Result :: {ok, SubPoint} | err(),
-                       SubPoint :: pos_integer().
+                       Result :: {ok, SubPoint} | err().
 ```
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [sub\_ns()](#sub_ns-0)
 
 Set up a CDB configuration subscription.
 
-A CDB subscription means that we are notified when CDB changes.
-We can have multiple subscription points. Each subscription point
-is defined through a path corresponding to the paths we use for read
-operations, however they are in string form and allow formats that
-aren't possible in a proper ikeypath(). It is possible to indicate
-namespaces in the path with a prefix notation (see last example) -
-this is only necessary if there are multiple elements with the same
-name (in different namespaces) at some level in the path, though.
+A CDB subscription means that we are notified when CDB changes. We can have multiple subscription points. Each subscription point is defined through a path corresponding to the paths we use for read operations, however they are in string form and allow formats that aren't possible in a proper ikeypath(). It is possible to indicate namespaces in the path with a prefix notation (see last example) - this is only necessary if there are multiple elements with the same name (in different namespaces) at some level in the path, though.
 
-We can subscribe either to specific leaf elements or entire
-subtrees. Subscribing to list entries can be done using fully
-qualified paths, or tagpaths to match multiple entries. A
-path which isn't a leaf element automatically matches the subtree
-below that path. When specifying keys to a list entry it is
-possible to use the wildcard character * which will match any key
-value.
+We can subscribe either to specific leaf elements or entire subtrees. Subscribing to list entries can be done using fully qualified paths, or tagpaths to match multiple entries. A path which isn't a leaf element automatically matches the subtree below that path. When specifying keys to a list entry it is possible to use the wildcard character * which will match any key value.
 
 Some examples:
 
-- `/hosts`
+* /hosts
 
-  Means that we subscribe to any changes in the subtree - rooted at
-  "/hosts". This includes additions or removals of "host" entries as well
-  as changes to already existing "host" entries.
+  Means that we subscribe to any changes in the subtree - rooted at "/hosts". This includes additions or removals of "host" entries as well as changes to already existing "host" entries.
+* /hosts/host\{www\}/interfaces/interface\{eth0\}/ip
 
-- `/hosts/host{www}/interfaces/interface{eth0}/ip`
-
-  Means we are notified when host "www" changes its IP address on
-  "eth0".
-
-- `/hosts/host/interfaces/interface/ip`
+  Means we are notified when host "www" changes its IP address on "eth0".
+* /hosts/host/interfaces/interface/ip
 
   Means we are notified when any host changes any of its IP addresses.
+* /hosts/host/interfaces
 
-- `/hosts/host/interfaces`
+  Means we are notified when either an interface is added/removed or when an individual leaf element in an existing interface is changed.
+* /hosts/host/types:data
 
-  Means we are notified when either an interface
-  is added/removed or when an individual leaf element in an
-  existing interface is changed.
+  Means we are notified when any host changes the contents of its "data" element, where "data" is an element from a namespace with the prefix "types". The prefix is normally not necessary, see above.
 
-- `/hosts/host/types:data`
+The priority value is an integer. When CDB is changed, the change is performed inside a transaction. Either a commit operation from the CLI or a candidate-commit operation in NETCONF means that the running database is changed. These changes occur inside a ConfD transaction. CDB will handle the subscriptions in lock-step priority order. First all subscribers at the lowest priority are handled, once they all have synchronized via the return value from the fun passed to wait/3, the next set - at the next priority level - is handled by CDB.
 
-  Means we are notified when any host changes the contents of its
-  "data" element, where "data" is an element from a namespace with
-  the prefix "types". The prefix is normally not necessary, see above.
+Operational and configuration subscriptions can be done on the same socket, but in that case the notifications may be arbitrarily interleaved, including operational notifications arriving between different configuration notifications for the same transaction. If this is a problem, use separate sessions for operational and configuration subscriptions.
 
-The priority value is an integer. When CDB  is  changed,  the
-change  is  performed  inside  a transaction. Either a commit
-operation from the CLI or  a  candidate-commit  operation  in
-NETCONF  means  that  the  running database is changed. These
-changes occur inside a ConfD transaction. CDB will handle the
-subscriptions  in  lock-step  priority  order. First all
-subscribers at the lowest priority are handled,  once  they  all
-have synchronized via the return value from the fun passed to
-wait/3, the next set - at the next priority  level -
-is handled by CDB.
+The namespace argument specifies the toplevel namespace, i.e. the namespace for the first element in the path. The namespace is optional, 0 can be used as "don't care" value.
 
-Operational and configuration subscriptions can be done on the same
-socket, but in that case the notifications may be arbitrarily
-interleaved, including operational notifications arriving between
-different configuration notifications for the same transaction. If
-this is a problem, use separate sessions for operational and
-configuration subscriptions.
+subscribe() returns a subscription point which is an integer. This integer value is used later in wait/3 to identify this particular subscription.
 
-The namespace argument specifies the toplevel namespace, i.e.
-the namespace for the first element in the path. The namespace is
-optional, 0 can be used as "don't care" value.
-
-subscribe()  returns  a  subscription point which is an integer.
-This integer value is used later in wait/3 to identify this
-particular subscription.
 
 ### subscribe/5
 
@@ -877,13 +815,13 @@ particular subscription.
                        Priority :: integer(),
                        Ns :: sub_ns(),
                        MatchKeyString :: string(),
-                       Result :: {ok, SubPoint} | err(),
-                       SubPoint :: pos_integer().
+                       Result :: {ok, SubPoint} | err().
 ```
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [sub\_ns()](#sub_ns-0), [sub\_type()](#sub_type-0)
 
-Equivalent to `subscribe(CDB, Type, 0, Prio, Ns, MatchKeyString)`.
+Equivalent to [subscribe(CDB, Type, 0, Prio, Ns, MatchKeyString)](#subscribe-6).
+
 
 ### subscribe/6
 
@@ -897,8 +835,7 @@ Equivalent to `subscribe(CDB, Type, 0, Prio, Ns, MatchKeyString)`.
                        Priority :: integer(),
                        Ns :: sub_ns(),
                        MatchKeyString :: string(),
-                       Result :: {ok, SubPoint} | err(),
-                       SubPoint :: pos_integer().
+                       Result :: {ok, SubPoint} | err().
 ```
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [sub\_ns()](#sub_ns-0), [sub\_type()](#sub_type-0)
@@ -907,17 +844,14 @@ Generalized subscription.
 
 Where Type is one of
 
-- `?CDB_SUB_RUNNING` - traditional commit subscription, same as subscribe/4.
-- `?CDB_SUB_RUNNING_TWOPHASE` - two phase subscription, i.e. notification
-  will be received for prepare, commit, and possibly abort.
-- `?CDB_SUB_OPERATIONAL` - subscription for changes to CDB operational data.
+* ?CDB_SUB_RUNNING - traditional commit subscription, same as subscribe/4.
+* ?CDB_SUB_RUNNING_TWOPHASE - two phase subscription, i.e. notification will be received for prepare, commit, and possibly abort.
+* ?CDB_SUB_OPERATIONAL - subscription for changes to CDB operational data.
 
 Flags is either 0 or:
 
-- `?CDB_SUB_WANT_ABORT_ON_ABORT` - normally if a subscriber is the one
-  to abort a transaction it will not receive an abort
-  notification. This flags means that this subscriber wants an
-  abort notification even if it originated the abort.
+* ?CDB_SUB_WANT_ABORT_ON_ABORT - normally if a subscriber is the one to abort a transaction it will not receive an abort notification. This flags means that this subscriber wants an abort notification even if it originated the abort.
+
 
 ### subscribe_done/1
 
@@ -927,9 +861,8 @@ Flags is either 0 or:
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0)
 
-After a subscriber is done with all subscriptions and ready to
-receive updates this subscribe_done/1 must be called. Until it
-is no notifications will be delivered.
+After a subscriber is done with all subscriptions and ready to receive updates this subscribe_done/1 must be called. Until it is no notifications will be delivered.
+
 
 ### subscribe_session/1
 
@@ -942,9 +875,14 @@ Related types: [cdb\_sess()](#cdb_sess-0), [econfd:socket()](econfd.md#socket-0)
 
 Initialize a subscription socket.
 
-This is a socket that is used to receive notifications about updates
-to the database. A subscription socket is used in the subscribe()
-function.
+This is a socket that is used to receive notifications about updates to the database. A subscription socket is used in the subscribe() function.
+
+
+### sync_subscription_socket/4
+
+```erlang
+sync_subscription_socket(CDB, SyncType, TimeOut, Fun)
+```
 
 ### trigger_oper_subscriptions/1
 
@@ -955,7 +893,8 @@ function.
 
 Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to `trigger_oper_subscriptions(Socket, all)`.
+Equivalent to [trigger_oper_subscriptions(Socket, all)](#trigger_oper_subscriptions-2).
+
 
 ### trigger_oper_subscriptions/2
 
@@ -969,7 +908,8 @@ Equivalent to `trigger_oper_subscriptions(Socket, all)`.
 
 Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to `trigger_oper_subscriptions(Socket, SubPoints, 0)`.
+Equivalent to [trigger_oper_subscriptions(Socket, SubPoints, 0)](#trigger_oper_subscriptions-3).
+
 
 ### trigger_oper_subscriptions/3
 
@@ -984,12 +924,10 @@ Equivalent to `trigger_oper_subscriptions(Socket, SubPoints, 0)`.
 
 Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Trigger CDB operational subscribers as if an update in oper data
-had been done.
+Trigger CDB operational subscribers as if an update in oper data had been done.
 
-Flags can be given as ?CDB_LOCK_WAIT to have the
-call wait until the subscription lock becomes available, otherwise
-it should be 0.
+Flags can be given as ?CDB_LOCK_WAIT to have the call wait until the subscription lock becomes available, otherwise it should be 0.
+
 
 ### trigger_subscriptions/1
 
@@ -1000,7 +938,8 @@ it should be 0.
 
 Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to `trigger_subscriptions(Socket, all)`.
+Equivalent to [trigger_subscriptions(Socket, all)](#trigger_subscriptions-2).
+
 
 ### trigger_subscriptions/2
 
@@ -1013,8 +952,8 @@ Equivalent to `trigger_subscriptions(Socket, all)`.
 
 Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Trigger CDB subscribers as if an update in the configuration
-had been done.
+Trigger CDB subscribers as if an update in the configuration had been done.
+
 
 ### wait/3
 
@@ -1030,9 +969,6 @@ had been done.
                               close |
                               subscription_sync_type() |
                               {error, econfd:error_reason()}),
-                  SubPoints :: [pos_integer()],
-                  Type :: integer(),
-                  Flags :: non_neg_integer(),
                   Result ::
                       ok |
                       {error, badretval} |
@@ -1044,61 +980,36 @@ Related types: [cdb\_sess()](#cdb_sess-0), [subscription\_sync\_type()](#subscri
 
 Wait for subscription events.
 
-The fun will be given a list of the subscription points that
-triggered, and in the arity-3 case also Type and Flags for the
-notification. There can be several points if we have issued several
-subscriptions at the same priority.
+The fun will be given a list of the subscription points that triggered, and in the arity-3 case also Type and Flags for the notification. There can be several points if we have issued several subscriptions at the same priority.
 
 Type is one of:
 
-- `?CDB_SUB_PREPARE` - notification for the prepare phase
-- `?CDB_SUB_COMMIT` - notification for the commit phase
-- `?CDB_SUB_ABORT` - notification for abort when prepare failed
-- `?CDB_SUB_OPER` - notification for changes to CDB operational data
+* ?CDB_SUB_PREPARE - notification for the prepare phase
+* ?CDB_SUB_COMMIT - notification for the commit phase
+* ?CDB_SUB_ABORT - notification for abort when prepare failed
+* ?CDB_SUB_OPER - notification for changes to CDB operational data
 
 Flags is the 'bor' of zero or more of:
 
-- `?CDB_SUB_FLAG_IS_LAST` - the last notification of its type for this session
-- `?CDB_SUB_FLAG_TRIGGER` - the notification was artificially triggered
-- `?CDB_SUB_FLAG_REVERT` - the notification is due to revert of a confirmed
-  commit
-- `?CDB_SUB_FLAG_HA_SYNC` - the cause of the subscription notification is
-  initial synchronization of a HA secondary from CDB on the primary.
-- `?CDB_SUB_FLAG_HA_IS_SECONDARY` - the system is currently in HA SECONDARY
-  mode.
+* ?CDB_SUB_FLAG_IS_LAST - the last notification of its type for this session
+* ?CDB_SUB_FLAG_TRIGGER - the notification was artificially triggered
+* ?CDB_SUB_FLAG_REVERT - the notification is due to revert of a confirmed commit
+* ?CDB_SUB_FLAG_HA_SYNC - the cause of the subscription notification is initial synchronization of a HA secondary from CDB on the primary.
+* ?CDB_SUB_FLAG_HA_IS_SECONDARY - the system is currently in HA SECONDARY mode.
 
-The fun can return the atom 'close' if we wish to close the socket and
-return from wait/3. Otherwise there are three different types of
-synchronization replies the application can use as return values from
-either the arity-1 or the arity-3 fun:
+The fun can return the atom 'close' if we wish to close the socket and return from wait/3. Otherwise there are three different types of synchronization replies the application can use as return values from either the arity-1 or the arity-3 fun:
 
-- `?CDB_DONE_PRIORITY` - this means that the application has acted on the
-  subscription notification and CDB can continue to deliver further
-  notifications.
-- `?CDB_DONE_SOCKET` - this means that we are done. But regardless of priority,
-  CDB shall not send any further notifications to us on our socket that are
-  related to the currently executing transaction.
-- `?CDB_DONE_TRANSACTION` - this means that CDB should not send any further
-  notifications to any subscribers - including ourselves - related to the
-  currently executing transaction.
-- `?CDB_DONE_OPERATIONAL` - this should be used when a subscription
-  notification for operational data has been read. It is the only type that
-  should be used in this case, since the operational data does not have
-  transactions and the notifications do not have priorities.
+* ?CDB_DONE_PRIORITY This means that the application has acted on the subscription notification and CDB can continue to deliver further notifications.
+* ?CDB_DONE_SOCKET This means that we are done. But regardless of priority, CDB shall not send any further notifications to us on our socket that are related to the currently executing transaction.
+* ?CDB_DONE_TRANSACTION This means that CDB should not send any further notifications to any subscribers - including ourselves - related to the currently executing transaction.
+* ?CDB_DONE_OPERATIONAL This should be used when a subscription notification for operational data has been read. It is the only type that should be used in this case, since the operational data does not have transactions and the notifications do not have priorities.
 
-Finally the arity-3 fun can, when Type == ?CDB_SUB_PREPARE,
-return an error either as `{error, binary()}` or as
-`{error, #confd_error{}}`
-({error, tuple()} is only for internal ConfD/NCS use). This will
-cause the commit of the current transaction to be aborted.
+Finally the arity-3 fun can, when Type == ?CDB_SUB_PREPARE, return an error either as `{error, binary()}` or as `{error, #confd_error{}}` (\{error, tuple()\} is only for internal ConfD/NCS use). This will cause the commit of the current transaction to be aborted.
 
 CDB is locked for writing while config subscriptions are delivered.
 
-When wait/3 returns `{error, timeout}` the connection (and its
-subscriptions) is still active and the application needs to call
-wait/3 again. But if wait/3 returns `ok` or
-`{error, Reason}` the connection to ConfD is closed and all
-subscription points associated with it are cleared.
+When wait/3 returns `{error, timeout}` the connection (and its subscriptions) is still active and the application needs to call wait/3 again. But if wait/3 returns `ok` or `{error, Reason}` the connection to ConfD is closed and all subscription points associated with it are cleared.
+
 
 ### wait_start/1
 
@@ -1109,3 +1020,28 @@ subscription points associated with it are cleared.
 Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Wait for CDB to become available (reach start-phase one).
+
+
+### xx/2
+
+```erlang
+xx(Str, Acc)
+```
+
+### xx/3
+
+```erlang
+xx(T, Sofar, Acc)
+```
+
+### yy/1
+
+```erlang
+yy(Str)
+```
+
+### yy/2
+
+```erlang
+yy(T, Sofar)
+```

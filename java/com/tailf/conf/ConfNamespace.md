@@ -34,7 +34,6 @@ Base class of the ConfNamespace objects. Namespace objects are normally
 - [findNamespace\(int, List\<ConfNamespace\>\)](#findnamespace-3608c9e64446)
 - [findNamespace\(String\)](#findnamespace-ffbcd6481b17)
 - [findNamespace\(String, List\<ConfNamespace\>\)](#findnamespace-d388c2984448)
-- [findNamespaceFromMountPrefix\(List\<String\>, String\)](#findnamespacefrommountprefix-bab7e96778db)
 - [findNamespaceFromNsName\(ConfPath, MountIdInterface, String\)](#findnamespacefromnsname-48eec0922648)
 - [findNamespaceFromPrefix\(ConfPath, MountIdInterface, String\)](#findnamespacefromprefix-6e0581090f53)
 - [findNamespaceFromPrefix\(String\)](#findnamespacefromprefix-869c6d668202)
@@ -124,22 +123,6 @@ Retrieve a namespace by its id, which is either the full uri or the
 - `java.util.List<com.tailf.conf.ConfNamespace> nsList` - the list of namespaces to search in.
 
 **Returns:** null or the namespace object.
-
-### findNamespaceFromMountPrefix(List&lt;String&gt;, String) <a href="#findnamespacefrommountprefix-bab7e96778db" id="findnamespacefrommountprefix-bab7e96778db"></a>
-
-```java
-public static com.tailf.conf.ConfNamespace findNamespaceFromMountPrefix(
-    java.util.List<String> mountId,
-    String prefix
-)
-```
-
-Types: [ConfNamespace](ConfNamespace.md#confnamespace-51b928e168d1)
-
-**Parameters**
-
-- `java.util.List<String> mountId`
-- `String prefix`
 
 ### findNamespaceFromNsName(ConfPath, MountIdInterface, String) <a href="#findnamespacefromnsname-48eec0922648" id="findnamespacefromnsname-48eec0922648"></a>
 

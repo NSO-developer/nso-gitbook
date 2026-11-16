@@ -56,7 +56,6 @@ mmap version of CSMountPoint ensuring getChildren specifics are overridden
 - [isCase\(\)](../../maapi/MaapiSchemas/CSNode.md#iscase-fb6be6ab6d36) from CSNode
 - [isContainer\(\)](../../maapi/MaapiSchemas/CSNode.md#iscontainer-b5ebcd6f6b32) from CSNode
 - [isEmptyLeaf\(\)](../../maapi/MaapiSchemas/CSNode.md#isemptyleaf-2ddc3d315b7a) from CSNode
-- [isHidden\(\)](../../maapi/MaapiSchemas/CSNode.md#ishidden-d555dbca8b21) from CSNode
 - [isLeaf\(\)](../../maapi/MaapiSchemas/CSNode.md#isleaf-5329f6d31dd8) from CSNode
 - [isLeafList\(\)](../../maapi/MaapiSchemas/CSNode.md#isleaflist-5410d840730d) from CSNode
 - [isLeafref\(\)](../../maapi/MaapiSchemas/CSNode.md#isleafref-631e9c131138) from CSNode
