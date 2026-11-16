@@ -4,7 +4,7 @@
 
 * [Observability Exporter](README.md)
 * [Phased Provisioning](platform-tools/phased-provisioning.md)
-* [Resource Manager (5.2.2)](platform-tools/resource-manager/README.md)
+* [Resource Manager (5.2.3)](platform-tools/resource-manager/README.md)
   * [ID Allocator](platform-tools/resource-manager/id-allocator.md)
   * [IP Address Allocator](platform-tools/resource-manager/ip-allocator.md)
   * [Resource Manager 5.2 updates](platform-tools/resource-manager/updates-5.2.md)
