@@ -1,10 +1,10 @@
 ---
-description: Changes and upgrade considerations for Resource Manager 5.2.0 through 5.2.2.
+description: Changes and upgrade considerations for Resource Manager 5.2.0 through 5.2.3.
 ---
 
 # Resource Manager 5.2 updates
 
-This page supplements the Resource Manager guide. It covers the changes released in 5.2.0, 5.2.1, and 5.2.2. See the [ID Allocator](id-allocator.md) and [IP Address Allocator](ip-allocator.md) pages for pool configuration and service API examples.
+This page supplements the Resource Manager guide. It covers the changes in Resource Manager 5.2.0 through 5.2.3. See the [ID Allocator](id-allocator.md) and [IP Address Allocator](ip-allocator.md) pages for pool configuration and service API examples.
 
 {% hint style="warning" %}
 When upgrading from 5.1, check whether your deployment relied on quarantine being enabled without an explicit setting. The default changed from `true` to `false` in 5.2.0. Configure `/resource-pools/settings/quarantine/enabled` explicitly as `true` if you need to keep quarantining newly deallocated resources.
@@ -18,6 +18,7 @@ When upgrading from 5.1, check whether your deployment relied on quarantine bein
 | Quarantine disabled by default | 5.2.0 | This changes behavior if the deployment relied on the 5.1 implicit `enabled true` default. Set the value explicitly if quarantine is required. |
 | `show-reservations` and `clear-reservations` hidden from ordinary CLI display | 5.2.1 | Use `unhide debug` before these per-pool actions. Scripts that call them may need updating. |
 | Corrected selection when excludes change | 5.2.2 | A **new** allocation may select a different value than an older version would have selected. These 5.2.2 fixes add no new YANG data nodes or service-API method signatures; 5.2.0 separately added the cleanup action described below. |
+| Corrected range, reservation, exclude, and quarantine handling | 5.2.3 | Resource Manager recalculates ID availability after a range boundary changes, rejects conflicts with active quarantine entries, and considers allocation changes in the current transaction. |
 
 ### Allocation entries and reservation actions
 
@@ -77,6 +78,20 @@ Also from 5.2.2, removing old excludes and adding replacement excludes in one co
 
 These corrections concern new-resource selection and the saved free list. They should not be interpreted as a claim that every same-name allocation or quarantine-reuse path applies current-transaction excludes.
 
+From 5.2.3, Resource Manager rejects an ID or IP exclude that overlaps a resource held by an active quarantine entry. Expired quarantine entries do not block the exclude. Resource Manager also ignores expired entries when it rebuilds pool availability and does not restore an expired quarantined resource if the resource has since been excluded.
+
+## Resource Manager 5.2.3 behavior
+
+### ID pool range changes
+
+Changing either boundary of an ID pool rebuilds availability from the final range, excludes, and allocations. A range shrink no longer leaves an out-of-range ID available. A range expansion makes newly valid IDs available.
+
+### Reservation checks in the current transaction
+
+Resource Manager considers allocations added or deleted in the current transaction when it checks whether an ID is available in another pool. This prevents stale reservations and prevents a new allocation from reusing an ID that another allocation already owns.
+
+The action inputs, data model, configuration, stored data, and allocation methods remain unchanged. No data migration is required.
+
 ## Release history since 5.1
 
 ### 5.2.0 (26 May 2026)
@@ -93,6 +108,13 @@ These corrections concern new-resource selection and the saved free list. They s
 
 ### 5.2.2 (30 September 2026)
 
-- Fixed Resource Manager startup with local IPC enabled on NSO 6.4–6.6 (ENG-42199).
+- Fixed Resource Manager startup with local IPC enabled on NSO 6.4 through 6.6 (ENG-42199).
 - Kept replaced ID and IP excludes from returning still-excluded resources to operational availability (ENG-43020 / CSCww57944).
 - Applied current-transaction excludes when selecting a new resource from an existing ID or IP pool (ENG-41570 / CSCwv61345).
+
+### 5.2.3
+
+- Fixed a bug where changing one ID pool range boundary did not recompute availability (ENG-41494).
+- Fixed a bug where ID and IP excludes could overlap resources held by active quarantine entries (ENG-43440).
+- Fixed a bug where multiple allocations from the same service instance could leave stale reservations or reuse an ID already allocated in another requested pool (ENG-41492).
+- Improved YANG descriptions and `tailf:info` text (ENG-39732). This change does not affect runtime behavior.

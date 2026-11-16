@@ -33,6 +33,12 @@ resource-pools ip-address-pool some-pool
 
 From RM 5.2.2, a **new** IP address or prefix selected from an existing pool respects excludes changed earlier in the same NSO transaction. An IP request names one IP address pool. See [Resource Manager 5.2 updates](updates-5.2.md) for the scope and compatibility notes.
 
+## Excludes and Quarantine
+
+From RM 5.2.3, an IP exclude cannot overlap an address or prefix held by an active quarantine entry. Expired quarantine entries do not block the exclude.
+
+Resource Manager ignores expired quarantine entries when it rebuilds pool availability. If an expired quarantined address or prefix has since been excluded, Resource Manager does not restore it from quarantine.
+
 ## Allocate Action
 
 Manual allocation or pre-allocation is possible with the use of the `/resource-pools/find-ip` action. If `allocate` parameter is specified, the allocation is persisted right away. Otherwise, a free resource is returned if found, however, it is **not** allocated.

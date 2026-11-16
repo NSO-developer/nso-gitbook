@@ -37,6 +37,14 @@ resource-pools id-pool some-pool
 
 From RM 5.2.2, a **new** ID selected from an existing pool respects excludes changed earlier in the same NSO transaction. An ID request may name multiple ID pools; the chosen ID must be usable in all of them. See [Resource Manager 5.2 updates](updates-5.2.md) for the scope and compatibility notes.
 
+## Range, Exclude, and Multi-Pool Checks
+
+From RM 5.2.3, changing either boundary of an ID pool rebuilds availability from the final range, excludes, and allocations. A range shrink cannot leave an out-of-range ID available. A range expansion makes newly valid IDs available.
+
+An ID exclude cannot overlap a resource held by an active quarantine entry. Expired quarantine entries do not block the exclude. Resource Manager also ignores expired entries when it rebuilds pool availability.
+
+When an existing allocation is added to another ID pool, Resource Manager checks the target pool using the range, excludes, and allocations visible in the current transaction. It reserves the ID in the target pool until the transaction completes. The request fails if the ID is not available in every requested pool.
+
 ## Allocate Action
 
 Manual allocation or pre-allocation is possible with the use of the `/resource-pools/find-id` action. If `allocate` parameter is specified, the allocation is persisted right away. Otherwise, a free resource is returned if found, however, it is **not** allocated.

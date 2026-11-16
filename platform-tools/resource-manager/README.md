@@ -3,7 +3,7 @@ description: Manage resource allocation in NSO.
 icon: scanner-touchscreen
 ---
 
-# Resource Manager (5.2.2)
+# Resource Manager (5.2.3)
 
 The NSO Resource Manager implements assignment of individual resources, such as VLAN numbers or IP addresses, from a pool of values defined in NSO. Since the implementation and pool definitions live in NSO, it presents a simple, lightweight alternative to integrating with external purpose-built systems.
 
@@ -13,7 +13,7 @@ The package provides support for management of two types of resources out of the
 * [ip-allocator.md](ip-allocator.md "mention") for managing IP addresses and prefixes.
 
 {% hint style="info" %}
-The latest Resource Manager version covered by this guide is 5.2.2. See [Resource Manager 5.2 updates](updates-5.2.md) for release changes and compatibility notes before upgrading from 5.1.
+The latest Resource Manager version covered by this guide is 5.2.3. See [Resource Manager 5.2 updates](updates-5.2.md) for release changes and compatibility notes before upgrading from 5.1.
 {% endhint %}
 
 ## Introduction <a href="#d5e17" id="d5e17"></a>
