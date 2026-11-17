@@ -105,6 +105,11 @@
   +---------------------------+-----------------+--------+---------------------------------------------------+
   ```
 
+  NOTE: The NED is not limited to the versions and models listed above and may support additional
+  versions or models. Please try the NED with your target version and model. To request support for
+  additional configuration features or use cases, contact Cisco Support and follow the process
+  described in Section 8.
+
 
 ## 1.1 Extract the NED package
 ------------------------------
@@ -905,6 +910,19 @@ admin@ncs(config)# commit
       - verbose <empty>
 
         Print the full build output also for successful builds (otherwise only printed on errors).
+
+
+        Either of:
+
+          - use-presets from-cache <empty>
+
+            Use settings cached from the previous build.
+
+        OR:
+
+          - use-presets from-file <string>
+
+            Use settings from the specified file path.
 
 
       - build-namespace-classes <empty>

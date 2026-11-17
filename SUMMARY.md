@@ -274,7 +274,7 @@
 
 * zte-xpon
   * [README-ned-settings](zte-xpon/README-ned-settings.md)
-  * [README v4.4.8 2026-04-21](zte-xpon/README.md)
+  * [README v4.4.9 2026-11-16](zte-xpon/README.md)
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
