@@ -53,4 +53,4 @@ Module [econfd_schema](econfd_schema.md)
 
 This API is used to access schema information (i.e. the internal representation of YANG modules), making it possible to navigate the schema trees and obtain and use structure and type information.
 
-In order to use the econfd API, familiarity with the corresponding C API is necessary. This edoc documentation is fairly thin. In practice all types are documented and in order to figure out the semantics for a certain function, it is necessary to read the corresponding man page for the equivalent C function.
+In order to use the econfd API, familiarity with the corresponding C API is necessary. This documentation is fairly thin. In practice all types are documented and in order to figure out the semantics for a certain function, it is necessary to read the corresponding man page for the equivalent C function.

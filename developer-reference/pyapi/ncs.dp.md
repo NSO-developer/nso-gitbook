@@ -17,13 +17,16 @@ Return worker socket to pool.
 ### take_worker_socket
 
 ```python
-take_worker_socket(state, name, key=None)
+take_worker_socket(state, name, key=None, action_key=None)
 ```
 
 Take worker socket associated with a worker thread from Daemon/state.
 
 Take worker socket from pool, must be returned with
 dp.return_worker_socket after use.
+
+If action_key is provided, the _Wsock is also tracked in
+state['action_wsocks'] so the abort wrapper can find and flag it.
 
 
 ## Classes
@@ -363,7 +366,7 @@ called terminates -- either normally or through an unhandled exception
 or until the optional timeout occurs.
 
 When the timeout argument is present and not None, it should be a
-floating-point number specifying a timeout for the operation in seconds
+floating point number specifying a timeout for the operation in seconds
 (or fractions thereof). As join() always returns None, you must call
 is_alive() after join() to decide whether a timeout happened -- if the
 thread is still alive, the join() call timed out.

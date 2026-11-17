@@ -1,0 +1,7 @@
+* [Erlang API Reference](developer-reference/erlang/README.md)
+  * [econfd Module](developer-reference/erlang/econfd.md)
+  * [econfd\_cdb Module](developer-reference/erlang/econfd_cdb.md)
+  * [econfd\_ha Module](developer-reference/erlang/econfd_ha.md)
+  * [econfd\_maapi Module](developer-reference/erlang/econfd_maapi.md)
+  * [econfd\_notif Module](developer-reference/erlang/econfd_notif.md)
+  * [econfd\_schema Module](developer-reference/erlang/econfd_schema.md)

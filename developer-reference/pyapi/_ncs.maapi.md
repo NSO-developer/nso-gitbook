@@ -1686,6 +1686,7 @@ using one of the following flags:
         CONFIG_C -- Cisco XR style
         CONFIG_TURBO_C -- A faster version of CONFIG_C
         CONFIG_C_IOS -- Cisco IOS style
+        CONFIG_J_CMD -- Juniper set command style
 
 Keyword arguments:
 
@@ -2141,196 +2142,6 @@ Request that the system closes and re-opens its log files.
 Keyword arguments:
 
 * sock -- a python socket instance
-
-### report_progress
-
-```python
-report_progress(sock, verbosity, msg) -> None
-```
-
-Report progress events.
-
-This function makes it possible to report transaction/action progress
-from user code.
-
-This function is deprecated and will be removed in a future release.
-Use progress_info() instead.
-
-Keyword arguments:
-
-* sock -- a python socket instance
-* thandle -- transaction handle
-* verbosity -- at which verbosity level the message should be reported
-* msg -- message to report
-
-### report_progress2
-
-```python
-report_progress2(sock, verbosity, msg, package) -> None
-```
-
-Report progress events.
-
-This function makes it possible to report transaction/action progress
-from user code.
-
-This function is deprecated and will be removed in a future release.
-Use progress_info() instead.
-
-Keyword arguments:
-
-* sock -- a python socket instance
-* thandle -- transaction handle
-* verbosity -- at which verbosity level the message should be reported
-* msg -- message to report
-* package -- from what package the message is reported
-
-### report_progress_start
-
-```python
-report_progress_start(sock, verbosity, msg, package) -> int
-```
-
-Report progress events.
-Used for calculation of the duration between two events.
-
-This function makes it possible to report transaction/action progress
-from user code.
-
-This function is deprecated and will be removed in a future release.
-Use start_progress_span() instead.
-
-Keyword arguments:
-
-* sock -- a python socket instance
-* thandle -- transaction handle
-* verbosity -- at which verbosity level the message should be reported
-* msg -- message to report
-* package -- from what package the message is reported (only NCS)
-
-### report_progress_stop
-
-```python
-report_progress_stop(sock, verbosity, msg, annotation,
-                     package, timestamp) -> int
-```
-
-Report progress events.
-Used for calculation of the duration between two events.
-
-This function makes it possible to report transaction/action progress
-from user code.
-
-This function is deprecated and will be removed in a future release.
-Use end_progress_span() instead.
-
-Keyword arguments:
-
-* sock -- a python socket instance
-* thandle -- transaction handle
-* verbosity -- at which verbosity level the message should be reported
-* msg -- message to report
-* annotation -- metadata about the event, indicating error, explains latency
-    or shows result etc
-* package -- from what package the message is reported (only NCS)
-* timestamp -- start of the event
-
-### report_service_progress
-
-```python
-report_service_progress(sock, verbosity, msg, path) -> None
-```
-
-Report progress events for a service.
-
-This function makes it possible to report transaction progress
-from FASTMAP code.
-
-This function is deprecated and will be removed in a future release.
-Use progress_info() instead.
-
-Keyword arguments:
-
-* sock -- a python socket instance
-* thandle -- transaction handle
-* verbosity -- at which verbosity level the message should be reported
-* msg -- message to report
-* path -- service instance path
-
-### report_service_progress2
-
-```python
-report_service_progress2(sock, verbosity, msg, package, path) -> None
-```
-
-Report progress events for a service.
-
-This function makes it possible to report transaction progress
-from FASTMAP code.
-
-This function is deprecated and will be removed in a future release.
-Use progress_info() instead.
-
-Keyword arguments:
-
-* sock -- a python socket instance
-* thandle -- transaction handle
-* verbosity -- at which verbosity level the message should be reported
-* msg -- message to report
-* package -- from what package the message is reported
-* path -- service instance path
-
-### report_service_progress_start
-
-```python
-report_service_progress_start(sock, verbosity, msg, package, path) -> int
-```
-
-Report progress events for a service.
-Used for calculation of the duration between two events.
-
-This function makes it possible to report transaction progress
-from FASTMAP code.
-
-This function is deprecated and will be removed in a future release.
-Use start_progress_span() instead.
-
-Keyword arguments:
-
-* sock -- a python socket instance
-* thandle -- transaction handle
-* verbosity -- at which verbosity level the message should be reported
-* msg -- message to report
-* package -- from what package the message is reported
-* path -- service instance path
-
-### report_service_progress_stop
-
-```python
-report_service_progress_stop(sock, verbosity, msg, annotation,
-                             package, path) -> None
-```
-
-Report progress events for a service.
-Used for calculation of the duration between two events.
-
-This function makes it possible to report transaction progress
-from FASTMAP code.
-
-This function is deprecated and will be removed in a future release.
-Use end_progress_span() instead.
-
-Keyword arguments:
-
-* sock -- a python socket instance
-* thandle -- transaction handle
-* verbosity -- at which verbosity level the message should be reported
-* msg -- message to report
-* annotation -- metadata about the event, indicating error, explains latency
-    or shows result etc
-* package -- from what package the message is reported
-* path -- service instance path
-* timestamp -- start of the event
 
 ### request_action
 
@@ -3355,6 +3166,7 @@ CONFIG_C_IOS = 32
 CONFIG_HIDE_ALL = 2048
 CONFIG_J = 2
 CONFIG_JSON = 131072
+CONFIG_J_CMD = 16777216
 CONFIG_MERGE = 64
 CONFIG_NO_BACKQUOTE = 2097152
 CONFIG_NO_PARENTS = 524288

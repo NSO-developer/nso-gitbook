@@ -398,7 +398,7 @@ Keyword arguments:
 get_replay_txids(sock) -> List[Tuple]
 ```
 
-When the subscriptionReplay functionality is enabled in confd.conf this
+When the subscription replay functionality is enabled in ncs.conf, this
 function returns the list of available transactions that CDB can replay.
 The current transaction id will be the first in the list, the second at
 txid[1] and so on. In case there are no replay transactions available (the
@@ -713,7 +713,7 @@ last configuration change to some or all CDB subscribers. This call is
 useful in a number of recovery scenarios, where some CDB subscribers lost
 connection to ConfD before having received all the changes in a
 transaction. The replay functionality is only available if it has been
-enabled in confd.conf.
+enabled in ncs.conf.
 
 Keyword arguments:
 
@@ -789,11 +789,11 @@ Keyword arguments:
 set_timeout(sock, timeout_secs) -> None
 ```
 
-A timeout for client actions can be specified via
-/confdConfig/cdb/clientTimeout in confd.conf, see the confd.conf(5)
-manual page. This function can be used to dynamically extend (or shorten)
+A timeout for client actions can be specified via ncs.conf, see
+/ncs-config/cdb/client-timeout in ncs.conf(5).
+This function can be used to dynamically extend (or shorten)
 the timeout for the current action. Thus it is possible to configure a
-restrictive timeout in confd.conf, but still allow specific actions to
+restrictive timeout in ncs.conf, but still allow specific actions to
 have a longer execution time.
 
 Keyword arguments:
@@ -1041,6 +1041,7 @@ DONE_TRANSACTION = 3
 FLAG_INIT = 1
 FLAG_UPGRADE = 2
 GET_MODS_CLI_NO_BACKQUOTES = 8
+GET_MODS_CLI_SUPPRESS_QUOTING = 64
 GET_MODS_INCLUDE_LISTS = 1
 GET_MODS_INCLUDE_MOVES = 16
 GET_MODS_REVERSE = 2
@@ -1061,7 +1062,6 @@ SUBSCRIPTION_SOCKET = 1
 SUB_ABORT = 3
 SUB_COMMIT = 2
 SUB_FLAG_HA_IS_SECONDARY = 16
-SUB_FLAG_HA_IS_SLAVE = 16
 SUB_FLAG_HA_SYNC = 8
 SUB_FLAG_IS_LAST = 1
 SUB_FLAG_REVERT = 4
