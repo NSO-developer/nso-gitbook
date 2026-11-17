@@ -211,9 +211,9 @@ action_set_timeout(uinfo, timeout_secs) -> None
 
 Some action callbacks may require a significantly longer execution time
 than others, and this time may not even be possible to determine statically
-(e.g. a file download). In such cases the /confdConfig/capi/queryTimeout
-setting in confd.conf may be insufficient, and this function can be used to
-extend (or shorten) the timeout for the current callback invocation. The
+(e.g. a file download). In such cases, the timeout setting
+/ncs-config/api/action-timeout in ncs.conf may be insufficient. Use this function
+to extend (or shorten) the timeout for the current callback invocation. The
 timeout is given in seconds from the point in time when the function is
 called.
 
@@ -706,12 +706,12 @@ Keyword arguments:
 install_crypto_keys(dtx) -> None
 ```
 
-It is possible to define AES keys inside confd.conf. These keys
-are used by ConfD to encrypt data which is entered into the system.
+It is possible to define AES keys inside ncs.conf. These keys are used
+by NCS to encrypt data which is entered into the system.
 The supported types are tailf:aes-cfb-128-encrypted-string and
 tailf:aes-256-cfb-128-encrypted-string.
-This function will copy those keys from ConfD (which reads confd.conf) into
-memory in the library.
+This function will copy the keys the daemon has read from ncs.conf
+into memory in the library.
 
 This function must be called before register_done() is called.
 

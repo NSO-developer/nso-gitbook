@@ -135,7 +135,7 @@ called terminates -- either normally or through an unhandled exception
 or until the optional timeout occurs.
 
 When the timeout argument is present and not None, it should be a
-floating-point number specifying a timeout for the operation in seconds
+floating point number specifying a timeout for the operation in seconds
 (or fractions thereof). As join() always returns None, you must call
 is_alive() after join() to decide whether a timeout happened -- if the
 thread is still alive, the join() call timed out.
@@ -229,6 +229,8 @@ Iterator Flags (ncs):
 * ITER_WANT_REVERSE
 * ITER_WANT_P_CONTAINER
 * ITER_WANT_CLI_ORDER
+* ITER_WANT_SUPPRESS_OPER_DEFAULTS
+* ITER_WANT_SUPPRESS_CONF_DEFAULTS
 
 </details>
 
@@ -489,7 +491,7 @@ called terminates -- either normally or through an unhandled exception
 or until the optional timeout occurs.
 
 When the timeout argument is present and not None, it should be a
-floating-point number specifying a timeout for the operation in seconds
+floating point number specifying a timeout for the operation in seconds
 (or fractions thereof). As join() always returns None, you must call
 is_alive() after join() to decide whether a timeout happened -- if the
 thread is still alive, the join() call timed out.
@@ -583,6 +585,8 @@ Iterator Flags (ncs):
 * ITER_WANT_REVERSE
 * ITER_WANT_P_CONTAINER
 * ITER_WANT_CLI_ORDER
+* ITER_WANT_SUPPRESS_OPER_DEFAULTS
+* ITER_WANT_SUPPRESS_CONF_DEFAULTS
 
 </details>
 
@@ -810,7 +814,7 @@ called terminates -- either normally or through an unhandled exception
 or until the optional timeout occurs.
 
 When the timeout argument is present and not None, it should be a
-floating-point number specifying a timeout for the operation in seconds
+floating point number specifying a timeout for the operation in seconds
 (or fractions thereof). As join() always returns None, you must call
 is_alive() after join() to decide whether a timeout happened -- if the
 thread is still alive, the join() call timed out.
@@ -965,6 +969,7 @@ DONE_TRANSACTION = 3
 FLAG_INIT = 1
 FLAG_UPGRADE = 2
 GET_MODS_CLI_NO_BACKQUOTES = 8
+GET_MODS_CLI_SUPPRESS_QUOTING = 64
 GET_MODS_INCLUDE_LISTS = 1
 GET_MODS_INCLUDE_MOVES = 16
 GET_MODS_REVERSE = 2
@@ -985,7 +990,6 @@ SUBSCRIPTION_SOCKET = 1
 SUB_ABORT = 3
 SUB_COMMIT = 2
 SUB_FLAG_HA_IS_SECONDARY = 16
-SUB_FLAG_HA_IS_SLAVE = 16
 SUB_FLAG_HA_SYNC = 8
 SUB_FLAG_IS_LAST = 1
 SUB_FLAG_REVERT = 4

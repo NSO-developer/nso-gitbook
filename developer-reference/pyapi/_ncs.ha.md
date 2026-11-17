@@ -12,15 +12,6 @@ This documentation should be read together with the [confd_lib_ha(3)](../../reso
 
 ## Functions
 
-### bemaster
-
-```python
-bemaster(sock, mynodeid) -> None
-```
-
-This function is deprecated and will be removed.
-Use beprimary() instead.
-
 ### benone
 
 ```python
@@ -83,15 +74,6 @@ Keyword arguments:
 * primary_ip -- ip address of the primary node
 * waitreply  -- synchronous or not (bool)
 
-### beslave
-
-```python
-beslave(sock, mynodeid, primary_id, primary_ip, waitreply) -> None
-```
-
-This function is deprecated and will be removed.
-Use besecondary() instead.
-
 ### connect
 
 ```python
@@ -126,15 +108,6 @@ Keyword arguments:
 * sock -- a previously connected HA socket
 * nodeid -- name of the node (Value or string)
 
-### slave_dead
-
-```python
-slave_dead(sock, nodeid) -> None
-```
-
-This function is deprecated and will be removed.
-Use secondary_dead() instead.
-
 ### status
 
 ```python
@@ -156,11 +129,8 @@ Keyword arguments:
 
 ```python
 
-STATE_MASTER = 3
 STATE_NONE = 1
 STATE_PRIMARY = 3
 STATE_SECONDARY = 2
 STATE_SECONDARY_RELAY = 4
-STATE_SLAVE = 2
-STATE_SLAVE_RELAY = 4
 ```
