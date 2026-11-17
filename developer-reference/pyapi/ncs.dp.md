@@ -31,12 +31,84 @@ state['action_wsocks'] so the abort wrapper can find and flag it.
 
 ## Classes
 
+### _class_ **AcceptWithWarning**
+
+Exception raised by a decorated `cb_validate` to accept a value with
+a warning.
+
+`ValidationPoint.validate` and `ValidationPoint.validate_with_trans`
+catch it, set the message as the warning text and return
+`ReturnValue.VALIDATION_WARN`. ConfD/NCS then accepts the value and
+shows the warning, for example as a question in the CLI before the
+commit continues.
+
+It is not `error.ValidationWarning`, which a client gets when the
+validation of its transaction gave warnings.
+
+Example:
+
+    from ncs.dp import AcceptWithWarning, ValidationPoint
+
+    class MtuValidation(ValidationPoint):
+        @ValidationPoint.validate
+        def cb_validate(self, tctx, kp, value, validationpoint):
+            if int(value) > 9000:
+                raise AcceptWithWarning('MTU above 9000 is not tested')
+
+```python
+AcceptWithWarning(message: str) -> None
+```
+
+Members:
+
+<details>
+
+<summary>add_note(...)</summary>
+
+Method:
+
+Exception.add_note(note) --
+add a note to the exception
+
+</details>
+
+<details>
+
+<summary>args</summary>
+
+
+</details>
+
+<details>
+
+<summary>message</summary>
+
+_Readonly property_
+
+The warning text.
+
+</details>
+
+<details>
+
+<summary>with_traceback(...)</summary>
+
+Method:
+
+Exception.with_traceback(tb) --
+set self.__traceback__ to tb and return self.
+
+</details>
+
 ### _class_ **Action**
 
 Action callback.
 
 This class makes it easy to create and register action callbacks by
 sub-classing it and implementing cb_action in the derived class.
+
+A cb_action decorated with `@Action.action` or `@Action.rpc` may raise
+`error.CallbackError` to fail the action with a structured error.
 
 ```python
 Action(daemon, actionpoint, log=None, init_args=None)
@@ -71,7 +143,7 @@ Members:
 Static method:
 
 ```python
-action(fn)
+action(fn: Callable[..., Union[ncs.dp.ReturnValue, int, NoneType]]) -> Callable[..., Union[ncs.dp.ReturnValue, int, NoneType]]
 ```
 
 Decorator for the cb_action callback.
@@ -89,13 +161,32 @@ Example of a decorated cb_action:
 
 Callback arguments:
 
-* uinfo -- a UserInfo object
-* name -- the tailf:action name (string)
-* kp -- the keypath of the action (HKeypathRef)
-* input -- input node (maagic.Node)
-* output -- output node (maagic.Node)
-* trans -- read only transaction, same as action transaction if
+* `uinfo` -- a UserInfo object
+* `name` -- the tailf:action name (string)
+* `kp` -- the keypath of the action (HKeypathRef)
+* `input` -- input node (maagic.Node)
+* `output` -- output node (maagic.Node)
+* `trans` -- read only transaction, same as action transaction if
            executed with an action context (maapi.Transaction)
+
+Return value:
+
+* `None` or `ReturnValue.OK` -- the output node values are sent as
+  the action reply.
+* `ReturnValue.DELAYED_RESPONSE` -- the reply is sent later with a
+  low-level action reply function, for example
+  `action_reply_values(uinfo, maagic.get_tagvalues(output))`. The
+  worker socket goes back to the pool when `cb_action` returns, so
+  another action that gets the same socket waits until that
+  reply is sent. The pool closes the socket if it stays idle for
+  more than 30 seconds, so send the reply before that. `trans` is
+  closed when `cb_action` returns and cannot be used for the
+  delayed reply.
+* Any other value (for example `ReturnValue.ERR`) is returned to
+  the library as is.
+
+After `cb_abort` has been invoked, the decorator sends no reply and
+closes the worker socket, whatever `cb_action` returns.
 
 </details>
 
@@ -141,7 +232,7 @@ register_action() function.
 Static method:
 
 ```python
-rpc(fn)
+rpc(fn: Callable[..., Union[ncs.dp.ReturnValue, int, NoneType]]) -> Callable[..., Union[ncs.dp.ReturnValue, int, NoneType]]
 ```
 
 Decorator for the cb_action callback.
@@ -159,10 +250,27 @@ Example of a decorated cb_action:
 
 Callback arguments:
 
-* uinfo -- a UserInfo object
-* name -- the rpc name (string)
-* input -- input node (maagic.Node)
-* output -- output node (maagic.Node)
+* `uinfo` -- a UserInfo object
+* `name` -- the rpc name (string)
+* `input` -- input node (maagic.Node)
+* `output` -- output node (maagic.Node)
+
+Return value:
+
+* `None` or `ReturnValue.OK` -- the output node values are sent as
+  the rpc reply.
+* `ReturnValue.DELAYED_RESPONSE` -- the reply is sent later with a
+  low-level action reply function, for example
+  `action_reply_values(uinfo, maagic.get_tagvalues(output))`. The
+  worker socket goes back to the pool when `cb_action` returns, so
+  another action that gets the same socket waits until that
+  reply is sent. The pool closes the socket if it stays idle for
+  more than 30 seconds, so send the reply before that.
+* Any other value (for example `ReturnValue.ERR`) is returned to
+  the library as is.
+
+After `cb_abort` has been invoked, the decorator sends no reply and
+closes the worker socket, whatever `cb_action` returns.
 
 </details>
 
@@ -209,8 +317,12 @@ CLI and in error messages. All other arguments are optional.
 Argument 'log' can be any log object, and if not set the standard
 logging mechanism will be used. Set 'ip' and 'port' to
 where your Confd/NCS server is. 'path' is a filename to a unix
-domain socket to be used in place of 'ip' and 'port'. If 'path'
-is provided, 'ip' and 'port' arguments are ignored.
+domain socket to be used in place of 'ip' and 'port' (NCS Local
+IPC, or ConfD External IPC with a Unix socket driver). If 'port'
+is not None, the 'path' argument is ignored.
+
+For the connection defaults, see "IPC connection defaults" in the ncs
+or confd module documentation.
 
 Daemon supports automatic restarting in case of error if a
 state manager is provided using the state_mgr parameter.
@@ -562,6 +674,385 @@ _Readonly property_
 
 </details>
 
+### _class_ **DataCallback**
+
+Typing base class for data callbacks.
+
+Subclass this class to let type checkers check the return types of
+overridden `cb_*` methods. Implement only the callbacks needed by the
+callpoint, and register the instance with the low-level
+`dp.register_data_cb()` or `dp.register_range_data_cb()` function.
+
+The signatures exist only for type checking. This class provides no
+callback implementations at runtime, so inheriting it does not cause
+unimplemented callbacks to be registered.
+
+Example:
+
+    class DataProvider(DataCallback):
+        def cb_set_elem(self, tctx, kp, newval) -> ReturnValue:
+            return ReturnValue.ACCUMULATE
+
+```python
+DataCallback()
+```
+
+Members:
+
+_None_
+
+### _class_ **ReturnValue**
+
+Return values for callback methods.
+
+A callback method returns one of these members to tell ConfD/NCS
+the result of the operation. A member is an int, so it is equal to
+the low-level constant with the same name (for example
+`ReturnValue.OK` == `confd.OK` == `ncs.OK`), and old code that returns the
+low-level constants keeps working.
+
+The callback signatures in this module intentionally accept any int
+as well as ReturnValue and None as return value, to preserve static
+compatibility with low-level constants. They do not restrict
+integers to the documented values.
+Annotate application callbacks with `ReturnValue` (or
+`Optional[ReturnValue]`) to enforce that narrower return type.
+
+Members:
+
+* `OK` -- the callback succeeded. Valid to return from every callback
+  type. A callback that returns None also gives OK.
+* `ERR` -- the callback failed. Valid to return from every callback
+  type. To give an error message from a callback that uses
+  `Action.action`, `Action.rpc`, `ValidationPoint.validate`,
+  `ValidationPoint.validate_with_trans` or `TransactionCallback.init`,
+  raise `error.CallbackError` (or `ValidationError`) instead; the
+  wrapper sets the message and returns `ERR`. Other callbacks must set
+  the message with the low-level `*_seterr()` function for their
+  context, for example `trans_seterr()` in `_confd.dp` or `_ncs.dp`,
+  before they return ERR. The high-level API has no function for
+  this yet.
+* `ACCUMULATE` -- let the library accumulate the write operation
+  instead of applying it in the callback. Valid to return from the
+  data write callbacks `cb_set_elem`, `cb_create`, `cb_remove`,
+  `cb_set_case`, `cb_set_attr` and `cb_move_after`. The library then keeps
+  a copy of each such operation in the transaction's list of
+  accumulated operations (`tctx.accumulated`), which the application
+  applies later from the `cb_prepare` or `cb_commit` transaction
+  callback.
+* `DELAYED_RESPONSE` -- the reply will be delivered later from another
+  context. Valid to return from the `cb_*` transaction callbacks and
+  from action, validation and data callbacks; the callback is then
+  responsible for delivering the actual reply from that other
+  context. The `init()` and `finish()` methods of `TransactionCallback`
+  are not callbacks, and their return value is ignored. The
+  high-level API has no function that sends the delayed reply yet.
+  Use the low-level reply function for the callback type in
+  `_confd.dp` or `_ncs.dp`, for example `action_reply_values()`,
+  `action_delayed_reply_ok()` or `action_delayed_reply_error()` for an
+  action; `maagic.get_tagvalues(output)` gives the values for
+  `action_reply_values()`. `Action.action` and `Action.rpc` return the
+  worker socket to the pool when `cb_action` returns, so another
+  action that gets the same socket waits until the delayed reply is
+  sent. Do not make the delayed reply wait for another action. The
+  pool closes a worker socket that stays idle for more than 30
+  seconds, so a reply sent after that can go to a closed socket, or
+  to a newer socket that reuses the same descriptor. Objects that
+  the decorators pass in are valid only until the callback returns:
+  `Action.action` closes the transaction passed as `trans`, and
+  `ValidationPoint.validate_with_trans` detaches root.
+* `VALIDATION_WARN` -- the value is accepted, but ConfD/NCS shows a
+  warning. Valid to return only from a validation callback
+  (`cb_validate`). With `ValidationPoint.validate` or
+  `ValidationPoint.validate_with_trans`, raise `AcceptWithWarning`
+  instead; the decorator sets the warning text and returns
+  `VALIDATION_WARN`. A `cb_validate` without these decorators must set
+  the warning text on the transaction before it returns this value.
+* `ALREADY_LOCKED` -- the data provider is already locked. Valid to
+  return only from the `cb_trans_lock` transaction callback. The
+  commit fails with a "locked" error, but the transaction stays
+  open, so the caller can try the commit again. Database callbacks
+  accept only `OK` and `ERR`.
+* `IN_USE` -- the resource is in use. Valid to return only from the
+  `cb_write_start` and `cb_prepare` transaction callbacks. The commit
+  fails with a "locked" error, and the transaction goes back to the
+  `READ` state, so the caller can try the commit again.
+
+```python
+ReturnValue(*values)
+```
+
+Members:
+
+<details>
+
+<summary>ACCUMULATE</summary>
+
+```python
+ACCUMULATE = 1
+```
+
+
+</details>
+
+<details>
+
+<summary>ALREADY_LOCKED</summary>
+
+```python
+ALREADY_LOCKED = -4
+```
+
+
+</details>
+
+<details>
+
+<summary>DELAYED_RESPONSE</summary>
+
+```python
+DELAYED_RESPONSE = 2
+```
+
+
+</details>
+
+<details>
+
+<summary>ERR</summary>
+
+```python
+ERR = -1
+```
+
+
+</details>
+
+<details>
+
+<summary>IN_USE</summary>
+
+```python
+IN_USE = -5
+```
+
+
+</details>
+
+<details>
+
+<summary>OK</summary>
+
+```python
+OK = 0
+```
+
+
+</details>
+
+<details>
+
+<summary>VALIDATION_WARN</summary>
+
+```python
+VALIDATION_WARN = -3
+```
+
+
+</details>
+
+<details>
+
+<summary>as_integer_ratio(...)</summary>
+
+Method:
+
+```python
+as_integer_ratio(self, /)
+```
+
+Return a pair of integers, whose ratio is equal to the original int.
+
+The ratio is in lowest terms and has a positive denominator.
+
+>>> (10).as_integer_ratio()
+(10, 1)
+>>> (-10).as_integer_ratio()
+(-10, 1)
+>>> (0).as_integer_ratio()
+(0, 1)
+
+</details>
+
+<details>
+
+<summary>bit_count(...)</summary>
+
+Method:
+
+```python
+bit_count(self, /)
+```
+
+Number of ones in the binary representation of the absolute value of self.
+
+Also known as the population count.
+
+>>> bin(13)
+'0b1101'
+>>> (13).bit_count()
+3
+
+</details>
+
+<details>
+
+<summary>bit_length(...)</summary>
+
+Method:
+
+```python
+bit_length(self, /)
+```
+
+Number of bits necessary to represent self in binary.
+
+>>> bin(37)
+'0b100101'
+>>> (37).bit_length()
+6
+
+</details>
+
+<details>
+
+<summary>conjugate(...)</summary>
+
+Method:
+
+Returns self, the complex conjugate of any int.
+
+</details>
+
+<details>
+
+<summary>denominator</summary>
+
+the denominator of a rational number in lowest terms
+
+</details>
+
+<details>
+
+<summary>from_bytes(...)</summary>
+
+Class method:
+
+```python
+from_bytes(type, /, bytes, byteorder='big', *, signed=False)
+```
+
+Return the integer represented by the given array of bytes.
+
+bytes
+  Holds the array of bytes to convert.  The argument must either
+  support the buffer protocol or be an iterable object producing bytes.
+  Bytes and bytearray are examples of built-in objects that support the
+  buffer protocol.
+byteorder
+  The byte order used to represent the integer.  If byteorder is 'big',
+  the most significant byte is at the beginning of the byte array.  If
+  byteorder is 'little', the most significant byte is at the end of the
+  byte array.  To request the native byte order of the host system, use
+  `sys.byteorder' as the byte order value.  Default is to use 'big'.
+signed
+  Indicates whether two's complement is used to represent the integer.
+
+</details>
+
+<details>
+
+<summary>imag</summary>
+
+the imaginary part of a complex number
+
+</details>
+
+<details>
+
+<summary>is_integer(...)</summary>
+
+Method:
+
+```python
+is_integer(self, /)
+```
+
+Returns True. Exists for duck type compatibility with float.is_integer.
+
+</details>
+
+<details>
+
+<summary>name</summary>
+
+The name of the Enum member.
+
+</details>
+
+<details>
+
+<summary>numerator</summary>
+
+the numerator of a rational number in lowest terms
+
+</details>
+
+<details>
+
+<summary>real</summary>
+
+the real part of a complex number
+
+</details>
+
+<details>
+
+<summary>to_bytes(...)</summary>
+
+Method:
+
+```python
+to_bytes(self, /, length=1, byteorder='big', *, signed=False)
+```
+
+Return an array of bytes representing an integer.
+
+length
+  Length of bytes object to use.  An OverflowError is raised if the
+  integer is not representable with the given number of bytes.  Default
+  is length 1.
+byteorder
+  The byte order used to represent the integer.  If byteorder is 'big',
+  the most significant byte is at the beginning of the byte array.  If
+  byteorder is 'little', the most significant byte is at the end of the
+  byte array.  To request the native byte order of the host system, use
+  `sys.byteorder' as the byte order value.  Default is to use 'big'.
+signed
+  Determines whether two's complement is used to represent the integer.
+  If signed is False and a negative integer is given, an OverflowError
+  is raised.
+
+</details>
+
+<details>
+
+<summary>value</summary>
+
+The value of the Enum member.
+
+</details>
+
 ### _class_ **StateManager**
 
 Base class for state managers used with Daemon
@@ -626,7 +1117,7 @@ Members:
 Method:
 
 ```python
-cb_init(self, tctx)
+cb_init(self, tctx: Any) -> Union[ncs.dp.ReturnValue, int, NoneType]
 ```
 
 The cb_init callback must always be implemented.
@@ -644,7 +1135,7 @@ thread and socket pair and associates it with the transaction.
 Method:
 
 ```python
-cb_stop(self, tctx)
+cb_stop(self, tctx: Any) -> Union[ncs.dp.ReturnValue, int, NoneType]
 ```
 
 The cb_stop callback must always be implemented.
@@ -662,6 +1153,10 @@ Default transaction callback implementation class.
 When connecting data providers to ConfD/NCS a transaction callback
 handler must be provided. This class is a generic implementation of
 such a handler. It implements the only required callback 'cb_init'.
+
+Optional `cb_*` signatures are declared for type checking only.
+Subclasses implement only the callbacks they need; the declarations
+do not cause extra callbacks to be registered at runtime.
 
 ```python
 TransactionCallback(state)
@@ -681,13 +1176,15 @@ Members:
 Method:
 
 ```python
-cb_finish(self, tctx)
+cb_finish(self, tctx: Any) -> Union[ncs.dp.ReturnValue, int, NoneType]
 ```
 
 The cb_finish callback of TransactionCallback.
 
 This implementation returns worker socket associated with a
-worker thread from Daemon/state.
+worker thread from Daemon/state. It calls a finish() method
+defined by a subclass first. The return value of finish() is
+ignored, and an exception that it raises is logged.
 
 </details>
 
@@ -698,7 +1195,7 @@ worker thread from Daemon/state.
 Method:
 
 ```python
-cb_init(self, tctx)
+cb_init(self, tctx: Any) -> Union[ncs.dp.ReturnValue, int, NoneType]
 ```
 
 The cb_init callback must always be implemented.
@@ -706,6 +1203,11 @@ The cb_init callback must always be implemented.
 It is required to prepare for future read/write operations towards
 the data source. This default implementation associates a worker
 socket with a transaction.
+
+An `init()` method defined by a subclass may raise
+`error.CallbackError` to refuse the transaction with its code and
+application tag. Its return value is ignored, so returning
+`ReturnValue.ERR` from `init()` does not refuse the transaction.
 
 </details>
 
@@ -817,20 +1319,22 @@ Stop ValidationPoint
 Static method:
 
 ```python
-validate(fn)
+validate(fn: Callable[..., Union[ncs.dp.ReturnValue, int, NoneType]]) -> Callable[..., Union[ncs.dp.ReturnValue, int, NoneType]]
 ```
 
-Decorator for the cb_validate callback.
+Decorator for the `cb_validate` callback.
 
-Using this decorator alters the signature of the cb_validate
-callback and passes in the validationpoint as the last
+Using this decorator alters the signature of the `cb_validate`
+callback and passes in the `validationpoint` as the last
 argument.
 
-In addition it logs unhandled exceptions, handles
-ValidationError exception setting the transaction error and
-returns _tm.CONFD_ERR.
+In addition it logs unhandled exceptions. For a raised
+`ValidationError` (message only) or `error.CallbackError` (code,
+application tag and NETCONF error-info), it sets the transaction
+error and fails the validation. Raise `AcceptWithWarning` to accept
+the value and show a warning.
 
-Example of a decorated cb_validate:
+Example of a decorated `cb_validate`:
 
     @ValidationPoint.validate
     def cb_validate(self, tctx, keypath, value, validationpoint):
@@ -838,10 +1342,10 @@ Example of a decorated cb_validate:
 
 Callback arguments:
 
-* tctx - transaction context (TransCtxRef)
-* kp -- path to the node being validated (HKeypathRef)
-* value -- new value of keypath (Value)
-* validationpoint - name of the validation point (str)
+* `tctx` - transaction context (`TransCtxRef`)
+* `kp` -- path to the node being validated (`HKeypathRef`)
+* `value` -- new value of keypath (`Value`)
+* `validationpoint` - name of the validation point (`str`)
 
 </details>
 
@@ -852,20 +1356,22 @@ Callback arguments:
 Static method:
 
 ```python
-validate_with_trans(fn)
+validate_with_trans(fn: Callable[..., Union[ncs.dp.ReturnValue, int, NoneType]]) -> Callable[..., Union[ncs.dp.ReturnValue, int, NoneType]]
 ```
 
-Decorator for the cb_validate callback.
+Decorator for the `cb_validate` callback.
 
-Using this decorator alters the signature of the cb_validate
+Using this decorator alters the signature of the `cb_validate`
 callback and passes in root node attached to the transaction
-being validated and the validationpoint as the last argument.
+being validated and the `validationpoint` as the last argument.
 
-In addition it logs unhandled exceptions, handles
-ValidationError exception setting the transaction error and
-returns _tm.CONFD_ERR.
+In addition it logs unhandled exceptions. For a raised
+`ValidationError` (message only) or `error.CallbackError` (code,
+application tag and NETCONF error-info), it sets the transaction
+error and fails the validation. Raise `AcceptWithWarning` to accept
+the value and show a warning.
 
-Example of a decorated cb_validate:
+Example of a decorated `cb_validate`:
 
     @ValidationPoint.validate_with_trans
     def cb_validate(self, tctx, root, kp, value, validationpoint):
@@ -873,11 +1379,11 @@ Example of a decorated cb_validate:
 
 Callback arguments:
 
-* tctx - transaction context (TransCtxRef)
-* root -- root node (maagic.Root)
-* kp -- path to the node being validated (HKeypathRef)
-* value -- new value of keypath (Value)
-* validationpoint - name of the validation point (str)
+* `tctx` - transaction context (`TransCtxRef`)
+* `root` -- root node (`maagic.Root`)
+* `kp` -- path to the node being validated (`HKeypathRef`)
+* `value` -- new value of keypath (`Value`)
+* `validationpoint` - name of the validation point (`str`)
 
 </details>
 
@@ -1244,5 +1750,6 @@ PATCH_FLAG_AAA_CHECKED = 8
 PATCH_FLAG_BUFFER_DAMPENED = 2
 PATCH_FLAG_FILTER = 4
 PATCH_FLAG_INCOMPLETE = 1
+TYPE_CHECKING = False
 WORKER_SOCKET = 1
 ```

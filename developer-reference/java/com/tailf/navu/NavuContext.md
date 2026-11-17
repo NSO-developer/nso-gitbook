@@ -15,18 +15,25 @@ All data (config/oper) can be read using a Maapi transaction
  MODE_READ_WRITE mode, then configuration data can be written with
  this same transaction.
 
+For pre-commit-running data, ConfD can start a read-only transaction
+ with [`startPreCommitRunningTrans()`](NavuContext.md#startprecommitrunningtrans-1608c1c0d9e6). On NSO, use
+ [`startPreCommitRunningTrans(CdbSubscription)`](NavuContext.md#startprecommitrunningtrans-6f3c995af86a) with an active CDB
+ subscription and call [`detachRunningTrans()`](NavuContext.md#detachrunningtrans-e735bed11543) before synchronizing
+ the subscription.
+
 Another constructor [`NavuContext(Maapi)`](NavuContext.md#navucontext-af99f9cc97c7) exists as an option.
  This constructor prepares a context and expects a [`Maapi`](../maapi/Maapi.md#maapi-67bcbe89c42e) instance
- with a started user session. Before using this type of context it is
- mandatory to call either [`NavuContext#startRunningTrans(int)`](NavuContext.md#startrunningtrans-f44b804de65a) or
- [`NavuContext#startOperationalTrans(int)`](NavuContext.md#startoperationaltrans-9d10bde402ce) to retrieve a maapi
- transaction.
+ with a started user session. Before using this type of context, call
+ [`startRunningTrans(int)`](NavuContext.md#startrunningtrans-f44b804de65a), [`startOperationalTrans(int)`](NavuContext.md#startoperationaltrans-9d10bde402ce), or
+ the product-specific pre-commit-running method described above.
 
- The user must manage the transaction which are started using the NavuContext.
- This can be done either by the user storing the retrieved transaction id
- and calling the low level Maapi methods
+ Transactions started by NavuContext must be managed by the caller.
+ This can be done by storing the returned transaction ID and calling
+ the low-level Maapi methods
  [`Maapi#applyTrans(int, boolean)`](../maapi/Maapi.md#applytrans-94f52f2648ce) and/or
  [`Maapi#finishTrans(int)`](../maapi/Maapi.md#finishtrans-0f920518d3c3) to commit and end the transaction.
+ For an NSO pre-commit-running transaction attached from a subscription,
+ use [`detachRunningTrans()`](NavuContext.md#detachrunningtrans-e735bed11543) instead.
 
  There are also a set of convenience methods in the NavuContext to handle
  the transaction like [`NavuContext#applyClearTrans()`](NavuContext.md#applycleartrans-3f1898cf9189) and
@@ -98,6 +105,7 @@ A typical scenario using the [`NavuContext(Maapi)`](NavuContext.md#navucontext-a
 - [startOperationalTrans\(int\)](#startoperationaltrans-9d10bde402ce)
 - [startOperationalTrans\(int, String, String, String, String\)](#startoperationaltrans-f0b7896eb7ea)
 - [startPreCommitRunningTrans\(\)](#startprecommitrunningtrans-1608c1c0d9e6)
+- [startPreCommitRunningTrans\(CdbSubscription\)](#startprecommitrunningtrans-6f3c995af86a)
 - [startPreCommitRunningTrans\(String, String, String, String\)](#startprecommitrunningtrans-a6bcef757ab6)
 - [startRunningTrans\(int\)](#startrunningtrans-f44b804de65a)
 - [startRunningTrans\(int, String, String, String, String\)](#startrunningtrans-0b37ed6a4aa8)
@@ -114,11 +122,11 @@ public NavuContext(com.tailf.maapi.Maapi m)
 Types: [Maapi](../maapi/Maapi.md#maapi-67bcbe89c42e)
 
 This constructor prepares a context to be used with a maapi transaction
- towards either [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28) or [`Conf#DB_OPERATIONAL`](../conf/Conf.md#db_operational-0d12377eea71).
- This transactions has to be started with one of
- [`NavuContext#startRunningTrans(int)`](NavuContext.md#startrunningtrans-f44b804de65a) or
- [`NavuContext#startOperationalTrans(int)`](NavuContext.md#startoperationaltrans-9d10bde402ce) before the context can
- be used in NAVU.
+ towards [`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28), [`Conf#DB_OPERATIONAL`](../conf/Conf.md#db_operational-0d12377eea71), or
+ [`Conf#DB_PRE_COMMIT_RUNNING`](../conf/Conf.md#db_pre_commit_running-0244b447e03f). Before using the context in NAVU,
+ call [`startRunningTrans(int)`](NavuContext.md#startrunningtrans-f44b804de65a),
+ [`startOperationalTrans(int)`](NavuContext.md#startoperationaltrans-9d10bde402ce), or the product-specific
+ pre-commit-running method.
 
 **Parameters**
 
@@ -260,9 +268,10 @@ public void detachRunningTrans() throws com.tailf.navu.NavuException
 
 Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
-For an context with an attached transaction using
- [`attachRunningTrans(int)`](NavuContext.md#attachrunningtrans-7c31c137d0c7) this method will detach
- the transaction from the NavuContext maapi instance
+For a context with an attached transaction using
+ [`attachRunningTrans(int)`](NavuContext.md#attachrunningtrans-7c31c137d0c7) or
+ [`startPreCommitRunningTrans(CdbSubscription)`](NavuContext.md#startprecommitrunningtrans-6f3c995af86a), this method
+ detaches the transaction from the NavuContext maapi instance.
 
 **Throws**
 
@@ -400,12 +409,42 @@ This method starts a transaction towards the PRE_COMMIT_RUNNING
  Calling this method on contexts that already started an transaction will
  throw an NavuException.
  The user will need to manage the finish of this transaction.
+ This method is only supported by ConfD. NSO rejects direct
+ pre-commit-running transactions; use
+ [`startPreCommitRunningTrans(CdbSubscription)`](NavuContext.md#startprecommitrunningtrans-6f3c995af86a) instead.
 
 **Returns:** transaction id for the started transaction
 
 **Throws**
 
 - `com.tailf.navu.NavuException`
+
+### startPreCommitRunningTrans(CdbSubscription) <a href="#startprecommitrunningtrans-6f3c995af86a" id="startprecommitrunningtrans-6f3c995af86a"></a>
+
+```java
+public synchronized int startPreCommitRunningTrans(
+    com.tailf.cdb.CdbSubscription sub
+)
+    throws com.tailf.navu.NavuException
+```
+
+Types: [CdbSubscription](../cdb/CdbSubscription.md#cdbsubscription-f17c8fe4dc81), [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
+
+On NSO, attaches to the read-only pre-commit-running transaction of an
+ active CDB subscription. Call this after [`CdbSubscription#read()`](../cdb/CdbSubscription.md#read-b28b830b98d6),
+ then call [`detachRunningTrans()`](NavuContext.md#detachrunningtrans-e735bed11543) before synchronizing the
+ subscription with [`CdbSubscription#sync(
+ com.tailf.cdb.CdbSubscriptionSyncType)`](../cdb/CdbSubscription.md#sync-e4ae9cc34a8a).
+
+**Parameters**
+
+- `com.tailf.cdb.CdbSubscription sub` - the active CDB subscription
+
+**Returns:** transaction id for the attached transaction
+
+**Throws**
+
+- `com.tailf.navu.NavuException` - if the transaction cannot be attached
 
 ### startPreCommitRunningTrans(String, String, String, String) <a href="#startprecommitrunningtrans-a6bcef757ab6" id="startprecommitrunningtrans-a6bcef757ab6"></a>
 
@@ -421,12 +460,22 @@ public synchronized int startPreCommitRunningTrans(
 
 Types: [NavuException](NavuException.md#navuexception-d80fa0cb4f3f)
 
+Starts a read-only pre-commit-running transaction with client metadata
+ on ConfD. NSO rejects direct pre-commit-running transactions; use
+ [`startPreCommitRunningTrans(CdbSubscription)`](NavuContext.md#startprecommitrunningtrans-6f3c995af86a) instead.
+
 **Parameters**
 
-- `String vendor`
-- `String product`
-- `String version`
-- `String clientId`
+- `String vendor` - client vendor
+- `String product` - client product
+- `String version` - client version
+- `String clientId` - client identifier
+
+**Returns:** transaction id for the started transaction
+
+**Throws**
+
+- `com.tailf.navu.NavuException` - if the transaction cannot be started
 
 ### startRunningTrans(int) <a href="#startrunningtrans-f44b804de65a" id="startrunningtrans-f44b804de65a"></a>
 

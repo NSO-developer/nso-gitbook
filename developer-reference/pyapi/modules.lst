@@ -3,7 +3,9 @@ ncs.alarm
 ncs.application
 ncs.cdb
 ncs.dp
+ncs.error
 ncs.experimental
+ncs.ha
 ncs.log
 ncs.maagic
 ncs.maapi

@@ -34,6 +34,7 @@ General class for protocol constants
 - [OP\_GET\_OBJECTS](#op_get_objects-3af47caacf1f)
 - [OP\_GET\_PHASE](#op_get_phase-50c857bb87ab)
 - [OP\_GET\_REPLAY\_TXID](#op_get_replay_txid-12e7d77de6e0)
+- [OP\_GET\_SOCKET\_ID](#op_get_socket_id-aa79a2e86a1e)
 - [OP\_GET\_TRANS\_TID](#op_get_trans_tid-8096529724c7)
 - [OP\_GET\_TXID](#op_get_txid-08c12864072b)
 - [OP\_GET\_USER\_SESSION](#op_get_user_session-24ca65db0119)
@@ -61,7 +62,9 @@ General class for protocol constants
 - [OP\_SET\_TIMEOUT](#op_set_timeout-b783b91cd319)
 - [OP\_SET\_VALUES](#op_set_values-046ce9907472)
 - [OP\_SUB\_EVENT](#op_sub_event-12f8b5e52f91)
+- [OP\_SUB\_GET\_PCR\_TID](#op_sub_get_pcr_tid-dc829978b1b1)
 - [OP\_SUB\_ITERATE](#op_sub_iterate-19c0ddfe2746)
+- [OP\_SUB\_NEW\_PCR\_SESSION](#op_sub_new_pcr_session-dec0962f81b1)
 - [OP\_SUB\_PROGRESS](#op_sub_progress-f0a6be193cfd)
 - [OP\_SUBSCRIBE](#op_subscribe-b2e2b3e2b2ae)
 - [OP\_SUBSCRIBE\_DONE](#op_subscribe_done-472a3c31d0ce)
@@ -201,6 +204,12 @@ public static final int OP_GET_PHASE = 65;
 
 ```java
 public static final int OP_GET_REPLAY_TXID = 72;
+```
+
+### OP_GET_SOCKET_ID <a href="#op_get_socket_id-aa79a2e86a1e" id="op_get_socket_id-aa79a2e86a1e"></a>
+
+```java
+public static final int OP_GET_SOCKET_ID = 84;
 ```
 
 ### OP_GET_TRANS_TID <a href="#op_get_trans_tid-8096529724c7" id="op_get_trans_tid-8096529724c7"></a>
@@ -365,10 +374,22 @@ public static final int OP_SET_VALUES = 53;
 public static final int OP_SUB_EVENT = 33;
 ```
 
+### OP_SUB_GET_PCR_TID <a href="#op_sub_get_pcr_tid-dc829978b1b1" id="op_sub_get_pcr_tid-dc829978b1b1"></a>
+
+```java
+public static final int OP_SUB_GET_PCR_TID = 82;
+```
+
 ### OP_SUB_ITERATE <a href="#op_sub_iterate-19c0ddfe2746" id="op_sub_iterate-19c0ddfe2746"></a>
 
 ```java
 public static final int OP_SUB_ITERATE = 36;
+```
+
+### OP_SUB_NEW_PCR_SESSION <a href="#op_sub_new_pcr_session-dec0962f81b1" id="op_sub_new_pcr_session-dec0962f81b1"></a>
+
+```java
+public static final int OP_SUB_NEW_PCR_SESSION = 83;
 ```
 
 ### OP_SUB_PROGRESS <a href="#op_sub_progress-f0a6be193cfd" id="op_sub_progress-f0a6be193cfd"></a>

@@ -392,6 +392,22 @@ Keyword arguments:
 
 * sock -- a previously connected CDB socket
 
+### get_pre_commit_running_tid
+
+```python
+get_pre_commit_running_tid(sock) -> int
+```
+
+Returns the transaction ID (tid) for the current pre_commit_running
+transaction. Call on the active subscription socket after reading a
+configuration notification and before sync_subscription_socket(). If
+using diff_iterate(), call this before starting the iteration, not
+from its callback.
+
+Keyword arguments:
+
+* sock -- CDB socket for the active subscription
+
 ### get_replay_txids
 
 ```python
@@ -407,6 +423,19 @@ feature isn't enabled or there hasn't been any transactions yet) only one
 
 The returned list contains tuples with the form (s1, s2, s3, primary) where
 s1, s2 and s3 are unsigned integers and primary is either a string or None.
+
+Keyword arguments:
+
+* sock -- a previously connected CDB socket
+
+### get_socket_id
+
+```python
+get_socket_id(sock) -> int
+```
+
+Returns the assigned ID of the socket. Use the ID of an active
+subscription socket with start_pre_commit_running_session().
 
 Keyword arguments:
 
@@ -815,6 +844,23 @@ Keyword arguments:
 * values -- a list of TagValue:s
 * path -- path to container or list entry (string)
 
+### start_pre_commit_running_session
+
+```python
+start_pre_commit_running_session(sock, subsock_id) -> None
+```
+
+Starts a new pre_commit_running session on a separate connected CDB
+socket for the active subscription identified by subsock_id. Obtain
+subsock_id with get_socket_id() on the subscription socket. Do not use
+the session after sync_subscription_socket() acknowledges the
+notification.
+
+Keyword arguments:
+
+* sock -- CDB socket for the pre_commit_running session
+* subsock_id -- CDB socket id for the active subscription
+
 ### start_session
 
 ```python
@@ -824,6 +870,10 @@ start_session(sock, db) -> None
 Starts a new session on an already established socket to CDB. The db
 parameter should be one of RUNNING, PRE_COMMIT_RUNNING, STARTUP and
 OPERATIONAL.
+
+On NSO, PRE_COMMIT_RUNNING is rejected here. Use
+start_pre_commit_running_session() with the ID returned by
+get_socket_id() for the active subscription socket instead.
 
 Keyword arguments:
 

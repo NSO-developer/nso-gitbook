@@ -1747,6 +1747,8 @@ Available attributes:
 * accumulated -- if the data provider is using the accumulate functionality
                  this attribute will contain the first dp.TrItemRef object
                  in the linked list, otherwise if will be None
+* opaque -- user data associated with this transaction. The reference is
+            released automatically when the transaction lifecycle ends
 * traversal_id -- unique id for the get_next* invocation
 
 TransCtxRef cannot be directly instantiated from Python.
@@ -2314,12 +2316,12 @@ LF_EXISTS = 4
 LF_NOT = 2
 LF_OR = 0
 LF_ORIGIN = 6
-LIB_API_VSN = 134742016
-LIB_API_VSN_STR = '08080000'
-LIB_PROTO_VSN = 88
-LIB_PROTO_VSN_STR = '88'
-LIB_VSN = 134742016
-LIB_VSN_STR = '08080000'
+LIB_API_VSN = 150994944
+LIB_API_VSN_STR = '09000000'
+LIB_PROTO_VSN = 90
+LIB_PROTO_VSN_STR = '90'
+LIB_VSN = 150994944
+LIB_VSN_STR = '09000000'
 LISTENER_CLI = 8
 LISTENER_IPC = 1
 LISTENER_NETCONF = 2

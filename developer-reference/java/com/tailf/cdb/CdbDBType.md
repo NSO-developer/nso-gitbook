@@ -37,10 +37,13 @@ create a read/write session towards the operational db
 CDB_PRE_COMMIT_RUNNING(4);
 ```
 
-create a read session toward the running database as it was before the
- current transaction was committed. This is only possible between a
- notification read by CdbSubscription.read() and the final call of
- CdbSubscription.sync()
+The running database as it was before the pending transaction.
+ In ConfD, use this type with [`Cdb#startSession(CdbDBType)`](Cdb.md#startsession-6f137bd83c44) to
+ create a read session. NSO rejects that direct session API; use
+ [`Cdb#startPreCommitRunningSession(CdbSubscription)`](Cdb.md#startprecommitrunningsession-17b5b00e0d18) or
+ [`CdbSubscription#getPreCommitRunningTid()`](CdbSubscription.md#getprecommitrunningtid-c840d97b80b0) after a subscription
+ notification and before
+ [`CdbSubscription#sync(CdbSubscriptionSyncType)`](CdbSubscription.md#sync-e4ae9cc34a8a).
 
 ### CDB_RUNNING <a href="#cdb_running-a1f43295f116" id="cdb_running-a1f43295f116"></a>
 

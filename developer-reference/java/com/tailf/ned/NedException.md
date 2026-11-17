@@ -13,6 +13,8 @@ Exception raised from the NED package
 
 - [NedException\(NedErrorCode, String\)](#nedexception-b9f14788dc0a)
 - [NedException\(NedErrorCode, String, Throwable\)](#nedexception-076b429c0440)
+- [NedException\(String\)](#nedexception-c57f7245e8d4)
+- [NedException\(String, Throwable\)](#nedexception-46fc94b8057e)
 
 **Methods**:
 
@@ -44,6 +46,27 @@ Types: [NedErrorCode](NedErrorCode.md#nederrorcode-e5f6e08a55a2)
 **Parameters**
 
 - `com.tailf.ned.NedErrorCode aCode`
+- `String msg`
+- `Throwable cause`
+
+### NedException(String) <a href="#nedexception-c57f7245e8d4" id="nedexception-c57f7245e8d4"></a>
+
+```java
+public NedException(String msg)
+```
+
+**Parameters**
+
+- `String msg`
+
+### NedException(String, Throwable) <a href="#nedexception-46fc94b8057e" id="nedexception-46fc94b8057e"></a>
+
+```java
+public NedException(String msg, Throwable cause)
+```
+
+**Parameters**
+
 - `String msg`
 - `Throwable cause`
 

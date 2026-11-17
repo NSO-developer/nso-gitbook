@@ -376,6 +376,9 @@ Subscriber(app=None, log=None, host='127.0.0.1', port=None, subtype=1, name='', 
 
 Initialize a Subscriber.
 
+For the connection defaults, see "IPC connection defaults" in the ncs
+or confd module documentation.
+
 Members:
 
 <details>
@@ -678,6 +681,9 @@ the methods described in Subscriber:
 
     Called in the transaction prepare phase. If an exception occurs
     during the invocation of prepare the transaction is aborted.
+    Raise `error.CallbackError` to control the abort code, application
+    tag and NETCONF error-info, any other exception aborts with
+    `CallbackError.Code.RESOURCE_DENIED` and the exception message.
 
 * cleanup(state) (optional)
 

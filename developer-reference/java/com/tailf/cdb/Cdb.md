@@ -75,6 +75,7 @@ There are mainly two things that can be achieved through
 - [setTimeout\(int\)](#settimeout-cbe758ecb5d8)
 - [setUseForCdbUpgrade\(\)](#setuseforcdbupgrade-381558675127)
 - [setUseForCdbUpgrade\(List\<ConfNamespace\>\)](#setuseforcdbupgrade-2a9450800b18)
+- [startPreCommitRunningSession\(CdbSubscription\)](#startprecommitrunningsession-17b5b00e0d18)
 - [startSession\(\)](#startsession-ee121903dcfa)
 - [startSession\(CdbDBType\)](#startsession-6f137bd83c44)
 - [startSession\(CdbDBType, EnumSet\<CdbLockType\>\)](#startsession-5269b0eb8b16)
@@ -450,6 +451,39 @@ Sets this Cdb and the session it creates to be used for Cdb data
 
 - `java.util.List<com.tailf.conf.ConfNamespace> removedNs` - List of removed ConfNamespace used earlier
 
+### startPreCommitRunningSession(CdbSubscription) <a href="#startprecommitrunningsession-17b5b00e0d18" id="startprecommitrunningsession-17b5b00e0d18"></a>
+
+```java
+public com.tailf.cdb.CdbSession startPreCommitRunningSession(
+    com.tailf.cdb.CdbSubscription sub
+)
+    throws java.io.IOException, com.tailf.conf.ConfException
+```
+
+Types: [CdbSession](CdbSession.md#cdbsession-9ffa54666283), [CdbSubscription](CdbSubscription.md#cdbsubscription-f17c8fe4dc81), [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
+
+Starts a pre-commit-running read session for an active subscription.
+
+On NSO, call this on a separate CDB connection after
+ [`CdbSubscription#read()`](CdbSubscription.md#read-b28b830b98d6) and before
+ [`CdbSubscription#sync(CdbSubscriptionSyncType)`](CdbSubscription.md#sync-e4ae9cc34a8a). The subscription
+ identifies the pre-commit-running snapshot to read. Do not use the
+ returned session after synchronizing the subscription. The direct
+ [`startSession(CdbDBType)`](Cdb.md#startsession-6f137bd83c44) API for this datastore is ConfD only.
+
+**Parameters**
+
+- `com.tailf.cdb.CdbSubscription sub` - the active CDB subscription
+
+**Returns:** the pre-commit-running [`CdbSession`](CdbSession.md#cdbsession-9ffa54666283)
+
+**Throws**
+
+- `java.io.IOException` - If an I/O error occurs on the underlying socket
+while initiating the session.
+- `com.tailf.conf.ConfException` - if the subscription or its snapshot is unavailable
+or the session cannot be created
+
 ### startSession() <a href="#startsession-ee121903dcfa" id="startsession-ee121903dcfa"></a>
 
 ```java
@@ -488,6 +522,9 @@ Starts a new *CDB Session* on an already
 
 The method starts a new session against the datastore
  specified by `dbtype`.
+ For [`CdbDBType#CDB_PRE_COMMIT_RUNNING`](CdbDBType.md#cdb_pre_commit_running-68ec740136a8), this direct session API is
+ ConfD only. On NSO, use
+ [`startPreCommitRunningSession(CdbSubscription)`](Cdb.md#startprecommitrunningsession-17b5b00e0d18) instead.
 
 **Parameters**
 
@@ -520,6 +557,9 @@ Starts a new *CDB Session* on an already
 The method starts a new session against the datastore
  specified by `dbtype` with the locktype specified
  by the `lockflags`.
+ For [`CdbDBType#CDB_PRE_COMMIT_RUNNING`](CdbDBType.md#cdb_pre_commit_running-68ec740136a8), this direct session API is
+ ConfD only. On NSO, use
+ [`startPreCommitRunningSession(CdbSubscription)`](Cdb.md#startprecommitrunningsession-17b5b00e0d18) instead.
 
 While it is possible to use this method to start a session towards
  a configuration database type with no locking at all, this is

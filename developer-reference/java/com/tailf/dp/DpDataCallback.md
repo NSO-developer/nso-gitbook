@@ -665,7 +665,6 @@ This iterator method is a specialization of
 **Throws**
 
 - `com.tailf.dp.DpCallbackException` - if Callback method failed.
-- `com.tailf.dp.DpCallbackException`
 
 ### iterator(DpTrans, ConfObject[], ConfFindNextType, ConfKey, DpListFilter) <a href="#iterator-b1da1a451977" id="iterator-b1da1a451977"></a>
 
@@ -705,7 +704,6 @@ Variant of the DpDataFindNextIterator-returning iterator above that may
 **Throws**
 
 - `com.tailf.dp.DpCallbackException` - if Callback method failed.
-- `com.tailf.dp.DpCallbackException`
 
 ### iterator(DpTrans, ConfObject[], DpListFilter) <a href="#iterator-02bb74b2989b" id="iterator-02bb74b2989b"></a>
 

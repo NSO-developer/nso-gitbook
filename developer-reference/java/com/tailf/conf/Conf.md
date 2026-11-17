@@ -104,8 +104,12 @@ Indicates the operational db.
 public static final int DB_PRE_COMMIT_RUNNING = 6;
 ```
 
-Indicates the pre commit running db.
- Only available in cdb subscriptions
+Indicates the pre-commit-running datastore. Starting a transaction
+ towards it with [`Maapi#startTrans(int, int)`](../maapi/Maapi.md#starttrans-5b69ebc4af09) is
+ supported by ConfD only. On NSO, obtain the transaction ID from an
+ active [`CdbSubscription`](../cdb/CdbSubscription.md#cdbsubscription-f17c8fe4dc81) using
+ [`CdbSubscription#getPreCommitRunningTid()`](../cdb/CdbSubscription.md#getprecommitrunningtid-c840d97b80b0) and
+ attach to it with [`Maapi#attach(int, int)`](../maapi/Maapi.md#attach-0e2e60b563af).
 
 ### DB_RUNNING <a href="#db_running-c391f371da28" id="db_running-c391f371da28"></a>
 
@@ -191,7 +195,7 @@ public static final int IA_CLIENT_NCS = 18;
 ### LIBVSN <a href="#libvsn-9b15fe9684a4" id="libvsn-9b15fe9684a4"></a>
 
 ```java
-public static final int LIBVSN = 134742016;
+public static final int LIBVSN = 150994944;
 ```
 
 Library version.
@@ -242,7 +246,7 @@ Default port number that ConfD listens to.
 ### PROTOVSN <a href="#protovsn-2bf2bf5cea5d" id="protovsn-2bf2bf5cea5d"></a>
 
 ```java
-public static final int PROTOVSN = 88;
+public static final int PROTOVSN = 90;
 ```
 
 Library protocol version.

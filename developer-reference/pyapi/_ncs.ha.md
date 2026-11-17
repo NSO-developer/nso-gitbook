@@ -18,6 +18,9 @@ This documentation should be read together with the [confd_lib_ha(3)](../../reso
 benone(sock) -> None
 ```
 
+This function is deprecated and will be removed in a future release.
+Use `ncs.ha.HaConnection.be_none()` instead.
+
 Instruct a node to resume the initial state, i.e. neither become primary
 nor secondary.
 
@@ -30,6 +33,9 @@ Keyword arguments:
 ```python
 beprimary(sock, mynodeid) -> None
 ```
+
+This function is deprecated and will be removed in a future release.
+Use `ncs.ha.HaConnection.be_primary()` instead.
 
 Instruct a HA node to be primary and also give the node a name.
 
@@ -44,6 +50,9 @@ Keyword arguments:
 berelay(sock) -> None
 ```
 
+NSO does not support relay secondaries. This function will be removed
+in a future release.
+
 Instruct an established HA secondary node to be a relay for other
 secondary nodes.
 
@@ -56,6 +65,9 @@ Keyword arguments:
 ```python
 besecondary(sock, mynodeid, primary_id, primary_ip, waitreply) -> None
 ```
+
+This function is deprecated and will be removed in a future release.
+Use `ncs.ha.HaConnection.be_secondary()` instead.
 
 Instruct a NCS HA node to be a secondary node with a named primary node.
 If waitreply is True the function is synchronous and it will hang until the
@@ -77,13 +89,16 @@ Keyword arguments:
 ### connect
 
 ```python
-connect(sock, token, ip, port, pstr) -> None
+connect(sock, token, ip, port, path) -> None
 ```
+
+This function is deprecated and will be removed in a future release.
+Use `ncs.ha.HaConnection` instead.
 
 Connect a HA socket which can be used to control a NCS HA node. The token
 is a secret string that must be shared by all participants in the cluster.
-There can only be one HA socket towards NCS. A new call to
-ha_connect() makes NCS close the previous connection and reset the token to
+There can only be one HA socket towards NCS. A new call to `ha_connect()`
+makes NCS close the previous connection and reset the token to
 the new value.
 
 Keyword arguments:
@@ -92,13 +107,16 @@ Keyword arguments:
 * token -- secret string
 * ip -- the ip address if socket is AF_INET or AF_INET6 (optional)
 * port -- the port if socket is AF_INET or AF_INET6 (optional)
-* pstr -- a filename if socket is AF_UNIX (optional).
+* path -- a filename if socket is AF_UNIX (optional).
 
 ### secondary_dead
 
 ```python
 secondary_dead(sock, nodeid) -> None
 ```
+
+This function is deprecated and will be removed in a future release.
+Use `ncs.ha.HaConnection.mark_secondary_dead()` instead.
 
 This function must be used by the application to inform NCS HA subsystem
 that another node which is possibly connected to NCS is dead.
@@ -111,14 +129,20 @@ Keyword arguments:
 ### status
 
 ```python
-status(sock) -> None
+status(sock) -> tuple
 ```
+
+This function is deprecated and will be removed in a future release.
+Use `ncs.ha.HaConnection.status()` instead.
 
 Query a ConfD HA node for its status.
 
-Returns a 2-tuple of the HA status of the node in the format
-(State,[list_of_nodes]) where 'list_of_nodes' is the primary/secondary(s)
-connected with node.
+Returns a 2-tuple (state, nodes). state is the HA state of the node:
+STATE_NONE, STATE_SECONDARY, STATE_PRIMARY or STATE_SECONDARY_RELAY.
+nodes is a list of the primary/secondary(s) connected with the node.
+Each node is a dict with the keys 'nodeid' and 'address'. The address
+is an IPv4 or IPv6 address string, the address string of a node that
+uses external IPC, or None if it is not known.
 
 Keyword arguments:
 

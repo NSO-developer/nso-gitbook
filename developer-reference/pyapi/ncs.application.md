@@ -501,6 +501,14 @@ NanoService callback.
 This class makes it easy to create and register nano service callbacks by
 subclassing it and implementing some of the nano service callbacks.
 
+A callback decorated with `@NanoService.create` or `@NanoService.delete`
+may raise `error.CallbackError` to fail the service. For create, NSO
+reports the error to the client as a plain message, the code becomes
+part of the message text and the apptag and error_info are dropped.
+A failed delete does not fail the commit, NSO keeps the same plain
+message in the plan of the zombie. A warning is logged when the
+error has an `apptag` or `error_info`.
+
 ```python
 NanoService(daemon, servicepoint, componenttype, state, log=None, init_args=None)
 ```
@@ -737,6 +745,13 @@ Service callback.
 
 This class makes it easy to create and register service callbacks by
 subclassing it and implementing some of the service callbacks.
+
+A callback decorated with `@Service.create`, `@Service.pre_modification`
+or `@Service.post_modification` may raise error.CallbackError to fail
+the service. NSO reports the error to the client as a plain message,
+the code becomes part of the message text and the `apptag` and
+`error_info` are dropped. A warning is logged when the error has an
+`apptag` or `error_info`.
 
 ```python
 Service(daemon, servicepoint, log=None, init_args=None)

@@ -149,6 +149,10 @@ A datastructure to handle compaction information
 When we open CDB sessions we must choose which database to read
 or write from/to. These ints are defined in econfd.hrl
 
+On NSO, `?CDB_PRE_COMMIT_RUNNING` is rejected by `new_session/2,3`.
+Use `new_pre_commit_running_session/2` with an active subscription
+socket ID instead.
+
 ### err/0
 
 ```erlang
@@ -535,6 +539,52 @@ Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Get CDB start-phase.
 
+### get_pre_commit_running_tid/1
+
+```erlang
+-spec get_pre_commit_running_tid(SubSocket) -> Result
+                                    when
+                                        SubSocket :: econfd:socket(),
+                                        Result ::
+                                            {ok, integer()} | err().
+```
+
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
+
+Get a MAAPI transaction id for pre-commit running on a subscription socket.
+
+Pre-commit running is the running datastore as it was before the
+transaction that caused the current subscription notification. Call this
+function from the callback passed to `wait/3`, before it returns. Attach to
+the id with `econfd_maapi:attach2/4`. The transaction is read-only.
+Repeated calls during the same notification return the same id. CDB stops
+the transaction when the callback returns and `wait/3` acknowledges the
+notification, so detach before returning and do not finish the transaction.
+
+In NSO, use this function instead of starting a MAAPI transaction towards
+`?CONFD_PRE_COMMIT_RUNNING`. NSO rejects that request.
+
+Returns `{error, {?CONFD_ERR_UNAVAILABLE, _}}` if no previous data exists,
+and `{error, {?CONFD_ERR_PROTOUSAGE, _}}` if `SubSocket` is not a
+subscription socket.
+
+### get_socket_id/1
+
+```erlang
+-spec get_socket_id(Socket) -> Result
+                       when
+                           Socket :: econfd:socket(),
+                           Result :: {ok, integer()} | err().
+```
+
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
+
+Get the id assigned to this CDB socket.
+
+Use the id of a subscription socket as the `SubSocketId` argument of
+`new_pre_commit_running_session/2`. The id identifies the socket only
+within CDB. It is not a MAAPI transaction id.
+
 ### get_txid/1
 
 ```erlang
@@ -624,6 +674,32 @@ Related types: [compaction\_dbfile()](#compaction_dbfile-0), [econfd:error\_reas
 
 Initiates a journal compaction on Dbfile.
 
+### new_pre_commit_running_session/2
+
+```erlang
+-spec new_pre_commit_running_session(Socket, SubSocketId) -> Result
+                                        when
+                                            Socket :: econfd:socket(),
+                                            SubSocketId :: integer(),
+                                            Result ::
+                                                {ok, cdb_sess()} | err().
+```
+
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
+
+Start a read-only CDB session towards pre-commit running for a subscriber.
+
+`Socket` is a new socket from `connect/0,1,2`, not the subscription socket.
+`SubSocketId` is the result of `get_socket_id/1` on the subscription socket.
+The session reads the data as it was before the transaction that the
+subscriber is processing.
+
+In NSO, use this function instead of `new_session(Socket,
+?CDB_PRE_COMMIT_RUNNING)`. NSO rejects that call.
+
+Returns `{error, {?CONFD_ERR_NOEXISTS, <<"Invalid subsocket-id">>}}`
+if no subscription socket has that id.
+
 ### new_session/2
 
 ```erlang
@@ -637,6 +713,10 @@ Initiates a journal compaction on Dbfile.
 Related types: [cdb\_sess()](#cdb_sess-0), [dbtype()](#dbtype-0), [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Initiate a new session using the socket returned by connect().
+
+On NSO, `?CDB_PRE_COMMIT_RUNNING` is rejected. Use
+`new_pre_commit_running_session/2` with the ID returned by
+`get_socket_id/1` for the active subscription socket instead.
 
 ### new_session/3
 
@@ -653,6 +733,10 @@ Related types: [cdb\_sess()](#cdb_sess-0), [dbtype()](#dbtype-0), [err()](#err-0
 
 Initiate a new session using the socket returned by connect(),
 with detailed control via the Flags argument.
+
+On NSO, `?CDB_PRE_COMMIT_RUNNING` is rejected. Use
+`new_pre_commit_running_session/2` with the ID returned by
+`get_socket_id/1` for the active subscription socket instead.
 
 ### next_index/2
 

@@ -44,9 +44,12 @@ connect(ip='127.0.0.1', port=None, path='/tmp/nso/nso-ipc')
 
 Convenience function for connecting to ConfD/NCS.
 
-If 'port' is provided the connection uses TCP (with 'ip' defaulting
-to the value of NCS_IPC_ADDR / '127.0.0.1').
-Otherwise, if 'path' is provided, Local IPC is used.
+If 'port' is not None the connection uses TCP, and 'path' is ignored.
+Otherwise, if 'path' is not None, a Unix domain socket is used: NCS
+Local IPC, or ConfD External IPC with a Unix socket driver.
+
+For the connection defaults, see "IPC connection defaults" in the ncs
+or confd module documentation.
 
 Arguments:
 
@@ -100,17 +103,6 @@ Context manager for a single READ transaction.
 This function connects to ConfD/NCS, starts a user session and finally
 starts a new READ transaction.
 
-Function signature:
-
-    def single_read_trans(user, context, groups=[],
-                          db=RUNNING, ip=<CONFD-OR-NCS-ADDR>,
-                          port=<CONFD-OR-NCS-PORT>, path=None,
-                          src_ip=<CONFD-OR-NCS-ADDR>, src_port=0,
-                          proto=PROTO_TCP,
-                          vendor=None, product=None, version=None,
-                          client_id=_mk_client_id(),
-                          load_schemas=LOAD_SCHEMAS_LOAD, flags=0):
-
 For argument db, flags see Maapi.start_trans(). For arguments user,
 context, groups, src_ip, src_port, proto, vendor, product, version and
 client_id see Maapi.start_user_session().
@@ -125,7 +117,7 @@ Arguments:
 * db -- database (int)
 * ip -- ConfD/NCS instance ip address (str)
 * port -- ConfD/NCS instance port (int)
-* path -- ConfD/NCS instance location path (str)
+* path -- ConfD/NCS instance socket path (str)
 * src_ip - source ip address (str)
 * src_port - source port (int)
 * proto - protocol used by for connecting (i.e. ncs.PROTO_TCP)
@@ -151,17 +143,6 @@ Context manager for a single READ/WRITE transaction.
 This function connects to ConfD/NCS, starts a user session and finally
 starts a new READ/WRITE transaction.
 
-Function signature:
-
-    def single_write_trans(user, context, groups=[],
-                           db=RUNNING, ip=<CONFD-OR-NCS-ADDR>,
-                           port=<CONFD-OR-NCS-PORT>, path=None,
-                           src_ip=<CONFD-OR-NCS-ADDR>, src_port=0,
-                           proto=PROTO_TCP,
-                           vendor=None, product=None, version=None,
-                           client_id=_mk_client_id(),
-                           load_schemas=LOAD_SCHEMAS_LOAD, flags=0):
-
 For argument db, flags see Maapi.start_trans(). For arguments user,
 context, groups, src_ip, src_port, proto, vendor, product, version and
 client_id see Maapi.start_user_session().
@@ -176,7 +157,7 @@ Arguments:
 * db -- database (int)
 * ip -- ConfD/NCS instance ip address (str)
 * port -- ConfD/NCS instance port (int)
-* path -- ConfD/NCS instance location path (str)
+* path -- ConfD/NCS instance socket path (str)
 * src_ip - source ip address (str)
 * src_port - source port (int)
 * proto - protocol used by the client for connecting (int)
@@ -1411,7 +1392,7 @@ Arguments:
 
 * ip -- ConfD/NCS instance ip address (str, optional)
 * port -- ConfD/NCS instance port (int, optional)
-* path -- ConfD/NCS instance location path (str, optional)
+* path -- ConfD/NCS instance socket path (str, optional)
 * msock -- already connected MAAPI socket (socket.socket, optional)
            (ip, port and path ignored)
 * load_schemas -- whether schemas should be loaded/reloaded or not
@@ -1424,6 +1405,9 @@ schemas, for example when connecting to a different ConfD/NSO node.
 Note that previously constructed maagic objects will be invalid and
 using them will lead to undefined behavior. Use this option with care,
 for example in a small script querying a list of running nodes.
+
+For the connection defaults, see "IPC connection defaults" in the ncs
+or confd module documentation.
 
 Members:
 
@@ -2405,13 +2389,8 @@ Protocol flags (ncs):
 
 Example use:
 
-    maapi.start_user_session(
-          sock_maapi,
-          'admin',
-          'python',
-          [],
-          _ncs.ADDR,
-          _ncs.PROTO_TCP)
+    with ncs.maapi.Maapi() as m:
+        m.start_user_session('admin', 'python')
 
 </details>
 
@@ -2709,6 +2688,15 @@ Flags (maapi):
 * COMMIT_NCS_CONFIRM_NETWORK_STATE
 * COMMIT_NCS_CONFIRM_NETWORK_STATE_RE_EVALUATE_POLICIES
 * COMMIT_NCS_CONFIRM_NETWORK_STATE_RE_DEPLOY_ALL
+
+Validation warnings do not stop apply(), the transaction is
+committed anyway. Call validate() first to see them.
+
+Raises:
+
+* `error.LockedError` -- if another session holds a lock, retrying
+  later may succeed
+* `error.Error` -- on any other failure
 
 </details>
 
@@ -3011,6 +2999,13 @@ Arguments:
 
 * unlock (boolean)
 * forcevalidation (boolean)
+
+Raises:
+
+* `error.ValidationWarning` -- if the transaction validated with
+  warnings (a subclass of `error.Error`, catch it first to inspect
+  .warnings)
+* `error.Error` -- on validation failure
 
 </details>
 

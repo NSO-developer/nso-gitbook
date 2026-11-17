@@ -7725,6 +7725,12 @@ We will drive this transaction forward through the different states a
 The parameter `dbname` is supplied using on of
  [`Conf#DB_STARTUP`](../conf/Conf.md#db_startup-2ce085259486),[`Conf#DB_RUNNING`](../conf/Conf.md#db_running-c391f371da28),[`Conf#DB_CANDIDATE`](../conf/Conf.md#db_candidate-8b43a337ac93)
 
+Starting a transaction with [`Conf#DB_PRE_COMMIT_RUNNING`](../conf/Conf.md#db_pre_commit_running-0244b447e03f)
+ is supported by ConfD only. On NSO, obtain the transaction ID from an
+ active CDB subscription using
+ [`CdbSubscription#getPreCommitRunningTid()`](../cdb/CdbSubscription.md#getprecommitrunningtid-c840d97b80b0) and
+ attach to it with [`attach(int, int)`](Maapi.md#attach-0e2e60b563af).
+
 Transaction mode `mode` is supplied using
  [`Conf#MODE_READ`](../conf/Conf.md#mode_read-1e4ced2f015c), to start a read only transaction
  [`Conf#MODE_READ_WRITE`](../conf/Conf.md#mode_read_write-0883a33af731) to start a read write transaction.
@@ -7769,6 +7775,8 @@ public synchronized int startTrans(
 Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
 
 Start a new transaction with client identification.
+ See [`startTrans(int, int)`](Maapi.md#starttrans-5b69ebc4af09) for database availability, including
+ the ConfD-only pre-commit-running datastore.
 
 **Parameters**
 

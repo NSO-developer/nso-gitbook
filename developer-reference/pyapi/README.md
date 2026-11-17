@@ -10,7 +10,9 @@ Documentation for Python modules, generated from module source:
 - [ncs.application](ncs.application.md): Module for building NCS applications.
 - [ncs.cdb](ncs.cdb.md): CDB high level module.
 - [ncs.dp](ncs.dp.md): Callback module for connecting data providers to ConfD/NCS.
+- [ncs.error](ncs.error.md): High-level error API for ConfD/NCS.
 - [ncs.experimental](ncs.experimental.md): Experimental stuff.
+- [ncs.ha](ncs.ha.md): High-level API for the HA (High Availability) subsystem.
 - [ncs.log](ncs.log.md): This module provides some logging utilities.
 - [ncs.maagic](ncs.maagic.md): Confd/NCS data access module.
 - [ncs.maapi](ncs.maapi.md): MAAPI high level module.

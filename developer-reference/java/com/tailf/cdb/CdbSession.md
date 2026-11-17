@@ -43,9 +43,11 @@ The flags affect sessions for the different database types as follows:
 
    The `LOCK_PARTIAL` flag is not allowed.
 - ***CDB_STARTUP*** \- Same as CDB_RUNNING.
-- ***CDB_PRE_COMMIT_RUNNING***
-    \- This database type does not have any locks, which means that it
-   is an error to call `startSession` with any lock flags.
+- ***CDB_PRE_COMMIT_RUNNING*** \- In ConfD, this database has no
+   locks, so start a read session without lock flags. NSO rejects a direct
+   session start for this database;
+   use [`Cdb#startPreCommitRunningSession(CdbSubscription)`](Cdb.md#startprecommitrunningsession-17b5b00e0d18) with an active
+   subscription instead.
 - ***CDB_OPERATIONAL*** \-
    `LOCK_REQUEST` obtains a "subscription lock" for the
    duration of each write request. This can be described as an
@@ -198,6 +200,7 @@ Starts a new session on an already connected *Cdb* instance.
 
 - `com.tailf.cdb.Cdb cdb` - The CDB instance with a socket connected to ConfD/NCS.
 - `com.tailf.cdb.CdbDBType dbtype` - see [`CdbDBType`](CdbDBType.md#cdbdbtype-5ae1aed3f97a)
+(direct sessions for CDB_PRE_COMMIT_RUNNING are ConfD only)
 
 **Throws**
 
@@ -224,6 +227,7 @@ Starts a new session on an already established Cdb with
 
 - `com.tailf.cdb.Cdb cdb`
 - `com.tailf.cdb.CdbDBType dbtype` - see [`CdbDBType`](CdbDBType.md#cdbdbtype-5ae1aed3f97a)
+(direct sessions for CDB_PRE_COMMIT_RUNNING are ConfD only)
 - `java.util.EnumSet<com.tailf.cdb.CdbLockType> lockflags` - [`CdbLockType`](CdbLockType.md#cdblocktype-1d165621c0a3)
 
 **Throws**

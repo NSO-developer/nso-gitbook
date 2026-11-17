@@ -19,9 +19,9 @@ This top module imports the following modules:
 * application -- module for implementing packages and services
 * cdb -- placeholder for low-level _ncs.cdb items
 * dp -- data provider, actions
-* error -- placeholder for low-level _ncs.error items
+* error -- error codes, exception types, and utilities
 * events -- placeholder for low-level _ncs.events items
-* ha -- placeholder for low-level _ncs.ha items
+* ha -- high availability module
 * log -- logging utilities
 * maagic -- data access module
 * maapi -- MAAPI interface
@@ -30,13 +30,31 @@ This top module imports the following modules:
 * upgrade -- module for writing upgrade components
 * util -- misc utilities
 
+IPC connection defaults:
+
+The constants ADDR, PORT and PATH are the default connection arguments.
+They are set from environment variables when the module is imported:
+
+* If NCS_IPC_PATH is set, PATH is its value and PORT is None (Local IPC).
+* Otherwise, if NCS_IPC_PORT is set, PORT is its value and PATH is None
+  (TCP).
+* Otherwise, PATH is '/tmp/nso/nso-ipc' and PORT is None.
+
+ADDR is the value of NCS_IPC_ADDR, or '127.0.0.1'. It is used only with
+TCP.
+
+If NSO starts the Python VM, NSO sets these variables to the port or path
+that NSO uses.
+
 ## Submodules
 
 - [ncs.alarm](ncs.alarm.md): NCS Alarm Manager module.
 - [ncs.application](ncs.application.md): Module for building NCS applications.
 - [ncs.cdb](ncs.cdb.md): CDB high level module.
 - [ncs.dp](ncs.dp.md): Callback module for connecting data providers to ConfD/NCS.
+- [ncs.error](ncs.error.md): High-level error API for ConfD/NCS.
 - [ncs.experimental](ncs.experimental.md): Experimental stuff.
+- [ncs.ha](ncs.ha.md): High-level API for the HA (High Availability) subsystem.
 - [ncs.log](ncs.log.md): This module provides some logging utilities.
 - [ncs.maagic](ncs.maagic.md): Confd/NCS data access module.
 - [ncs.maapi](ncs.maapi.md): MAAPI high level module.
@@ -283,12 +301,12 @@ LF_EXISTS = 4
 LF_NOT = 2
 LF_OR = 0
 LF_ORIGIN = 6
-LIB_API_VSN = 134742016
-LIB_API_VSN_STR = '08080000'
-LIB_PROTO_VSN = 88
-LIB_PROTO_VSN_STR = '88'
-LIB_VSN = 134742016
-LIB_VSN_STR = '08080000'
+LIB_API_VSN = 150994944
+LIB_API_VSN_STR = '09000000'
+LIB_PROTO_VSN = 90
+LIB_PROTO_VSN_STR = '90'
+LIB_VSN = 150994944
+LIB_VSN_STR = '09000000'
 LISTENER_CLI = 8
 LISTENER_IPC = 1
 LISTENER_NETCONF = 2

@@ -50,9 +50,14 @@ Each subscriber can have multiple subscription points,
      [`read()`](CdbSubscription.md#read-b28b830b98d6) it will receive points that was affected by a transaction
      and it can iterate through the changes that caused the
      particular subscription notification using the `diffIterate`
-     method. It is also possible to start a new read-session to
-     the `CDB_PRE_COMMIT_RUNNING` database to read the
-     running database as it was before the pending transaction.
+     method. To read the running database as it was before the pending
+     transaction, ConfD clients can start a read session with
+     [`Cdb#startSession(CdbDBType)`](Cdb.md#startsession-6f137bd83c44) and
+     [`CdbDBType#CDB_PRE_COMMIT_RUNNING`](CdbDBType.md#cdb_pre_commit_running-68ec740136a8). On NSO, use
+     [`Cdb#startPreCommitRunningSession(CdbSubscription)`](Cdb.md#startprecommitrunningsession-17b5b00e0d18) on a
+     separate CDB connection, or [`getPreCommitRunningTid()`](CdbSubscription.md#getprecommitrunningtid-c840d97b80b0) to
+     attach a MAAPI transaction. Do this before calling
+     [`sync(CdbSubscriptionSyncType)`](CdbSubscription.md#sync-e4ae9cc34a8a).
 - Once we have read the subscription notification through a call to
    `read` and optionally used the `diffIterate`
    to iterate through the changes as well as acted on the changes to *CDB*,
@@ -121,6 +126,7 @@ Each subscriber can have multiple subscription points,
 - [getModificationsCLI\(int\)](#getmodificationscli-45ceff108167)
 - [getModificationsCLI\(int, int\)](#getmodificationscli-2622ef2fb979)
 - [getMountId\(ConfPath\)](#getmountid-83243c09b7c3)
+- [getPreCommitRunningTid\(\)](#getprecommitrunningtid-c840d97b80b0)
 - [getUserSession\(\)](#getusersession-7a9eeeb92f85)
 - [read\(\)](#read-b28b830b98d6)
 - [setMandatory\(String\)](#setmandatory-bd0c402c922f)
@@ -718,6 +724,32 @@ Types: [ConfPath](../conf/ConfPath.md#confpath-327831c6fc7d), [ConfException](..
 **Parameters**
 
 - `com.tailf.conf.ConfPath path`
+
+### getPreCommitRunningTid() <a href="#getprecommitrunningtid-c840d97b80b0" id="getprecommitrunningtid-c840d97b80b0"></a>
+
+```java
+public int getPreCommitRunningTid() throws java.io.IOException, com.tailf.conf.ConfException
+```
+
+Types: [ConfException](../conf/ConfException.md#confexception-baeaab99f7f9)
+
+Returns the transaction ID for this subscription's pre-commit-running
+ snapshot.
+
+On NSO, call this after [`read()`](CdbSubscription.md#read-b28b830b98d6) and before
+ [`sync(CdbSubscriptionSyncType)`](CdbSubscription.md#sync-e4ae9cc34a8a), then attach a MAAPI connection
+ to the returned transaction ID. Detach before synchronizing the
+ subscription. In ConfD, a read session can instead be started with
+ [`Cdb#startSession(CdbDBType)`](Cdb.md#startsession-6f137bd83c44) and
+ [`CdbDBType#CDB_PRE_COMMIT_RUNNING`](CdbDBType.md#cdb_pre_commit_running-68ec740136a8).
+
+**Returns:** the pre-commit-running transaction ID
+
+**Throws**
+
+- `java.io.IOException` - if an I/O error occurs on the subscription socket
+- `com.tailf.conf.ConfException` - if the snapshot is unavailable or the request
+fails
 
 ### getUserSession() <a href="#getusersession-7a9eeeb92f85" id="getusersession-7a9eeeb92f85"></a>
 
