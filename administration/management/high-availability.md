@@ -476,10 +476,6 @@ Also, note that the `ncs.crypto_keys` file is highly sensitive. The file contain
 
 NSO can assume HA roles `primary`, `secondary` and `none`. Roles can be assigned directly through actions, or at startup or failover. See [HA Framework Requirements](high-availability.md#ha-framework-requirements) for the definition of these roles.
 
-{% hint style="info" %}
-NSO rule-based HA does not support relay-secondaries.
-{% endhint %}
-
 NSO rule-based HA distinguishes between the concepts of nominal role and assigned role. Nominal-role is configuration data that applies when an NSO instance starts up and at failover. The assigned role is the role that the NSO instance has been ordered to assume either by an action or as a result of startup or failover.
 
 ### Failover <a href="#d5e4857" id="d5e4857"></a>
