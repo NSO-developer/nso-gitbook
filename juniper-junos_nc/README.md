@@ -2515,7 +2515,13 @@ Junos NED Migration Guide: https://nso-docs.cisco.com/guides/administration/mana
 
 The JunOS platform supports a special operation known as configuration deactivation. This allows you to remove the effect of a configuration node without actually deleting it from the configuration file. The node remains visible in the running configuration, but it is marked as inactive and has no operational impact on the device.
 
-The `juniper-junos_nc` NED provides built-in support for these operations via three internal RPCs, allowing you to manage inactive states directly through NSO.
+Starting with NSO 7.0, you can use the NSO CLI `activate` and `deactivate` commands directly on Junos configuration nodes. Enable this support for the device by setting `transaction enable-activate-deactivate` to `true`:
+
+```text
+admin@ncs(config)# devices device dev-1 ned-settings juniper-junos_nc transaction enable-activate-deactivate true
+```
+
+The `juniper-junos_nc` NED also provides three internal RPCs for managing inactive states through NSO. Use these RPCs with earlier NSO versions that cannot pass the native activate and deactivate operations to the NED.
 
 ## Available RPC Operations
 
@@ -2600,4 +2606,4 @@ paths {
 
 **Note regarding NSO CLI compatibility:**
 
-In NSO version 6.7.2 and earlier, the native NSO CLI commands `activate` and `deactivate` cannot be used in conjunction with this NED. Due to an internal limitation in NSO, using those native commands will have no effect. NSO will not invoke the NED properly. Please ensure you use the provided irpc calls as shown above to manage JunOS deactivation state.
+In NSO versions earlier than 7.0, use the internal RPCs described above to manage the Junos activation state. The native NSO CLI `activate` and `deactivate` commands cannot pass these operations to the NED.

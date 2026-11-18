@@ -199,7 +199,7 @@
 * nokia-srlinux_gnmi
   * [README-ned-settings](nokia-srlinux_gnmi/README-ned-settings.md)
   * [README-rebuild](nokia-srlinux_gnmi/README-rebuild.md)
-  * [README v1.2.22 2026-11-12](nokia-srlinux_gnmi/README.md)
+  * [README v1.2.22.1 2026-11-17](nokia-srlinux_gnmi/README.md)
 
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
@@ -243,6 +243,10 @@
   * [README-ned-settings](redhat-ansible/README-ned-settings.md)
   * [README v1.0.17 2026-04-03](redhat-ansible/README.md)
 
+* redhat-dir389
+  * [README-ned-settings](redhat-dir389/README-ned-settings.md)
+  * [README v1.2.7 2026-11-17](redhat-dir389/README.md)
+
 * redhat-openshift-k8s
   * [README-ned-settings](redhat-openshift-k8s/README-ned-settings.md)
   * [README v1.0.2 2026-03-23](redhat-openshift-k8s/README.md)
@@ -278,5 +282,5 @@
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
-  * [README v1.6.4 2026-09-23](zte-zxros/README.md)
+  * [README v1.6.5 2026-11-17](zte-zxros/README.md)
 
