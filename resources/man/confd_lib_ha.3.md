@@ -51,13 +51,11 @@ cluster. There can only be one HA socket towards NSO, a new call to
 `confd_ha_connect()` makes NSO close the previous connection and reset
 the token to the new value. Returns CONFD_OK or CONFD_ERR.
 
-<div class="note">
-
-If this call fails (i.e. does not return CONFD_OK), the socket
-descriptor must be closed and a new socket created before the call is
-re-attempted.
-
-</div>
+> **Note**  
+>  
+> If this call fails (i.e. does not return CONFD_OK), the socket
+> descriptor must be closed and a new socket created before the call is
+> re-attempted.
 
     int confd_ha_beprimary(
     int sock, confd_value_t *mynodeid);

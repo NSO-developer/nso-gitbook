@@ -135,7 +135,7 @@ called terminates -- either normally or through an unhandled exception
 or until the optional timeout occurs.
 
 When the timeout argument is present and not None, it should be a
-floating point number specifying a timeout for the operation in seconds
+floating-point number specifying a timeout for the operation in seconds
 (or fractions thereof). As join() always returns None, you must call
 is_alive() after join() to decide whether a timeout happened -- if the
 thread is still alive, the join() call timed out.
@@ -491,7 +491,7 @@ called terminates -- either normally or through an unhandled exception
 or until the optional timeout occurs.
 
 When the timeout argument is present and not None, it should be a
-floating point number specifying a timeout for the operation in seconds
+floating-point number specifying a timeout for the operation in seconds
 (or fractions thereof). As join() always returns None, you must call
 is_alive() after join() to decide whether a timeout happened -- if the
 thread is still alive, the join() call timed out.
@@ -814,7 +814,7 @@ called terminates -- either normally or through an unhandled exception
 or until the optional timeout occurs.
 
 When the timeout argument is present and not None, it should be a
-floating point number specifying a timeout for the operation in seconds
+floating-point number specifying a timeout for the operation in seconds
 (or fractions thereof). As join() always returns None, you must call
 is_alive() after join() to decide whether a timeout happened -- if the
 thread is still alive, the join() call timed out.

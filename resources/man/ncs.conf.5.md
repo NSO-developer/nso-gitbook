@@ -108,8 +108,11 @@ how they relate to each other.
 > By default (true) NCS will validate any data modeled as 'string' to be
 > valid UTF-8 and conform to yang-string.
 >
-> NOTE: String data from data providers and in the ncs.conf file itself
-> are not validated.
+> NOTE: String data from data providers is not validated.
+>
+> NOTE: This setting is not applied to ncs.conf itself, CLI spec files,
+> SNMP MIBs, or default values in YANG modules. These inputs are read
+> before the setting is available and are always validated.
 >
 > The possibility to disable UTF-8 validation is supplied because it can
 > help in certain situations if there is data which is invalid UTF-8 or
@@ -154,7 +157,7 @@ how they relate to each other.
 > These settings are not used when Local IPC is enabled (which is the
 > default).
 
-/ncs-config/ncs-ipc-address/ip (ipv4-address \| ipv6-address) \[127.0.0.1\]  
+/ncs-config/ncs-ipc-address/ip (ip-address) \[127.0.0.1\]  
 > The IP address which NCS listens on for incoming connections from the
 > Java library
 
@@ -162,7 +165,7 @@ how they relate to each other.
 > The port number which NCS listens on for incoming connections from the
 > Java library
 
-/ncs-config/ncs-ipc-extra-listen-ip (ipv4-address \| ipv6-address)  
+/ncs-config/ncs-ipc-extra-listen-ip (ip-address)  
 > This parameter may be given multiple times.
 >
 > A list of additional IPs to which we wish to bind the NCS IPC
@@ -299,8 +302,6 @@ how they relate to each other.
 
 /ncs-config/notifications  
 > This section defines settings which affect notifications.
->
-> NETCONF and RESTCONF northbound notification settings
 
 /ncs-config/notifications/event-streams  
 > Lists all available notification event streams.
@@ -416,6 +417,7 @@ how they relate to each other.
 > searches for initialization files.
 
 /ncs-config/cdb/persistence/format (in-memory-v1 \| on-demand-v1) \[on-demand-v1\]  
+> 
 
 /ncs-config/cdb/persistence/db-statistics (disabled \| enabled) \[disabled\]  
 > If set to 'enabled', underlying database produces internal statistics
@@ -570,6 +572,7 @@ how they relate to each other.
 > which will be used to encrypt any strings.
 
 /ncs-config/encrypted-strings/key-rotation/generation (int16)  
+> 
 
 /ncs-config/encrypted-strings/key-rotation/AESCFB128  
 > In the AESCFB128 case one 128 bits (16 bytes) key and a random initial
@@ -896,6 +899,72 @@ how they relate to each other.
 > value 'error' means that only PDUs with error-status not equal to
 > 'noError' are printed.
 
+/ncs-config/logs/smart-license-log  
+> smart-license-log is a log of smart licensing events. This log is
+> enabled by default. In all other regards it can be configured as
+> /ncs-config/logs/ncs-log. This log is not rotated, i.e. use
+> logrotate(8).
+
+/ncs-config/logs/smart-license-log/log-level (fatal \| alert \| critical \| error \| warn \| notice \| info \| debug \| trace) \[info\]  
+> Controls which level of smart-license messages is printed in the
+> smart-license log.
+
+/ncs-config/logs/smart-license-log/enabled (boolean) \[true\]  
+> If set to true, the log is enabled.
+
+/ncs-config/logs/smart-license-log/file/name (string)  
+> Name is the full path to the actual log file.
+
+/ncs-config/logs/smart-license-log/file/enabled (boolean) \[false\]  
+> If set to true, file logging is enabled
+
+/ncs-config/logs/smart-license-log/file/format (text \| ndjson) \[text\]  
+> Format is either text or ndjson. The default is text.
+
+/ncs-config/logs/smart-license-log/syslog/enabled (boolean) \[false\]  
+> If set to true, syslog messages are sent.
+
+/ncs-config/logs/smart-license-log/syslog/facility (daemon \| authpriv \| local0 \| local1 \| local2 \| local3 \| local4 \| local5 \| local6 \| local7 \| uint32)  
+> This optional value overrides the
+> /ncs-config/logs/syslog-config/facility for this particular log.
+
+/ncs-config/logs/smart-license-log/external/enabled (boolean) \[false\]  
+> enabled is either 'true' or 'false'. If 'true', send log data to
+> external command for processing.
+
+/ncs-config/logs/restconf-log  
+> restconf-log is a log of RESTCONF traffic. This log is enabled by
+> default. In all other regards it can be configured as
+> /ncs-config/logs/ncs-log. This log is not rotated, i.e. use
+> logrotate(8).
+
+/ncs-config/logs/restconf-log/log-level (fatal \| alert \| critical \| error \| warn \| notice \| info \| debug \| trace) \[info\]  
+> Controls which level of RESTCONF messages is printed in the RESTCONF
+> log.
+
+/ncs-config/logs/restconf-log/enabled (boolean) \[true\]  
+> If set to true, the log is enabled.
+
+/ncs-config/logs/restconf-log/file/name (string)  
+> Name is the full path to the actual log file.
+
+/ncs-config/logs/restconf-log/file/enabled (boolean) \[false\]  
+> If set to true, file logging is enabled
+
+/ncs-config/logs/restconf-log/file/format (text \| ndjson) \[text\]  
+> Format is either text or ndjson. The default is text.
+
+/ncs-config/logs/restconf-log/syslog/enabled (boolean) \[false\]  
+> If set to true, syslog messages are sent.
+
+/ncs-config/logs/restconf-log/syslog/facility (daemon \| authpriv \| local0 \| local1 \| local2 \| local3 \| local4 \| local5 \| local6 \| local7 \| uint32)  
+> This optional value overrides the
+> /ncs-config/logs/syslog-config/facility for this particular log.
+
+/ncs-config/logs/restconf-log/external/enabled (boolean) \[false\]  
+> enabled is either 'true' or 'false'. If 'true', send log data to
+> external command for processing.
+
 /ncs-config/logs/webui-browser-log  
 > Deprecated. Should not be used.
 
@@ -963,6 +1032,25 @@ how they relate to each other.
 /ncs-config/logs/netconf-trace-log/format (pretty \| raw) \[pretty\]  
 > The value 'pretty' means that the XML data is pretty-printed. The
 > value 'raw' means that it is not.
+
+/ncs-config/logs/conflict-trace-log  
+> conflict-trace-log is a log for understanding and troubleshooting
+> transaction conflicts. When this log is enabled, transactions will
+> record details about reads during validation and present a detailed
+> report in case of a transaction conflict.
+>
+> This will slow down NCS, so be careful when enabling this log. This
+> log is not rotated, i.e. use logrotate(8).
+
+/ncs-config/logs/conflict-trace-log/enabled (boolean) \[false\]  
+> If set to 'true', conflicts are logged.
+
+/ncs-config/logs/conflict-trace-log/filename (string)  
+> The name of the file where the conflict trace log is written.
+
+/ncs-config/logs/conflict-trace-log/external/enabled (boolean) \[false\]  
+> enabled is either 'true' or 'false'. If 'true', send log data to an
+> external command for processing.
 
 /ncs-config/logs/xpath-trace-log  
 > xpath-trace-log is a log for understanding and troubleshooting XPath
@@ -1054,8 +1142,10 @@ how they relate to each other.
 > rotated. Log filenames are reused when five logs have been exhausted.
 
 /ncs-config/logs/error-log/debug/enabled (boolean) \[false\]  
+> 
 
 /ncs-config/logs/error-log/debug/level (uint16) \[2\]  
+> 
 
 /ncs-config/logs/error-log/debug/tag (string)  
 > This parameter may be given multiple times.
@@ -1077,6 +1167,7 @@ how they relate to each other.
 > The directory path to the location of the progress trace files.
 
 /ncs-config/logs/external/enabled (boolean) \[false\]  
+> 
 
 /ncs-config/logs/external/command (string)  
 > This parameter is mandatory.
@@ -1117,6 +1208,51 @@ how they relate to each other.
 /ncs-config/enable-origin (boolean) \[false\]  
 > This parameter controls if NCS's NMDA origin feature should be enabled
 > or not.
+
+/ncs-config/max-idle-timeout (xs:duration) \[PT30M\]  
+> The longest time that a CLI, WebUI/JSON-RPC or NETCONF session can
+> stay idle, and a RESTCONF operation or a notification stream can wait
+> before terminating the request or stream. When a CLI, WebUI/JSON-RPC
+> or NETCONF session is idle for longer than this time, the session
+> expires and the user must log in again. For RESTCONF, when the server
+> waits for longer than this time, it terminates the request or stream
+> without waiting for the client to send more of the request body or for
+> a notification stream to deliver more content.
+>
+> The value is an xs:duration, for example PT30M (30 minutes) or PT1H (1
+> hour). The default is PT30M. PT0S means that there is no systemwide
+> limit. The maximum value is equivalent of 4294967 seconds
+> (approximately 49 days 17 hours). A larger value makes NCS reject
+> ncs.conf. Positive values below one second are also rejected. Other
+> fractional values are truncated to whole seconds.
+>
+> When this value is not PT0S, NCS rejects ncs.conf if
+> /ncs-config/cli/idle-timeout, /ncs-config/webui/idle-timeout,
+> /ncs-config/netconf-north-bound/idle-timeout or
+> /ncs-config/restconf/idle-timeout is set to a longer value or to PT0S
+> (no timeout). An interface that has no idle-timeout uses
+> max-idle-timeout. The idle-timeout of a disabled interface is not
+> checked.
+>
+> When this value is not PT0S, NCS also rejects a commit that sets the
+> idle timeout in /aaa:session or /aaa:user/session to a longer value or
+> to 0, and the CLI command idle-timeout rejects a longer value or 0. If
+> you lower max-idle-timeout and reload ncs.conf, NCS does not recheck
+> stored /aaa values. The CLI limits a longer stored value to
+> max-idle-timeout. An existing CLI session uses the new limit from the
+> reload.
+>
+> A WebUI/JSON-RPC session uses the shorter of
+> /ncs-config/webui/idle-timeout and max-idle-timeout. An existing
+> WebUI/JSON-RPC session uses the new limit from a reload.
+>
+> A NETCONF session uses the shorter of
+> /ncs-config/netconf-north-bound/idle-timeout and max-idle-timeout.
+>
+> A RESTCONF request or stream uses the shorter of
+> /ncs-config/restconf/idle-timeout and max-idle-timeout. A new limit
+> applies to RESTCONF requests and notification streams that are started
+> after the reload.
 
 /ncs-config/session-limits  
 > Parameters for limiting concurrent access to NCS.
@@ -1178,6 +1314,7 @@ how they relate to each other.
 > setting can be smaller than the number of logical processors.
 
 /ncs-config/transaction-limits/scheduling-mode (relaxed \| strict) \[relaxed\]  
+> 
 
 /ncs-config/parser-limits  
 > Parameters for limiting parsing of XML data.
@@ -1573,8 +1710,11 @@ how they relate to each other.
 > were made when the rollback was created.
 
 /ncs-config/rollback/enabled (boolean) \[false\]  
-> When set to true a rollback file will be created whenever the running
-> configuration is modified.
+> When set to 'true' a rollback file will be created whenever the
+> running configuration is modified. In an HA cluster, this leaf must
+> have the same value on every node, whether 'true' or 'false'. A
+> secondary cannot join the cluster if its value differs from the
+> primary value.
 
 /ncs-config/rollback/directory (string)  
 > This parameter is mandatory.
@@ -1628,13 +1768,14 @@ how they relate to each other.
 > value to "ssh-dss" or avoid installing a key of any other type than
 > ssh-dss in the sshServerKeyDir.
 
-/ncs-config/ssh/algorithms/kex (string) \[curve25519-sha256,ecdh-sha2-nistp256,diffie-hellman-group14-sha256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group16-sha512,diffie-hellman-group-exchange-sha256\]  
+/ncs-config/ssh/algorithms/kex (string) \[mlkem768x25519-sha256,curve25519-sha256,ecdh-sha2-nistp256,diffie-hellman-group14-sha256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group16-sha512,diffie-hellman-group-exchange-sha256\]  
 > The supported key exchange algorithms (as long as their hash functions
 > are implemented in libcrypto) are "ecdh-sha2-nistp521",
 > "ecdh-sha2-nistp384", "ecdh-sha2-nistp256", "curve25519-sha256",
 > "diffie-hellman-group14-sha256", "diffie-hellman-group14-sha1",
 > "diffie-hellman-group16-sha512",
-> "diffie-hellman-group-exchange-sha256".
+> "diffie-hellman-group-exchange-sha256", "mlkem768x25519-sha256" (a
+> post-quantum hybrid key exchange combining ML-KEM-768 with X25519).
 >
 > To limit the usable key exchange algorithms to
 > "diffie-hellman-group14-sha1" and "diffie-hellman-group14-sha256" (in
@@ -1743,7 +1884,7 @@ how they relate to each other.
 > enabled is either 'true' or 'false'. If 'true' the NCS CLI will use
 > the built in SSH server.
 
-/ncs-config/cli/ssh/ip (ipv4-address \| ipv6-address) \[0.0.0.0\]  
+/ncs-config/cli/ssh/ip (ip-address) \[0.0.0.0\]  
 > ip is an IP address which the NCS CLI should listen on for SSH
 > connections. '0.0.0.0' or '::' means that it listens on the port
 > (/ncs-config/cli/ssh/port) for all IPv4 or IPv6 addresses on the
@@ -1771,9 +1912,11 @@ how they relate to each other.
 > '::' to listen on the port for all IPv4 or IPv6 addresses on the
 > machine.
 
-/ncs-config/cli/ssh/extra-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/cli/ssh/extra-listen/ip (ip-address)  
+> 
 
 /ncs-config/cli/ssh/extra-listen/port (port-number)  
+> 
 
 /ncs-config/cli/ssh/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -1783,9 +1926,11 @@ how they relate to each other.
 > different role, then NCS will shutdown these listen addresses and
 > terminate any ongoing traffic.
 
-/ncs-config/cli/ssh/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/cli/ssh/ha-primary-listen/ip (ip-address)  
+> 
 
 /ncs-config/cli/ssh/ha-primary-listen/port (port-number)  
+> 
 
 /ncs-config/cli/top-level-cmds-in-sub-mode (boolean) \[false\]  
 > topLevelCmdsInSubMode is either 'true' or 'false'. If set to 'true'
@@ -2067,9 +2212,15 @@ how they relate to each other.
 > When the \h token is used in a prompt the first part of the hostname
 > up until the first occurance of the promptHostnameDelimiter is used.
 
-/ncs-config/cli/idle-timeout (xs:duration) \[PT30M\]  
-> Maximum idle time before terminating a CLI session. Default is PT30M,
-> ie 30 minutes.
+/ncs-config/cli/idle-timeout (xs:duration)  
+> Maximum idle time before terminating a CLI session. When not set,
+> /ncs-config/max-idle-timeout is used. PT0M means no timeout. The CLI
+> can override this value through AAA settings or the runtime
+> idle-timeout command. The selected value is limited by
+> /ncs-config/max-idle-timeout. A value longer than a finite limit,
+> including PT0M, is rejected when the CLI is enabled. Changes apply to
+> existing sessions. An idle timer restarts only when the effective
+> timeout changes.
 
 /ncs-config/cli/prompt-sessions-cli (boolean) \[false\]  
 > promptSessionsCLI is either 'true' or 'false'. If set to 'true' then
@@ -2098,7 +2249,14 @@ how they relate to each other.
 > This timeout can be overridden by a command specific timeout specified
 > in the ncs.cli file.
 
-/ncs-config/cli/space-completion/enabled (boolean)  
+/ncs-config/cli/space-completion  
+> Default value for space completion in the CLI. The user can always
+> enable or disable completion on space, this only controls the initial
+> session value.
+
+/ncs-config/cli/space-completion/enabled (boolean) \[true\]  
+> enabled is either 'true' or 'false'. If 'true' command and argument
+> completion will be performed when \<space\> is entered.
 
 /ncs-config/cli/ignore-leading-whitespace (boolean)  
 > If 'false' then the CLI will show completion help when the user enters
@@ -2341,6 +2499,7 @@ how they relate to each other.
 > The headers will be part of all HTTP responses.
 
 /ncs-config/restconf/custom-headers/header/name (string)  
+> 
 
 /ncs-config/restconf/custom-headers/header/value (string)  
 > This parameter is mandatory.
@@ -2451,7 +2610,7 @@ how they relate to each other.
 > enabled is either 'true' or 'false'. If 'true', the RESTCONF server
 > uses clear text TCP as a transport service.
 
-/ncs-config/restconf/transport/tcp/ip (ipv4-address \| ipv6-address) \[0.0.0.0\]  
+/ncs-config/restconf/transport/tcp/ip (ip-address) \[0.0.0.0\]  
 > The IP address which the RESTCONF server should listen on for TCP
 > connections. '0.0.0.0' or '::' means that it listens to the port for
 > all IPv4 or IPv6 addresses on the machine.
@@ -2465,9 +2624,11 @@ how they relate to each other.
 > server should also listen on. Set the ip as '0.0.0.0' or '::' to
 > listen on the port for all IPv4 or IPv6 addresses on the machine.
 
-/ncs-config/restconf/transport/tcp/extra-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/restconf/transport/tcp/extra-listen/ip (ip-address)  
+> 
 
 /ncs-config/restconf/transport/tcp/extra-listen/port (port-number)  
+> 
 
 /ncs-config/restconf/transport/tcp/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -2477,9 +2638,11 @@ how they relate to each other.
 > different role, then NCS will shutdown these listen addresses and
 > terminate any ongoing traffic.
 
-/ncs-config/restconf/transport/tcp/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/restconf/transport/tcp/ha-primary-listen/ip (ip-address)  
+> 
 
 /ncs-config/restconf/transport/tcp/ha-primary-listen/port (port-number)  
+> 
 
 /ncs-config/restconf/transport/tcp/dscp (dscp-type)  
 > Support for setting the Differentiated Services Code Point (6 bits)
@@ -2493,7 +2656,7 @@ how they relate to each other.
 > enabled is either 'true' or 'false'. If 'true', the RESTCONF server
 > uses SSL as a transport service.
 
-/ncs-config/restconf/transport/ssl/ip (ipv4-address \| ipv6-address) \[0.0.0.0\]  
+/ncs-config/restconf/transport/ssl/ip (ip-address) \[0.0.0.0\]  
 > The IP address which the RESTCONF server should listen on for incoming
 > SSL connections. '0.0.0.0' or '::' means that it listens to the port
 > for all IPv4 or IPv6 addresses on the machine.
@@ -2507,9 +2670,11 @@ how they relate to each other.
 > as '0.0.0.0' or '::' to listen on the port for all IPv4 or IPv6
 > addresses on the machine.
 
-/ncs-config/restconf/transport/ssl/extra-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/restconf/transport/ssl/extra-listen/ip (ip-address)  
+> 
 
 /ncs-config/restconf/transport/ssl/extra-listen/port (port-number)  
+> 
 
 /ncs-config/restconf/transport/ssl/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -2519,9 +2684,11 @@ how they relate to each other.
 > different role, then NCS will shutdown these listen addresses and
 > terminate any ongoing traffic.
 
-/ncs-config/restconf/transport/ssl/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/restconf/transport/ssl/ha-primary-listen/ip (ip-address)  
+> 
 
 /ncs-config/restconf/transport/ssl/ha-primary-listen/port (port-number)  
+> 
 
 /ncs-config/restconf/transport/ssl/dscp (dscp-type)  
 > Support for setting the Differentiated Services Code Point (6 bits)
@@ -2648,9 +2815,8 @@ how they relate to each other.
 
 /ncs-config/restconf/transport/ssl/protocols (string) \[DEFAULT\]  
 > Specifies the SSL/TLS protocol versions to be used by the server as a
-> whitespace-separated list from the set tlsv1 tlsv1.1 tlsv1.2 tlsv1.3,
-> or the word 'DEFAULT' (use all supported protocol versions except the
-> set tlsv1 tlsv1.1).
+> whitespace-separated list from the set tlsv1.2 tlsv1.3, or the word
+> 'DEFAULT' (use all supported protocol versions).
 
 /ncs-config/restconf/transport/ssl/elliptic-curves (string) \[DEFAULT\]  
 > Specifies the curves for Elliptic Curve cipher suites to be used by
@@ -2662,6 +2828,28 @@ how they relate to each other.
 >
 > or the word 'DEFAULT' (use all supported curves).
 
+/ncs-config/restconf/transport/ssl/supported-groups (string) \[DEFAULT\]  
+> Specifies the TLS 1.3 key agreement groups as a whitespace-separated
+> list from the set
+>
+> x25519mlkem768, secp256r1mlkem768, secp384r1mlkem1024, mlkem1024,
+> mlkem768, mlkem512, x25519, x448, secp521r1, secp384r1, secp256r1,
+> brainpoolP512r1tls13, brainpoolP384r1tls13, brainpoolP256r1tls13,
+>
+> or the word 'DEFAULT' (use all supported groups).
+
+/ncs-config/restconf/transport/ssl/signature-algorithms (string) \[DEFAULT\]  
+> Specifies the TLS 1.3 signature algorithms as a whitespace-separated
+> list from the set
+>
+> mldsa87, mldsa65, mldsa44, eddsa_ed25519, eddsa_ed448,
+> ecdsa_secp521r1_sha512, ecdsa_secp384r1_sha384,
+> ecdsa_secp256r1_sha256, rsa_pss_pss_sha512, rsa_pss_pss_sha384,
+> rsa_pss_pss_sha256, rsa_pss_rsae_sha512, rsa_pss_rsae_sha384,
+> rsa_pss_rsae_sha256,
+>
+> or the word 'DEFAULT' (use all supported algorithms).
+
 /ncs-config/restconf/require-module-name/enabled (boolean) \[true\]  
 > When set to 'true', the client must explicitly provide the module name
 > of the node if it is defined in a module other than its parent node or
@@ -2669,6 +2857,101 @@ how they relate to each other.
 > configuration parameter allows the client to bypass above
 > requirements. Refer to RFC 8040, section 3.5.3 for detailed
 > information.
+
+/ncs-config/restconf/idle-timeout (xs:duration)  
+> The maximum idle time the RESTCONF server waits for the client to send
+> more of the request body, or for a notification stream to deliver more
+> content, before terminating the request. For example, this applies
+> between events on a Server-Sent Events (SSE) notification stream.
+>
+> This timeout does not apply while the server processes a request, such
+> as a GET request, an action, an RPC, or a POST, PUT, PATCH or DELETE
+> request (including YANG Patch). Processing is limited by
+> absolute-timeout.
+>
+> This timeout does not expire a RESTCONF authentication token between
+> requests. The token lifetime is limited by absolute-timeout.
+>
+> When not set, /ncs-config/max-idle-timeout is used. PT0M means no
+> timeout. The effective timeout is the shorter of this value and
+> /ncs-config/max-idle-timeout. A value longer than a finite limit,
+> including PT0M, is rejected when RESTCONF is enabled. The maximum
+> value is equivalent of 4294967 seconds (approximately 49 days 17
+> hours).
+>
+> Modification of this value, or of /ncs-config/max-idle-timeout, will
+> only affect RESTCONF operations and notification streams that are
+> started after the modification has been done.
+
+/ncs-config/restconf/absolute-timeout (xs:duration) \[PT12H\]  
+> The maximum absolute time the RESTCONF server spends on a request
+> before terminating it. This includes processing a GET request, an
+> action, an RPC, or a POST, PUT, PATCH or DELETE request (including
+> YANG Patch), and keeping a Server-Sent Events (SSE) notification
+> stream open.
+>
+> Once a POST, PUT, PATCH or DELETE request starts to commit its
+> changes, this timeout no longer applies to it. The server waits for
+> the commit to complete and returns its result, even if this takes
+> longer than the timeout. A commit that uses the commit queue is
+> limited by the commit queue timeout instead.
+>
+> This value also limits the lifetime of a tracked RESTCONF
+> authentication token, measured from when it is first registered.
+> Renewing the token does not reset this timer.
+>
+> When external token validation is configured, the validator must stop
+> accepting each token no later than this timeout after it is issued.
+> RESTCONF retains retired-token state through that acceptance horizon
+> before discarding it. The timeout value in effect when a token is
+> registered determines its horizon.
+>
+> PT0M means no timeout. The default is PT12H, i.e. 12 hours. When this
+> value is PT0M, renewal-timeout must also be PT0M to avoid retaining an
+> unlimited number of retired tokens through renewal. The maximum value
+> is equivalent of 4294967 seconds (approximately 49 days 17 hours).
+>
+> Modification of this value will only affect RESTCONF operations and
+> notification streams that are started after the modification has been
+> done. For tracked authentication tokens, the updated limit is checked
+> on the next request using the token. The token's age remains measured
+> from its original registration.
+
+/ncs-config/restconf/renewal-timeout (xs:duration) \[PT30M\]  
+> The interval after which a tracked RESTCONF authentication token is
+> considered due for renewal, measured from the token's registration or
+> most recent replacement. The interval elapses independently of request
+> activity.
+>
+> RESTCONF does not issue or request replacement tokens, and reaching
+> this interval does not by itself change how a request is handled: the
+> token is neither renewed, replaced nor invalidated. A token is renewed
+> only when AAA returns a replacement token while validating it. If AAA
+> returns no token or the same token, the existing token remains valid
+> until the absolute timeout applies.
+>
+> An AAA-issued replacement token is adopted only when
+> /ncs-config/restconf/token-response/x-auth-token is true or
+> /ncs-config/restconf/token-response/token-cookie/name is nonempty, so
+> that it can be returned to the client. Otherwise, the existing token
+> is retained. Both response channels are disabled by default.
+>
+> When a response channel is enabled, a replacement token returned by
+> AAA is accepted and returned to the client whether or not renewal is
+> due, unless it has previously been invalidated. The previous token is
+> then rejected. The only exception is a token that RESTCONF is not
+> tracking while both absolute-timeout and renewal-timeout are PT0M:
+> RESTCONF then does not record the replacement, and AAA must reject the
+> previous token. Replacing a token does not reset the absolute timeout.
+>
+> PT0M disables the renewal interval. It does not prevent AAA-issued
+> replacement tokens from being accepted. The default is PT30M, i.e. 30
+> minutes. The maximum value is equivalent of 4294967 seconds
+> (approximately 49 days 17 hours).
+>
+> Modification of this value takes effect the next time a tracked token
+> is presented in a request. The token's age remains measured from its
+> registration or most recent replacement.
 
 /ncs-config/webui  
 > This section defines settings which decide how the embedded NCS Web
@@ -2716,10 +2999,10 @@ how they relate to each other.
 > omited the docroot points to the next generation docroot in the NCS
 > distro instead.
 
-/ncs-config/webui/webui-root-resource (string)  
+/ncs-config/webui/webui-root-resource (string) \[\]  
 > The target resource where the WebUI is accessible.
 >
-> Setting the configurable to, e.g., 'myroot' makes the JSON-RPC
+> Setting the configurable to, e.g., '/myroot' makes the JSON-RPC
 > accessible at https://\<ip-address\>/myroot/jsonrpc.
 >
 > This option affects the WebUI and JSON-RPC.
@@ -2746,6 +3029,7 @@ how they relate to each other.
 > The headers will be part of all HTTP responses.
 
 /ncs-config/webui/custom-headers/header/name (string)  
+> 
 
 /ncs-config/webui/custom-headers/header/value (string)  
 > This parameter is mandatory.
@@ -2873,7 +3157,7 @@ how they relate to each other.
 > can be specified, i.e. @HOST@ and @PORT@. For example
 > https://@HOST@:443 or https://192.12.4.3:@PORT@
 
-/ncs-config/webui/transport/tcp/ip (ipv4-address \| ipv6-address) \[0.0.0.0\]  
+/ncs-config/webui/transport/tcp/ip (ip-address) \[0.0.0.0\]  
 > The IP address which the Web server should listen on. '0.0.0.0' or
 > '::' means that it listens on the port
 > (/ncs-config/webui/transport/tcp/port) for all IPv4 or IPv6 addresses
@@ -2902,9 +3186,11 @@ how they relate to each other.
 > should also listen on. Set the ip as '0.0.0.0' or '::' to listen on
 > the port for all IPv4 or IPv6 addresses on the machine.
 
-/ncs-config/webui/transport/tcp/extra-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/webui/transport/tcp/extra-listen/ip (ip-address)  
+> 
 
 /ncs-config/webui/transport/tcp/extra-listen/port (port-number)  
+> 
 
 /ncs-config/webui/transport/tcp/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -2914,9 +3200,11 @@ how they relate to each other.
 > different role, then NCS will shutdown these listen addresses and
 > terminate any ongoing traffic.
 
-/ncs-config/webui/transport/tcp/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/webui/transport/tcp/ha-primary-listen/ip (ip-address)  
+> 
 
 /ncs-config/webui/transport/tcp/ha-primary-listen/port (port-number)  
+> 
 
 /ncs-config/webui/transport/ssl  
 > Settings deciding how the Web server SSL (Secure Sockets Layer)
@@ -2937,7 +3225,7 @@ how they relate to each other.
 > can be specified, i.e. @HOST@ and @PORT@. For example http://@HOST@:80
 > or http://192.12.4.3:@PORT@
 
-/ncs-config/webui/transport/ssl/ip (ipv4-address \| ipv6-address) \[0.0.0.0\]  
+/ncs-config/webui/transport/ssl/ip (ip-address) \[0.0.0.0\]  
 > The IP address which the Web server should listen on for incoming ssl
 > connections. '0.0.0.0' or '::' means that it listens on the port
 > (/ncs-config/webui/transport/ssl/port) for all IPv4 or IPv6 addresses
@@ -2967,9 +3255,11 @@ how they relate to each other.
 > '0.0.0.0' or '::' to listen on the port for all IPv4 or IPv6 addresses
 > on the machine.
 
-/ncs-config/webui/transport/ssl/extra-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/webui/transport/ssl/extra-listen/ip (ip-address)  
+> 
 
 /ncs-config/webui/transport/ssl/extra-listen/port (port-number)  
+> 
 
 /ncs-config/webui/transport/ssl/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -2979,9 +3269,11 @@ how they relate to each other.
 > different role, then NCS will shutdown these listen addresses and
 > terminate any ongoing traffic.
 
-/ncs-config/webui/transport/ssl/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/webui/transport/ssl/ha-primary-listen/ip (ip-address)  
+> 
 
 /ncs-config/webui/transport/ssl/ha-primary-listen/port (port-number)  
+> 
 
 /ncs-config/webui/transport/ssl/read-from-db (boolean) \[false\]  
 > If enabled, TLS data (certificate, private key, and CA certificates)
@@ -3117,9 +3409,8 @@ how they relate to each other.
 
 /ncs-config/webui/transport/ssl/protocols (string) \[DEFAULT\]  
 > Specifies the SSL/TLS protocol versions to be used by the server as a
-> whitespace-separated list from the set tlsv1 tlsv1.1 tlsv1.2 tlsv1.3,
-> or the word "DEFAULT" (use all supported protocol versions except the
-> set tlsv1 tlsv1.1).
+> whitespace-separated list from the set tlsv1.2 tlsv1.3, or the word
+> 'DEFAULT' (use all supported protocol versions).
 
 /ncs-config/webui/transport/ssl/elliptic-curves (string) \[DEFAULT\]  
 > Specifies the curves for Elliptic Curve cipher suites to be used by
@@ -3130,6 +3421,28 @@ how they relate to each other.
 > sect409r1, sect283k1, sect283r1, and secp256k1,
 >
 > or the word "DEFAULT" (use all supported curves).
+
+/ncs-config/webui/transport/ssl/supported-groups (string) \[DEFAULT\]  
+> Specifies the TLS 1.3 key agreement groups as a whitespace-separated
+> list from the set
+>
+> x25519mlkem768, secp256r1mlkem768, secp384r1mlkem1024, mlkem1024,
+> mlkem768, mlkem512, x25519, x448, secp521r1, secp384r1, secp256r1,
+> brainpoolP512r1tls13, brainpoolP384r1tls13, brainpoolP256r1tls13,
+>
+> or the word "DEFAULT" (use all supported groups).
+
+/ncs-config/webui/transport/ssl/signature-algorithms (string) \[DEFAULT\]  
+> Specifies the TLS 1.3 signature algorithms as a whitespace-separated
+> list from the set
+>
+> mldsa87, mldsa65, mldsa44, eddsa_ed25519, eddsa_ed448,
+> ecdsa_secp521r1_sha512, ecdsa_secp384r1_sha384,
+> ecdsa_secp256r1_sha256, rsa_pss_pss_sha512, rsa_pss_pss_sha384,
+> rsa_pss_pss_sha256, rsa_pss_rsae_sha512, rsa_pss_rsae_sha384,
+> rsa_pss_rsae_sha256,
+>
+> or the word "DEFAULT" (use all supported algorithms).
 
 /ncs-config/webui/transport/unauthenticated-message-limit (uint32 \| nolimit) \[65536\]  
 > Limit the size of allowed unauthenticated messages. Limit is given in
@@ -3160,9 +3473,14 @@ how they relate to each other.
 > enabled is either 'true' or 'false'. If 'true', PHP support is
 > enabled.
 
-/ncs-config/webui/idle-timeout (xs:duration) \[PT30M\]  
+/ncs-config/webui/idle-timeout (xs:duration)  
 > Maximum idle time before terminating a Web UI session. PT0M means no
-> timeout. Default is PT30M, ie 30 minutes.
+> timeout. When not set, /ncs-config/max-idle-timeout is used. The
+> effective timeout is the shorter of this value and
+> /ncs-config/max-idle-timeout. A value longer than a finite limit,
+> including PT0M, is rejected when the Web UI is enabled. Changes apply
+> to existing sessions. An idle timer restarts only when the effective
+> timeout changes.
 
 /ncs-config/webui/absolute-timeout (xs:duration) \[PT12H\]  
 > Maximum absolute time before terminating a Web UI session. PT0M means
@@ -3309,7 +3627,7 @@ how they relate to each other.
 > enabled is either 'true' or 'false'. If 'true', the NETCONF agent uses
 > SSH as a transport service.
 
-/ncs-config/netconf-north-bound/transport/ssh/ip (ipv4-address \| ipv6-address) \[0.0.0.0\]  
+/ncs-config/netconf-north-bound/transport/ssh/ip (ip-address) \[0.0.0.0\]  
 > ip is an IP address which the NCS NETCONF agent should listen on.
 > '0.0.0.0' or '::' means that it listens on the port
 > (/ncs-config/netconf-north-bound/transport/ssh/port) for all IPv4 or
@@ -3329,9 +3647,11 @@ how they relate to each other.
 > agent should also listen on. Set the ip as '0.0.0.0' or '::' to listen
 > on the port for all IPv4 or IPv6 addresses on the machine.
 
-/ncs-config/netconf-north-bound/transport/ssh/extra-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/netconf-north-bound/transport/ssh/extra-listen/ip (ip-address)  
+> 
 
 /ncs-config/netconf-north-bound/transport/ssh/extra-listen/port (port-number)  
+> 
 
 /ncs-config/netconf-north-bound/transport/ssh/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -3341,9 +3661,11 @@ how they relate to each other.
 > different role, then NCS will shutdown these listen addresses and
 > terminate any ongoing traffic.
 
-/ncs-config/netconf-north-bound/transport/ssh/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/netconf-north-bound/transport/ssh/ha-primary-listen/ip (ip-address)  
+> 
 
 /ncs-config/netconf-north-bound/transport/ssh/ha-primary-listen/port (port-number)  
+> 
 
 /ncs-config/netconf-north-bound/transport/tcp  
 > NETCONF over TCP is not standardized, but it can be useful during
@@ -3356,7 +3678,7 @@ how they relate to each other.
 > enabled is either 'true' or 'false'. If 'true', the NETCONF agent uses
 > clear text TCP as a transport service.
 
-/ncs-config/netconf-north-bound/transport/tcp/ip (ipv4-address \| ipv6-address) \[0.0.0.0\]  
+/ncs-config/netconf-north-bound/transport/tcp/ip (ip-address) \[0.0.0.0\]  
 > ip is an IP address which the NCS NETCONF agent should listen on.
 > '0.0.0.0' or '::' means that it listens on the port
 > (/ncs-config/netconf-north-bound/transport/tcp/port) for all IPv4 or
@@ -3376,9 +3698,11 @@ how they relate to each other.
 > agent should also listen on. Set the ip as '0.0.0.0' or '::' to listen
 > on the port for all IPv4 or IPv6 addresses on the machine.
 
-/ncs-config/netconf-north-bound/transport/tcp/extra-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/netconf-north-bound/transport/tcp/extra-listen/ip (ip-address)  
+> 
 
 /ncs-config/netconf-north-bound/transport/tcp/extra-listen/port (port-number)  
+> 
 
 /ncs-config/netconf-north-bound/transport/tcp/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -3388,9 +3712,11 @@ how they relate to each other.
 > different role, then NCS will shutdown these listen addresses and
 > terminate any ongoing traffic.
 
-/ncs-config/netconf-north-bound/transport/tcp/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/netconf-north-bound/transport/tcp/ha-primary-listen/ip (ip-address)  
+> 
 
 /ncs-config/netconf-north-bound/transport/tcp/ha-primary-listen/port (port-number)  
+> 
 
 /ncs-config/netconf-north-bound/extended-sessions (boolean) \[false\]  
 > If extended-sessions are enabled, all NCS sessions can be terminated
@@ -3402,14 +3728,17 @@ how they relate to each other.
 > Strictly speaking, this extension is not covered by the NETCONF
 > specification; therefore it's false by default.
 
-/ncs-config/netconf-north-bound/idle-timeout (xs:duration) \[PT0S\]  
+/ncs-config/netconf-north-bound/idle-timeout (xs:duration)  
 > Maximum idle time before terminating a NETCONF session. If the session
 > is waiting for notifications, or has a pending confirmed commit, the
-> idle timeout is not used. The default value is 0, which means no
-> timeout.
+> idle timeout is not used. When not set, /ncs-config/max-idle-timeout
+> is used. PT0S means no timeout. The idle timeout of a NETCONF session,
+> including a NETCONF Call Home session, is limited by
+> /ncs-config/max-idle-timeout. A value longer than a finite limit,
+> including PT0S, is rejected when NETCONF is enabled.
 >
-> Modification of this value will only affect connections that are
-> established after the modification has been done.
+> When this value or /ncs-config/max-idle-timeout is modified, an
+> existing NETCONF session uses the new value after its next request.
 
 /ncs-config/netconf-north-bound/write-timeout (xs:duration) \[PT0S\]  
 > Maximum time for a write operation towards a client to complete. If
@@ -3536,7 +3865,7 @@ how they relate to each other.
 /ncs-config/netconf-call-home/transport/tcp  
 > The NETCONF Call Home client listens for TCP connection requests.
 
-/ncs-config/netconf-call-home/transport/tcp/ip (ipv4-address \| ipv6-address) \[0.0.0.0\]  
+/ncs-config/netconf-call-home/transport/tcp/ip (ip-address) \[0.0.0.0\]  
 > ip is an IP address which the NETCONF Call Home client should listen
 > on. '0.0.0.0' or '::' means that it listens on the port
 > (/ncs-config/netconf-call-home/transport/tcp/port) for all IPv4 or
@@ -3551,9 +3880,11 @@ how they relate to each other.
 > Home client should also listen on. Set the ip as '0.0.0.0' or '::' to
 > listen on the port for all IPv4 or IPv6 addresses on the machine.
 
-/ncs-config/netconf-call-home/transport/tcp/extra-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/netconf-call-home/transport/tcp/extra-listen/ip (ip-address)  
+> 
 
 /ncs-config/netconf-call-home/transport/tcp/extra-listen/port (port-number)  
+> 
 
 /ncs-config/netconf-call-home/transport/tcp/dscp (dscp-type)  
 > Support for setting the Differentiated Services Code Point (6 bits)
@@ -3617,7 +3948,8 @@ how they relate to each other.
 
 /ncs-config/ha-raft/seed-nodes/seed-node/port (inet:port-number)  
 > The port number that this seed node is listening on. This must match
-> the port configured in the seed node's listen/port configuration.
+> the port configured in the seed node's listen/port configuration. The
+> default value of /ncs-config/ha-raft/listen/port is 4570.
 
 /ncs-config/ha-raft/ssl/enabled (boolean) \[true\]  
 > If set to 'true', all communication between NCS HA nodes is done over
@@ -3687,7 +4019,7 @@ how they relate to each other.
 /ncs-config/ha/enabled (boolean) \[false\]  
 > If set to true, the HA mode is enabled.
 
-/ncs-config/ha/ip (ipv4-address \| ipv6-address) \[0.0.0.0\]  
+/ncs-config/ha/ip (ip-address) \[0.0.0.0\]  
 > The IP address which NCS listens to for incoming connections from
 > other HA nodes. '0.0.0.0' or '::' means that it listens on the port
 > (/ncs-config/ha/ip/port) for all IPv4 or IPv6 addresses on the
@@ -3705,9 +4037,11 @@ how they relate to each other.
 > incoming requests from other HA nodes. Set the ip as '0.0.0.0' or '::'
 > to listen on the port for all IPv4 or IPv6 addresses on the machine.
 
-/ncs-config/ha/extra-listen/ip (ipv4-address \| ipv6-address)  
+/ncs-config/ha/extra-listen/ip (ip-address)  
+> 
 
 /ncs-config/ha/extra-listen/port (port-number)  
+> 
 
 /ncs-config/ha/tick-timeout (xs:duration) \[PT20S\]  
 > Defines the timeout between keepalive ticks sent between HA nodes. The
@@ -3778,6 +4112,15 @@ how they relate to each other.
 >
 > Only applicable if auto-start is 'true'.
 
+/ncs-config/java-vm/shutdown-timeout (xs:duration) \[PT30S\]  
+> Maximum time to wait for the Java VM to shut down after an error
+> before forcing the process to terminate. The timeout is only enforced
+> for error paths, such as an uncaught Java exception or a control
+> socket failure. It is not enforced for a clean shutdown. A value of
+> PT0S disables this protection.
+>
+> Only applicable when the default start-command is used.
+
 /ncs-config/java-vm/start-command (string)  
 > The command which NCS will run to start the Java VM, or the string
 > DEFAULT. If this parameter is not set, the ncs-start-java-vm script in
@@ -3795,6 +4138,7 @@ how they relate to each other.
 > Only applicable if auto-start is 'true'.
 
 /ncs-config/java-vm/run-in-terminal/enabled (boolean) \[false\]  
+> 
 
 /ncs-config/java-vm/run-in-terminal/terminal-command (string) \[xterm -title ncs-java-vm -e\]  
 > The command which NCS will run to start the terminal, or the string
@@ -3819,8 +4163,10 @@ how they relate to each other.
 > redeployed.
 
 /ncs-config/java-vm/restart-on-error/count (uint16) \[3\]  
+> 
 
 /ncs-config/java-vm/restart-on-error/duration (xs:duration) \[PT60S\]  
+> 
 
 /ncs-config/python-vm  
 > Configuration parameters to control how and if NCS shall start (and
@@ -3843,6 +4189,7 @@ how they relate to each other.
 > is equivalent to leaving this parameter unset.
 
 /ncs-config/python-vm/run-in-terminal/enabled (boolean) \[false\]  
+> 
 
 /ncs-config/python-vm/run-in-terminal/terminal-command (string) \[xterm -title ncs-python-vm -e\]  
 > The command which NCS will run to start the terminal, or the string
@@ -3928,6 +4275,7 @@ how they relate to each other.
 > A list of actions to perform at set memory usage thresholds.
 
 /ncs-config/memory-management/actions/action/name (string)  
+> 
 
 /ncs-config/memory-management/actions/action/used-memory-threshold-percentage (uint8)  
 > Threshold in percentage of the total system memory in use. This

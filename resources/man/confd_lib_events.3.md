@@ -47,13 +47,11 @@ examples collection illustrates subscription and processing for all
 these events, and can also be used standalone in a development
 environment to monitor NSO events.
 
-<div class="note">
-
-Any event may allocate memory dynamically inside the
-`struct confd_notification`, thus we must always call
-`confd_free_notification()` after receiving and processing an event.
-
-</div>
+> **Note**  
+>  
+> Any event may allocate memory dynamically inside the
+> `struct confd_notification`, thus we must always call
+> `confd_free_notification()` after receiving and processing an event.
 
 ## Events
 
@@ -91,6 +89,10 @@ The following events can be subscribed to:
 `CONFD_NOTIF_WEBUI`  
 > All log events that also goes to the /confdConf/logs/webuiAccessLog
 > log are sent from ConfD on the event notification socket.
+
+`CONFD_NOTIF_RESTCONF`  
+> All log events that also goes to the /confdConf/logs/restconfLog log
+> are sent from ConfD on the event notification socket.
 
 `CONFD_NOTIF_TAKEOVER_SYSLOG`  
 > If this flag is present, ConfD will stop syslogging. The idea behind
@@ -385,12 +387,11 @@ some specific `confd_errno` values:
 > The user session id given by `usid` does not identify an existing user
 > session.
 
-<div class="note">
-
-If these calls fail (i.e. do not return CONFD_OK), the socket descriptor
-must be closed and a new socket created before the call is re-attempted.
-
-</div>
+> **Note**  
+>  
+> If these calls fail (i.e. do not return CONFD_OK), the socket
+> descriptor must be closed and a new socket created before the call is
+> re-attempted.
 
     int confd_read_notification(
     int sock, struct confd_notification *n);

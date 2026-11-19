@@ -13,12 +13,9 @@ operations and customizable confirmation prompts. In Cisco style custom
 mode-specific commands can be added by specifying a mount point relating
 to the specified mode.
 
-<div class="tip">
-
-In the NSO distribution there is an Emacs mode suitable for clispec
-editing.
-
-</div>
+> [!TIP]
+> In the NSO distribution there is an Emacs mode suitable for clispec
+> editing.
 
 A clispec file (with a .cli suffix) is to be compiled using the `ncsc`
 compiler into an internal representation (with a .ccl suffix), ready to
@@ -48,6 +45,14 @@ The ncs-light.cli example is a light version of the standard ncs.cli. It
 adds one operational mode command and one configure mode command,
 implemented by two OS executables, it also removes the 'save' command
 from the pipe commands.
+
+<div class="example">
+
+<div class="title">
+
+ncs-light.cli
+
+</div>
 
     <clispec xmlns="http://tail-f.com/ns/clispec/1.0" style="j">
       <operationalMode>
@@ -103,6 +108,8 @@ from the pipe commands.
       </pipeCmds>
     </clispec>
           
+
+</div>
 
 ncs-light.cli achieves the following:
 

@@ -1905,6 +1905,20 @@ This is useful if we have a huge amount of instances or if values
 assigned to each instance have to be validated in comparison with its
 siblings.
 
+*tailf:condition* An XPath expression that controls whether the
+validation callback is invoked. The expression is evaluated with the
+data node being validated as its context node. If the expression
+evaluates to 'true', the callback is invoked. If it evaluates to
+'false', the callback is skipped.
+
+This statement only controls callback invocation. It does not control
+whether the node is valid or exists in the data tree.
+
+Dependencies for the expression are calculated automatically and are
+combined with the dependencies of the validation callback. The
+'tailf:validate' statement must still declare dependencies for values
+read by the callback, or use 'tailf:no-dependency'.
+
 *tailf:dependency*
 
 *tailf:no-dependency*
@@ -2351,6 +2365,7 @@ This section describes XPath functions that can be used for example in
 > Tail-f YANG CLI extensions
 
 The NSO User Guide  
+> 
 
 `confdc(1)`  
 > Confdc compiler

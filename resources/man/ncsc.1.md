@@ -22,7 +22,7 @@
 
 `ncsc -c [-o BinFile] [--read-only] [--verbose] [-I Dir] [--include-file BinFile] [--fail-on-warnings] [--warn-on-type-errors ] [--warn-on-access-mismatch ] [--mib-annotation MibA] [-f FxsFileOrDir...] -- MibFile FxsFile`
 
-`ncsc --ncs-compile-bundle Directory [--yangpath YangDir] [--fail-on-warnings] [--ncs-skip-template] [--ncs-skip-statistics] [--ncs-skip-config] [--lax-revsion-merge] [--ncs-depend-package PackDir] [--ncs-apply-deviations] [--ncs-no-apply-deviations] [--allow-interop-issues] --ncs-device-type netconf | snmp-ned | generic-ned | cli-ned --ncs-ned-id ModName:IdentityName --ncs-device-dir Directory`
+`ncsc --ncs-compile-bundle Directory [--yangpath YangDir] [--fail-on-warnings] [--ncs-skip-template] [--ncs-skip-statistics] [--ncs-skip-config] [--lax-revsion-merge] [--ncs-depend-package PackDir] [--ncs-apply-deviations] [--ncs-no-apply-deviations] [--allow-interop-issues] [--ncs-builtin-yang include | exclude] [--ncs-compilation-workers Number | system] --ncs-device-type netconf | snmp-ned | generic-ned | cli-ned --ncs-ned-id ModName:IdentityName --ncs-device-dir Directory`
 
 `ncsc --ncs-compile-mib-bundle Directory [--fail-on-warnings] [--ncs-skip-template] [--ncs-skip-statistics] [--ncs-skip-config] --ncs-device-type netconf | snmp-ned | generic-ned | cli-ned --ncs-device-dir Directory`
 
@@ -612,6 +612,30 @@ the end result may be that NCS is incompatible with the managed devices.
 YANG module in another package, use this flag when compiling the
 package.
 
+`--ncs-builtin-yang include | exclude` Controls whether
+`--ncs-compile-bundle` searches the general NSO built-in YANG modules in
+`$NCS_DIR/src/ncs/builtin_yang`. The default is `include` for backward
+compatibility, but inclusion emits a warning.
+
+The `NCS_BUILTIN_YANG` environment variable accepts the same values and
+is used when the command-line option is omitted. When both are provided,
+the command-line option takes precedence. Invalid command-line values
+cause compilation to fail.
+
+To keep a NED self-contained, copy the required modules, including their
+transitive dependencies, from `$NCS_DIR/src/ncs/builtin_yang` into the
+`src/yang` directory of the NED, then compile with
+`--ncs-builtin-yang exclude` or set `NCS_BUILTIN_YANG` to `exclude`.
+
+`--ncs-compilation-workers Number | system` Sets the maximum number of
+workers used in parallel while transforming and compiling YANG modules
+with `--ncs-compile-bundle`. The default is `1`. The value `system`
+selects a system-dependent limit.
+
+The `NCS_COMPILATION_WORKERS` environment variable accepts the same
+values and is used when the command-line option is omitted. When both
+are provided, the command-line option takes precedence.
+
 `--ncs-apply-deviations` This option has no effect, since deviations are
 applied by default. It is only present for backward compatibility.
 
@@ -861,6 +885,7 @@ exceptions:
 ## See Also
 
 The NCS User Guide  
+> 
 
 `ncs(1)`  
 > command to start and control the NCS daemon

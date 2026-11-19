@@ -18,8 +18,12 @@ Once generated, it should be manually modified when it needs to be
 updated. Specifically, the package-meta-data.xml file must be modified
 with correct meta data.
 
-The `package-name` argument may contain only ASCII letters (`a-z`, `A-Z`),
-digits (`0-9`), periods (`.`), underscores (`_`), and dashes (`-`).
+Makefiles generated for NETCONF and LSA NETCONF NEDs compile with
+`NCS_BUILTIN_YANG` set to `exclude` by default. The input YANG directory
+must therefore contain all modules needed by the NED. If it depends on
+NSO built-in YANG, copy the required modules and their transitive
+dependencies from `$NCS_DIR/src/ncs/builtin_yang` into the generated
+package's `src/yang` directory.
 
 ## Options
 
