@@ -5,7 +5,7 @@
 ## Cisco-provided NEDs
 * a10-acos
   * [README-ned-settings](a10-acos/README-ned-settings.md)
-  * [README v3.27.8 2026-11-06](a10-acos/README.md)
+  * [README v3.27.9 2026-11-19](a10-acos/README.md)
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
@@ -14,7 +14,7 @@
 * accedian-skylight_rc
   * [README-ned-settings](accedian-skylight_rc/README-ned-settings.md)
   * [README-rebuild](accedian-skylight_rc/README-rebuild.md)
-  * [README v3.0.5 2026-03-26](accedian-skylight_rc/README.md)
+  * [README v3.0.6 2026-11-19](accedian-skylight_rc/README.md)
 
 * accedian-spp
   * [README-ned-settings](accedian-spp/README-ned-settings.md)
@@ -23,7 +23,7 @@
 * adtran-aos_nc
   * [README-ned-settings](adtran-aos_nc/README-ned-settings.md)
   * [README-rebuild](adtran-aos_nc/README-rebuild.md)
-  * [README v1.0.3 2026-04-21](adtran-aos_nc/README.md)
+  * [README v1.0.4 2026-11-19](adtran-aos_nc/README.md)
 
 * aethra-atos
   * [README-ned-settings](aethra-atos/README-ned-settings.md)
@@ -35,11 +35,11 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.75 2026-11-12](alu-sr/README.md)
+  * [README v8.75.1 2026-11-19](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.35.4 2026-11-12](arista-dcs/README.md)
+  * [README v5.35.5 2026-11-19](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -81,7 +81,7 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.116.3 2026-11-10](cisco-ios/README.md)
+  * [README v6.116.4 2026-11-19](cisco-ios/README.md)
 
 * cisco-iosxe_nc
   * [README-ned-settings](cisco-iosxe_nc/README-ned-settings.md)
@@ -107,7 +107,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.38.3 2026-11-04](cisco-nx/README.md)
+  * [README v5.38.4 2026-11-19](cisco-nx/README.md)
 
 * cisco-nx_nc
   * [README-ned-settings](cisco-nx_nc/README-ned-settings.md)
@@ -194,7 +194,7 @@
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
-  * [README v3.8.21 2026-07-30](mrv-masteros/README.md)
+  * [README v3.8.22 2026-11-19](mrv-masteros/README.md)
 
 * nokia-srlinux_gnmi
   * [README-ned-settings](nokia-srlinux_gnmi/README-ned-settings.md)
