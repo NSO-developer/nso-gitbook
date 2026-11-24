@@ -44,22 +44,6 @@ Keyword arguments:
 * sock -- a previously connected HA socket
 * mynodeid -- name of the node (Value or string)
 
-### berelay
-
-```python
-berelay(sock) -> None
-```
-
-NSO does not support relay secondaries. This function will be removed
-in a future release.
-
-Instruct an established HA secondary node to be a relay for other
-secondary nodes.
-
-Keyword arguments:
-
-* sock -- a previously connected HA socket
-
 ### besecondary
 
 ```python
@@ -138,7 +122,7 @@ Use `ncs.ha.HaConnection.status()` instead.
 Query a ConfD HA node for its status.
 
 Returns a 2-tuple (state, nodes). state is the HA state of the node:
-STATE_NONE, STATE_SECONDARY, STATE_PRIMARY or STATE_SECONDARY_RELAY.
+STATE_NONE, STATE_SECONDARY or STATE_PRIMARY.
 nodes is a list of the primary/secondary(s) connected with the node.
 Each node is a dict with the keys 'nodeid' and 'address'. The address
 is an IPv4 or IPv6 address string, the address string of a node that
@@ -156,5 +140,4 @@ Keyword arguments:
 STATE_NONE = 1
 STATE_PRIMARY = 3
 STATE_SECONDARY = 2
-STATE_SECONDARY_RELAY = 4
 ```

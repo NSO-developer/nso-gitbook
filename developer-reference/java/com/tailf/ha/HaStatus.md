@@ -5,7 +5,7 @@ public class com.tailf.ha.HaStatus
 ```
 
 This class represents a status for an HA node in an HA cluster. First, the
- state says if the node is PRIMARY/SECONDARY/SECONDARY_RELAY or NONE.
+ state says if the node is PRIMARY/SECONDARY or NONE.
 
  If the node is primary the nodes array contains representations of all the
  secondary nodes in the cluster.
@@ -47,7 +47,7 @@ public com.tailf.ha.HaStateType getHaState()
 
 Types: [HaStateType](HaStateType.md#hastatetype-8f5797940a11)
 
-Get the HA node state - PRIMARY/SECONDARY/SECONDARY_RELAY/NONE
+Get the HA node state - PRIMARY/SECONDARY/NONE
 
 **Returns:** HaStateType
 
@@ -59,11 +59,7 @@ public com.tailf.conf.ConfHaNode[] getNodes()
 
 Types: [ConfHaNode](../conf/ConfHaNode.md#confhanode-6a79a4c8e218)
 
-Get the array of secondaries for a PRIMARY HA node, the PRIMARY node
- for a SECONDARY HA node, or the PRIMARY and the "sub-secondaries" for
- a SECONDARY_RELAY HA node. When SECONDARY_RELAY nodes are used, the
- PRIMARY for a SECONDARY or SECONDARY_RELAY node is actually the
- immediate/parent, which may not be the actual cluster primary. Returns
- null for NONE HA nodes.
+Get the array of secondaries for a PRIMARY HA node, or the PRIMARY node
+ for a SECONDARY HA node. Returns null for NONE HA nodes.
 
 **Returns:** array of ConfHaNode

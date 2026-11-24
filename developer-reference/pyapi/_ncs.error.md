@@ -12,36 +12,11 @@ module APIs raises an exception instead.
 This exception will be thrown from an API function that, from a C perspective,
 would result in a CONFD_EOF return value.
 
+Base class: builtins.Exception
+
 Members:
 
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
-
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
-
-</details>
+_None_
 
 ### _class_ **Error**
 
@@ -60,25 +35,9 @@ Available attributes:
 * confd_lasterr -- string with additional textual information
 * strerror -- os error string (available if confd_errno is CONFD_ERR_OS)
 
+Base class: _ncs.error.Error
+
 Members:
-
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
 
 <details>
 
@@ -115,17 +74,6 @@ Example:
         maapi.connect(sock, '127.0.0.1', 9999)
     except Error as e:
         print(e.format())  # OS: system call failed (...)
-
-</details>
-
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
 
 </details>
 

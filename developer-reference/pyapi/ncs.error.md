@@ -54,6 +54,9 @@ A callback, for example an action callback or a validation callback,
 raises `CallbackError` to fail the request. See `CallbackError` for what
 the northbound client gets, and for an example.
 
+For NSO, the section "Error Reporting" of the Python API Overview in the
+NSO Development guide has more examples.
+
 ## Classes
 
 ### _class_ **AccessDeniedError**
@@ -64,25 +67,9 @@ Access control denied the operation (`ErrorCode.ACCESS_DENIED`).
 AccessDeniedError(*args: Any) -> None
 ```
 
+Base class: ncs.error._CodeError
+
 Members:
-
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
 
 <details>
 
@@ -119,17 +106,6 @@ Example:
         maapi.connect(sock, '127.0.0.1', 9999)
     except Error as e:
         print(e.format())  # OS: system call failed (...)
-
-</details>
-
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
 
 </details>
 
@@ -141,25 +117,9 @@ The item already exists (`ErrorCode.ALREADY_EXISTS`).
 AlreadyExistsError(*args: Any) -> None
 ```
 
+Base class: ncs.error._CodeError
+
 Members:
-
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
 
 <details>
 
@@ -196,17 +156,6 @@ Example:
         maapi.connect(sock, '127.0.0.1', 9999)
     except Error as e:
         print(e.format())  # OS: system call failed (...)
-
-</details>
-
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
 
 </details>
 
@@ -266,10 +215,10 @@ with the code and the message. It does not get the `apptag` and the
         try:
             check(inp)
         except Error as e:
-            print(e.code)      # ErrorCode.RESOURCE_DENIED
-            print(e.format())  # RESOURCE_DENIED: Data provider denied
-                               # a resource (resource denied: Quota
-                               # exceeded)
+            print(e.code.name)  # RESOURCE_DENIED
+            print(e.format())   # RESOURCE_DENIED: Data provider denied
+                                # a resource (resource denied: Quota
+                                # exceeded)
 
 Attributes:
 
@@ -293,8 +242,9 @@ Attributes:
                 (str). The value is sent as a string, so the leaf must
                 have a string type. For other types, nested containers
                 or lists, use the low-level functions
-                `trans_seterr_extended_info()` and
-                `action_seterr_extended_info()` in the dp module of
+                `trans_seterr_extended_info()`,
+                `action_seterr_extended_info()` and
+                `db_seterr_extended_info()` in the dp module of
                 _ncs or _confd.
 
 The `apptag` and the `error_info` keys are resolved when you create the
@@ -316,34 +266,45 @@ The code must be a `CallbackError.Code` member. Any other value raises
 `TypeError`, also an int or the `ErrorCode` of a caught `Error`.
 `CallbackError.Code` is a plain Enum, so a member is never equal to an
 `ErrorCode` or an int. The members are listed below, each with the
-`Error` that a MAAPI or maagic caller gets:
+NETCONF error-tag and the `Error` that a MAAPI or maagic caller gets:
 
 * `IN_USE` -- a data store could not be locked, because it was
-            already locked. The caller gets `LockedError`.
+            already locked. The error-tag is in-use. The caller gets
+            `LockedError`.
 * `RESOURCE_DENIED` -- a resource is not available, for example there
-                     is not enough memory. The caller gets `Error`
-                     with `ErrorCode.RESOURCE_DENIED`.
+                     is not enough memory. The error-tag is
+                     resource-denied. The caller gets `Error` with
+                     `ErrorCode.RESOURCE_DENIED`.
 * `INCONSISTENT_VALUE` -- a request parameter has a value that is not
-                        valid. The caller gets `Error` with
+                        valid. The error-tag is invalid-value. The
+                        caller gets `Error` with
                         `ErrorCode.INCONSISTENT_VALUE`.
 * `ACCESS_DENIED` -- authorization does not allow the request. The
                    northbound client gets no other error
-                   information. The caller gets `AccessDeniedError`.
+                   information. The error-tag is access-denied. The
+                   caller gets `AccessDeniedError`.
 * `APPLICATION` -- an error with no specific category. This is the
-                 default. The caller gets `ExternalError`.
+                 default. The error-tag is operation-failed. The
+                 caller gets `ExternalError`.
 * `APPLICATION_INTERNAL` -- the same as `APPLICATION`, but the message is
                           only logged. The northbound client does
-                          not get it. The caller gets `Error` with
-                          `ErrorCode.APPLICATION_INTERNAL`.
+                          not get it. The error-tag is
+                          operation-failed. The caller gets `Error`
+                          with `ErrorCode.APPLICATION_INTERNAL`.
 * `DATA_MISSING` -- the request cannot complete, because the data
-                  that it needs does not exist. The caller gets
-                  `Error` with `ErrorCode.DATA_MISSING`.
-* `INTERRUPT` -- the user interrupted the request
+                  that it needs does not exist. The error-tag is
+                  data-missing. The caller gets `Error` with
+                  `ErrorCode.DATA_MISSING`.
+* `INTERRUPT` -- the user interrupted the request. The error-tag is
+               operation-failed. The caller gets `Error` with
+               `ErrorCode.INTERNAL`.
 
 You can raise CallbackError in these callbacks:
 
 * dp.Action callbacks
 * dp.ValidationPoint callbacks and TransactionCallback.init()
+* dp.DbCallback callbacks. `DbCallbackContext.seterr()` also takes a
+  `CallbackError`, for a callback that then returns ERR.
 * the prepare callback of `cdb.TwoPhaseSubscriber`. The transaction is
   aborted.
 * `application.Service` and `application.NanoService` callbacks, NSO
@@ -358,76 +319,28 @@ exception.
 the server reports. `CallbackError` is for errors that your callback
 reports.
 
+For NSO, the section "Errors That Callbacks Report" of the Python API
+Overview in the NSO Development guide has examples for an action, a
+validation callback, a CDB subscriber and a service.
+
 ```python
 CallbackError(message: str, code: ncs.error.CallbackError.Code = <Code.APPLICATION: 4>, *, apptag: Optional[str] = None, error_info: Optional[Dict[str, str]] = None) -> None
 ```
 
+Base class: builtins.Exception
+
 Members:
-
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
-
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
-
-</details>
 
 ### _class_ **EOF**
 
 This exception will be thrown from an API function that, from a C perspective,
 would result in a CONFD_EOF return value.
 
+Base class: builtins.Exception
+
 Members:
 
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
-
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
-
-</details>
+_None_
 
 ### _class_ **Error**
 
@@ -446,25 +359,9 @@ Available attributes:
 * confd_lasterr -- string with additional textual information
 * strerror -- os error string (available if confd_errno is CONFD_ERR_OS)
 
+Base class: _ncs.error.Error
+
 Members:
-
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
 
 <details>
 
@@ -504,17 +401,6 @@ Example:
 
 </details>
 
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
-
-</details>
-
 ### _class_ **ErrorCode**
 
 Error code of an Error, as reported by Error.code.
@@ -526,6 +412,8 @@ Each member carries a human-readable description:
 ```python
 ErrorCode(*values)
 ```
+
+Base class: enum.IntEnum
 
 Members:
 
@@ -1332,198 +1220,6 @@ XPATH = 50
 
 </details>
 
-<details>
-
-<summary>as_integer_ratio(...)</summary>
-
-Method:
-
-```python
-as_integer_ratio(self, /)
-```
-
-Return a pair of integers, whose ratio is equal to the original int.
-
-The ratio is in lowest terms and has a positive denominator.
-
->>> (10).as_integer_ratio()
-(10, 1)
->>> (-10).as_integer_ratio()
-(-10, 1)
->>> (0).as_integer_ratio()
-(0, 1)
-
-</details>
-
-<details>
-
-<summary>bit_count(...)</summary>
-
-Method:
-
-```python
-bit_count(self, /)
-```
-
-Number of ones in the binary representation of the absolute value of self.
-
-Also known as the population count.
-
->>> bin(13)
-'0b1101'
->>> (13).bit_count()
-3
-
-</details>
-
-<details>
-
-<summary>bit_length(...)</summary>
-
-Method:
-
-```python
-bit_length(self, /)
-```
-
-Number of bits necessary to represent self in binary.
-
->>> bin(37)
-'0b100101'
->>> (37).bit_length()
-6
-
-</details>
-
-<details>
-
-<summary>conjugate(...)</summary>
-
-Method:
-
-Returns self, the complex conjugate of any int.
-
-</details>
-
-<details>
-
-<summary>denominator</summary>
-
-the denominator of a rational number in lowest terms
-
-</details>
-
-<details>
-
-<summary>from_bytes(...)</summary>
-
-Class method:
-
-```python
-from_bytes(type, /, bytes, byteorder='big', *, signed=False)
-```
-
-Return the integer represented by the given array of bytes.
-
-bytes
-  Holds the array of bytes to convert.  The argument must either
-  support the buffer protocol or be an iterable object producing bytes.
-  Bytes and bytearray are examples of built-in objects that support the
-  buffer protocol.
-byteorder
-  The byte order used to represent the integer.  If byteorder is 'big',
-  the most significant byte is at the beginning of the byte array.  If
-  byteorder is 'little', the most significant byte is at the end of the
-  byte array.  To request the native byte order of the host system, use
-  `sys.byteorder' as the byte order value.  Default is to use 'big'.
-signed
-  Indicates whether two's complement is used to represent the integer.
-
-</details>
-
-<details>
-
-<summary>imag</summary>
-
-the imaginary part of a complex number
-
-</details>
-
-<details>
-
-<summary>is_integer(...)</summary>
-
-Method:
-
-```python
-is_integer(self, /)
-```
-
-Returns True. Exists for duck type compatibility with float.is_integer.
-
-</details>
-
-<details>
-
-<summary>name</summary>
-
-The name of the Enum member.
-
-</details>
-
-<details>
-
-<summary>numerator</summary>
-
-the numerator of a rational number in lowest terms
-
-</details>
-
-<details>
-
-<summary>real</summary>
-
-the real part of a complex number
-
-</details>
-
-<details>
-
-<summary>to_bytes(...)</summary>
-
-Method:
-
-```python
-to_bytes(self, /, length=1, byteorder='big', *, signed=False)
-```
-
-Return an array of bytes representing an integer.
-
-length
-  Length of bytes object to use.  An OverflowError is raised if the
-  integer is not representable with the given number of bytes.  Default
-  is length 1.
-byteorder
-  The byte order used to represent the integer.  If byteorder is 'big',
-  the most significant byte is at the beginning of the byte array.  If
-  byteorder is 'little', the most significant byte is at the end of the
-  byte array.  To request the native byte order of the host system, use
-  `sys.byteorder' as the byte order value.  Default is to use 'big'.
-signed
-  Determines whether two's complement is used to represent the integer.
-  If signed is False and a negative integer is given, an OverflowError
-  is raised.
-
-</details>
-
-<details>
-
-<summary>value</summary>
-
-The value of the Enum member.
-
-</details>
-
 ### _class_ **ExternalError**
 
 A callback of an application failed (`ErrorCode.EXTERNAL`).
@@ -1543,25 +1239,9 @@ catch it.
 ExternalError(*args: Any) -> None
 ```
 
+Base class: ncs.error._CodeError
+
 Members:
-
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
 
 <details>
 
@@ -1598,17 +1278,6 @@ Example:
         maapi.connect(sock, '127.0.0.1', 9999)
     except Error as e:
         print(e.format())  # OS: system call failed (...)
-
-</details>
-
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
 
 </details>
 
@@ -1626,25 +1295,9 @@ error: it is an `Error`, for example with `ErrorCode.OS`.
 HaRemoteConnectionError(*args: Any) -> None
 ```
 
+Base class: ncs.error._CodeError
+
 Members:
-
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
 
 <details>
 
@@ -1681,17 +1334,6 @@ Example:
         maapi.connect(sock, '127.0.0.1', 9999)
     except Error as e:
         print(e.format())  # OS: system call failed (...)
-
-</details>
-
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
 
 </details>
 
@@ -1707,25 +1349,9 @@ and when committing while another session holds a lock
 LockedError(*args: Any) -> None
 ```
 
+Base class: ncs.error._CodeError
+
 Members:
-
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
 
 <details>
 
@@ -1762,17 +1388,6 @@ Example:
         maapi.connect(sock, '127.0.0.1', 9999)
     except Error as e:
         print(e.format())  # OS: system call failed (...)
-
-</details>
-
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
 
 </details>
 
@@ -1784,25 +1399,9 @@ The item does not exist (`ErrorCode.NOEXISTS`).
 NotFoundError(*args: Any) -> None
 ```
 
+Base class: ncs.error._CodeError
+
 Members:
-
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
 
 <details>
 
@@ -1839,17 +1438,6 @@ Example:
         maapi.connect(sock, '127.0.0.1', 9999)
     except Error as e:
         print(e.format())  # OS: system call failed (...)
-
-</details>
-
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
 
 </details>
 
@@ -1865,25 +1453,9 @@ succeed, decorate the function that starts the transaction with
 TransactionConflictError(*args: Any) -> None
 ```
 
+Base class: ncs.error._CodeError
+
 Members:
-
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
 
 <details>
 
@@ -1923,17 +1495,6 @@ Example:
 
 </details>
 
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
-
-</details>
-
 ### _class_ **ValidationWarning**
 
 `ValidationWarning` reported warnings, so the operation did not complete.
@@ -1945,7 +1506,8 @@ error.
 
 `apply()` does not raise `ValidationWarning`. It accepts the warnings and
 commits the transaction. To see the warnings before the commit, call
-`validate()` first, and then `apply()`.
+`validate(unlock=True)` first, and then `apply()`. `unlock=True` keeps
+the transaction open for `apply()`.
 
 A validation callback cannot raise `ValidationWarning` to return a
 warning. The validation then fails. To accept a value with a warning,
@@ -1977,7 +1539,7 @@ Example:
     from ncs.error import Error, ValidationWarning
 
     try:
-        t.validate(unlock=False, forcevalidation=True)
+        t.validate(unlock=True)
     except ValidationWarning as e:
         for w in e.warnings:
             print(f"  {w.path}: {w.message}")
@@ -1988,25 +1550,9 @@ Example:
 ValidationWarning(*, warnings: Optional[list[ncs.error.ValidationWarning.Entry]] = None, message: Optional[str] = None) -> None
 ```
 
+Base class: _ncs.error.Error
+
 Members:
-
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
 
 <details>
 
@@ -2042,17 +1588,6 @@ Format as VALIDATION_WARNING: followed by all the warnings.
 _Readonly property_
 
 The reported warnings, as ValidationWarning.Entry instances.
-
-</details>
-
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
 
 </details>
 

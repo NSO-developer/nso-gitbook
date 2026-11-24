@@ -19,7 +19,6 @@ Main class for the HA cluster management. The HA functionality makes it
 
 - [beNone\(\)](#benone-d237c0001505)
 - [bePrimary\(ConfValue\)](#beprimary-53ade4701481)
-- [beRelay\(\)](#berelay-c1ba9a75af6e)
 - [beSecondary\(ConfValue, ConfHaNode, boolean\)](#besecondary-fdf817eb2bdb)
 - [close\(\)](#close-8107c6dc012b)
 - [secondaryDead\(ConfValue\)](#secondarydead-138cc5049b31)
@@ -104,16 +103,6 @@ Instruct an HA node to be primary and also give the node a name.
 **Parameters**
 
 - `com.tailf.conf.ConfValue myNodeId` - ConfValue naming the ha node
-
-### beRelay() <a href="#berelay-c1ba9a75af6e" id="berelay-c1ba9a75af6e"></a>
-
-```java
-public void beRelay() throws java.io.IOException, com.tailf.ha.HaException
-```
-
-Types: [HaException](HaException.md#haexception-050bb3853186)
-
-Instruct a secondary node to be a relay for other secondaries.
 
 ### beSecondary(ConfValue, ConfHaNode, boolean) <a href="#besecondary-fdf817eb2bdb" id="besecondary-fdf817eb2bdb"></a>
 

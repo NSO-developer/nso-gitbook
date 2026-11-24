@@ -18,6 +18,8 @@ the behavior is the same as for Subscriber().
 OperSubscriber(app=None, log=None, host='127.0.0.1', port=None, path='/tmp/nso/nso-ipc')
 ```
 
+Base class: ncs.cdb.Subscriber
+
 Initialize an OperSubscriber.
 
 Members:
@@ -374,6 +376,8 @@ post_iterate().
 Subscriber(app=None, log=None, host='127.0.0.1', port=None, subtype=1, name='', path='/tmp/nso/nso-ipc')
 ```
 
+Base class: threading.Thread
+
 Initialize a Subscriber.
 
 For the connection defaults, see "IPC connection defaults" in the ncs
@@ -704,6 +708,8 @@ Methods are called in the following order:
 ```python
 TwoPhaseSubscriber(name, app=None, log=None, host='127.0.0.1', port=None, path='/tmp/nso/nso-ipc')
 ```
+
+Base class: ncs.cdb.Subscriber
 
 Members:
 

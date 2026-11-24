@@ -1198,6 +1198,8 @@ RE_EVALUATE_POLICIES = 2
 ConfirmNetworkStateMode(*values)
 ```
 
+Base class: enum.Enum
+
 Members:
 
 <details>
@@ -1222,22 +1224,6 @@ RE_EVALUATE_POLICIES = 2
 
 </details>
 
-<details>
-
-<summary>name</summary>
-
-The name of the Enum member.
-
-</details>
-
-<details>
-
-<summary>value</summary>
-
-The value of the Enum member.
-
-</details>
-
 ### _class_ **ConfirmNetworkStateScope**
 
 Enumeration for confirm network state scopes:
@@ -1247,6 +1233,8 @@ WRITE_AND_SERVICE_READ_SET = 2
 ```python
 ConfirmNetworkStateScope(*values)
 ```
+
+Base class: enum.Enum
 
 Members:
 
@@ -1272,22 +1260,6 @@ WRITE_AND_SERVICE_READ_SET = 2
 
 </details>
 
-<details>
-
-<summary>name</summary>
-
-The name of the Enum member.
-
-</details>
-
-<details>
-
-<summary>value</summary>
-
-The value of the Enum member.
-
-</details>
-
 ### _class_ **DryRunOutformat**
 
 Enumeration for dry run formats:
@@ -1299,6 +1271,8 @@ CLI_C  = 4
 ```python
 DryRunOutformat(*values)
 ```
+
+Base class: enum.Enum
 
 Members:
 
@@ -1343,22 +1317,6 @@ NATIVE = 3
 XML = 1
 ```
 
-
-</details>
-
-<details>
-
-<summary>name</summary>
-
-The name of the Enum member.
-
-</details>
-
-<details>
-
-<summary>value</summary>
-
-The value of the Enum member.
 
 </details>
 
@@ -2438,6 +2396,8 @@ WRITE_AND_SERVICE_READ_SET = 3
 NoOverwriteScope(*values)
 ```
 
+Base class: enum.Enum
+
 Members:
 
 <details>
@@ -2470,22 +2430,6 @@ WRITE_AND_SERVICE_READ_SET = 3
 WRITE_SET_ONLY = 1
 ```
 
-
-</details>
-
-<details>
-
-<summary>name</summary>
-
-The name of the Enum member.
-
-</details>
-
-<details>
-
-<summary>value</summary>
-
-The value of the Enum member.
 
 </details>
 
@@ -2544,6 +2488,8 @@ COMPLIANCE_TEMPLATE = 2
 TemplateTypes(*values)
 ```
 
+Base class: enum.Enum
+
 Members:
 
 <details>
@@ -2576,22 +2522,6 @@ DEVICE_TEMPLATE = 0
 SERVICE_TEMPLATE = 1
 ```
 
-
-</details>
-
-<details>
-
-<summary>name</summary>
-
-The name of the Enum member.
-
-</details>
-
-<details>
-
-<summary>value</summary>
-
-The value of the Enum member.
 
 </details>
 
@@ -2695,7 +2625,9 @@ committed anyway. Call validate() first to see them.
 Raises:
 
 * `error.LockedError` -- if another session holds a lock, retrying
-  later may succeed
+  later may succeed. In NSO, apply() first waits for the lock for
+  the time in /ncs-config/commit-retry-timeout. The default is
+  infinity, so by default apply() waits until the lock is released.
 * `error.Error` -- on any other failure
 
 </details>

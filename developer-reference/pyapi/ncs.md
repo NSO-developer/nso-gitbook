@@ -13,6 +13,15 @@ need to close sockets, user sessions and transactions. Finally, by removing the
 need to know the data types of the leafs, allows you to focus on the program
 logic.
 
+In these modules, "the server" is NSO. Two kinds of clients connect to it:
+
+* A northbound client reads or changes data through the CLI, NETCONF,
+  RESTCONF, JSON-RPC, SNMP or MAAPI. Usually a user or a script is
+  behind it.
+* A data provider, such as a program that uses the dp module, connects
+  with the libconfd protocol. The server invokes the callbacks of the
+  data provider when a northbound request needs them.
+
 This top module imports the following modules:
 
 * alarm -- NSO alarm handling

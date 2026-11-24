@@ -210,6 +210,8 @@ Log a warning message.
 ParentProcessLogHandler(log_q)
 ```
 
+Base class: logging.StreamHandler
+
 Members:
 
 <details>

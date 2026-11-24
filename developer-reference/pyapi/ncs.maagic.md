@@ -294,6 +294,8 @@ Represents a tailf:action node.
 Action(backend, cs_node, parent=None)
 ```
 
+Base class: ncs.maagic.Node
+
 Initialize an Action node. Should not be called explicitly.
 
 Members:
@@ -372,6 +374,8 @@ set just like any other nodes in the tree.
 ActionParams(cs_node, parent, output=False)
 ```
 
+Base class: ncs.maagic.Node
+
 Initialize an ActionParams node.
 
 Should not be called explicitly. Use 'get_input()' on an Action node
@@ -386,36 +390,11 @@ _None_
 
 Exception type used within maagic backends.
 
+Base class: builtins.Exception
+
 Members:
 
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
-
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
-
-</details>
+_None_
 
 ### _class_ **Bits**
 
@@ -510,6 +489,8 @@ children of this object.
 Case(backend, cs_node, cs_case, parent)
 ```
 
+Base class: ncs.maagic.Node
+
 Initialize a Case node. Should not be called explicitly.
 
 Members:
@@ -523,6 +504,8 @@ Represents a choice node.
 ```python
 Choice(backend, cs_node, cs_choice, parent)
 ```
+
+Base class: ncs.maagic.Node
 
 Initialize a Choice node. Should not be called explicitly.
 
@@ -558,6 +541,8 @@ A (non-presence) container node or a list element, contains other nodes.
 ```python
 Container(backend, cs_node, parent=None, children=None)
 ```
+
+Base class: ncs.maagic.Node
 
 Initialize Container node. Should not be called explicitly.
 
@@ -607,6 +592,8 @@ Represents a leaf with the type "empty".
 ```python
 EmptyLeaf(backend, cs_node, parent=None)
 ```
+
+Base class: ncs.maagic.Leaf
 
 Initialize an EmptyLeaf node. Should not be called explicitly.
 
@@ -700,6 +687,8 @@ Subclassed by NonEmptyLeaf, EmptyLeaf and LeafList.
 Leaf(backend, cs_node, parent=None)
 ```
 
+Base class: ncs.maagic.Node
+
 Initialize Leaf node. Should not be called explicitly.
 
 Members:
@@ -729,6 +718,8 @@ Represents a leaf-list node.
 ```python
 LeafList(backend, cs_node, parent=None)
 ```
+
+Base class: ncs.maagic.Leaf
 
 Initialize a LeafList node. Should not be called explicitly.
 
@@ -861,6 +852,8 @@ An instance of this class will be returned when iterating a leaf-list.
 LeafListIterator(lst)
 ```
 
+Base class: ncs.maagic.ListIterator
+
 Initialize this object.
 
 An instance of this class will be created when iteration of a
@@ -907,6 +900,8 @@ New items must, however, be created explicitly using the 'create' method.
 ```python
 List(backend, cs_node, parent=None)
 ```
+
+Base class: ncs.maagic.Node
 
 Initialize a List node. Should not be called explicitly.
 
@@ -1069,6 +1064,8 @@ This is a Container object with a specialized __repr__() method.
 ListElement(backend, cs_node, parent=None, children=None)
 ```
 
+Base class: ncs.maagic.Container
+
 Initialize Container node. Should not be called explicitly.
 
 Members:
@@ -1143,36 +1140,11 @@ Get the next value from the iterator.
 
 Exception type used within maagic.
 
+Base class: builtins.Exception
+
 Members:
 
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
-
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
-
-</details>
+_None_
 
 ### _class_ **Node**
 
@@ -1207,6 +1179,8 @@ Represents a leaf with a type other than "empty".
 ```python
 NonEmptyLeaf(backend, cs_node, parent=None)
 ```
+
+Base class: ncs.maagic.Leaf
 
 Initialize a NonEmptyLeaf node. Should not be called explicitly.
 
@@ -1331,6 +1305,8 @@ Represents a presence container.
 PresenceContainer(backend, cs_node, parent=None)
 ```
 
+Base class: ncs.maagic.Container
+
 Initialize a PresenceContainer. Should not be called explicitly.
 
 Members:
@@ -1400,6 +1376,8 @@ children.
 ```python
 Root(backend=None, namespaces=None)
 ```
+
+Base class: ncs.maagic.Node
 
 Initialize a Root node.
 

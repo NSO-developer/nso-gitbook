@@ -89,6 +89,8 @@ convert from [Span() | dict()] -> [dict()]
 EmptySpan(span_id=None, trace_id=None)
 ```
 
+Base class: ncs.progress.Span
+
 Members:
 
 <details>

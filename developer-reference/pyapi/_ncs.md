@@ -84,12 +84,15 @@ find_cs_node(hkeypath, len) -> Union[CsNode, None]
 
 Utility function which finds the CsNode corresponding to the len first
 elements of the hashed keypath. To make the search consider the full
-keypath leave out the len parameter.
+keypath leave out the len parameter. Returns `None` when len is longer
+than the keypath. Raises `ValueError` when len is less than 1, or when len
+is left out and the keypath is empty, and `TypeError` when the keypath is no
+longer valid, as the keypath of a callback is after the callback returns.
 
 Keyword arguments:
 
-* hkeypath -- a HKeypathRef instance
-* len -- number of elements to return (optional)
+* hkeypath -- a `HKeypathRef` instance
+* len -- number of elements to return, at least 1 (optional)
 
 ### find_cs_node_child
 

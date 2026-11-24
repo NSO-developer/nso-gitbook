@@ -98,6 +98,8 @@ Example application:
 Application(*args, **kwds)
 ```
 
+Base class: ncs_pyvm.ncspyvm.NcsPyVM
+
 Initialize an Application object.
 
 Not designed to be instantiated directly; these objects are created

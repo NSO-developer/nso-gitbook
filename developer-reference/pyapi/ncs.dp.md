@@ -2,6 +2,15 @@
 
 Callback module for connecting data providers to ConfD/NCS.
 
+The terms "the server", "northbound client" and "data provider" are
+defined in the docstring of the top-level module, ncs or confd.
+
+The callbacks do not talk to the northbound client. They reply to the
+server, and the server sends the data or the error message to the
+northbound client. One program can be both kinds of client. For example,
+a data provider that reads data with MAAPI is a northbound client for
+those reads.
+
 ## Functions
 
 ### return_worker_socket
@@ -59,25 +68,9 @@ Example:
 AcceptWithWarning(message: str) -> None
 ```
 
+Base class: builtins.Exception
+
 Members:
-
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
 
 <details>
 
@@ -86,17 +79,6 @@ add a note to the exception
 _Readonly property_
 
 The warning text.
-
-</details>
-
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
 
 </details>
 
@@ -309,6 +291,8 @@ Manage a data provider connection towards ConfD/NCS.
 ```python
 Daemon(name, log=None, ip='127.0.0.1', port=None, path='/tmp/nso/nso-ipc', state_mgr=None)
 ```
+
+Base class: threading.Thread
 
 Initialize a Daemon object.
 
@@ -725,9 +709,11 @@ Members:
 * `ERR` -- the callback failed. Valid to return from every callback
   type. To give an error message from a callback that uses
   `Action.action`, `Action.rpc`, `ValidationPoint.validate`,
-  `ValidationPoint.validate_with_trans` or `TransactionCallback.init`,
-  raise `error.CallbackError` (or `ValidationError`) instead; the
-  wrapper sets the message and returns `ERR`. Other callbacks must set
+  `ValidationPoint.validate_with_trans`, `TransactionCallback.init` or
+  `DbCallback`, raise `error.CallbackError` (or `ValidationError`)
+  instead; the wrapper sets the message and returns `ERR`. A
+  `DbCallback` callback can also set it with
+  `DbCallbackContext.seterr()`. Other callbacks must set
   the message with the low-level `*_seterr()` function for their
   context, for example `trans_seterr()` in `_confd.dp` or `_ncs.dp`,
   before they return ERR. The high-level API has no function for
@@ -781,6 +767,8 @@ Members:
 ```python
 ReturnValue(*values)
 ```
+
+Base class: enum.IntEnum
 
 Members:
 
@@ -858,198 +846,6 @@ OK = 0
 VALIDATION_WARN = -3
 ```
 
-
-</details>
-
-<details>
-
-<summary>as_integer_ratio(...)</summary>
-
-Method:
-
-```python
-as_integer_ratio(self, /)
-```
-
-Return a pair of integers, whose ratio is equal to the original int.
-
-The ratio is in lowest terms and has a positive denominator.
-
->>> (10).as_integer_ratio()
-(10, 1)
->>> (-10).as_integer_ratio()
-(-10, 1)
->>> (0).as_integer_ratio()
-(0, 1)
-
-</details>
-
-<details>
-
-<summary>bit_count(...)</summary>
-
-Method:
-
-```python
-bit_count(self, /)
-```
-
-Number of ones in the binary representation of the absolute value of self.
-
-Also known as the population count.
-
->>> bin(13)
-'0b1101'
->>> (13).bit_count()
-3
-
-</details>
-
-<details>
-
-<summary>bit_length(...)</summary>
-
-Method:
-
-```python
-bit_length(self, /)
-```
-
-Number of bits necessary to represent self in binary.
-
->>> bin(37)
-'0b100101'
->>> (37).bit_length()
-6
-
-</details>
-
-<details>
-
-<summary>conjugate(...)</summary>
-
-Method:
-
-Returns self, the complex conjugate of any int.
-
-</details>
-
-<details>
-
-<summary>denominator</summary>
-
-the denominator of a rational number in lowest terms
-
-</details>
-
-<details>
-
-<summary>from_bytes(...)</summary>
-
-Class method:
-
-```python
-from_bytes(type, /, bytes, byteorder='big', *, signed=False)
-```
-
-Return the integer represented by the given array of bytes.
-
-bytes
-  Holds the array of bytes to convert.  The argument must either
-  support the buffer protocol or be an iterable object producing bytes.
-  Bytes and bytearray are examples of built-in objects that support the
-  buffer protocol.
-byteorder
-  The byte order used to represent the integer.  If byteorder is 'big',
-  the most significant byte is at the beginning of the byte array.  If
-  byteorder is 'little', the most significant byte is at the end of the
-  byte array.  To request the native byte order of the host system, use
-  `sys.byteorder' as the byte order value.  Default is to use 'big'.
-signed
-  Indicates whether two's complement is used to represent the integer.
-
-</details>
-
-<details>
-
-<summary>imag</summary>
-
-the imaginary part of a complex number
-
-</details>
-
-<details>
-
-<summary>is_integer(...)</summary>
-
-Method:
-
-```python
-is_integer(self, /)
-```
-
-Returns True. Exists for duck type compatibility with float.is_integer.
-
-</details>
-
-<details>
-
-<summary>name</summary>
-
-The name of the Enum member.
-
-</details>
-
-<details>
-
-<summary>numerator</summary>
-
-the numerator of a rational number in lowest terms
-
-</details>
-
-<details>
-
-<summary>real</summary>
-
-the real part of a complex number
-
-</details>
-
-<details>
-
-<summary>to_bytes(...)</summary>
-
-Method:
-
-```python
-to_bytes(self, /, length=1, byteorder='big', *, signed=False)
-```
-
-Return an array of bytes representing an integer.
-
-length
-  Length of bytes object to use.  An OverflowError is raised if the
-  integer is not representable with the given number of bytes.  Default
-  is length 1.
-byteorder
-  The byte order used to represent the integer.  If byteorder is 'big',
-  the most significant byte is at the beginning of the byte array.  If
-  byteorder is 'little', the most significant byte is at the end of the
-  byte array.  To request the native byte order of the host system, use
-  `sys.byteorder' as the byte order value.  Default is to use 'big'.
-signed
-  Determines whether two's complement is used to represent the integer.
-  If signed is False and a negative integer is given, an OverflowError
-  is raised.
-
-</details>
-
-<details>
-
-<summary>value</summary>
-
-The value of the Enum member.
 
 </details>
 
@@ -1206,8 +1002,8 @@ socket with a transaction.
 
 An `init()` method defined by a subclass may raise
 `error.CallbackError` to refuse the transaction with its code and
-application tag. Its return value is ignored, so returning
-`ReturnValue.ERR` from `init()` does not refuse the transaction.
+application tag. Any other exception is logged, and the client
+gets the error "Python cb_init error. <message>".
 
 </details>
 
@@ -1220,36 +1016,11 @@ Exception raised to indicate a failed validation
 ValidationError(message)
 ```
 
+Base class: builtins.Exception
+
 Members:
 
-<details>
-
-<summary>add_note(...)</summary>
-
-Method:
-
-Exception.add_note(note) --
-add a note to the exception
-
-</details>
-
-<details>
-
-<summary>args</summary>
-
-
-</details>
-
-<details>
-
-<summary>with_traceback(...)</summary>
-
-Method:
-
-Exception.with_traceback(tb) --
-set self.__traceback__ to tb and return self.
-
-</details>
+_None_
 
 ### _class_ **ValidationPoint**
 

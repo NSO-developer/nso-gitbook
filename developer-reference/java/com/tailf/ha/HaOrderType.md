@@ -13,7 +13,6 @@ enum for the different HA cluster protocol operations Used internally by the
 
 - [BENONE](#benone-8943c52731fc)
 - [BEPRIMARY](#beprimary-e01813d10d2e)
-- [BERELAY](#berelay-4319cee8cab8)
 - [BESECONDARY](#besecondary-a9ff5fc98372)
 - [GETSTATUS](#getstatus-8b73e123eca8)
 - [SECONDARY\_DEAD](#secondary_dead-dbf3430fbfb9)
@@ -41,14 +40,6 @@ BEPRIMARY(1);
 ```
 
 Implies that the node should be primary in the cluster
-
-### BERELAY <a href="#berelay-4319cee8cab8" id="berelay-4319cee8cab8"></a>
-
-```java
-BERELAY(6);
-```
-
-Implies that the secondary node should be a relay for other secondaries
 
 ### BESECONDARY <a href="#besecondary-a9ff5fc98372" id="besecondary-a9ff5fc98372"></a>
 

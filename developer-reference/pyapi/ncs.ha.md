@@ -266,8 +266,7 @@ Raises:
 
 * `TypeError`: If node_id is not a str.
 * `error.Error`: With `ErrorCode.BADSTATE`, if the node cannot
-    change the cluster now, for example in start phase 0, or if
-    this node is a relay (ConfD only).
+    change the cluster now, for example in start phase 0.
 
 </details>
 
@@ -318,13 +317,12 @@ Members:
 * `NONE` -- The node is not in an HA cluster.
 * `SECONDARY` -- The node is a secondary.
 * `PRIMARY` -- The node is the primary.
-* `SECONDARY_RELAY` -- The node is a secondary that sends the changes from
-  the primary to other secondaries. Only ConfD has relays. NSO does not
-  support them.
 
 ```python
 HaState(*values)
 ```
+
+Base class: enum.IntEnum
 
 Members:
 
@@ -361,209 +359,6 @@ SECONDARY = 2
 
 </details>
 
-<details>
-
-<summary>SECONDARY_RELAY</summary>
-
-```python
-SECONDARY_RELAY = 4
-```
-
-
-</details>
-
-<details>
-
-<summary>as_integer_ratio(...)</summary>
-
-Method:
-
-```python
-as_integer_ratio(self, /)
-```
-
-Return a pair of integers, whose ratio is equal to the original int.
-
-The ratio is in lowest terms and has a positive denominator.
-
->>> (10).as_integer_ratio()
-(10, 1)
->>> (-10).as_integer_ratio()
-(-10, 1)
->>> (0).as_integer_ratio()
-(0, 1)
-
-</details>
-
-<details>
-
-<summary>bit_count(...)</summary>
-
-Method:
-
-```python
-bit_count(self, /)
-```
-
-Number of ones in the binary representation of the absolute value of self.
-
-Also known as the population count.
-
->>> bin(13)
-'0b1101'
->>> (13).bit_count()
-3
-
-</details>
-
-<details>
-
-<summary>bit_length(...)</summary>
-
-Method:
-
-```python
-bit_length(self, /)
-```
-
-Number of bits necessary to represent self in binary.
-
->>> bin(37)
-'0b100101'
->>> (37).bit_length()
-6
-
-</details>
-
-<details>
-
-<summary>conjugate(...)</summary>
-
-Method:
-
-Returns self, the complex conjugate of any int.
-
-</details>
-
-<details>
-
-<summary>denominator</summary>
-
-the denominator of a rational number in lowest terms
-
-</details>
-
-<details>
-
-<summary>from_bytes(...)</summary>
-
-Class method:
-
-```python
-from_bytes(type, /, bytes, byteorder='big', *, signed=False)
-```
-
-Return the integer represented by the given array of bytes.
-
-bytes
-  Holds the array of bytes to convert.  The argument must either
-  support the buffer protocol or be an iterable object producing bytes.
-  Bytes and bytearray are examples of built-in objects that support the
-  buffer protocol.
-byteorder
-  The byte order used to represent the integer.  If byteorder is 'big',
-  the most significant byte is at the beginning of the byte array.  If
-  byteorder is 'little', the most significant byte is at the end of the
-  byte array.  To request the native byte order of the host system, use
-  `sys.byteorder' as the byte order value.  Default is to use 'big'.
-signed
-  Indicates whether two's complement is used to represent the integer.
-
-</details>
-
-<details>
-
-<summary>imag</summary>
-
-the imaginary part of a complex number
-
-</details>
-
-<details>
-
-<summary>is_integer(...)</summary>
-
-Method:
-
-```python
-is_integer(self, /)
-```
-
-Returns True. Exists for duck type compatibility with float.is_integer.
-
-</details>
-
-<details>
-
-<summary>name</summary>
-
-The name of the Enum member.
-
-</details>
-
-<details>
-
-<summary>numerator</summary>
-
-the numerator of a rational number in lowest terms
-
-</details>
-
-<details>
-
-<summary>real</summary>
-
-the real part of a complex number
-
-</details>
-
-<details>
-
-<summary>to_bytes(...)</summary>
-
-Method:
-
-```python
-to_bytes(self, /, length=1, byteorder='big', *, signed=False)
-```
-
-Return an array of bytes representing an integer.
-
-length
-  Length of bytes object to use.  An OverflowError is raised if the
-  integer is not representable with the given number of bytes.  Default
-  is length 1.
-byteorder
-  The byte order used to represent the integer.  If byteorder is 'big',
-  the most significant byte is at the beginning of the byte array.  If
-  byteorder is 'little', the most significant byte is at the end of the
-  byte array.  To request the native byte order of the host system, use
-  `sys.byteorder' as the byte order value.  Default is to use 'big'.
-signed
-  Determines whether two's complement is used to represent the integer.
-  If signed is False and a negative integer is given, an OverflowError
-  is raised.
-
-</details>
-
-<details>
-
-<summary>value</summary>
-
-The value of the Enum member.
-
-</details>
-
 ### _class_ **HaStatus**
 
 The HA status of one node.
@@ -574,8 +369,7 @@ Attributes:
 * `primary` -- The primary of this node, as an `HaNode`. It is None if
   this node is the primary or has no HA role.
 * `secondaries` -- The secondaries that connect to this node, as a
-  tuple of `HaNode` objects. A primary has all its secondaries here, and
-  a relay (ConfD only) has the secondaries that connect through it.
+  tuple of `HaNode` objects. A primary has all its secondaries here.
   For other nodes the tuple is empty.
 
 ```python
@@ -593,5 +387,4 @@ _None_
 STATE_NONE = 1
 STATE_PRIMARY = 3
 STATE_SECONDARY = 2
-STATE_SECONDARY_RELAY = 4
 ```

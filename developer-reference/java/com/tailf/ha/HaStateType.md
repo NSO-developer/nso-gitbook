@@ -13,7 +13,6 @@ This enum describes the different states a HA node can be in.
 - [NONE](#none-f29411358a7b)
 - [PRIMARY](#primary-b37cfb8b5165)
 - [SECONDARY](#secondary-0ebc1e389638)
-- [SECONDARY\_RELAY](#secondary_relay-30883f2fae5b)
 
 **Methods**:
 
@@ -47,15 +46,6 @@ SECONDARY(2);
 ```
 
 SECONDARY implies that the node is secondary in a HA cluster.
-
-### SECONDARY_RELAY <a href="#secondary_relay-30883f2fae5b" id="secondary_relay-30883f2fae5b"></a>
-
-```java
-SECONDARY_RELAY(4);
-```
-
-SECONDARY_RELAY implies that the node is secondary in a HA cluster,
- that may also have "sub-secondaries" (after a beRelay() call).
 
 
 ## Methods
