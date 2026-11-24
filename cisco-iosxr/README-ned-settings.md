@@ -938,7 +938,7 @@
 
   Used for debugging to simulate a device response to a live-status command.
 
-    - developer simulate-command <cmd> <file>
+    - developer simulate-command <cmd> <file> <text>
 
       - cmd <WORD>
 
@@ -947,5 +947,9 @@
       - file <WORD>
 
         Command output file.
+
+      - text <WORD>
+
+        Output of simulated command as a single string.
 
 
