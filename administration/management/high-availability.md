@@ -135,7 +135,7 @@ As part of the configuration, you must:
 * Enable HA Raft functionality through the `enabled` leaf.
 * Set `node-address` and the corresponding TLS parameters (see [Node Names and Certificates](high-availability.md#ch_ha.raft_names)).
 * Identify the cluster this node belongs to with `cluster-name`.
-* Reload or restart the NSO process (if already running).
+* Restart NSO (if already running); a reload is not enough to enable HA Raft.
 * Repeat the preceding steps for every participating node.
 * Enable read-only mode on designated leader to avoid potential sync issues in cluster formation.
 * Invoke the `create-cluster` action.
