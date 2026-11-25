@@ -76,6 +76,11 @@
   +---------------------------+-----------------+--------+---------------------------------------------------+
   ```
 
+  NOTE: The NED is not limited to the versions and models listed above and may support additional
+  versions or models. Please try the NED with your target version and model. To request support for
+  additional configuration features or use cases, contact Cisco Support and follow the process
+  described in Section 8.
+
 
 ## 1.1 Extract the NED package
 ------------------------------
@@ -1182,6 +1187,8 @@
   ```
   admin@ncs# packages reload
   ```
+
+
 
 
 # 10. Mandatory ned-settings to connect to a Cisco Intersight device

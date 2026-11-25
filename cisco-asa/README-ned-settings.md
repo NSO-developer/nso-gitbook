@@ -181,18 +181,22 @@
       onlret   - Newline performs a carriage return.
 
 
-    - connection ssh client <enum> (default default)
+    - connection ssh client <enum>
 
-      Specify which SSH client NSO uses to connect to the device as well
-      as what SSH implementation the NED will use for SSH and SCP.
-      Two SSH clients are supported:
+      Specifies the SSH client used for device connectivity. The NED automatically detects the
+      appropriate default based on the installed NSO version: Ganymed is the default for legacy
+      versions, SSHJ for NSO 6.x versions, and the Apache MINA-based client is the default for NSO
+      6.8 and later. This auto-detection is overridden if this leaf is explicitly configured.
 
       default  - default.
 
-      sshj     - The new SSH client with support for the latest crypto features (default after NSO
-                 version 5.6 or later).
+      sshj     - SSHJ-based client. Supports most modern cryptographic standards.
 
-      ganymed  - The legacy SSH client (used on all NSO version older than 5.6).
+      ganymed  - Legacy SSH client. Deprecated; may be required for older devices with restricted
+                 cipher support.
+
+      mina     - Apache MINA-based client. Supports the latest cryptographic standards, including
+                 PQC algorithms.
 
 
     - connection ssh keep-alive-interval <0-4294967295>

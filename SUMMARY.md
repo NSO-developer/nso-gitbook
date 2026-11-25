@@ -5,7 +5,7 @@
 ## Cisco-provided NEDs
 * a10-acos
   * [README-ned-settings](a10-acos/README-ned-settings.md)
-  * [README v3.27.9 2026-11-19](a10-acos/README.md)
+  * [README v3.27.10 2026-11-24](a10-acos/README.md)
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
@@ -100,7 +100,7 @@
 * cisco-iosxr_nc
   * [README-ned-settings](cisco-iosxr_nc/README-ned-settings.md)
   * [README-rebuild](cisco-iosxr_nc/README-rebuild.md)
-  * [README v1.1.5 2026-11-12](cisco-iosxr_nc/README.md)
+  * [README v1.1.6 2026-11-24](cisco-iosxr_nc/README.md)
 
 * cisco-iosxr_netconf
   * [README v26.2.1 2026-10-14](cisco-iosxr_netconf/README.md)
