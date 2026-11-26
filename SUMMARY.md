@@ -31,7 +31,7 @@
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
-  * [README v1.5.17 2026-10-21](alu-isam/README.md)
+  * [README v1.5.18 2026-11-25](alu-isam/README.md)
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
@@ -152,7 +152,7 @@
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
-  * [README v5.12.7 2026-11-06](fortinet-fortios/README.md)
+  * [README v5.12.8 2026-11-25](fortinet-fortios/README.md)
 
 * furukawa-fx1
   * [README-ned-settings](furukawa-fx1/README-ned-settings.md)

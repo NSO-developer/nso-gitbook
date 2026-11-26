@@ -114,6 +114,157 @@ The number of lines in the
         Note: in order for the above settings to take effect, user must disconnect and do sync-from.
 
 
+    - enable-ont-cascade-filter <true|false> (default false)
+
+      Enable this reduce the ammount of generated output when deleting a equipment/ont/interface
+      entry. Experimental feature.
+
+      Because the ISAM device does a lot of config changes in the background, a /equipment/ont/interface deletion must be accompanied by a lot of 
+      extra operations that are needed to keep the NED in sync.
+      For example, to remove "equipment ont interface 1/1/1/16/99" this config must be pushed:
+          no devices device test02ac01 config equipment ont interface 1/1/1/16/99
+          no devices device test02ac01 config equipment ont slot 1/1/1/16/99/1
+          no devices device test02ac01 config equipment ont slot 1/1/1/16/99/3
+          no devices device test02ac01 config qos interface 1/1/1/16/99/1/1
+          no devices device test02ac01 config qos interface ont:1/1/1/16/99
+          no devices device test02ac01 config bridge port 1/1/1/16/99/1/1
+          no devices device test02ac01 config ethernet ont 1/1/1/16/99/1/1
+          no devices device test02ac01 config interface port ont:1/1/1/16/99
+          no devices device test02ac01 config interface port uni:1/1/1/16/99/1/1
+          no devices device test02ac01 config interface port vlan-port:1/1/1/16/99/1/1:3999
+          no devices device test02ac01 config ani ont tca-thresh 1/1/1/16/99
+          no devices device test02ac01 config ani ont video 1/1/1/16/99
+          no devices device test02ac01 config uni ont video 1/1/1/16/99/3/1
+          no devices device test02ac01 config ntp ont 1/1/1/16/99
+          no devices device test02ac01 config vlan id stacked:1090:597  
+
+      This input generates the following output that is mostly NOPs because its basically duplicating the actions that are automatically taken by the devcei:
+          native {
+            device {
+                name test02ac01
+                data exit all
+                    configure
+                    qos
+                      interface 1/1/1/16/99/1/1
+                      scheduler-node name:NGLT_Default
+                      no cac-profile
+                      queue 0
+                      exit
+                      exit
+                    exit
+                    interface
+                      port ont:1/1/1/16/99
+                      no admin-up
+                      no link-updown-trap
+                      exit
+                      port uni:1/1/1/16/99/1/1
+                      no admin-up
+                      exit
+                      port vlan-port:1/1/1/16/99/1/1:3999
+                      no admin-up
+                      exit
+                    exit
+                    bridge
+                      port 1/1/1/16/99/1/1
+                      no pvid
+                      no vlan-id 3999
+                      exit
+                    exit
+                    qos
+                      interface 1/1/1/16/99/1/1
+                      queue 0
+                        shaper-profile none
+                      exit
+                      queue 1
+                        shaper-profile none
+                      exit
+                      queue 2
+                        shaper-profile none
+                      exit
+                      queue 3
+                        shaper-profile none
+                      exit
+                      upstream-queue 0
+                        no weight
+                        no bandwidth-profile
+                      exit
+                      exit
+                      interface ont:1/1/1/16/99
+                      scheduler-node name:NGLT_Default
+                      exit
+                    exit
+                    vlan
+                      no id stacked:1090:597
+                    exit
+                    bridge
+                      no port 1/1/1/16/99/1/1
+                    exit
+                    ethernet
+                    exit
+                    ani
+                      ont
+                      no video 1/1/1/16/99
+                      exit
+                    exit
+                    uni
+                      ont
+                      exit
+                    exit
+                    equipment
+                      ont
+                      slot 1/1/1/16/99/1
+                        admin-state down
+                      exit
+                      no slot 1/1/1/16/99/1
+                      slot 1/1/1/16/99/3
+                        admin-state down
+                      exit
+                      no slot 1/1/1/16/99/3
+                      exit
+                    exit
+                    ani
+                      ont
+                      exit
+                    exit
+                    ntp
+                      no ont 1/1/1/16/99
+                    exit
+                    equipment
+                      ont
+                      interface 1/1/1/16/99
+                        admin-state down
+                      exit
+                      no interface 1/1/1/16/99
+                      exit
+                    exit
+                    exit all
+                }
+            }
+
+      When this field is enabled, the code will try to remove all the NOP commands from the command set prepared from the device and tries to convert the above int:
+          native {
+              device {
+                  name test02ac01
+                  data exit all
+                      configure
+                      equipment
+                        ont
+                        interface 1/1/1/16/99
+                          admin-state down
+                        exit
+                        no interface 1/1/1/16/99
+                        exit
+                      exit
+                      vlan
+                        no id stacked:1090:597
+                      exit
+                      exit all
+              }
+          }
+
+      The purpose is to reduce the ammout of data sent out.
+
+
 # 2. ned-settings alu-isam developer-settings
 ---------------------------------------------
 
