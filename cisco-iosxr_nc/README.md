@@ -98,6 +98,14 @@
   |                           |           | used instead.                                                    |
   +---------------------------+-----------+------------------------------------------------------------------+
   ```
+  Custom NED Features
+  ```
+  +---------------------------+-----------+------------------------------------------------------------------+
+  | Feature                   | Supported | Info                                                             |
+  +---------------------------+-----------+------------------------------------------------------------------+
+  | rpc actions               | yes       | All modeled RPCs are mounted under /devices/device/rpc           |
+  +---------------------------+-----------+------------------------------------------------------------------+
+  ```
 
   Verified target systems
   ```
@@ -413,7 +421,7 @@
      device instances using this NED package.
 
      ```
-     admin@ncs(config)# devices device global-settings ned-settings cisco-iosxr_nc logger \
+     admin@ncs(config)# devices global-settings ned-settings cisco-iosxr_nc logger \
                        level [debug | verbose | info | error]
      admin@ncs(config)# commit
      ```
@@ -523,11 +531,33 @@ admin@ncs(config)# commit
 # 4. Sample device configuration
 --------------------------------
 
-  NONE
+  ```
+  devices authgroups group auth-dev-1
+   default-map remote-name <user>
+   default-map remote-password <password>
+  !
+  devices device dev-1
+   address         <address>
+   port            <port>
+   authgroup       auth-dev-1
+   device-type generic ned-id cisco-iosxr_nc-gen-1.1
+   trace     raw
+   state admin-state unlocked
+  !
+  ```
 
 
 # 5. Built in RPC actions
 ---------------------------------
+
+  The RPCs listed below are NED internal RPCs, built into the NED itself. The
+  device YANG models that the NED is built with may define additional device RPCs,
+  which are also available under /devices/device/rpc. To list all RPCs available
+  for a device, use the NSO CLI:
+
+  ```
+  # devices device dev-1 rpc ?
+  ```
 
   ## 5.1. rpc add-filter-path
   ---------------------------
@@ -1491,7 +1521,6 @@ admin@ncs(config)# commit
   ```
   ERROR: external mfa executable failed <....>
   ```
-
 
 
 # 11. Tips and Tricks for Resolving Common Issues with IOS XR Devices

@@ -42,6 +42,17 @@
 # 1. ned-settings helm-k8s
 --------------------------
 
+    - config local-charts-folder <path>
+
+      Optional directory on the Helm host containing chart directories or `.tgz`
+      archives. Discovered charts use the `local/` prefix.
+
+      Sync-from also works when no repositories or local charts are available.
+      If a release's source cannot be identified, its chart is recorded by
+      its bare name and version, without a corresponding discovered chart.
+      Configure the source and select the discovered chart before installing
+      or upgrading that release.
+
 
 # 2. ned-settings helm-k8s logger
 ---------------------------------
@@ -60,6 +71,10 @@
       verbose  - verbose.
 
       debug    - debug.
+
+      Discovery logs include release and chart metadata and the structure of
+      chart values. Credential-like fields and unrecognised string values are
+      masked; repository URLs show only their scheme, host and port.
 
 
     - logger java <true|false> (default true)

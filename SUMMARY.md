@@ -18,7 +18,7 @@
 
 * accedian-spp
   * [README-ned-settings](accedian-spp/README-ned-settings.md)
-  * [README v1.7.4 2026-08-03](accedian-spp/README.md)
+  * [README v1.7.5 2026-11-27](accedian-spp/README.md)
 
 * adtran-aos_nc
   * [README-ned-settings](adtran-aos_nc/README-ned-settings.md)
@@ -39,7 +39,7 @@
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.35.5 2026-11-19](arista-dcs/README.md)
+  * [README v5.35.6 2026-11-27](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -128,7 +128,7 @@
 
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)
-  * [README v2.1.9 2026-10-21](ericsson-efn324/README.md)
+  * [README v2.1.10 2026-11-27](ericsson-efn324/README.md)
 
 * ericsson-enm
   * [README-ned-settings](ericsson-enm/README-ned-settings.md)
@@ -148,7 +148,7 @@
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)
-  * [README v4.3.58 2026-10-23](fortinet-fmg/README.md)
+  * [README v4.3.59 2026-11-27](fortinet-fmg/README.md)
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
@@ -245,7 +245,7 @@
 
 * redhat-dir389
   * [README-ned-settings](redhat-dir389/README-ned-settings.md)
-  * [README v1.2.7 2026-11-17](redhat-dir389/README.md)
+  * [README v1.2.8 2026-11-27](redhat-dir389/README.md)
 
 * redhat-openshift-k8s
   * [README-ned-settings](redhat-openshift-k8s/README-ned-settings.md)

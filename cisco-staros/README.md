@@ -362,7 +362,7 @@
      device instances using this NED package.
 
      ```
-     admin@ncs(config)# devices device global-settings ned-settings cisco-staros logger \
+     admin@ncs(config)# devices global-settings ned-settings cisco-staros logger \
                        level [debug | verbose | info | error]
      admin@ncs(config)# commit
      ```
@@ -1202,7 +1202,6 @@ admin@ncs(config)# commit
   ```
   ERROR: external mfa executable failed <....>
   ```
-
 
 
 # 11. NED Secrets - Securing your Secrets

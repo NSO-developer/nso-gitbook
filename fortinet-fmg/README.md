@@ -336,7 +336,7 @@
      device instances using this NED package.
 
      ```
-     admin@ncs(config)# devices device global-settings ned-settings fortinet-fmg logger \
+     admin@ncs(config)# devices global-settings ned-settings fortinet-fmg logger \
                        level [debug | verbose | info | error]
      admin@ncs(config)# commit
      ```
@@ -769,6 +769,5 @@ admin@ncs(config)# commit
   ```
   admin@ncs# packages reload
   ```
-
 
 

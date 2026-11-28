@@ -406,7 +406,7 @@
      device instances using this NED package.
 
      ```
-     admin@ncs(config)# devices device global-settings ned-settings cisco-nx_nc logger \
+     admin@ncs(config)# devices global-settings ned-settings cisco-nx_nc logger \
                        level [debug | verbose | info | error]
      admin@ncs(config)# commit
      ```
@@ -516,11 +516,34 @@ admin@ncs(config)# commit
 # 4. Sample device configuration
 --------------------------------
 
-  NONE
+  ```
+  devices authgroups group auth-dev-1
+   default-map remote-name <user>
+   default-map remote-password <password>
+  !
+  devices device dev-1
+   address         <address>
+   port            <port>
+   authgroup       auth-dev-1
+   device-type generic ned-id cisco-nx_nc-gen-1.0
+   trace           raw
+   state admin-state unlocked
+   ned-settings cisco-nx_nc transaction persist-to-startup true
+  !
+  ```
 
 
 # 5. Built in RPC actions
 ---------------------------------
+
+  The RPCs listed below are NED internal RPCs, built into the NED itself. The
+  device YANG models that the NED is built with may define additional device RPCs,
+  which are also available under /devices/device/rpc. To list all RPCs available
+  for a device, use the NSO CLI:
+
+  ```
+  # devices device dev-1 rpc ?
+  ```
 
   ## 5.1. rpc add-filter-path
   ---------------------------
@@ -1235,13 +1258,19 @@ admin@ncs(config)# commit
 # 6. Built in live-status show
 ------------------------------
 
-  NONE
+   All models are by default mounted under live-status
+
+    ```
+    admin@ncs# show devices device dev-1 live-status ?
+    Possible completions:
+    <...>
+    ```
 
 
 # 7. Limitations
 ----------------
 
-  NONE
+  N/A
 
 
 # 8. How to report NED issues and feature requests
@@ -1478,7 +1507,6 @@ admin@ncs(config)# commit
   ```
   ERROR: external mfa executable failed <....>
   ```
-
 
 
 # 11. Run arbitrary commands on device

@@ -344,7 +344,7 @@ Follow these steps to build each variant of the cisco-iosxr_nc NED iteratively, 
 
 3. Follow the instructions in section **1.3** to rebuild the NED using one of the following alternatives:
 
-   
+
 
 **Alternative 1: Use the built-in RPC to rebuild with custom NED-ID arguments**
 
@@ -386,7 +386,7 @@ Two examples targeting device version 21.6:
 
 
 
-4. Follow the instructions in section **1.4** to reload the NED package. The rebuilt package will now use the NED-ID:  
+4. Follow the instructions in section **1.4** to reload the NED package. The rebuilt package will now use the NED-ID:
    `cisco-iosxr_nc<NED_ID_SUFFIX>-gen-<NED_ID_MAJOR>.<NED_ID_MINOR>`
 
    **Important side effects when changing the NED-ID:**
@@ -406,7 +406,7 @@ When managing multiple firmware versions of the same device type, each version u
 
 In many cases, the YANG schemas differ only slightly between consecutive firmware releases. NSO 6.6 and later includes a **schema de-duplication** feature that avoids duplicating identical schema trees across multiple loaded NED packages, significantly reducing NSO memory (RAM) consumption.
 
-To enable schema de-duplication, NSO requires the base prefix of the NED-ID to match exactly across packages (i.e., the substring before `-gen-` must be identical). 
+To enable schema de-duplication, NSO requires the base prefix of the NED-ID to match exactly across packages (i.e., the substring before `-gen-` must be identical).
 
 **Recommendations for Schema De-duplication:**
 * **Preferred approach:** Differentiate your packages using only `major` and `minor` (e.g., `cisco-iosxr_nc-gen-21.6` and `cisco-iosxr_nc-gen-22.4`). This keeps the base prefix identical across all versions.
@@ -462,6 +462,7 @@ The settings cache preserves most build customization variables, including NED-I
 
    ```bash
    make clean all NED_ID_SUFFIX=-foo NED_ID_MAJOR=2 NED_ID_MINOR=17
+   ```
 
 1. **Inspect the Cache (Optional):** Check `$NED_ROOT_DIR/src/.ned-make-settings-cache`:
 
@@ -567,7 +568,7 @@ The following variables can be configured in a preset file or preserved in the c
 
   - `YANG_EXTRA_DEVIATION_FILE`: Path to a pre-generated YANG deviation file implementing the auto-config filter.
 
-  
+
 
 ## 6.3 Using the Cache to Generate a Preset File
 
@@ -1148,13 +1149,13 @@ These namespaces appear in the device's running configuration and in the configu
 $ ncs_cli -C -u admin
 admin@ncs# config
 Entering configuration mode terminal
-admin@ncs(config)# devices device xrv9k-gnmi-1 config oc-if:interfaces interface GigabitEthernet0/0/0/0 config description TEST
+admin@ncs(config)# devices device dev-1 config oc-if:interfaces interface GigabitEthernet0/0/0/0 config description TEST
 admin@ncs(config-interface-GigabitEthernet0/0/0/0)# commit dry-run outformat xml
 result-xml {
     local-node {
         data <devices xmlns="http://tail-f.com/ns/ncs">
                <device>
-                 <name>xrv9k-gnmi-1</name>
+                 <name>dev-1</name>
                  <config>
                    <interfaces xmlns="http://openconfig.net/yang/interfaces">
                      <interface>
@@ -2422,7 +2423,7 @@ Here is a process to identify problematic xpath expressions when performance iss
    To simplify analysis, a new tool is included in the third-party YANG NED toolbox, the `xpath-trace-analyzer`:
 
    ```
-    devices device dev-0 rpc rpc-xpath-trace-analyzer xpath-trace-analyzer
+    devices device dev-1 rpc rpc-xpath-trace-analyzer xpath-trace-analyzer
    ```
 
 
@@ -2438,7 +2439,7 @@ Here is a process to identify problematic xpath expressions when performance iss
    Execute it like below:
 
    ```
-   admin@ncs# devices device dev-0 rpc rpc-xpath-trace-analyzer xpath-trace-analyzer number-of-entries 5
+   admin@ncs# devices device dev-1 rpc rpc-xpath-trace-analyzer xpath-trace-analyzer number-of-entries 5
    ```
 
 
@@ -2597,7 +2598,7 @@ Here is a process to identify problematic xpath expressions when performance iss
 7. **Rebuild the NED package and reload it**:
 
    ```
-   admin@ncs# devices device dev-0 rpc rpc-rebuild-package rebuild-package
+   admin@ncs# devices device dev-1 rpc rpc-rebuild-package rebuild-package
    admin@ncs# packages reload
    ```
 
@@ -2951,7 +2952,7 @@ However, after a firmware upgrade - even if the YANG models have changed - it ma
 
 - Are the changed elements within those YANG modules populated in the CDB and/or referenced by services running in NSO?
 
-  
+
 
 If the answer to both questions is "no", there is a good chance that the current NED will continue to work with the upgraded device without requiring further changes.
 
@@ -2975,7 +2976,7 @@ This example uses the YANG models for Cisco IOS XR. Initially, the NED package i
 
 ```
 admin@ncs# devices device dev-1 rpc rpc-clean-package clean-package
-admin@ncs# devices device dev-1 rpc rpc-get-modules get-modules profile native-um  
+admin@ncs# devices device dev-1 rpc rpc-get-modules get-modules profile native-um
 ```
 
 The new YANG files are now stored in the `src/yang` directory of the NED packages in NSO. Importantly, this action does not affect the currently loaded NED schema in NSO.
@@ -3046,7 +3047,7 @@ Therefore, the initial result is **INCOMPATIBLE**. To reach a definitive conclus
 
 
 
-The tool also supports an additional argument, `details`. When this argument is provided, the output includes a comprehensive list of all detected changes-not only those affecting the CDB data. 
+The tool also supports an additional argument, `details`. When this argument is provided, the output includes a comprehensive list of all detected changes-not only those affecting the CDB data.
 
 For example:
 
@@ -3088,7 +3089,7 @@ BACKWARDS COMPATIBLE CHANGES:
    change: range changed from "0..4" to "0..3"
 ```
 
-This detailed report helps identify all schema changes, distinguishing between backwards compatible and incompatible modifications. 
+This detailed report helps identify all schema changes, distinguishing between backwards compatible and incompatible modifications.
 
 
 
@@ -3100,7 +3101,7 @@ The list below provides general guidance on how to analyze different types of in
 
 - **Structural changes:** The schema structure has changed, for example a node that is a `leaf` in the loaded schema is a `container` the new schema. These changes are typically always backwards incompatible.
   A rebuild of the NED is required.
-- **Data type:** The data type of a node has changed. 
+- **Data type:** The data type of a node has changed.
   Some type changes are compatible, such as widening integer types or introducing unions. If a node type is replaced with a leafref pointing to the same type, it may also be compatible.Most type changes are however not backwards compatible.
   A rebuild of the NED is recommended.
 - **Configurability:** The node´s configuration state has changed from either `config true`to  `config false`or vice versa.
@@ -3109,7 +3110,7 @@ The list below provides general guidance on how to analyze different types of in
   As a rule of thumb, if the new expression is more relaxed than the old one, it is likely to be backwards compatible
 - **Ranges and lengths**: Changes to ranges or lengths are generally backwards compatible if the new range is wider than the old one. If the new range is narrower, it is important to analyze which values services are using during configuration. As long as the values are within the new range or length, compatibility is maintained.
 - **Mandatory:** If the `mandatory` attribute changes from `true` to `false`, the change is backwards compatible. Otherwise, it is not.
-- **Default values:** Introducing new default values may be backwards compatible. However, removed or changed default values are not. In all cases, default value changes can lead to out-of-sync issues unless the NED is rebuilt with the new schema.  
+- **Default values:** Introducing new default values may be backwards compatible. However, removed or changed default values are not. In all cases, default value changes can lead to out-of-sync issues unless the NED is rebuilt with the new schema.
 - **Min-elements and max-elements:** Changes to `min-elements` or `max-elements` are usually backwards compatible if the new range is wider. If the range is narrower, you must analyze the values used by services during configuration. As long as the values comply with the new minimum or maximum requirements, compatibility is preserved.
 
 
@@ -3125,11 +3126,20 @@ When using a NED with older revisions on an upgraded device, NSO will likely gen
 
 To prevent these alarms, you can configure the NED to suppress reporting YANG revisions to NSO during device interactions.
 
-Configure the following NED setting to make the NED ignore the YANG revisions reported by the device:
+Configure the following NED setting to make the NED ignore the YANG revisions reported by the device.
+
+For NETCONF NEDs:
 
 ```
-# devices device simul-1 ned-settings nokia-sros_nc connection capabilities strict-model-revision-check false 
-# commit
+admin@ncs(config)# devices device dev-1 ned-settings cisco-iosxr_nc connection capabilities strict-model-revision-check false
+admin@ncs(config)# commit
+```
+
+For RESTCONF and gNMI NEDs:
+
+```
+admin@ncs(config)# devices device dev-1 ned-settings cisco-iosxr_nc general capabilities strict-model-revision-check false
+admin@ncs(config)# commit
 ```
 
 
